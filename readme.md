@@ -23,6 +23,7 @@ A simple, clean REST API serving Indian Election Commission data from JSON files
 | 🌐 **Landing Page**         | Beautiful Next.js landing page with India-themed design   |
 | 📊 **Election Data**        | 50,000+ records across Lok Sabha & Assembly elections     |
 | 🔍 **Search & Filter**      | Basic search and filtering capabilities                   |
+| 🗄️ **Vector Database**      | ChromaDB integration for semantic search (coming soon)    |
 | 🕸️ **Intelligent Scraping** | Advanced scraping system with retry logic & rate limiting |
 | 📸 **Image Downloads**      | Candidate photos and party symbols extraction             |
 | ⚡ **Lightweight**          | Minimal dependencies, fast startup                        |
@@ -602,8 +603,15 @@ rajniti/
 │   ├── models/                 # 📋 Pydantic models
 │   ├── routes/                 # 🌐 Flask API routes
 │   ├── services/               # 💾 Data access layer
+│   │   ├── chroma_service.py   # 🗄️ ChromaDB vector database service
+│   │   ├── data_service.py     # Abstract data service interface
+│   │   └── json_data_service.py # JSON file data service
 │   └── __init__.py             # Flask app factory
+├── chroma_db/                  # 🗄️ ChromaDB storage (gitignored)
+├── docs/                       # 📚 Documentation
+│   └── CHROMADB_SETUP.md       # ChromaDB setup guide
 ├── tests/                      # Test files
+│   └── test_chroma_service.py  # ChromaDB service tests
 ├── requirements.in             # 📦 Direct dependencies
 ├── requirements.txt            # 📦 Compiled dependencies (pip-compile)
 ├── docker-compose.yml          # 🐳 Docker setup
@@ -621,7 +629,13 @@ rajniti/
 # Application (minimal configuration)
 SECRET_KEY=your-secret-key              # Flask secret key
 FLASK_ENV=production                    # Environment (development/production)
+
+# ChromaDB Configuration (Vector Database)
+CHROMA_DB_PATH=./chroma_db              # Path to ChromaDB storage
+CHROMA_COLLECTION_NAME=rajniti_embeddings  # Default collection name
 ```
+
+> 📖 **ChromaDB Setup**: See [docs/CHROMADB_SETUP.md](docs/CHROMADB_SETUP.md) for detailed ChromaDB configuration and usage guide.
 
 ---
 
