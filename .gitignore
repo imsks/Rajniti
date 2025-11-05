@@ -144,6 +144,10 @@ logs/
 *.sqlite3
 *.db
 
+# ChromaDB
+chroma_db/
+.chroma/
+
 # Node.js / Next.js
 node_modules/
 npm-debug.log*

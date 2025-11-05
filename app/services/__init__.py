@@ -5,10 +5,11 @@ This layer abstracts data access so we can easily switch from JSON to database l
 All business logic for data retrieval and manipulation goes here.
 """
 
+from .chroma_service import ChromaService
 from .data_service import DataService
 from .json_data_service import JsonDataService
 
 # Create singleton instance
 data_service: DataService = JsonDataService()
 
-__all__ = ["data_service", "DataService", "JsonDataService"]
+__all__ = ["data_service", "DataService", "JsonDataService", "ChromaService"]

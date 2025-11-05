@@ -11,6 +11,9 @@ python-dotenv==1.0.0
 # Data validation (simple)
 pydantic==2.10.0
 
+# Vector database
+chromadb==0.5.23
+
 # Web scraping libraries
 # NOTE: httpx[http2] is REQUIRED - ECI website blocks HTTP/1.1 requests
 httpx[http2]==0.25.2
