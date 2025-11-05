@@ -6,12 +6,16 @@ Currently provides basic setup and connection management.
 Schema implementation will be added later.
 """
 
+import logging
 import os
 from pathlib import Path
 from typing import Optional
 
 import chromadb
 from chromadb.config import Settings
+from chromadb.errors import NotFoundError
+
+logger = logging.getLogger(__name__)
 
 
 class ChromaService:
@@ -75,7 +79,7 @@ class ChromaService:
         # Get or create collection
         try:
             collection = client.get_collection(name=collection_name)
-        except Exception:
+        except NotFoundError:
             # Collection doesn't exist, create it
             collection = client.create_collection(
                 name=collection_name,
@@ -123,7 +127,7 @@ class ChromaService:
                 self._collection = None
             return True
         except Exception as e:
-            print(f"Error resetting ChromaDB: {e}")
+            logger.error(f"Error resetting ChromaDB: {e}")
             return False
 
     def close(self) -> None:
