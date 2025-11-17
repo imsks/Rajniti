@@ -16,16 +16,34 @@ class PartyController:
         self.data_service = data_service
 
     def get_parties_by_election(self, election_id: str) -> Optional[Dict[str, Any]]:
-        """Get all parties for a specific election"""
+        """Get all parties for a specific election with seat counts"""
         election = self.data_service.get_election(election_id)
         if not election:
             return None
 
         parties = self.data_service.get_parties(election_id)
-        parties_data = [party.dict() for party in parties]
+        candidates = self.data_service.get_candidates(election_id)
+
+        # Count seats for each party
+        party_seats = {}
+        for candidate in candidates:
+            if candidate.get("status") == "WON":
+                party_id = candidate.get("party_id", "UNKNOWN")
+                party_seats[party_id] = party_seats.get(party_id, 0) + 1
+
+        # Prepare party data with seats
+        parties_data = []
+        for party in parties:
+            party_dict = party.dict()
+            party_dict["seats_won"] = party_seats.get(party.id, 0)
+            parties_data.append(party_dict)
+
+        # Sort by seats won
+        parties_data.sort(key=lambda x: x["seats_won"], reverse=True)
 
         return {
             "election_id": election_id,
+            "election_name": election.name,
             "total_parties": len(parties_data),
             "parties": parties_data,
         }
@@ -33,96 +51,151 @@ class PartyController:
     def get_party_by_name(
         self, party_name: str, election_id: str
     ) -> Optional[Dict[str, Any]]:
-        """Get specific party details"""
+        """Get specific party details with candidate list"""
         party = self.data_service.get_party_by_name(party_name, election_id)
         if not party:
             return None
 
-        return {"election_id": election_id, "party": party.dict()}
+        # Get all candidates from this party
+        candidates = self.data_service.get_candidates(election_id)
+        party_candidates = []
+        winners = 0
+
+        for candidate in candidates:
+            enriched = self.data_service.enrich_candidate_data(candidate, election_id)
+            if (
+                enriched.get("party_name", "").lower() == party.name.lower()
+                or enriched.get("party_id") == party.id
+            ):
+                party_candidates.append(enriched)
+                if candidate.get("status") == "WON":
+                    winners += 1
+
+        return {
+            "election_id": election_id,
+            "party": party.dict(),
+            "seats_won": winners,
+            "total_candidates": len(party_candidates),
+            "candidates": party_candidates,
+        }
 
     def get_party_performance(
         self, party_name: str, election_id: Optional[str] = None
     ) -> Dict[str, Any]:
-        """Get party performance across elections"""
-        results = {}
-        elections = (
-            [self.data_service.get_election(election_id)]
-            if election_id
-            else self.data_service.get_elections()
-        )
+        """Get party performance with detailed statistics"""
+        if not election_id:
+            election_id = "lok-sabha-2024"
 
-        for election in elections:
-            if not election:
-                continue
+        election = self.data_service.get_election(election_id)
+        if not election:
+            return {"party_name": party_name, "performance": None}
 
-            # Get party info
-            party = self.data_service.get_party_by_name(party_name, election.id)
-            if not party:
-                continue
+        # Get party info
+        party = self.data_service.get_party_by_name(party_name, election_id)
+        if not party:
+            return {"party_name": party_name, "performance": None}
 
-            # Get candidates from this party
-            candidates = self.data_service.get_candidates(election.id)
-            party_candidates = []
-            winners = 0
-            total_votes = 0
+        # Get candidates from this party
+        candidates = self.data_service.get_candidates(election_id)
+        party_candidates = []
+        winners = 0
+        state_wise_performance = {}
 
-            for candidate in candidates:
-                party_field = candidate.get("Party", "")
-                if party_field.lower() == party_name.lower():
-                    party_candidates.append(candidate)
+        for candidate in candidates:
+            enriched = self.data_service.enrich_candidate_data(candidate, election_id)
+            if (
+                enriched.get("party_name", "").lower() == party.name.lower()
+                or enriched.get("party_id") == party.id
+            ):
+                party_candidates.append(enriched)
 
-                    # Count winners
-                    status = candidate.get("Status") or candidate.get("status", "")
-                    if status == "WON":
-                        winners += 1
+                # Count winners
+                if candidate.get("status") == "WON":
+                    winners += 1
 
-                    # Sum votes
-                    votes_str = candidate.get("Votes") or candidate.get("votes", "0")
-                    try:
-                        votes = int(str(votes_str).replace(",", ""))
-                        total_votes += votes
-                    except (ValueError, TypeError):
-                        pass
+                # State-wise performance
+                state_name = enriched.get("state_name", "Unknown")
+                if state_name not in state_wise_performance:
+                    state_wise_performance[state_name] = {
+                        "total_candidates": 0,
+                        "seats_won": 0,
+                    }
+                state_wise_performance[state_name]["total_candidates"] += 1
+                if candidate.get("status") == "WON":
+                    state_wise_performance[state_name]["seats_won"] += 1
 
-            results[election.id] = {
-                "election_name": election.name,
-                "party_info": party.dict(),
-                "candidates_count": len(party_candidates),
-                "seats_won": winners,
-                "total_votes": total_votes,
-                "win_percentage": round((winners / len(party_candidates) * 100), 2)
-                if party_candidates
+        # Convert state-wise performance to list
+        state_performance = [
+            {
+                "state_name": state,
+                "total_candidates": data["total_candidates"],
+                "seats_won": data["seats_won"],
+                "win_percentage": round(
+                    (data["seats_won"] / data["total_candidates"] * 100), 2
+                )
+                if data["total_candidates"] > 0
                 else 0,
             }
+            for state, data in state_wise_performance.items()
+        ]
+        # Sort by seats won
+        state_performance.sort(key=lambda x: x["seats_won"], reverse=True)
 
-        return {"party_name": party_name, "performance_by_election": results}
+        return {
+            "party_name": party.name,
+            "party_short_name": party.short_name,
+            "election_id": election_id,
+            "election_name": election.name,
+            "total_candidates": len(party_candidates),
+            "seats_won": winners,
+            "win_percentage": round((winners / len(party_candidates) * 100), 2)
+            if party_candidates
+            else 0,
+            "state_wise_performance": state_performance,
+        }
 
     def get_all_parties(self) -> Dict[str, Any]:
         """Get all parties across all elections"""
-        all_parties = {}
+        all_parties_dict = {}
 
         for election in self.data_service.get_elections():
             parties = self.data_service.get_parties(election.id)
+            candidates = self.data_service.get_candidates(election.id)
+
+            # Count seats for each party
+            party_seats = {}
+            for candidate in candidates:
+                if candidate.get("status") == "WON":
+                    party_id = candidate.get("party_id", "UNKNOWN")
+                    party_seats[party_id] = party_seats.get(party_id, 0) + 1
+
             for party in parties:
-                party_name = party.party_name
-                if party_name not in all_parties:
-                    all_parties[party_name] = {
+                party_name = party.name
+                seats_won = party_seats.get(party.id, 0)
+
+                if party_name not in all_parties_dict:
+                    all_parties_dict[party_name] = {
                         "party_name": party_name,
+                        "party_short_name": party.short_name,
                         "symbol": party.symbol,
                         "elections": [],
                         "total_seats": 0,
                     }
 
-                all_parties[party_name]["elections"].append(
+                all_parties_dict[party_name]["elections"].append(
                     {
                         "election_id": election.id,
                         "election_name": election.name,
-                        "seats_won": party.total_seats,
+                        "seats_won": seats_won,
                     }
                 )
-                all_parties[party_name]["total_seats"] += party.total_seats
+                all_parties_dict[party_name]["total_seats"] += seats_won
+
+        # Convert to list and sort by total seats
+        parties_list = list(all_parties_dict.values())
+        parties_list.sort(key=lambda x: x["total_seats"], reverse=True)
 
         return {
-            "total_unique_parties": len(all_parties),
-            "parties": list(all_parties.values()),
+            "total_unique_parties": len(parties_list),
+            "parties": parties_list,
         }

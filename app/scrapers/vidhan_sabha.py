@@ -417,18 +417,20 @@ class VidhanSabhaScraper:
                 img_src = img_tag["src"].strip()
                 if img_src and not img_src.startswith("http"):
                     img_src = f"{self.base_url}/{img_src}"
-            
-            candidates.append({
-                "uuid": self._generate_uuid(),
-                "Constituency Code": constituency_code,
-                "Name": name,
-                "Party": party,
-                "Status": status,
-                "Votes": votes,
-                "Margin": margin,
-                "Image URL": img_src
-            })
-        
+
+            candidates.append(
+                {
+                    "uuid": self._generate_uuid(),
+                    "Constituency Code": constituency_code,
+                    "Name": name,
+                    "Party": party,
+                    "Status": status,
+                    "Votes": votes,
+                    "Margin": margin,
+                    "Image URL": img_src,
+                }
+            )
+
         return candidates
 
     def _save_all_data(self) -> None:
@@ -463,12 +465,6 @@ class VidhanSabhaScraper:
             "voter_turnout": None,
             "result_status": "DECLARED",
             "result_date": None,
-            "winning_party": (
-                self.parties_data[0]["party_name"] if self.parties_data else None
-            ),
-            "winning_party_seats": (
-                self.parties_data[0]["total_seats"] if self.parties_data else 0
-            ),
             "runner_up_party": (
                 self.parties_data[1]["party_name"]
                 if len(self.parties_data) > 1

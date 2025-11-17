@@ -1,2174 +1,3260 @@
 [
     {
+        "id": "5",
         "name": "Anakapalle",
-        "url": "candidateswise-S015.htm"
+        "state_id": "S01",
+        "unique_id": "5-S01"
     },
     {
+        "id": "8",
         "name": "Rajahmundry",
-        "url": "candidateswise-S018.htm"
+        "state_id": "S01",
+        "unique_id": "8-S01"
     },
     {
+        "id": "9",
         "name": "Narsapuram",
-        "url": "candidateswise-S019.htm"
+        "state_id": "S01",
+        "unique_id": "9-S01"
     },
     {
+        "id": "1",
         "name": "Arunachal West",
-        "url": "candidateswise-S021.htm"
+        "state_id": "S02",
+        "unique_id": "1-S02"
     },
     {
+        "id": "2",
         "name": "Arunachal East",
-        "url": "candidateswise-S022.htm"
+        "state_id": "S02",
+        "unique_id": "2-S02"
     },
     {
+        "id": "4",
         "name": "Darrang-Udalguri",
-        "url": "candidateswise-S034.htm"
+        "state_id": "S03",
+        "unique_id": "4-S03"
     },
     {
+        "id": "5",
         "name": "Guwahati",
-        "url": "candidateswise-S035.htm"
+        "state_id": "S03",
+        "unique_id": "5-S03"
     },
     {
+        "id": "6",
         "name": "Diphu",
-        "url": "candidateswise-S036.htm"
+        "state_id": "S03",
+        "unique_id": "6-S03"
     },
     {
+        "id": "7",
         "name": "Karimganj",
-        "url": "candidateswise-S037.htm"
+        "state_id": "S03",
+        "unique_id": "7-S03"
     },
     {
+        "id": "8",
         "name": "Silchar ",
-        "url": "candidateswise-S038.htm"
+        "state_id": "S03",
+        "unique_id": "8-S03"
     },
     {
+        "id": "10",
         "name": "Kaziranga",
-        "url": "candidateswise-S0310.htm"
+        "state_id": "S03",
+        "unique_id": "10-S03"
     },
     {
+        "id": "11",
         "name": "Sonitpur",
-        "url": "candidateswise-S0311.htm"
+        "state_id": "S03",
+        "unique_id": "11-S03"
     },
     {
+        "id": "12",
         "name": "Lakhimpur",
-        "url": "candidateswise-S0312.htm"
+        "state_id": "S03",
+        "unique_id": "12-S03"
     },
     {
+        "id": "13",
         "name": "Dibrugarh",
-        "url": "candidateswise-S0313.htm"
+        "state_id": "S03",
+        "unique_id": "13-S03"
     },
     {
+        "id": "2",
         "name": "Paschim Champaran",
-        "url": "candidateswise-S042.htm"
+        "state_id": "S04",
+        "unique_id": "2-S04"
     },
     {
+        "id": "3",
         "name": "Purvi Champaran",
-        "url": "candidateswise-S043.htm"
+        "state_id": "S04",
+        "unique_id": "3-S04"
     },
     {
+        "id": "6",
         "name": "Madhubani",
-        "url": "candidateswise-S046.htm"
+        "state_id": "S04",
+        "unique_id": "6-S04"
     },
     {
+        "id": "9",
         "name": "Araria",
-        "url": "candidateswise-S049.htm"
+        "state_id": "S04",
+        "unique_id": "9-S04"
     },
     {
+        "id": "14",
         "name": "Darbhanga",
-        "url": "candidateswise-S0414.htm"
+        "state_id": "S04",
+        "unique_id": "14-S04"
     },
     {
+        "id": "15",
         "name": "Muzaffarpur",
-        "url": "candidateswise-S0415.htm"
+        "state_id": "S04",
+        "unique_id": "15-S04"
     },
     {
+        "id": "19",
         "name": "Maharajganj",
-        "url": "candidateswise-S0419.htm"
+        "state_id": "S04",
+        "unique_id": "19-S04"
     },
     {
+        "id": "20",
         "name": "Saran",
-        "url": "candidateswise-S0420.htm"
+        "state_id": "S04",
+        "unique_id": "20-S04"
     },
     {
+        "id": "22",
         "name": "Ujiarpur",
-        "url": "candidateswise-S0422.htm"
+        "state_id": "S04",
+        "unique_id": "22-S04"
     },
     {
+        "id": "24",
         "name": "Begusarai",
-        "url": "candidateswise-S0424.htm"
+        "state_id": "S04",
+        "unique_id": "24-S04"
     },
     {
+        "id": "30",
         "name": "Patna Sahib",
-        "url": "candidateswise-S0430.htm"
+        "state_id": "S04",
+        "unique_id": "30-S04"
     },
     {
+        "id": "39",
         "name": "Nawada",
-        "url": "candidateswise-S0439.htm"
+        "state_id": "S04",
+        "unique_id": "39-S04"
     },
     {
+        "id": "1",
         "name": "North Goa",
-        "url": "candidateswise-S051.htm"
+        "state_id": "S05",
+        "unique_id": "1-S05"
     },
     {
+        "id": "1",
         "name": "Kachchh",
-        "url": "candidateswise-S061.htm"
+        "state_id": "S06",
+        "unique_id": "1-S06"
     },
     {
+        "id": "3",
         "name": "Patan",
-        "url": "candidateswise-S063.htm"
+        "state_id": "S06",
+        "unique_id": "3-S06"
     },
     {
+        "id": "4",
         "name": "Mahesana",
-        "url": "candidateswise-S064.htm"
+        "state_id": "S06",
+        "unique_id": "4-S06"
     },
     {
+        "id": "5",
         "name": "Sabarkantha",
-        "url": "candidateswise-S065.htm"
+        "state_id": "S06",
+        "unique_id": "5-S06"
     },
     {
+        "id": "6",
         "name": "Gandhinagar",
-        "url": "candidateswise-S066.htm"
+        "state_id": "S06",
+        "unique_id": "6-S06"
     },
     {
+        "id": "7",
         "name": "Ahmedabad East",
-        "url": "candidateswise-S067.htm"
+        "state_id": "S06",
+        "unique_id": "7-S06"
     },
     {
+        "id": "8",
         "name": "Ahmedabad West",
-        "url": "candidateswise-S068.htm"
+        "state_id": "S06",
+        "unique_id": "8-S06"
     },
     {
+        "id": "9",
         "name": "Surendranagar",
-        "url": "candidateswise-S069.htm"
+        "state_id": "S06",
+        "unique_id": "9-S06"
     },
     {
+        "id": "10",
         "name": "Rajkot",
-        "url": "candidateswise-S0610.htm"
+        "state_id": "S06",
+        "unique_id": "10-S06"
     },
     {
+        "id": "11",
         "name": "Porbandar",
-        "url": "candidateswise-S0611.htm"
+        "state_id": "S06",
+        "unique_id": "11-S06"
     },
     {
+        "id": "12",
         "name": "Jamnagar",
-        "url": "candidateswise-S0612.htm"
+        "state_id": "S06",
+        "unique_id": "12-S06"
     },
     {
+        "id": "13",
         "name": "Junagadh",
-        "url": "candidateswise-S0613.htm"
+        "state_id": "S06",
+        "unique_id": "13-S06"
     },
     {
+        "id": "14",
         "name": "Amreli",
-        "url": "candidateswise-S0614.htm"
+        "state_id": "S06",
+        "unique_id": "14-S06"
     },
     {
+        "id": "15",
         "name": "Bhavnagar",
-        "url": "candidateswise-S0615.htm"
+        "state_id": "S06",
+        "unique_id": "15-S06"
     },
     {
+        "id": "16",
         "name": "Anand",
-        "url": "candidateswise-S0616.htm"
+        "state_id": "S06",
+        "unique_id": "16-S06"
     },
     {
+        "id": "17",
         "name": "Kheda",
-        "url": "candidateswise-S0617.htm"
+        "state_id": "S06",
+        "unique_id": "17-S06"
     },
     {
+        "id": "18",
         "name": "Panchmahal",
-        "url": "candidateswise-S0618.htm"
+        "state_id": "S06",
+        "unique_id": "18-S06"
     },
     {
+        "id": "19",
         "name": "Dahod",
-        "url": "candidateswise-S0619.htm"
+        "state_id": "S06",
+        "unique_id": "19-S06"
     },
     {
+        "id": "20",
         "name": "Vadodara",
-        "url": "candidateswise-S0620.htm"
+        "state_id": "S06",
+        "unique_id": "20-S06"
     },
     {
+        "id": "21",
         "name": "Chhota Udaipur",
-        "url": "candidateswise-S0621.htm"
+        "state_id": "S06",
+        "unique_id": "21-S06"
     },
     {
+        "id": "22",
         "name": "Bharuch",
-        "url": "candidateswise-S0622.htm"
+        "state_id": "S06",
+        "unique_id": "22-S06"
     },
     {
+        "id": "23",
         "name": "Bardoli",
-        "url": "candidateswise-S0623.htm"
+        "state_id": "S06",
+        "unique_id": "23-S06"
     },
     {
+        "id": "24",
         "name": "Surat",
-        "url": "candidateswise-S0624.htm"
+        "state_id": "S06",
+        "unique_id": "24-S06"
     },
     {
+        "id": "25",
         "name": "Navsari",
-        "url": "candidateswise-S0625.htm"
+        "state_id": "S06",
+        "unique_id": "25-S06"
     },
     {
+        "id": "26",
         "name": "Valsad",
-        "url": "candidateswise-S0626.htm"
+        "state_id": "S06",
+        "unique_id": "26-S06"
     },
     {
+        "id": "2",
         "name": "KURUKSHETRA",
-        "url": "candidateswise-S072.htm"
+        "state_id": "S07",
+        "unique_id": "2-S07"
     },
     {
+        "id": "5",
         "name": "KARNAL",
-        "url": "candidateswise-S075.htm"
+        "state_id": "S07",
+        "unique_id": "5-S07"
     },
     {
+        "id": "8",
         "name": "BHIWANI-MAHENDRAGARH",
-        "url": "candidateswise-S078.htm"
+        "state_id": "S07",
+        "unique_id": "8-S07"
     },
     {
+        "id": "9",
         "name": "GURGAON",
-        "url": "candidateswise-S079.htm"
+        "state_id": "S07",
+        "unique_id": "9-S07"
     },
     {
+        "id": "10",
         "name": "FARIDABAD",
-        "url": "candidateswise-S0710.htm"
+        "state_id": "S07",
+        "unique_id": "10-S07"
     },
     {
+        "id": "1",
         "name": "KANGRA",
-        "url": "candidateswise-S081.htm"
+        "state_id": "S08",
+        "unique_id": "1-S08"
     },
     {
+        "id": "2",
         "name": "MANDI",
-        "url": "candidateswise-S082.htm"
+        "state_id": "S08",
+        "unique_id": "2-S08"
     },
     {
+        "id": "3",
         "name": "HAMIRPUR",
-        "url": "candidateswise-S083.htm"
+        "state_id": "S08",
+        "unique_id": "3-S08"
     },
     {
+        "id": "4",
         "name": "SHIMLA",
-        "url": "candidateswise-S084.htm"
+        "state_id": "S08",
+        "unique_id": "4-S08"
     },
     {
+        "id": "2",
         "name": "Belgaum",
-        "url": "candidateswise-S102.htm"
+        "state_id": "S10",
+        "unique_id": "2-S10"
     },
     {
+        "id": "3",
         "name": "Bagalkot",
-        "url": "candidateswise-S103.htm"
+        "state_id": "S10",
+        "unique_id": "3-S10"
     },
     {
+        "id": "4",
         "name": "Bijapur",
-        "url": "candidateswise-S104.htm"
+        "state_id": "S10",
+        "unique_id": "4-S10"
     },
     {
+        "id": "10",
         "name": "Haveri",
-        "url": "candidateswise-S1010.htm"
+        "state_id": "S10",
+        "unique_id": "10-S10"
     },
     {
+        "id": "11",
         "name": "Dharwad",
-        "url": "candidateswise-S1011.htm"
+        "state_id": "S10",
+        "unique_id": "11-S10"
     },
     {
+        "id": "12",
         "name": "Uttara Kannada",
-        "url": "candidateswise-S1012.htm"
+        "state_id": "S10",
+        "unique_id": "12-S10"
     },
     {
+        "id": "14",
         "name": "Shimoga",
-        "url": "candidateswise-S1014.htm"
+        "state_id": "S10",
+        "unique_id": "14-S10"
     },
     {
+        "id": "15",
         "name": "Udupi Chikmagalur",
-        "url": "candidateswise-S1015.htm"
+        "state_id": "S10",
+        "unique_id": "15-S10"
     },
     {
+        "id": "17",
         "name": "Dakshina Kannada",
-        "url": "candidateswise-S1017.htm"
+        "state_id": "S10",
+        "unique_id": "17-S10"
     },
     {
+        "id": "18",
         "name": "Chitradurga",
-        "url": "candidateswise-S1018.htm"
+        "state_id": "S10",
+        "unique_id": "18-S10"
     },
     {
+        "id": "19",
         "name": "Tumkur",
-        "url": "candidateswise-S1019.htm"
+        "state_id": "S10",
+        "unique_id": "19-S10"
     },
     {
+        "id": "21",
         "name": "Mysore",
-        "url": "candidateswise-S1021.htm"
+        "state_id": "S10",
+        "unique_id": "21-S10"
     },
     {
+        "id": "23",
         "name": "Bangalore Rural",
-        "url": "candidateswise-S1023.htm"
+        "state_id": "S10",
+        "unique_id": "23-S10"
     },
     {
+        "id": "24",
         "name": "Bangalore North",
-        "url": "candidateswise-S1024.htm"
+        "state_id": "S10",
+        "unique_id": "24-S10"
     },
     {
+        "id": "25",
         "name": "Bangalore central",
-        "url": "candidateswise-S1025.htm"
+        "state_id": "S10",
+        "unique_id": "25-S10"
     },
     {
+        "id": "26",
         "name": "Bangalore South",
-        "url": "candidateswise-S1026.htm"
+        "state_id": "S10",
+        "unique_id": "26-S10"
     },
     {
+        "id": "27",
         "name": "Chikkballapur",
-        "url": "candidateswise-S1027.htm"
+        "state_id": "S10",
+        "unique_id": "27-S10"
     },
     {
+        "id": "10",
         "name": "Thrissur",
-        "url": "candidateswise-S1110.htm"
+        "state_id": "S11",
+        "unique_id": "10-S11"
     },
     {
+        "id": "1",
         "name": "MORENA",
-        "url": "candidateswise-S121.htm"
+        "state_id": "S12",
+        "unique_id": "1-S12"
     },
     {
+        "id": "2",
         "name": "BHIND",
-        "url": "candidateswise-S122.htm"
+        "state_id": "S12",
+        "unique_id": "2-S12"
     },
     {
+        "id": "3",
         "name": "GWALIOR",
-        "url": "candidateswise-S123.htm"
+        "state_id": "S12",
+        "unique_id": "3-S12"
     },
     {
+        "id": "4",
         "name": "GUNA",
-        "url": "candidateswise-S124.htm"
+        "state_id": "S12",
+        "unique_id": "4-S12"
     },
     {
+        "id": "5",
         "name": "SAGAR",
-        "url": "candidateswise-S125.htm"
+        "state_id": "S12",
+        "unique_id": "5-S12"
     },
     {
+        "id": "6",
         "name": "TIKAMGARH",
-        "url": "candidateswise-S126.htm"
+        "state_id": "S12",
+        "unique_id": "6-S12"
     },
     {
+        "id": "7",
         "name": "DAMOH",
-        "url": "candidateswise-S127.htm"
+        "state_id": "S12",
+        "unique_id": "7-S12"
     },
     {
+        "id": "8",
         "name": "KHAJURAHO",
-        "url": "candidateswise-S128.htm"
+        "state_id": "S12",
+        "unique_id": "8-S12"
     },
     {
+        "id": "9",
         "name": "SATNA",
-        "url": "candidateswise-S129.htm"
+        "state_id": "S12",
+        "unique_id": "9-S12"
     },
     {
+        "id": "10",
         "name": "REWA",
-        "url": "candidateswise-S1210.htm"
+        "state_id": "S12",
+        "unique_id": "10-S12"
     },
     {
+        "id": "11",
         "name": "SIDHI",
-        "url": "candidateswise-S1211.htm"
+        "state_id": "S12",
+        "unique_id": "11-S12"
     },
     {
+        "id": "12",
         "name": "SHAHDOL",
-        "url": "candidateswise-S1212.htm"
+        "state_id": "S12",
+        "unique_id": "12-S12"
     },
     {
+        "id": "13",
         "name": "JABALPUR",
-        "url": "candidateswise-S1213.htm"
+        "state_id": "S12",
+        "unique_id": "13-S12"
     },
     {
+        "id": "14",
         "name": "MANDLA",
-        "url": "candidateswise-S1214.htm"
+        "state_id": "S12",
+        "unique_id": "14-S12"
     },
     {
+        "id": "15",
         "name": "BALAGHAT",
-        "url": "candidateswise-S1215.htm"
+        "state_id": "S12",
+        "unique_id": "15-S12"
     },
     {
+        "id": "16",
         "name": "CHHINDWARA",
-        "url": "candidateswise-S1216.htm"
+        "state_id": "S12",
+        "unique_id": "16-S12"
     },
     {
+        "id": "17",
         "name": "HOSHANGABAD",
-        "url": "candidateswise-S1217.htm"
+        "state_id": "S12",
+        "unique_id": "17-S12"
     },
     {
+        "id": "18",
         "name": "VIDISHA",
-        "url": "candidateswise-S1218.htm"
+        "state_id": "S12",
+        "unique_id": "18-S12"
     },
     {
+        "id": "19",
         "name": "BHOPAL",
-        "url": "candidateswise-S1219.htm"
+        "state_id": "S12",
+        "unique_id": "19-S12"
     },
     {
+        "id": "20",
         "name": "RAJGARH",
-        "url": "candidateswise-S1220.htm"
+        "state_id": "S12",
+        "unique_id": "20-S12"
     },
     {
+        "id": "21",
         "name": "DEWAS",
-        "url": "candidateswise-S1221.htm"
+        "state_id": "S12",
+        "unique_id": "21-S12"
     },
     {
+        "id": "22",
         "name": "UJJAIN",
-        "url": "candidateswise-S1222.htm"
+        "state_id": "S12",
+        "unique_id": "22-S12"
     },
     {
+        "id": "23",
         "name": "MANDSOUR",
-        "url": "candidateswise-S1223.htm"
+        "state_id": "S12",
+        "unique_id": "23-S12"
     },
     {
+        "id": "24",
         "name": "RATLAM",
-        "url": "candidateswise-S1224.htm"
+        "state_id": "S12",
+        "unique_id": "24-S12"
     },
     {
+        "id": "25",
         "name": "DHAR",
-        "url": "candidateswise-S1225.htm"
+        "state_id": "S12",
+        "unique_id": "25-S12"
     },
     {
+        "id": "26",
         "name": "INDORE",
-        "url": "candidateswise-S1226.htm"
+        "state_id": "S12",
+        "unique_id": "26-S12"
     },
     {
+        "id": "27",
         "name": "KHARGONE",
-        "url": "candidateswise-S1227.htm"
+        "state_id": "S12",
+        "unique_id": "27-S12"
     },
     {
+        "id": "28",
         "name": "KHANDWA",
-        "url": "candidateswise-S1228.htm"
+        "state_id": "S12",
+        "unique_id": "28-S12"
     },
     {
+        "id": "29",
         "name": "BETUL",
-        "url": "candidateswise-S1229.htm"
+        "state_id": "S12",
+        "unique_id": "29-S12"
     },
     {
+        "id": "3",
         "name": "Jalgaon",
-        "url": "candidateswise-S133.htm"
+        "state_id": "S13",
+        "unique_id": "3-S13"
     },
     {
+        "id": "4",
         "name": "Raver",
-        "url": "candidateswise-S134.htm"
+        "state_id": "S13",
+        "unique_id": "4-S13"
     },
     {
+        "id": "6",
         "name": "Akola",
-        "url": "candidateswise-S136.htm"
+        "state_id": "S13",
+        "unique_id": "6-S13"
     },
     {
+        "id": "10",
         "name": "Nagpur",
-        "url": "candidateswise-S1310.htm"
+        "state_id": "S13",
+        "unique_id": "10-S13"
     },
     {
+        "id": "22",
         "name": "Palghar",
-        "url": "candidateswise-S1322.htm"
+        "state_id": "S13",
+        "unique_id": "22-S13"
     },
     {
+        "id": "26",
         "name": "Mumbai North",
-        "url": "candidateswise-S1326.htm"
+        "state_id": "S13",
+        "unique_id": "26-S13"
     },
     {
+        "id": "34",
         "name": "Pune",
-        "url": "candidateswise-S1334.htm"
+        "state_id": "S13",
+        "unique_id": "34-S13"
     },
     {
+        "id": "45",
         "name": "Satara",
-        "url": "candidateswise-S1345.htm"
+        "state_id": "S13",
+        "unique_id": "45-S13"
     },
     {
+        "id": "46",
         "name": "Ratnagiri- Sindhudurg",
-        "url": "candidateswise-S1346.htm"
+        "state_id": "S13",
+        "unique_id": "46-S13"
     },
     {
+        "id": "1",
         "name": "Bargarh",
-        "url": "candidateswise-S181.htm"
+        "state_id": "S18",
+        "unique_id": "1-S18"
     },
     {
+        "id": "2",
         "name": "Sundargarh",
-        "url": "candidateswise-S182.htm"
+        "state_id": "S18",
+        "unique_id": "2-S18"
     },
     {
+        "id": "3",
         "name": "Sambalpur",
-        "url": "candidateswise-S183.htm"
+        "state_id": "S18",
+        "unique_id": "3-S18"
     },
     {
+        "id": "4",
         "name": "Keonjhar",
-        "url": "candidateswise-S184.htm"
+        "state_id": "S18",
+        "unique_id": "4-S18"
     },
     {
+        "id": "5",
         "name": "Mayurbhanj",
-        "url": "candidateswise-S185.htm"
+        "state_id": "S18",
+        "unique_id": "5-S18"
     },
     {
+        "id": "6",
         "name": "Balasore",
-        "url": "candidateswise-S186.htm"
+        "state_id": "S18",
+        "unique_id": "6-S18"
     },
     {
+        "id": "7",
         "name": "Bhadrak",
-        "url": "candidateswise-S187.htm"
+        "state_id": "S18",
+        "unique_id": "7-S18"
     },
     {
+        "id": "8",
         "name": "Jajpur",
-        "url": "candidateswise-S188.htm"
+        "state_id": "S18",
+        "unique_id": "8-S18"
     },
     {
+        "id": "9",
         "name": "Dhenkanal",
-        "url": "candidateswise-S189.htm"
+        "state_id": "S18",
+        "unique_id": "9-S18"
     },
     {
+        "id": "10",
         "name": "Bolangir",
-        "url": "candidateswise-S1810.htm"
+        "state_id": "S18",
+        "unique_id": "10-S18"
     },
     {
+        "id": "11",
         "name": "Kalahandi",
-        "url": "candidateswise-S1811.htm"
+        "state_id": "S18",
+        "unique_id": "11-S18"
     },
     {
+        "id": "12",
         "name": "Nabarangpur",
-        "url": "candidateswise-S1812.htm"
+        "state_id": "S18",
+        "unique_id": "12-S18"
     },
     {
+        "id": "13",
         "name": "Kandhamal",
-        "url": "candidateswise-S1813.htm"
+        "state_id": "S18",
+        "unique_id": "13-S18"
     },
     {
+        "id": "14",
         "name": "Cuttack",
-        "url": "candidateswise-S1814.htm"
+        "state_id": "S18",
+        "unique_id": "14-S18"
     },
     {
+        "id": "15",
         "name": "Kendrapara",
-        "url": "candidateswise-S1815.htm"
+        "state_id": "S18",
+        "unique_id": "15-S18"
     },
     {
+        "id": "16",
         "name": "Jagatsinghpur",
-        "url": "candidateswise-S1816.htm"
+        "state_id": "S18",
+        "unique_id": "16-S18"
     },
     {
+        "id": "17",
         "name": "Puri",
-        "url": "candidateswise-S1817.htm"
+        "state_id": "S18",
+        "unique_id": "17-S18"
     },
     {
+        "id": "18",
         "name": "Bhubaneswar",
-        "url": "candidateswise-S1818.htm"
+        "state_id": "S18",
+        "unique_id": "18-S18"
     },
     {
+        "id": "19",
         "name": "Aska",
-        "url": "candidateswise-S1819.htm"
+        "state_id": "S18",
+        "unique_id": "19-S18"
     },
     {
+        "id": "20",
         "name": "Berhampur",
-        "url": "candidateswise-S1820.htm"
+        "state_id": "S18",
+        "unique_id": "20-S18"
     },
     {
+        "id": "2",
         "name": "BIKANER ",
-        "url": "candidateswise-S202.htm"
+        "state_id": "S20",
+        "unique_id": "2-S20"
     },
     {
+        "id": "6",
         "name": "JAIPUR RURAL",
-        "url": "candidateswise-S206.htm"
+        "state_id": "S20",
+        "unique_id": "6-S20"
     },
     {
+        "id": "7",
         "name": "JAIPUR",
-        "url": "candidateswise-S207.htm"
+        "state_id": "S20",
+        "unique_id": "7-S20"
     },
     {
+        "id": "8",
         "name": "ALWAR",
-        "url": "candidateswise-S208.htm"
+        "state_id": "S20",
+        "unique_id": "8-S20"
     },
     {
+        "id": "13",
         "name": "AJMER ",
-        "url": "candidateswise-S2013.htm"
+        "state_id": "S20",
+        "unique_id": "13-S20"
     },
     {
+        "id": "15",
         "name": "PALI",
-        "url": "candidateswise-S2015.htm"
+        "state_id": "S20",
+        "unique_id": "15-S20"
     },
     {
+        "id": "16",
         "name": "JODHPUR",
-        "url": "candidateswise-S2016.htm"
+        "state_id": "S20",
+        "unique_id": "16-S20"
     },
     {
+        "id": "18",
         "name": "JALORE ",
-        "url": "candidateswise-S2018.htm"
+        "state_id": "S20",
+        "unique_id": "18-S20"
     },
     {
+        "id": "19",
         "name": "UDAIPUR ",
-        "url": "candidateswise-S2019.htm"
+        "state_id": "S20",
+        "unique_id": "19-S20"
     },
     {
+        "id": "21",
         "name": "CHITTORGARH",
-        "url": "candidateswise-S2021.htm"
+        "state_id": "S20",
+        "unique_id": "21-S20"
     },
     {
+        "id": "22",
         "name": "RAJSAMAND",
-        "url": "candidateswise-S2022.htm"
+        "state_id": "S20",
+        "unique_id": "22-S20"
     },
     {
+        "id": "23",
         "name": "BHILWARA",
-        "url": "candidateswise-S2023.htm"
+        "state_id": "S20",
+        "unique_id": "23-S20"
     },
     {
+        "id": "24",
         "name": "KOTA",
-        "url": "candidateswise-S2024.htm"
+        "state_id": "S20",
+        "unique_id": "24-S20"
     },
     {
+        "id": "25",
         "name": "JHALAWAR-BARAN",
-        "url": "candidateswise-S2025.htm"
+        "state_id": "S20",
+        "unique_id": "25-S20"
     },
     {
+        "id": "1",
         "name": "Tripura West",
-        "url": "candidateswise-S231.htm"
+        "state_id": "S23",
+        "unique_id": "1-S23"
     },
     {
+        "id": "2",
         "name": "Tripura East",
-        "url": "candidateswise-S232.htm"
+        "state_id": "S23",
+        "unique_id": "2-S23"
     },
     {
+        "id": "9",
         "name": "Amroha",
-        "url": "candidateswise-S249.htm"
+        "state_id": "S24",
+        "unique_id": "9-S24"
     },
     {
+        "id": "10",
         "name": "Meerut",
-        "url": "candidateswise-S2410.htm"
+        "state_id": "S24",
+        "unique_id": "10-S24"
     },
     {
+        "id": "12",
         "name": "Ghaziabad",
-        "url": "candidateswise-S2412.htm"
+        "state_id": "S24",
+        "unique_id": "12-S24"
     },
     {
+        "id": "13",
         "name": "Gautam Buddha Nagar",
-        "url": "candidateswise-S2413.htm"
+        "state_id": "S24",
+        "unique_id": "13-S24"
     },
     {
+        "id": "14",
         "name": "Bulandshahr",
-        "url": "candidateswise-S2414.htm"
+        "state_id": "S24",
+        "unique_id": "14-S24"
     },
     {
+        "id": "15",
         "name": "Aligarh",
-        "url": "candidateswise-S2415.htm"
+        "state_id": "S24",
+        "unique_id": "15-S24"
     },
     {
+        "id": "16",
         "name": "Hathras",
-        "url": "candidateswise-S2416.htm"
+        "state_id": "S24",
+        "unique_id": "16-S24"
     },
     {
+        "id": "17",
         "name": "Mathura",
-        "url": "candidateswise-S2417.htm"
+        "state_id": "S24",
+        "unique_id": "17-S24"
     },
     {
+        "id": "18",
         "name": "Agra",
-        "url": "candidateswise-S2418.htm"
+        "state_id": "S24",
+        "unique_id": "18-S24"
     },
     {
+        "id": "19",
         "name": "Fatehpur Sikri",
-        "url": "candidateswise-S2419.htm"
+        "state_id": "S24",
+        "unique_id": "19-S24"
     },
     {
+        "id": "25",
         "name": "Bareilly",
-        "url": "candidateswise-S2425.htm"
+        "state_id": "S24",
+        "unique_id": "25-S24"
     },
     {
+        "id": "26",
         "name": "Pilibhit",
-        "url": "candidateswise-S2426.htm"
+        "state_id": "S24",
+        "unique_id": "26-S24"
     },
     {
+        "id": "27",
         "name": "Shahjahanpur",
-        "url": "candidateswise-S2427.htm"
+        "state_id": "S24",
+        "unique_id": "27-S24"
     },
     {
+        "id": "31",
         "name": "Hardoi",
-        "url": "candidateswise-S2431.htm"
+        "state_id": "S24",
+        "unique_id": "31-S24"
     },
     {
+        "id": "32",
         "name": "Misrikh",
-        "url": "candidateswise-S2432.htm"
+        "state_id": "S24",
+        "unique_id": "32-S24"
     },
     {
+        "id": "33",
         "name": "Unnao",
-        "url": "candidateswise-S2433.htm"
+        "state_id": "S24",
+        "unique_id": "33-S24"
     },
     {
+        "id": "35",
         "name": "Lucknow",
-        "url": "candidateswise-S2435.htm"
+        "state_id": "S24",
+        "unique_id": "35-S24"
     },
     {
+        "id": "40",
         "name": "Farrukhabad",
-        "url": "candidateswise-S2440.htm"
+        "state_id": "S24",
+        "unique_id": "40-S24"
     },
     {
+        "id": "43",
         "name": "Kanpur",
-        "url": "candidateswise-S2443.htm"
+        "state_id": "S24",
+        "unique_id": "43-S24"
     },
     {
+        "id": "44",
         "name": "Akbarpur",
-        "url": "candidateswise-S2444.htm"
+        "state_id": "S24",
+        "unique_id": "44-S24"
     },
     {
+        "id": "46",
         "name": "Jhansi",
-        "url": "candidateswise-S2446.htm"
+        "state_id": "S24",
+        "unique_id": "46-S24"
     },
     {
+        "id": "51",
         "name": "Phulpur",
-        "url": "candidateswise-S2451.htm"
+        "state_id": "S24",
+        "unique_id": "51-S24"
     },
     {
+        "id": "56",
         "name": "Baharaich",
-        "url": "candidateswise-S2456.htm"
+        "state_id": "S24",
+        "unique_id": "56-S24"
     },
     {
+        "id": "57",
         "name": "Kaiserganj",
-        "url": "candidateswise-S2457.htm"
+        "state_id": "S24",
+        "unique_id": "57-S24"
     },
     {
+        "id": "59",
         "name": "Gonda",
-        "url": "candidateswise-S2459.htm"
+        "state_id": "S24",
+        "unique_id": "59-S24"
     },
     {
+        "id": "60",
         "name": "Domariyaganj",
-        "url": "candidateswise-S2460.htm"
+        "state_id": "S24",
+        "unique_id": "60-S24"
     },
     {
+        "id": "63",
         "name": "Maharajganj",
-        "url": "candidateswise-S2463.htm"
+        "state_id": "S24",
+        "unique_id": "63-S24"
     },
     {
+        "id": "64",
         "name": "Gorakhpur",
-        "url": "candidateswise-S2464.htm"
+        "state_id": "S24",
+        "unique_id": "64-S24"
     },
     {
+        "id": "65",
         "name": "Kushi Nagar",
-        "url": "candidateswise-S2465.htm"
+        "state_id": "S24",
+        "unique_id": "65-S24"
     },
     {
+        "id": "66",
         "name": "Deoria",
-        "url": "candidateswise-S2466.htm"
+        "state_id": "S24",
+        "unique_id": "66-S24"
     },
     {
+        "id": "67",
         "name": "Bansgaon",
-        "url": "candidateswise-S2467.htm"
+        "state_id": "S24",
+        "unique_id": "67-S24"
     },
     {
+        "id": "77",
         "name": "Varanasi",
-        "url": "candidateswise-S2477.htm"
+        "state_id": "S24",
+        "unique_id": "77-S24"
     },
     {
+        "id": "78",
         "name": "Bhadohi",
-        "url": "candidateswise-S2478.htm"
+        "state_id": "S24",
+        "unique_id": "78-S24"
     },
     {
+        "id": "2",
         "name": "Alipurduars",
-        "url": "candidateswise-S252.htm"
+        "state_id": "S25",
+        "unique_id": "2-S25"
     },
     {
+        "id": "3",
         "name": "Jalpaiguri",
-        "url": "candidateswise-S253.htm"
+        "state_id": "S25",
+        "unique_id": "3-S25"
     },
     {
+        "id": "4",
         "name": "Darjeeling",
-        "url": "candidateswise-S254.htm"
+        "state_id": "S25",
+        "unique_id": "4-S25"
     },
     {
+        "id": "5",
         "name": "Raiganj",
-        "url": "candidateswise-S255.htm"
+        "state_id": "S25",
+        "unique_id": "5-S25"
     },
     {
+        "id": "6",
         "name": "Balurghat",
-        "url": "candidateswise-S256.htm"
+        "state_id": "S25",
+        "unique_id": "6-S25"
     },
     {
+        "id": "7",
         "name": "Maldaha Uttar",
-        "url": "candidateswise-S257.htm"
+        "state_id": "S25",
+        "unique_id": "7-S25"
     },
     {
+        "id": "13",
         "name": "Ranaghat",
-        "url": "candidateswise-S2513.htm"
+        "state_id": "S25",
+        "unique_id": "13-S25"
     },
     {
+        "id": "14",
         "name": "Bangaon",
-        "url": "candidateswise-S2514.htm"
+        "state_id": "S25",
+        "unique_id": "14-S25"
     },
     {
+        "id": "30",
         "name": "Tamluk",
-        "url": "candidateswise-S2530.htm"
+        "state_id": "S25",
+        "unique_id": "30-S25"
     },
     {
+        "id": "31",
         "name": "Kanthi",
-        "url": "candidateswise-S2531.htm"
+        "state_id": "S25",
+        "unique_id": "31-S25"
     },
     {
+        "id": "35",
         "name": "Purulia",
-        "url": "candidateswise-S2535.htm"
+        "state_id": "S25",
+        "unique_id": "35-S25"
     },
     {
+        "id": "37",
         "name": "Bishnupur",
-        "url": "candidateswise-S2537.htm"
+        "state_id": "S25",
+        "unique_id": "37-S25"
     },
     {
+        "id": "1",
         "name": "SURGUJA",
-        "url": "candidateswise-S261.htm"
+        "state_id": "S26",
+        "unique_id": "1-S26"
     },
     {
+        "id": "2",
         "name": "RAIGARH",
-        "url": "candidateswise-S262.htm"
+        "state_id": "S26",
+        "unique_id": "2-S26"
     },
     {
+        "id": "3",
         "name": "JANJGIR-CHAMPA",
-        "url": "candidateswise-S263.htm"
+        "state_id": "S26",
+        "unique_id": "3-S26"
     },
     {
+        "id": "5",
         "name": "BILASPUR",
-        "url": "candidateswise-S265.htm"
+        "state_id": "S26",
+        "unique_id": "5-S26"
     },
     {
+        "id": "6",
         "name": "RAJNANDGAON",
-        "url": "candidateswise-S266.htm"
+        "state_id": "S26",
+        "unique_id": "6-S26"
     },
     {
+        "id": "7",
         "name": "DURG",
-        "url": "candidateswise-S267.htm"
+        "state_id": "S26",
+        "unique_id": "7-S26"
     },
     {
+        "id": "8",
         "name": "RAIPUR",
-        "url": "candidateswise-S268.htm"
+        "state_id": "S26",
+        "unique_id": "8-S26"
     },
     {
+        "id": "9",
         "name": "MAHASAMUND",
-        "url": "candidateswise-S269.htm"
+        "state_id": "S26",
+        "unique_id": "9-S26"
     },
     {
+        "id": "10",
         "name": "BASTAR",
-        "url": "candidateswise-S2610.htm"
+        "state_id": "S26",
+        "unique_id": "10-S26"
     },
     {
+        "id": "11",
         "name": "KANKER",
-        "url": "candidateswise-S2611.htm"
+        "state_id": "S26",
+        "unique_id": "11-S26"
     },
     {
+        "id": "3",
         "name": "Godda",
-        "url": "candidateswise-S273.htm"
+        "state_id": "S27",
+        "unique_id": "3-S27"
     },
     {
+        "id": "4",
         "name": "Chatra",
-        "url": "candidateswise-S274.htm"
+        "state_id": "S27",
+        "unique_id": "4-S27"
     },
     {
+        "id": "5",
         "name": "Kodarma",
-        "url": "candidateswise-S275.htm"
+        "state_id": "S27",
+        "unique_id": "5-S27"
     },
     {
+        "id": "7",
         "name": "Dhanbad",
-        "url": "candidateswise-S277.htm"
+        "state_id": "S27",
+        "unique_id": "7-S27"
     },
     {
+        "id": "8",
         "name": "Ranchi",
-        "url": "candidateswise-S278.htm"
+        "state_id": "S27",
+        "unique_id": "8-S27"
     },
     {
+        "id": "9",
         "name": "Jamshedpur",
-        "url": "candidateswise-S279.htm"
+        "state_id": "S27",
+        "unique_id": "9-S27"
     },
     {
+        "id": "13",
         "name": "Palamau",
-        "url": "candidateswise-S2713.htm"
+        "state_id": "S27",
+        "unique_id": "13-S27"
     },
     {
+        "id": "14",
         "name": "Hazaribagh",
-        "url": "candidateswise-S2714.htm"
+        "state_id": "S27",
+        "unique_id": "14-S27"
     },
     {
+        "id": "1",
         "name": "Tehri Garhwal",
-        "url": "candidateswise-S281.htm"
+        "state_id": "S28",
+        "unique_id": "1-S28"
     },
     {
+        "id": "2",
         "name": "Garhwal",
-        "url": "candidateswise-S282.htm"
+        "state_id": "S28",
+        "unique_id": "2-S28"
     },
     {
+        "id": "3",
         "name": "Almora",
-        "url": "candidateswise-S283.htm"
+        "state_id": "S28",
+        "unique_id": "3-S28"
     },
     {
+        "id": "4",
         "name": "Nainital-Udhamsingh Nagar",
-        "url": "candidateswise-S284.htm"
+        "state_id": "S28",
+        "unique_id": "4-S28"
     },
     {
+        "id": "5",
         "name": "Haridwar",
-        "url": "candidateswise-S285.htm"
+        "state_id": "S28",
+        "unique_id": "5-S28"
     },
     {
+        "id": "1",
         "name": "Adilabad ",
-        "url": "candidateswise-S291.htm"
+        "state_id": "S29",
+        "unique_id": "1-S29"
     },
     {
+        "id": "3",
         "name": "Karimnagar ",
-        "url": "candidateswise-S293.htm"
+        "state_id": "S29",
+        "unique_id": "3-S29"
     },
     {
+        "id": "4",
         "name": "Nizamabad",
-        "url": "candidateswise-S294.htm"
+        "state_id": "S29",
+        "unique_id": "4-S29"
     },
     {
+        "id": "6",
         "name": "Medak",
-        "url": "candidateswise-S296.htm"
+        "state_id": "S29",
+        "unique_id": "6-S29"
     },
     {
+        "id": "7",
         "name": "Malkajgiri",
-        "url": "candidateswise-S297.htm"
+        "state_id": "S29",
+        "unique_id": "7-S29"
     },
     {
+        "id": "8",
         "name": "Secunderabad",
-        "url": "candidateswise-S298.htm"
+        "state_id": "S29",
+        "unique_id": "8-S29"
     },
     {
+        "id": "10",
         "name": "Chevella",
-        "url": "candidateswise-S2910.htm"
+        "state_id": "S29",
+        "unique_id": "10-S29"
     },
     {
+        "id": "11",
         "name": "Mahbubnagar",
-        "url": "candidateswise-S2911.htm"
+        "state_id": "S29",
+        "unique_id": "11-S29"
     },
     {
+        "id": "1",
         "name": "Andaman & Nicobar Islands",
-        "url": "candidateswise-U011.htm"
+        "state_id": "U01",
+        "unique_id": "1-U01"
     },
     {
+        "id": "2",
         "name": "Dadar & Nagar Haveli",
-        "url": "candidateswise-U032.htm"
+        "state_id": "U03",
+        "unique_id": "2-U03"
     },
     {
+        "id": "1",
         "name": "Chandni Chowk",
-        "url": "candidateswise-U051.htm"
+        "state_id": "U05",
+        "unique_id": "1-U05"
     },
     {
+        "id": "2",
         "name": "North-East Delhi",
-        "url": "candidateswise-U052.htm"
+        "state_id": "U05",
+        "unique_id": "2-U05"
     },
     {
+        "id": "3",
         "name": "East Delhi",
-        "url": "candidateswise-U053.htm"
+        "state_id": "U05",
+        "unique_id": "3-U05"
     },
     {
+        "id": "4",
         "name": "New Delhi",
-        "url": "candidateswise-U054.htm"
+        "state_id": "U05",
+        "unique_id": "4-U05"
     },
     {
+        "id": "5",
         "name": "North-West Delhi",
-        "url": "candidateswise-U055.htm"
+        "state_id": "U05",
+        "unique_id": "5-U05"
     },
     {
+        "id": "6",
         "name": "West Delhi",
-        "url": "candidateswise-U056.htm"
+        "state_id": "U05",
+        "unique_id": "6-U05"
     },
     {
+        "id": "7",
         "name": "South Delhi",
-        "url": "candidateswise-U057.htm"
+        "state_id": "U05",
+        "unique_id": "7-U05"
     },
     {
+        "id": "4",
         "name": "UDHAMPUR",
-        "url": "candidateswise-U084.htm"
+        "state_id": "U08",
+        "unique_id": "4-U08"
     },
     {
+        "id": "5",
         "name": "JAMMU",
-        "url": "candidateswise-U085.htm"
+        "state_id": "U08",
+        "unique_id": "5-U08"
     },
     {
+        "id": "2",
         "name": "Dhubri ",
-        "url": "candidateswise-S032.htm"
+        "state_id": "S03",
+        "unique_id": "2-S03"
     },
     {
+        "id": "9",
         "name": "Nagaon",
-        "url": "candidateswise-S039.htm"
+        "state_id": "S03",
+        "unique_id": "9-S03"
     },
     {
+        "id": "14",
         "name": "Jorhat",
-        "url": "candidateswise-S0314.htm"
+        "state_id": "S03",
+        "unique_id": "14-S03"
     },
     {
+        "id": "10",
         "name": "Kishanganj",
-        "url": "candidateswise-S0410.htm"
+        "state_id": "S04",
+        "unique_id": "10-S04"
     },
     {
+        "id": "11",
         "name": "Katihar",
-        "url": "candidateswise-S0411.htm"
+        "state_id": "S04",
+        "unique_id": "11-S04"
     },
     {
+        "id": "34",
         "name": "Sasaram",
-        "url": "candidateswise-S0434.htm"
+        "state_id": "S04",
+        "unique_id": "34-S04"
     },
     {
+        "id": "2",
         "name": "South Goa",
-        "url": "candidateswise-S052.htm"
+        "state_id": "S05",
+        "unique_id": "2-S05"
     },
     {
+        "id": "2",
         "name": "Banaskantha",
-        "url": "candidateswise-S062.htm"
+        "state_id": "S06",
+        "unique_id": "2-S06"
     },
     {
+        "id": "1",
         "name": "AMBALA",
-        "url": "candidateswise-S071.htm"
+        "state_id": "S07",
+        "unique_id": "1-S07"
     },
     {
+        "id": "3",
         "name": "SIRSA",
-        "url": "candidateswise-S073.htm"
+        "state_id": "S07",
+        "unique_id": "3-S07"
     },
     {
+        "id": "4",
         "name": "HISAR",
-        "url": "candidateswise-S074.htm"
+        "state_id": "S07",
+        "unique_id": "4-S07"
     },
     {
+        "id": "6",
         "name": "SONIPAT",
-        "url": "candidateswise-S076.htm"
+        "state_id": "S07",
+        "unique_id": "6-S07"
     },
     {
+        "id": "7",
         "name": "ROHTAK",
-        "url": "candidateswise-S077.htm"
+        "state_id": "S07",
+        "unique_id": "7-S07"
     },
     {
+        "id": "1",
         "name": "Chikkodi",
-        "url": "candidateswise-S101.htm"
+        "state_id": "S10",
+        "unique_id": "1-S10"
     },
     {
+        "id": "5",
         "name": "Gulbarga",
-        "url": "candidateswise-S105.htm"
+        "state_id": "S10",
+        "unique_id": "5-S10"
     },
     {
+        "id": "6",
         "name": "Raichur",
-        "url": "candidateswise-S106.htm"
+        "state_id": "S10",
+        "unique_id": "6-S10"
     },
     {
+        "id": "7",
         "name": "Bidar",
-        "url": "candidateswise-S107.htm"
+        "state_id": "S10",
+        "unique_id": "7-S10"
     },
     {
+        "id": "8",
         "name": "Koppal",
-        "url": "candidateswise-S108.htm"
+        "state_id": "S10",
+        "unique_id": "8-S10"
     },
     {
+        "id": "9",
         "name": "Bellary",
-        "url": "candidateswise-S109.htm"
+        "state_id": "S10",
+        "unique_id": "9-S10"
     },
     {
+        "id": "13",
         "name": "Davanagere",
-        "url": "candidateswise-S1013.htm"
+        "state_id": "S10",
+        "unique_id": "13-S10"
     },
     {
+        "id": "16",
         "name": "Hassan",
-        "url": "candidateswise-S1016.htm"
+        "state_id": "S10",
+        "unique_id": "16-S10"
     },
     {
+        "id": "22",
         "name": "Chamarajanagar",
-        "url": "candidateswise-S1022.htm"
+        "state_id": "S10",
+        "unique_id": "22-S10"
     },
     {
+        "id": "1",
         "name": "Kasaragod",
-        "url": "candidateswise-S111.htm"
+        "state_id": "S11",
+        "unique_id": "1-S11"
     },
     {
+        "id": "2",
         "name": "Kannur",
-        "url": "candidateswise-S112.htm"
+        "state_id": "S11",
+        "unique_id": "2-S11"
     },
     {
+        "id": "3",
         "name": "Vadakara",
-        "url": "candidateswise-S113.htm"
+        "state_id": "S11",
+        "unique_id": "3-S11"
     },
     {
+        "id": "4",
         "name": "Wayanad",
-        "url": "candidateswise-S114.htm"
+        "state_id": "S11",
+        "unique_id": "4-S11"
     },
     {
+        "id": "5",
         "name": "Kozhikode",
-        "url": "candidateswise-S115.htm"
+        "state_id": "S11",
+        "unique_id": "5-S11"
     },
     {
+        "id": "8",
         "name": "Palakkad",
-        "url": "candidateswise-S118.htm"
+        "state_id": "S11",
+        "unique_id": "8-S11"
     },
     {
+        "id": "11",
         "name": "Chalakudy",
-        "url": "candidateswise-S1111.htm"
+        "state_id": "S11",
+        "unique_id": "11-S11"
     },
     {
+        "id": "12",
         "name": "Ernakulam",
-        "url": "candidateswise-S1112.htm"
+        "state_id": "S11",
+        "unique_id": "12-S11"
     },
     {
+        "id": "13",
         "name": "Idukki",
-        "url": "candidateswise-S1113.htm"
+        "state_id": "S11",
+        "unique_id": "13-S11"
     },
     {
+        "id": "15",
         "name": "Alappuzha",
-        "url": "candidateswise-S1115.htm"
+        "state_id": "S11",
+        "unique_id": "15-S11"
     },
     {
+        "id": "16",
         "name": "Mavelikkara ",
-        "url": "candidateswise-S1116.htm"
+        "state_id": "S11",
+        "unique_id": "16-S11"
     },
     {
+        "id": "17",
         "name": "Pathanamthitta",
-        "url": "candidateswise-S1117.htm"
+        "state_id": "S11",
+        "unique_id": "17-S11"
     },
     {
+        "id": "19",
         "name": "Attingal",
-        "url": "candidateswise-S1119.htm"
+        "state_id": "S11",
+        "unique_id": "19-S11"
     },
     {
+        "id": "20",
         "name": "Thiruvananthapuram",
-        "url": "candidateswise-S1120.htm"
+        "state_id": "S11",
+        "unique_id": "20-S11"
     },
     {
+        "id": "1",
         "name": "Nandurbar",
-        "url": "candidateswise-S131.htm"
+        "state_id": "S13",
+        "unique_id": "1-S13"
     },
     {
+        "id": "2",
         "name": "Dhule",
-        "url": "candidateswise-S132.htm"
+        "state_id": "S13",
+        "unique_id": "2-S13"
     },
     {
+        "id": "7",
         "name": "Amravati ",
-        "url": "candidateswise-S137.htm"
+        "state_id": "S13",
+        "unique_id": "7-S13"
     },
     {
+        "id": "9",
         "name": "Ramtek ",
-        "url": "candidateswise-S139.htm"
+        "state_id": "S13",
+        "unique_id": "9-S13"
     },
     {
+        "id": "11",
         "name": "Bhandara Gondiya",
-        "url": "candidateswise-S1311.htm"
+        "state_id": "S13",
+        "unique_id": "11-S13"
     },
     {
+        "id": "12",
         "name": "Gadchiroli - Chimur",
-        "url": "candidateswise-S1312.htm"
+        "state_id": "S13",
+        "unique_id": "12-S13"
     },
     {
+        "id": "13",
         "name": "Chandrapur",
-        "url": "candidateswise-S1313.htm"
+        "state_id": "S13",
+        "unique_id": "13-S13"
     },
     {
+        "id": "16",
         "name": "Nanded",
-        "url": "candidateswise-S1316.htm"
+        "state_id": "S13",
+        "unique_id": "16-S13"
     },
     {
+        "id": "18",
         "name": "Jalna",
-        "url": "candidateswise-S1318.htm"
+        "state_id": "S13",
+        "unique_id": "18-S13"
     },
     {
+        "id": "29",
         "name": "Mumbai North Central",
-        "url": "candidateswise-S1329.htm"
+        "state_id": "S13",
+        "unique_id": "29-S13"
     },
     {
+        "id": "41",
         "name": "Latur ",
-        "url": "candidateswise-S1341.htm"
+        "state_id": "S13",
+        "unique_id": "41-S13"
     },
     {
+        "id": "42",
         "name": "Solapur",
-        "url": "candidateswise-S1342.htm"
+        "state_id": "S13",
+        "unique_id": "42-S13"
     },
     {
+        "id": "47",
         "name": "Kolhapur",
-        "url": "candidateswise-S1347.htm"
+        "state_id": "S13",
+        "unique_id": "47-S13"
     },
     {
+        "id": "1",
         "name": "Inner Manipur",
-        "url": "candidateswise-S141.htm"
+        "state_id": "S14",
+        "unique_id": "1-S14"
     },
     {
+        "id": "2",
         "name": "Outer Manipur",
-        "url": "candidateswise-S142.htm"
+        "state_id": "S14",
+        "unique_id": "2-S14"
     },
     {
+        "id": "2",
         "name": "Tura",
-        "url": "candidateswise-S152.htm"
+        "state_id": "S15",
+        "unique_id": "2-S15"
     },
     {
+        "id": "1",
         "name": "Nagaland",
-        "url": "candidateswise-S171.htm"
+        "state_id": "S17",
+        "unique_id": "1-S17"
     },
     {
+        "id": "21",
         "name": "Koraput",
-        "url": "candidateswise-S1821.htm"
+        "state_id": "S18",
+        "unique_id": "21-S18"
     },
     {
+        "id": "1",
         "name": "Gurdaspur",
-        "url": "candidateswise-S191.htm"
+        "state_id": "S19",
+        "unique_id": "1-S19"
     },
     {
+        "id": "2",
         "name": "Amritsar",
-        "url": "candidateswise-S192.htm"
+        "state_id": "S19",
+        "unique_id": "2-S19"
     },
     {
+        "id": "4",
         "name": "Jalandhar",
-        "url": "candidateswise-S194.htm"
+        "state_id": "S19",
+        "unique_id": "4-S19"
     },
     {
+        "id": "7",
         "name": "Ludhiana",
-        "url": "candidateswise-S197.htm"
+        "state_id": "S19",
+        "unique_id": "7-S19"
     },
     {
+        "id": "8",
         "name": "Fatehgarh Sahib",
-        "url": "candidateswise-S198.htm"
+        "state_id": "S19",
+        "unique_id": "8-S19"
     },
     {
+        "id": "10",
         "name": "Firozpur",
-        "url": "candidateswise-S1910.htm"
+        "state_id": "S19",
+        "unique_id": "10-S19"
     },
     {
+        "id": "13",
         "name": "Patiala",
-        "url": "candidateswise-S1913.htm"
+        "state_id": "S19",
+        "unique_id": "13-S19"
     },
     {
+        "id": "1",
         "name": "GANGANAGAR ",
-        "url": "candidateswise-S201.htm"
+        "state_id": "S20",
+        "unique_id": "1-S20"
     },
     {
+        "id": "3",
         "name": "CHURU",
-        "url": "candidateswise-S203.htm"
+        "state_id": "S20",
+        "unique_id": "3-S20"
     },
     {
+        "id": "4",
         "name": "JHUNJHUNU     ",
-        "url": "candidateswise-S204.htm"
+        "state_id": "S20",
+        "unique_id": "4-S20"
     },
     {
+        "id": "9",
         "name": "BHARATPUR ",
-        "url": "candidateswise-S209.htm"
+        "state_id": "S20",
+        "unique_id": "9-S20"
     },
     {
+        "id": "10",
         "name": "KARAULI-DHOLPUR ",
-        "url": "candidateswise-S2010.htm"
+        "state_id": "S20",
+        "unique_id": "10-S20"
     },
     {
+        "id": "11",
         "name": "DAUSA ",
-        "url": "candidateswise-S2011.htm"
+        "state_id": "S20",
+        "unique_id": "11-S20"
     },
     {
+        "id": "12",
         "name": "TONK-SAWAI MADHOPUR ",
-        "url": "candidateswise-S2012.htm"
+        "state_id": "S20",
+        "unique_id": "12-S20"
     },
     {
+        "id": "17",
         "name": "BARMER",
-        "url": "candidateswise-S2017.htm"
+        "state_id": "S20",
+        "unique_id": "17-S20"
     },
     {
+        "id": "1",
         "name": "TIRUVALLUR",
-        "url": "candidateswise-S221.htm"
+        "state_id": "S22",
+        "unique_id": "1-S22"
     },
     {
+        "id": "9",
         "name": "KRISHNAGIRI",
-        "url": "candidateswise-S229.htm"
+        "state_id": "S22",
+        "unique_id": "9-S22"
     },
     {
+        "id": "23",
         "name": "KARUR",
-        "url": "candidateswise-S2223.htm"
+        "state_id": "S22",
+        "unique_id": "23-S22"
     },
     {
+        "id": "26",
         "name": "CUDDALORE",
-        "url": "candidateswise-S2226.htm"
+        "state_id": "S22",
+        "unique_id": "26-S22"
     },
     {
+        "id": "28",
         "name": "MAYILADUTHURAI",
-        "url": "candidateswise-S2228.htm"
+        "state_id": "S22",
+        "unique_id": "28-S22"
     },
     {
+        "id": "31",
         "name": "SIVAGANGA",
-        "url": "candidateswise-S2231.htm"
+        "state_id": "S22",
+        "unique_id": "31-S22"
     },
     {
+        "id": "34",
         "name": "VIRUDHUNAGAR",
-        "url": "candidateswise-S2234.htm"
+        "state_id": "S22",
+        "unique_id": "34-S22"
     },
     {
+        "id": "38",
         "name": "TIRUNELVELI",
-        "url": "candidateswise-S2238.htm"
+        "state_id": "S22",
+        "unique_id": "38-S22"
     },
     {
+        "id": "39",
         "name": "KANNIYAKUMARI",
-        "url": "candidateswise-S2239.htm"
+        "state_id": "S22",
+        "unique_id": "39-S22"
     },
     {
+        "id": "1",
         "name": "Saharanpur",
-        "url": "candidateswise-S241.htm"
+        "state_id": "S24",
+        "unique_id": "1-S24"
     },
     {
+        "id": "30",
         "name": "Sitapur",
-        "url": "candidateswise-S2430.htm"
+        "state_id": "S24",
+        "unique_id": "30-S24"
     },
     {
+        "id": "36",
         "name": "Rae Bareli",
-        "url": "candidateswise-S2436.htm"
+        "state_id": "S24",
+        "unique_id": "36-S24"
     },
     {
+        "id": "37",
         "name": "Amethi",
-        "url": "candidateswise-S2437.htm"
+        "state_id": "S24",
+        "unique_id": "37-S24"
     },
     {
+        "id": "52",
         "name": "Allahabad",
-        "url": "candidateswise-S2452.htm"
+        "state_id": "S24",
+        "unique_id": "52-S24"
     },
     {
+        "id": "53",
         "name": "Barabanki",
-        "url": "candidateswise-S2453.htm"
+        "state_id": "S24",
+        "unique_id": "53-S24"
     },
     {
+        "id": "8",
         "name": "Maldaha Dakshin",
-        "url": "candidateswise-S258.htm"
+        "state_id": "S25",
+        "unique_id": "8-S25"
     },
     {
+        "id": "4",
         "name": "KORBA",
-        "url": "candidateswise-S264.htm"
+        "state_id": "S26",
+        "unique_id": "4-S26"
     },
     {
+        "id": "11",
         "name": "Khunti",
-        "url": "candidateswise-S2711.htm"
+        "state_id": "S27",
+        "unique_id": "11-S27"
     },
     {
+        "id": "12",
         "name": "Lohardaga",
-        "url": "candidateswise-S2712.htm"
+        "state_id": "S27",
+        "unique_id": "12-S27"
     },
     {
+        "id": "2",
         "name": "Peddapalle ",
-        "url": "candidateswise-S292.htm"
+        "state_id": "S29",
+        "unique_id": "2-S29"
     },
     {
+        "id": "5",
         "name": "Zahirabad",
-        "url": "candidateswise-S295.htm"
+        "state_id": "S29",
+        "unique_id": "5-S29"
     },
     {
+        "id": "12",
         "name": "Nagarkurnool",
-        "url": "candidateswise-S2912.htm"
+        "state_id": "S29",
+        "unique_id": "12-S29"
     },
     {
+        "id": "13",
         "name": "Nalgonda",
-        "url": "candidateswise-S2913.htm"
+        "state_id": "S29",
+        "unique_id": "13-S29"
     },
     {
+        "id": "14",
         "name": "Bhongir ",
-        "url": "candidateswise-S2914.htm"
+        "state_id": "S29",
+        "unique_id": "14-S29"
     },
     {
+        "id": "15",
         "name": "Warangal",
-        "url": "candidateswise-S2915.htm"
+        "state_id": "S29",
+        "unique_id": "15-S29"
     },
     {
+        "id": "16",
         "name": "Mahabubabad  ",
-        "url": "candidateswise-S2916.htm"
+        "state_id": "S29",
+        "unique_id": "16-S29"
     },
     {
+        "id": "17",
         "name": "Khammam ",
-        "url": "candidateswise-S2917.htm"
+        "state_id": "S29",
+        "unique_id": "17-S29"
     },
     {
+        "id": "1",
         "name": "Chandigarh",
-        "url": "candidateswise-U021.htm"
+        "state_id": "U02",
+        "unique_id": "1-U02"
     },
     {
+        "id": "1",
         "name": "Lakshadweep",
-        "url": "candidateswise-U061.htm"
+        "state_id": "U06",
+        "unique_id": "1-U06"
     },
     {
+        "id": "1",
         "name": "PUDUCHERRY",
-        "url": "candidateswise-U071.htm"
+        "state_id": "U07",
+        "unique_id": "1-U07"
     },
     {
+        "id": "2",
         "name": "Kairana",
-        "url": "candidateswise-S242.htm"
+        "state_id": "S24",
+        "unique_id": "2-S24"
     },
     {
+        "id": "3",
         "name": "Muzaffarnagar",
-        "url": "candidateswise-S243.htm"
+        "state_id": "S24",
+        "unique_id": "3-S24"
     },
     {
+        "id": "6",
         "name": "Moradabad",
-        "url": "candidateswise-S246.htm"
+        "state_id": "S24",
+        "unique_id": "6-S24"
     },
     {
+        "id": "7",
         "name": "Rampur",
-        "url": "candidateswise-S247.htm"
+        "state_id": "S24",
+        "unique_id": "7-S24"
     },
     {
+        "id": "8",
         "name": "Sambhal",
-        "url": "candidateswise-S248.htm"
+        "state_id": "S24",
+        "unique_id": "8-S24"
     },
     {
+        "id": "20",
         "name": "Firozabad",
-        "url": "candidateswise-S2420.htm"
+        "state_id": "S24",
+        "unique_id": "20-S24"
     },
     {
+        "id": "21",
         "name": "Mainpuri",
-        "url": "candidateswise-S2421.htm"
+        "state_id": "S24",
+        "unique_id": "21-S24"
     },
     {
+        "id": "22",
         "name": "Etah",
-        "url": "candidateswise-S2422.htm"
+        "state_id": "S24",
+        "unique_id": "22-S24"
     },
     {
+        "id": "23",
         "name": "Badaun",
-        "url": "candidateswise-S2423.htm"
+        "state_id": "S24",
+        "unique_id": "23-S24"
     },
     {
+        "id": "24",
         "name": "Aonla",
-        "url": "candidateswise-S2424.htm"
+        "state_id": "S24",
+        "unique_id": "24-S24"
     },
     {
+        "id": "28",
         "name": "Kheri",
-        "url": "candidateswise-S2428.htm"
+        "state_id": "S24",
+        "unique_id": "28-S24"
     },
     {
+        "id": "29",
         "name": "Dhaurahra",
-        "url": "candidateswise-S2429.htm"
+        "state_id": "S24",
+        "unique_id": "29-S24"
     },
     {
+        "id": "34",
         "name": "Mohanlalganj",
-        "url": "candidateswise-S2434.htm"
+        "state_id": "S24",
+        "unique_id": "34-S24"
     },
     {
+        "id": "38",
         "name": "Sultanpur",
-        "url": "candidateswise-S2438.htm"
+        "state_id": "S24",
+        "unique_id": "38-S24"
     },
     {
+        "id": "39",
         "name": "Pratapgarh",
-        "url": "candidateswise-S2439.htm"
+        "state_id": "S24",
+        "unique_id": "39-S24"
     },
     {
+        "id": "41",
         "name": "Etawah",
-        "url": "candidateswise-S2441.htm"
+        "state_id": "S24",
+        "unique_id": "41-S24"
     },
     {
+        "id": "42",
         "name": "Kannauj",
-        "url": "candidateswise-S2442.htm"
+        "state_id": "S24",
+        "unique_id": "42-S24"
     },
     {
+        "id": "45",
         "name": "Jalaun",
-        "url": "candidateswise-S2445.htm"
+        "state_id": "S24",
+        "unique_id": "45-S24"
     },
     {
+        "id": "47",
         "name": "Hamirpur",
-        "url": "candidateswise-S2447.htm"
+        "state_id": "S24",
+        "unique_id": "47-S24"
     },
     {
+        "id": "48",
         "name": "Banda",
-        "url": "candidateswise-S2448.htm"
+        "state_id": "S24",
+        "unique_id": "48-S24"
     },
     {
+        "id": "49",
         "name": "Fatehpur",
-        "url": "candidateswise-S2449.htm"
+        "state_id": "S24",
+        "unique_id": "49-S24"
     },
     {
+        "id": "50",
         "name": "Kaushambi",
-        "url": "candidateswise-S2450.htm"
+        "state_id": "S24",
+        "unique_id": "50-S24"
     },
     {
+        "id": "54",
         "name": "Faizabad",
-        "url": "candidateswise-S2454.htm"
+        "state_id": "S24",
+        "unique_id": "54-S24"
     },
     {
+        "id": "55",
         "name": "Ambedkar Nagar",
-        "url": "candidateswise-S2455.htm"
+        "state_id": "S24",
+        "unique_id": "55-S24"
     },
     {
+        "id": "58",
         "name": "Shrawasti",
-        "url": "candidateswise-S2458.htm"
+        "state_id": "S24",
+        "unique_id": "58-S24"
     },
     {
+        "id": "61",
         "name": "Basti",
-        "url": "candidateswise-S2461.htm"
+        "state_id": "S24",
+        "unique_id": "61-S24"
     },
     {
+        "id": "62",
         "name": "Sant Kabir Nagar",
-        "url": "candidateswise-S2462.htm"
+        "state_id": "S24",
+        "unique_id": "62-S24"
     },
     {
+        "id": "68",
         "name": "Lalganj",
-        "url": "candidateswise-S2468.htm"
+        "state_id": "S24",
+        "unique_id": "68-S24"
     },
     {
+        "id": "69",
         "name": "Azamgarh",
-        "url": "candidateswise-S2469.htm"
+        "state_id": "S24",
+        "unique_id": "69-S24"
     },
     {
+        "id": "70",
         "name": "Ghosi",
-        "url": "candidateswise-S2470.htm"
+        "state_id": "S24",
+        "unique_id": "70-S24"
     },
     {
+        "id": "71",
         "name": "Salempur",
-        "url": "candidateswise-S2471.htm"
+        "state_id": "S24",
+        "unique_id": "71-S24"
     },
     {
+        "id": "72",
         "name": "Ballia",
-        "url": "candidateswise-S2472.htm"
+        "state_id": "S24",
+        "unique_id": "72-S24"
     },
     {
+        "id": "73",
         "name": "Jaunpur",
-        "url": "candidateswise-S2473.htm"
+        "state_id": "S24",
+        "unique_id": "73-S24"
     },
     {
+        "id": "74",
         "name": "Machhlishahr",
-        "url": "candidateswise-S2474.htm"
+        "state_id": "S24",
+        "unique_id": "74-S24"
     },
     {
+        "id": "75",
         "name": "Ghazipur",
-        "url": "candidateswise-S2475.htm"
+        "state_id": "S24",
+        "unique_id": "75-S24"
     },
     {
+        "id": "76",
         "name": "Chandauli",
-        "url": "candidateswise-S2476.htm"
+        "state_id": "S24",
+        "unique_id": "76-S24"
     },
     {
+        "id": "80",
         "name": "Robertsganj",
-        "url": "candidateswise-S2480.htm"
+        "state_id": "S24",
+        "unique_id": "80-S24"
     },
     {
+        "id": "1",
         "name": "Coochbehar",
-        "url": "candidateswise-S251.htm"
+        "state_id": "S25",
+        "unique_id": "1-S25"
     },
     {
+        "id": "9",
         "name": "Jangipur",
-        "url": "candidateswise-S259.htm"
+        "state_id": "S25",
+        "unique_id": "9-S25"
     },
     {
+        "id": "10",
         "name": "Baharampur",
-        "url": "candidateswise-S2510.htm"
+        "state_id": "S25",
+        "unique_id": "10-S25"
     },
     {
+        "id": "11",
         "name": "Murshidabad",
-        "url": "candidateswise-S2511.htm"
+        "state_id": "S25",
+        "unique_id": "11-S25"
     },
     {
+        "id": "12",
         "name": "Krishnanagar",
-        "url": "candidateswise-S2512.htm"
+        "state_id": "S25",
+        "unique_id": "12-S25"
     },
     {
+        "id": "15",
         "name": "Barrackpur",
-        "url": "candidateswise-S2515.htm"
+        "state_id": "S25",
+        "unique_id": "15-S25"
     },
     {
+        "id": "16",
         "name": "Dum dum",
-        "url": "candidateswise-S2516.htm"
+        "state_id": "S25",
+        "unique_id": "16-S25"
     },
     {
+        "id": "17",
         "name": "Barasat",
-        "url": "candidateswise-S2517.htm"
+        "state_id": "S25",
+        "unique_id": "17-S25"
     },
     {
+        "id": "18",
         "name": "Basirhat",
-        "url": "candidateswise-S2518.htm"
+        "state_id": "S25",
+        "unique_id": "18-S25"
     },
     {
+        "id": "19",
         "name": "Joynagar",
-        "url": "candidateswise-S2519.htm"
+        "state_id": "S25",
+        "unique_id": "19-S25"
     },
     {
+        "id": "20",
         "name": "Mathurapur",
-        "url": "candidateswise-S2520.htm"
+        "state_id": "S25",
+        "unique_id": "20-S25"
     },
     {
+        "id": "21",
         "name": "Diamond harbour",
-        "url": "candidateswise-S2521.htm"
+        "state_id": "S25",
+        "unique_id": "21-S25"
     },
     {
+        "id": "22",
         "name": "Jadavpur",
-        "url": "candidateswise-S2522.htm"
+        "state_id": "S25",
+        "unique_id": "22-S25"
     },
     {
+        "id": "23",
         "name": "Kolkata Dakshin",
-        "url": "candidateswise-S2523.htm"
+        "state_id": "S25",
+        "unique_id": "23-S25"
     },
     {
+        "id": "24",
         "name": "Kolkata Uttar",
-        "url": "candidateswise-S2524.htm"
+        "state_id": "S25",
+        "unique_id": "24-S25"
     },
     {
+        "id": "25",
         "name": "Howrah",
-        "url": "candidateswise-S2525.htm"
+        "state_id": "S25",
+        "unique_id": "25-S25"
     },
     {
+        "id": "26",
         "name": "Uluberia",
-        "url": "candidateswise-S2526.htm"
+        "state_id": "S25",
+        "unique_id": "26-S25"
     },
     {
+        "id": "27",
         "name": "Srerampur",
-        "url": "candidateswise-S2527.htm"
+        "state_id": "S25",
+        "unique_id": "27-S25"
     },
     {
+        "id": "28",
         "name": "Hooghly",
-        "url": "candidateswise-S2528.htm"
+        "state_id": "S25",
+        "unique_id": "28-S25"
     },
     {
+        "id": "29",
         "name": "Arambagh",
-        "url": "candidateswise-S2529.htm"
+        "state_id": "S25",
+        "unique_id": "29-S25"
     },
     {
+        "id": "32",
         "name": "Ghatal",
-        "url": "candidateswise-S2532.htm"
+        "state_id": "S25",
+        "unique_id": "32-S25"
     },
     {
+        "id": "33",
         "name": "Jhargram",
-        "url": "candidateswise-S2533.htm"
+        "state_id": "S25",
+        "unique_id": "33-S25"
     },
     {
+        "id": "34",
         "name": "Medinipur",
-        "url": "candidateswise-S2534.htm"
+        "state_id": "S25",
+        "unique_id": "34-S25"
     },
     {
+        "id": "36",
         "name": "Bankura",
-        "url": "candidateswise-S2536.htm"
+        "state_id": "S25",
+        "unique_id": "36-S25"
     },
     {
+        "id": "38",
         "name": "Bardhaman Purba",
-        "url": "candidateswise-S2538.htm"
+        "state_id": "S25",
+        "unique_id": "38-S25"
     },
     {
+        "id": "39",
         "name": "Bardhaman-Durgapur",
-        "url": "candidateswise-S2539.htm"
+        "state_id": "S25",
+        "unique_id": "39-S25"
     },
     {
+        "id": "40",
         "name": "Asansol",
-        "url": "candidateswise-S2540.htm"
+        "state_id": "S25",
+        "unique_id": "40-S25"
     },
     {
+        "id": "41",
         "name": "Bolpur",
-        "url": "candidateswise-S2541.htm"
+        "state_id": "S25",
+        "unique_id": "41-S25"
     },
     {
+        "id": "42",
         "name": "Birbhum",
-        "url": "candidateswise-S2542.htm"
+        "state_id": "S25",
+        "unique_id": "42-S25"
     },
     {
+        "id": "2",
         "name": "CHENNAI NORTH",
-        "url": "candidateswise-S222.htm"
+        "state_id": "S22",
+        "unique_id": "2-S22"
     },
     {
+        "id": "3",
         "name": "CHENNAI SOUTH",
-        "url": "candidateswise-S223.htm"
+        "state_id": "S22",
+        "unique_id": "3-S22"
     },
     {
+        "id": "4",
         "name": "CHENNAI CENTRAL",
-        "url": "candidateswise-S224.htm"
+        "state_id": "S22",
+        "unique_id": "4-S22"
     },
     {
+        "id": "5",
         "name": "SRIPERUMBUDUR",
-        "url": "candidateswise-S225.htm"
+        "state_id": "S22",
+        "unique_id": "5-S22"
     },
     {
+        "id": "6",
         "name": "KANCHEEPURAM",
-        "url": "candidateswise-S226.htm"
+        "state_id": "S22",
+        "unique_id": "6-S22"
     },
     {
+        "id": "7",
         "name": "ARAKKONAM",
-        "url": "candidateswise-S227.htm"
+        "state_id": "S22",
+        "unique_id": "7-S22"
     },
     {
+        "id": "8",
         "name": "VELLORE",
-        "url": "candidateswise-S228.htm"
+        "state_id": "S22",
+        "unique_id": "8-S22"
     },
     {
+        "id": "10",
         "name": "DHARMAPURI",
-        "url": "candidateswise-S2210.htm"
+        "state_id": "S22",
+        "unique_id": "10-S22"
     },
     {
+        "id": "11",
         "name": "TIRUVANNAMALAI",
-        "url": "candidateswise-S2211.htm"
+        "state_id": "S22",
+        "unique_id": "11-S22"
     },
     {
+        "id": "12",
         "name": "ARANI",
-        "url": "candidateswise-S2212.htm"
+        "state_id": "S22",
+        "unique_id": "12-S22"
     },
     {
+        "id": "14",
         "name": "KALLAKURICHI",
-        "url": "candidateswise-S2214.htm"
+        "state_id": "S22",
+        "unique_id": "14-S22"
     },
     {
+        "id": "15",
         "name": "SALEM",
-        "url": "candidateswise-S2215.htm"
+        "state_id": "S22",
+        "unique_id": "15-S22"
     },
     {
+        "id": "16",
         "name": "NAMAKKAL",
-        "url": "candidateswise-S2216.htm"
+        "state_id": "S22",
+        "unique_id": "16-S22"
     },
     {
+        "id": "17",
         "name": "ERODE",
-        "url": "candidateswise-S2217.htm"
+        "state_id": "S22",
+        "unique_id": "17-S22"
     },
     {
+        "id": "19",
         "name": "NILGIRIS",
-        "url": "candidateswise-S2219.htm"
+        "state_id": "S22",
+        "unique_id": "19-S22"
     },
     {
+        "id": "20",
         "name": "COIMBATORE",
-        "url": "candidateswise-S2220.htm"
+        "state_id": "S22",
+        "unique_id": "20-S22"
     },
     {
+        "id": "21",
         "name": "POLLACHI",
-        "url": "candidateswise-S2221.htm"
+        "state_id": "S22",
+        "unique_id": "21-S22"
     },
     {
+        "id": "25",
         "name": "PERAMBALUR",
-        "url": "candidateswise-S2225.htm"
+        "state_id": "S22",
+        "unique_id": "25-S22"
     },
     {
+        "id": "30",
         "name": "THANJAVUR",
-        "url": "candidateswise-S2230.htm"
+        "state_id": "S22",
+        "unique_id": "30-S22"
     },
     {
+        "id": "33",
         "name": "THENI",
-        "url": "candidateswise-S2233.htm"
+        "state_id": "S22",
+        "unique_id": "33-S22"
     },
     {
+        "id": "36",
         "name": "THOOTHUKKUDI",
-        "url": "candidateswise-S2236.htm"
+        "state_id": "S22",
+        "unique_id": "36-S22"
     },
     {
+        "id": "37",
         "name": "TENKASI",
-        "url": "candidateswise-S2237.htm"
+        "state_id": "S22",
+        "unique_id": "37-S22"
     },
     {
+        "id": "2",
         "name": "Srikakulam",
-        "url": "candidateswise-S012.htm"
+        "state_id": "S01",
+        "unique_id": "2-S01"
     },
     {
+        "id": "3",
         "name": "Vizianagaram",
-        "url": "candidateswise-S013.htm"
+        "state_id": "S01",
+        "unique_id": "3-S01"
     },
     {
+        "id": "4",
         "name": "Visakhapatnam",
-        "url": "candidateswise-S014.htm"
+        "state_id": "S01",
+        "unique_id": "4-S01"
     },
     {
+        "id": "7",
         "name": "Amalapuram ",
-        "url": "candidateswise-S017.htm"
+        "state_id": "S01",
+        "unique_id": "7-S01"
     },
     {
+        "id": "10",
         "name": "Eluru",
-        "url": "candidateswise-S0110.htm"
+        "state_id": "S01",
+        "unique_id": "10-S01"
     },
     {
+        "id": "12",
         "name": "Vijayawada",
-        "url": "candidateswise-S0112.htm"
+        "state_id": "S01",
+        "unique_id": "12-S01"
     },
     {
+        "id": "13",
         "name": "Guntur",
-        "url": "candidateswise-S0113.htm"
+        "state_id": "S01",
+        "unique_id": "13-S01"
     },
     {
+        "id": "14",
         "name": "Narsaraopet",
-        "url": "candidateswise-S0114.htm"
+        "state_id": "S01",
+        "unique_id": "14-S01"
     },
     {
+        "id": "15",
         "name": "Bapatla ",
-        "url": "candidateswise-S0115.htm"
+        "state_id": "S01",
+        "unique_id": "15-S01"
     },
     {
+        "id": "16",
         "name": "Ongole",
-        "url": "candidateswise-S0116.htm"
+        "state_id": "S01",
+        "unique_id": "16-S01"
     },
     {
+        "id": "17",
         "name": "Nandyal",
-        "url": "candidateswise-S0117.htm"
+        "state_id": "S01",
+        "unique_id": "17-S01"
     },
     {
+        "id": "18",
         "name": "Kurnoolu",
-        "url": "candidateswise-S0118.htm"
+        "state_id": "S01",
+        "unique_id": "18-S01"
     },
     {
+        "id": "19",
         "name": "Ananthapur",
-        "url": "candidateswise-S0119.htm"
+        "state_id": "S01",
+        "unique_id": "19-S01"
     },
     {
+        "id": "20",
         "name": "Hindupur",
-        "url": "candidateswise-S0120.htm"
+        "state_id": "S01",
+        "unique_id": "20-S01"
     },
     {
+        "id": "22",
         "name": "Nellore",
-        "url": "candidateswise-S0122.htm"
+        "state_id": "S01",
+        "unique_id": "22-S01"
     },
     {
+        "id": "25",
         "name": "Chittoor",
-        "url": "candidateswise-S0125.htm"
+        "state_id": "S01",
+        "unique_id": "25-S01"
     },
     {
+        "id": "1",
         "name": "Valmiki Nagar ",
-        "url": "candidateswise-S041.htm"
+        "state_id": "S04",
+        "unique_id": "1-S04"
     },
     {
+        "id": "4",
         "name": "Sheohar",
-        "url": "candidateswise-S044.htm"
+        "state_id": "S04",
+        "unique_id": "4-S04"
     },
     {
+        "id": "5",
         "name": "Sitamarhi",
-        "url": "candidateswise-S045.htm"
+        "state_id": "S04",
+        "unique_id": "5-S04"
     },
     {
+        "id": "7",
         "name": "Jhanjharpur",
-        "url": "candidateswise-S047.htm"
+        "state_id": "S04",
+        "unique_id": "7-S04"
     },
     {
+        "id": "8",
         "name": "Supaul",
-        "url": "candidateswise-S048.htm"
+        "state_id": "S04",
+        "unique_id": "8-S04"
     },
     {
+        "id": "13",
         "name": "Madhepura",
-        "url": "candidateswise-S0413.htm"
+        "state_id": "S04",
+        "unique_id": "13-S04"
     },
     {
+        "id": "17",
         "name": "Gopalganj",
-        "url": "candidateswise-S0417.htm"
+        "state_id": "S04",
+        "unique_id": "17-S04"
     },
     {
+        "id": "18",
         "name": "Siwan",
-        "url": "candidateswise-S0418.htm"
+        "state_id": "S04",
+        "unique_id": "18-S04"
     },
     {
+        "id": "26",
         "name": "Bhagalpur",
-        "url": "candidateswise-S0426.htm"
+        "state_id": "S04",
+        "unique_id": "26-S04"
     },
     {
+        "id": "27",
         "name": "Banka",
-        "url": "candidateswise-S0427.htm"
+        "state_id": "S04",
+        "unique_id": "27-S04"
     },
     {
+        "id": "28",
         "name": "Munger",
-        "url": "candidateswise-S0428.htm"
+        "state_id": "S04",
+        "unique_id": "28-S04"
     },
     {
+        "id": "29",
         "name": "Nalanda",
-        "url": "candidateswise-S0429.htm"
+        "state_id": "S04",
+        "unique_id": "29-S04"
     },
     {
+        "id": "14",
         "name": "Yavatmal- Washim",
-        "url": "candidateswise-S1314.htm"
+        "state_id": "S13",
+        "unique_id": "14-S13"
     },
     {
+        "id": "15",
         "name": "Hingoli",
-        "url": "candidateswise-S1315.htm"
+        "state_id": "S13",
+        "unique_id": "15-S13"
     },
     {
+        "id": "17",
         "name": "Parbhani",
-        "url": "candidateswise-S1317.htm"
+        "state_id": "S13",
+        "unique_id": "17-S13"
     },
     {
+        "id": "21",
         "name": "Nashik",
-        "url": "candidateswise-S1321.htm"
+        "state_id": "S13",
+        "unique_id": "21-S13"
     },
     {
+        "id": "28",
         "name": "Mumbai North East",
-        "url": "candidateswise-S1328.htm"
+        "state_id": "S13",
+        "unique_id": "28-S13"
     },
     {
+        "id": "30",
         "name": "Mumbai South Central",
-        "url": "candidateswise-S1330.htm"
+        "state_id": "S13",
+        "unique_id": "30-S13"
     },
     {
+        "id": "31",
         "name": "Mumbai South",
-        "url": "candidateswise-S1331.htm"
+        "state_id": "S13",
+        "unique_id": "31-S13"
     },
     {
+        "id": "38",
         "name": "Shirdi ",
-        "url": "candidateswise-S1338.htm"
+        "state_id": "S13",
+        "unique_id": "38-S13"
     },
     {
+        "id": "40",
         "name": "Osmanabad",
-        "url": "candidateswise-S1340.htm"
+        "state_id": "S13",
+        "unique_id": "40-S13"
     },
     {
+        "id": "8",
         "name": "Wardha",
-        "url": "candidateswise-S138.htm"
+        "state_id": "S13",
+        "unique_id": "8-S13"
     },
     {
+        "id": "20",
         "name": "Dindori ",
-        "url": "candidateswise-S1320.htm"
+        "state_id": "S13",
+        "unique_id": "20-S13"
     },
     {
+        "id": "23",
         "name": "Bhiwandi",
-        "url": "candidateswise-S1323.htm"
+        "state_id": "S13",
+        "unique_id": "23-S13"
     },
     {
+        "id": "35",
         "name": "Baramati",
-        "url": "candidateswise-S1335.htm"
+        "state_id": "S13",
+        "unique_id": "35-S13"
     },
     {
+        "id": "36",
         "name": "Shirur",
-        "url": "candidateswise-S1336.htm"
+        "state_id": "S13",
+        "unique_id": "36-S13"
     },
     {
+        "id": "37",
         "name": "Ahmednagar",
-        "url": "candidateswise-S1337.htm"
+        "state_id": "S13",
+        "unique_id": "37-S13"
     },
     {
+        "id": "39",
         "name": "Beed",
-        "url": "candidateswise-S1339.htm"
+        "state_id": "S13",
+        "unique_id": "39-S13"
     },
     {
+        "id": "43",
         "name": "Madha",
-        "url": "candidateswise-S1343.htm"
+        "state_id": "S13",
+        "unique_id": "43-S13"
     },
     {
+        "id": "5",
         "name": "Buldhana",
-        "url": "candidateswise-S135.htm"
+        "state_id": "S13",
+        "unique_id": "5-S13"
     },
     {
+        "id": "19",
         "name": "Aurangabad",
-        "url": "candidateswise-S1319.htm"
+        "state_id": "S13",
+        "unique_id": "19-S13"
     },
     {
+        "id": "24",
         "name": "Kalyan",
-        "url": "candidateswise-S1324.htm"
+        "state_id": "S13",
+        "unique_id": "24-S13"
     },
     {
+        "id": "25",
         "name": "Thane",
-        "url": "candidateswise-S1325.htm"
+        "state_id": "S13",
+        "unique_id": "25-S13"
     },
     {
+        "id": "27",
         "name": "Mumbai North West",
-        "url": "candidateswise-S1327.htm"
+        "state_id": "S13",
+        "unique_id": "27-S13"
     },
     {
+        "id": "33",
         "name": "Maval",
-        "url": "candidateswise-S1333.htm"
+        "state_id": "S13",
+        "unique_id": "33-S13"
     },
     {
+        "id": "48",
         "name": "Hatkanangale",
-        "url": "candidateswise-S1348.htm"
+        "state_id": "S13",
+        "unique_id": "48-S13"
     },
     {
+        "id": "16",
         "name": "Vaishali",
-        "url": "candidateswise-S0416.htm"
+        "state_id": "S04",
+        "unique_id": "16-S04"
     },
     {
+        "id": "21",
         "name": "Hajipur",
-        "url": "candidateswise-S0421.htm"
+        "state_id": "S04",
+        "unique_id": "21-S04"
     },
     {
+        "id": "23",
         "name": "Samastipur",
-        "url": "candidateswise-S0423.htm"
+        "state_id": "S04",
+        "unique_id": "23-S04"
     },
     {
+        "id": "25",
         "name": "Khagaria",
-        "url": "candidateswise-S0425.htm"
+        "state_id": "S04",
+        "unique_id": "25-S04"
     },
     {
+        "id": "40",
         "name": "Jamui",
-        "url": "candidateswise-S0440.htm"
+        "state_id": "S04",
+        "unique_id": "40-S04"
     },
     {
+        "id": "1",
         "name": "Araku ",
-        "url": "candidateswise-S011.htm"
+        "state_id": "S01",
+        "unique_id": "1-S01"
     },
     {
+        "id": "21",
         "name": "Kadapa",
-        "url": "candidateswise-S0121.htm"
+        "state_id": "S01",
+        "unique_id": "21-S01"
     },
     {
+        "id": "23",
         "name": "Thirupathi",
-        "url": "candidateswise-S0123.htm"
+        "state_id": "S01",
+        "unique_id": "23-S01"
     },
     {
+        "id": "24",
         "name": "Rajampet",
-        "url": "candidateswise-S0124.htm"
+        "state_id": "S01",
+        "unique_id": "24-S01"
     },
     {
+        "id": "31",
         "name": "Patliputra",
-        "url": "candidateswise-S0431.htm"
+        "state_id": "S04",
+        "unique_id": "31-S04"
     },
     {
+        "id": "33",
         "name": "Buxar",
-        "url": "candidateswise-S0433.htm"
+        "state_id": "S04",
+        "unique_id": "33-S04"
     },
     {
+        "id": "36",
         "name": "Jahanabad",
-        "url": "candidateswise-S0436.htm"
+        "state_id": "S04",
+        "unique_id": "36-S04"
     },
     {
+        "id": "37",
         "name": "Aurangabad",
-        "url": "candidateswise-S0437.htm"
+        "state_id": "S04",
+        "unique_id": "37-S04"
     },
     {
+        "id": "9",
         "name": "Alathur ",
-        "url": "candidateswise-S119.htm"
+        "state_id": "S11",
+        "unique_id": "9-S11"
     },
     {
+        "id": "5",
         "name": "SIKAR",
-        "url": "candidateswise-S205.htm"
+        "state_id": "S20",
+        "unique_id": "5-S20"
     },
     {
+        "id": "22",
         "name": "DINDIGUL",
-        "url": "candidateswise-S2222.htm"
+        "state_id": "S22",
+        "unique_id": "22-S22"
     },
     {
+        "id": "32",
         "name": "MADURAI",
-        "url": "candidateswise-S2232.htm"
+        "state_id": "S22",
+        "unique_id": "32-S22"
     },
     {
+        "id": "6",
         "name": "Malappuram",
-        "url": "candidateswise-S116.htm"
+        "state_id": "S11",
+        "unique_id": "6-S11"
     },
     {
+        "id": "7",
         "name": "Ponnani",
-        "url": "candidateswise-S117.htm"
+        "state_id": "S11",
+        "unique_id": "7-S11"
     },
     {
+        "id": "35",
         "name": "RAMANATHAPURAM",
-        "url": "candidateswise-S2235.htm"
+        "state_id": "S22",
+        "unique_id": "35-S22"
     },
     {
+        "id": "5",
         "name": "Hoshiarpur",
-        "url": "candidateswise-S195.htm"
+        "state_id": "S19",
+        "unique_id": "5-S19"
     },
     {
+        "id": "6",
         "name": "Anandpur Sahib",
-        "url": "candidateswise-S196.htm"
+        "state_id": "S19",
+        "unique_id": "6-S19"
     },
     {
+        "id": "12",
         "name": "Sangrur",
-        "url": "candidateswise-S1912.htm"
+        "state_id": "S19",
+        "unique_id": "12-S19"
     },
     {
+        "id": "1",
         "name": "Rajmahal",
-        "url": "candidateswise-S271.htm"
+        "state_id": "S27",
+        "unique_id": "1-S27"
     },
     {
+        "id": "2",
         "name": "Dumka",
-        "url": "candidateswise-S272.htm"
+        "state_id": "S27",
+        "unique_id": "2-S27"
     },
     {
+        "id": "10",
         "name": "Singhbhum",
-        "url": "candidateswise-S2710.htm"
+        "state_id": "S27",
+        "unique_id": "10-S27"
     },
     {
+        "id": "6",
         "name": "Kakinada",
-        "url": "candidateswise-S016.htm"
+        "state_id": "S01",
+        "unique_id": "6-S01"
     },
     {
+        "id": "11",
         "name": "Machilipatnam",
-        "url": "candidateswise-S0111.htm"
+        "state_id": "S01",
+        "unique_id": "11-S01"
     },
     {
+        "id": "32",
         "name": "Arrah",
-        "url": "candidateswise-S0432.htm"
+        "state_id": "S04",
+        "unique_id": "32-S04"
     },
     {
+        "id": "35",
         "name": "Karakat",
-        "url": "candidateswise-S0435.htm"
+        "state_id": "S04",
+        "unique_id": "35-S04"
     },
     {
+        "id": "20",
         "name": "Mandya",
-        "url": "candidateswise-S1020.htm"
+        "state_id": "S10",
+        "unique_id": "20-S10"
     },
     {
+        "id": "28",
         "name": "Kolar",
-        "url": "candidateswise-S1028.htm"
+        "state_id": "S10",
+        "unique_id": "28-S10"
     },
     {
+        "id": "13",
         "name": "VILUPPURAM",
-        "url": "candidateswise-S2213.htm"
+        "state_id": "S22",
+        "unique_id": "13-S22"
     },
     {
+        "id": "27",
         "name": "CHIDAMBARAM",
-        "url": "candidateswise-S2227.htm"
+        "state_id": "S22",
+        "unique_id": "27-S22"
     },
     {
+        "id": "18",
         "name": "TIRUPPUR",
-        "url": "candidateswise-S2218.htm"
+        "state_id": "S22",
+        "unique_id": "18-S22"
     },
     {
+        "id": "29",
         "name": "NAGAPATTINAM",
-        "url": "candidateswise-S2229.htm"
+        "state_id": "S22",
+        "unique_id": "29-S22"
     },
     {
+        "id": "4",
         "name": "Bijnor",
-        "url": "candidateswise-S244.htm"
+        "state_id": "S24",
+        "unique_id": "4-S24"
     },
     {
+        "id": "11",
         "name": "Baghpat",
-        "url": "candidateswise-S2411.htm"
+        "state_id": "S24",
+        "unique_id": "11-S24"
     },
     {
+        "id": "2",
         "name": "SRINAGAR",
-        "url": "candidateswise-U082.htm"
+        "state_id": "U08",
+        "unique_id": "2-U08"
     },
     {
+        "id": "3",
         "name": "ANANTNAG-RAJOURI",
-        "url": "candidateswise-U083.htm"
+        "state_id": "U08",
+        "unique_id": "3-U08"
     },
     {
+        "id": "1",
         "name": "Kokrajhar ",
-        "url": "candidateswise-S031.htm"
+        "state_id": "S03",
+        "unique_id": "1-S03"
     },
     {
+        "id": "3",
         "name": "Barpeta",
-        "url": "candidateswise-S033.htm"
+        "state_id": "S03",
+        "unique_id": "3-S03"
     },
     {
+        "id": "38",
         "name": "Gaya",
-        "url": "candidateswise-S0438.htm"
+        "state_id": "S04",
+        "unique_id": "38-S04"
     },
     {
+        "id": "14",
         "name": "Kottayam",
-        "url": "candidateswise-S1114.htm"
+        "state_id": "S11",
+        "unique_id": "14-S11"
     },
     {
+        "id": "18",
         "name": "Kollam",
-        "url": "candidateswise-S1118.htm"
+        "state_id": "S11",
+        "unique_id": "18-S11"
     },
     {
+        "id": "32",
         "name": "Raigad",
-        "url": "candidateswise-S1332.htm"
+        "state_id": "S13",
+        "unique_id": "32-S13"
     },
     {
+        "id": "1",
         "name": "Shillong",
-        "url": "candidateswise-S151.htm"
+        "state_id": "S15",
+        "unique_id": "1-S15"
     },
     {
+        "id": "1",
         "name": "MIZORAM",
-        "url": "candidateswise-S161.htm"
+        "state_id": "S16",
+        "unique_id": "1-S16"
     },
     {
+        "id": "11",
         "name": "Bathinda",
-        "url": "candidateswise-S1911.htm"
+        "state_id": "S19",
+        "unique_id": "11-S19"
     },
     {
+        "id": "14",
         "name": "NAGAUR",
-        "url": "candidateswise-S2014.htm"
+        "state_id": "S20",
+        "unique_id": "14-S20"
     },
     {
+        "id": "20",
         "name": "BANSWARA ",
-        "url": "candidateswise-S2020.htm"
+        "state_id": "S20",
+        "unique_id": "20-S20"
     },
     {
+        "id": "1",
         "name": "Sikkim",
-        "url": "candidateswise-S211.htm"
+        "state_id": "S21",
+        "unique_id": "1-S21"
     },
     {
+        "id": "24",
         "name": "TIRUCHIRAPPALLI",
-        "url": "candidateswise-S2224.htm"
+        "state_id": "S22",
+        "unique_id": "24-S22"
     },
     {
+        "id": "5",
         "name": "Nagina",
-        "url": "candidateswise-S245.htm"
+        "state_id": "S24",
+        "unique_id": "5-S24"
     },
     {
+        "id": "79",
         "name": "Mirzapur",
-        "url": "candidateswise-S2479.htm"
+        "state_id": "S24",
+        "unique_id": "79-S24"
     },
     {
+        "id": "6",
         "name": "Giridih",
-        "url": "candidateswise-S276.htm"
+        "state_id": "S27",
+        "unique_id": "6-S27"
     },
     {
+        "id": "9",
         "name": "Hyderabad",
-        "url": "candidateswise-S299.htm"
+        "state_id": "S29",
+        "unique_id": "9-S29"
     },
     {
+        "id": "12",
         "name": "Purnia",
-        "url": "candidateswise-S0412.htm"
+        "state_id": "S04",
+        "unique_id": "12-S04"
     },
     {
+        "id": "44",
         "name": "Sangli",
-        "url": "candidateswise-S1344.htm"
+        "state_id": "S13",
+        "unique_id": "44-S13"
     },
     {
+        "id": "3",
         "name": "Khadoor Sahib",
-        "url": "candidateswise-S193.htm"
+        "state_id": "S19",
+        "unique_id": "3-S19"
     },
     {
+        "id": "9",
         "name": "Faridkot",
-        "url": "candidateswise-S199.htm"
+        "state_id": "S19",
+        "unique_id": "9-S19"
     },
     {
+        "id": "1",
         "name": "Daman & Diu ",
-        "url": "candidateswise-U031.htm"
+        "state_id": "U03",
+        "unique_id": "1-U03"
     },
     {
+        "id": "1",
         "name": "BARAMULLA",
-        "url": "candidateswise-U081.htm"
+        "state_id": "U08",
+        "unique_id": "1-U08"
     },
     {
+        "id": "1",
         "name": "Ladakh",
-        "url": "candidateswise-U091.htm"
+        "state_id": "U09",
+        "unique_id": "1-U09"
     }
 ]

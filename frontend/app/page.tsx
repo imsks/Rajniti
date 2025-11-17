@@ -1,3 +1,5 @@
+import PreambleSection from '@/components/PreambleSection'
+
 export default function Home() {
     return (
         <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50'>
@@ -12,6 +14,11 @@ export default function Home() {
                             </span>
                         </div>
                         <nav className='hidden md:flex gap-6'>
+                            <a
+                                href='/dashboard'
+                                className='text-gray-600 hover:text-orange-600 transition-colors font-semibold'>
+                                Dashboard
+                            </a>
                             <a
                                 href='#about'
                                 className='text-gray-600 hover:text-orange-600 transition-colors'>
@@ -69,10 +76,27 @@ export default function Home() {
 
                         <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
                             <a
+                                href='/dashboard'
+                                className='inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-orange-600 to-orange-500 px-8 py-4 text-white font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105'>
+                                <span>View Dashboard</span>
+                                <svg
+                                    className='w-5 h-5'
+                                    fill='none'
+                                    stroke='currentColor'
+                                    viewBox='0 0 24 24'>
+                                    <path
+                                        strokeLinecap='round'
+                                        strokeLinejoin='round'
+                                        strokeWidth={2}
+                                        d='M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'
+                                    />
+                                </svg>
+                            </a>
+                            <a
                                 href='https://github.com/imsks/rajniti'
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                className='inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-orange-600 to-orange-500 px-8 py-4 text-white font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105'>
+                                className='inline-flex items-center gap-2 rounded-lg border-2 border-gray-300 bg-white px-8 py-4 font-semibold text-gray-700 shadow-md hover:border-orange-500 hover:text-orange-600 transition-all hover:scale-105'>
                                 <svg
                                     className='w-5 h-5'
                                     fill='currentColor'
@@ -84,25 +108,6 @@ export default function Home() {
                                     />
                                 </svg>
                                 View on GitHub
-                            </a>
-                            <a
-                                href='https://chat.whatsapp.com/IceA98FSHHuDmXOwv8WH7v'
-                                target='_blank'
-                                rel='noopener noreferrer'
-                                className='inline-flex items-center gap-2 rounded-lg border-2 border-gray-300 bg-white px-8 py-4 font-semibold text-gray-700 shadow-md hover:border-orange-500 hover:text-orange-600 transition-all hover:scale-105'>
-                                Join Community
-                                <svg
-                                    className='w-5 h-5'
-                                    fill='none'
-                                    stroke='currentColor'
-                                    viewBox='0 0 24 24'>
-                                    <path
-                                        strokeLinecap='round'
-                                        strokeLinejoin='round'
-                                        strokeWidth={2}
-                                        d='M17 8l4 4m0 0l-4 4m4-4H3'
-                                    />
-                                </svg>
                             </a>
                         </div>
                     </div>
@@ -167,6 +172,9 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            {/* We The People of India - Preamble Section */}
+            <PreambleSection />
 
             {/* Contribute Section */}
             <section
@@ -269,13 +277,13 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* API Section - Coming Soon */}
+            {/* API Section - Now Live */}
             <section id='api' className='py-20 bg-gray-50'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <div className='text-center mb-12'>
-                        <div className='inline-flex items-center gap-2 rounded-full bg-yellow-100 px-4 py-2 mb-6'>
+                        <div className='inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2 mb-6'>
                             <svg
-                                className='w-5 h-5 text-yellow-600'
+                                className='w-5 h-5 text-green-600'
                                 fill='none'
                                 stroke='currentColor'
                                 viewBox='0 0 24 24'>
@@ -283,21 +291,19 @@ export default function Home() {
                                     strokeLinecap='round'
                                     strokeLinejoin='round'
                                     strokeWidth={2}
-                                    d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+                                    d='M5 13l4 4L19 7'
                                 />
                             </svg>
-                            <span className='text-sm font-semibold text-yellow-800'>
-                                Coming Soon
+                            <span className='text-sm font-semibold text-green-800'>
+                                Now Live
                             </span>
                         </div>
                         <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4'>
-                            Public API Platform
+                            Interactive Dashboard
                         </h2>
                         <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
-                            We&apos;re building a comprehensive API platform
-                            that will serve election data to frontend
-                            applications, analytics tools, and the Saransh app.
-                            Stay tuned for updates!
+                            Explore our new interactive dashboard to visualize election data,
+                            search candidates, view party information, and more!
                         </p>
                     </div>
 
@@ -311,12 +317,10 @@ export default function Home() {
                                 </div>
                                 <div>
                                     <h4 className='font-semibold text-gray-900 mb-1'>
-                                        RESTful API Endpoints
+                                        Interactive Dashboard
                                     </h4>
                                     <p className='text-gray-600 text-sm'>
-                                        Clean, intuitive endpoints for
-                                        elections, candidates, parties, and
-                                        constituencies.
+                                        Search candidates, explore elections, view party statistics all in one beautiful interface.
                                     </p>
                                 </div>
                             </div>
@@ -329,12 +333,12 @@ export default function Home() {
                                 </div>
                                 <div>
                                     <h4 className='font-semibold text-gray-900 mb-1'>
-                                        Real-time Data Access
+                                        RESTful API Endpoints
                                     </h4>
                                     <p className='text-gray-600 text-sm'>
-                                        Access up-to-date election results and
-                                        candidate information as they become
-                                        available.
+                                        Clean, intuitive endpoints for
+                                        elections, candidates, parties, and
+                                        constituencies - ready to use.
                                     </p>
                                 </div>
                             </div>
@@ -347,25 +351,34 @@ export default function Home() {
                                 </div>
                                 <div>
                                     <h4 className='font-semibold text-gray-900 mb-1'>
-                                        Developer-Friendly Documentation
+                                        Real-time Data Access
                                     </h4>
                                     <p className='text-gray-600 text-sm'>
-                                        Comprehensive guides, code examples, and
-                                        interactive API explorer.
+                                        Access up-to-date election results and
+                                        candidate information powered by our FastAPI backend.
                                     </p>
                                 </div>
                             </div>
                         </div>
 
                         <div className='mt-8 pt-6 border-t border-gray-200'>
-                            <p className='text-sm text-gray-500 text-center'>
-                                Want to be notified when the API launches?{" "}
-                                <a
-                                    href='https://github.com/imsks/rajniti'
-                                    className='text-orange-600 font-semibold hover:underline'>
-                                    Star us on GitHub
-                                </a>
-                            </p>
+                            <a
+                                href='/dashboard'
+                                className='inline-flex items-center justify-center w-full gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors'>
+                                Explore Dashboard
+                                <svg
+                                    className='w-5 h-5'
+                                    fill='none'
+                                    stroke='currentColor'
+                                    viewBox='0 0 24 24'>
+                                    <path
+                                        strokeLinecap='round'
+                                        strokeLinejoin='round'
+                                        strokeWidth={2}
+                                        d='M13 7l5 5m0 0l-5 5m5-5H6'
+                                    />
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>

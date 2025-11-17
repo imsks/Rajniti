@@ -148,6 +148,10 @@ logs/
 chroma_db/
 .chroma/
 
+# Database migrations - DO NOT IGNORE
+# Migration files in alembic/versions/ should ALWAYS be committed to git
+# They are essential for team collaboration and production deployments
+
 # Node.js / Next.js
 node_modules/
 npm-debug.log*
@@ -159,3 +163,6 @@ out/
 .turbo
 *.tsbuildinfo
 next-env.d.ts
+
+# Local Netlify folder
+.netlify

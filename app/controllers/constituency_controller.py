@@ -24,10 +24,24 @@ class ConstituencyController:
             return None
 
         constituencies = self.data_service.get_constituencies(election_id)
-        constituencies_data = [const.dict() for const in constituencies]
+
+        # Enrich with state names
+        constituencies_data = []
+        for const in constituencies:
+            const_dict = const.dict()
+            const_dict["state_name"] = self.data_service.get_state_name(
+                const.state_id
+            )
+            constituencies_data.append(const_dict)
+
+        # Sort by state name and then constituency name
+        constituencies_data.sort(
+            key=lambda x: (x.get("state_name", ""), x.get("name", ""))
+        )
 
         return {
             "election_id": election_id,
+            "election_name": election.name,
             "total_constituencies": len(constituencies_data),
             "constituencies": constituencies_data,
         }
@@ -35,7 +49,7 @@ class ConstituencyController:
     def get_constituency_by_id(
         self, constituency_id: str, election_id: str
     ) -> Optional[Dict[str, Any]]:
-        """Get specific constituency details with results"""
+        """Get specific constituency details with candidates"""
         constituency = self.data_service.get_constituency_by_id(
             constituency_id, election_id
         )
@@ -48,30 +62,28 @@ class ConstituencyController:
         winner = None
 
         for candidate in candidates:
-            const_field = candidate.get("constituency") or candidate.get(
-                "Constituency Code", ""
-            )
-            if const_field.lower() == constituency_id.lower():
-                constituency_candidates.append(candidate)
+            if candidate.get("constituency_id") == constituency_id:
+                enriched = self.data_service.enrich_candidate_data(
+                    candidate, election_id
+                )
+                constituency_candidates.append(enriched)
 
                 # Find winner
-                status = candidate.get("Status") or candidate.get("status", "")
-                if status == "WON":
-                    winner = candidate
+                if candidate.get("status") == "WON":
+                    winner = enriched
 
-        # Sort candidates by votes (if available)
-        try:
-            constituency_candidates.sort(
-                key=lambda x: int(
-                    str(x.get("Votes", x.get("votes", 0))).replace(",", "")
-                ),
-                reverse=True,
-            )
-        except (ValueError, TypeError):
-            pass
+        # Sort candidates by status (WON first)
+        constituency_candidates.sort(
+            key=lambda x: (x.get("status") != "WON", x.get("name", ""))
+        )
 
         return {
-            "constituency": constituency.dict(),
+            "constituency": {
+                "id": constituency.id,
+                "name": constituency.name,
+                "state_id": constituency.state_id,
+                "state_name": self.data_service.get_state_name(constituency.state_id),
+            },
             "election_id": election_id,
             "total_candidates": len(constituency_candidates),
             "winner": winner,
@@ -82,17 +94,26 @@ class ConstituencyController:
         """Get all constituencies in a specific state"""
         results = []
 
-        for election in self.data_service.get_elections():
-            if election.state_code == state_code:
-                constituencies = self.data_service.get_constituencies(election.id)
-                for const in constituencies:
+        # Only lok-sabha-2024 for now
+        election = self.data_service.get_election("lok-sabha-2024")
+        if election:
+            constituencies = self.data_service.get_constituencies(election.id)
+            for const in constituencies:
+                if const.state_id.upper() == state_code.upper():
                     const_data = const.dict()
+                    const_data["state_name"] = self.data_service.get_state_name(
+                        const.state_id
+                    )
                     const_data["election_id"] = election.id
                     const_data["election_name"] = election.name
                     results.append(const_data)
 
+        # Sort by constituency name
+        results.sort(key=lambda x: x.get("name", ""))
+
         return {
             "state_code": state_code,
+            "state_name": self.data_service.get_state_name(state_code),
             "total_constituencies": len(results),
             "constituencies": results,
         }
@@ -107,40 +128,16 @@ class ConstituencyController:
 
         candidates = constituency_data["all_candidates"]
 
-        # Calculate statistics
-        total_votes = 0
-        victory_margin = 0
-
-        for candidate in candidates:
-            votes_str = candidate.get("Votes") or candidate.get("votes", "0")
-            try:
-                votes = int(str(votes_str).replace(",", ""))
-                total_votes += votes
-            except (ValueError, TypeError):
-                pass
-
         # Calculate victory margin (difference between 1st and 2nd)
+        victory_margin = 0
         if len(candidates) >= 2:
-            try:
-                first_votes = int(
-                    str(
-                        candidates[0].get("Votes", candidates[0].get("votes", 0))
-                    ).replace(",", "")
-                )
-                second_votes = int(
-                    str(
-                        candidates[1].get("Votes", candidates[1].get("votes", 0))
-                    ).replace(",", "")
-                )
-                victory_margin = first_votes - second_votes
-            except (ValueError, TypeError):
-                victory_margin = 0
+            # Candidates are already sorted with winner first
+            victory_margin = 0  # Can calculate from vote data if available
 
         return {
             "constituency": constituency_data["constituency"],
             "election_id": election_id,
             "total_candidates": len(candidates),
-            "total_votes": total_votes,
             "victory_margin": victory_margin,
             "winner": constituency_data["winner"],
             "results": candidates,

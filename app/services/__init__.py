@@ -7,9 +7,16 @@ All business logic for data retrieval and manipulation goes here.
 
 from .chroma_service import ChromaService
 from .data_service import DataService
-from .json_data_service import JsonDataService
+from .db_data_service import DbDataService
+from .perplexity_service import PerplexityService
 
-# Create singleton instance
-data_service: DataService = JsonDataService()
+# Create singleton instance - using database service
+data_service: DataService = DbDataService()
 
-__all__ = ["data_service", "DataService", "JsonDataService", "ChromaService"]
+__all__ = [
+    "data_service",
+    "DataService",
+    "DbDataService",
+    "PerplexityService",
+    "ChromaService",
+]

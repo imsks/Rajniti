@@ -28,10 +28,16 @@ class ElectionController:
             parties = self.data_service.get_parties(election.id)
             constituencies = self.data_service.get_constituencies(election.id)
 
+            # Count winners
+            winners_count = sum(
+                1 for c in candidates if c.get("status") == "WON"
+            )
+
             election_data["statistics"] = {
                 "total_candidates": len(candidates),
                 "total_parties": len(parties),
                 "total_constituencies": len(constituencies),
+                "total_winners": winners_count,
             }
 
             result.append(election_data)
@@ -51,68 +57,44 @@ class ElectionController:
         parties = self.data_service.get_parties(election_id)
         constituencies = self.data_service.get_constituencies(election_id)
 
-        # Count winners
+        # Count winners and party-wise seats
         winners_count = 0
-        total_votes = 0
+        party_seats = {}
 
         for candidate in candidates:
-            status = candidate.get("Status") or candidate.get("status", "")
-            if status == "WON":
+            if candidate.get("status") == "WON":
                 winners_count += 1
+                
+                # Count seats by party
+                party_id = candidate.get("party_id", "UNKNOWN")
+                party_seats[party_id] = party_seats.get(party_id, 0) + 1
 
-            # Try to get vote count
-            votes_str = candidate.get("Votes") or candidate.get("votes", "0")
-            try:
-                votes = int(str(votes_str).replace(",", ""))
-                total_votes += votes
-            except (ValueError, TypeError):
-                pass
+        # Get top parties
+        parties_by_id = {p.id: p for p in parties}
+        top_parties = []
+        for party_id, seats in sorted(
+            party_seats.items(), key=lambda x: x[1], reverse=True
+        )[:5]:
+            party = parties_by_id.get(party_id)
+            if party:
+                top_parties.append({
+                    "party_name": party.name,
+                    "party_short_name": party.short_name,
+                    "seats_won": seats,
+                })
+            elif party_id == "UNKNOWN":
+                top_parties.append({
+                    "party_name": "INDEPENDENT",
+                    "party_short_name": "IND",
+                    "seats_won": seats,
+                })
 
         result["statistics"] = {
             "total_candidates": len(candidates),
             "total_parties": len(parties),
             "total_constituencies": len(constituencies),
             "total_winners": winners_count,
-            "total_votes": total_votes,
+            "top_parties": top_parties,
         }
 
         return result
-
-    def get_election_results(
-        self, election_id: str, limit: Optional[int] = None
-    ) -> Optional[Dict[str, Any]]:
-        """Get election results with candidates"""
-        election = self.data_service.get_election(election_id)
-        if not election:
-            return None
-
-        candidates = self.data_service.get_candidates(election_id)
-
-        if limit:
-            candidates = candidates[:limit]
-
-        return {
-            "election": election.dict(),
-            "total_candidates": len(candidates),
-            "candidates": candidates,
-        }
-
-    def get_election_winners(self, election_id: str) -> Optional[Dict[str, Any]]:
-        """Get only winning candidates for an election"""
-        election = self.data_service.get_election(election_id)
-        if not election:
-            return None
-
-        all_candidates = self.data_service.get_candidates(election_id)
-        winners = []
-
-        for candidate in all_candidates:
-            status = candidate.get("Status") or candidate.get("status", "")
-            if status == "WON":
-                winners.append(candidate)
-
-        return {
-            "election": election.dict(),
-            "total_winners": len(winners),
-            "winners": winners,
-        }

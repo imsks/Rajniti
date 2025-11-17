@@ -1,14 +1,39 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  # Simple Flask API serving JSON data
-  rajniti-api:
-    build: .
-    container_name: rajniti-api
-    ports:
-      - "8080:8080"
-    environment:
-      - SECRET_KEY=dev-secret-key
-    volumes:
-      - ./app/data:/app/app/data:ro  # Mount election data as read-only
-    restart: unless-stopped
+    # PostgreSQL Database
+    postgres:
+        image: postgres:16-alpine
+        container_name: rajniti-postgres
+        environment:
+            - POSTGRES_USER=rajniti
+            - POSTGRES_PASSWORD=rajniti_dev_password
+            - POSTGRES_DB=rajniti
+        ports:
+            - "5432:5432"
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        restart: unless-stopped
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U rajniti"]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+
+    # Simple Flask API serving JSON data
+    rajniti-api:
+        build: .
+        container_name: rajniti-api
+        ports:
+            - "8080:8080"
+        environment:
+            - SECRET_KEY=dev-secret-key
+            - DATABASE_URL=ppostgresql://postgres:postgres@localhost:5432/rajniti
+        # Data is now stored in database, no need to mount JSON files
+        depends_on:
+            postgres:
+                condition: service_healthy
+        restart: unless-stopped
+
+volumes:
+    postgres_data:

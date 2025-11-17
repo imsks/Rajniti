@@ -19,6 +19,10 @@ class CandidateController:
         self, query: str, election_id: Optional[str] = None, limit: Optional[int] = None
     ) -> Dict[str, Any]:
         """Search candidates across elections"""
+        # Default to lok-sabha-2024 if no election_id provided
+        if not election_id:
+            election_id = "lok-sabha-2024"
+
         results = self.data_service.search_candidates(query, election_id)
 
         if limit:
@@ -41,50 +45,57 @@ class CandidateController:
 
         candidates = self.data_service.get_candidates(election_id)
 
+        # Enrich all candidates
+        enriched_candidates = [
+            self.data_service.enrich_candidate_data(candidate, election_id)
+            for candidate in candidates
+        ]
+
         if limit:
-            candidates = candidates[:limit]
+            enriched_candidates = enriched_candidates[:limit]
 
         return {
             "election_id": election_id,
+            "election_name": election.name,
             "total_candidates": len(candidates),
-            "candidates": candidates,
+            "showing": len(enriched_candidates),
+            "candidates": enriched_candidates,
         }
 
     def get_candidate_by_id(
         self, candidate_id: str, election_id: str
     ) -> Optional[Dict[str, Any]]:
-        """Get specific candidate details"""
+        """Get specific candidate details with full information"""
         candidate = self.data_service.get_candidate_by_id(candidate_id, election_id)
-        if not candidate:
-            return None
-
-        candidate_with_election = candidate.copy()
-        candidate_with_election["election_id"] = election_id
-        return candidate_with_election
+        return candidate
 
     def get_candidates_by_party(
         self, party_name: str, election_id: Optional[str] = None
     ) -> Dict[str, Any]:
         """Get all candidates from a specific party"""
+        if not election_id:
+            election_id = "lok-sabha-2024"
+
+        election = self.data_service.get_election(election_id)
+        if not election:
+            return {
+                "party_name": party_name,
+                "election_id": election_id,
+                "total_candidates": 0,
+                "candidates": [],
+            }
+
+        candidates = self.data_service.get_candidates(election_id)
         results = []
-        elections = (
-            [self.data_service.get_election(election_id)]
-            if election_id
-            else self.data_service.get_elections()
-        )
 
-        for election in elections:
-            if not election:
-                continue
-
-            candidates = self.data_service.get_candidates(election.id)
-
-            for candidate in candidates:
-                party_field = candidate.get("Party", "")
-                if party_field.lower() == party_name.lower():
-                    candidate_with_election = candidate.copy()
-                    candidate_with_election["election_id"] = election.id
-                    results.append(candidate_with_election)
+        for candidate in candidates:
+            enriched = self.data_service.enrich_candidate_data(candidate, election_id)
+            # Match by party name or short name
+            if (
+                enriched.get("party_name", "").lower() == party_name.lower()
+                or enriched.get("party_short_name", "").lower() == party_name.lower()
+            ):
+                results.append(enriched)
 
         return {
             "party_name": party_name,
@@ -101,18 +112,33 @@ class CandidateController:
         if not election:
             return None
 
+        # Get constituency details
+        constituency = self.data_service.get_constituency_by_id(
+            constituency_id, election_id
+        )
+        if not constituency:
+            return None
+
         candidates = self.data_service.get_candidates(election_id)
         constituency_candidates = []
 
         for candidate in candidates:
-            const_field = candidate.get("constituency") or candidate.get(
-                "Constituency Code", ""
-            )
-            if const_field.lower() == constituency_id.lower():
-                constituency_candidates.append(candidate)
+            if candidate.get("constituency_id") == constituency_id:
+                enriched = self.data_service.enrich_candidate_data(
+                    candidate, election_id
+                )
+                constituency_candidates.append(enriched)
+
+        # Sort by status (WON first) and then by name
+        constituency_candidates.sort(
+            key=lambda x: (x.get("status") != "WON", x.get("name", ""))
+        )
 
         return {
             "constituency_id": constituency_id,
+            "constituency_name": constituency.name,
+            "state_id": constituency.state_id,
+            "state_name": self.data_service.get_state_name(constituency.state_id),
             "election_id": election_id,
             "total_candidates": len(constituency_candidates),
             "candidates": constituency_candidates,
@@ -122,28 +148,30 @@ class CandidateController:
         self, election_id: Optional[str] = None
     ) -> Dict[str, Any]:
         """Get all winning candidates"""
+        if not election_id:
+            election_id = "lok-sabha-2024"
+
+        election = self.data_service.get_election(election_id)
+        if not election:
+            return {
+                "election_id": election_id,
+                "total_winners": 0,
+                "winners": [],
+            }
+
+        candidates = self.data_service.get_candidates(election_id)
         results = []
-        elections = (
-            [self.data_service.get_election(election_id)]
-            if election_id
-            else self.data_service.get_elections()
-        )
 
-        for election in elections:
-            if not election:
-                continue
-
-            candidates = self.data_service.get_candidates(election.id)
-
-            for candidate in candidates:
-                status = candidate.get("Status") or candidate.get("status", "")
-                if status == "WON":
-                    candidate_with_election = candidate.copy()
-                    candidate_with_election["election_id"] = election.id
-                    results.append(candidate_with_election)
+        for candidate in candidates:
+            if candidate.get("status") == "WON":
+                enriched = self.data_service.enrich_candidate_data(
+                    candidate, election_id
+                )
+                results.append(enriched)
 
         return {
             "election_id": election_id,
+            "election_name": election.name,
             "total_winners": len(results),
             "winners": results,
         }

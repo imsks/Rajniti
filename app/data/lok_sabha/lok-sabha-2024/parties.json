@@ -1,254 +1,254 @@
 [
     {
+        "id": "369",
         "name": "Bharatiya Janata Party",
         "short_name": "BJP",
-        "seats_won": "240",
-        "party_id": "369"
+        "symbol": ""
     },
     {
+        "id": "742",
         "name": "Indian National Congress",
         "short_name": "INC",
-        "seats_won": "99",
-        "party_id": "742"
+        "symbol": ""
     },
     {
+        "id": "1680",
         "name": "Samajwadi Party",
         "short_name": "SP",
-        "seats_won": "37",
-        "party_id": "1680"
+        "symbol": ""
     },
     {
+        "id": "140",
         "name": "All India Trinamool Congress",
         "short_name": "AITC",
-        "seats_won": "29",
-        "party_id": "140"
+        "symbol": ""
     },
     {
+        "id": "582",
         "name": "Dravida Munnetra Kazhagam",
         "short_name": "DMK",
-        "seats_won": "22",
-        "party_id": "582"
+        "symbol": ""
     },
     {
+        "id": "1745",
         "name": "Telugu Desam",
         "short_name": "TDP",
-        "seats_won": "16",
-        "party_id": "1745"
+        "symbol": ""
     },
     {
+        "id": "805",
         "name": "Janata Dal  (United)",
         "short_name": "JD(U)",
-        "seats_won": "12",
-        "party_id": "805"
+        "symbol": ""
     },
     {
+        "id": "3369",
         "name": "Shiv Sena (Uddhav Balasaheb Thackrey)",
         "short_name": "SHSUBT",
-        "seats_won": "9",
-        "party_id": "3369"
+        "symbol": ""
     },
     {
+        "id": "3620",
         "name": "Nationalist Congress Party – Sharadchandra Pawar",
         "short_name": "NCPSP",
-        "seats_won": "8",
-        "party_id": "3620"
+        "symbol": ""
     },
     {
+        "id": "3529",
         "name": "Shiv Sena",
         "short_name": "SHS",
-        "seats_won": "7",
-        "party_id": "3529"
+        "symbol": ""
     },
     {
+        "id": "3165",
         "name": "Lok Janshakti Party(Ram Vilas)",
         "short_name": "LJPRV",
-        "seats_won": "5",
-        "party_id": "3165"
+        "symbol": ""
     },
     {
+        "id": "1888",
         "name": "Yuvajana Sramika Rythu Congress Party",
         "short_name": "YSRCP",
-        "seats_won": "4",
-        "party_id": "1888"
+        "symbol": ""
     },
     {
+        "id": "1420",
         "name": "Rashtriya Janata Dal",
         "short_name": "RJD",
-        "seats_won": "4",
-        "party_id": "1420"
+        "symbol": ""
     },
     {
+        "id": "547",
         "name": "Communist Party of India  (Marxist)",
         "short_name": "CPI(M)",
-        "seats_won": "4",
-        "party_id": "547"
+        "symbol": ""
     },
     {
+        "id": "772",
         "name": "Indian Union Muslim League",
         "short_name": "IUML",
-        "seats_won": "3",
-        "party_id": "772"
+        "symbol": ""
     },
     {
+        "id": "1",
         "name": "Aam Aadmi Party",
         "short_name": "AAAP",
-        "seats_won": "3",
-        "party_id": "1"
+        "symbol": ""
     },
     {
+        "id": "852",
         "name": "Jharkhand Mukti Morcha",
         "short_name": "JMM",
-        "seats_won": "3",
-        "party_id": "852"
+        "symbol": ""
     },
     {
+        "id": "860",
         "name": "Janasena Party",
         "short_name": "JnP",
-        "seats_won": "2",
-        "party_id": "860"
+        "symbol": ""
     },
     {
+        "id": "545",
         "name": "Communist Party of India  (Marxist-Leninist)  (Liberation)",
         "short_name": "CPI(ML)(L)",
-        "seats_won": "2",
-        "party_id": "545"
+        "symbol": ""
     },
     {
+        "id": "804",
         "name": "Janata Dal  (Secular)",
         "short_name": "JD(S)",
-        "seats_won": "2",
-        "party_id": "804"
+        "symbol": ""
     },
     {
+        "id": "1847",
         "name": "Viduthalai Chiruthaigal Katchi",
         "short_name": "VCK",
-        "seats_won": "2",
-        "party_id": "1847"
+        "symbol": ""
     },
     {
+        "id": "544",
         "name": "Communist Party of India",
         "short_name": "CPI",
-        "seats_won": "2",
-        "party_id": "544"
+        "symbol": ""
     },
     {
+        "id": "1458",
         "name": "Rashtriya Lok Dal",
         "short_name": "RLD",
-        "seats_won": "2",
-        "party_id": "1458"
+        "symbol": ""
     },
     {
+        "id": "834",
         "name": "Jammu & Kashmir National Conference",
         "short_name": "JKN",
-        "seats_won": "2",
-        "party_id": "834"
+        "symbol": ""
     },
     {
+        "id": "1998",
         "name": "United People’s Party, Liberal",
         "short_name": "UPPL",
-        "seats_won": "1",
-        "party_id": "1998"
+        "symbol": ""
     },
     {
+        "id": "83",
         "name": "Asom Gana Parishad",
         "short_name": "AGP",
-        "seats_won": "1",
-        "party_id": "83"
+        "symbol": ""
     },
     {
+        "id": "664",
         "name": "Hindustani Awam Morcha (Secular)",
         "short_name": "HAMS",
-        "seats_won": "1",
-        "party_id": "664"
+        "symbol": ""
     },
     {
+        "id": "911",
         "name": "Kerala Congress",
         "short_name": "KEC",
-        "seats_won": "1",
-        "party_id": "911"
+        "symbol": ""
     },
     {
+        "id": "1534",
         "name": "Revolutionary Socialist Party",
         "short_name": "RSP",
-        "seats_won": "1",
-        "party_id": "1534"
+        "symbol": ""
     },
     {
+        "id": "1142",
         "name": "Nationalist Congress Party",
         "short_name": "NCP",
-        "seats_won": "1",
-        "party_id": "1142"
+        "symbol": ""
     },
     {
+        "id": "3388",
         "name": "Voice of the People Party",
         "short_name": "VOTPP",
-        "seats_won": "1",
-        "party_id": "3388"
+        "symbol": ""
     },
     {
+        "id": "2757",
         "name": "Zoram People’s Movement",
         "short_name": "ZPM",
-        "seats_won": "1",
-        "party_id": "2757"
+        "symbol": ""
     },
     {
+        "id": "1584",
         "name": "Shiromani Akali Dal",
         "short_name": "SAD",
-        "seats_won": "1",
-        "party_id": "1584"
+        "symbol": ""
     },
     {
+        "id": "2484",
         "name": "Rashtriya Loktantrik Party",
         "short_name": "RLTP",
-        "seats_won": "1",
-        "party_id": "2484"
+        "symbol": ""
     },
     {
+        "id": "3482",
         "name": "Bharat Adivasi Party",
         "short_name": "BHRTADVSIP",
-        "seats_won": "1",
-        "party_id": "3482"
+        "symbol": ""
     },
     {
+        "id": "1658",
         "name": "Sikkim Krantikari Morcha",
         "short_name": "SKM",
-        "seats_won": "1",
-        "party_id": "1658"
+        "symbol": ""
     },
     {
+        "id": "1046",
         "name": "Marumalarchi Dravida Munnetra Kazhagam",
         "short_name": "MDMK",
-        "seats_won": "1",
-        "party_id": "1046"
+        "symbol": ""
     },
     {
+        "id": "2989",
         "name": "Aazad Samaj Party (Kanshi Ram)",
         "short_name": "ASPKR",
-        "seats_won": "1",
-        "party_id": "2989"
+        "symbol": ""
     },
     {
+        "id": "2070",
         "name": "Apna Dal (Soneylal)",
         "short_name": "ADAL",
-        "seats_won": "1",
-        "party_id": "2070"
+        "symbol": ""
     },
     {
+        "id": "160",
         "name": "AJSU Party",
         "short_name": "AJSUP",
-        "seats_won": "1",
-        "party_id": "160"
+        "symbol": ""
     },
     {
+        "id": "118",
         "name": "All India Majlis-E-Ittehadul Muslimeen",
         "short_name": "AIMIM",
-        "seats_won": "1",
-        "party_id": "118"
+        "symbol": ""
     },
     {
+        "id": "743",
         "name": "Independent",
         "short_name": "IND",
-        "seats_won": "7",
-        "party_id": "743"
+        "symbol": ""
     }
 ]

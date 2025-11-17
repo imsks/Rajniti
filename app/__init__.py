@@ -3,13 +3,18 @@ Simple Flask application factory for Rajniti Election Data API.
 
 Clean, minimal setup without unnecessary complexity.
 """
+import logging
 import os
 
 from flask import Flask
 from flask_cors import CORS
 
+from app.core.database import init_db
 from app.core.exceptions import RajnitiError
 from app.core.response import error_response
+from app.database.migrate import run_migrations
+
+logger = logging.getLogger(__name__)
 
 
 def create_app():
@@ -22,6 +27,15 @@ def create_app():
 
     # Enable CORS
     CORS(app)
+
+    # Initialize database (optional - won't fail if not configured)
+    db_initialized = init_db(app)
+    if db_initialized:
+        logger.info("Database initialized successfully")
+        # Run migrations automatically on startup
+        run_migrations()
+    else:
+        logger.info("Database not initialized - continuing without database")
 
     # Register routes
     _register_routes(app)
