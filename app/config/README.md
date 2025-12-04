@@ -1,6 +1,6 @@
 # LLM Configuration
 
-This module provides a clean, extendable configuration system for Language Learning Model (LLM) providers.
+This module provides a clean, extendable configuration system for Large Language Model (LLM) providers.
 
 ## Overview
 
