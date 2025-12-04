@@ -71,29 +71,35 @@ class LLMConfig(BaseModel):
         # Configure OpenAI if API key is present
         openai_api_key = os.getenv("OPENAI_API_KEY")
         if openai_api_key:
+            max_tokens = None
+            if os.getenv("OPENAI_MAX_TOKENS"):
+                try:
+                    max_tokens = int(os.getenv("OPENAI_MAX_TOKENS"))
+                except (ValueError, TypeError):
+                    pass  # Use None if invalid
+
             providers[LLMProvider.OPENAI] = LLMProviderConfig(
                 api_key=openai_api_key,
                 model=os.getenv("OPENAI_MODEL", "gpt-3.5-turbo"),
                 temperature=float(os.getenv("OPENAI_TEMPERATURE", "0.3")),
-                max_tokens=(
-                    int(os.getenv("OPENAI_MAX_TOKENS"))
-                    if os.getenv("OPENAI_MAX_TOKENS")
-                    else None
-                ),
+                max_tokens=max_tokens,
             )
 
         # Configure Perplexity if API key is present
         perplexity_api_key = os.getenv("PERPLEXITY_API_KEY")
         if perplexity_api_key:
+            max_tokens = None
+            if os.getenv("PERPLEXITY_MAX_TOKENS"):
+                try:
+                    max_tokens = int(os.getenv("PERPLEXITY_MAX_TOKENS"))
+                except (ValueError, TypeError):
+                    pass  # Use None if invalid
+
             providers[LLMProvider.PERPLEXITY] = LLMProviderConfig(
                 api_key=perplexity_api_key,
                 model=os.getenv("PERPLEXITY_MODEL", "sonar"),
                 temperature=float(os.getenv("PERPLEXITY_TEMPERATURE", "0.3")),
-                max_tokens=(
-                    int(os.getenv("PERPLEXITY_MAX_TOKENS"))
-                    if os.getenv("PERPLEXITY_MAX_TOKENS")
-                    else None
-                ),
+                max_tokens=max_tokens,
             )
 
         # Determine default provider

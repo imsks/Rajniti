@@ -210,7 +210,13 @@ class LLMService:
 
             # For simplicity, return the combined result for all queries
             # In production, you might parse the response to separate answers
-            return [result] * len(queries)
+            # Create individual result objects for each query with correct query field
+            results = []
+            for query in queries:
+                query_result = result.copy()
+                query_result["query"] = query
+                results.append(query_result)
+            return results
 
         except Exception as e:
             logger.error(f"Batch search error: {e}")

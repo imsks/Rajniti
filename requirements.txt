@@ -194,7 +194,7 @@ langchain-core==1.1.0
     #   langgraph
     #   langgraph-checkpoint
     #   langgraph-prebuilt
-langchain-openai==1.1.0
+langchain-openai==0.3.34
     # via -r requirements.in
 langchain-text-splitters==1.0.0
     # via langchain-classic
