@@ -19,7 +19,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 if "DATABASE_URL" not in os.environ:
     os.environ["DATABASE_URL"] = "postgresql://dummy:dummy@localhost/dummy"
 
-from app.scrapers.vidhan_sabha import VidhanSabhaScraper
+from app.scrapers.vidhan_sabha import VidhanSabhaScraper  # noqa: E402
 
 
 def setup_logging():
@@ -42,29 +42,29 @@ def main():
         required=True,
         help="ECI Vidhan Sabha results page URL (e.g., https://results.eci.gov.in/ResultAcGenNov2025)",
     )
-    
+
     args = parser.parse_args()
-    
+
     # Setup logging
     setup_logging()
     logger = logging.getLogger(__name__)
-    
+
     logger.info("=" * 80)
     logger.info("Vidhan Sabha Election Data Scraper")
     logger.info("=" * 80)
     logger.info(f"Source URL: {args.url}")
     logger.info("")
-    
+
     try:
         # Initialize and run scraper
         scraper = VidhanSabhaScraper(args.url)
         scraper.scrape()
-        
+
         logger.info("")
         logger.info("=" * 80)
         logger.info("✅ Scraping completed successfully!")
         logger.info("=" * 80)
-        
+
     except KeyboardInterrupt:
         logger.warning("\n⚠️  Scraping interrupted by user")
         sys.exit(1)
