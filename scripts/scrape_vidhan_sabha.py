@@ -15,7 +15,10 @@ from pathlib import Path
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-# Set a dummy DATABASE_URL to avoid import errors if not set
+# NOTE: DATABASE_URL must be set before importing from app package
+# because the app.__init__ module initializes database connections.
+# This is a workaround to use the scraper independently of the main app.
+# Future improvement: Refactor to make database imports lazy/optional.
 if "DATABASE_URL" not in os.environ:
     os.environ["DATABASE_URL"] = "postgresql://dummy:dummy@localhost/dummy"
 

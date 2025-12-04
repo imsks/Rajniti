@@ -8,7 +8,10 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-# Mock database before importing app
+# NOTE: DATABASE_URL must be set before importing from app package
+# because the app.__init__ module initializes database connections.
+# This is required even for testing the scraper in isolation.
+# Future improvement: Refactor to make database imports lazy/optional.
 if "DATABASE_URL" not in os.environ:
     os.environ["DATABASE_URL"] = "postgresql://test:test@localhost/test"
 
@@ -145,7 +148,7 @@ def test_detect_state_info_from_url():
 
 def test_scrape_parties():
     """Test party scraping."""
-    # Patch where it's used, not where it's defined
+    # Patch in vidhan_sabha module where get_with_retry is imported
     with patch("app.scrapers.vidhan_sabha.get_with_retry") as mock_get:
         mock_response = Mock()
         mock_response.status_code = 200
