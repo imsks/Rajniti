@@ -7,9 +7,9 @@ All business logic for data retrieval and manipulation goes here.
 
 from .data_service import DataService
 from .db_data_service import DbDataService
-from .perplexity_service import PerplexityService
-from .llm_service import get_llm_service, LLMProvider
+from .llm_service import get_llm_service
 from .candidate_agent import CandidateAgent
+from app.config.llm_config import LLMProvider
 
 # Create singleton instance - using database service
 data_service: DataService = DbDataService()
@@ -18,7 +18,6 @@ __all__ = [
     "data_service",
     "DataService",
     "DbDataService",
-    "PerplexityService",
     "get_llm_service",
     "LLMProvider",
     "CandidateAgent",
