@@ -1,0 +1,62 @@
+[
+    {
+        "party_name": "Bharatiya Janata Party",
+        "symbol": "BJP",
+        "total_seats": 89
+    },
+    {
+        "party_name": "Janata Dal (United)",
+        "symbol": "JD(U)",
+        "total_seats": 85
+    },
+    {
+        "party_name": "Rashtriya Janata Dal",
+        "symbol": "RJD",
+        "total_seats": 25
+    },
+    {
+        "party_name": "Lok Janshakti Party (Ram Vilas)",
+        "symbol": "LJPRV",
+        "total_seats": 19
+    },
+    {
+        "party_name": "Indian National Congress",
+        "symbol": "INC",
+        "total_seats": 6
+    },
+    {
+        "party_name": "All India Majlis-E-Ittehadul Muslimeen",
+        "symbol": "AIMIM",
+        "total_seats": 5
+    },
+    {
+        "party_name": "Hindustani Awam Morcha (Secular)",
+        "symbol": "HAMS",
+        "total_seats": 5
+    },
+    {
+        "party_name": "Rashtriya Lok Morcha",
+        "symbol": "RSHTLKM",
+        "total_seats": 4
+    },
+    {
+        "party_name": "Communist Party of India (Marxist-Leninist) (Liberation)",
+        "symbol": "CPI(ML)(L)",
+        "total_seats": 2
+    },
+    {
+        "party_name": "Bahujan Samaj Party",
+        "symbol": "BSP",
+        "total_seats": 1
+    },
+    {
+        "party_name": "Communist Party of India (Marxist)",
+        "symbol": "CPI(M)",
+        "total_seats": 1
+    },
+    {
+        "party_name": "Indian Inclusive Party",
+        "symbol": "IIP",
+        "total_seats": 1
+    }
+]
