@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+    # PostgreSQL Database
+    postgres:
+        image: postgres:16-alpine
+        container_name: rajniti-postgres-prod
+        env_file:
+            - .env
+        ports:
+            - "${POSTGRES_PORT}:5432"
+        volumes:
+            - postgres_data_prod:/var/lib/postgresql/data
+        restart: unless-stopped
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+
+    # Production API with gunicorn
+    rajniti-api:
+        build:
+            context: .
+            target: production
+        container_name: rajniti-api-prod
+        env_file:
+            - .env
+        ports:
+            - "${FLASK_PORT}:8000"
+        # No volume mounts for production - code is baked into image
+        depends_on:
+            postgres:
+                condition: service_healthy
+        restart: unless-stopped
+
+volumes:
+    postgres_data_prod:

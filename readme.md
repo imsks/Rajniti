@@ -945,15 +945,6 @@ docker-compose down -v
 **Using Docker:**
 
 ```bash
-# Start PostgreSQL container
-docker run -d \
-  --name rajniti-postgres \
-  -e POSTGRES_USER=rajniti \
-  -e POSTGRES_PASSWORD=rajniti_dev_password \
-  -e POSTGRES_DB=rajniti \
-  -p 5432:5432 \
-  postgres:16-alpine
-
 # Stop container
 docker stop rajniti-postgres
 
@@ -1446,15 +1437,6 @@ docker-compose up -d
 ### **Local Development**
 
 ```bash
-# Install PostgreSQL locally or use Docker
-docker run -d \
-  --name rajniti-postgres \
-  -e POSTGRES_USER=rajniti \
-  -e POSTGRES_PASSWORD=rajniti_dev_password \
-  -e POSTGRES_DB=rajniti \
-  -p 5432:5432 \
-  postgres:16-alpine
-
 # Set DATABASE_URL in your environment
 export DATABASE_URL="postgresql://rajniti:rajniti_dev_password@localhost:5432/rajniti"
 
@@ -1870,9 +1852,9 @@ services:
     postgres:
         image: postgres:16-alpine
         environment:
-            - POSTGRES_USER=rajniti
-            - POSTGRES_PASSWORD=rajniti_dev_password
-            - POSTGRES_DB=rajniti
+            - POSTGRES_USER=${POSTGRES_USER}
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+            - POSTGRES_DB=${POSTGRES_DB}
         ports:
             - "5432:5432"
         volumes:

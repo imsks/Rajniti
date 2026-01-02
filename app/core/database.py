@@ -4,11 +4,12 @@ Database configuration for Rajniti application.
 Simple PostgreSQL setup without any schema definitions yet.
 """
 import logging
-import os
 
 from sqlalchemy import create_engine, text
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import declarative_base, sessionmaker
+
+from app.database.config import get_database_url
 
 logger = logging.getLogger(__name__)
 
@@ -31,10 +32,10 @@ def init_db(app=None):
     """
     global engine, SessionLocal
 
-    # Get database URL from environment or config
-    database_url = os.getenv("DATABASE_URL")
-
-    if not database_url:
+    # Get database URL from unified config (works with local PostgreSQL or Supabase)
+    try:
+        database_url = get_database_url()
+    except ValueError:
         logger.warning("DATABASE_URL not set. Database will not be initialized.")
         return False
 

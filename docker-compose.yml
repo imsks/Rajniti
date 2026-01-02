@@ -1,38 +1,42 @@
 version: "3.8"
 
 services:
-    # PostgreSQL Database
     postgres:
         image: postgres:16-alpine
         container_name: rajniti-postgres
-        environment:
-            - POSTGRES_USER=rajniti
-            - POSTGRES_PASSWORD=rajniti_dev_password
-            - POSTGRES_DB=rajniti
+        env_file:
+            - .env
         ports:
             - "5432:5432"
         volumes:
             - postgres_data:/var/lib/postgresql/data
         restart: unless-stopped
         healthcheck:
-            test: ["CMD-SHELL", "pg_isready -U rajniti"]
+            test: ["CMD-SHELL", "pg_isready"]
             interval: 10s
             timeout: 5s
             retries: 5
+        profiles:
+            - local-db
 
-    # Simple Flask API serving JSON data
+    # Development API with hot reload
+    # Only needs DATABASE_URL in .env - works with local postgres or Supabase
     rajniti-api:
-        build: .
+        build:
+            context: .
+            target: development
         container_name: rajniti-api
+        env_file:
+            - .env
         ports:
-            - "8000:8000"
-        environment:
-            - SECRET_KEY=dev-secret-key
-            - DATABASE_URL=ppostgresql://postgres:postgres@localhost:5432/rajniti
-        # Data is now stored in database, no need to mount JSON files
-        depends_on:
-            postgres:
-                condition: service_healthy
+            - "${FLASK_PORT:-8000}:8000"
+        volumes:
+            # Mount code for hot reload in development
+            - ./app:/app/app
+            - ./run.py:/app/run.py
+            - ./alembic.ini:/app/alembic.ini
+            - ./alembic:/app/alembic
+        # No depends_on - API works with whatever DATABASE_URL points to
         restart: unless-stopped
 
 volumes:
