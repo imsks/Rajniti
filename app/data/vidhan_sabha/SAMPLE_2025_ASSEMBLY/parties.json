@@ -1,0 +1,17 @@
+[
+    {
+        "party_name": "Bharatiya Janata Party",
+        "symbol": "Lotus",
+        "total_seats": 48
+    },
+    {
+        "party_name": "Aam Aadmi Party",
+        "symbol": "Broom",
+        "total_seats": 22
+    },
+    {
+        "party_name": "Indian National Congress",
+        "symbol": "Hand",
+        "total_seats": 0
+    }
+]
