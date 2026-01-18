@@ -1,3 +1,66 @@
+# Rajniti (Flask + Postgres + Next.js)
+
+Short, batteries-included Indian election API. Ships with JSON datasets, auto-migrations, and a tiny auto-seed so new contributors can query data immediately.
+
+## Quick Start (Docker, local Postgres)
+```bash
+# create .env with the values below
+docker compose --profile local-db up -d --build
+# API → http://localhost:8000
+```
+
+## Quick Start (hosted DB, e.g., Supabase)
+```bash
+export DATABASE_URL=postgresql://<user>:<pass>@<host>:<port>/<db>
+python run.py  # uses your DATABASE_URL, runs migrations, seeds if empty
+```
+
+## Auto migrations + auto seed
+- Migrations run on startup.
+- If the DB has zero candidates, a small slice of `app/data/lok_sabha/lok-sabha-2024` is loaded automatically.
+- Controls:
+  - `AUTO_POPULATE_DB` (default: true)
+  - `AUTO_POPULATE_ELECTION_DIR` (default: `app/data/lok_sabha/lok-sabha-2024`)
+  - `AUTO_POPULATE_LIMIT` (default: 500 candidates)
+
+## Minimal .env (Docker/local)
+```
+FLASK_ENV=development
+FLASK_DEBUG=True
+FLASK_HOST=0.0.0.0
+FLASK_PORT=8000
+SECRET_KEY=dev-secret-key
+POSTGRES_USER=rajniti
+POSTGRES_PASSWORD=rajniti_dev_password
+POSTGRES_DB=rajniti
+POSTGRES_PORT=5432
+DATABASE_URL=postgresql://rajniti:rajniti_dev_password@postgres:5432/rajniti
+AUTO_POPULATE_DB=true
+AUTO_POPULATE_LIMIT=500
+```
+Optional: `PERPLEXITY_API_KEY`, `OPENAI_API_KEY`, `CHROMA_DB_PATH`.
+
+## Useful commands
+- `docker compose --profile local-db up -d --build` — run API + local Postgres.
+- `docker compose logs -f` — view logs.
+- `python scripts/db.py migrate` — import full JSON data.
+- `python scripts/db.py sync` — auto-generate & apply migrations.
+- `python scripts/db.py reset` — drop and recreate tables (destructive).
+
+## Project map
+- `app/` Flask API, routes/controllers/services.
+- `app/data/` JSON election data (used for seeding).
+- `app/database/` models, migrations runner, auto-seed.
+- `frontend/` Next.js landing page.
+- `scripts/` DB + data utilities.
+
+## Health + docs
+- Health: `http://localhost:8000/api/v1/health`
+- API docs (JSON): `http://localhost:8000/api/v1/doc`
+
+## Contributing
+- Keep changes small, add tests where it makes sense.
+- Run `docker compose --profile local-db up -d --build` before opening PRs to ensure migrations + seed still work.
 # 🗳️ Rajniti - Simple Election Data API
 
 > **A clean, lightweight Flask API for Indian election data with a beautiful landing page**
@@ -9,7 +72,7 @@
 [![License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
 [![Data Coverage](https://img.shields.io/badge/Data-50K%2B_Records-purple.svg)](#data-coverage)
 
-A simple, clean REST API serving Indian Election Commission data from JSON files. Built with minimal Flask setup for easy deployment and scraping capabilities. Includes a beautiful, India-themed landing page built with Next.js.
+A simple, clean REST API serving Indian Election Commission data from JSON files. Building with minimal Flask setup for easy deployment and scraping capabilities. Includes a beautiful, India-themed landing page built with Next.js.
 
 ## 🚢 Quick Deployment
 
@@ -244,7 +307,7 @@ The Rajniti landing page is a beautiful, India-themed website built with Next.js
 ### **Features**
 
 -   🎨 **India-Themed Design**: Orange, white, and green color scheme
--   ⚡ **Server-Side Rendering**: Built with Next.js App Router for optimal performance
+-   ⚡ **Server-Side Rendering**: Building with Next.js App Router for optimal performance
 -   📱 **Fully Responsive**: Works seamlessly on all devices
 -   🚀 **Easy Deployment**: Compatible with Vercel (recommended), GCP, and AWS
 
@@ -1850,8 +1913,6 @@ services:
         image: postgres:16-alpine
         environment:
             - POSTGRES_USER=${POSTGRES_USER}
-            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-            - POSTGRES_DB=${POSTGRES_DB}
         ports:
             - "5432:5432"
         volumes:
@@ -2020,7 +2081,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Built with ❤️ for 🇮🇳 Democracy**
+**Building with ❤️ for 🇮🇳 Democracy**
 
 _Empowering citizens, researchers, and developers with accessible election data_
 

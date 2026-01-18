@@ -231,4 +231,4 @@ MIT License - See [LICENSE](../LICENSE) for details.
 
 ---
 
-**Built with ❤️ for 🇮🇳 Indian Democracy**
+**Building with ❤️ for 🇮🇳 Indian Democracy**

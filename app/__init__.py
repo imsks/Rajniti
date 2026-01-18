@@ -16,6 +16,7 @@ from app.core.database import init_db
 from app.core.exceptions import RajnitiError
 from app.core.response import error_response
 from app.database.migrate import run_migrations
+from app.database.autopopulate import populate_if_empty
 
 logger = logging.getLogger(__name__)
 
@@ -37,6 +38,8 @@ def create_app():
         logger.info("Database initialized successfully")
         # Run migrations automatically on startup
         run_migrations()
+        # Seed a small dataset for local/dev so contributors can explore quickly
+        populate_if_empty()
     else:
         logger.info("Database not initialized - continuing without database")
 
