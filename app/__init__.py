@@ -37,9 +37,13 @@ def create_app():
     if db_initialized:
         logger.info("Database initialized successfully")
         # Run migrations automatically on startup
-        run_migrations()
-        # Seed a small dataset for local/dev so contributors can explore quickly
-        populate_if_empty()
+        migrations_ok = run_migrations()
+        if migrations_ok:
+            logger.info("Database migrations completed successfully")
+            # Seed a small dataset for local/dev so contributors can explore quickly
+            populate_if_empty()
+        else:
+            logger.warning("Skipping auto-seed; migrations did not complete.")
     else:
         logger.info("Database not initialized - continuing without database")
 

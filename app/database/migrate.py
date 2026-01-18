@@ -5,12 +5,27 @@ Runs Alembic migrations automatically to keep database in sync with models.
 """
 import logging
 import os
+import time
 from pathlib import Path
 
 from alembic import command
 from alembic.config import Config
 
 logger = logging.getLogger(__name__)
+
+
+def _get_retry_settings() -> tuple[int, float]:
+    retries_str = os.getenv("DB_MIGRATION_RETRIES", "8")
+    delay_str = os.getenv("DB_MIGRATION_DELAY", "2")
+    try:
+        retries = max(0, int(retries_str))
+    except ValueError:
+        retries = 8
+    try:
+        delay = max(0.0, float(delay_str))
+    except ValueError:
+        delay = 2.0
+    return retries, delay
 
 
 def run_migrations() -> bool:
@@ -20,30 +35,45 @@ def run_migrations() -> bool:
     Returns:
         bool: True if migrations succeeded, False otherwise
     """
-    try:
-        # Get the project root directory
-        project_root = Path(__file__).parent.parent.parent
-        alembic_cfg = Config(str(project_root / "alembic.ini"))
+    # Get the project root directory
+    project_root = Path(__file__).parent.parent.parent
+    alembic_cfg = Config(str(project_root / "alembic.ini"))
 
-        # Set the database URL from environment
-        database_url = os.getenv("DATABASE_URL")
-        if not database_url:
-            logger.warning("DATABASE_URL not set. Skipping migrations.")
-            return False
-
-        alembic_cfg.set_main_option("sqlalchemy.url", database_url)
-
-        # Run migrations to head
-        logger.info("Running database migrations...")
-        command.upgrade(alembic_cfg, "head")
-        logger.info("✓ Database migrations completed successfully")
-        return True
-
-    except Exception as e:
-        logger.error(f"✗ Migration failed: {e}")
-        # Don't fail the app startup if migrations fail
-        # This allows the app to start even if DB is temporarily unavailable
+    # Set the database URL from environment
+    database_url = os.getenv("DATABASE_URL")
+    if not database_url:
+        logger.warning("DATABASE_URL not set. Skipping migrations.")
         return False
+
+    alembic_cfg.set_main_option("sqlalchemy.url", database_url)
+
+    retries, delay = _get_retry_settings()
+    attempts = retries + 1
+
+    for attempt in range(1, attempts + 1):
+        try:
+            logger.info(
+                "Running database migrations (attempt %s/%s)...",
+                attempt,
+                attempts,
+            )
+            command.upgrade(alembic_cfg, "head")
+            message = "Database migrations completed successfully"
+            logger.info(message)
+            print(message)
+            return True
+        except Exception as e:
+            if attempt >= attempts:
+                logger.error("Migration failed: %s", e)
+                print(f"Migration failed: {e}")
+                return False
+            logger.warning(
+                "Migration attempt %s failed: %s. Retrying in %ss...",
+                attempt,
+                e,
+                delay,
+            )
+            time.sleep(delay)
 
 
 def sync_db() -> bool:
