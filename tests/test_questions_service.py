@@ -32,7 +32,7 @@ def questions_service(mock_vector_db_service):
 
 def test_predefined_questions_exist():
     """Test that predefined questions are defined."""
-    assert len(PREDEFINED_QUESTIONS) == 5
+    assert len(PREDEFINED_QUESTIONS) == 3
     for q in PREDEFINED_QUESTIONS:
         assert "id" in q
         assert "question" in q
@@ -43,7 +43,7 @@ def test_predefined_questions_exist():
 def test_predefined_questions_categories():
     """Test that predefined questions cover all categories."""
     categories = {q["category"] for q in PREDEFINED_QUESTIONS}
-    expected_categories = {"education", "political", "assets", "crime", "family"}
+    expected_categories = {"criminal", "education", "assets"}
     assert categories == expected_categories
 
 
@@ -51,9 +51,9 @@ def test_get_predefined_questions(questions_service):
     """Test retrieving predefined questions."""
     questions = questions_service.get_predefined_questions()
     
-    assert len(questions) == 5
+    assert len(questions) == 3
     assert questions[0]["id"] == "q1"
-    assert "education" in questions[0]["question"].lower()
+    assert "criminal" in questions[0]["question"].lower()
 
 
 def test_answer_question_no_results(questions_service, mock_vector_db_service):
@@ -126,7 +126,7 @@ def test_answer_predefined_question_success(questions_service, mock_vector_db_se
     mock_vector_db_service.query_similar.return_value = [
         {
             "id": "test-123",
-            "document": "Name: Test. Education: PhD.",
+            "document": "Name: Test. Crime cases: FIR 123/2020.",
             "metadata": {"candidate_id": "test-123", "name": "Test"},
             "distance": 0.1,
         }
@@ -136,7 +136,7 @@ def test_answer_predefined_question_success(questions_service, mock_vector_db_se
     
     assert result["success"] is True
     assert result["question_id"] == "q1"
-    assert result["category"] == "education"
+    assert result["category"] == "criminal"
 
 
 def test_answer_predefined_question_not_found(questions_service):

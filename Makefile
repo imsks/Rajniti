@@ -1,7 +1,7 @@
 # Makefile for Rajniti Election Data API
 # Simple and easy to use
 
-.PHONY: help default stop restart logs clean compile compile-python310
+.PHONY: help default stop restart logs clean compile compile-python310 test test-unit test-integration test-e2e test-coverage test-ci lint format
 
 default: ## Install, build, and start application (default command)
 	@echo "🚀 Setting up and starting Rajniti..."
@@ -106,3 +106,105 @@ clean: ## Clean up Docker resources (containers, volumes, images)
 	@echo "🧹 Cleaning up Docker resources..."
 	@docker-compose down -v --rmi local
 	@echo "✅ Cleanup complete"
+
+# =============================================================================
+# Testing Commands
+# =============================================================================
+
+test: ## Run all tests
+	@echo "🧪 Running all tests..."
+	@. venv/bin/activate && pytest tests/ -v
+	@echo "✅ All tests completed"
+
+test-unit: ## Run unit tests only
+	@echo "🧪 Running unit tests..."
+	@. venv/bin/activate && pytest tests/unit/ -v -m unit
+	@echo "✅ Unit tests completed"
+
+test-integration: ## Run integration tests only
+	@echo "🧪 Running integration tests..."
+	@. venv/bin/activate && pytest tests/integration/ -v -m integration
+	@echo "✅ Integration tests completed"
+
+test-e2e: ## Run end-to-end tests only
+	@echo "🧪 Running E2E tests..."
+	@. venv/bin/activate && pytest tests/e2e/ -v -m e2e
+	@echo "✅ E2E tests completed"
+
+test-coverage: ## Run tests with coverage report
+	@echo "🧪 Running tests with coverage..."
+	@. venv/bin/activate && pytest tests/ -v \
+		--cov=app \
+		--cov-report=term-missing \
+		--cov-report=html \
+		--cov-report=xml
+	@echo "✅ Coverage report generated in htmlcov/"
+
+test-ci: ## Run tests in CI mode (fast, with coverage)
+	@echo "🧪 Running CI tests..."
+	@. venv/bin/activate && pytest tests/ -v \
+		--cov=app \
+		--cov-report=xml \
+		--cov-fail-under=60 \
+		-n auto \
+		--junitxml=test-results/junit.xml
+	@echo "✅ CI tests completed"
+
+test-watch: ## Run tests in watch mode (requires pytest-watch)
+	@echo "🧪 Running tests in watch mode..."
+	@. venv/bin/activate && ptw tests/
+
+# =============================================================================
+# Code Quality Commands
+# =============================================================================
+
+lint: ## Run linters (flake8, black check, isort check)
+	@echo "🔍 Running linters..."
+	@. venv/bin/activate && flake8 app/ tests/
+	@. venv/bin/activate && black --check app/ tests/
+	@. venv/bin/activate && isort --check-only app/ tests/
+	@echo "✅ Linting completed"
+
+format: ## Format code with black and isort
+	@echo "🎨 Formatting code..."
+	@. venv/bin/activate && black app/ tests/
+	@. venv/bin/activate && isort app/ tests/
+	@echo "✅ Code formatted"
+
+security: ## Run security checks
+	@echo "🔒 Running security checks..."
+	@. venv/bin/activate && bandit -r app/ -ll
+	@. venv/bin/activate && safety check -r requirements.txt || true
+	@echo "✅ Security checks completed"
+
+# =============================================================================
+# Frontend Testing Commands
+# =============================================================================
+
+test-frontend: ## Run frontend tests
+	@echo "🧪 Running frontend tests..."
+	@cd frontend && npm run test
+	@echo "✅ Frontend tests completed"
+
+test-frontend-coverage: ## Run frontend tests with coverage
+	@echo "🧪 Running frontend tests with coverage..."
+	@cd frontend && npm run test:coverage
+	@echo "✅ Frontend coverage report generated"
+
+lint-frontend: ## Run frontend linting
+	@echo "🔍 Running frontend linting..."
+	@cd frontend && npm run lint
+	@echo "✅ Frontend linting completed"
+
+# =============================================================================
+# Combined Commands
+# =============================================================================
+
+test-all: test test-frontend ## Run all backend and frontend tests
+	@echo "✅ All tests completed"
+
+lint-all: lint lint-frontend ## Run all linting checks
+	@echo "✅ All linting completed"
+
+ci-local: lint test-coverage ## Run full CI pipeline locally
+	@echo "✅ Local CI completed"
