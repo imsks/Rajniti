@@ -51,11 +51,17 @@ def _load_json(path: Path, limit: Optional[int]) -> List[Dict[str, Any]]:
         return []
 
 
+def _filter_nota(candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Remove NOTA entries from candidates list."""
+    return [c for c in candidates if c.get("name") != "NOTA"]
+
+
 def _load_dataset(base_dir: Path, limit: int) -> Dict[str, List[Dict[str, Any]]]:
+    candidates = _load_json(base_dir / "candidates.json", limit)
     return {
         "parties": _load_json(base_dir / "parties.json", None),  # usually small
         "constituencies": _load_json(base_dir / "constituencies.json", None),
-        "candidates": _load_json(base_dir / "candidates.json", limit),
+        "candidates": _filter_nota(candidates),
     }
 
 

@@ -118,7 +118,8 @@ def normalize_candidates_data(
     """
     Normalize candidate data before migration.
 
-    Ensures all required fields are present and valid enum values are used.
+    - Removes NOTA entries
+    - Ensures valid enum values for status
 
     Args:
         candidates_data: List of candidate dictionaries from JSON
@@ -128,6 +129,9 @@ def normalize_candidates_data(
     """
     normalized = []
     for candidate in candidates_data:
+        # Skip NOTA entries
+        if candidate.get("name") == "NOTA":
+            continue
         normalized_candidate = candidate.copy()
         # Normalize status to valid enum value
         normalized_candidate["status"] = normalize_candidate_status(
