@@ -1,5 +1,5 @@
 # Rajniti Makefile
-.PHONY: help dev prod run stop logs clean test test-unit test-e2e coverage lint format db-init db-migrate db-reset frontend
+.PHONY: help dev prod run stop logs clean reset test test-unit test-e2e coverage lint format db-init db-migrate db-reset db-shell frontend frontend-test frontend-lint install install-dev
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DEVELOPMENT
@@ -27,6 +27,10 @@ logs: ## Tail API logs
 clean: ## Remove containers + volumes
 	docker compose --profile local-db down -v --rmi local 2>/dev/null || true
 	docker compose -f docker-compose.prod.yml down -v --rmi local 2>/dev/null || true
+
+reset: ## Clean volumes and restart fresh (fixes user/credential issues)
+	docker compose --profile local-db down -v
+	docker compose --profile local-db up --build
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TESTING
@@ -64,7 +68,7 @@ db-reset: ## Reset database (⚠️ deletes data)
 	. venv/bin/activate && python scripts/db.py reset
 
 db-shell: ## Open psql shell
-	docker exec -it rajniti-postgres psql -U rajniti rajniti
+	docker exec -it rajniti-postgres psql -U postgres
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # FRONTEND

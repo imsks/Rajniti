@@ -1,21 +1,8 @@
 version: "3.8"
 
-# =============================================================================
-# PRODUCTION DOCKER COMPOSE - Uses Supabase Session Pooler
-# =============================================================================
-# Usage:
-#   docker compose -f docker-compose.prod.yml up -d --build
-#
-# Required .env vars:
-#   DATABASE_URL=postgresql://postgres.[project-ref]:[password]@aws-0-[region].pooler.supabase.com:6543/postgres
-#   SECRET_KEY=your-production-secret-key
-#   FLASK_PORT=8000
-#
-# NOTE: No local postgres - connects directly to Supabase Session Pooler
-# =============================================================================
+# Production: Just DATABASE_URL pointing to Supabase
 
 services:
-    # Production API with gunicorn - connects to Supabase
     rajniti-api:
         build:
             context: .
@@ -23,16 +10,8 @@ services:
         container_name: rajniti-api-prod
         env_file:
             - .env
-        environment:
-            # DATABASE_URL from .env points to Supabase Session Pooler
-            DATABASE_URL: ${DATABASE_URL}
-            FLASK_ENV: production
-            FLASK_DEBUG: "false"
         ports:
             - "${FLASK_PORT:-8000}:8000"
-        # No volume mounts for production - code is baked into image
-        # No depends_on - Supabase is external
-        restart: unless-stopped
         healthcheck:
             test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
             interval: 30s

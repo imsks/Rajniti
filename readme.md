@@ -40,12 +40,17 @@ make run        # Local Python (requires DATABASE_URL)
 
 ## Environment
 
-Create `.env` — only `DATABASE_URL` is required:
+Create `.env` file:
 
 ```bash
-# Pick ONE:
-DATABASE_URL=postgresql://rajniti:rajniti_dev@postgres:5432/rajniti  # Docker local
-DATABASE_URL=postgresql://postgres.[ref]:[pw]@pooler.supabase.com:6543/postgres  # Supabase
+# Local Docker
+DATABASE_URL=postgresql://postgres@postgres:5432/postgres
+
+# Local Python (without Docker)
+DATABASE_URL=postgresql://postgres@localhost:5432/postgres
+
+# Supabase (production)
+DATABASE_URL=postgresql://postgres.[ref]:[pw]@pooler.supabase.com:6543/postgres
 
 # Optional
 FLASK_PORT=8000
@@ -61,10 +66,11 @@ PERPLEXITY_API_KEY=pplx-...
 make dev              # Start with local Postgres (Docker)
 make prod             # Start with Supabase (Docker)
 make run              # Local Python server
+make reset            # Clean volumes + restart (fixes credential issues)
 make test             # Run all tests
 make coverage         # Tests + coverage report
 make logs             # Tail Docker logs
-make clean            # Reset everything
+make clean            # Remove containers + volumes
 ```
 
 Run `make help` for all commands.

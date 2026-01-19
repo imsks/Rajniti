@@ -1,41 +1,25 @@
 version: "3.8"
 
-# =============================================================================
-# LOCAL DEVELOPMENT DOCKER COMPOSE
-# =============================================================================
-# Usage:
-#   With local postgres:  docker compose --profile local-db up -d --build
-#   With Supabase:        docker compose up -d --build  (set DATABASE_URL in .env)
-#
-# Required .env vars:
-#   DATABASE_URL=postgresql://rajniti:rajniti_dev@postgres:5432/rajniti  (for local-db)
-#   DATABASE_URL=postgresql://...@pooler.supabase.com:6543/postgres      (for Supabase)
-# =============================================================================
+# .env only needs: DATABASE_URL (and optionally POSTGRES_USER for db-shell)
 
 services:
-    # Local PostgreSQL - only used with `--profile local-db`
     postgres:
         image: postgres:16-alpine
         container_name: rajniti-postgres
         environment:
-            # Fixed credentials for local dev - must match DATABASE_URL
-            POSTGRES_USER: rajniti
-            POSTGRES_PASSWORD: rajniti_dev
-            POSTGRES_DB: rajniti
+            POSTGRES_HOST_AUTH_METHOD: trust  # No password for local dev
         ports:
             - "5432:5432"
         volumes:
             - postgres_data:/var/lib/postgresql/data
-        restart: unless-stopped
         healthcheck:
-            test: ["CMD-SHELL", "pg_isready -U rajniti -d rajniti"]
+            test: ["CMD-SHELL", "pg_isready"]
             interval: 10s
             timeout: 5s
             retries: 5
         profiles:
             - local-db
 
-    # Development API with hot reload
     rajniti-api:
         build:
             context: .
@@ -43,13 +27,9 @@ services:
         container_name: rajniti-api
         env_file:
             - .env
-        environment:
-            # DATABASE_URL from .env is used directly
-            DATABASE_URL: ${DATABASE_URL}
         ports:
             - "${FLASK_PORT:-8000}:8000"
         volumes:
-            # Mount code for hot reload in development
             - ./app:/app/app
             - ./run.py:/app/run.py
             - ./alembic.ini:/app/alembic.ini
@@ -58,7 +38,6 @@ services:
             postgres:
                 condition: service_healthy
                 required: false
-        restart: unless-stopped
 
 volumes:
     postgres_data:
