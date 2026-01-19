@@ -1,18 +1,34 @@
 version: "3.8"
 
+# =============================================================================
+# LOCAL DEVELOPMENT DOCKER COMPOSE
+# =============================================================================
+# Usage:
+#   With local postgres:  docker compose --profile local-db up -d --build
+#   With Supabase:        docker compose up -d --build  (set DATABASE_URL in .env)
+#
+# Required .env vars:
+#   DATABASE_URL=postgresql://rajniti:rajniti_dev@postgres:5432/rajniti  (for local-db)
+#   DATABASE_URL=postgresql://...@pooler.supabase.com:6543/postgres      (for Supabase)
+# =============================================================================
+
 services:
+    # Local PostgreSQL - only used with `--profile local-db`
     postgres:
         image: postgres:16-alpine
         container_name: rajniti-postgres
-        env_file:
-            - .env
+        environment:
+            # Fixed credentials for local dev - must match DATABASE_URL
+            POSTGRES_USER: rajniti
+            POSTGRES_PASSWORD: rajniti_dev
+            POSTGRES_DB: rajniti
         ports:
             - "5432:5432"
         volumes:
             - postgres_data:/var/lib/postgresql/data
         restart: unless-stopped
         healthcheck:
-            test: ["CMD-SHELL", "pg_isready"]
+            test: ["CMD-SHELL", "pg_isready -U rajniti -d rajniti"]
             interval: 10s
             timeout: 5s
             retries: 5
@@ -20,7 +36,6 @@ services:
             - local-db
 
     # Development API with hot reload
-    # Only needs DATABASE_URL in .env - works with local postgres or Supabase
     rajniti-api:
         build:
             context: .
@@ -29,7 +44,7 @@ services:
         env_file:
             - .env
         environment:
-            # Force local DB inside Docker regardless of host env
+            # DATABASE_URL from .env is used directly
             DATABASE_URL: ${DATABASE_URL}
         ports:
             - "${FLASK_PORT:-8000}:8000"
@@ -39,7 +54,10 @@ services:
             - ./run.py:/app/run.py
             - ./alembic.ini:/app/alembic.ini
             - ./alembic:/app/alembic
-        # No depends_on - API works with whatever DATABASE_URL points to
+        depends_on:
+            postgres:
+                condition: service_healthy
+                required: false
         restart: unless-stopped
 
 volumes:

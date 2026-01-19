@@ -1,176 +1,100 @@
 # 🗳️ Rajniti
 
-> Indian Election Data API — Flask + PostgreSQL + Next.js
+**Indian Election Intelligence API** — Real-time candidate data, LLM-powered Q&A, semantic search.
+
+[![Python](https://img.shields.io/badge/Python-3.9+-3776ab?logo=python&logoColor=white)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-3.0-000?logo=flask)](https://flask.palletsprojects.com)
+[![Next.js](https://img.shields.io/badge/Next.js-15-000?logo=next.js)](https://nextjs.org)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?logo=postgresql&logoColor=white)](https://postgresql.org)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)](https://docker.com)
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| **Backend** | Flask, SQLAlchemy, Alembic, Gunicorn |
+| **Frontend** | Next.js 15, TypeScript, TailwindCSS |
+| **Database** | PostgreSQL 16, Supabase (prod) |
+| **AI/Search** | OpenAI, Perplexity, ChromaDB |
+| **Infra** | Docker, GCP Cloud Run, Vercel |
+
+---
 
 ## Quick Start
 
-### Option 1: Docker (Recommended)
-
 ```bash
-git clone https://github.com/your-username/rajniti.git
-cd rajniti
+# Clone & setup
+git clone https://github.com/your-username/rajniti.git && cd rajniti
 
-# Start API + PostgreSQL
-docker compose --profile local-db up -d --build
-
-# API: http://localhost:8000
-# Health: http://localhost:8000/api/v1/health
+# Create .env (see below)
+make dev        # Docker + local Postgres
+# OR
+make run        # Local Python (requires DATABASE_URL)
 ```
 
-### Option 2: Local Python + Supabase/Postgres
-
-```bash
-git clone https://github.com/your-username/rajniti.git
-cd rajniti
-
-# Create virtual environment
-python3 -m venv venv
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Set database URL (Supabase or local Postgres)
-export DATABASE_URL="postgresql://user:password@localhost:5432/rajniti"
-
-# Run
-python run.py
-```
+**API:** http://localhost:8000 | **Health:** http://localhost:8000/api/v1/health
 
 ---
 
-## Environment Variables
+## Environment
 
-Create a `.env` file in the project root:
+Create `.env` — only `DATABASE_URL` is required:
 
 ```bash
-# Required for Docker
-POSTGRES_USER=rajniti
-POSTGRES_PASSWORD=rajniti_dev_password
-POSTGRES_DB=rajniti
-DATABASE_URL=postgresql://rajniti:rajniti_dev_password@postgres:5432/rajniti
+# Pick ONE:
+DATABASE_URL=postgresql://rajniti:rajniti_dev@postgres:5432/rajniti  # Docker local
+DATABASE_URL=postgresql://postgres.[ref]:[pw]@pooler.supabase.com:6543/postgres  # Supabase
 
 # Optional
-SECRET_KEY=your-secret-key
-FLASK_ENV=development
-FLASK_DEBUG=True
 FLASK_PORT=8000
-PERPLEXITY_API_KEY=your-api-key
-OPENAI_API_KEY=your-api-key
-
-# Auto-populate settings (enabled by default)
-AUTO_POPULATE_DB=true
-AUTO_POPULATE_LIMIT=500
+OPENAI_API_KEY=sk-...
+PERPLEXITY_API_KEY=pplx-...
 ```
 
 ---
 
-## Database Setup
-
-### Install PostgreSQL
-
-**macOS:**
-```bash
-brew install postgresql
-brew services start postgresql
-createdb rajniti
-```
-
-**Ubuntu/Debian:**
-```bash
-sudo apt-get install postgresql postgresql-contrib
-sudo service postgresql start
-sudo -u postgres createdb rajniti
-```
-
-### Connect & View Data
+## Commands
 
 ```bash
-# Connect to database
-psql -U postgres -d rajniti
-
-# Common commands
-\dt                     # List tables
-\d candidates           # Describe table
-SELECT COUNT(*) FROM candidates;
-SELECT * FROM candidates LIMIT 10;
-\q                      # Exit
+make dev              # Start with local Postgres (Docker)
+make prod             # Start with Supabase (Docker)
+make run              # Local Python server
+make test             # Run all tests
+make coverage         # Tests + coverage report
+make logs             # Tail Docker logs
+make clean            # Reset everything
 ```
 
-### Docker PostgreSQL Shell
-
-```bash
-# Connect to running container
-docker exec -it rajniti-postgres psql -U rajniti -d rajniti
-
-# Same commands work inside
-\dt
-SELECT * FROM parties LIMIT 5;
-\q
-```
+Run `make help` for all commands.
 
 ---
 
-## Data Migration
-
-### Auto-Population (Default)
-
-On startup, the app automatically seeds the database with sample election data if empty. Control via:
-
-```bash
-AUTO_POPULATE_DB=true        # Enable/disable (default: true)
-AUTO_POPULATE_LIMIT=500      # Number of candidates to load
-```
-
-### Manual Migration
-
-```bash
-# Activate venv
-source venv/bin/activate
-
-# Initialize tables
-python scripts/db.py init
-
-# Migrate JSON data to database
-python scripts/db.py migrate
-
-# Preview without changes
-python scripts/db.py migrate --dry-run
-
-# Sync model changes
-python scripts/db.py sync
-
-# Reset database (WARNING: deletes all data)
-python scripts/db.py reset
-```
-
----
-
-## Frontend
-
-```bash
-cd frontend
-npm install
-npm run dev
-# http://localhost:3000
-```
-
-Deploy to Vercel: Set **Root Directory** to `frontend`.
-
----
-
-## API Endpoints
+## API
 
 | Endpoint | Description |
 |----------|-------------|
-| `GET /api/v1/health` | Health check |
 | `GET /api/v1/elections` | List elections |
 | `GET /api/v1/candidates/search?q=modi` | Search candidates |
 | `GET /api/v1/parties` | List parties |
-| `GET /api/v1/questions` | Predefined questions |
-| `POST /api/v1/questions/ask` | Ask a question |
+| `POST /api/v1/questions/ask` | Ask LLM about elections |
 
-Full docs: `GET /api/v1/doc`
+Docs: `GET /api/v1/doc`
+
+---
+
+## Testing
+
+```bash
+make test             # All tests
+make test-unit        # Unit only
+make test-e2e         # E2E only
+make coverage         # With coverage
+make lint             # Code quality
+```
+
+**Coverage Target:** 60%+ | **Test Types:** Unit, Integration, E2E
 
 ---
 
@@ -179,44 +103,44 @@ Full docs: `GET /api/v1/doc`
 ```
 rajniti/
 ├── app/
-│   ├── controllers/     # Business logic
-│   ├── database/        # Models, migrations
-│   ├── routes/          # API endpoints
-│   ├── services/        # Data access
-│   └── data/            # JSON election data
-├── frontend/            # Next.js app
-├── scripts/             # CLI utilities
-├── alembic/             # DB migrations
-├── docker-compose.yml
-└── run.py
+│   ├── controllers/    # Business logic
+│   ├── database/       # Models, migrations
+│   ├── routes/         # API endpoints
+│   ├── services/       # LLM, search, data
+│   └── data/           # Election JSON
+├── frontend/           # Next.js app
+├── tests/              # pytest suite
+├── alembic/            # DB migrations
+└── Makefile            # All commands
 ```
 
 ---
 
-## Commands
+## Database
 
 ```bash
-# Docker
-docker compose --profile local-db up -d --build   # Start
-docker compose logs -f rajniti-api                # Logs
-docker compose down                               # Stop
-docker compose down -v                            # Stop + remove volumes
+# Docker shell
+docker exec -it rajniti-postgres psql -U rajniti -d rajniti
 
-# Local
-python run.py                                     # Run dev server
-python scripts/db.py init                         # Init DB
-python scripts/db.py migrate                      # Migrate data
-pytest tests/ -v                                  # Run tests
+# Migrations
+make db-init          # Create tables
+make db-migrate       # Run migrations
+make db-reset         # Reset (⚠️ deletes data)
 ```
 
 ---
 
-## Contributing
+## Deploy
 
-1. Fork the repo
-2. Create a feature branch: `git checkout -b feature/my-feature`
-3. Make changes and test
-4. Submit a pull request
+**Backend → GCP Cloud Run**
+```bash
+docker compose -f docker-compose.prod.yml up -d --build
+```
+
+**Frontend → Vercel**
+```bash
+cd frontend && vercel --prod
+```
 
 ---
 
