@@ -43,11 +43,11 @@ make run        # Local Python (requires DATABASE_URL)
 Create `.env` file:
 
 ```bash
-# Local Docker
-DATABASE_URL=postgresql://postgres@postgres:5432/postgres
+# Any user/database works - auto-created on first run!
+DATABASE_URL=postgresql://myuser:mypass@postgres:5432/mydb
 
-# Local Python (without Docker)
-DATABASE_URL=postgresql://postgres@localhost:5432/postgres
+# Or just use defaults
+DATABASE_URL=postgresql://postgres@postgres:5432/postgres
 
 # Supabase (production)
 DATABASE_URL=postgresql://postgres.[ref]:[pw]@pooler.supabase.com:6543/postgres

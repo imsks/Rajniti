@@ -7,6 +7,7 @@ import logging
 import os
 import time
 from pathlib import Path
+import traceback
 
 from alembic import command
 from alembic.config import Config
@@ -65,7 +66,7 @@ def run_migrations() -> bool:
         except Exception as e:
             if attempt >= attempts:
                 logger.error("Migration failed: %s", e)
-                print(f"Migration failed: {e}")
+                print(f"Migration failed: {e} {traceback.format_exc()}")
                 return False
             logger.warning(
                 "Migration attempt %s failed: %s. Retrying in %ss...",

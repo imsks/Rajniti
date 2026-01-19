@@ -1,17 +1,19 @@
 version: "3.8"
 
-# .env only needs: DATABASE_URL (and optionally POSTGRES_USER for db-shell)
+# Just set DATABASE_URL in .env - any user/db will be auto-created
 
 services:
     postgres:
         image: postgres:16-alpine
         container_name: rajniti-postgres
         environment:
-            POSTGRES_HOST_AUTH_METHOD: trust  # No password for local dev
+            POSTGRES_HOST_AUTH_METHOD: trust
+            DATABASE_URL: ${DATABASE_URL}
         ports:
             - "5432:5432"
         volumes:
             - postgres_data:/var/lib/postgresql/data
+            - ./docker/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
         healthcheck:
             test: ["CMD-SHELL", "pg_isready"]
             interval: 10s

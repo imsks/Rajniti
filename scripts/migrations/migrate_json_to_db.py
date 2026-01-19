@@ -17,6 +17,7 @@ Usage:
 import argparse
 import json
 import sys
+import traceback
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -242,7 +243,7 @@ def migrate_election_data(election_dir: Path, dry_run: bool = False):
         print(f"{'='*60}")
 
     except Exception as e:
-        print(f"\n✗ Migration failed: {e}")
+        print(f"\n✗ Migration failed: {e} {traceback.format_exc()}")
         sys.exit(1)
 
 
