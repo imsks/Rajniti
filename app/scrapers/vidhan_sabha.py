@@ -11,7 +11,8 @@ import time
 import uuid
 from pathlib import Path
 from typing import Dict, List
-
+import json, os
+from typing import Any, Dict, List
 from bs4 import BeautifulSoup
 
 from .base import (
@@ -39,6 +40,7 @@ class VidhanSabhaScraper:
         self.base_url = normalize_base_url(url)
         self.state_code = None
         self.state_name = None
+        self.state_id = None
         self.year = None
         self.election_name = None
         self.folder_name = None
@@ -52,32 +54,150 @@ class VidhanSabhaScraper:
     def _generate_uuid(self) -> str:
         """Generate a unique UUID for a candidate."""
         return str(uuid.uuid4())
+    
+    def _generate_party_page_link(self, party_id: str) -> str:
+        """Generate a constituency page link from party id."""
+        return f"{self.base_url}/partywisewinresult-{party_id}.htm"
+    
+    def _generate_constituency_page_link(
+        self, state_id: str, constituency_id: str
+    ) -> str:
+        """Generate a constituency page link from state and constituency code."""
+        return f"{self.base_url}/candidateswise-{state_id}{constituency_id}.htm"
+    
+    @staticmethod
+    def _append_json(filepath: Path, data):
+        """Append one or multiple records to a JSON array file efficiently."""
+        filepath.parent.mkdir(parents=True, exist_ok=True)
+        if not filepath.exists():
+            # If file doesn't exist, always store as a flat list
+            if isinstance(data, list):
+                json_data = data
+            else:
+                json_data = [data]
+            with open(filepath, "w", encoding="utf-8") as f:
+                json.dump(json_data, f, ensure_ascii=False, indent=2)
+        else:
+            with open(filepath, "r+", encoding="utf-8") as f:
+                try:
+                    existing = json.load(f)
+                except json.JSONDecodeError:
+                    existing = []
+                if isinstance(data, list):
+                    existing.extend(data)
+                else:
+                    existing.append(data)
+                f.seek(0)
+                json.dump(existing, f, ensure_ascii=False, indent=2)
+    
+    @staticmethod
+    def count_json_records(filepath):
+            if filepath.exists():
+                try:
+                    with open(filepath, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                        return len(data)
+                except Exception:
+                    return 0
+            return 0
+    
+    def _get_party_id_by_name(self, party_name: str) -> str:
+        """
+        Convert party name to party ID by looking up in parties_data.
+        
+        Args:
+            party_name: Full party name to search for
+            
+        Returns:
+            Party ID if found, otherwise returns 'UNKNOWN'
+        """
+        if not party_name:
+            return "UNKNOWN"
 
+        # Normalize the input party name for comparison
+        party_name_normalized = party_name.strip().lower()
+
+        for party in self.parties_data:
+            # Check against both full name and short name
+            if (party["name"].strip().lower() == party_name_normalized or 
+                party["short_name"].strip().lower() == party_name_normalized):
+                return party["id"]
+
+        logger.warning(f"Party not found: {party_name}")
+        return "UNKNOWN"    
+                    
     def scrape(self) -> None:
         """Main scraping orchestrator - scrapes all data and saves to JSON files."""
         logger.info(f"Starting Vidhan Sabha scraping from {self.base_url}")
-
-        # Detect state and extract metadata first
         self._detect_state_info()
+        base_path = Path("app/data")
+        self.vidhan_sabha_dir = base_path / "vidhan_sabha" / self.folder_name
+        self.elections_dir = base_path / "elections"
+
+        # Extract year and metadata first
+
+        # Prepare directories
+        self.parties_file = self.vidhan_sabha_dir / "parties.json"
+        self.constituencies_file = self.vidhan_sabha_dir / "constituencies.json"
+        self.candidates_file = self.vidhan_sabha_dir / "candidates.json"
+        # Detect state and extract metadata first
 
         # Scrape all data
+        # Layer 1: Party-wise results
         logger.info("Scraping party-wise results...")
-        self._scrape_parties()
+        parties_data = self._scrape_parties()
+        self.parties_data = parties_data
+        save_json(self.parties_data, self.parties_file)
+        logger.info(f"🌟 Found {str(len(self.parties_data))} parties.")
+        
+        for party in self.parties_data:
+            logger.info(f"\n Scraping Party: {party['name']} ({party['id']})")
+            party_id=party["id"]
+            party_name=party["name"]
+            # Layer 2: Fetch constituencies for this party
+            constituencies = self._scrape_constituencies(party_id,self.state_id, party_name)
+            print(f" all constituencies for {party_name} found are {constituencies}")
+            if not constituencies:
+                logger.warning(f"No constituencies found for {party_name}")
+                continue
 
-        logger.info("Discovering constituencies...")
-        self._scrape_constituencies()
 
-        logger.info("Scraping candidates...")
-        self._scrape_candidates()
+            # Squash all constituencies for this party
+            for constituency in constituencies:
+                self._append_json(self.constituencies_file, constituency)
 
-        # Save all data
-        self._save_all_data()
+            # Layer 3: For each constituency, scrape candidates
+            for constituency in constituencies:
+                allcandidates = []
 
-        logger.info(f"Vidhan Sabha scraping completed successfully!")
-        logger.info(f"  - State: {self.state_name} ({self.state_code})")
-        logger.info(f"  - Parties: {len(self.parties_data)}")
-        logger.info(f"  - Constituencies: {len(self.constituencies_data)}")
-        logger.info(f"  - Candidates: {len(self.candidates_data)}")
+                constituency_state_id = constituency["state_id"]
+                constituency_id = constituency["id"]
+                constituency_name = constituency["name"]
+                candidates = self._scrape_candidates(
+                    constituency_state_id, constituency_id, constituency_name
+                )
+
+                # Collect all candidates for this constituency
+                allcandidates.extend(candidates)
+
+                # Save all candidates of this constituency together
+                if allcandidates:
+                    for cand in allcandidates:
+                        self._append_json(self.candidates_file, cand)
+
+                logger.info(
+                    f"{len(allcandidates)} candidates saved for {constituency_name}"
+                )
+
+
+        party_count = self.count_json_records(self.parties_file)
+        constituency_count = self.count_json_records(self.constituencies_file)
+        candidate_count = self.count_json_records(self.candidates_file)
+
+        logger.info("Vidhan Sabha scraping completed successfully!")
+        logger.info(f"- Number of Parties found: {party_count}")
+        logger.info(f"- Number of Constituenties found: {constituency_count}")
+        logger.info(f"- Number of Candidates found: {candidate_count}")
 
     def _detect_state_info(self) -> None:
         """Auto-detect state code, state name, and year from URL and page content."""
@@ -107,13 +227,13 @@ class VidhanSabhaScraper:
         }
 
         # Try to extract from URL first
-        url_lower = self.base_url.lower()
-        for pattern, (code, name) in state_patterns.items():
-            if re.search(pattern, url_lower):
-                self.state_code = code
-                self.state_name = name
-                logger.info(f"Detected from URL: {name} ({code})")
-                break
+        # url_lower = self.base_url.lower()
+        # for pattern, (code, name) in state_patterns.items():
+        #     if re.search(pattern, url_lower):
+        #         self.state_code = code
+        #         self.state_name = name
+        #         logger.info(f"Detected from URL: {name} ({code})")
+        #         break
 
         # Extract year from URL
         year_match = re.search(r"20\d{2}", self.base_url)
@@ -129,7 +249,9 @@ class VidhanSabhaScraper:
                 soup = BeautifulSoup(response.content, "html.parser")
 
                 # Look in title or headings
-                title = soup.find("title")
+                main_tag=soup.find("main").find("div", {"class": "page-title"})
+                title = main_tag.find("h2")
+                
                 if title:
                     title_text = title.get_text()
 
@@ -146,7 +268,7 @@ class VidhanSabhaScraper:
 
                     # Extract year from title if not found yet
                     if not self.year:
-                        year_match = re.search(r"20\d{2}", title_text)
+                        year_match = re.search(r"20\d{2}", main_tag.find("h1").get_text())
                         if year_match:
                             self.year = int(year_match.group(0))
 
@@ -166,9 +288,22 @@ class VidhanSabhaScraper:
 
         logger.info(f"Election: {self.election_name}")
         logger.info(f"Output folder: {self.folder_name}")
+    
+    def _scrape_parties(self) -> List[Dict[str, str]]:
+        """Scrape party-wise results and compile party list with seat counts."""
+        parties_data = self._discover_parties_details()
+        print("partyyy dtaaa::",parties_data)
+        if not parties_data:
+            logger.warning("No parties discovered")
+            return
 
-    def _scrape_parties(self) -> None:
+        logger.info(f"Found {len(parties_data)} parties, scraping results...")
+
+        return parties_data    
+
+    def _discover_parties_details(self) -> List[Dict[str, str]]:
         """Scrape party-wise results from main results page."""
+        parties_data = []
         url = f"{self.base_url}/index.htm"
         response = get_with_retry(url, referer=self.base_url)
 
@@ -195,7 +330,12 @@ class VidhanSabhaScraper:
                 full_name = (
                     party_tag.text.strip() if party_tag else cols[0].text.strip()
                 )
-
+                constituency_id = cols[1].find("a")["href"].split("-")[-1].split(".")[0]
+                party_id=constituency_id[:-3]
+                state_id=constituency_id[-3:]
+                
+                if self.state_id is None:
+                    self.state_id = state_id
                 # Split party name and symbol (usually "Party Name - Symbol")
                 if " - " in full_name:
                     party_name, symbol = full_name.split(" - ", 1)
@@ -210,90 +350,78 @@ class VidhanSabhaScraper:
                     total_seats = 0
 
                 if party_name:  # Skip empty rows
-                    self.parties_data.append(
+                    parties_data.append(
                         {
-                            "party_name": party_name.strip(),
-                            "symbol": symbol.strip(),
-                            "total_seats": total_seats,
+                            "id":party_id,
+                            "name": party_name.strip(),
+                            "short_name": symbol.strip(),
+                            "symbol": "",
                         }
                     )
 
         # Sort by seats (descending)
-        self.parties_data.sort(key=lambda x: (-x["total_seats"], x["party_name"]))
-
+        # self.parties_data.sort(key=lambda x: (-x["total_seats"], x["party_name"]))
         logger.info(f"Scraped {len(self.parties_data)} parties")
+        return parties_data
 
-    def _scrape_constituencies(self) -> None:
+    def _scrape_constituencies(self, party_id:str,state_id:str, party_name:str) -> List[Dict[str, str]]:
         """Discover and scrape constituency data."""
-        constituency_links = self._discover_constituency_links()
+        constituencies_data = self._discover_constituency_details(party_id,state_id,party_name)
+        return constituencies_data
 
-        for const in constituency_links:
-            const_id = const["constituency_code"]
-            const_name = const.get("name", "")
-
-            self.constituencies_data.append(
-                {
-                    "constituency_id": const_id,
-                    "constituency_name": const_name,
-                    "state_id": self.state_code,
-                }
-            )
-
-        logger.info(f"Found {len(self.constituencies_data)} constituencies")
-
-    def _discover_constituency_links(self) -> List[Dict[str, str]]:
+    def _discover_constituency_details(self,party_id:str,state_id:str,party_name:str) -> List[Dict[str, str]]:
         """Auto-discover constituency links from main page or by sequential probing."""
-        logger.info("Discovering constituency links...")
-        constituency_links = []
+        constituencies_data = []
+        seen_constituencies = set()  # Track unique constituencies to avoid duplicates
 
         # Try to find constituency links on main page
-        url = f"{self.base_url}/index.htm"
+        url = self._generate_party_page_link(f"{party_id}{state_id}")
         response = get_with_retry(url, referer=self.base_url)
+        if not response:
+            logger.warning(f"Could not fetch party results page for {party_name}")
+            return []
 
-        if response:
-            soup = BeautifulSoup(response.content, "html.parser")
+        soup = BeautifulSoup(response.content, "html.parser")
+        table = soup.find("table", {"class": "table"})
+        if not table:
+            logger.warning(f"No party table found on {party_name} results page")
+            return []
 
-            # Look for constituency links
-            for link in soup.find_all("a", href=True):
-                href = link["href"]
-                if "candidateswise" in href.lower():
-                    # Extract constituency code
-                    match = re.search(
-                        r"candidateswise-([^.]+)\.htm", href, re.IGNORECASE
-                    )
-                    if match:
-                        const_code = match.group(1)
-                        const_name = link.get_text(strip=True)
-
-                        constituency_links.append(
-                            {
-                                "constituency_code": const_code,
-                                "name": const_name,
-                                "url": (
-                                    f"{self.base_url}/{href}"
-                                    if not href.startswith("http")
-                                    else href
-                                ),
-                            }
+        tbody = table.find("tbody")
+        if tbody:
+            rows = tbody.find_all("tr")
+            for row in rows:
+                cols = row.find_all("td")
+                if len(cols) >= 1:
+                    a_tag = cols[1].find("a")
+                    consituency_name = (
+                            a_tag.text.strip().split("(")[0]
+                            if a_tag
+                            else cols[1].text.strip().split("(")[0]
                         )
+                    link = (
+                            a_tag["href"] if a_tag and a_tag.has_attr("href") else None
+                        )
+                    if link:
+                        state_constituency_id = link.split("-")[-1].split(".")[0]
+                        state_id = state_constituency_id[:3]
+                        constituency_id = state_constituency_id[3:]
+                        print("uniquuu ids::",state_constituency_id)
+                        # Use full state+constituency code as unique key
+                        unique_key = f"{state_id}{constituency_id}"
 
-        # Remove duplicates
-        seen = set()
-        unique_constituencies = []
-        for const in constituency_links:
-            if const["constituency_code"] not in seen:
-                seen.add(const["constituency_code"])
-                unique_constituencies.append(const)
+                        if unique_key not in seen_constituencies:
+                            seen_constituencies.add(unique_key)
+                            constituencies_data.append(
+                                    {
+                                        "id": constituency_id,
+                                        "name": consituency_name,
+                                        "state_id": state_id,
+                                    }
+                                )
 
-        # If no constituencies found, try sequential discovery
-        if not unique_constituencies:
-            logger.info(
-                "No constituencies found on main page, trying sequential discovery..."
-            )
-            unique_constituencies = self._sequential_constituency_discovery()
-
-        logger.info(f"Discovered {len(unique_constituencies)} constituencies")
-        return unique_constituencies
+        logger.info(f"Discovered {len(constituencies_data)} unique constituencies")
+        return constituencies_data
 
     def _sequential_constituency_discovery(self) -> List[Dict[str, str]]:
         """
@@ -334,38 +462,131 @@ class VidhanSabhaScraper:
         logger.info(f"Sequential discovery found {len(constituencies)} constituencies")
         return constituencies
 
-    def _scrape_candidates(self) -> None:
-        """Scrape detailed candidate data from constituency pages."""
-        constituency_links = self._discover_constituency_links()
+    def _scrape_candidates(
+        self, state_id: str, constituency_id: str, constituency_name: str,
+    ) -> List[Dict[str, Any]]:
+        """Scrape candidate data from constituency pages."""
+        candidates_data = self._discover_candidate_details(state_id,constituency_id,constituency_name)
 
-        if not constituency_links:
-            logger.warning("No constituencies to scrape candidates from")
-            return
+        return candidates_data
+    
+    def _discover_candidate_details(
+        self, state_id: str, constituency_id: str, constituency_name: str
+    ) -> List[Dict[str, Any]]:
+        """Discover candidate details from constituency pages."""
+        candidates_data = []
 
-        logger.info(
-            f"Scraping candidates from {len(constituency_links)} constituencies..."
-        )
 
-        for idx, const in enumerate(constituency_links, 1):
-            if idx % 20 == 0:
-                logger.info(f"  Progress: {idx}/{len(constituency_links)}")
-
-            url = const.get(
-                "url",
-                f"{self.base_url}/candidateswise-{const['constituency_code']}.htm",
-            )
-            response = get_with_retry(url, referer=self.base_url)
-
-            if response:
-                soup = BeautifulSoup(response.content, "html.parser")
-                candidates = self._extract_candidates_from_page(
-                    soup, const["constituency_code"]
+        url = self._generate_constituency_page_link(state_id, constituency_id)
+        print("URL", url)
+        response = get_with_retry(url, referer=self.base_url)
+        if not response:
+            logger.warning(
+                    f"Could not fetch constituency page for {constituency_name}"
                 )
-                self.candidates_data.extend(candidates)
+            return []
 
-            time.sleep(0.5)  # Be polite to server
+        soup = BeautifulSoup(response.content, "html.parser")
 
-        logger.info(f"Scraped {len(self.candidates_data)} candidate records")
+        # Find all candidate boxes
+        candidate_boxes = soup.find_all("div", {"class": "cand-box"})
+        if not candidate_boxes:
+            logger.warning(
+                    f"No candidate boxes found on {constituency_name} page"
+                )
+            return []
+        print(f"all candidates for consitutency {constituency_name}::",candidate_boxes)
+        # Parse each candidate
+        for cand_box in candidate_boxes:
+            try:
+                # Extract image
+                figure = cand_box.find("figure")
+                candidate_image = None
+                if figure:
+                    img_tag = figure.find("img")
+                    if img_tag and img_tag.has_attr("src"):
+                        candidate_image = img_tag["src"]
+
+                # Extract candidate info section
+                cand_info = cand_box.find("div", {"class": "cand-info"})
+                if not cand_info:
+                    continue
+
+                # Extract status (won/lost/trailing)
+                status_div = cand_info.find("div", {"class": "status"})
+                candidate_status = "UNKNOWN"
+                total_votes = 0
+                margin = 0
+                
+                if status_div:
+                    # Get all divs inside status_div
+                    status_divs = status_div.find_all("div", recursive=False)
+                    
+                    # Status text is in the first div with text-transform: capitalize
+                    if len(status_divs) > 0:
+                        candidate_status = status_divs[0].text.strip().upper()
+                    
+                    # Votes and margin are in the second div
+                    if len(status_divs) > 1:
+                        votes_div = status_divs[1]
+                        try:
+                            vote_text = votes_div.get_text(strip=True)
+                            
+                            vote_parts = vote_text.split("(")
+                            if len(vote_parts) > 0:
+                                total_votes = int(vote_parts[0].strip())
+                            
+                            margin_span = votes_div.find("span")
+                            if margin_span:
+                                margin_text = margin_span.get_text(strip=True)
+                                raw_margin = margin_text.replace("(", "").replace(")", "").replace("+", "").replace("-", "").replace(" ", "")
+                                if raw_margin.isdigit():
+                                    margin = int(raw_margin)
+                        except (ValueError, AttributeError) as e:
+                            logger.warning(f"Error parsing votes/margin for candidate: {e}")
+                            total_votes = 0
+                            margin = 0
+                    
+                # Extract name and party
+                nme_prty = cand_info.find("div", {"class": "nme-prty"})
+                if not nme_prty:
+                    continue
+
+                candidate_name_tag = nme_prty.find("h5")
+                candidate_party_name_tag = nme_prty.find("h6")
+
+                if not candidate_name_tag or not candidate_party_name_tag:
+                    continue
+
+                candidate_name = candidate_name_tag.text.strip()
+                candidate_party_name = candidate_party_name_tag.text.strip()
+
+                # Convert party name to party ID
+                candidate_party_id = self._get_party_id_by_name(candidate_party_name)
+
+                # Add candidate to data
+                candidates_data.append(
+                    {
+                        "id": self._generate_uuid(),
+                        "name": candidate_name,
+                        "party_id": candidate_party_id,
+                        "constituency_id": constituency_id,
+                        "state_id": state_id,
+                        "status": candidate_status,
+                        "type": "MP",
+                        "image_url": candidate_image,
+                        "total_votes": total_votes,
+                        "margin": margin
+                    }
+                )
+            except Exception as e:
+                logger.warning(
+                    f"Error parsing candidate in {constituency_name}: {str(e)}"
+                )
+                continue
+
+        logger.info(f"Scraped {len(candidates_data)} candidates from {constituency_name}")
+        return candidates_data
 
     def _extract_candidates_from_page(
         self, soup: BeautifulSoup, constituency_code: str
