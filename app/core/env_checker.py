@@ -84,7 +84,7 @@ def check_environment_variables() -> None:
         else:
             present_vars.append(var_name)
             # Don't log the actual value for security
-            logger.info(f"✓ {var_name}: Set - {var_info['description']}")
+            logger.info(f"✓ {var_name}: Set - {var_info['description']} as {value}")
 
     logger.info("=" * 60)
     logger.info(f"Summary: {len(present_vars)} set, {len(missing_vars)} missing")

@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
 """
-CLI script to run the Optimized Candidate Data Population Agent.
+CLI script to run the Candidate Data Population Agent.
 
-This script uses the optimized agent that:
-- Combines multiple API calls into batch queries (6 calls → 1 call)
-- Implements caching to avoid redundant calls
-- Supports multiple LLM providers (Perplexity, OpenAI, Anthropic)
+This script:
+- Reads candidates from JSON files
+- Fetches detailed information using LLM (Perplexity, OpenAI)
+- Writes enriched data back to JSON files
+- Syncs to ChromaDB for vector search
 
 Usage:
-    python scripts/run_optimized_agent.py [--provider openai] [--batch-size 10]
+    python scripts/run_candidate_agent.py --election-id lok-sabha-2024 [--provider openai] [--batch-size 10]
 
 Environment Variables:
-    DATABASE_URL: PostgreSQL connection string (required)
-    LLM_PROVIDER: LLM provider ('perplexity', 'openai', 'anthropic')
+    LLM_PROVIDER: LLM provider ('perplexity', 'openai')
     PERPLEXITY_API_KEY: Perplexity API key (if using perplexity)
     OPENAI_API_KEY: OpenAI API key (if using openai)
-    ANTHROPIC_API_KEY: Anthropic API key (if using anthropic)
 """
 
 import argparse
@@ -30,7 +29,6 @@ sys.path.insert(0, str(project_root))
 
 from dotenv import load_dotenv
 
-from app.database import get_db_session
 from app.services.candidate_agent import CandidateAgent
 
 # Load environment variables
@@ -70,18 +68,19 @@ def validate_environment(provider: str):
         logger.error("Please set them in your .env file or environment")
         return False
 
-    if not os.getenv("DATABASE_URL"):
-        logger.warning("DATABASE_URL not set - make sure database is configured")
-        logger.warning("The agent requires a database connection to work")
-        return False
-
     return True
 
 
 def main():
-    """Main function to run the optimized candidate data population agent."""
+    """Main function to run the candidate data population agent."""
     parser = argparse.ArgumentParser(
         description="Run the Candidate Data Population Agent"
+    )
+    parser.add_argument(
+        "--election-id",
+        type=str,
+        default="lok-sabha-2024",
+        help="Election ID to process (default: lok-sabha-2024)",
     )
     parser.add_argument(
         "--provider",
@@ -106,7 +105,7 @@ def main():
         "--delay-between-requests",
         type=float,
         default=1.0,
-        help="Delay in seconds between API requests (default: 1.0, minimal since we batch)",
+        help="Delay in seconds between API requests (default: 1.0)",
     )
     parser.add_argument(
         "--disable-cache",
@@ -122,7 +121,7 @@ def main():
     parser.add_argument(
         "--dry-run",
         action="store_true",
-        help="Run in dry-run mode (no database updates)",
+        help="Run in dry-run mode (no file updates)",
     )
     parser.add_argument(
         "--disable-vector-db",
@@ -141,6 +140,7 @@ def main():
 
     logger.info("🚀 Candidate Data Population Agent")
     logger.info("=" * 60)
+    logger.info(f"Election ID: {args.election_id}")
     logger.info(f"Provider: {provider}")
     logger.info(f"Batch size: {args.batch_size}")
     logger.info(f"Delay between candidates: {args.delay_between_candidates}s")
@@ -150,11 +150,12 @@ def main():
     logger.info(f"Vector DB sync: {'Disabled' if args.disable_vector_db else 'Enabled'}")
     logger.info("=" * 60)
     logger.info("")
-    logger.info("💡 Optimization: Using batch queries (6 API calls → 1 call per candidate)")
+    logger.info("💡 Data Source: JSON files (no database required)")
+    logger.info("💡 Output: JSON files + ChromaDB (if enabled)")
     logger.info("")
 
     try:
-        # Initialize optimized agent
+        # Initialize agent
         agent = CandidateAgent(
             llm_provider=provider,
             enable_cache=not args.disable_cache,
@@ -162,40 +163,40 @@ def main():
             enable_vector_db=not args.disable_vector_db,
         )
 
-        # Run agent with database session
-        with get_db_session() as session:
-            if args.dry_run:
-                logger.info("DRY RUN MODE - No database updates will be made")
-                logger.info("")
-                candidates = agent.find_candidates_needing_data(
-                    session, limit=args.batch_size
-                )
-                logger.info(f"Found {len(candidates)} candidates needing data:")
-                for idx, candidate in enumerate(candidates, 1):
-                    logger.info(f"{idx}. {candidate.name} (ID: {candidate.id})")
-                logger.info("")
-            else:
-                stats = agent.run(
-                    session=session,
-                    batch_size=args.batch_size,
-                    delay_between_candidates=args.delay_between_candidates,
-                    delay_between_requests=args.delay_between_requests,
-                )
+        if args.dry_run:
+            logger.info("DRY RUN MODE - No file updates will be made")
+            logger.info("")
+            candidates = agent.find_candidates_needing_data(
+                args.election_id, limit=args.batch_size
+            )
+            logger.info(f"Found {len(candidates)} candidates needing data:")
+            for idx, candidate in enumerate(candidates, 1):
+                logger.info(f"{idx}. {candidate['name']} (ID: {candidate['id']})")
+            logger.info("")
+        else:
+            stats = agent.run(
+                election_id=args.election_id,
+                batch_size=args.batch_size,
+                delay_between_candidates=args.delay_between_candidates,
+                delay_between_requests=args.delay_between_requests,
+            )
 
-                logger.info("✅ Optimized agent run completed successfully")
-                logger.info("")
-                logger.info("💡 Cost Savings:")
+            logger.info("✅ Agent run completed successfully")
+            logger.info("")
+            logger.info("💡 Cost Savings:")
+            logger.info(
+                f"   - Traditional agent: {stats['total_processed'] * 6} API calls"
+            )
+            logger.info(
+                f"   - Optimized agent: ~{stats['total_processed']} API calls"
+            )
+            if stats['total_processed'] > 0:
+                savings = stats['total_processed'] * 5 / (stats['total_processed'] * 6) * 100
                 logger.info(
-                    f"   - Traditional agent: {stats['total_processed'] * 6} API calls"
+                    f"   - Savings: ~{stats['total_processed'] * 5} API calls ({savings:.1f}% reduction)"
                 )
-                logger.info(
-                    f"   - Optimized agent: ~{stats['total_processed']} API calls"
-                )
-                logger.info(
-                    f"   - Savings: ~{stats['total_processed'] * 5} API calls ({stats['total_processed'] * 5 / (stats['total_processed'] * 6) * 100:.1f}% reduction)"
-                )
-                logger.info("")
-                logger.info("To process more candidates, run this script again.")
+            logger.info("")
+            logger.info("To process more candidates, run this script again.")
 
     except KeyboardInterrupt:
         logger.info("\n\n⚠️  Agent interrupted by user")
@@ -207,4 +208,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

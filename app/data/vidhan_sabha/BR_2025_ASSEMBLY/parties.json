@@ -1,0 +1,74 @@
+[
+    {
+        "id": "369",
+        "name": "Bharatiya Janata Party",
+        "short_name": "BJP",
+        "symbol": ""
+    },
+    {
+        "id": "805",
+        "name": "Janata Dal (United)",
+        "short_name": "JD(U)",
+        "symbol": ""
+    },
+    {
+        "id": "1420",
+        "name": "Rashtriya Janata Dal",
+        "short_name": "RJD",
+        "symbol": ""
+    },
+    {
+        "id": "3165",
+        "name": "Lok Janshakti Party (Ram Vilas)",
+        "short_name": "LJPRV",
+        "symbol": ""
+    },
+    {
+        "id": "742",
+        "name": "Indian National Congress",
+        "short_name": "INC",
+        "symbol": ""
+    },
+    {
+        "id": "118",
+        "name": "All India Majlis-E-Ittehadul Muslimeen",
+        "short_name": "AIMIM",
+        "symbol": ""
+    },
+    {
+        "id": "664",
+        "name": "Hindustani Awam Morcha (Secular)",
+        "short_name": "HAMS",
+        "symbol": ""
+    },
+    {
+        "id": "3585",
+        "name": "Rashtriya Lok Morcha",
+        "short_name": "RSHTLKM",
+        "symbol": ""
+    },
+    {
+        "id": "545",
+        "name": "Communist Party of India (Marxist-Leninist) (Liberation)",
+        "short_name": "CPI(ML)(L)",
+        "symbol": ""
+    },
+    {
+        "id": "3729",
+        "name": "Indian Inclusive Party",
+        "short_name": "IIP",
+        "symbol": ""
+    },
+    {
+        "id": "547",
+        "name": "Communist Party of India (Marxist)",
+        "short_name": "CPI(M)",
+        "symbol": ""
+    },
+    {
+        "id": "498",
+        "name": "Bahujan Samaj Party",
+        "short_name": "BSP",
+        "symbol": ""
+    }
+]

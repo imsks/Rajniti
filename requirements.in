@@ -32,15 +32,17 @@ flake8==6.1.0
 pre-commit==3.6.0
 autoflake==2.2.1
 
-# LLM Services (choose one or more)
-perplexityai
-# Optional: Alternative LLM providers (uncomment as needed)
-openai>=1.0.0
+# LLM Services - Langchain integration
+# Using Python 3.9 compatible versions (langchain 1.x requires Python 3.10+)
+# For Python 3.10+, use: langchain==1.1.0, langchain-openai==0.3.34, langchain-community==0.4.1
+langchain
+langchain-openai
+langchain-community
 
 # Authentication
-Authlib==1.3.0
-Flask-Login==0.6.3
-PyJWT==2.8.0
+Authlib
+Flask-Login
+PyJWT
 
 # Vector database
 chromadb

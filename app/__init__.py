@@ -2,6 +2,8 @@
 Simple Flask application factory for Rajniti Election Data API.
 
 Clean, minimal setup without unnecessary complexity.
+Election data is served directly from JSON files.
+Only User table is stored in the database.
 """
 import logging
 import os
@@ -15,7 +17,6 @@ load_dotenv()
 from app.core.database import init_db
 from app.core.exceptions import RajnitiError
 from app.core.response import error_response
-from app.database.migrate import run_migrations
 
 logger = logging.getLogger(__name__)
 
@@ -31,12 +32,10 @@ def create_app():
     # Enable CORS
     CORS(app)
 
-    # Initialize database (optional - won't fail if not configured)
+    # Initialize database for User table only (optional - won't fail if not configured)
     db_initialized = init_db(app)
     if db_initialized:
-        logger.info("Database initialized successfully")
-        # Run migrations automatically on startup
-        run_migrations()
+        logger.info("Database initialized successfully (User table only)")
     else:
         logger.info("Database not initialized - continuing without database")
 

@@ -1,39 +1,45 @@
 version: "3.8"
 
+# Just set DATABASE_URL in .env - any user/db will be auto-created
+
 services:
-    # PostgreSQL Database
     postgres:
         image: postgres:16-alpine
         container_name: rajniti-postgres
         environment:
-            - POSTGRES_USER=rajniti
-            - POSTGRES_PASSWORD=rajniti_dev_password
-            - POSTGRES_DB=rajniti
+            POSTGRES_HOST_AUTH_METHOD: trust
+            DATABASE_URL: ${DATABASE_URL}
         ports:
             - "5432:5432"
         volumes:
             - postgres_data:/var/lib/postgresql/data
-        restart: unless-stopped
+            - ./docker/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
         healthcheck:
-            test: ["CMD-SHELL", "pg_isready -U rajniti"]
+            test: ["CMD-SHELL", "pg_isready"]
             interval: 10s
             timeout: 5s
             retries: 5
+        profiles:
+            - local-db
 
-    # Simple Flask API serving JSON data
     rajniti-api:
-        build: .
+        build:
+            context: .
+            target: development
         container_name: rajniti-api
+        env_file:
+            - .env
         ports:
-            - "8000:8000"
-        environment:
-            - SECRET_KEY=dev-secret-key
-            - DATABASE_URL=ppostgresql://postgres:postgres@localhost:5432/rajniti
-        # Data is now stored in database, no need to mount JSON files
+            - "${FLASK_PORT:-8000}:8000"
+        volumes:
+            - ./app:/app/app
+            - ./run.py:/app/run.py
+            - ./alembic.ini:/app/alembic.ini
+            - ./alembic:/app/alembic
         depends_on:
             postgres:
                 condition: service_healthy
-        restart: unless-stopped
+                required: false
 
 volumes:
     postgres_data:
