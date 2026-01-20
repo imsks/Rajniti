@@ -1,8 +1,8 @@
 """
 Database package for Rajniti Election Data API.
 
-This package provides database models and utilities for both local PostgreSQL
-and Supabase (which uses PostgreSQL).
+Only the User table is stored in the database.
+All election data (candidates, parties, constituencies) is served from JSON files.
 """
 
 from .base import Base, get_db_session

@@ -5,20 +5,25 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-3776ab?logo=python&logoColor=white)](https://python.org)
 [![Flask](https://img.shields.io/badge/Flask-3.0-000?logo=flask)](https://flask.palletsprojects.com)
 [![Next.js](https://img.shields.io/badge/Next.js-15-000?logo=next.js)](https://nextjs.org)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?logo=postgresql&logoColor=white)](https://postgresql.org)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)](https://docker.com)
 
 ---
 
-## Tech Stack
+## Architecture
 
-| Layer | Technology |
-|-------|------------|
-| **Backend** | Flask, SQLAlchemy, Alembic, Gunicorn |
-| **Frontend** | Next.js 15, TypeScript, TailwindCSS |
-| **Database** | PostgreSQL 16, Supabase (prod) |
-| **AI/Search** | OpenAI, Perplexity, ChromaDB |
-| **Infra** | Docker, GCP Cloud Run, Vercel |
+**JSON-First Design**: Election data (candidates, parties, constituencies) is stored in JSON files and served directly via API. Only user authentication data is stored in PostgreSQL.
+
+```
+┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
+│   Scrapers      │────▶│   JSON Files     │◀────│  Candidate      │
+│   (Manual)      │     │   (app/data/)    │     │  Agent (LLM)    │
+└─────────────────┘     └────────┬─────────┘     └────────┬────────┘
+                                 │                        │
+                                 ▼                        ▼
+                        ┌────────────────┐       ┌────────────────┐
+                        │ JsonDataService│       │   ChromaDB     │
+                        │    (API)       │       │ (Vector Search)│
+                        └────────────────┘       └────────────────┘
+```
 
 ---
 
@@ -27,80 +32,103 @@
 ```bash
 # Clone & setup
 git clone https://github.com/your-username/rajniti.git && cd rajniti
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
 
-# Create .env (see below)
-make dev        # Docker + local Postgres
-# OR
-make run        # Local Python (requires DATABASE_URL)
+# Run API (no database required for election data!)
+python run.py
 ```
 
 **API:** http://localhost:8000 | **Health:** http://localhost:8000/api/v1/health
 
 ---
 
-## Environment
+## Workflows
+
+### 1. Scrape Election Data
+
+```bash
+# Lok Sabha
+python -c "from app.scrapers.lok_sabha import LokSabhaScraper; s = LokSabhaScraper('https://results.eci.gov.in/PcResultGenJune2024/index.htm'); s.scrape()"
+
+# Vidhan Sabha
+python scripts/scrape_vidhan_sabha.py --state CG --year 2025
+```
+
+Data saved to `app/data/{lok_sabha|vidhan_sabha}/{election-id}/`
+
+### 2. Enrich Candidates with LLM
+
+```bash
+# Fetch detailed candidate info (education, assets, crime cases, etc.)
+python scripts/run_candidate_agent.py --election-id lok-sabha-2024 --batch-size 10
+
+# Options
+--provider openai      # LLM provider (perplexity, openai)
+--disable-cache        # Skip response caching
+--dry-run              # Preview without changes
+```
+
+### 3. Sync to Vector DB
+
+```bash
+# Sync candidates to ChromaDB for semantic search
+python scripts/sync_candidates_to_vector_db.py --election-id lok-sabha-2024
+
+# Options
+--winners-only         # Only winning candidates
+--state DL             # Filter by state
+--dry-run              # Preview without changes
+```
+
+---
+
+## Environment Variables
 
 Create `.env` file:
 
 ```bash
-# Any user/database works - auto-created on first run!
-DATABASE_URL=postgresql://myuser:mypass@postgres:5432/mydb
+# Required for user auth (optional if not using auth features)
+DATABASE_URL=postgresql://user:pass@localhost:5432/rajniti
 
-# Or just use defaults
-DATABASE_URL=postgresql://postgres@postgres:5432/postgres
-
-# Supabase (production)
-DATABASE_URL=postgresql://postgres.[ref]:[pw]@pooler.supabase.com:6543/postgres
+# LLM providers (for candidate enrichment)
+PERPLEXITY_API_KEY=pplx-...
+OPENAI_API_KEY=sk-...
+LLM_PROVIDER=perplexity  # or openai
 
 # Optional
 FLASK_PORT=8000
-OPENAI_API_KEY=sk-...
-PERPLEXITY_API_KEY=pplx-...
+SECRET_KEY=your-secret-key
 ```
 
 ---
 
-## Commands
-
-```bash
-make dev              # Start with local Postgres (Docker)
-make prod             # Start with Supabase (Docker)
-make run              # Local Python server
-make reset            # Clean volumes + restart (fixes credential issues)
-make test             # Run all tests
-make coverage         # Tests + coverage report
-make logs             # Tail Docker logs
-make clean            # Remove containers + volumes
-```
-
-Run `make help` for all commands.
-
----
-
-## API
+## API Endpoints
 
 | Endpoint | Description |
 |----------|-------------|
-| `GET /api/v1/elections` | List elections |
+| `GET /api/v1/elections` | List all elections |
+| `GET /api/v1/elections/{id}` | Get election details |
 | `GET /api/v1/candidates/search?q=modi` | Search candidates |
-| `GET /api/v1/parties` | List parties |
+| `GET /api/v1/candidates/{election_id}/{id}` | Get candidate details |
+| `GET /api/v1/parties/{election_id}` | List parties |
+| `GET /api/v1/constituencies/{election_id}` | List constituencies |
 | `POST /api/v1/questions/ask` | Ask LLM about elections |
-
-Docs: `GET /api/v1/doc`
 
 ---
 
 ## Testing
 
 ```bash
-make test             # All tests
-make test-unit        # Unit only
-make test-e2e         # E2E only
-make coverage         # With coverage
-make lint             # Code quality
-```
+# All tests
+pytest
 
-**Coverage Target:** 60%+ | **Test Types:** Unit, Integration, E2E
+# With coverage
+pytest --cov=app --cov-report=html
+
+# Specific test files
+pytest tests/unit/services/test_json_data_service.py -v
+```
 
 ---
 
@@ -109,38 +137,42 @@ make lint             # Code quality
 ```
 rajniti/
 ├── app/
-│   ├── controllers/    # Business logic
-│   ├── database/       # Models, migrations
-│   ├── routes/         # API endpoints
-│   ├── services/       # LLM, search, data
-│   └── data/           # Election JSON
-├── frontend/           # Next.js app
-├── tests/              # pytest suite
-├── alembic/            # DB migrations
-└── Makefile            # All commands
+│   ├── controllers/         # Business logic
+│   ├── database/            # User model only
+│   │   └── models/user.py
+│   ├── routes/              # API endpoints
+│   ├── services/
+│   │   ├── json_data_service.py   # JSON file data access
+│   │   ├── candidate_agent.py     # LLM enrichment
+│   │   └── vector_db_pipeline.py  # ChromaDB sync
+│   ├── scrapers/            # Election data scrapers
+│   └── data/                # JSON data files
+│       ├── elections/       # Election metadata
+│       ├── lok_sabha/       # Lok Sabha data
+│       └── vidhan_sabha/    # Vidhan Sabha data
+├── frontend/                # Next.js app
+├── scripts/                 # CLI tools
+├── tests/                   # pytest suite
+└── chroma_db/              # Vector database
 ```
 
 ---
 
-## Database
+## Data Flow
 
-```bash
-# Docker shell
-docker exec -it rajniti-postgres psql -U rajniti -d rajniti
-
-# Migrations
-make db-init          # Create tables
-make db-migrate       # Run migrations
-make db-reset         # Reset (⚠️ deletes data)
-```
+1. **Scrapers** fetch election data from ECI and save to JSON files
+2. **Candidate Agent** enriches data using LLM and saves back to JSON + ChromaDB
+3. **JsonDataService** serves data via Flask API
+4. **ChromaDB** provides semantic search capabilities
 
 ---
 
 ## Deploy
 
-**Backend → GCP Cloud Run**
+**Backend → Docker/Cloud Run**
 ```bash
-docker compose -f docker-compose.prod.yml up -d --build
+docker build -t rajniti .
+docker run -p 8000:8000 -v ./app/data:/app/app/data rajniti
 ```
 
 **Frontend → Vercel**

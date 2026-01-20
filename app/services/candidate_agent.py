@@ -1,33 +1,37 @@
 """
-Optimized Candidate Data Population Agent
+Candidate Data Population Agent
 
-This is an optimized version of the candidate agent that:
-1. Uses batch queries to combine multiple API calls into one
-2. Implements caching to avoid redundant calls
-3. Supports multiple LLM providers (Perplexity, OpenAI, Anthropic)
-4. Only fetches missing data fields
+This agent fetches detailed information for candidates using LLM and:
+1. Reads candidates from JSON files
+2. Writes enriched data back to JSON files
+3. Syncs to ChromaDB for vector search
+
+Optimizations:
+- Batch queries: Combines multiple data requests into single API call
+- Caching: Avoids redundant API calls for similar queries
+- Multi-provider support: Can use Perplexity, OpenAI, or Anthropic
+- Incremental saves: Progress is saved after each candidate
 """
 
 import json
 import logging
-import time
 import re
+import time
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from sqlalchemy.orm import Session
 from pydantic import ValidationError
 
-from app.database.models import Candidate
 from app.schemas.candidate_data import (
-    EducationDetails,
-    PoliticalHistory,
-    FamilyMember,
     AssetDetails,
-    LiabilityDetails,
     CrimeCaseDetails,
+    EducationDetails,
+    FamilyMember,
+    LiabilityDetails,
+    PoliticalHistory,
 )
-from app.services.llm_service import get_llm_service
 from app.services.llm_cache import get_cache
+from app.services.llm_service import get_llm_service
 from app.services.vector_db_pipeline import VectorDBPipeline
 
 logger = logging.getLogger(__name__)
@@ -35,13 +39,14 @@ logger = logging.getLogger(__name__)
 
 class CandidateAgent:
     """
-    Optimized agent for populating candidate detailed information.
+    Agent for populating candidate detailed information from JSON files.
 
-    Key optimizations:
+    Key features:
+    - Reads/writes to JSON files (no database dependency)
     - Batch queries: Combines multiple data requests into single API call
-    - Caching: Avoids redundant API calls for similar queries
-    - Multi-provider support: Can use Perplexity, OpenAI, or Anthropic
-    - Smart fetching: Only fetches missing fields
+    - Caching: Avoids redundant API calls
+    - Multi-provider support: Perplexity, OpenAI, or Anthropic
+    - Syncs to ChromaDB for vector search
     """
 
     def __init__(
@@ -50,9 +55,10 @@ class CandidateAgent:
         enable_cache: bool = True,
         cache_ttl_hours: int = 24,
         enable_vector_db: bool = True,
+        data_dir: Optional[Path] = None,
     ):
         """
-        Initialize the optimized candidate data agent.
+        Initialize the candidate data agent.
 
         Args:
             llm_provider: LLM provider name ('perplexity', 'openai', 'anthropic').
@@ -60,6 +66,7 @@ class CandidateAgent:
             enable_cache: Whether to enable response caching
             cache_ttl_hours: Cache TTL in hours
             enable_vector_db: Whether to automatically sync to vector DB
+            data_dir: Base directory for data files. Defaults to app/data
         """
         # Initialize LLM service
         self.search_service = get_llm_service(provider=llm_provider)
@@ -69,6 +76,12 @@ class CandidateAgent:
         self.cache = get_cache(ttl_hours=cache_ttl_hours) if enable_cache else None
         if enable_cache:
             logger.info(f"Response caching enabled (TTL: {cache_ttl_hours} hours)")
+
+        # Data directory
+        if data_dir is None:
+            self._data_dir = Path(__file__).parent.parent / "data"
+        else:
+            self._data_dir = Path(data_dir)
 
         self.enable_vector_db = enable_vector_db
         self.vector_db_pipeline = None
@@ -84,70 +97,128 @@ class CandidateAgent:
 
         logger.info("CandidateAgent initialized successfully")
 
+    def _get_election_data_dir(self, election_id: str) -> Optional[Path]:
+        """Get the data directory for a specific election."""
+        # Try lok_sabha first
+        lok_sabha_dir = self._data_dir / "lok_sabha" / election_id
+        if lok_sabha_dir.exists():
+            return lok_sabha_dir
+
+        # Try vidhan_sabha
+        vidhan_sabha_dir = self._data_dir / "vidhan_sabha" / election_id
+        if vidhan_sabha_dir.exists():
+            return vidhan_sabha_dir
+
+        # Check if it matches a vidhan sabha folder pattern
+        for vs_dir in (self._data_dir / "vidhan_sabha").glob("*"):
+            if vs_dir.is_dir() and election_id in vs_dir.name:
+                return vs_dir
+
+        return None
+
+    def _load_candidates(self, election_id: str) -> List[Dict[str, Any]]:
+        """Load candidates from JSON file."""
+        data_dir = self._get_election_data_dir(election_id)
+        if not data_dir:
+            logger.error(f"Election data directory not found: {election_id}")
+            return []
+
+        candidates_file = data_dir / "candidates.json"
+        if not candidates_file.exists():
+            logger.error(f"Candidates file not found: {candidates_file}")
+            return []
+
+        try:
+            with open(candidates_file, "r", encoding="utf-8") as f:
+                candidates = json.load(f)
+            # Filter out NOTA entries
+            return [c for c in candidates if c.get("name") != "NOTA"]
+        except Exception as e:
+            logger.error(f"Failed to load candidates: {e}")
+            return []
+
+    def _save_candidates(
+        self, election_id: str, candidates: List[Dict[str, Any]]
+    ) -> bool:
+        """Save candidates to JSON file with backup."""
+        data_dir = self._get_election_data_dir(election_id)
+        if not data_dir:
+            logger.error(f"Election data directory not found: {election_id}")
+            return False
+
+        candidates_file = data_dir / "candidates.json"
+        backup_file = data_dir / "candidates.json.backup"
+
+        try:
+            # Create backup
+            if candidates_file.exists():
+                import shutil
+
+                shutil.copy2(candidates_file, backup_file)
+
+            # Write new data
+            with open(candidates_file, "w", encoding="utf-8") as f:
+                json.dump(candidates, f, ensure_ascii=False, indent=4)
+
+            logger.info(f"Saved {len(candidates)} candidates to {candidates_file}")
+            return True
+        except Exception as e:
+            logger.error(f"Failed to save candidates: {e}")
+            # Restore backup if available
+            if backup_file.exists():
+                import shutil
+
+                shutil.copy2(backup_file, candidates_file)
+                logger.info("Restored from backup")
+            return False
+
     def find_candidates_needing_data(
-        self, session: Session, limit: int = 100
-    ) -> List[Candidate]:
+        self, election_id: str, limit: int = 100
+    ) -> List[Dict[str, Any]]:
         """
         Find candidates that are missing detailed information.
 
         Args:
-            session: Database session
+            election_id: Election ID to search in
             limit: Maximum number of candidates to return
 
         Returns:
-            List of Candidate objects that need data population
+            List of candidate dictionaries that need data population
         """
-        from sqlalchemy import or_, cast, Text
-
         logger.info(f"Finding candidates needing data (limit: {limit})")
 
-        def is_null_or_empty(field):
-            """Check if a JSON field is NULL or an empty array/object"""
-            return or_(
-                field.is_(None),
-                cast(field, Text) == "[]",
-                cast(field, Text) == "{}",
-                cast(field, Text) == "null",
-            )
+        candidates = self._load_candidates(election_id)
+        candidates_needing_data = []
 
-        candidates = (
-            session.query(Candidate)
-            .filter(
-                or_(
-                    is_null_or_empty(Candidate.education_background),
-                    is_null_or_empty(Candidate.political_background),
-                    is_null_or_empty(Candidate.family_background),
-                    is_null_or_empty(Candidate.assets),
-                    is_null_or_empty(Candidate.liabilities),
-                    is_null_or_empty(Candidate.crime_cases),
-                )
-            )
-            .limit(limit)
-            .all()
-        )
+        for candidate in candidates:
+            # Check if any detailed field is missing
+            if (
+                not candidate.get("education_background")
+                or not candidate.get("political_background")
+                or not candidate.get("family_background")
+                or not candidate.get("assets")
+                or not candidate.get("liabilities")
+                or not candidate.get("crime_cases")
+            ):
+                candidates_needing_data.append(candidate)
+                if len(candidates_needing_data) >= limit:
+                    break
 
-        logger.info(f"Found {len(candidates)} candidates needing data")
-        return candidates
+        logger.info(f"Found {len(candidates_needing_data)} candidates needing data")
+        return candidates_needing_data
 
     def _create_batch_query(
-        self, candidate: Candidate, data_types: List[str]
+        self, candidate: Dict[str, Any], data_types: List[str]
     ) -> str:
         """
         Create a single batch query for multiple data types.
 
         This is the KEY OPTIMIZATION: Instead of 6 separate API calls,
         we combine them into one.
-
-        Args:
-            candidate: Candidate object
-            data_types: List of data types to fetch (e.g., ['education', 'political'])
-
-        Returns:
-            Combined query string
         """
-        base_info = f"{candidate.name}"
-        if candidate.constituency_id:
-            base_info += f" from constituency {candidate.constituency_id}"
+        base_info = f"{candidate['name']}"
+        if candidate.get("constituency_id"):
+            base_info += f" from constituency {candidate['constituency_id']}"
 
         query_parts = []
         formats = {
@@ -171,9 +242,7 @@ class CandidateAgent:
         for data_type in data_types:
             desc = descriptions.get(data_type, "")
             fmt = formats.get(data_type, "")
-            query_parts.append(
-                f"{data_type.capitalize()}: {desc}. Format: {fmt}"
-            )
+            query_parts.append(f"{data_type.capitalize()}: {desc}. Format: {fmt}")
 
         combined_query = (
             f"Provide the following information about Indian politician {base_info}:\n\n"
@@ -227,19 +296,12 @@ class CandidateAgent:
             return None
 
     def _fetch_batch_data(
-        self, candidate: Candidate, data_types: List[str]
+        self, candidate: Dict[str, Any], data_types: List[str]
     ) -> Dict[str, Optional[List[Dict[str, Any]]]]:
         """
         Fetch multiple data types in a single API call.
 
         This is the main optimization - reduces 6 API calls to 1.
-
-        Args:
-            candidate: Candidate object
-            data_types: List of data types to fetch
-
-        Returns:
-            Dict mapping data_type to extracted data (or None if failed)
         """
         query = self._create_batch_query(candidate, data_types)
 
@@ -247,7 +309,7 @@ class CandidateAgent:
         if self.cache:
             cached = self.cache.get(query)
             if cached:
-                logger.info(f"Using cached response for {candidate.name}")
+                logger.info(f"Using cached response for {candidate['name']}")
                 response_text = cached.get("answer", "")
             else:
                 result = self.search_service.search_india(query)
@@ -327,23 +389,23 @@ class CandidateAgent:
 
     def populate_candidate_data(
         self,
-        session: Session,
-        candidate: Candidate,
-        delay_between_requests: float = 1.0,  # Reduced delay since we batch
+        candidate: Dict[str, Any],
+        election_id: str,
+        delay_between_requests: float = 1.0,
     ) -> Dict[str, bool]:
         """
         Populate all missing data fields for a candidate using batch queries.
 
         Args:
-            session: Database session
-            candidate: Candidate object to populate
-            delay_between_requests: Delay in seconds (minimal since we batch)
+            candidate: Candidate dictionary to populate
+            election_id: Election ID for saving
+            delay_between_requests: Delay in seconds
 
         Returns:
             Dictionary with status of each field update
         """
         logger.info(f"\n{'='*60}")
-        logger.info(f"Processing candidate: {candidate.name} (ID: {candidate.id})")
+        logger.info(f"Processing candidate: {candidate['name']} (ID: {candidate['id']})")
         logger.info(f"{'='*60}\n")
 
         status = {
@@ -367,16 +429,16 @@ class CandidateAgent:
         }
 
         for data_type, field_name in field_mapping.items():
-            if getattr(candidate, field_name) is None:
+            if not candidate.get(field_name):
                 fields_to_fetch.append(data_type)
             else:
                 logger.info(
-                    f"⏭️  {data_type.capitalize()} data already exists for {candidate.name}"
+                    f"⏭️  {data_type.capitalize()} data already exists for {candidate['name']}"
                 )
                 status[data_type] = True
 
         if not fields_to_fetch:
-            logger.info(f"✅ All data already exists for {candidate.name}")
+            logger.info(f"✅ All data already exists for {candidate['name']}")
             return status
 
         # Fetch all missing fields in a single batch query
@@ -386,49 +448,33 @@ class CandidateAgent:
         batch_results = self._fetch_batch_data(candidate, fields_to_fetch)
 
         # Validate and format each result
-        update_data = {}
         for data_type in fields_to_fetch:
             data = batch_results.get(data_type)
             if data:
                 validated = self._validate_and_format_data(
-                    data_type, data, candidate.name
+                    data_type, data, candidate["name"]
                 )
                 if validated:
                     field_name = field_mapping[data_type]
-                    update_data[field_name] = validated
+                    candidate[field_name] = validated
                     status[data_type] = True
 
         # Small delay before next candidate
         time.sleep(delay_between_requests)
 
-        # Update candidate if we have new data
-        if update_data:
+        # Sync to vector DB if enabled
+        if self.enable_vector_db and self.vector_db_pipeline:
             try:
-                candidate.update(session, **update_data)
-                session.commit()
-                logger.info(
-                    f"✅ Successfully updated {candidate.name} with {len(update_data)} fields"
-                )
+                if self.vector_db_pipeline.sync_candidate(candidate):
+                    logger.info(f"🔍 Synced {candidate['name']} to vector database")
+                else:
+                    logger.warning(
+                        f"⚠️  Failed to sync {candidate['name']} to vector database"
+                    )
+            except Exception as ve:
+                logger.warning(f"⚠️  Vector DB sync error for {candidate['name']}: {ve}")
 
-                # Sync to vector DB if enabled
-                if self.enable_vector_db and self.vector_db_pipeline:
-                    try:
-                        if self.vector_db_pipeline.sync_candidate(candidate):
-                            logger.info(f"🔍 Synced {candidate.name} to vector database")
-                        else:
-                            logger.warning(
-                                f"⚠️  Failed to sync {candidate.name} to vector database"
-                            )
-                    except Exception as ve:
-                        logger.warning(
-                            f"⚠️  Vector DB sync error for {candidate.name}: {ve}"
-                        )
-
-            except Exception as e:
-                session.rollback()
-                logger.error(f"❌ Failed to update candidate: {e}")
-
-        logger.info(f"\n📋 Summary for {candidate.name}:")
+        logger.info(f"\n📋 Summary for {candidate['name']}:")
         for key, val in status.items():
             logger.info(f"   - {key.capitalize()}: {'✓' if val else '✗'}")
 
@@ -436,31 +482,39 @@ class CandidateAgent:
 
     def run(
         self,
-        session: Session,
+        election_id: str,
         batch_size: int = 10,
         delay_between_candidates: float = 2.0,
         delay_between_requests: float = 1.0,
     ) -> Dict[str, Any]:
         """
-        Run the optimized agent to populate data for multiple candidates.
+        Run the agent to populate data for multiple candidates.
 
         Args:
-            session: Database session
+            election_id: Election ID to process
             batch_size: Number of candidates to process
             delay_between_candidates: Delay between processing candidates
-            delay_between_requests: Delay between requests (minimal since we batch)
+            delay_between_requests: Delay between requests
 
         Returns:
             Summary statistics
         """
         logger.info("\n" + "=" * 60)
-        logger.info("🚀 Starting Optimized Candidate Data Population Agent")
+        logger.info("🚀 Starting Candidate Data Population Agent")
         logger.info("=" * 60 + "\n")
+        logger.info(f"Election ID: {election_id}")
         logger.info(f"Batch size: {batch_size}")
         logger.info(f"Delay between candidates: {delay_between_candidates}s")
         logger.info(f"Delay between requests: {delay_between_requests}s\n")
 
-        candidates = self.find_candidates_needing_data(session, limit=batch_size)
+        # Load all candidates
+        all_candidates = self._load_candidates(election_id)
+        if not all_candidates:
+            logger.error(f"No candidates found for election: {election_id}")
+            return {"total_processed": 0, "successful": 0, "partial": 0, "failed": 0}
+
+        # Find candidates needing data
+        candidates = self.find_candidates_needing_data(election_id, limit=batch_size)
 
         if not candidates:
             logger.info("✅ No candidates found needing data population")
@@ -473,12 +527,18 @@ class CandidateAgent:
             "failed": 0,
         }
 
+        # Create a lookup by ID for updates
+        candidates_by_id = {c["id"]: c for c in all_candidates}
+
         for idx, candidate in enumerate(candidates, 1):
             logger.info(f"\nProcessing {idx}/{len(candidates)}")
 
             status = self.populate_candidate_data(
-                session, candidate, delay_between_requests=delay_between_requests
+                candidate, election_id, delay_between_requests=delay_between_requests
             )
+
+            # Update in the full list
+            candidates_by_id[candidate["id"]] = candidate
 
             stats["total_processed"] += 1
             fields_populated = sum(status.values())
@@ -489,11 +549,15 @@ class CandidateAgent:
             else:
                 stats["failed"] += 1
 
+            # Save after each candidate for incremental progress
+            updated_candidates = list(candidates_by_id.values())
+            self._save_candidates(election_id, updated_candidates)
+
             if idx < len(candidates):
                 time.sleep(delay_between_candidates)
 
         logger.info("\n" + "=" * 60)
-        logger.info("🎉 Optimized Agent Run Complete")
+        logger.info("🎉 Agent Run Complete")
         logger.info("=" * 60 + "\n")
         logger.info(f"Total candidates processed: {stats['total_processed']}")
         logger.info(f"Fully populated (6/6 fields): {stats['successful']}")
@@ -502,4 +566,3 @@ class CandidateAgent:
         logger.info("")
 
         return stats
-

@@ -137,7 +137,7 @@ def sample_user_data() -> Dict[str, Any]:
 
 @pytest.fixture
 def sample_candidate_data() -> Dict[str, Any]:
-    """Sample candidate data for testing."""
+    """Sample candidate data for testing (JSON format)."""
     return {
         'id': 'test-candidate-123',
         'name': 'Test Candidate',
@@ -170,7 +170,7 @@ def sample_candidate_data() -> Dict[str, Any]:
 
 @pytest.fixture
 def sample_election_data() -> Dict[str, Any]:
-    """Sample election data for testing."""
+    """Sample election data for testing (JSON format)."""
     return {
         'id': 'lok-sabha-2024',
         'name': 'Lok Sabha Elections 2024',
@@ -185,7 +185,7 @@ def sample_election_data() -> Dict[str, Any]:
 
 @pytest.fixture
 def sample_party_data() -> Dict[str, Any]:
-    """Sample party data for testing."""
+    """Sample party data for testing (JSON format)."""
     return {
         'id': 'BJP',
         'name': 'Bharatiya Janata Party',
@@ -196,7 +196,7 @@ def sample_party_data() -> Dict[str, Any]:
 
 @pytest.fixture
 def sample_constituency_data() -> Dict[str, Any]:
-    """Sample constituency data for testing."""
+    """Sample constituency data for testing (JSON format)."""
     return {
         'id': 'DL-1',
         'name': 'New Delhi',
@@ -224,78 +224,18 @@ def mock_user(sample_user_data):
     return user
 
 
-@pytest.fixture
-def mock_candidate(sample_candidate_data):
-    """Create a mock Candidate model instance."""
-    from app.database.models import Candidate
-    
-    candidate = Mock(spec=Candidate)
-    for key, value in sample_candidate_data.items():
-        setattr(candidate, key, value)
-    candidate.created_at = datetime.utcnow()
-    candidate.updated_at = datetime.utcnow()
-    candidate.update = Mock(return_value=candidate)
-    candidate.delete = Mock()
-    return candidate
-
-
-@pytest.fixture
-def mock_election(sample_election_data):
-    """Create a mock Election model instance."""
-    from app.database.models import Election
-    
-    election = Mock(spec=Election)
-    for key, value in sample_election_data.items():
-        setattr(election, key, value)
-    election.update = Mock(return_value=election)
-    election.delete = Mock()
-    
-    # Also provide a copy() method that returns a dict
-    def copy_method():
-        return sample_election_data.copy()
-    election.copy = copy_method
-    
-    return election
-
-
-@pytest.fixture
-def mock_party(sample_party_data):
-    """Create a mock Party model instance."""
-    from app.database.models import Party
-    
-    party = Mock(spec=Party)
-    for key, value in sample_party_data.items():
-        setattr(party, key, value)
-    party.update = Mock(return_value=party)
-    party.delete = Mock()
-    return party
-
-
-@pytest.fixture
-def mock_constituency(sample_constituency_data):
-    """Create a mock Constituency model instance."""
-    from app.database.models import Constituency
-    
-    constituency = Mock(spec=Constituency)
-    for key, value in sample_constituency_data.items():
-        setattr(constituency, key, value)
-    constituency.update = Mock(return_value=constituency)
-    constituency.delete = Mock()
-    return constituency
-
-
 # =============================================================================
 # Service Mocks
 # =============================================================================
 
 @pytest.fixture
-def mock_perplexity_service():
-    """Mock Perplexity/LLM service for testing."""
-    with patch("app.services.candidate_agent.PerplexityService") as mock:
+def mock_llm_service():
+    """Mock LLM service for testing."""
+    with patch("app.services.candidate_agent.get_llm_service") as mock:
         service = Mock()
         mock.return_value = service
         service.search_india = Mock(return_value={
-            "answer": '{"key": "value"}',
+            "answer": '{"education": [], "political": [], "family": [], "assets": [], "liabilities": [], "crime_cases": []}',
             "error": None,
         })
         yield service
@@ -365,7 +305,7 @@ def generate_users(sample_user_data):
 
 @pytest.fixture
 def generate_candidates(sample_candidate_data):
-    """Generate multiple candidate fixtures."""
+    """Generate multiple candidate fixtures (JSON format)."""
     def _generate(count: int = 5):
         candidates = []
         for i in range(count):
