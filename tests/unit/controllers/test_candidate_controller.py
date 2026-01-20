@@ -93,9 +93,8 @@ class TestGetCandidatesByElection:
 
     def test_get_candidates_success(self, candidate_controller, mock_data_service, sample_election_data):
         """Test getting candidates successfully."""
-        mock_election = Mock()
-        mock_election.name = sample_election_data['name']
-        mock_data_service.get_election.return_value = mock_election
+        # Return dict instead of Mock object
+        mock_data_service.get_election.return_value = sample_election_data
         mock_data_service.get_candidates.return_value = [
             {'id': '1', 'name': 'Candidate 1'},
             {'id': '2', 'name': 'Candidate 2'}
@@ -109,9 +108,8 @@ class TestGetCandidatesByElection:
 
     def test_get_candidates_with_limit(self, candidate_controller, mock_data_service, sample_election_data):
         """Test getting candidates with limit."""
-        mock_election = Mock()
-        mock_election.name = sample_election_data['name']
-        mock_data_service.get_election.return_value = mock_election
+        # Return dict instead of Mock object
+        mock_data_service.get_election.return_value = sample_election_data
         mock_data_service.get_candidates.return_value = [
             {'id': '1'}, {'id': '2'}, {'id': '3'}
         ]
@@ -231,13 +229,13 @@ class TestGetCandidatesByConstituency:
 
     def test_constituency_candidates_found(self, candidate_controller, mock_data_service):
         """Test getting candidates by constituency when found."""
-        mock_election = Mock()
-        mock_data_service.get_election.return_value = mock_election
-        
-        mock_constituency = Mock()
-        mock_constituency.name = 'New Delhi'
-        mock_constituency.state_id = 'DL'
-        mock_data_service.get_constituency_by_id.return_value = mock_constituency
+        # Return dicts instead of Mock objects
+        mock_data_service.get_election.return_value = {'id': 'lok-sabha-2024', 'name': 'Test Election'}
+        mock_data_service.get_constituency_by_id.return_value = {
+            'id': 'DL-1',
+            'name': 'New Delhi',
+            'state_id': 'DL'
+        }
         
         mock_data_service.get_candidates.return_value = [
             {'id': '1', 'constituency_id': 'DL-1', 'status': 'WON'},
@@ -277,9 +275,8 @@ class TestGetWinningCandidates:
 
     def test_winners_found(self, candidate_controller, mock_data_service, sample_election_data):
         """Test getting winners when found."""
-        mock_election = Mock()
-        mock_election.name = sample_election_data['name']
-        mock_data_service.get_election.return_value = mock_election
+        # Return dict instead of Mock object
+        mock_data_service.get_election.return_value = sample_election_data
         mock_data_service.get_candidates.return_value = [
             {'id': '1', 'status': 'WON'},
             {'id': '2', 'status': 'LOST'},

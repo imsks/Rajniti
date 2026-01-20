@@ -159,8 +159,8 @@ class PartyController:
         all_parties_dict = {}
 
         for election in self.data_service.get_elections():
-            parties = self.data_service.get_parties(election.id)
-            candidates = self.data_service.get_candidates(election.id)
+            parties = self.data_service.get_parties(election["id"])
+            candidates = self.data_service.get_candidates(election["id"])
 
             # Count seats for each party
             party_seats = {}

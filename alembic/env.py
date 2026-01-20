@@ -11,7 +11,7 @@ from app.database.base import Base
 
 # Import all models to register them with Base
 # Importing from models package ensures all models are registered with Base.metadata
-from app.database.models import *  # noqa: F401, F403
+from app.database.models import User  # noqa: F401 - Only User table in DB
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
