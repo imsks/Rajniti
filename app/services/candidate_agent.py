@@ -30,9 +30,9 @@ from app.schemas.candidate_data import (
     LiabilityDetails,
     PoliticalHistory,
 )
+from app.services.search_interface import SearchService
 from app.services.llm_cache import get_cache
 from app.services.llm_service import get_llm_service
-from app.services.vector_db_pipeline import VectorDBPipeline
 
 logger = logging.getLogger(__name__)
 
@@ -56,6 +56,7 @@ class CandidateAgent:
         cache_ttl_hours: int = 24,
         enable_vector_db: bool = True,
         data_dir: Optional[Path] = None,
+        search_service: Optional[SearchService] = None,
     ):
         """
         Initialize the candidate data agent.
@@ -67,10 +68,15 @@ class CandidateAgent:
             cache_ttl_hours: Cache TTL in hours
             enable_vector_db: Whether to automatically sync to vector DB
             data_dir: Base directory for data files. Defaults to app/data
+            search_service: Optional injected search service (useful for tests/offline runs).
         """
-        # Initialize LLM service
-        self.search_service = get_llm_service(provider=llm_provider)
-        logger.info(f"Using LLM provider: {llm_provider or 'default'}")
+        # Initialize LLM/search service (supports injection for tests/offline runs)
+        if search_service is not None:
+            self.search_service = search_service
+            logger.info("Using injected search service (no external LLM initialization)")
+        else:
+            self.search_service = get_llm_service(provider=llm_provider)
+            logger.info(f"Using LLM provider: {llm_provider or 'default'}")
 
         # Initialize cache
         self.cache = get_cache(ttl_hours=cache_ttl_hours) if enable_cache else None
@@ -88,6 +94,9 @@ class CandidateAgent:
 
         if enable_vector_db:
             try:
+                # Lazy import so non-vector-db workflows don't require chromadb installed.
+                from app.services.vector_db_pipeline import VectorDBPipeline
+
                 self.vector_db_pipeline = VectorDBPipeline()
                 logger.info("Vector DB pipeline initialized for automatic sync")
             except Exception as e:
