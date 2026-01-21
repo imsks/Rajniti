@@ -57,3 +57,25 @@ class DataService(ABC):
         self, constituency_id: str, election_id: str
     ) -> Optional[Dict[str, Any]]:
         """Get a specific constituency"""
+
+    # ---- Enrichment & derived views (used by controllers) ----
+
+    @abstractmethod
+    def enrich_candidate_data(
+        self, candidate: Dict[str, Any], election_id: str
+    ) -> Dict[str, Any]:
+        """Enrich a candidate record with party/constituency metadata."""
+
+    @abstractmethod
+    def get_state_name(self, state_id: str) -> str:
+        """Resolve a state ID/code to a human-readable name."""
+
+    @abstractmethod
+    def get_election_statistics(self, election_id: str) -> Dict[str, int]:
+        """Return basic election statistics (counts) for dashboards."""
+
+    @abstractmethod
+    def get_party_seat_counts(
+        self, election_id: str, limit: int = 5
+    ) -> List[Dict[str, Any]]:
+        """Return top parties by seats won for an election."""

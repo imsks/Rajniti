@@ -159,8 +159,11 @@ class PartyController:
         all_parties_dict = {}
 
         for election in self.data_service.get_elections():
-            parties = self.data_service.get_parties(election["id"])
-            candidates = self.data_service.get_candidates(election["id"])
+            election_id = election.get("id")
+            if not election_id:
+                continue
+            parties = self.data_service.get_parties(election_id)
+            candidates = self.data_service.get_candidates(election_id)
 
             # Count seats for each party
             party_seats = {}
@@ -184,8 +187,8 @@ class PartyController:
 
                 all_parties_dict[party_name]["elections"].append(
                     {
-                        "election_id": election["id"],
-                        "election_name": election["name"],
+                        "election_id": election.get("id"),
+                        "election_name": election.get("name"),
                         "seats_won": seats_won,
                     }
                 )

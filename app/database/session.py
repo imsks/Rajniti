@@ -4,6 +4,8 @@ Database session management.
 Creates SQLAlchemy engine and session factory.
 """
 
+from typing import Optional
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 

@@ -82,7 +82,9 @@ class ConstituencyController:
                 "id": constituency["id"],
                 "name": constituency["name"],
                 "state_id": constituency["state_id"],
-                "state_name": self.data_service.get_state_name(constituency["state_id"]),
+                "state_name": self.data_service.get_state_name(
+                    str(constituency.get("state_id", ""))
+                ),
             },
             "election_id": election_id,
             "total_candidates": len(constituency_candidates),
