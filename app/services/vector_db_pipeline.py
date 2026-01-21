@@ -1,9 +1,7 @@
 """
 Vector Database Pipeline Service
 
-This service orchestrates the ingestion of candidate data into ChromaDB
-for semantic search capabilities. It converts candidate information from
-JSON files into text embeddings and stores them in the vector database.
+Pipeline for syncing candidate data from JSON datasets to ChromaDB.
 """
 
 import json
@@ -18,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 class VectorDBPipeline:
     """
-    Pipeline for syncing candidate data from JSON files to ChromaDB.
+    Pipeline for syncing candidate data from JSON datasets to ChromaDB.
 
     This pipeline:
     1. Reads candidates from JSON files
@@ -27,95 +25,60 @@ class VectorDBPipeline:
     """
 
     def __init__(
-        self,
-        vector_db_service: Optional[VectorDBService] = None,
-        data_dir: Optional[Path] = None,
+        self, vector_db_service: Optional[VectorDBService] = None, data_dir: Optional[Path] = None
     ):
-        """
-        Initialize the VectorDB pipeline.
-
-        Args:
-            vector_db_service: Optional VectorDBService instance.
-                             If not provided, a new instance will be created.
-            data_dir: Base directory for data files. Defaults to app/data
-        """
-        self.vector_db = vector_db_service or VectorDBService(
-            collection_name="candidates"
-        )
-
-        if data_dir is None:
-            self._data_dir = Path(__file__).parent.parent / "data"
-        else:
-            self._data_dir = Path(data_dir)
-
+        self.vector_db = vector_db_service or VectorDBService(collection_name="candidates")
+        self._data_dir = Path(data_dir) if data_dir is not None else Path(__file__).parent.parent / "data"
         logger.info("VectorDBPipeline initialized successfully")
 
     def _get_election_data_dir(self, election_id: str) -> Optional[Path]:
-        """Get the data directory for a specific election."""
-        # Try lok_sabha first
-        lok_sabha_dir = self._data_dir / "lok_sabha" / election_id
-        if lok_sabha_dir.exists():
-            return lok_sabha_dir
+        lok = self._data_dir / "lok_sabha" / election_id
+        if lok.exists():
+            return lok
 
-        # Try vidhan_sabha
-        vidhan_sabha_dir = self._data_dir / "vidhan_sabha" / election_id
-        if vidhan_sabha_dir.exists():
-            return vidhan_sabha_dir
+        vs = self._data_dir / "vidhan_sabha" / election_id
+        if vs.exists():
+            return vs
 
-        # Check if it matches a vidhan sabha folder pattern
-        for vs_dir in (self._data_dir / "vidhan_sabha").glob("*"):
-            if vs_dir.is_dir() and election_id in vs_dir.name:
-                return vs_dir
+        vs_root = self._data_dir / "vidhan_sabha"
+        if vs_root.exists():
+            for d in vs_root.glob("*"):
+                if d.is_dir() and election_id in d.name:
+                    return d
 
         return None
 
     def _load_json_file(self, file_path: Path) -> List[Dict[str, Any]]:
-        """Load data from a JSON file."""
         if not file_path.exists():
-            logger.warning(f"JSON file not found: {file_path}")
             return []
-
         try:
-            with open(file_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                return data if isinstance(data, list) else [data]
+            data = json.loads(file_path.read_text(encoding="utf-8"))
+            if isinstance(data, list):
+                return [x for x in data if isinstance(x, dict)]
+            if isinstance(data, dict):
+                return [data]
+            return []
         except Exception as e:
-            logger.error(f"Error reading {file_path}: {e}")
+            logger.warning("Failed to read JSON %s: %s", file_path, e)
             return []
 
     def _load_candidates(self, election_id: str) -> List[Dict[str, Any]]:
-        """Load candidates from JSON file."""
         data_dir = self._get_election_data_dir(election_id)
         if not data_dir:
-            logger.error(f"Election data directory not found: {election_id}")
             return []
-
-        candidates_file = data_dir / "candidates.json"
-        candidates = self._load_json_file(candidates_file)
-
-        # Filter out NOTA entries
+        candidates = self._load_json_file(data_dir / "candidates.json")
         return [c for c in candidates if c.get("name") != "NOTA"]
 
     def _candidate_to_text(self, candidate: Dict[str, Any]) -> str:
-        """
-        Convert candidate data to searchable text format.
-
-        Args:
-            candidate: Candidate dictionary
-
-        Returns:
-            String representation of candidate for embedding
-        """
         text_parts = [
-            f"Name: {candidate.get('name', 'Unknown')}",
-            f"Constituency: {candidate.get('constituency_id', 'Unknown')}",
-            f"State: {candidate.get('state_id', 'Unknown')}",
-            f"Party: {candidate.get('party_id', 'Unknown')}",
-            f"Status: {candidate.get('status', 'Unknown')}",
-            f"Type: {candidate.get('type', 'MP')}",
+            f"Name: {candidate.get('name')}",
+            f"Constituency: {candidate.get('constituency_id')}",
+            f"State: {candidate.get('state_id')}",
+            f"Party: {candidate.get('party_id')}",
+            f"Status: {candidate.get('status')}",
+            f"Type: {candidate.get('type')}",
         ]
 
-        # Add education background
         education_background = candidate.get("education_background")
         if education_background:
             edu_text = []
@@ -134,7 +97,6 @@ class VectorDBPipeline:
             if edu_text:
                 text_parts.append(f"Education: {'; '.join(edu_text)}")
 
-        # Add political background
         political_background = candidate.get("political_background")
         if political_background:
             pol_text = []
@@ -143,7 +105,7 @@ class VectorDBPipeline:
                 if pol.get("election_year"):
                     pol_parts.append(f"In {pol['election_year']}")
                 if pol.get("result"):
-                    pol_parts.append(f"{pol['result'].lower()}")
+                    pol_parts.append(f"{str(pol['result']).lower()}")
                 if pol.get("constituency"):
                     pol_parts.append(f"from {pol['constituency']}")
                 if pol.get("party"):
@@ -155,7 +117,6 @@ class VectorDBPipeline:
             if pol_text:
                 text_parts.append(f"Political History: {'; '.join(pol_text)}")
 
-        # Add family background
         family_background = candidate.get("family_background")
         if family_background:
             fam_text = []
@@ -172,37 +133,28 @@ class VectorDBPipeline:
             if fam_text:
                 text_parts.append(f"Family: {'; '.join(fam_text)}")
 
-        # Add assets summary
         assets = candidate.get("assets")
         if assets:
             total_assets = sum(asset.get("amount", 0) for asset in assets)
-            asset_types = set(
-                asset.get("type") for asset in assets if asset.get("type")
-            )
+            asset_types = set(asset.get("type") for asset in assets if asset.get("type"))
             if total_assets > 0 or asset_types:
                 asset_parts = []
                 if total_assets > 0:
                     asset_parts.append(f"Total assets: ₹{total_assets:,.2f}")
                 if asset_types:
-                    asset_parts.append(f"Asset types: {', '.join(asset_types)}")
+                    asset_parts.append(f"Asset types: {', '.join(sorted(asset_types))}")
                 text_parts.append(f"Assets: {'; '.join(asset_parts)}")
 
-        # Add liabilities summary
         liabilities = candidate.get("liabilities")
         if liabilities:
-            total_liabilities = sum(
-                liability.get("amount", 0) for liability in liabilities
-            )
+            total_liabilities = sum(l.get("amount", 0) for l in liabilities)
             if total_liabilities > 0:
                 text_parts.append(f"Liabilities: Total ₹{total_liabilities:,.2f}")
 
-        # Add crime cases info
         crime_cases = candidate.get("crime_cases")
         if crime_cases:
             crime_count = len(crime_cases)
-            charges_framed = sum(
-                1 for case in crime_cases if case.get("charges_framed")
-            )
+            charges_framed = sum(1 for case in crime_cases if case.get("charges_framed"))
             crime_parts = [f"{crime_count} criminal case(s)"]
             if charges_framed > 0:
                 crime_parts.append(f"{charges_framed} with charges framed")
@@ -211,16 +163,7 @@ class VectorDBPipeline:
         return ". ".join(text_parts) + "."
 
     def _candidate_to_metadata(self, candidate: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        Extract metadata from candidate for filtering and retrieval.
-
-        Args:
-            candidate: Candidate dictionary
-
-        Returns:
-            Dictionary of metadata
-        """
-        metadata = {
+        metadata: Dict[str, Any] = {
             "candidate_id": candidate.get("id", ""),
             "name": candidate.get("name", ""),
             "party_id": candidate.get("party_id", ""),
@@ -230,11 +173,9 @@ class VectorDBPipeline:
             "type": candidate.get("type", "MP"),
         }
 
-        # Add optional fields
         if candidate.get("image_url"):
             metadata["image_url"] = candidate["image_url"]
 
-        # Add counts for detailed data
         if candidate.get("education_background"):
             metadata["education_count"] = len(candidate["education_background"])
         if candidate.get("political_background"):
@@ -249,28 +190,15 @@ class VectorDBPipeline:
         return metadata
 
     def sync_candidate(self, candidate: Dict[str, Any]) -> bool:
-        """
-        Sync a single candidate to the vector database.
-
-        Args:
-            candidate: Candidate dictionary
-
-        Returns:
-            True if successful, False otherwise
-        """
         try:
             text = self._candidate_to_text(candidate)
             metadata = self._candidate_to_metadata(candidate)
-
             self.vector_db.upsert_candidate_data(
-                candidate_id=candidate["id"], text=text, metadata=metadata
-            )
-            logger.info(
-                f"Successfully synced candidate {candidate.get('name')} (ID: {candidate.get('id')})"
+                candidate_id=str(candidate.get("id")), text=text, metadata=metadata
             )
             return True
         except Exception as e:
-            logger.error(f"Failed to sync candidate {candidate.get('id')}: {e}")
+            logger.error("Failed to sync candidate %s: %s", candidate.get("id"), e)
             return False
 
     def sync_candidates_batch(
@@ -280,23 +208,8 @@ class VectorDBPipeline:
         offset: int = 0,
         filter_criteria: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, int]:
-        """
-        Sync a batch of candidates to the vector database.
-
-        Args:
-            election_id: Election ID to sync
-            batch_size: Number of candidates to process in one batch
-            offset: Number of candidates to skip
-            filter_criteria: Optional filtering criteria (e.g., {"status": "WON"})
-
-        Returns:
-            Statistics dictionary with 'total', 'synced', 'failed'
-        """
-        logger.info(f"Starting batch sync: election={election_id}, batch_size={batch_size}, offset={offset}")
-
         candidates = self._load_candidates(election_id)
 
-        # Apply filters if provided
         if filter_criteria:
             if filter_criteria.get("status"):
                 candidates = [c for c in candidates if c.get("status") == filter_criteria["status"]]
@@ -305,18 +218,14 @@ class VectorDBPipeline:
             if filter_criteria.get("type"):
                 candidates = [c for c in candidates if c.get("type") == filter_criteria["type"]]
 
-        # Apply offset and limit
         candidates = candidates[offset : offset + batch_size]
 
         stats = {"total": len(candidates), "synced": 0, "failed": 0}
-
-        for candidate in candidates:
-            if self.sync_candidate(candidate):
+        for c in candidates:
+            if self.sync_candidate(c):
                 stats["synced"] += 1
             else:
                 stats["failed"] += 1
-
-        logger.info(f"Batch sync completed: {stats}")
         return stats
 
     def sync_all_candidates(
@@ -325,61 +234,29 @@ class VectorDBPipeline:
         batch_size: int = 100,
         filter_criteria: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, int]:
-        """
-        Sync all candidates to the vector database in batches.
-
-        Args:
-            election_id: Election ID to sync
-            batch_size: Number of candidates to process in one batch
-            filter_criteria: Optional filtering criteria
-
-        Returns:
-            Overall statistics dictionary
-        """
-        logger.info(f"Starting full sync of all candidates for {election_id} to vector database")
-
-        overall_stats = {"total": 0, "synced": 0, "failed": 0, "batches": 0}
-
+        overall = {"total": 0, "synced": 0, "failed": 0, "batches": 0}
         offset = 0
         while True:
-            batch_stats = self.sync_candidates_batch(
-                election_id,
+            batch = self.sync_candidates_batch(
+                election_id=election_id,
                 batch_size=batch_size,
                 offset=offset,
                 filter_criteria=filter_criteria,
             )
-
-            if batch_stats["total"] == 0:
+            if batch["total"] == 0:
                 break
-
-            overall_stats["total"] += batch_stats["total"]
-            overall_stats["synced"] += batch_stats["synced"]
-            overall_stats["failed"] += batch_stats["failed"]
-            overall_stats["batches"] += 1
-
+            overall["total"] += batch["total"]
+            overall["synced"] += batch["synced"]
+            overall["failed"] += batch["failed"]
+            overall["batches"] += 1
             offset += batch_size
-
-            logger.info(
-                f"Progress: {overall_stats['synced']}/{overall_stats['total']} candidates synced"
-            )
-
-        logger.info(f"Full sync completed: {overall_stats}")
-        return overall_stats
+        return overall
 
     def delete_candidate(self, candidate_id: str) -> bool:
-        """
-        Delete a candidate from the vector database.
-
-        Args:
-            candidate_id: Unique identifier for the candidate
-
-        Returns:
-            True if successful, False otherwise
-        """
         try:
             self.vector_db.delete_candidate(candidate_id)
-            logger.info(f"Deleted candidate {candidate_id} from vector database")
             return True
         except Exception as e:
-            logger.error(f"Failed to delete candidate {candidate_id}: {e}")
+            logger.error("Failed to delete candidate %s: %s", candidate_id, e)
             return False
+
