@@ -33,9 +33,8 @@ def init_db(app=None):
     global engine, SessionLocal
 
     # Get database URL from unified config (works with local PostgreSQL or Supabase)
-    try:
-        database_url = get_database_url()
-    except ValueError:
+    database_url = get_database_url(required=False)
+    if not database_url:
         logger.warning("DATABASE_URL not set. Database will not be initialized.")
         return False
 

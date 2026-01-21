@@ -26,7 +26,11 @@ def get_db_session() -> Generator[Session, None, None]:
             # Use session
             session.add(obj)
     """
-    from .session import SessionLocal
+    from .session import get_session_local
+
+    SessionLocal = get_session_local(required=True)
+    if SessionLocal is None:  # pragma: no cover (defensive)
+        raise RuntimeError("Database session factory not initialized.")
 
     session = SessionLocal()
     try:

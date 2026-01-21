@@ -56,7 +56,7 @@ class CandidateController:
 
         return {
             "election_id": election_id,
-            "election_name": election["name"],
+            "election_name": election.get("name"),
             "total_candidates": len(candidates),
             "showing": len(enriched_candidates),
             "candidates": enriched_candidates,
@@ -141,9 +141,11 @@ class CandidateController:
 
         return {
             "constituency_id": constituency_id,
-            "constituency_name": constituency["name"],
-            "state_id": constituency["state_id"],
-            "state_name": self.data_service.get_state_name(constituency["state_id"]),
+            "constituency_name": constituency.get("name"),
+            "state_id": constituency.get("state_id"),
+            "state_name": self.data_service.get_state_name(
+                str(constituency.get("state_id", ""))
+            ),
             "election_id": election_id,
             "total_candidates": len(constituency_candidates),
             "candidates": constituency_candidates,
@@ -176,7 +178,7 @@ class CandidateController:
 
         return {
             "election_id": election_id,
-            "election_name": election["name"],
+            "election_name": election.get("name"),
             "total_winners": len(results),
             "winners": results,
         }

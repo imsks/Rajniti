@@ -14,7 +14,6 @@ from flask_cors import CORS
 
 load_dotenv()
 
-from app.core.database import init_db
 from app.core.exceptions import RajnitiError
 from app.core.response import error_response
 
@@ -23,6 +22,8 @@ logger = logging.getLogger(__name__)
 
 def create_app():
     """Create and configure Flask application"""
+    from app.core.database import init_db
+
     app = Flask(__name__)
 
     # Simple configuration
@@ -35,7 +36,25 @@ def create_app():
     # Initialize database for User table only (optional - won't fail if not configured)
     db_initialized = init_db(app)
     if db_initialized:
-        logger.info("Database initialized successfully (User table only)")
+        logger.info("Database initialized successfully")
+        # Run migrations automatically on startup (best-effort)
+        try:
+            from app.database.migrate import run_migrations
+
+            migrations_ok = run_migrations()
+            if migrations_ok:
+                logger.info("Database migrations completed successfully")
+                # Seed a small dataset for local/dev so contributors can explore quickly
+                try:
+                    from app.database.autopopulate import populate_if_empty
+
+                    populate_if_empty()
+                except Exception as e:
+                    logger.warning("Auto-seed skipped: %s", e)
+            else:
+                logger.warning("Skipping auto-seed; migrations did not complete.")
+        except Exception as e:
+            logger.warning("Migrations not available; skipping (%s)", e)
     else:
         logger.info("Database not initialized - continuing without database")
 
