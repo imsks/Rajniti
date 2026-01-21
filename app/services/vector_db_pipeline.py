@@ -1,17 +1,14 @@
 """
 Vector Database Pipeline Service
 
-This service orchestrates the ingestion of candidate data into ChromaDB
-for semantic search capabilities. It converts candidate information from
-the database into text embeddings and stores them in the vector database.
+Pipeline for syncing candidate data from JSON datasets to ChromaDB.
 """
 
+import json
 import logging
-from typing import Any, Dict, Optional, Union
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
-from sqlalchemy.orm import Session
-
-from app.database.models import Candidate
 from app.services.vector_db_service import VectorDBService
 
 logger = logging.getLogger(__name__)
@@ -19,50 +16,70 @@ logger = logging.getLogger(__name__)
 
 class VectorDBPipeline:
     """
-    Pipeline for syncing candidate data from the database to ChromaDB.
+    Pipeline for syncing candidate data from JSON datasets to ChromaDB.
 
     This pipeline:
-    1. Fetches candidates from the database
+    1. Reads candidates from JSON files
     2. Converts candidate information to searchable text format
     3. Stores the text and metadata in ChromaDB for semantic search
-
-    Note: `sync_candidate()` also accepts a candidate dict to support JSON-first
-    enrichment workflows (no DB required) via `sync_candidate_dict()`.
     """
 
-    def __init__(self, vector_db_service: Optional[VectorDBService] = None):
-        """
-        Initialize the VectorDB pipeline.
-
-        Args:
-            vector_db_service: Optional VectorDBService instance.
-                             If not provided, a new instance will be created.
-        """
+    def __init__(
+        self, vector_db_service: Optional[VectorDBService] = None, data_dir: Optional[Path] = None
+    ):
         self.vector_db = vector_db_service or VectorDBService(collection_name="candidates")
+        self._data_dir = Path(data_dir) if data_dir is not None else Path(__file__).parent.parent / "data"
         logger.info("VectorDBPipeline initialized successfully")
 
-    @staticmethod
-    def _get(
-        candidate: Union[Candidate, Dict[str, Any]], key: str, default: Any = None
-    ) -> Any:
-        """Read attribute from SQLAlchemy model or key from dict."""
-        if isinstance(candidate, dict):
-            return candidate.get(key, default)
-        return getattr(candidate, key, default)
+    def _get_election_data_dir(self, election_id: str) -> Optional[Path]:
+        lok = self._data_dir / "lok_sabha" / election_id
+        if lok.exists():
+            return lok
 
-    def _candidate_to_text(self, candidate: Union[Candidate, Dict[str, Any]]) -> str:
-        """Convert candidate data to searchable text format."""
+        vs = self._data_dir / "vidhan_sabha" / election_id
+        if vs.exists():
+            return vs
+
+        vs_root = self._data_dir / "vidhan_sabha"
+        if vs_root.exists():
+            for d in vs_root.glob("*"):
+                if d.is_dir() and election_id in d.name:
+                    return d
+
+        return None
+
+    def _load_json_file(self, file_path: Path) -> List[Dict[str, Any]]:
+        if not file_path.exists():
+            return []
+        try:
+            data = json.loads(file_path.read_text(encoding="utf-8"))
+            if isinstance(data, list):
+                return [x for x in data if isinstance(x, dict)]
+            if isinstance(data, dict):
+                return [data]
+            return []
+        except Exception as e:
+            logger.warning("Failed to read JSON %s: %s", file_path, e)
+            return []
+
+    def _load_candidates(self, election_id: str) -> List[Dict[str, Any]]:
+        data_dir = self._get_election_data_dir(election_id)
+        if not data_dir:
+            return []
+        candidates = self._load_json_file(data_dir / "candidates.json")
+        return [c for c in candidates if c.get("name") != "NOTA"]
+
+    def _candidate_to_text(self, candidate: Dict[str, Any]) -> str:
         text_parts = [
-            f"Name: {self._get(candidate, 'name')}",
-            f"Constituency: {self._get(candidate, 'constituency_id')}",
-            f"State: {self._get(candidate, 'state_id')}",
-            f"Party: {self._get(candidate, 'party_id')}",
-            f"Status: {self._get(candidate, 'status')}",
-            f"Type: {self._get(candidate, 'type')}",
+            f"Name: {candidate.get('name')}",
+            f"Constituency: {candidate.get('constituency_id')}",
+            f"State: {candidate.get('state_id')}",
+            f"Party: {candidate.get('party_id')}",
+            f"Status: {candidate.get('status')}",
+            f"Type: {candidate.get('type')}",
         ]
 
-        # Education
-        education_background = self._get(candidate, "education_background")
+        education_background = candidate.get("education_background")
         if education_background:
             edu_text = []
             for edu in education_background:
@@ -80,8 +97,7 @@ class VectorDBPipeline:
             if edu_text:
                 text_parts.append(f"Education: {'; '.join(edu_text)}")
 
-        # Political history
-        political_background = self._get(candidate, "political_background")
+        political_background = candidate.get("political_background")
         if political_background:
             pol_text = []
             for pol in political_background:
@@ -101,8 +117,7 @@ class VectorDBPipeline:
             if pol_text:
                 text_parts.append(f"Political History: {'; '.join(pol_text)}")
 
-        # Family
-        family_background = self._get(candidate, "family_background")
+        family_background = candidate.get("family_background")
         if family_background:
             fam_text = []
             for fam in family_background:
@@ -118,8 +133,7 @@ class VectorDBPipeline:
             if fam_text:
                 text_parts.append(f"Family: {'; '.join(fam_text)}")
 
-        # Assets summary
-        assets = self._get(candidate, "assets")
+        assets = candidate.get("assets")
         if assets:
             total_assets = sum(asset.get("amount", 0) for asset in assets)
             asset_types = set(asset.get("type") for asset in assets if asset.get("type"))
@@ -131,15 +145,13 @@ class VectorDBPipeline:
                     asset_parts.append(f"Asset types: {', '.join(sorted(asset_types))}")
                 text_parts.append(f"Assets: {'; '.join(asset_parts)}")
 
-        # Liabilities summary
-        liabilities = self._get(candidate, "liabilities")
+        liabilities = candidate.get("liabilities")
         if liabilities:
             total_liabilities = sum(l.get("amount", 0) for l in liabilities)
             if total_liabilities > 0:
                 text_parts.append(f"Liabilities: Total ₹{total_liabilities:,.2f}")
 
-        # Crime cases
-        crime_cases = self._get(candidate, "crime_cases")
+        crime_cases = candidate.get("crime_cases")
         if crime_cases:
             crime_count = len(crime_cases)
             charges_framed = sum(1 for case in crime_cases if case.get("charges_framed"))
@@ -150,117 +162,97 @@ class VectorDBPipeline:
 
         return ". ".join(text_parts) + "."
 
-    def _candidate_to_metadata(self, candidate: Union[Candidate, Dict[str, Any]]) -> Dict[str, Any]:
-        """Extract metadata from candidate for filtering and retrieval."""
+    def _candidate_to_metadata(self, candidate: Dict[str, Any]) -> Dict[str, Any]:
         metadata: Dict[str, Any] = {
-            "candidate_id": self._get(candidate, "id"),
-            "name": self._get(candidate, "name"),
-            "party_id": self._get(candidate, "party_id"),
-            "constituency_id": self._get(candidate, "constituency_id"),
-            "state_id": self._get(candidate, "state_id"),
-            "status": self._get(candidate, "status"),
-            "type": self._get(candidate, "type"),
+            "candidate_id": candidate.get("id", ""),
+            "name": candidate.get("name", ""),
+            "party_id": candidate.get("party_id", ""),
+            "constituency_id": candidate.get("constituency_id", ""),
+            "state_id": candidate.get("state_id", ""),
+            "status": candidate.get("status", ""),
+            "type": candidate.get("type", "MP"),
         }
 
-        image_url = self._get(candidate, "image_url")
-        if image_url:
-            metadata["image_url"] = image_url
+        if candidate.get("image_url"):
+            metadata["image_url"] = candidate["image_url"]
 
-        education_background = self._get(candidate, "education_background")
-        if education_background:
-            metadata["education_count"] = len(education_background)
-        political_background = self._get(candidate, "political_background")
-        if political_background:
-            metadata["political_history_count"] = len(political_background)
-        family_background = self._get(candidate, "family_background")
-        if family_background:
-            metadata["family_members_count"] = len(family_background)
-        assets = self._get(candidate, "assets")
-        if assets:
-            metadata["assets_count"] = len(assets)
-        crime_cases = self._get(candidate, "crime_cases")
-        if crime_cases:
-            metadata["crime_cases_count"] = len(crime_cases)
+        if candidate.get("education_background"):
+            metadata["education_count"] = len(candidate["education_background"])
+        if candidate.get("political_background"):
+            metadata["political_history_count"] = len(candidate["political_background"])
+        if candidate.get("family_background"):
+            metadata["family_members_count"] = len(candidate["family_background"])
+        if candidate.get("assets"):
+            metadata["assets_count"] = len(candidate["assets"])
+        if candidate.get("crime_cases"):
+            metadata["crime_cases_count"] = len(candidate["crime_cases"])
 
         return metadata
 
-    def sync_candidate(self, candidate: Union[Candidate, Dict[str, Any]]) -> bool:
-        """Sync a single candidate to the vector database."""
+    def sync_candidate(self, candidate: Dict[str, Any]) -> bool:
         try:
-            candidate_id = str(self._get(candidate, "id"))
             text = self._candidate_to_text(candidate)
             metadata = self._candidate_to_metadata(candidate)
-            self.vector_db.upsert_candidate_data(candidate_id=candidate_id, text=text, metadata=metadata)
-            logger.info(
-                "Successfully synced candidate %s (ID: %s)",
-                self._get(candidate, "name"),
-                self._get(candidate, "id"),
+            self.vector_db.upsert_candidate_data(
+                candidate_id=str(candidate.get("id")), text=text, metadata=metadata
             )
             return True
         except Exception as e:
-            logger.error("Failed to sync candidate %s: %s", self._get(candidate, "id"), e)
+            logger.error("Failed to sync candidate %s: %s", candidate.get("id"), e)
             return False
-
-    def sync_candidate_dict(self, candidate: Dict[str, Any]) -> bool:
-        """Convenience wrapper for syncing a candidate dict (JSON-backed pipelines)."""
-        return self.sync_candidate(candidate)
 
     def sync_candidates_batch(
         self,
-        session: Session,
+        election_id: str,
         batch_size: int = 100,
         offset: int = 0,
         filter_criteria: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, int]:
-        """Sync a batch of candidates to the vector database (DB-backed)."""
-        query = session.query(Candidate)
+        candidates = self._load_candidates(election_id)
 
         if filter_criteria:
             if filter_criteria.get("status"):
-                query = query.filter(Candidate.status == filter_criteria["status"])
+                candidates = [c for c in candidates if c.get("status") == filter_criteria["status"]]
             if filter_criteria.get("state_id"):
-                query = query.filter(Candidate.state_id == filter_criteria["state_id"])
+                candidates = [c for c in candidates if c.get("state_id") == filter_criteria["state_id"]]
             if filter_criteria.get("type"):
-                query = query.filter(Candidate.type == filter_criteria["type"])
+                candidates = [c for c in candidates if c.get("type") == filter_criteria["type"]]
 
-        candidates = query.offset(offset).limit(batch_size).all()
+        candidates = candidates[offset : offset + batch_size]
+
         stats = {"total": len(candidates), "synced": 0, "failed": 0}
-
-        for candidate in candidates:
-            if self.sync_candidate(candidate):
+        for c in candidates:
+            if self.sync_candidate(c):
                 stats["synced"] += 1
             else:
                 stats["failed"] += 1
-
         return stats
 
     def sync_all_candidates(
         self,
-        session: Session,
+        election_id: str,
         batch_size: int = 100,
         filter_criteria: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, int]:
-        """Sync all candidates to the vector database in batches (DB-backed)."""
         overall = {"total": 0, "synced": 0, "failed": 0, "batches": 0}
         offset = 0
         while True:
-            batch_stats = self.sync_candidates_batch(
-                session=session,
+            batch = self.sync_candidates_batch(
+                election_id=election_id,
                 batch_size=batch_size,
                 offset=offset,
                 filter_criteria=filter_criteria,
             )
-            if batch_stats["total"] == 0:
+            if batch["total"] == 0:
                 break
-            overall["total"] += batch_stats["total"]
-            overall["synced"] += batch_stats["synced"]
-            overall["failed"] += batch_stats["failed"]
+            overall["total"] += batch["total"]
+            overall["synced"] += batch["synced"]
+            overall["failed"] += batch["failed"]
             overall["batches"] += 1
             offset += batch_size
         return overall
 
     def delete_candidate(self, candidate_id: str) -> bool:
-        """Delete a candidate from the vector database."""
         try:
             self.vector_db.delete_candidate(candidate_id)
             return True

@@ -8,7 +8,6 @@ All business logic for data retrieval and manipulation goes here.
 import os
 
 from .data_service import DataService
-from .db_data_service import DbDataService
 from .json_data_service import JsonDataService
 from .llm_service import get_llm_service
 from .candidate_agent import CandidateAgent
@@ -19,11 +18,12 @@ def _select_data_service() -> DataService:
     Select the data backend.
 
     - DATA_BACKEND=json (default): read from `app/data/**` JSON datasets
-    - DATA_BACKEND=db: use SQLAlchemy/Postgres
+    - DATA_BACKEND=db: not supported for election data (User-only DB)
     """
     backend = os.getenv("DATA_BACKEND", "json").strip().lower()
     if backend == "db":
-        return DbDataService()
+        # Election data is JSON-backed; DB is currently used only for User.
+        return JsonDataService()
     return JsonDataService()
 
 
@@ -33,7 +33,6 @@ data_service: DataService = _select_data_service()
 __all__ = [
     "data_service",
     "DataService",
-    "DbDataService",
     "JsonDataService",
     "get_llm_service",
     "LLMProvider",
