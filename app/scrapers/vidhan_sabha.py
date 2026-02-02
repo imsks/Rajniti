@@ -333,8 +333,9 @@ class VidhanSabhaScraper:
 
                 # Attempt to extract party_id from link (best-effort; may be absent in tests)
                 party_id = None
-                if party_tag and party_tag.has_attr("href"):
-                    href = party_tag.get("href") or ""
+                party_link = cols[1].find("a")
+                if party_link and party_link.has_attr("href"):
+                    href = party_link.get("href") or ""
                     m = re.search(r"partywisewinresult-(.+?)\.htm", href)
                     if m:
                         party_id = m.group(1)
@@ -359,8 +360,7 @@ class VidhanSabhaScraper:
                             "party_name": party_name.strip(),
                             "symbol": symbol.strip(),
                             "total_seats": total_seats,
-                            # Back-compat fields
-                            "id": party_id or party_name.strip(),
+                            "id": party_id,
                             "name": party_name.strip(),
                             "short_name": symbol.strip(),
                         }
@@ -418,7 +418,7 @@ class VidhanSabhaScraper:
         seen_constituencies = set()  # Track unique constituencies to avoid duplicates
 
         # Try to find constituency links on main page
-        url = self._generate_party_page_link(f"{party_id}{state_id}")
+        url = self._generate_party_page_link(f"{party_id}")
         response = get_with_retry(url, referer=self.base_url)
         if not response:
             logger.warning(f"Could not fetch party results page for {party_name}")
