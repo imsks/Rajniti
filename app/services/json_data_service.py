@@ -306,7 +306,7 @@ class JsonDataService(DataService):
         seats: Dict[str, int] = {}
         for c in self.get_candidates(election_id):
             if c.get("status") == "WON":
-                pid = c.get("party_id", "UNKNOWN")
+                pid = c.get("party_id", "INDEPENDENT")
                 seats[pid] = seats.get(pid, 0) + 1
 
         ranked = sorted(seats.items(), key=lambda x: x[1], reverse=True)[:limit]

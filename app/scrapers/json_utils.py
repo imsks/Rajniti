@@ -36,7 +36,7 @@ class ElectionDataValidator:
             if field not in candidate or candidate[field] is None:
                 errors.append(f"Missing required field: {field}")
 
-        if candidate.get("status") and candidate["status"] not in ["WON", "LOST", "UNKNOWN"]:
+        if candidate.get("status") and candidate["status"] not in ["WON", "LOST", "INDEPENDENT"]:
             errors.append(f"Invalid status: {candidate.get('status')}")
 
         if candidate.get("type") and candidate["type"] not in ["MP", "MLA"]:

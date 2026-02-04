@@ -28,7 +28,7 @@ class PartyController:
         party_seats = {}
         for candidate in candidates:
             if candidate.get("status") == "WON":
-                party_id = candidate.get("party_id", "UNKNOWN")
+                party_id = candidate.get("party_id", "INDEPENDENT")
                 party_seats[party_id] = party_seats.get(party_id, 0) + 1
 
         # Prepare party data with seats
@@ -169,7 +169,7 @@ class PartyController:
             party_seats = {}
             for candidate in candidates:
                 if candidate.get("status") == "WON":
-                    party_id = candidate.get("party_id", "UNKNOWN")
+                    party_id = candidate.get("party_id", "INDEPENDENT")
                     party_seats[party_id] = party_seats.get(party_id, 0) + 1
 
             for party in parties:

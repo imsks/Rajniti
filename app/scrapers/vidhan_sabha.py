@@ -109,10 +109,10 @@ class VidhanSabhaScraper:
             party_name: Full party name to search for
             
         Returns:
-            Party ID if found, otherwise returns 'UNKNOWN'
+            Party ID if found, otherwise returns 'INDEPENDENT'
         """
         if not party_name:
-            return "UNKNOWN"
+            return "INDEPENDENT"
 
         # Normalize the input party name for comparison
         party_name_normalized = party_name.strip().lower()
@@ -124,7 +124,7 @@ class VidhanSabhaScraper:
                 return party["id"]
 
         logger.warning(f"Party not found: {party_name}")
-        return "UNKNOWN"    
+        return "INDEPENDENT"    
                     
     def scrape(self) -> None:
         """Main scraping orchestrator - scrapes all data and saves to JSON files."""
@@ -557,7 +557,7 @@ class VidhanSabhaScraper:
 
                 # Extract status (won/lost/trailing)
                 status_div = cand_info.find("div", {"class": "status"})
-                candidate_status = "UNKNOWN"
+                candidate_status = "INDEPENDENT"
                 total_votes = 0
                 margin = 0
                 

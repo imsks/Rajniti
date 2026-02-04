@@ -76,10 +76,10 @@ class LokSabhaScraper:
             party_name: Full party name to search for
             
         Returns:
-            Party ID if found, otherwise returns 'UNKNOWN'
+            Party ID if found, otherwise returns 'INDEPENDENT'
         """
         if not party_name:
-            return "UNKNOWN"
+            return "INDEPENDENT"
 
         # Normalize the input party name for comparison
         party_name_normalized = party_name.strip().lower()
@@ -91,7 +91,7 @@ class LokSabhaScraper:
                 return party["id"]
 
         logger.warning(f"Party not found: {party_name}")
-        return "UNKNOWN"
+        return "INDEPENDENT"
 
     def _get_constituency_id_by_name(self, constituency_name: str, state_id: str = None) -> str:
         """
@@ -102,10 +102,10 @@ class LokSabhaScraper:
             state_id: Optional state ID to narrow down the search
             
         Returns:
-            Constituency ID if found, otherwise returns 'UNKNOWN'
+            Constituency ID if found, otherwise returns 'INDEPENDENT'
         """
         if not constituency_name:
-            return "UNKNOWN"
+            return "INDEPENDENT"
 
         # Normalize the input constituency name for comparison
         constituency_name_normalized = constituency_name.strip().lower()
@@ -119,7 +119,7 @@ class LokSabhaScraper:
                 return constituency["id"]
 
         logger.warning(f"Constituency not found: {constituency_name}")
-        return "UNKNOWN"
+        return "INDEPENDENT"
 
     def _get_party_by_id(self, party_id: str) -> Dict[str, Any]:
         """
@@ -420,7 +420,7 @@ class LokSabhaScraper:
 
                 # Extract status (won/lost/trailing)
                 status_div = cand_info.find("div", {"class": "status"})
-                candidate_status = "UNKNOWN"
+                candidate_status = "INDEPENDENT"
                 if status_div:
                     # Status text is in a nested div with text-transform: capitalize
                     status_text_div = status_div.find("div", {"style": lambda x: x and "text-transform" in x})

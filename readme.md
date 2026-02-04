@@ -37,6 +37,10 @@ pip install -r requirements.txt
 
 # Run API (no database required for election data!)
 python run.py
+
+# DB Connect
+brew services start postgresql
+psql -h localhost -p 5432 -U imsks -d rajniti
 ```
 
 **API:** http://localhost:8000 | **Health:** http://localhost:8000/api/v1/health
