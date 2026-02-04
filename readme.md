@@ -48,11 +48,8 @@ python run.py
 ### 1. Scrape Election Data
 
 ```bash
-# Lok Sabha
-python -c "from app.scrapers.lok_sabha import LokSabhaScraper; s = LokSabhaScraper('https://results.eci.gov.in/PcResultGenJune2024/index.htm'); s.scrape()"
-
 # Vidhan Sabha
-python scripts/scrape_vidhan_sabha.py --state CG --year 2025
+python scripts/scrape_election.py --url https://results.eci.gov.in/ResultAcGenNov2025 --type vidhan-sabha
 ```
 
 Data saved to `app/data/{lok_sabha|vidhan_sabha}/{election-id}/`
