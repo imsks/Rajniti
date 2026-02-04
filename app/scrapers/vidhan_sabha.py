@@ -616,7 +616,7 @@ class VidhanSabhaScraper:
                         "constituency_id": constituency_id,
                         "state_id": state_id,
                         "status": candidate_status,
-                        "type": "MP",
+                        "type": "MLA",
                         "image_url": candidate_image,
                         "total_votes": total_votes,
                         "margin": margin

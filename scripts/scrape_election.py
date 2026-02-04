@@ -27,14 +27,7 @@ from typing import Optional
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-# NOTE: DATABASE_URL must be set before importing from app package
-# because the app.__init__ module initializes database connections.
-# This is a workaround to use the scraper independently of the main app.
-# Future improvement: Refactor to make database imports lazy/optional.
-if "DATABASE_URL" not in os.environ:
-    os.environ["DATABASE_URL"] = "postgresql://dummy:dummy@localhost/dummy"
-
-from app.scrapers import LokSabhaScraper, VidhanSabhaScraper  # noqa: E402
+from app.scrapers import LokSabhaScraper, VidhanSabhaScraper
 
 
 # Election type registry - easily extensible for new election types
