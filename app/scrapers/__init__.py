@@ -11,11 +11,13 @@ from .base import (
 )
 from .lok_sabha import LokSabhaScraper
 from .vidhan_sabha import VidhanSabhaScraper
+from .unified_scraper import UnifiedScraper
 
 __all__ = [
     # Scrapers
     "LokSabhaScraper",
     "VidhanSabhaScraper",
+    "UnifiedScraper",
     # Utility functions
     "get_with_retry",
     "save_json",

@@ -27,13 +27,13 @@ from typing import Optional
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from app.scrapers import LokSabhaScraper, VidhanSabhaScraper
+from app.scrapers.unified_scraper import UnifiedScraper
 
 
-# Election type registry - easily extensible for new election types
-ELECTION_SCRAPERS = {
-    "lok-sabha": LokSabhaScraper,
-    "vidhan-sabha": VidhanSabhaScraper,
+# Election type mapping - maps to MP/MLA for unified scraper
+ELECTION_TYPE_MAP = {
+    "lok-sabha": "MP",
+    "vidhan-sabha": "MLA",
 }
 
 # URL patterns for auto-detection
@@ -81,27 +81,27 @@ def detect_election_type(url: str) -> Optional[str]:
     return None
 
 
-def get_scraper_class(election_type: str):
+def get_election_type_code(election_type: str) -> str:
     """
-    Get the appropriate scraper class for the election type.
+    Get the election type code (MP/MLA) for the unified scraper.
 
     Args:
         election_type: Election type string (e.g., 'lok-sabha', 'vidhan-sabha')
 
     Returns:
-        Scraper class
+        Election type code ('MP' or 'MLA')
 
     Raises:
         ValueError: If election type is not supported
     """
-    if election_type not in ELECTION_SCRAPERS:
-        supported = ", ".join(ELECTION_SCRAPERS.keys())
+    if election_type not in ELECTION_TYPE_MAP:
+        supported = ", ".join(ELECTION_TYPE_MAP.keys())
         raise ValueError(
             f"Unsupported election type: {election_type}. "
             f"Supported types: {supported}"
         )
 
-    return ELECTION_SCRAPERS[election_type]
+    return ELECTION_TYPE_MAP[election_type]
 
 
 def main():
@@ -130,10 +130,10 @@ Examples:
     parser.add_argument(
         "--type",
         type=str,
-        choices=list(ELECTION_SCRAPERS.keys()),
+        choices=list(ELECTION_TYPE_MAP.keys()),
         default=None,
         help="Election type (auto-detected from URL if not specified). "
-        f"Options: {', '.join(ELECTION_SCRAPERS.keys())}",
+        f"Options: {', '.join(ELECTION_TYPE_MAP.keys())}",
     )
 
     args = parser.parse_args()
@@ -156,7 +156,7 @@ Examples:
         else:
             logger.error(
                 "Could not auto-detect election type from URL. "
-                f"Please specify --type. Supported types: {', '.join(ELECTION_SCRAPERS.keys())}"
+                f"Please specify --type. Supported types: {', '.join(ELECTION_TYPE_MAP.keys())}"
             )
             sys.exit(1)
     else:
@@ -165,21 +165,22 @@ Examples:
     logger.info("")
 
     try:
-        # Get the appropriate scraper class
-        scraper_class = get_scraper_class(election_type)
-        logger.info(f"Using scraper: {scraper_class.__name__}")
+        # Get the election type code (MP/MLA)
+        type_code = get_election_type_code(election_type)
+        logger.info(f"Using unified scraper for {type_code} elections")
 
-        # Initialize and run scraper
-        scraper = scraper_class(args.url)
+        # Initialize and run unified scraper
+        scraper = UnifiedScraper(args.url, type_code)
         scraper.scrape()
+        scraper.save()
 
         logger.info("")
         logger.info("=" * 80)
         logger.info("✅ Scraping completed successfully!")
         logger.info("=" * 80)
         logger.info("")
-        logger.info("📁 All data has been saved to JSON files in app/data/")
-        logger.info("   The data is ready to be served via the JSON-first API.")
+        logger.info(f"📁 WON {type_code}s have been saved to app/data/{type_code.lower()}.json")
+        logger.info("   Only winning candidates are stored in the simplified format.")
 
     except KeyboardInterrupt:
         logger.warning("\n⚠️  Scraping interrupted by user")
