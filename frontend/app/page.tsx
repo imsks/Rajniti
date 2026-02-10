@@ -6,15 +6,15 @@ import Button from "@/components/ui/Button"
 
 export default function Home() {
     return (
-        <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50'>
+        <div className='min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50'>
             <Navbar variant='default' />
 
             {/* Hero Section */}
-            <section className='py-20 sm:py-32 relative z-[2]'>
+            <section className='py-20 sm:py-32 relative z-2'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <div className='text-center'>
                         <div className='mb-8 flex justify-center'>
-                            <div className='rounded-full bg-gradient-to-r from-orange-500 via-white to-green-500 p-1'>
+                            <div className='rounded-full bg-linear-to-b from-orange-500 via-white to-green-500 p-1'>
                                 <div className='rounded-full bg-white px-6 py-2'>
                                     <span className='text-sm font-semibold text-gray-700'>
                                         Built for 🇮🇳 Democracy
@@ -25,7 +25,7 @@ export default function Home() {
 
                         <Text variant='h1' className='text-gray-900 mb-6'>
                             Know Your{" "}
-                            <span className='block bg-gradient-to-r from-orange-600 via-orange-500 to-green-600 bg-clip-text text-transparent'>
+                            <span className='block bg-linear-to-r from-orange-600 via-orange-500 to-green-600 bg-clip-text text-transparent'>
                                 Elected Representatives
                             </span>
                         </Text>
@@ -84,7 +84,7 @@ export default function Home() {
                 </div>
 
                 {/* Decorative Elements */}
-                <div className='absolute top-0 left-0 w-72 h-72 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse z-[1] pointer-events-none'></div>
+                <div className='absolute top-0 left-0 w-72 h-72 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse z-1 pointer-events-none'></div>
                 <div className='absolute bottom-0 right-0 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-1000 z-[1] pointer-events-none'></div>
             </section>
 

@@ -28,6 +28,7 @@ class PoliticianController:
         state: Optional[str] = None,
         party: Optional[str] = None,
         limit: int = 50,
+        use_fuzzy: bool = True,
     ) -> Dict[str, Any]:
         results = self.service.search(
             query,
@@ -35,6 +36,7 @@ class PoliticianController:
             state=state,
             party=party,
             limit=limit,
+            use_fuzzy=use_fuzzy,
         )
         return {
             "query": query,
