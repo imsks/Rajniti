@@ -4,13 +4,13 @@ Politician Data Model
 Unified schema for storing MP and MLA data in a simplified structure.
 """
 
-from pydantic import BaseModel, HttpUrl, Field, EmailStr
+from pydantic import BaseModel, HttpUrl, Field
 from typing import List, Optional, Literal
 from datetime import date
 
 
 class Contact(BaseModel):
-    email: Optional[EmailStr] = None
+    email: Optional[str] = None
     phone: Optional[str] = None
     address: Optional[str] = None
 
@@ -28,6 +28,7 @@ class FamilyMember(BaseModel):
     name: str
     relation: str  # e.g., "Father", "Spouse", "Sibling"
     photo: Optional[HttpUrl] = None
+    social_media: Optional[SocialMedia] = None
 
 
 class Education(BaseModel):

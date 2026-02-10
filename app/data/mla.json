@@ -1,0 +1,4862 @@
+[
+  {
+    "id": "mla_2025_s04_2",
+    "name": "NAND KISHOR RAM",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/NANDK-2025-20251018064407.jpg",
+    "state": "Bihar",
+    "constituency": "RAMNAGAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RAMNAGAR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_3",
+    "name": "SANJAY KUMAR PANDEY",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SANJA-2025-20251018041958.jpg",
+    "state": "Bihar",
+    "constituency": "NARKATIAGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NARKATIAGANJ",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_4",
+    "name": "RAM SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAMSI-2025-20251018030355.jpg",
+    "state": "Bihar",
+    "constituency": "BAGAHA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BAGAHA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_5",
+    "name": "VINAY BIHARI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/VINAY-2025-20251017062121.jpg",
+    "state": "Bihar",
+    "constituency": "LAURIYA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "LAURIYA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_6",
+    "name": "NARAYAN PRASAD",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/NARAY-2025-20251017083015.jpg",
+    "state": "Bihar",
+    "constituency": "NAUTAN",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NAUTAN",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_8",
+    "name": "RENU DEVI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RENUD-2025-20251017054537.jpg",
+    "state": "Bihar",
+    "constituency": "BETTIAH",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BETTIAH",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_10",
+    "name": "PRAMOD KUMAR SINHA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/PRAMO-2025-20251017064012.jpg",
+    "state": "Bihar",
+    "constituency": "RAXAUL",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RAXAUL",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_13",
+    "name": "KRISHNANANDAN PASWAN",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/KRISH-2025-20251018073448.jpg",
+    "state": "Bihar",
+    "constituency": "HARSIDHI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "HARSIDHI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_16",
+    "name": "SACHINDRA PRASAD SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SACHI-2025-20251017042428.jpg",
+    "state": "Bihar",
+    "constituency": "KALYANPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KALYANPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_17",
+    "name": "SHYAM BABU PRASAD YADAV",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SHYAM-2025-20251017050927.jpg",
+    "state": "Bihar",
+    "constituency": "PIPRA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "PIPRA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_18",
+    "name": "RANA RANDHIR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RANAR-2025-20251017015753.jpg",
+    "state": "Bihar",
+    "constituency": "MADHUBAN",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MADHUBAN",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_19",
+    "name": "PRAMOD KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/PRAMO-2025-20251017054353.jpg",
+    "state": "Bihar",
+    "constituency": "MOTIHARI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MOTIHARI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_20",
+    "name": "LAL BABU PRASAD GUPTA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/LALBA-2025-20251017044527.jpg",
+    "state": "Bihar",
+    "constituency": "CHIRAIA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "CHIRAIA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_23",
+    "name": "BAIDYANATH PRASAD",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/BAIDY-2025-20251017083444.jpg",
+    "state": "Bihar",
+    "constituency": "RIGA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RIGA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_24",
+    "name": "ANIL KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ANILK-2025-20251017030035.jpg",
+    "state": "Bihar",
+    "constituency": "BATHNAHA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BATHNAHA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_25",
+    "name": "GAYETRI DEVI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/GAYET-2025-20251017054045.jpg",
+    "state": "Bihar",
+    "constituency": "PARIHAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "PARIHAR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_28",
+    "name": "SUNIL KUMAR PINTU",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SUNIL-2025-20251017033547.jpg",
+    "state": "Bihar",
+    "constituency": "SITAMARHI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SITAMARHI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_32",
+    "name": "VINOD NARAYAN JHA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/VINOD-2025-20251017041732.jpg",
+    "state": "Bihar",
+    "constituency": "BENIPATTI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BENIPATTI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_33",
+    "name": "ARUN SHANKAR PRASAD",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ARUNS-2025-20251016010010.jpg",
+    "state": "Bihar",
+    "constituency": "KHAJAULI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KHAJAULI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_37",
+    "name": "SUJEET KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SUJEE-2025-20251018053913.jpg",
+    "state": "Bihar",
+    "constituency": "RAJNAGAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RAJNAGAR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_38",
+    "name": "NITISH MISHRA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/NITIS-2025-20251016071534.jpg",
+    "state": "Bihar",
+    "constituency": "JHANJHARPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "JHANJHARPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_45",
+    "name": "NIRAJ KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/NIRAJ-2025-20251016031558.jpg",
+    "state": "Bihar",
+    "constituency": "CHHATAPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "CHHATAPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_46",
+    "name": "DEVANTI YADAV",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/DEVYA-2025-20251017044652.jpg",
+    "state": "Bihar",
+    "constituency": "NARPATGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NARPATGANJ",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_51",
+    "name": "VIJAY KUMAR MANDAL",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/VIJAY-2025-20251016045115.jpg",
+    "state": "Bihar",
+    "constituency": "SIKTI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SIKTI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_59",
+    "name": "KRISHNA KUMAR RISHI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/KRISH-2025-20251017080406.jpg",
+    "state": "Bihar",
+    "constituency": "BANMANKHI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BANMANKHI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_62",
+    "name": "VIJAY KUMAR KHEMKA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/VIJAY-2025-20251017030310.jpg",
+    "state": "Bihar",
+    "constituency": "PURNIA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "PURNIA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_63",
+    "name": "TARKISHORE PRASAD",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/TARKI-2025-20251018035223.jpg",
+    "state": "Bihar",
+    "constituency": "KATIHAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KATIHAR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_66",
+    "name": "NISHA SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/NISHA-2025-20251018085137.jpg",
+    "state": "Bihar",
+    "constituency": "PRANPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "PRANPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_69",
+    "name": "KAVITA DEVI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/KAVIT-2025-20251018045548.jpg",
+    "state": "Bihar",
+    "constituency": "KORHA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KORHA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_79",
+    "name": "SUJIT KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SUJIT-2025-20251015072924.jpg",
+    "state": "Bihar",
+    "constituency": "GAURA BAURAM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "GAURA BAURAM",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_81",
+    "name": "MAITHILI THAKUR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MAITH-2025-20251017043125.jpg",
+    "state": "Bihar",
+    "constituency": "ALINAGAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "ALINAGAR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_83",
+    "name": "SANJAY SARAOGI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SANJA-2025-20251015073850.jpg",
+    "state": "Bihar",
+    "constituency": "DARBHANGA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "DARBHANGA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_84",
+    "name": "RAM CHANDRA PRASAD",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAMCH-2025-20251017094714.jpg",
+    "state": "Bihar",
+    "constituency": "HAYAGHAT",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "HAYAGHAT",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_86",
+    "name": "MURARI MOHAN JHA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MURAR-2025-20251016031625.jpg",
+    "state": "Bihar",
+    "constituency": "KEOTI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KEOTI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_87",
+    "name": "JIBESH KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/JIBES-2025-20251017040658.jpg",
+    "state": "Bihar",
+    "constituency": "JALE",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "JALE",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_89",
+    "name": "RAMA NISHAD",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/RAMAN-2025-20251016071448.jpg",
+    "state": "Bihar",
+    "constituency": "AURAI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "AURAI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_93",
+    "name": "KEDAR PD GUPTA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/KEDAR-2025-20251016014600.jpg",
+    "state": "Bihar",
+    "constituency": "KURHANI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KURHANI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_94",
+    "name": "RANJAN KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RANJA-2025-20251017022342.jpg",
+    "state": "Bihar",
+    "constituency": "MUZAFFARPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MUZAFFARPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_96",
+    "name": "ARUN KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ARUNK-2025-20251017060401.jpg",
+    "state": "Bihar",
+    "constituency": "BARURAJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BARURAJ",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_98",
+    "name": "RAJU KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/RAJUK-2025-20251017024656.jpg",
+    "state": "Bihar",
+    "constituency": "SAHEBGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SAHEBGANJ",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_99",
+    "name": "MITHILESH TIWARI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/MITHI-2025-20251018051904.jpg",
+    "state": "Bihar",
+    "constituency": "BAIKUNTHPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BAIKUNTHPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_101",
+    "name": "SUBHASH SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SUBHA-2025-20251017052129.jpg",
+    "state": "Bihar",
+    "constituency": "GOPALGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "GOPALGANJ",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_105",
+    "name": "MANGAL PANDEY",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/MANGA-2025-20251021032655.jpg",
+    "state": "Bihar",
+    "constituency": "SIWAN",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SIWAN",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_109",
+    "name": "KARNJEET SINGH ALIAS VYAS SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/KARNJ-2025-20251017031612.jpg",
+    "state": "Bihar",
+    "constituency": "DARAUNDA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "DARAUNDA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_111",
+    "name": "DEVESH KANT SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/DEVES-2025-20251017034222.jpg",
+    "state": "Bihar",
+    "constituency": "GORIAKOTHI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "GORIAKOTHI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_115",
+    "name": "KEDAR NATH SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/KEDAR-2025-20251017051122.jpg",
+    "state": "Bihar",
+    "constituency": "BANIAPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BANIAPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_116",
+    "name": "JANAK SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/JANAK-2025-20251017052353.jpg",
+    "state": "Bihar",
+    "constituency": "TARAIYA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "TARAIYA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_118",
+    "name": "CHHOTI KUMARI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/CHHOT-2025-20251017103215.jpg",
+    "state": "Bihar",
+    "constituency": "CHAPRA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "CHAPRA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_120",
+    "name": "KRISHAN KUMAR MANTOO",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/KRISH-2025-20251016053902.jpg",
+    "state": "Bihar",
+    "constituency": "AMNOUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "AMNOUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_122",
+    "name": "VINAY KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/VINAY-2025-20251016033306.jpg",
+    "state": "Bihar",
+    "constituency": "SONEPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SONEPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_123",
+    "name": "AWADHESH SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/AWADH-2025-20251016081351.jpg",
+    "state": "Bihar",
+    "constituency": "HAJIPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "HAJIPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_124",
+    "name": "SANJAY KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SANJA-2025-20251016073809.jpg",
+    "state": "Bihar",
+    "constituency": "LALGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "LALGANJ",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_130",
+    "name": "LAKHENDRA KUMAR RAUSHAN",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/LAKHE-2025-20251016070018.jpg",
+    "state": "Bihar",
+    "constituency": "PATEPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "PATEPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_137",
+    "name": "RAJESH KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAJES-2025-20251017041313.jpg",
+    "state": "Bihar",
+    "constituency": "MOHIUDDINNAGAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MOHIUDDINNAGAR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_139",
+    "name": "BIRENDRA KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/BIREN-2025-20251016044614.jpg",
+    "state": "Bihar",
+    "constituency": "ROSERA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "ROSERA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_142",
+    "name": "SURENDRA MEHTA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SUREN-2025-20251016053145.jpg",
+    "state": "Bihar",
+    "constituency": "BACHHWARA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BACHHWARA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_143",
+    "name": "RAJNISH KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAJNI-2025-20251016063326.jpg",
+    "state": "Bihar",
+    "constituency": "TEGHRA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "TEGHRA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_146",
+    "name": "KUNDAN KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/KUNDA-2025-20251017032808.jpg",
+    "state": "Bihar",
+    "constituency": "BEGUSARAI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BEGUSARAI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_152",
+    "name": "KUMAR SHAILENDRA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/KUMAR-2025-20251016021207.jpg",
+    "state": "Bihar",
+    "constituency": "BIHPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BIHPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_154",
+    "name": "MURARI PASAVAN",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MURAR-2025-20251018042259.jpg",
+    "state": "Bihar",
+    "constituency": "PIRPAINTI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "PIRPAINTI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_156",
+    "name": "ROHIT PANDEY",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ROHIT-2025-20251017045150.jpg",
+    "state": "Bihar",
+    "constituency": "BHAGALPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BHAGALPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_161",
+    "name": "RAM NARAYAN MANDAL",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAMNA-2025-20251017040002.jpg",
+    "state": "Bihar",
+    "constituency": "BANKA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BANKA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_162",
+    "name": "PURAN LAL TUDU",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/PURAN-2025-20251017052027.jpg",
+    "state": "Bihar",
+    "constituency": "KATORIA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KATORIA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_164",
+    "name": "SAMRAT CHOUDHARY",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SAMRA-2025-20251016045127.jpg",
+    "state": "Bihar",
+    "constituency": "TARAPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "TARAPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_165",
+    "name": "KUMAR PRANAY",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/KUMAR-2025-20251016064855.jpg",
+    "state": "Bihar",
+    "constituency": "MUNGER",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MUNGER",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_168",
+    "name": "VIJAY KUMAR SINHA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/VIJAY-2025-20251015024509.jpg",
+    "state": "Bihar",
+    "constituency": "LAKHISARAI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "LAKHISARAI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_172",
+    "name": "DR. SUNIL KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SUNIL-2025-20251015035328.jpg",
+    "state": "Bihar",
+    "constituency": "BIHARSHARIF",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BIHARSHARIF",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_179",
+    "name": "SIYARAM SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SIYAR-2025-20251016033419.jpg",
+    "state": "Bihar",
+    "constituency": "BARH",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BARH",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_181",
+    "name": "SANJIV CHAURASIA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SANJI-2025-20251015034800.jpg",
+    "state": "Bihar",
+    "constituency": "DIGHA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "DIGHA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_182",
+    "name": "NITIN NABIN",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/NITIN-2025-20251016054159.jpg",
+    "state": "Bihar",
+    "constituency": "BANKIPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BANKIPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_183",
+    "name": "SANJAY KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SANJA-2025-20251016020730.jpg",
+    "state": "Bihar",
+    "constituency": "KUMHRAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KUMHRAR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_184",
+    "name": "RATNESH KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RATNE-2025-20251017021442.jpg",
+    "state": "Bihar",
+    "constituency": "PATNA SAHIB",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "PATNA SAHIB",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_186",
+    "name": "RAM KRIPAL YADAV",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAMKR-2025-20251016035752.jpg",
+    "state": "Bihar",
+    "constituency": "DANAPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "DANAPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_191",
+    "name": "SIDDHARTH SAURAV",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SIDDH-2025-20251016040825.jpg",
+    "state": "Bihar",
+    "constituency": "BIKRAM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BIKRAM",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_193",
+    "name": "RAGHVENDRA PRATAP SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAGHV-2025-20251017041838.jpg",
+    "state": "Bihar",
+    "constituency": "BARHARA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BARHARA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_194",
+    "name": "SANJAY SINGH (TIGER)",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SANJA-2025-20251017020840.jpg",
+    "state": "Bihar",
+    "constituency": "ARRAH",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "ARRAH",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_195",
+    "name": "MAHESH PASWAN",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MAHES-2025-20251017045719.jpg",
+    "state": "Bihar",
+    "constituency": "AGIAON",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "AGIAON",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_196",
+    "name": "VISHAL PRASHANT",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/VISHA-2025-20251017054127.jpg",
+    "state": "Bihar",
+    "constituency": "TARARI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "TARARI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_198",
+    "name": "RAKESH RANJAN",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAKES-2025-20251016041639.jpg",
+    "state": "Bihar",
+    "constituency": "SHAHPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SHAHPUR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_200",
+    "name": "ANAND MISHRA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ANAND-2025-20251017062516.jpg",
+    "state": "Bihar",
+    "constituency": "BUXAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BUXAR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_204",
+    "name": "SANGITA KUMARI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SANGI-2025-20251018053315.jpg",
+    "state": "Bihar",
+    "constituency": "MOHANIA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MOHANIA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_205",
+    "name": "BHARAT BIND",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/BHARA-2025-20251021035029.jpg",
+    "state": "Bihar",
+    "constituency": "BHABUA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BHABUA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_214",
+    "name": "MANOJ KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MANOJ-2025-20251018023105.jpg",
+    "state": "Bihar",
+    "constituency": "ARWAL",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "ARWAL",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_223",
+    "name": "TRIVIKRAM NARAYAN SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/TRIVI-2025-20251018030044.jpg",
+    "state": "Bihar",
+    "constituency": "AURANGABAD",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "AURANGABAD",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_225",
+    "name": "UPENDRA PRASAD",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/UPEND-2025-20251018030353.jpg",
+    "state": "Bihar",
+    "constituency": "GURUA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "GURUA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_230",
+    "name": "PREM KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/PREMK-2025-20251023074530.jpg",
+    "state": "Bihar",
+    "constituency": "GAYA TOWN",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "GAYA TOWN",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_234",
+    "name": "BIRENDRA SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/BIREN-2025-20251018024002.jpg",
+    "state": "Bihar",
+    "constituency": "WAZIRGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "WAZIRGANJ",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_236",
+    "name": "ANIL SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/ANILS-2025-20251024041752.jpg",
+    "state": "Bihar",
+    "constituency": "HISUA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "HISUA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_241",
+    "name": "SHREYASI SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SHREY-2025-20251017064541.jpg",
+    "state": "Bihar",
+    "constituency": "JAMUI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "JAMUI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_9",
+    "name": "SAMMRIDH VARMA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SAMMR-2025-20251018021018.jpg",
+    "state": "Bihar",
+    "constituency": "SIKTA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SIKTA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_12",
+    "name": "VISHAL KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/VISHA-2025-20251018074638.jpg",
+    "state": "Bihar",
+    "constituency": "NARKATIA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NARKATIA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_15",
+    "name": "SHALINI MISHRA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SHALI-2025-20251017020801.jpg",
+    "state": "Bihar",
+    "constituency": "KESARIA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KESARIA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_22",
+    "name": "SHWETA GUPTA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/SHWET-2025-20251017061321.jpg",
+    "state": "Bihar",
+    "constituency": "SHEOHAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SHEOHAR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_26",
+    "name": "PROF. NAGENDRA RAUT",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/PRON-2025-20251017043904.jpg",
+    "state": "Bihar",
+    "constituency": "SURSAND",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SURSAND",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_29",
+    "name": "PANKAJ KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/PANKA-2025-20251017031443.jpg",
+    "state": "Bihar",
+    "constituency": "RUNNISAIDPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RUNNISAIDPUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_31",
+    "name": "SUDHANSHU SHEKHAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SUDHA-2025-20251017023839.jpg",
+    "state": "Bihar",
+    "constituency": "HARLAKHI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "HARLAKHI",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_34",
+    "name": "MINA KUMARI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MINAK-2025-20251018042817.jpg",
+    "state": "Bihar",
+    "constituency": "BABUBARHI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BABUBARHI",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_39",
+    "name": "SHEELA KUMARI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SHEEL-2025-20251017030107.jpg",
+    "state": "Bihar",
+    "constituency": "PHULPARAS",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "PHULPARAS",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_40",
+    "name": "SATISH KUMAR SAH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SATIS-2025-20251017055750.jpg",
+    "state": "Bihar",
+    "constituency": "LAUKAHA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "LAUKAHA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_41",
+    "name": "ANIRUDDHA PRASAD YADAV",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ANIRU-2025-20251016043219.jpg",
+    "state": "Bihar",
+    "constituency": "NIRMALI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NIRMALI",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_42",
+    "name": "RAMBILASH KAMAT",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAMBI-2025-20251014050446.jpg",
+    "state": "Bihar",
+    "constituency": "PIPRA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "PIPRA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_43",
+    "name": "BIJENDRA PRASAD YADAV",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/BIJEN-2025-20251014055408.jpg",
+    "state": "Bihar",
+    "constituency": "SUPAUL",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SUPAUL",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_44",
+    "name": "SONAM RANI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SONAM-2025-20251018042112.jpg",
+    "state": "Bihar",
+    "constituency": "TRIVENIGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "TRIVENIGANJ",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_53",
+    "name": "GOPAL KUMAR AGARWAL",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/GOPAL-2025-20251014030139.jpg",
+    "state": "Bihar",
+    "constituency": "THAKURGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "THAKURGANJ",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_60",
+    "name": "KALADHAR PRASAD MANDAL",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/KALAD-2025-20251017084626.jpg",
+    "state": "Bihar",
+    "constituency": "RUPAULI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RUPAULI",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_61",
+    "name": "LESHI SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/LESHI-2025-20251017055918.jpg",
+    "state": "Bihar",
+    "constituency": "DHAMDAHA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "DHAMDAHA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_64",
+    "name": "DULAL CHANDRA GOSWAMI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/DULAL-2025-20251018080303.jpg",
+    "state": "Bihar",
+    "constituency": "KADWA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KADWA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_68",
+    "name": "BIJAY SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/BIJAY-2025-20251018063524.jpg",
+    "state": "Bihar",
+    "constituency": "BARARI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BARARI",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_70",
+    "name": "NARENDRA NARAYAN YADAV",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/NAREN-2025-20251017055118.jpg",
+    "state": "Bihar",
+    "constituency": "ALAMNAGAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "ALAMNAGAR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_71",
+    "name": "NIRANJAN KUMAR MEHTA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/NIRAN-2025-20251016081511.jpg",
+    "state": "Bihar",
+    "constituency": "BIHARIGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BIHARIGANJ",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_72",
+    "name": "RAMESH RISHI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAMES-2025-20251017104421.jpg",
+    "state": "Bihar",
+    "constituency": "SINGHESHWAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SINGHESHWAR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_74",
+    "name": "RATNESH SADA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RATNE-2025-20251017051953.jpg",
+    "state": "Bihar",
+    "constituency": "SONBARSHA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SONBARSHA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_78",
+    "name": "ATIREK KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ATIRE-2025-20251016064029.jpg",
+    "state": "Bihar",
+    "constituency": "KUSHESHWAR ASTHAN",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KUSHESHWAR ASTHAN",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_80",
+    "name": "BINAY KUMAR CHOUDHARY",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/BINAY-2025-20251016070653.jpg",
+    "state": "Bihar",
+    "constituency": "BENIPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BENIPUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_82",
+    "name": "RAJESH KUMAR MANDAL",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAJES-2025-20251016081240.jpg",
+    "state": "Bihar",
+    "constituency": "DARBHANGA RURAL",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "DARBHANGA RURAL",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_85",
+    "name": "MADAN SAHNI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MADAN-2025-20251016061550.jpg",
+    "state": "Bihar",
+    "constituency": "BAHADURPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BAHADURPUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_88",
+    "name": "KOMAL SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/KOMAL-2025-20251016024539.jpg",
+    "state": "Bihar",
+    "constituency": "GAIGHAT",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "GAIGHAT",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_90",
+    "name": "AJAY KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/AJAYK-2025-20251017033453.jpg",
+    "state": "Bihar",
+    "constituency": "MINAPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MINAPUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_92",
+    "name": "ADITYA KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/ADITY-2025-20251016032800.jpg",
+    "state": "Bihar",
+    "constituency": "SAKRA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SAKRA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_95",
+    "name": "AJIT KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/AJITK-2025-20251017020606.jpg",
+    "state": "Bihar",
+    "constituency": "KANTI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KANTI",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_100",
+    "name": "MANJEET KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MANJE-2025-20251017092440.jpg",
+    "state": "Bihar",
+    "constituency": "BARAULI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BARAULI",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_102",
+    "name": "AMRENDRA KUMAR PANDEY",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/AMREN-2025-20251017052806.jpg",
+    "state": "Bihar",
+    "constituency": "KUCHAIKOTE",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KUCHAIKOTE",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_103",
+    "name": "SUNIL KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SUNIL-2025-20251015010847.jpg",
+    "state": "Bihar",
+    "constituency": "BHOREY",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BHOREY",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_104",
+    "name": "RAMSEWAK SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAMSE-2025-20251015072901.jpg",
+    "state": "Bihar",
+    "constituency": "HATHUA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "HATHUA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_106",
+    "name": "BHISM PRATAP SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/BHISM-2025-20251017124957.jpg",
+    "state": "Bihar",
+    "constituency": "ZIRADEI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "ZIRADEI",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_110",
+    "name": "INDRADEV SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/INDRA-2025-20251017060704.jpg",
+    "state": "Bihar",
+    "constituency": "BARHARIA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BARHARIA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_112",
+    "name": "HEM NARAYAN SAH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/HEMNA-2025-20251017010436.jpg",
+    "state": "Bihar",
+    "constituency": "MAHARAJGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MAHARAJGANJ",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_113",
+    "name": "MANORANJAN SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/MANOR-2025-20251019031601.jpg",
+    "state": "Bihar",
+    "constituency": "EKMA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "EKMA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_114",
+    "name": "RANDHIR KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RANDH-2025-20251017040439.jpg",
+    "state": "Bihar",
+    "constituency": "MANJHI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MANJHI",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_125",
+    "name": "SIDDHARTH PATEL",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SIDDH-2025-20251014015813.jpg",
+    "state": "Bihar",
+    "constituency": "VAISHALI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "VAISHALI",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_127",
+    "name": "MAHENDRA RAM",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MAHEN-2025-20251017062635.jpg",
+    "state": "Bihar",
+    "constituency": "RAJA PAKAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RAJA PAKAR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_129",
+    "name": "UMESH SINGH KUSHWAHA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/UMESH-2025-20251014125412.jpg",
+    "state": "Bihar",
+    "constituency": "MAHNAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MAHNAR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_131",
+    "name": "MAHESHWAR HAZARI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MAHES-2025-20251016035345.jpg",
+    "state": "Bihar",
+    "constituency": "KALYANPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KALYANPUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_132",
+    "name": "MANJARIK MRINAL",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MANJA-2025-20251014050605.jpg",
+    "state": "Bihar",
+    "constituency": "WARISNAGAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "WARISNAGAR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_133",
+    "name": "ASHWAMEDH DEVI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ASHWA-2025-20251016070342.jpg",
+    "state": "Bihar",
+    "constituency": "SAMASTIPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SAMASTIPUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_136",
+    "name": "VIJAY KUMAR CHOUDHARY",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/VIJAY-2025-20251016030827.jpg",
+    "state": "Bihar",
+    "constituency": "SARAIRANJAN",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SARAIRANJAN",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_140",
+    "name": "RAJ KUMAR RAY",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAJKU-2025-20251017024517.jpg",
+    "state": "Bihar",
+    "constituency": "HASANPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "HASANPUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_141",
+    "name": "ABHISHEK ANAND",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ABHIS-2025-20251016065831.jpg",
+    "state": "Bihar",
+    "constituency": "CHERIA - BARIARPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "CHERIA - BARIARPUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_148",
+    "name": "RAM CHANDRA SADA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAMCH-2025-20251017085001.jpg",
+    "state": "Bihar",
+    "constituency": "ALAULI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "ALAULI",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_149",
+    "name": "BABLU KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/BABLU-2025-20251017083248.jpg",
+    "state": "Bihar",
+    "constituency": "KHAGARIA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KHAGARIA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_150",
+    "name": "PANNA LAL SINGH PATEL",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/PANNA-2025-20251017065634.jpg",
+    "state": "Bihar",
+    "constituency": "BELDAUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BELDAUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_153",
+    "name": "SHAILESH KUMAR ALIAS BULO MANDAL",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/SHAIL-2025-20251017080213.jpg",
+    "state": "Bihar",
+    "constituency": "GOPALPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "GOPALPUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_155",
+    "name": "SHUBHANAND MUKESH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SHUBH-2025-20251018023821.jpg",
+    "state": "Bihar",
+    "constituency": "KAHALGAON",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KAHALGAON",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_157",
+    "name": "LALIT NARAYAN MANDAL",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/LALIT-2025-20251018033001.jpg",
+    "state": "Bihar",
+    "constituency": "SULTANGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SULTANGANJ",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_159",
+    "name": "JAYANT RAJ",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/JAYAN-2025-20251018041240.jpg",
+    "state": "Bihar",
+    "constituency": "AMARPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "AMARPUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_160",
+    "name": "MANISH KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MANIS-2025-20251016065755.jpg",
+    "state": "Bihar",
+    "constituency": "DHORAIYA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "DHORAIYA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_163",
+    "name": "MANOJ YADAV",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MANOJ-2025-20251017071014.jpg",
+    "state": "Bihar",
+    "constituency": "BELHAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BELHAR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_166",
+    "name": "NACHIKETA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/NACHI-2025-20251017061459.jpg",
+    "state": "Bihar",
+    "constituency": "JAMALPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "JAMALPUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_167",
+    "name": "RAMANAND MANDAL",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAMAN-2025-20251016044725.jpg",
+    "state": "Bihar",
+    "constituency": "SURYAGARHA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SURYAGARHA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_169",
+    "name": "RANDHIR KUMAR SONI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RANDH-2025-20251016052154.jpg",
+    "state": "Bihar",
+    "constituency": "SHEIKHPURA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SHEIKHPURA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_170",
+    "name": "DR. KUMAR PUSPANJAY",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/DRKU-2025-20251016074115.jpg",
+    "state": "Bihar",
+    "constituency": "BARBIGHA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BARBIGHA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_171",
+    "name": "JITENDRA KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/JITEN-2025-20251017040900.jpg",
+    "state": "Bihar",
+    "constituency": "ASTHAWAN",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "ASTHAWAN",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_173",
+    "name": "KAUSHAL KISHORE",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/KAUSH-2025-20251018030107.jpg",
+    "state": "Bihar",
+    "constituency": "RAJGIR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RAJGIR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_174",
+    "name": "RUHAIL RANJAN",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RUHAI-2025-20251016080309.jpg",
+    "state": "Bihar",
+    "constituency": "ISLAMPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "ISLAMPUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_175",
+    "name": "KRISHNA MURARI SHARAN",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/KRISH-2025-20251016090300.jpg",
+    "state": "Bihar",
+    "constituency": "HILSA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "HILSA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_176",
+    "name": "SHRAWON KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SHRAW-2025-20251016060857.jpg",
+    "state": "Bihar",
+    "constituency": "NALANDA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NALANDA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_177",
+    "name": "HARI NARAYAN SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/HARIN-2025-20251020031416.jpg",
+    "state": "Bihar",
+    "constituency": "HARNAUT",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "HARNAUT",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_178",
+    "name": "ANANT KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/ANANT-2025-20251018070613.jpg",
+    "state": "Bihar",
+    "constituency": "MOKAMA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MOKAMA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_188",
+    "name": "SHYAM RAJAK",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SHYAM-2025-20251015022830.jpg",
+    "state": "Bihar",
+    "constituency": "PHULWARI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "PHULWARI",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_189",
+    "name": "ARUN MANJHI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ARUNM-2025-20251015043131.jpg",
+    "state": "Bihar",
+    "constituency": "MASAURHI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MASAURHI",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_192",
+    "name": "RADHA CHARAN SAH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RADHA-2025-20251017013532.jpg",
+    "state": "Bihar",
+    "constituency": "SANDESH",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SANDESH",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_197",
+    "name": "SRIBHAGWAN SINGH KUSHWAHA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SRIBH-2025-20251017030544.jpg",
+    "state": "Bihar",
+    "constituency": "JAGDISHPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "JAGDISHPUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_201",
+    "name": "RAHUL KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAHUL-2025-20251017041604.jpg",
+    "state": "Bihar",
+    "constituency": "DUMRAON",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "DUMRAON",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_202",
+    "name": "SANTOSH KUMAR NIRALA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/SANTO-2025-20251017021506.jpg",
+    "state": "Bihar",
+    "constituency": "RAJPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RAJPUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_206",
+    "name": "MD. ZAMA KHAN",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MDZA-2025-20251018052036.jpg",
+    "state": "Bihar",
+    "constituency": "CHAINPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "CHAINPUR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_209",
+    "name": "BASHISTH SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/BASHI-2025-20251018051504.jpg",
+    "state": "Bihar",
+    "constituency": "KARGAHAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KARGAHAR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_211",
+    "name": "NAGENDRA CHANDRAVANSHI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/NAGEN-2025-20251018070724.jpg",
+    "state": "Bihar",
+    "constituency": "NOKHA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NOKHA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_215",
+    "name": "PAPPU KUMAR VERMA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/PAPPU-2025-20251018054716.jpg",
+    "state": "Bihar",
+    "constituency": "KURTHA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KURTHA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_217",
+    "name": "RITURAJ KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/RITUR-2025-20251017012131.jpg",
+    "state": "Bihar",
+    "constituency": "GHOSI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "GHOSI",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_221",
+    "name": "CHETAN ANAND",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/CHETA-2025-20251017062824.jpg",
+    "state": "Bihar",
+    "constituency": "NABINAGAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NABINAGAR",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_224",
+    "name": "PRAMOD KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/PRAMO-2025-20251017050628.jpg",
+    "state": "Bihar",
+    "constituency": "RAFIGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RAFIGANJ",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_232",
+    "name": "MANORMA DEVI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/MANOR-2025-20251023052544.jpg",
+    "state": "Bihar",
+    "constituency": "BELAGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BELAGANJ",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_237",
+    "name": "VIBHA DEVI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/VIBHA-2025-20251018044432.jpg",
+    "state": "Bihar",
+    "constituency": "NAWADA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NAWADA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_242",
+    "name": "DAMODAR RAWAT",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/DAMOD-2025-20251017064727.jpg",
+    "state": "Bihar",
+    "constituency": "JHAJHA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "JHAJHA",
+          "party": "Janata Dal (United)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_21",
+    "name": "FAISAL RAHMAN",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/FAISA-2025-20251020123826.jpg",
+    "state": "Bihar",
+    "constituency": "DHAKA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "DHAKA",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_35",
+    "name": "ASIF AHMAD",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ASIFA-2025-20251018051524.jpg",
+    "state": "Bihar",
+    "constituency": "BISFI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BISFI",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_47",
+    "name": "AVINASH MANGLAM",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/AVINA-2025-20251020073923.jpg",
+    "state": "Bihar",
+    "constituency": "RANIGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RANIGANJ",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_73",
+    "name": "CHANDRA SHEKHAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/CHAND-2025-20251017101135.jpg",
+    "state": "Bihar",
+    "constituency": "MADHEPURA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MADHEPURA",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_77",
+    "name": "GAUTAM KRISHNA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/GAUTA-2025-20251017072446.jpg",
+    "state": "Bihar",
+    "constituency": "MAHISHI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MAHISHI",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_97",
+    "name": "SHANKAR PRASAD",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/SHANK-2025-20251017123935.jpg",
+    "state": "Bihar",
+    "constituency": "PAROO",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "PAROO",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_108",
+    "name": "OSAMA SHAHAB",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/OSAMA-2025-20251016045822.jpg",
+    "state": "Bihar",
+    "constituency": "RAGHUNATHPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RAGHUNATHPUR",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_117",
+    "name": "JITENDRA KUMAR RAI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/JITEN-2025-20251016023852.jpg",
+    "state": "Bihar",
+    "constituency": "MARHAURA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MARHAURA",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_119",
+    "name": "SURENDRA RAM",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SUREN-2025-20251015044949.jpg",
+    "state": "Bihar",
+    "constituency": "GARKHA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "GARKHA",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_121",
+    "name": "KARISHMA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/KARIS-2025-20251017124908.jpg",
+    "state": "Bihar",
+    "constituency": "PARSA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "PARSA",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_128",
+    "name": "TEJASHWI PRASAD YADAV",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/TEJAS-2025-20251015035125.jpg",
+    "state": "Bihar",
+    "constituency": "RAGHOPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RAGHOPUR",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_134",
+    "name": "ALOK KUMAR MEHTA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ALOKK-2025-20251016045809.jpg",
+    "state": "Bihar",
+    "constituency": "UJIARPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "UJIARPUR",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_135",
+    "name": "RANVIJAY SAHU",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RANVI-2025-20251016050903.jpg",
+    "state": "Bihar",
+    "constituency": "MORWA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MORWA",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_144",
+    "name": "NARENDRA KUMAR SINGH ALIAS BOGO SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/NAREN-2025-20251016054014.jpg",
+    "state": "Bihar",
+    "constituency": "MATIHANI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MATIHANI",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_145",
+    "name": "SATTANAND SAMBUDDHA ALIAS LALAN JEE",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SATTA-2025-20251014050343.jpg",
+    "state": "Bihar",
+    "constituency": "SAHEBPUR KAMAL",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SAHEBPUR KAMAL",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_185",
+    "name": "DR. RAMANAND YADAV",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/DRRA-2025-20251015052122.jpg",
+    "state": "Bihar",
+    "constituency": "FATUHA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "FATUHA",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_187",
+    "name": "BHAI BIRENDRA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/BHAIB-2025-20251015024108.jpg",
+    "state": "Bihar",
+    "constituency": "MANER",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MANER",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_199",
+    "name": "SHAMBHU NATH YADAV",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SHAMB-2025-20251015051026.jpg",
+    "state": "Bihar",
+    "constituency": "BRAHAMPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BRAHAMPUR",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_216",
+    "name": "RAHUL KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAHUL-2025-20251020123301.jpg",
+    "state": "Bihar",
+    "constituency": "JEHANABAD",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "JEHANABAD",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_218",
+    "name": "SUBEDAR DAS",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SUBED-2025-20251020025400.jpg",
+    "state": "Bihar",
+    "constituency": "MAKHDUMPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MAKHDUMPUR",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_219",
+    "name": "AMRENDRA KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/AMREN-2025-20251020033937.jpg",
+    "state": "Bihar",
+    "constituency": "GOH",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "GOH",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_229",
+    "name": "KUMAR SARVJEET",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/KUMAR-2025-20251023113518.jpg",
+    "state": "Bihar",
+    "constituency": "BODH GAYA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BODH GAYA",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_231",
+    "name": "AJAY KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/AJAYK-2025-20251020053511.jpg",
+    "state": "Bihar",
+    "constituency": "TIKARI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "TIKARI",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_239",
+    "name": "ANITA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ANITA-2025-20251018051455.jpg",
+    "state": "Bihar",
+    "constituency": "WARSALIGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "WARSALIGANJ",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_243",
+    "name": "SAVITRI DEVI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SAVIT-2025-20251020045811.jpg",
+    "state": "Bihar",
+    "constituency": "CHAKAI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "CHAKAI",
+          "party": "Rashtriya Janata Dal",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_11",
+    "name": "RAJESH KUMAR ALIAS BABLU GUPTA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAJES-2025-20251018065131.jpg",
+    "state": "Bihar",
+    "constituency": "SUGAULI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SUGAULI",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_14",
+    "name": "RAJU TIWARI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAJUT-2025-20251018014117.jpg",
+    "state": "Bihar",
+    "constituency": "GOVINDGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "GOVINDGANJ",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_30",
+    "name": "AMIT KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/AMITK-2025-20251018030846.jpg",
+    "state": "Bihar",
+    "constituency": "BELSAND",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BELSAND",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_58",
+    "name": "NITESH KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/NITES-2025-20251020021602.jpg",
+    "state": "Bihar",
+    "constituency": "KASBA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KASBA",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_65",
+    "name": "SANGITA DEVI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SANGI-2025-20251018052916.jpg",
+    "state": "Bihar",
+    "constituency": "BALRAMPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BALRAMPUR",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_76",
+    "name": "SANJAY KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SANJA-2025-20251017031522.jpg",
+    "state": "Bihar",
+    "constituency": "SIMRI BAKHTIARPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SIMRI BAKHTIARPUR",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_91",
+    "name": "BABY KUMARI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/BABYK-2025-20251017082708.jpg",
+    "state": "Bihar",
+    "constituency": "BOCHAHAN",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BOCHAHAN",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_107",
+    "name": "VISHNU DEO PASWAN",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/VISHN-2025-20251017072151.jpg",
+    "state": "Bihar",
+    "constituency": "DARAULI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "DARAULI",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_126",
+    "name": "SANJAY KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SANJA-2025-20251017081143.jpg",
+    "state": "Bihar",
+    "constituency": "MAHUA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MAHUA",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_147",
+    "name": "SANJAY KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SANJA-2025-20251017062910.jpg",
+    "state": "Bihar",
+    "constituency": "BAKHRI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BAKHRI",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_151",
+    "name": "BABULAL SHORYA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/BABUL-2025-20251017092100.jpg",
+    "state": "Bihar",
+    "constituency": "PARBATTA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "PARBATTA",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_158",
+    "name": "MITHUN KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MITHU-2025-20251018033846.jpg",
+    "state": "Bihar",
+    "constituency": "NATHNAGAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NATHNAGAR",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_180",
+    "name": "ARUN KUMAR S/O SATRUGHAN SAO",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ARUNK-2025-20251017035205.jpg",
+    "state": "Bihar",
+    "constituency": "BAKHTIARPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BAKHTIARPUR",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_207",
+    "name": "MURARI PRASAD GAUTAM",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MURAR-2025-20251018051344.jpg",
+    "state": "Bihar",
+    "constituency": "CHENARI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "CHENARI",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_212",
+    "name": "RAJEEV RANJAN SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/RAJEE-2025-20251020113154.jpg",
+    "state": "Bihar",
+    "constituency": "DEHRI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "DEHRI",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_220",
+    "name": "PRAKASH CHANDRA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/PRAKA-2025-20251017085357.jpg",
+    "state": "Bihar",
+    "constituency": "OBRA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "OBRA",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_226",
+    "name": "UDAY KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/UDAYK-2025-20251020045652.jpg",
+    "state": "Bihar",
+    "constituency": "SHERGHATI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SHERGHATI",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_235",
+    "name": "VIMAL RAJBANSHI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/VIMAL-2025-20251020025539.jpg",
+    "state": "Bihar",
+    "constituency": "RAJAULI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RAJAULI",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_238",
+    "name": "BINITA MEHTA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/BINIT-2025-20251020063458.jpg",
+    "state": "Bihar",
+    "constituency": "GOBINDPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "GOBINDPUR",
+          "party": "Lok Janshakti Party (Ram Vilas)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_1",
+    "name": "SURENDRA PRASAD",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SUREN-2025-20251020062557.jpg",
+    "state": "Bihar",
+    "constituency": "VALMIKI NAGAR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "VALMIKI NAGAR",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_7",
+    "name": "ABHISHEK RANJAN",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ABHIS-2025-20251017064437.jpg",
+    "state": "Bihar",
+    "constituency": "CHANPATIA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "CHANPATIA",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_48",
+    "name": "MANOJ BISHWAS",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MANOJ-2025-20251020054017.jpg",
+    "state": "Bihar",
+    "constituency": "FORBESGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "FORBESGANJ",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_49",
+    "name": "ABIDUR RAHMAN",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ABIDU-2025-20251020041358.jpg",
+    "state": "Bihar",
+    "constituency": "ARARIA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "ARARIA",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_54",
+    "name": "MD. QAMRUL HODA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MDQAM-2025-20251020011749.jpg",
+    "state": "Bihar",
+    "constituency": "KISHANGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KISHANGANJ",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_67",
+    "name": "MANOHAR PRASAD SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MANOH-2025-20251020123756.jpg",
+    "state": "Bihar",
+    "constituency": "MANIHARI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MANIHARI",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_50",
+    "name": "MOHAMMAD MURSHID ALAM",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/S04/MOHAM-2025-20251018065652.jpg",
+    "state": "Bihar",
+    "constituency": "JOKIHAT",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "JOKIHAT",
+          "party": "All India Majlis-E-Ittehadul Muslimeen",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_52",
+    "name": "MD TAUSEEF ALAM",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MDTAU-2025-20251016043916.jpg",
+    "state": "Bihar",
+    "constituency": "BAHADURGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BAHADURGANJ",
+          "party": "All India Majlis-E-Ittehadul Muslimeen",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_55",
+    "name": "MD. SARWAR ALAM",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MDSAR-2025-20251020023252.jpg",
+    "state": "Bihar",
+    "constituency": "KOCHADHAMAN",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KOCHADHAMAN",
+          "party": "All India Majlis-E-Ittehadul Muslimeen",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_56",
+    "name": "AKHTARUL IMAN",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/AKHTA-2025-20251017060907.jpg",
+    "state": "Bihar",
+    "constituency": "AMOUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "AMOUR",
+          "party": "All India Majlis-E-Ittehadul Muslimeen",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_57",
+    "name": "GHULAM SARWAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/GHULA-2025-20251017052116.jpg",
+    "state": "Bihar",
+    "constituency": "BAISI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BAISI",
+          "party": "All India Majlis-E-Ittehadul Muslimeen",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_222",
+    "name": "LALAN RAM",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/LALAN-2025-20251018083301.jpg",
+    "state": "Bihar",
+    "constituency": "KUTUMBA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KUTUMBA",
+          "party": "Hindustani Awam Morcha (Secular)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_227",
+    "name": "DEEPA KUMARI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/DEEPA-2025-20251017024217.jpg",
+    "state": "Bihar",
+    "constituency": "IMAMGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "IMAMGANJ",
+          "party": "Hindustani Awam Morcha (Secular)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_228",
+    "name": "JYOTI DEVI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/JYOTI-2025-20251018051608.jpg",
+    "state": "Bihar",
+    "constituency": "BARACHATTI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BARACHATTI",
+          "party": "Hindustani Awam Morcha (Secular)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_233",
+    "name": "ROMIT KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ROMIT-2025-20251017040427.jpg",
+    "state": "Bihar",
+    "constituency": "ATRI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "ATRI",
+          "party": "Hindustani Awam Morcha (Secular)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_240",
+    "name": "PRAPHULL KUMAR MANJHI",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/PRAPH-2025-20251017044537.jpg",
+    "state": "Bihar",
+    "constituency": "SIKANDRA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SIKANDRA",
+          "party": "Hindustani Awam Morcha (Secular)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_27",
+    "name": "RAMESHWAR KUMAR MEHTO",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/RAMES-2025-20251018062044.jpg",
+    "state": "Bihar",
+    "constituency": "BAJPATTI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BAJPATTI",
+          "party": "Rashtriya Lok Morcha",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_36",
+    "name": "MADHAW ANAND",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/MADHA-2025-20251018022901.jpg",
+    "state": "Bihar",
+    "constituency": "MADHUBANI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "MADHUBANI",
+          "party": "Rashtriya Lok Morcha",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_208",
+    "name": "SNEHLATA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SNEHL-2025-20251018022644.jpg",
+    "state": "Bihar",
+    "constituency": "SASARAM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SASARAM",
+          "party": "Rashtriya Lok Morcha",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_210",
+    "name": "ALOK KUMAR SINGH",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ALOKK-2025-20251017060642.jpg",
+    "state": "Bihar",
+    "constituency": "DINARA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "DINARA",
+          "party": "Rashtriya Lok Morcha",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_190",
+    "name": "SANDEEP SAURAV",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SANDE-2025-20251014053914.jpg",
+    "state": "Bihar",
+    "constituency": "PALIGANJ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "PALIGANJ",
+          "party": "Communist Party of India (Marxist-Leninist) (Liberation)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_213",
+    "name": "ARUN SINGH (VILL-AJNAP TOLA)",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/ARUNS-2025-20251016031655.jpg",
+    "state": "Bihar",
+    "constituency": "KARAKAT",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "KARAKAT",
+          "party": "Communist Party of India (Marxist-Leninist) (Liberation)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_75",
+    "name": "INDRAJEET PRASAD GUPTA",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/INDRA-2025-20251017061432.jpg",
+    "state": "Bihar",
+    "constituency": "SAHARSA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "SAHARSA",
+          "party": "Indian Inclusive Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_138",
+    "name": "AJAY KUMAR",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/AJAYK-2025-20251016021009.jpg",
+    "state": "Bihar",
+    "constituency": "BIBHUTIPUR",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "BIBHUTIPUR",
+          "party": "Communist Party of India (Marxist)",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mla_2025_s04_203",
+    "name": "SATISH KUMAR SINGH YADAV",
+    "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/SATIS-2025-20251017033701.jpg",
+    "state": "Bihar",
+    "constituency": "RAMGARH",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RAMGARH",
+          "party": "Bahujan Samaj Party",
+          "status": "WON"
+        }
+      ]
+    }
+  }
+]

@@ -17,10 +17,6 @@ from app.schemas.politician import (
     Politician,
     ElectionRecord,
     PoliticalBackground,
-    Education,
-    FamilyMember,
-    Contact,
-    SocialMedia,
 )
 from app.services.json_data_service import STATE_NAMES
 
@@ -54,6 +50,25 @@ def load_json_file(filepath: Path) -> List[Dict]:
     except json.JSONDecodeError as e:
         logger.error(f"Invalid JSON in {filepath}: {e}")
         return []
+
+
+def _stringify_values(obj):
+    """
+    Recursively convert non-primitive values to strings so JSON serialization
+    doesn't fail (e.g., pydantic HttpUrl objects).
+    """
+    if obj is None:
+        return None
+    if isinstance(obj, (str, int, float, bool)):
+        return obj
+    if isinstance(obj, list):
+        return [_stringify_values(v) for v in obj]
+    if isinstance(obj, dict):
+        return {k: _stringify_values(v) for k, v in obj.items()}
+    try:
+        return str(obj)
+    except Exception:
+        return obj
 
 
 def migrate_lok_sabha_data(base_data_dir: Path) -> List[Politician]:
@@ -119,13 +134,15 @@ def migrate_lok_sabha_data(base_data_dir: Path) -> List[Politician]:
         # Process each winning candidate
         for candidate in won_candidates:
             try:
-                state_id = candidate.get("state_id", state_code or "")
+                state_id = candidate.get("state_id", "")
                 constituency_id = candidate.get("constituency_id", "")
-                
+
                 # Look up constituency name
                 constituency_key = f"{state_id}_{constituency_id}"
                 constituency = constituencies_by_key.get(constituency_key, {})
-                constituency_name = constituency.get("name", candidate.get("constituency_name", f"Constituency {constituency_id}"))
+                constituency_name = constituency.get(
+                    "name", candidate.get("constituency_name", f"Constituency {constituency_id}")
+                )
                 
                 # Get party info
                 party_id = candidate.get("party_id", "INDEPENDENT")
@@ -319,7 +336,7 @@ def main():
     # Save MPs
     if mp_politicians:
         mp_file = output_dir / "mp.json"
-        mp_data = [p.model_dump(exclude_none=True) for p in mp_politicians]
+        mp_data = [_stringify_values(p.model_dump(exclude_none=True)) for p in mp_politicians]
         with open(mp_file, "w", encoding="utf-8") as f:
             json.dump(mp_data, f, indent=2, ensure_ascii=False)
         logger.info(f"\n✅ Saved {len(mp_politicians)} MPs to {mp_file}")
@@ -329,7 +346,7 @@ def main():
     # Save MLAs
     if mla_politicians:
         mla_file = output_dir / "mla.json"
-        mla_data = [p.model_dump(exclude_none=True) for p in mla_politicians]
+        mla_data = [_stringify_values(p.model_dump(exclude_none=True)) for p in mla_politicians]
         with open(mla_file, "w", encoding="utf-8") as f:
             json.dump(mla_data, f, indent=2, ensure_ascii=False)
         logger.info(f"✅ Saved {len(mla_politicians)} MLAs to {mla_file}")
