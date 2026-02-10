@@ -1,17 +1,11 @@
 "use client"
 
-import { useState, useEffect, useMemo } from "react"
+import { useState, useMemo } from "react"
 import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import PoliticianCard from "@/components/PoliticianCard"
-import {
-    usePoliticians,
-    useSearchPoliticians,
-    useStats,
-    useStates,
-    usePartyList,
-} from "@/hooks/usePoliticians"
+import { usePoliticians } from "@/hooks/usePoliticians"
 import type { ElectionType } from "@/types/politician"
 
 type Tab = "ALL" | "MP" | "MLA"
@@ -22,76 +16,20 @@ export default function Dashboard() {
     const [stateFilter, setStateFilter] = useState("")
     const [partyFilter, setPartyFilter] = useState("")
 
-    // Resolve the API type param (undefined for ALL)
+    // One API call — everything else derived client-side
     const typeParam: ElectionType | undefined =
         activeTab === "ALL" ? undefined : activeTab
 
-    // Data hooks
-    const { politicians, total, loading, error } = usePoliticians({
-        type: typeParam,
-        limit: 500,
-    })
-    const {
-        results: searchResults,
-        total: searchTotal,
-        loading: searchLoading,
-        search,
-        clear: clearSearch,
-    } = useSearchPoliticians()
-    const { stats } = useStats(typeParam)
-    const { states } = useStates(typeParam)
-    const { parties } = usePartyList(typeParam)
+    const { all, loading, error, states, parties, stats, filter } =
+        usePoliticians(typeParam)
 
-    // When tab changes, reset filters and search
-    useEffect(() => {
-        setSearchQuery("")
-        setStateFilter("")
-        setPartyFilter("")
-        clearSearch()
-    }, [activeTab, clearSearch])
+    // Filtered list — pure client-side
+    const displayPoliticians = useMemo(
+        () => filter({ query: searchQuery, state: stateFilter, party: partyFilter }),
+        [filter, searchQuery, stateFilter, partyFilter]
+    )
 
-    // Debounced search
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            if (searchQuery.trim().length >= 2) {
-                search(searchQuery, {
-                    type: typeParam,
-                    state: stateFilter || undefined,
-                    party: partyFilter || undefined,
-                })
-            } else {
-                clearSearch()
-            }
-        }, 300)
-        return () => clearTimeout(timeout)
-    }, [searchQuery, typeParam, stateFilter, partyFilter, search, clearSearch])
-
-    // Apply local filters to the politician list when not searching
-    const displayPoliticians = useMemo(() => {
-        if (searchQuery.trim().length >= 2) return searchResults
-
-        let list = politicians
-
-        if (stateFilter) {
-            list = list.filter(
-                (p) => p.state.toLowerCase() === stateFilter.toLowerCase()
-            )
-        }
-        if (partyFilter) {
-            list = list.filter((p) =>
-                p.political_background.elections.some(
-                    (e) => e.party.toLowerCase() === partyFilter.toLowerCase()
-                )
-            )
-        }
-
-        return list
-    }, [politicians, searchResults, searchQuery, stateFilter, partyFilter])
-
-    const displayTotal =
-        searchQuery.trim().length >= 2 ? searchTotal : displayPoliticians.length
-
-    const isSearchMode = searchQuery.trim().length >= 2
+    const hasActiveFilters = !!(searchQuery || stateFilter || partyFilter)
 
     // ── Render ────────────────────────────────────────────────────────────
 
@@ -124,46 +62,34 @@ export default function Dashboard() {
                 {/* Header + Stats */}
                 <div className='mb-8'>
                     <Text variant='h2' weight='bold' className='text-gray-900 mb-2'>
-                        🇮🇳 Indian Politicians
+                        Indian Politicians
                     </Text>
                     <Text variant='body' className='text-gray-600 mb-6'>
                         Browse elected MPs and MLAs. Help us enrich their profiles!
                     </Text>
 
-                    {stats && (
+                    {!loading && (
                         <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-6'>
-                            <div className='bg-white rounded-xl p-4 border border-gray-200 shadow-sm'>
-                                <Text variant='h3' weight='bold' className='text-orange-600'>
-                                    {stats.total_politicians.toLocaleString()}
-                                </Text>
-                                <Text variant='small' className='text-gray-500'>
-                                    Total Politicians
-                                </Text>
-                            </div>
-                            <div className='bg-white rounded-xl p-4 border border-gray-200 shadow-sm'>
-                                <Text variant='h3' weight='bold' className='text-blue-600'>
-                                    {stats.total_states}
-                                </Text>
-                                <Text variant='small' className='text-gray-500'>
-                                    States / UTs
-                                </Text>
-                            </div>
-                            <div className='bg-white rounded-xl p-4 border border-gray-200 shadow-sm'>
-                                <Text variant='h3' weight='bold' className='text-green-600'>
-                                    {stats.total_parties}
-                                </Text>
-                                <Text variant='small' className='text-gray-500'>
-                                    Parties
-                                </Text>
-                            </div>
-                            <div className='bg-white rounded-xl p-4 border border-gray-200 shadow-sm'>
-                                <Text variant='h3' weight='bold' className='text-purple-600'>
-                                    {stats.top_parties?.[0]?.[0] ?? "—"}
-                                </Text>
-                                <Text variant='small' className='text-gray-500'>
-                                    Top Party
-                                </Text>
-                            </div>
+                            <StatCard
+                                value={stats.total.toLocaleString()}
+                                label='Total Politicians'
+                                color='text-orange-600'
+                            />
+                            <StatCard
+                                value={stats.totalStates.toString()}
+                                label='States / UTs'
+                                color='text-blue-600'
+                            />
+                            <StatCard
+                                value={stats.totalParties.toString()}
+                                label='Parties'
+                                color='text-green-600'
+                            />
+                            <StatCard
+                                value={stats.topParty}
+                                label='Top Party'
+                                color='text-purple-600'
+                            />
                         </div>
                     )}
                 </div>
@@ -173,13 +99,22 @@ export default function Dashboard() {
                     {(["ALL", "MP", "MLA"] as Tab[]).map((tab) => (
                         <button
                             key={tab}
-                            onClick={() => setActiveTab(tab)}
+                            onClick={() => {
+                                setActiveTab(tab)
+                                setSearchQuery("")
+                                setStateFilter("")
+                                setPartyFilter("")
+                            }}
                             className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${
                                 activeTab === tab
                                     ? "bg-orange-500 text-white shadow-md"
                                     : "bg-white text-gray-600 border border-gray-300 hover:border-orange-400 hover:text-orange-600"
                             }`}>
-                            {tab === "ALL" ? "All" : tab === "MP" ? "🏛️ MPs" : "🏢 MLAs"}
+                            {tab === "ALL"
+                                ? "All"
+                                : tab === "MP"
+                                  ? "MPs"
+                                  : "MLAs"}
                         </button>
                     ))}
                 </div>
@@ -229,28 +164,27 @@ export default function Dashboard() {
                     </div>
 
                     {/* Active filters summary */}
-                    {(stateFilter || partyFilter || isSearchMode) && (
+                    {hasActiveFilters && (
                         <div className='flex items-center gap-2 mt-3 pt-3 border-t border-gray-100'>
                             <Text variant='small' className='text-gray-500'>
-                                Showing {displayTotal.toLocaleString()} result
-                                {displayTotal !== 1 ? "s" : ""}
+                                Showing {displayPoliticians.length.toLocaleString()} result
+                                {displayPoliticians.length !== 1 ? "s" : ""}
                             </Text>
-                            {(stateFilter || partyFilter) && (
-                                <button
-                                    onClick={() => {
-                                        setStateFilter("")
-                                        setPartyFilter("")
-                                    }}
-                                    className='ml-2 text-xs text-orange-600 hover:underline'>
-                                    Clear filters
-                                </button>
-                            )}
+                            <button
+                                onClick={() => {
+                                    setSearchQuery("")
+                                    setStateFilter("")
+                                    setPartyFilter("")
+                                }}
+                                className='ml-2 text-xs text-orange-600 hover:underline'>
+                                Clear filters
+                            </button>
                         </div>
                     )}
                 </div>
 
                 {/* Loading state */}
-                {(loading || searchLoading) && (
+                {loading && (
                     <div className='flex items-center justify-center py-20'>
                         <div className='text-center'>
                             <div className='inline-block animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent'></div>
@@ -262,43 +196,33 @@ export default function Dashboard() {
                 )}
 
                 {/* Empty state */}
-                {!loading && !searchLoading && displayPoliticians.length === 0 && (
+                {!loading && displayPoliticians.length === 0 && (
                     <div className='text-center py-20'>
                         <div className='text-6xl mb-4'>🔍</div>
                         <Text variant='h4' weight='bold' className='text-gray-700 mb-2'>
                             No politicians found
                         </Text>
                         <Text variant='body' className='text-gray-500'>
-                            {isSearchMode
-                                ? `No results for "${searchQuery}". Try a different search.`
-                                : "Try adjusting your filters."}
+                            {hasActiveFilters
+                                ? "Try adjusting your search or filters."
+                                : "No data available yet."}
                         </Text>
                     </div>
                 )}
 
                 {/* Politician grid */}
-                {!loading && !searchLoading && displayPoliticians.length > 0 && (
-                    <>
-                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                            {displayPoliticians.map((p) => (
-                                <PoliticianCard key={p.id} politician={p} />
-                            ))}
-                        </div>
-
-                        {displayPoliticians.length >= 500 && (
-                            <div className='text-center mt-8'>
-                                <Text variant='small' className='text-gray-400'>
-                                    Showing first 500 results. Use search to narrow down.
-                                </Text>
-                            </div>
-                        )}
-                    </>
+                {!loading && displayPoliticians.length > 0 && (
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                        {displayPoliticians.map((p) => (
+                            <PoliticianCard key={p.id} politician={p} />
+                        ))}
+                    </div>
                 )}
 
                 {/* Contribute CTA */}
                 <div className='mt-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-center text-white'>
                     <Text variant='h3' weight='bold' className='text-white mb-2'>
-                        Help us build the most comprehensive politician database 🇮🇳
+                        Help us build the most comprehensive politician database
                     </Text>
                     <Text variant='body' className='text-orange-100 mb-6 max-w-2xl mx-auto'>
                         Many profiles are missing education, family, and criminal record
@@ -316,6 +240,29 @@ export default function Dashboard() {
             </div>
 
             <Footer />
+        </div>
+    )
+}
+
+// ── Tiny helper component ─────────────────────────────────────────────────
+
+function StatCard({
+    value,
+    label,
+    color,
+}: {
+    value: string
+    label: string
+    color: string
+}) {
+    return (
+        <div className='bg-white rounded-xl p-4 border border-gray-200 shadow-sm'>
+            <Text variant='h3' weight='bold' className={color}>
+                {value}
+            </Text>
+            <Text variant='small' className='text-gray-500'>
+                {label}
+            </Text>
         </div>
     )
 }

@@ -1,66 +1,125 @@
 "use client"
 
-import { useState, useEffect, useCallback, useRef } from "react"
-import type { Politician, ElectionType, PoliticianStats } from "@/types/politician"
+import { useState, useEffect, useCallback, useMemo } from "react"
+import type { Politician, ElectionType } from "@/types/politician"
 
-const API_BASE_URL =
-    process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1"
+const API = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/v1`
 
-// ── List politicians ──────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// usePoliticians — fetch all politicians once, derive everything client-side
+// ─────────────────────────────────────────────────────────────────────────────
 
-interface UsePoliticiansOpts {
-    type?: ElectionType
-    limit?: number
-}
-
-export function usePoliticians(opts: UsePoliticiansOpts = {}) {
-    const [politicians, setPoliticians] = useState<Politician[]>([])
-    const [total, setTotal] = useState(0)
+export function usePoliticians(type?: ElectionType) {
+    const [all, setAll] = useState<Politician[]>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
 
-    const typeRef = useRef(opts.type)
-    const limitRef = useRef(opts.limit ?? 200)
-
-    useEffect(() => {
-        typeRef.current = opts.type
-        limitRef.current = opts.limit ?? 200
-    }, [opts.type, opts.limit])
-
-    const fetch_ = useCallback(async () => {
+    const fetchAll = useCallback(async () => {
         try {
             setLoading(true)
-            const params = new URLSearchParams()
-            if (typeRef.current) params.set("type", typeRef.current)
-            params.set("limit", String(limitRef.current))
+            const params = new URLSearchParams({ limit: "1000" })
+            if (type) params.set("type", type)
 
-            const response = await fetch(
-                `${API_BASE_URL}/politicians?${params.toString()}`
-            )
-            const data = await response.json()
-            if (data.success) {
-                setPoliticians(data.data.politicians ?? [])
-                setTotal(data.data.total ?? 0)
+            const res = await fetch(`${API}/politicians?${params}`)
+            const json = await res.json()
+
+            if (json.success) {
+                setAll(json.data?.politicians ?? [])
                 setError(null)
             } else {
-                setError(data.error || "Failed to load politicians")
+                setError(json.error ?? "Failed to load politicians")
             }
-        } catch (err) {
-            setError("Error connecting to API")
-            console.error("Error fetching politicians:", err)
+        } catch {
+            setError("Cannot connect to API")
         } finally {
             setLoading(false)
         }
-    }, [])
+    }, [type])
 
-    useEffect(() => {
-        fetch_()
-    }, [fetch_, opts.type, opts.limit])
+    useEffect(() => { fetchAll() }, [fetchAll])
 
-    return { politicians, total, loading, error, refetch: fetch_ }
+    // ── Derived data (pure, no API calls) ────────────────────────────────
+
+    const states = useMemo(
+        () => [...new Set(all.map((p) => p.state).filter(Boolean))].sort(),
+        [all]
+    )
+
+    const parties = useMemo(() => {
+        const s = new Set<string>()
+        for (const p of all) {
+            for (const e of p.political_background?.elections ?? []) {
+                if (e.party) s.add(e.party)
+            }
+        }
+        return [...s].sort()
+    }, [all])
+
+    const stats = useMemo(() => {
+        const byParty: Record<string, number> = {}
+        for (const p of all) {
+            for (const e of p.political_background?.elections ?? []) {
+                if (e.party) byParty[e.party] = (byParty[e.party] ?? 0) + 1
+            }
+        }
+        const topParties = Object.entries(byParty)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 10)
+
+        return {
+            total: all.length,
+            totalStates: states.length,
+            totalParties: parties.length,
+            topParty: topParties[0]?.[0] ?? "—",
+        }
+    }, [all, states, parties])
+
+    /** Client-side filter + search */
+    const filter = useCallback(
+        (opts: { query?: string; state?: string; party?: string }) => {
+            let list = all
+            const q = (opts.query ?? "").toLowerCase().trim()
+
+            if (opts.state) {
+                list = list.filter(
+                    (p) => p.state.toLowerCase() === opts.state!.toLowerCase()
+                )
+            }
+
+            if (opts.party) {
+                const pLower = opts.party.toLowerCase()
+                list = list.filter((p) =>
+                    p.political_background.elections.some(
+                        (e) => e.party.toLowerCase() === pLower
+                    )
+                )
+            }
+
+            if (q) {
+                list = list.filter((p) => {
+                    const haystack = [
+                        p.name,
+                        p.state,
+                        p.constituency,
+                        ...p.political_background.elections.map((e) => e.party),
+                    ]
+                        .join(" ")
+                        .toLowerCase()
+                    return haystack.includes(q)
+                })
+            }
+
+            return list
+        },
+        [all]
+    )
+
+    return { all, loading, error, states, parties, stats, filter, refetch: fetchAll }
 }
 
-// ── Get single politician by ID ───────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// usePolitician — fetch a single politician by ID
+// ─────────────────────────────────────────────────────────────────────────────
 
 export function usePolitician(id: string | null) {
     const [politician, setPolitician] = useState<Politician | null>(null)
@@ -68,195 +127,28 @@ export function usePolitician(id: string | null) {
     const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
-        if (!id) {
-            setLoading(false)
-            return
-        }
+        if (!id) { setLoading(false); return }
 
-        const fetchPolitician = async () => {
+        const run = async () => {
             try {
                 setLoading(true)
-                const response = await fetch(
-                    `${API_BASE_URL}/politicians/${encodeURIComponent(id)}`
-                )
-                const data = await response.json()
-                if (data.success) {
-                    setPolitician(data.data)
+                const res = await fetch(`${API}/politicians/${encodeURIComponent(id)}`)
+                const json = await res.json()
+                if (json.success) {
+                    setPolitician(json.data)
                     setError(null)
                 } else {
-                    setError(data.error || "Politician not found")
+                    setError(json.error ?? "Politician not found")
                 }
-            } catch (err) {
-                setError("Error connecting to API")
-                console.error("Error fetching politician:", err)
+            } catch {
+                setError("Cannot connect to API")
             } finally {
                 setLoading(false)
             }
         }
 
-        fetchPolitician()
+        run()
     }, [id])
 
     return { politician, loading, error }
-}
-
-// ── Search politicians ────────────────────────────────────────────────────
-
-export function useSearchPoliticians() {
-    const [results, setResults] = useState<Politician[]>([])
-    const [total, setTotal] = useState(0)
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState<string | null>(null)
-
-    const search = useCallback(
-        async (
-            query: string,
-            opts?: { type?: ElectionType; state?: string; party?: string; limit?: number }
-        ) => {
-            if (!query.trim()) {
-                setResults([])
-                setTotal(0)
-                return
-            }
-
-            try {
-                setLoading(true)
-                const params = new URLSearchParams({ q: query })
-                if (opts?.type) params.set("type", opts.type)
-                if (opts?.state) params.set("state", opts.state)
-                if (opts?.party) params.set("party", opts.party)
-                params.set("limit", String(opts?.limit ?? 50))
-
-                const response = await fetch(
-                    `${API_BASE_URL}/politicians/search?${params.toString()}`
-                )
-                const data = await response.json()
-                if (data.success) {
-                    setResults(data.data.politicians ?? [])
-                    setTotal(data.data.total ?? 0)
-                    setError(null)
-                } else {
-                    setError(data.error || "Search failed")
-                }
-            } catch (err) {
-                setError("Error connecting to API")
-                console.error("Error searching politicians:", err)
-            } finally {
-                setLoading(false)
-            }
-        },
-        []
-    )
-
-    const clear = useCallback(() => {
-        setResults([])
-        setTotal(0)
-        setError(null)
-    }, [])
-
-    return { results, total, loading, error, search, clear }
-}
-
-// ── Stats ─────────────────────────────────────────────────────────────────
-
-export function useStats(type?: ElectionType) {
-    const [stats, setStats] = useState<PoliticianStats | null>(null)
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState<string | null>(null)
-
-    useEffect(() => {
-        const fetchStats = async () => {
-            try {
-                setLoading(true)
-                const params = new URLSearchParams()
-                if (type) params.set("type", type)
-
-                const response = await fetch(
-                    `${API_BASE_URL}/stats?${params.toString()}`
-                )
-                const data = await response.json()
-                if (data.success) {
-                    setStats(data.data)
-                    setError(null)
-                } else {
-                    setError(data.error || "Failed to load stats")
-                }
-            } catch (err) {
-                setError("Error connecting to API")
-                console.error("Error fetching stats:", err)
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        fetchStats()
-    }, [type])
-
-    return { stats, loading, error }
-}
-
-// ── States list ───────────────────────────────────────────────────────────
-
-export function useStates(type?: ElectionType) {
-    const [states, setStates] = useState<string[]>([])
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        const fetchStates = async () => {
-            try {
-                setLoading(true)
-                const params = new URLSearchParams()
-                if (type) params.set("type", type)
-
-                const response = await fetch(
-                    `${API_BASE_URL}/states?${params.toString()}`
-                )
-                const data = await response.json()
-                if (data.success) {
-                    setStates(data.data.states ?? [])
-                }
-            } catch (err) {
-                console.error("Error fetching states:", err)
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        fetchStates()
-    }, [type])
-
-    return { states, loading }
-}
-
-// ── Parties list ──────────────────────────────────────────────────────────
-
-export function usePartyList(type?: ElectionType) {
-    const [parties, setParties] = useState<string[]>([])
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        const fetchParties = async () => {
-            try {
-                setLoading(true)
-                const params = new URLSearchParams()
-                if (type) params.set("type", type)
-
-                const response = await fetch(
-                    `${API_BASE_URL}/parties?${params.toString()}`
-                )
-                const data = await response.json()
-                if (data.success) {
-                    setParties(data.data.parties ?? [])
-                }
-            } catch (err) {
-                console.error("Error fetching parties:", err)
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        fetchParties()
-    }, [type])
-
-    return { parties, loading }
 }

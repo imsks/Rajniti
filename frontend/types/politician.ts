@@ -81,11 +81,10 @@ export interface Politician {
     notes?: string | null
 }
 
-/** Stats response from /api/v1/stats */
+/** Client-side computed stats */
 export interface PoliticianStats {
-    total_politicians: number
-    total_states: number
-    total_parties: number
-    top_parties: [string, number][]
-    top_states: [string, number][]
+    total: number
+    totalStates: number
+    totalParties: number
+    topParty: string
 }
