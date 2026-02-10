@@ -1,196 +1,250 @@
-import os
+"""
+Vector DB Service — CRUD for Politician documents in ChromaDB.
+
+Designed for simplicity: each Politician becomes one document with its
+key fields as searchable text and flat metadata for filtering.
+
+Usage:
+    from app.services.vector_db_service import VectorDBService
+
+    vdb = VectorDBService()
+    vdb.upsert(politician_dict)
+    results = vdb.search("Modi BJP")
+    vdb.delete("mp_2024_s24_51")
+"""
+
+import json
 import logging
-from typing import List, Dict, Any, Optional
-import chromadb
-from chromadb.config import Settings
+import os
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
 
 class VectorDBService:
     """
-    Service for interacting with ChromaDB to store and retrieve vector embeddings.
-    Designed to be fast and simple, using a local persistent directory.
+    Plain CRUD wrapper around ChromaDB for Politician documents.
+
+    Each politician is stored as:
+      - **document**: human-readable text blob for embedding/search
+      - **metadata**: flat key-value pairs for filtering
+      - **id**: the politician's unique ID
     """
 
     def __init__(
-        self, collection_name: str = "candidates", persist_path: Optional[str] = None
-    ):
-        """
-        Initialize the VectorDBService.
+        self,
+        collection_name: str = "politicians",
+        persist_path: Optional[str] = None,
+    ) -> None:
+        import chromadb
 
-        Args:
-            collection_name: Name of the collection to use.
-            persist_path: Path to the local directory for storing the database.
-                         If None, uses the default path from environment or 'data/chroma_db'.
-        """
-        # Use environment variable or default path
         if persist_path is None:
-            persist_path = os.getenv("CHROMA_DB_PATH", "data/chroma_db")
+            persist_path = os.getenv(
+                "CHROMA_DB_PATH",
+                str(Path(__file__).resolve().parent.parent.parent / "chroma_db"),
+            )
 
-        self.persist_path = persist_path
-        self.collection_name = collection_name
-
-        # Ensure directory exists
         os.makedirs(persist_path, exist_ok=True)
 
-        try:
-            self.client = chromadb.PersistentClient(path=persist_path)
-            self.collection = self.client.get_or_create_collection(name=collection_name)
-            logger.info(
-                f"VectorDBService initialized with collection '{collection_name}' at '{persist_path}'"
+        self.client = chromadb.PersistentClient(path=persist_path)
+        self.collection = self.client.get_or_create_collection(name=collection_name)
+        logger.info(
+            "VectorDB ready: collection='%s', path='%s', docs=%d",
+            collection_name,
+            persist_path,
+            self.collection.count(),
+        )
+
+    # ── Helpers ───────────────────────────────────────────────────────────
+
+    @staticmethod
+    def politician_to_document(p: Dict[str, Any]) -> str:
+        """
+        Convert a Politician dict to a searchable text document.
+
+        This is what gets embedded — so include everything meaningful.
+        """
+        parts: List[str] = []
+
+        parts.append(f"Name: {p.get('name', 'Unknown')}")
+        parts.append(f"Type: {p.get('type', '')}")
+        parts.append(f"State: {p.get('state', '')}")
+        parts.append(f"Constituency: {p.get('constituency', '')}")
+
+        # Elections / party
+        bg = p.get("political_background") or {}
+        for election in bg.get("elections", []):
+            parts.append(
+                f"Election: {election.get('year', '')} {election.get('type', '')} — "
+                f"{election.get('party', '')} from {election.get('constituency', '')} "
+                f"({election.get('status', '')})"
             )
-        except Exception as e:
-            logger.error(f"Failed to initialize ChromaDB: {e}")
-            raise
+        if bg.get("summary"):
+            parts.append(f"Political Summary: {bg['summary']}")
 
-    def add_texts(
-        self,
-        texts: List[str],
-        metadatas: Optional[List[Dict[str, Any]]] = None,
-        ids: Optional[List[str]] = None,
-    ):
-        """
-        Add texts to the vector database.
+        # Education
+        edu = p.get("education")
+        if edu:
+            parts.append(f"Education: {edu.get('qualification', '')}")
+            if edu.get("institution"):
+                parts[-1] += f" from {edu['institution']}"
 
-        Args:
-            texts: List of text strings to add.
-            metadatas: List of metadata dictionaries corresponding to texts.
-            ids: List of unique IDs. If None, auto-generated.
-        """
-        try:
-            if ids is None:
-                # Generate simple IDs if not provided
-                import uuid
+        # Family
+        for fm in p.get("family_background") or []:
+            parts.append(f"Family: {fm.get('name', '')} ({fm.get('relation', '')})")
 
-                ids = [str(uuid.uuid4()) for _ in texts]
-
-            self.collection.add(documents=texts, metadatas=metadatas, ids=ids)
-            logger.info(f"Added {len(texts)} documents to ChromaDB")
-        except Exception as e:
-            logger.error(f"Error adding texts to ChromaDB: {e}")
-            raise
-
-    def query_similar(
-        self, query_text: str, n_results: int = 5
-    ) -> List[Dict[str, Any]]:
-        """
-        Query for similar texts.
-
-        Args:
-            query_text: The query string.
-            n_results: Number of top results to return.
-
-        Returns:
-            List of dictionaries containing 'document', 'metadata', and 'distance'.
-        """
-        try:
-            results = self.collection.query(
-                query_texts=[query_text], n_results=n_results
+        # Crime
+        for cr in p.get("criminal_records") or []:
+            parts.append(
+                f"Criminal Record: {cr.get('name', '')} "
+                f"(Type: {cr.get('type', 'N/A')}, Year: {cr.get('year', 'N/A')})"
             )
 
-            # Parse results into a cleaner format
-            parsed_results = []
-            if results["documents"]:
-                for i in range(len(results["documents"][0])):
-                    parsed_results.append(
-                        {
-                            "id": results["ids"][0][i],
-                            "document": results["documents"][0][i],
-                            "metadata": results["metadatas"][0][i]
-                            if results["metadatas"]
-                            else {},
-                            "distance": results["distances"][0][i]
-                            if results["distances"]
-                            else None,
-                        }
-                    )
+        # Notes
+        if p.get("notes"):
+            parts.append(f"Notes: {p['notes']}")
 
-            return parsed_results
-        except Exception as e:
-            logger.error(f"Error querying ChromaDB: {e}")
-            return []
+        return ". ".join(parts)
 
-    def get_top_questions(self, n: int = 5) -> List[str]:
+    @staticmethod
+    def politician_to_metadata(p: Dict[str, Any]) -> Dict[str, str]:
         """
-        Retrieve the top N questions stored (assuming questions are stored as documents).
-        This is a placeholder logic; usually 'top' implies some metric.
-        For now, it returns the first N items or most recent if we add timestamps.
-        """
-        # efficiently peek at the data
-        try:
-            result = self.collection.peek(limit=n)
-            return result["documents"] if result["documents"] else []
-        except Exception as e:
-            logger.error(f"Error peeking ChromaDB: {e}")
-            return []
+        Extract flat metadata for ChromaDB filtering.
 
-    def upsert_candidate_data(
-        self, candidate_id: str, text: str, metadata: Dict[str, Any]
-    ):
+        ChromaDB metadata values must be str, int, float, or bool.
         """
-        Insert or update candidate data in the vector database.
+        meta: Dict[str, str] = {
+            "name": p.get("name", ""),
+            "type": p.get("type", ""),
+            "state": p.get("state", ""),
+            "constituency": p.get("constituency", ""),
+        }
 
-        Args:
-            candidate_id: Unique identifier for the candidate
-            text: Text representation of candidate data for embedding
-            metadata: Metadata about the candidate (name, party, constituency, etc.)
-        """
-        try:
+        # Party from latest election
+        bg = p.get("political_background") or {}
+        elections = bg.get("elections", [])
+        if elections:
+            latest = elections[-1]
+            meta["party"] = latest.get("party", "")
+            meta["year"] = str(latest.get("year", ""))
+
+        return meta
+
+    # ── CRUD ──────────────────────────────────────────────────────────────
+
+    def upsert(self, politician: Dict[str, Any]) -> None:
+        """Insert or update a single politician document."""
+        pid = politician.get("id", "")
+        if not pid:
+            logger.warning("Skipping politician without id: %s", politician.get("name"))
+            return
+
+        doc = self.politician_to_document(politician)
+        meta = self.politician_to_metadata(politician)
+
+        self.collection.upsert(documents=[doc], metadatas=[meta], ids=[pid])
+        logger.debug("Upserted %s (%s)", pid, politician.get("name", ""))
+
+    def upsert_batch(self, politicians: List[Dict[str, Any]]) -> int:
+        """Bulk upsert. Returns count of successfully upserted docs."""
+        ids, docs, metas = [], [], []
+        for p in politicians:
+            pid = p.get("id", "")
+            if not pid:
+                continue
+            ids.append(pid)
+            docs.append(self.politician_to_document(p))
+            metas.append(self.politician_to_metadata(p))
+
+        if not ids:
+            return 0
+
+        # ChromaDB batch limit is ~5461; chunk if needed
+        chunk_size = 5000
+        count = 0
+        for i in range(0, len(ids), chunk_size):
             self.collection.upsert(
-                documents=[text], metadatas=[metadata], ids=[candidate_id]
+                ids=ids[i : i + chunk_size],
+                documents=docs[i : i + chunk_size],
+                metadatas=metas[i : i + chunk_size],
             )
-            logger.info(f"Upserted candidate {candidate_id} to ChromaDB")
-        except Exception as e:
-            logger.error(f"Error upserting candidate {candidate_id} to ChromaDB: {e}")
-            raise
+            count += len(ids[i : i + chunk_size])
 
-    def delete_candidate(self, candidate_id: str):
-        """
-        Delete a candidate from the vector database.
+        logger.info("Upserted %d documents", count)
+        return count
 
-        Args:
-            candidate_id: Unique identifier for the candidate
-        """
+    def get(self, politician_id: str) -> Optional[Dict[str, Any]]:
+        """Get a single document by ID."""
         try:
-            self.collection.delete(ids=[candidate_id])
-            logger.info(f"Deleted candidate {candidate_id} from ChromaDB")
-        except Exception as e:
-            logger.error(f"Error deleting candidate {candidate_id} from ChromaDB: {e}")
-            raise
-
-    def get_candidate(self, candidate_id: str) -> Optional[Dict[str, Any]]:
-        """
-        Retrieve a candidate by ID.
-
-        Args:
-            candidate_id: Unique identifier for the candidate
-
-        Returns:
-            Dictionary with candidate document and metadata, or None if not found
-        """
-        try:
-            result = self.collection.get(ids=[candidate_id])
+            result = self.collection.get(ids=[politician_id])
             if result["ids"]:
                 return {
                     "id": result["ids"][0],
                     "document": result["documents"][0] if result["documents"] else None,
                     "metadata": result["metadatas"][0] if result["metadatas"] else {},
                 }
-            return None
-        except Exception as e:
-            logger.error(f"Error getting candidate {candidate_id} from ChromaDB: {e}")
-            return None
+        except Exception as exc:
+            logger.error("Error getting %s: %s", politician_id, exc)
+        return None
 
-    def count_candidates(self) -> int:
+    def delete(self, politician_id: str) -> bool:
+        """Delete a single document by ID."""
+        try:
+            self.collection.delete(ids=[politician_id])
+            logger.info("Deleted %s", politician_id)
+            return True
+        except Exception as exc:
+            logger.error("Error deleting %s: %s", politician_id, exc)
+            return False
+
+    def search(
+        self,
+        query: str,
+        n_results: int = 10,
+        where: Optional[Dict[str, Any]] = None,
+    ) -> List[Dict[str, Any]]:
         """
-        Get the total number of candidates in the collection.
+        Semantic search over politician documents.
+
+        Args:
+            query: natural language query
+            n_results: max results
+            where: optional ChromaDB filter, e.g. {"type": "MP"}
 
         Returns:
-            Number of candidates in the collection
+            List of dicts with id, document, metadata, distance.
         """
         try:
-            return self.collection.count()
-        except Exception as e:
-            logger.error(f"Error counting candidates in ChromaDB: {e}")
-            return 0
+            kwargs: Dict[str, Any] = {
+                "query_texts": [query],
+                "n_results": min(n_results, self.collection.count() or 1),
+            }
+            if where:
+                kwargs["where"] = where
+
+            raw = self.collection.query(**kwargs)
+            results: List[Dict[str, Any]] = []
+            if raw["documents"]:
+                for i in range(len(raw["documents"][0])):
+                    results.append({
+                        "id": raw["ids"][0][i],
+                        "document": raw["documents"][0][i],
+                        "metadata": raw["metadatas"][0][i] if raw["metadatas"] else {},
+                        "distance": raw["distances"][0][i] if raw["distances"] else None,
+                    })
+            return results
+        except Exception as exc:
+            logger.error("Search error: %s", exc)
+            return []
+
+    def count(self) -> int:
+        """Total document count."""
+        return self.collection.count()
+
+    def reset(self) -> None:
+        """Delete ALL documents in the collection (use with caution)."""
+        name = self.collection.name
+        self.client.delete_collection(name)
+        self.collection = self.client.get_or_create_collection(name=name)
+        logger.warning("Reset collection '%s' — all documents deleted", name)
