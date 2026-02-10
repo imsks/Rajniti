@@ -1,6 +1,6 @@
 const ELECTION_TYPES = {
-    LOK_SABHA: "Lok Sabha",
-    VIDHAN_SABHA: "Vidhan Sabha"
-}
+    MP: "Member of Parliament",
+    MLA: "Member of Legislative Assembly",
+} as const
 
 export { ELECTION_TYPES }

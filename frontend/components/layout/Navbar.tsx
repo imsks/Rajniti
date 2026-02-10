@@ -21,12 +21,12 @@ export default function Navbar({
             className={`border-b border-orange-200 bg-white/80 backdrop-blur-sm ${stickyClasses}`}>
             <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                 <div className='flex h-16 items-center justify-between'>
-                    <div className='flex items-center gap-2'>
+                    <Link href='/' className='flex items-center gap-2 no-underline'>
                         <div className='text-2xl font-bold'>🗳️</div>
                         <Text variant='h4' className='text-gray-900'>
                             Rajniti
                         </Text>
-                    </div>
+                    </Link>
 
                     <div className='flex flex-row gap-4'>
                         {isDashboard ? (
@@ -34,6 +34,11 @@ export default function Navbar({
                                 <div className='flex items-center gap-4'>
                                     <Link href='/' variant='nav'>
                                         Home
+                                    </Link>
+                                </div>
+                                <div className='flex items-center gap-4'>
+                                    <Link href='/dashboard' variant='nav'>
+                                        Politicians
                                     </Link>
                                 </div>
                                 <div className='flex items-center gap-4'>
@@ -48,7 +53,7 @@ export default function Navbar({
                         ) : (
                             <nav className='hidden md:flex gap-6 items-center'>
                                 <Link href='/dashboard' variant='nav'>
-                                    Dashboard
+                                    Explore Politicians
                                 </Link>
                                 <Link href='#about' variant='nav'>
                                     About
@@ -61,9 +66,6 @@ export default function Navbar({
                                     external
                                     variant='nav'>
                                     Join Community
-                                </Link>
-                                <Link href='#api' variant='nav'>
-                                    API
                                 </Link>
                             </nav>
                         )}
