@@ -37,6 +37,10 @@ pip install -r requirements.txt
 
 # Run API (no database required for election data!)
 python run.py
+
+# DB Connect
+brew services start postgresql
+psql -h localhost -p 5432 -U imsks -d rajniti
 ```
 
 **API:** http://localhost:8000 | **Health:** http://localhost:8000/api/v1/health
@@ -48,11 +52,8 @@ python run.py
 ### 1. Scrape Election Data
 
 ```bash
-# Lok Sabha
-python -c "from app.scrapers.lok_sabha import LokSabhaScraper; s = LokSabhaScraper('https://results.eci.gov.in/PcResultGenJune2024/index.htm'); s.scrape()"
-
 # Vidhan Sabha
-python scripts/scrape_vidhan_sabha.py --state CG --year 2025
+python scripts/scrape_election.py --url https://results.eci.gov.in/ResultAcGenNov2025 --type vidhan-sabha
 ```
 
 Data saved to `app/data/{lok_sabha|vidhan_sabha}/{election-id}/`

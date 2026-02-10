@@ -7,13 +7,14 @@ All election data (candidates, parties, constituencies) is served from JSON file
 
 from .base import Base, get_db_session
 from .config import get_database_url
-from .session import SessionLocal, engine, init_db
+from .session import SessionLocal, engine, init_db, init_engine
 
 __all__ = [
     "Base",
     "SessionLocal",
     "engine",
     "init_db",
+    "init_engine",
     "get_db_session",
     "get_database_url",
 ]
