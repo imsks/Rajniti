@@ -6,6 +6,7 @@ Unified schema for storing MP and MLA data in a simplified structure.
 
 from pydantic import BaseModel, HttpUrl, Field
 from typing import List, Optional, Literal
+from enum import Enum
 from datetime import date
 
 
@@ -51,6 +52,30 @@ class PoliticalBackground(BaseModel):
     summary: Optional[str] = None  # AI generated summary (optional)
 
 
+class CrimeType(Enum):
+    MURDER = "MURDER"
+    RAPE = "RAPE"
+    KIDNAPPING = "KIDNAPPING"
+    THEFT = "THEFT"
+    CORRUPTION = "CORRUPTION"
+    ECONOMIC = "ECONOMIC"
+    OTHERS = "OTHERS"
+
+
+class CrimeRecord(BaseModel):
+    """
+    Record of a criminal case or allegation related to the politician.
+
+    Fields:
+      - name: short description/charge
+      - type: category (e.g., 'Hinjous', 'Economic', etc.)
+      - year: year of the record/allegation/conviction (optional)
+    """
+    name: str
+    type: Optional[CrimeType] = None
+    year: Optional[int] = None
+
+
 class Politician(BaseModel):
     id: str = Field(..., description="Unique ID like 'mp_2024_s01_5' or 'mla_2025_cg_123'")
     name: str
@@ -61,6 +86,7 @@ class Politician(BaseModel):
     
     education: Optional[Education] = None
     family_background: Optional[List[FamilyMember]] = None
+    criminal_records: Optional[List[CrimeRecord]] = None
     
     social_media: Optional[SocialMedia] = None
     contact: Optional[Contact] = None
@@ -90,6 +116,13 @@ class Politician(BaseModel):
                         }
                     ],
                     "summary": None
-                }
+                },
+                "criminal_records": [
+                    {
+                        "name": "Alleged corruption case",
+                        "type": "ECONOMIC",
+                        "year": 2022
+                    }
+                ]
             }
         }
