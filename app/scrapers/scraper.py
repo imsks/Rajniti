@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Literal, Optional
 
 from app.schemas.politician import ElectionRecord, Politician, PoliticalBackground
-from app.services.json_data_service import STATE_NAMES
+from app.constants import STATE_NAMES
 
 from .http import fetch_page, normalize_base_url
 from .parsers import (

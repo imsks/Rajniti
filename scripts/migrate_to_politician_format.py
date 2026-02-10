@@ -18,7 +18,7 @@ from app.schemas.politician import (
     ElectionRecord,
     PoliticalBackground,
 )
-from app.services.json_data_service import STATE_NAMES
+from app.constants import STATE_NAMES
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
