@@ -181,32 +181,12 @@ jinja2==3.1.6
 jiter==0.12.0
     # via openai
 jsonpatch==1.33
-    # via langchain-core
+    # via langchain-core (removed -- placeholder left for audit)
 jsonpointer==3.0.0
     # via jsonpatch
 kubernetes==34.1.0
     # via chromadb
-langchain==0.3.27
-    # via
-    #   -r requirements.in
-    #   langchain-community
-langchain-community==0.3.31
-    # via -r requirements.in
-langchain-core==0.3.81
-    # via
-    #   langchain
-    #   langchain-community
-    #   langchain-openai
-    #   langchain-text-splitters
-langchain-openai==0.3.35
-    # via -r requirements.in
-langchain-text-splitters==0.3.11
-    # via langchain
-langsmith==0.4.37
-    # via
-    #   langchain
-    #   langchain-community
-    #   langchain-core
+# Langchain packages removed; will add new LLM agent dependencies when rebuilding
 mako==1.3.10
     # via alembic
 markdown-it-py==3.0.0

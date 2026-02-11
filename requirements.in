@@ -32,12 +32,7 @@ flake8==6.1.0
 pre-commit==3.6.0
 autoflake==2.2.1
 
-# LLM Services - Langchain integration
-# Using Python 3.9 compatible versions (langchain 1.x requires Python 3.10+)
-# For Python 3.10+, use: langchain==1.1.0, langchain-openai==0.3.34, langchain-community==0.4.1
-langchain
-langchain-openai
-langchain-community
+# LLM Services - removed Langchain dependencies (will add a fresh implementation later)
 
 # Authentication
 Authlib
