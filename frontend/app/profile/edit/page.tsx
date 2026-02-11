@@ -105,27 +105,27 @@ export default function EditProfile() {
 
   if (fetching) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 py-12 px-4 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:bg-slate-900 py-12 px-4 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading your profile...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 dark:border-orange-400 mx-auto mb-4"></div>
+          <p className="text-gray-600 dark:text-gray-300">Loading your profile...</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:bg-slate-900 py-12 px-4">
       <div className="max-w-2xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Edit Profile</h1>
-          <p className="text-gray-600">Update your personal information and preferences</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Edit Profile</h1>
+          <p className="text-gray-600 dark:text-gray-300">Update your personal information and preferences</p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8 border border-orange-100 space-y-8">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 border border-orange-100 dark:border-slate-700 space-y-8">
           {/* Basic Details Section */}
           <div>
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Basic Details</h2>
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Basic Details</h2>
             <UserDetailsStep
               formData={{
                 phone: formData.phone,
@@ -138,11 +138,11 @@ export default function EditProfile() {
           </div>
 
           {/* Divider */}
-          <div className="border-t border-gray-200"></div>
+          <div className="border-t border-gray-200 dark:border-slate-700"></div>
 
           {/* Preferences Section */}
           <div>
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Preferences</h2>
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Preferences</h2>
             <PreferencesStep
               formData={{
                 preferred_parties: formData.preferred_parties,
@@ -156,7 +156,7 @@ export default function EditProfile() {
           <div className="flex gap-4 pt-4">
             <button
               onClick={() => router.push('/dashboard')}
-              className="flex-1 px-6 py-3 border-2 border-gray-300 rounded-lg text-gray-700 font-semibold hover:bg-gray-50 transition-all"
+              className="flex-1 px-6 py-3 border-2 border-gray-300 dark:border-slate-600 rounded-lg text-gray-700 dark:text-gray-200 font-semibold hover:bg-gray-50 dark:hover:bg-slate-700 transition-all"
             >
               Cancel
             </button>
@@ -164,7 +164,7 @@ export default function EditProfile() {
             <button
               onClick={handleSubmit}
               disabled={loading}
-              className="flex-1 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg text-white font-semibold hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 dark:from-orange-600 dark:to-orange-700 rounded-lg text-white font-semibold hover:from-orange-600 hover:to-orange-700 dark:hover:from-orange-700 dark:hover:to-orange-800 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? 'Saving...' : 'Save Changes'}
             </button>

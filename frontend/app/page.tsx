@@ -10,7 +10,7 @@ import { fadeInUp, fadeIn, staggerContainer, scrollReveal, buttonTap, quickTrans
 
 export default function Home() {
     return (
-        <div className='min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50'>
+        <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-800 dark:to-slate-900'>
             <Navbar variant='default' />
 
             {/* Hero Section */}
@@ -23,9 +23,9 @@ export default function Home() {
                         variants={staggerContainer}
                     >
                         <motion.div className='mb-8 flex justify-center' variants={fadeIn}>
-                            <div className='rounded-full bg-linear-to-b from-orange-500 via-white to-green-500 p-1'>
-                                <div className='rounded-full bg-white px-6 py-2'>
-                                    <span className='text-sm font-semibold text-gray-700'>
+                            <div className='rounded-full bg-gradient-to-r from-orange-500 via-white to-green-500 dark:from-orange-400 dark:via-slate-700 dark:to-green-400 p-1 shadow-lg'>
+                                <div className='rounded-full bg-white dark:bg-slate-800 px-6 py-2'>
+                                    <span className='text-sm font-semibold text-gray-700 dark:text-gray-200'>
                                         Built for 🇮🇳 Democracy
                                     </span>
                                 </div>
@@ -33,9 +33,9 @@ export default function Home() {
                         </motion.div>
 
                         <motion.div variants={fadeInUp}>
-                        <Text variant='h1' className='text-gray-900 mb-6'>
+                        <Text variant='h1' className='text-gray-900 dark:text-gray-100 mb-6'>
                             Know Your{" "}
-                            <span className='block bg-linear-to-r from-orange-600 via-orange-500 to-green-600 bg-clip-text text-transparent'>
+                            <span className='block bg-gradient-to-r from-orange-600 via-orange-500 to-green-600 dark:from-orange-400 dark:via-orange-500 dark:to-green-400 bg-clip-text text-transparent'>
                                 Elected Representatives
                             </span>
                         </Text>
@@ -44,7 +44,7 @@ export default function Home() {
                         <motion.div variants={fadeInUp}>
                         <Text
                             variant='body'
-                            className='mx-auto max-w-2xl text-gray-600 mb-10'>
+                            className='mx-auto max-w-2xl text-gray-600 dark:text-gray-300 mb-10'>
                             Rajniti is an open-source platform to explore Indian
                             MPs and MLAs — their political history, education,
                             family background, criminal records, and more. All free
@@ -104,20 +104,20 @@ export default function Home() {
                 </div>
 
                 {/* Decorative Elements */}
-                <div className='absolute top-0 left-0 w-72 h-72 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse z-1 pointer-events-none'></div>
-                <div className='absolute bottom-0 right-0 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-1000 z-[1] pointer-events-none'></div>
+                <div className='absolute top-0 left-0 w-72 h-72 bg-orange-200 dark:bg-orange-900/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-20 dark:opacity-10 animate-pulse z-1 pointer-events-none'></div>
+                <div className='absolute bottom-0 right-0 w-72 h-72 bg-green-200 dark:bg-green-900/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-20 dark:opacity-10 animate-pulse delay-1000 z-[1] pointer-events-none'></div>
             </section>
 
             {/* What You Can Find */}
-            <section id='about' className='py-20 bg-white'>
+            <section id='about' className='py-20 bg-white dark:bg-slate-950'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <div className='text-center mb-16'>
-                        <Text variant='h2' className='text-gray-900 mb-4'>
+                        <Text variant='h2' className='text-gray-900 dark:text-gray-100 mb-4'>
                             What You&apos;ll Find
                         </Text>
                         <Text
                             variant='body'
-                            className='text-gray-600 max-w-3xl mx-auto'>
+                            className='text-gray-600 dark:text-gray-300 max-w-3xl mx-auto'>
                             We&apos;re building the most transparent and
                             comprehensive database of Indian elected
                             representatives.
@@ -132,7 +132,7 @@ export default function Home() {
                         variants={staggerContainer}
                     >
                         <motion.div 
-                            className='bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border border-blue-200'
+                            className='bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-2xl p-8 border border-blue-200 dark:border-blue-700/50 shadow-lg dark:shadow-xl'
                             variants={fadeInUp}
                             whileHover={{ scale: 1.05, y: -8 }}
                             transition={quickTransition}
@@ -147,17 +147,17 @@ export default function Home() {
                             <Text
                                 variant='h4'
                                 weight='bold'
-                                className='text-gray-900 mb-3'>
+                                className='text-gray-900 dark:text-gray-100 mb-3'>
                                 Members of Parliament
                             </Text>
-                            <Text variant='body' color='muted'>
+                            <Text variant='body' color='muted' className='dark:text-gray-300'>
                                 Browse all winning Lok Sabha MPs — their party,
                                 constituency, state, and election history.
                             </Text>
                         </motion.div>
 
                         <motion.div 
-                            className='bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border border-purple-200'
+                            className='bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30 rounded-2xl p-8 border border-purple-200 dark:border-purple-700/50 shadow-lg dark:shadow-xl'
                             variants={fadeInUp}
                             whileHover={{ scale: 1.05, y: -8 }}
                             transition={quickTransition}
@@ -172,17 +172,17 @@ export default function Home() {
                             <Text
                                 variant='h4'
                                 weight='bold'
-                                className='text-gray-900 mb-3'>
+                                className='text-gray-900 dark:text-gray-100 mb-3'>
                                 State Assembly MLAs
                             </Text>
-                            <Text variant='body' color='muted'>
+                            <Text variant='body' color='muted' className='dark:text-gray-300'>
                                 Explore elected MLAs from state assemblies across
                                 India with detailed political backgrounds.
                             </Text>
                         </motion.div>
 
                         <motion.div 
-                            className='bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 border border-orange-200'
+                            className='bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/30 dark:to-orange-800/30 rounded-2xl p-8 border border-orange-200 dark:border-orange-700/50 shadow-lg dark:shadow-xl'
                             variants={fadeInUp}
                             whileHover={{ scale: 1.05, y: -8 }}
                             transition={quickTransition}
@@ -197,10 +197,10 @@ export default function Home() {
                             <Text
                                 variant='h4'
                                 weight='bold'
-                                className='text-gray-900 mb-3'>
+                                className='text-gray-900 dark:text-gray-100 mb-3'>
                                 Rich Profiles
                             </Text>
-                            <Text variant='body' color='muted'>
+                            <Text variant='body' color='muted' className='dark:text-gray-300'>
                                 Education, family, criminal records, social media,
                                 and more — enriched with community contributions.
                             </Text>
@@ -215,7 +215,7 @@ export default function Home() {
             {/* Contribute Section */}
             <section
                 id='contribute'
-                className='py-20 bg-gradient-to-r from-orange-600 to-orange-500 text-white'>
+                className='py-20 bg-gradient-to-r from-orange-600 to-orange-500 dark:from-orange-700 dark:to-orange-600 text-white'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <div className='text-center mb-12'>
                         <Text variant='h2' className='text-white mb-4'>
@@ -223,7 +223,7 @@ export default function Home() {
                         </Text>
                         <Text
                             variant='body'
-                            className='text-orange-100 max-w-3xl mx-auto'>
+                            className='text-orange-100 dark:text-orange-200 max-w-3xl mx-auto'>
                             Many politician profiles are missing education, family,
                             and criminal record details. Your contributions make
                             democracy more transparent!
@@ -231,7 +231,7 @@ export default function Home() {
                     </div>
 
                     <div className='grid md:grid-cols-2 gap-8 max-w-4xl mx-auto'>
-                        <div className='bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20'>
+                        <div className='bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-white/10 shadow-lg'>
                             <div className='text-3xl mb-3'>💻</div>
                             <Text
                                 variant='h4'
@@ -241,7 +241,7 @@ export default function Home() {
                             </Text>
                             <Text
                                 variant='body'
-                                className='text-orange-100 mb-4'>
+                                className='text-orange-100 dark:text-orange-200 mb-4'>
                                 Found a politician with missing info? Open an issue
                                 with the details and we&apos;ll update the profile.
                             </Text>
@@ -265,7 +265,7 @@ export default function Home() {
                             </Link>
                         </div>
 
-                        <div className='bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20'>
+                        <div className='bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-white/10 shadow-lg'>
                             <div className='text-3xl mb-3'>🔧</div>
                             <Text
                                 variant='h4'
@@ -275,7 +275,7 @@ export default function Home() {
                             </Text>
                             <Text
                                 variant='body'
-                                className='text-orange-100 mb-4'>
+                                className='text-orange-100 dark:text-orange-200 mb-4'>
                                 Help improve the scraper, add new state MLAs, or
                                 enhance the UI. PRs welcome!
                             </Text>
@@ -303,7 +303,7 @@ export default function Home() {
                     <div className='text-center mt-12'>
                         <Button
                             href='/dashboard'
-                            className='bg-white text-orange-600 hover:bg-gray-50 border-none shadow-lg hover:shadow-xl hover:scale-105'
+                            className='bg-white dark:bg-slate-800 text-orange-600 dark:text-orange-400 hover:bg-gray-50 dark:hover:bg-slate-700 border-none shadow-xl hover:shadow-2xl hover:scale-105'
                             size='lg'
                             rightIcon={
                                 <svg

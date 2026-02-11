@@ -370,12 +370,23 @@ def answer_predefined_question(question_id):
 
         n_results = request.args.get("n_results", default=5, type=int)
         result = qs.answer_predefined_question(
-            question_id=questiINFO ====================
+            question_id=question_id,
+            n_results=n_results
+        )
+        return jsonify(result)
+    except ValidationError as e:
+        return jsonify({"success": False, "error": e.message, "field": e.field}), e.code
+    except Exception as e:
+        logger.exception("Unexpected error in answer_predefined_question")
+        return jsonify({"success": False, "error": "Internal server error"}), 500
 
 
 @api_bp.route("/", methods=["GET"])
 def api_root():
     """API root with available endpoints."""
+    from app.core.database import check_db_health
+
+    db_ok = check_db_health()
     return jsonify({
         "success": True,
         "message": "Welcome to Rajniti API",
@@ -391,16 +402,11 @@ def api_root():
             "states": "/api/v1/states",
             "parties": "/api/v1/parties",
             "questions": "/api/v1/questions",
-            "ask": "/api/v1/questions/ask (POST)
-    from app.core.database import check_db_health
-
-    db_ok = check_db_health()
-    return jsonify({
-        "success": True,
-        "message": "Rajniti API is healthy",
-        "version": "2.0.0",
+            "ask": "/api/v1/questions/ask (POST)"
+        },
         "database": {
             "connected": db_ok,
             "status": "healthy" if db_ok else "not configured",
         },
     })
+

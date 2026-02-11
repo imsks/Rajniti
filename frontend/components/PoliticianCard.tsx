@@ -40,7 +40,7 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
             href={`/politician/${encodeURIComponent(politician.id)}`}
             className='block group'>
             <motion.div 
-                className='bg-white rounded-2xl shadow-sm border border-gray-200 p-5 hover:border-orange-400 hover:shadow-lg transition-all h-full flex flex-col'
+                className='bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-200 dark:border-slate-700 p-5 hover:border-orange-400 dark:hover:border-orange-500 hover:shadow-lg dark:hover:shadow-xl transition-all h-full flex flex-col'
                 initial="rest"
                 whileHover="hover"
                 variants={cardHover}
@@ -52,7 +52,7 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
                         <motion.img
                             src={politician.photo!}
                             alt={politician.name}
-                            className='w-14 h-14 rounded-full object-cover border-2 border-orange-200 flex-shrink-0'
+                            className='w-14 h-14 rounded-full object-cover border-2 border-primary-200 dark:border-primary-700 flex-shrink-0'
                             whileHover={{ scale: 1.1 }}
                             transition={quickTransition}
                             onError={(e) => {
@@ -61,11 +61,11 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
                         />
                     ) : (
                         <motion.div 
-                            className='w-14 h-14 rounded-full bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center flex-shrink-0 border-2 border-orange-200'
+                            className='w-14 h-14 rounded-full bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-900 dark:to-primary-800 flex items-center justify-center flex-shrink-0 border-2 border-primary-200 dark:border-primary-700'
                             whileHover={{ scale: 1.1, rotate: 5 }}
                             transition={quickTransition}
                         >
-                            <span className='text-orange-700 font-bold text-xs'>
+                            <span className='text-primary-700 dark:text-primary-300 font-bold text-xs'>
                                 {initial}
                             </span>
                         </motion.div>
@@ -75,10 +75,10 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
                         <Text
                             variant='body'
                             weight='bold'
-                            className='text-gray-900 truncate'>
+                            className='text-gray-900 dark:text-gray-100 truncate'>
                             {politician.name}
                         </Text>
-                        <Text variant='small' className='text-gray-500 truncate'>
+                        <Text variant='small' className='text-gray-500 dark:text-gray-400 truncate'>
                             {party}
                         </Text>
                     </div>
@@ -100,15 +100,15 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
                 {/* Info pills */}
                 <div className='flex flex-wrap gap-2 mt-auto'>
                     <motion.span 
-                        className='inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 rounded-lg text-xs text-gray-600'
-                        whileHover={{ scale: 1.05, backgroundColor: "rgb(249, 250, 251)" }}
+                        className='inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 dark:bg-slate-700 rounded-lg text-xs text-gray-600 dark:text-gray-300'
+                        whileHover={{ scale: 1.05 }}
                         transition={quickTransition}
                     >
                         📍 {politician.constituency}
                     </motion.span>
                     <motion.span 
-                        className='inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 rounded-lg text-xs text-gray-600'
-                        whileHover={{ scale: 1.05, backgroundColor: "rgb(249, 250, 251)" }}
+                        className='inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 dark:bg-slate-700 rounded-lg text-xs text-gray-600 dark:text-gray-300'
+                        whileHover={{ scale: 1.05 }}
                         transition={quickTransition}
                     >
                         🏛️ {politician.state}
@@ -117,7 +117,7 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
 
                 {/* Subtle CTA */}
                 <motion.div 
-                    className='mt-3 pt-3 border-t border-gray-100 flex items-center text-orange-600 opacity-0 group-hover:opacity-100 transition-opacity'
+                    className='mt-3 pt-3 border-t border-gray-100 dark:border-slate-700 flex items-center text-orange-600 dark:text-orange-400 opacity-0 group-hover:opacity-100 transition-opacity'
                     initial={{ x: -10 }}
                     whileHover={{ x: 5 }}
                     transition={quickTransition}

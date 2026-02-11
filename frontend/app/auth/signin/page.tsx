@@ -11,18 +11,18 @@ function SignInContent() {
 
   return (
     <>
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:bg-slate-900 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
-        <div className="bg-white rounded-2xl shadow-xl p-8 border border-orange-100">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 border border-orange-100 dark:border-slate-700">
           {/* Header */}
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
               <div className="text-5xl">🗳️</div>
             </div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
               Welcome to Rajniti
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               Sign in to access your personalized election insights
             </p>
           </div>
@@ -30,7 +30,7 @@ function SignInContent() {
           {/* Sign in button */}
           <button
             onClick={() => signIn('google', { callbackUrl })}
-            className="w-full flex items-center justify-center gap-3 bg-white border-2 border-gray-200 rounded-lg px-6 py-4 text-gray-700 font-semibold hover:bg-gray-50 hover:border-orange-300 transition-all shadow-sm hover:shadow-md"
+            className="w-full flex items-center justify-center gap-3 bg-white dark:bg-slate-900 border-2 border-gray-200 dark:border-slate-700 rounded-lg px-6 py-4 text-gray-700 dark:text-gray-200 font-semibold hover:bg-gray-50 dark:hover:bg-slate-800 hover:border-orange-300 dark:hover:border-orange-600 transition-all shadow-sm hover:shadow-md"
           >
             <svg className="w-6 h-6" viewBox="0 0 24 24">
               <path
@@ -54,7 +54,7 @@ function SignInContent() {
           </button>
 
           {/* Footer */}
-          <p className="text-center text-sm text-gray-500 mt-6">
+          <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
             By signing in, you agree to our Terms of Service and Privacy Policy
           </p>
         </div>
@@ -63,7 +63,7 @@ function SignInContent() {
         <div className="text-center mt-6">
           <Link 
             href="/"
-            className="text-orange-600 hover:text-orange-700 font-medium"
+            className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium"
           >
             ← Back to home
           </Link>

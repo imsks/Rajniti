@@ -18,17 +18,17 @@ export default function Navbar({
 
     return (
         <header
-            className={`border-b border-orange-200 bg-white/80 backdrop-blur-sm ${stickyClasses}`}>
+            className={`border-b border-gray-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm ${stickyClasses}`}>
             <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                 <div className='flex h-16 items-center justify-between'>
                     <Link href='/' className='flex items-center gap-2 no-underline'>
                         <div className='text-2xl font-bold'>🗳️</div>
-                        <Text variant='h4' className='text-gray-900'>
+                        <Text variant='h4' className='text-foreground dark:text-foreground'>
                             Rajniti
                         </Text>
                     </Link>
 
-                    <div className='flex flex-row gap-4'>
+                    <div className='flex flex-row gap-6 items-center'>
                         {isDashboard ? (
                             <>
                                 <div className='flex items-center gap-4'>

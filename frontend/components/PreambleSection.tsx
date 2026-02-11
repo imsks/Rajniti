@@ -170,11 +170,12 @@ export default function PreambleSection() {
                     {...scrollReveal}
                     transition={{ delay: 0.4, duration: 0.5 }}
                 >
-                    <div className='inline-flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg border-4 border-blue-800'>
+                    <div className='inline-flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg border-4 border-blue-800' suppressHydrationWarning>
                         <svg
                             className='w-12 h-12 text-blue-800'
                             viewBox='0 0 24 24'
-                            fill='currentColor'>
+                            fill='currentColor'
+                            suppressHydrationWarning>
                             <circle cx='12' cy='12' r='1.5' />
                             {Array.from({ length: 24 }).map((_, i) => {
                                 const angle = (i * 360) / 24

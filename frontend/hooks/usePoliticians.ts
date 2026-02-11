@@ -29,8 +29,9 @@ export function usePoliticians(type?: ElectionType) {
             } else {
                 setError(json.error ?? "Failed to load politicians")
             }
-        } catch {
-            setError("Cannot connect to API")
+        } catch (err) {
+            console.error('API connection failed:', err)
+            setError(`Cannot connect to backend API at ${API}/politicians`)
         } finally {
             setLoading(false)
         }
