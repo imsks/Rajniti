@@ -1,12 +1,14 @@
 "use client"
 
 import { useState, useMemo } from "react"
+import { motion } from "framer-motion"
 import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import PoliticianCard from "@/components/PoliticianCard"
 import { usePoliticians } from "@/hooks/usePoliticians"
 import type { ElectionType } from "@/types/politician"
+import { fadeInUp, staggerContainer, staggerFastContainer, buttonTap, scaleIn, quickTransition } from "@/utils/motion"
 
 type Tab = "ALL" | "MP" | "MLA"
 
@@ -60,45 +62,70 @@ export default function Dashboard() {
 
             <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8'>
                 {/* Header + Stats */}
-                <div className='mb-8'>
+                <motion.div 
+                    className='mb-8'
+                    initial="initial"
+                    animate="animate"
+                    variants={staggerContainer}
+                >
+                    <motion.div variants={fadeInUp}>
                     <Text variant='h2' weight='bold' className='text-gray-900 mb-2'>
                         Indian Politicians
                     </Text>
                     <Text variant='body' className='text-gray-600 mb-6'>
                         Browse elected MPs and MLAs. Help us enrich their profiles!
                     </Text>
+                    </motion.div>
 
                     {!loading && (
-                        <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-6'>
+                        <motion.div 
+                            className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-6'
+                            variants={staggerContainer}
+                        >
                             <StatCard
                                 value={stats.total.toLocaleString()}
                                 label='Total Politicians'
                                 color='text-orange-600'
                             />
+                            </motion.div>
+                            <motion.div variants={fadeInUp}>
                             <StatCard
                                 value={stats.totalStates.toString()}
                                 label='States / UTs'
                                 color='text-blue-600'
                             />
+                            </motion.div>
+                            <motion.div variants={fadeInUp}>
                             <StatCard
                                 value={stats.totalParties.toString()}
                                 label='Parties'
                                 color='text-green-600'
                             />
+                            </motion.div>
+                            <motion.div variants={fadeInUp}>
                             <StatCard
                                 value={stats.topParty}
                                 label='Top Party'
                                 color='text-purple-600'
                             />
-                        </div>
+                            </motion.div>
+                        </motion.div>
                     )}
-                </div>
+                </motion.div>
 
                 {/* Tabs */}
-                <div className='flex gap-2 mb-6'>
+                <motion.div 
+                    className='flex gap-2 mb-6'
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                >
                     {(["ALL", "MP", "MLA"] as Tab[]).map((tab) => (
-                        <button
+                        <motion.button
                             key={tab}
+                            whileTap={buttonTap}
+                            whileHover={{ scale: 1.05 }}
+                            transition={quickTransition}
                             onClick={() => {
                                 setActiveTab(tab)
                                 setSearchQuery("")
@@ -115,9 +142,9 @@ export default function Dashboard() {
                                 : tab === "MP"
                                   ? "MPs"
                                   : "MLAs"}
-                        </button>
+                        </motion.button>
                     ))}
-                </div>
+                </motion.div>
 
                 {/* Search + Filters */}
                 <div className='bg-white rounded-2xl shadow-sm border border-gray-200 p-4 mb-6'>
@@ -212,11 +239,18 @@ export default function Dashboard() {
 
                 {/* Politician grid */}
                 {!loading && displayPoliticians.length > 0 && (
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                        {displayPoliticians.map((p) => (
-                            <PoliticianCard key={p.id} politician={p} />
+                    <motion.div 
+                        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'
+                        initial="initial"
+                        animate="animate"
+                        variants={staggerFastContainer}
+                    >
+                        {displayPoliticians.map((p, index) => (
+                            <motion.div key={p.id} variants={scaleIn}>
+                                <PoliticianCard politician={p} />
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 )}
 
                 {/* Contribute CTA */}

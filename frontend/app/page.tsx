@@ -1,8 +1,12 @@
+"use client"
+
+import { motion } from "framer-motion"
 import PreambleSection from "@/components/PreambleSection"
 import { Navbar, Footer } from "@/components/layout"
 import Text from "@/components/ui/Text"
 import Link from "@/components/ui/Link"
 import Button from "@/components/ui/Button"
+import { fadeInUp, fadeIn, staggerContainer, scrollReveal, buttonTap, quickTransition } from "@/utils/motion"
 
 export default function Home() {
     return (
@@ -12,8 +16,13 @@ export default function Home() {
             {/* Hero Section */}
             <section className='py-20 sm:py-32 relative z-2'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-                    <div className='text-center'>
-                        <div className='mb-8 flex justify-center'>
+                    <motion.div 
+                        className='text-center'
+                        initial="initial"
+                        animate="animate"
+                        variants={staggerContainer}
+                    >
+                        <motion.div className='mb-8 flex justify-center' variants={fadeIn}>
                             <div className='rounded-full bg-linear-to-b from-orange-500 via-white to-green-500 p-1'>
                                 <div className='rounded-full bg-white px-6 py-2'>
                                     <span className='text-sm font-semibold text-gray-700'>
@@ -21,15 +30,18 @@ export default function Home() {
                                     </span>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
+                        <motion.div variants={fadeInUp}>
                         <Text variant='h1' className='text-gray-900 mb-6'>
                             Know Your{" "}
                             <span className='block bg-linear-to-r from-orange-600 via-orange-500 to-green-600 bg-clip-text text-transparent'>
                                 Elected Representatives
                             </span>
                         </Text>
+                        </motion.div>
 
+                        <motion.div variants={fadeInUp}>
                         <Text
                             variant='body'
                             className='mx-auto max-w-2xl text-gray-600 mb-10'>
@@ -38,8 +50,13 @@ export default function Home() {
                             family background, criminal records, and more. All free
                             and community-driven.
                         </Text>
+                        </motion.div>
 
-                        <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
+                        <motion.div 
+                            className='flex flex-col sm:flex-row gap-4 justify-center items-center'
+                            variants={fadeInUp}
+                        >
+                            <motion.div whileTap={buttonTap}>
                             <Button
                                 href='/dashboard'
                                 size='lg'
@@ -59,7 +76,9 @@ export default function Home() {
                                 }>
                                 Explore Politicians
                             </Button>
+                            </motion.div>
 
+                            <motion.div whileTap={buttonTap}>
                             <Button
                                 href='https://github.com/imsks/rajniti'
                                 external
@@ -79,8 +98,9 @@ export default function Home() {
                                 }>
                                 View on GitHub
                             </Button>
-                        </div>
-                    </div>
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
                 </div>
 
                 {/* Decorative Elements */}
@@ -104,9 +124,26 @@ export default function Home() {
                         </Text>
                     </div>
 
-                    <div className='grid md:grid-cols-3 gap-8'>
-                        <div className='bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border border-blue-200'>
-                            <div className='text-4xl mb-4'>🏛️</div>
+                    <motion.div 
+                        className='grid md:grid-cols-3 gap-8'
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true, amount: 0.2 }}
+                        variants={staggerContainer}
+                    >
+                        <motion.div 
+                            className='bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border border-blue-200'
+                            variants={fadeInUp}
+                            whileHover={{ scale: 1.05, y: -8 }}
+                            transition={quickTransition}
+                        >
+                            <motion.div 
+                                className='text-4xl mb-4'
+                                whileHover={{ scale: 1.2, rotate: 10 }}
+                                transition={quickTransition}
+                            >
+                                🏛️
+                            </motion.div>
                             <Text
                                 variant='h4'
                                 weight='bold'
@@ -117,10 +154,21 @@ export default function Home() {
                                 Browse all winning Lok Sabha MPs — their party,
                                 constituency, state, and election history.
                             </Text>
-                        </div>
+                        </motion.div>
 
-                        <div className='bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border border-purple-200'>
-                            <div className='text-4xl mb-4'>🏢</div>
+                        <motion.div 
+                            className='bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border border-purple-200'
+                            variants={fadeInUp}
+                            whileHover={{ scale: 1.05, y: -8 }}
+                            transition={quickTransition}
+                        >
+                            <motion.div 
+                                className='text-4xl mb-4'
+                                whileHover={{ scale: 1.2, rotate: 10 }}
+                                transition={quickTransition}
+                            >
+                                🏢
+                            </motion.div>
                             <Text
                                 variant='h4'
                                 weight='bold'
@@ -131,10 +179,21 @@ export default function Home() {
                                 Explore elected MLAs from state assemblies across
                                 India with detailed political backgrounds.
                             </Text>
-                        </div>
+                        </motion.div>
 
-                        <div className='bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 border border-orange-200'>
-                            <div className='text-4xl mb-4'>📊</div>
+                        <motion.div 
+                            className='bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 border border-orange-200'
+                            variants={fadeInUp}
+                            whileHover={{ scale: 1.05, y: -8 }}
+                            transition={quickTransition}
+                        >
+                            <motion.div 
+                                className='text-4xl mb-4'
+                                whileHover={{ scale: 1.2, rotate: 10 }}
+                                transition={quickTransition}
+                            >
+                                📊
+                            </motion.div>
                             <Text
                                 variant='h4'
                                 weight='bold'
@@ -145,8 +204,8 @@ export default function Home() {
                                 Education, family, criminal records, social media,
                                 and more — enriched with community contributions.
                             </Text>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </section>
 

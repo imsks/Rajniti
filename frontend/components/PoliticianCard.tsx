@@ -1,8 +1,10 @@
 "use client"
 
 import Link from "next/link"
+import { motion } from "framer-motion"
 import Text from "@/components/ui/Text"
 import type { Politician } from "@/types/politician"
+import { cardHover, fadeIn, quickTransition } from "@/utils/motion"
 
 interface PoliticianCardProps {
     politician: Politician
@@ -37,24 +39,36 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
         <Link
             href={`/politician/${encodeURIComponent(politician.id)}`}
             className='block group'>
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-200 p-5 hover:border-orange-400 hover:shadow-lg transition-all h-full flex flex-col'>
+            <motion.div 
+                className='bg-white rounded-2xl shadow-sm border border-gray-200 p-5 hover:border-orange-400 hover:shadow-lg transition-all h-full flex flex-col'
+                initial="rest"
+                whileHover="hover"
+                variants={cardHover}
+                transition={quickTransition}
+            >
                 {/* Top: Photo / Avatar + Name */}
                 <div className='flex items-start gap-4 mb-3'>
                     {hasPhoto ? (
-                        <img
+                        <motion.img
                             src={politician.photo!}
                             alt={politician.name}
                             className='w-14 h-14 rounded-full object-cover border-2 border-orange-200 flex-shrink-0'
+                            whileHover={{ scale: 1.1 }}
+                            transition={quickTransition}
                             onError={(e) => {
                                 (e.target as HTMLImageElement).style.display = "none"
                             }}
                         />
                     ) : (
-                        <div className='w-14 h-14 rounded-full bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center flex-shrink-0 border-2 border-orange-200'>
+                        <motion.div 
+                            className='w-14 h-14 rounded-full bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center flex-shrink-0 border-2 border-orange-200'
+                            whileHover={{ scale: 1.1, rotate: 5 }}
+                            transition={quickTransition}
+                        >
                             <span className='text-orange-700 font-bold text-xs'>
                                 {initial}
                             </span>
-                        </div>
+                        </motion.div>
                     )}
 
                     <div className='flex-1 min-w-0'>
@@ -70,34 +84,50 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
                     </div>
 
                     {/* Type badge */}
-                    <span
+                    <motion.span
                         className={`px-2.5 py-1 rounded-full text-xs font-bold flex-shrink-0 ${
                             isMp
                                 ? "bg-blue-100 text-blue-700"
                                 : "bg-purple-100 text-purple-700"
-                        }`}>
+                        }`}
+                        whileHover={{ scale: 1.1 }}
+                        transition={quickTransition}
+                    >
                         {politician.type}
-                    </span>
+                    </motion.span>
                 </div>
 
                 {/* Info pills */}
                 <div className='flex flex-wrap gap-2 mt-auto'>
-                    <span className='inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 rounded-lg text-xs text-gray-600'>
+                    <motion.span 
+                        className='inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 rounded-lg text-xs text-gray-600'
+                        whileHover={{ scale: 1.05, backgroundColor: "rgb(249, 250, 251)" }}
+                        transition={quickTransition}
+                    >
                         📍 {politician.constituency}
-                    </span>
-                    <span className='inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 rounded-lg text-xs text-gray-600'>
+                    </motion.span>
+                    <motion.span 
+                        className='inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 rounded-lg text-xs text-gray-600'
+                        whileHover={{ scale: 1.05, backgroundColor: "rgb(249, 250, 251)" }}
+                        transition={quickTransition}
+                    >
                         🏛️ {politician.state}
-                    </span>
+                    </motion.span>
                 </div>
 
                 {/* Subtle CTA */}
-                <div className='mt-3 pt-3 border-t border-gray-100 flex items-center text-orange-600 opacity-0 group-hover:opacity-100 transition-opacity'>
+                <motion.div 
+                    className='mt-3 pt-3 border-t border-gray-100 flex items-center text-orange-600 opacity-0 group-hover:opacity-100 transition-opacity'
+                    initial={{ x: -10 }}
+                    whileHover={{ x: 5 }}
+                    transition={quickTransition}
+                >
                     <Text variant='small' weight='semibold'>
                         View Details
                     </Text>
                     <span className='ml-1'>→</span>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
         </Link>
     )
 }

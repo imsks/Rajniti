@@ -13,6 +13,7 @@
     "test:ci": "jest --ci --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
+    "framer-motion": "^12.34.0",
     "next": "16.0.10",
     "next-auth": "^4.24.13",
     "react": "19.2.0",
