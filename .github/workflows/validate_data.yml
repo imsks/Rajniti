@@ -1,0 +1,25 @@
+name: Validate Politician Data
+
+on:
+    pull_request:
+        paths:
+            - "app/data/*.json"
+
+jobs:
+    validate:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.10"
+
+            - name: Install Dependencies
+              run: |
+                  pip install pydantic typer
+
+            - name: Run Validator
+              run: python scripts/validate_json.py
