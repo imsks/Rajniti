@@ -7,14 +7,14 @@ import UserDetailsStep from '@/components/onboarding/UserDetailsStep'
 import PreferencesStep from '@/components/onboarding/PreferencesStep'
 
 // API Base URL - configurable via environment variable
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1"
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL
 
 export default function EditProfile() {
   const router = useRouter()
   const { data: session } = useSession()
   const [loading, setLoading] = useState(false)
   const [fetching, setFetching] = useState(true)
-  
+
   const [formData, setFormData] = useState({
     phone: '',
     state: '',
@@ -37,7 +37,7 @@ export default function EditProfile() {
         if (response.ok) {
           const result = await response.json()
           const user = result.data
-          
+
           setFormData({
             phone: user.phone || '',
             state: user.state || '',
@@ -71,7 +71,7 @@ export default function EditProfile() {
         alert('Please sign in to update your profile')
         return
       }
-      
+
       // Call backend API to update profile
       const response = await fetch(`${API_BASE_URL}/users/${session.user.id}`, {
         method: 'PUT',
@@ -160,7 +160,7 @@ export default function EditProfile() {
             >
               Cancel
             </button>
-            
+
             <button
               onClick={handleSubmit}
               disabled={loading}
