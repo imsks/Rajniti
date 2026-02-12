@@ -1,5 +1,3 @@
-"""Configuration module for the application."""
+from .agent_config import get_agent_llm
 
-from .llm_config import LLMConfig, get_llm_config
-
-__all__ = ["LLMConfig", "get_llm_config"]
+__all__ = ["get_agent_llm"]
