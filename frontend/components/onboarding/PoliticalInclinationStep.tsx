@@ -1,5 +1,8 @@
 'use client'
 
+import { motion } from "framer-motion"
+import { fadeInUp, staggerContainer, scaleIn, buttonTap, quickTransition } from "@/utils/motion"
+
 interface PoliticalInclinationStepProps {
   value: string
   onChange: (value: string) => void
@@ -16,22 +19,31 @@ export default function PoliticalInclinationStep({ value, onChange }: PoliticalI
   ]
 
   return (
-    <div className="space-y-4">
-      <div className="text-center mb-6">
+    <motion.div 
+      className="space-y-4"
+      initial="initial"
+      animate="animate"
+      variants={staggerContainer}
+    >
+      <motion.div className="text-center mb-6" variants={fadeInUp}>
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
           Political Inclination
         </h2>
         <p className="text-gray-600">
           What best describes your political inclination?
         </p>
-      </div>
+      </motion.div>
 
-      <div className="space-y-3">
+      <motion.div className="space-y-3" variants={staggerContainer}>
         {options.map((option) => (
-          <button
+          <motion.button
             key={option.value}
             type="button"
             onClick={() => onChange(option.value)}
+            variants={scaleIn}
+            whileTap={buttonTap}
+            whileHover={{ scale: 1.02, y: -2 }}
+            transition={quickTransition}
             className={`w-full text-left p-5 rounded-xl border-2 transition-all ${
               value === option.value
                 ? 'border-orange-500 bg-orange-50 shadow-md'
@@ -61,9 +73,9 @@ export default function PoliticalInclinationStep({ value, onChange }: PoliticalI
                 </p>
               </div>
             </div>
-          </button>
+          </motion.button>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }

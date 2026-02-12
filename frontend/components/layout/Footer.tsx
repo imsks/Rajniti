@@ -1,9 +1,19 @@
+"use client"
+
+import { motion } from "framer-motion"
 import Text from "@/components/ui/Text"
 import Link from "@/components/ui/Link"
+import { fadeIn } from "@/utils/motion"
 
 export default function Footer() {
     return (
-        <footer className='border-t border-gray-200 dark:border-slate-700 py-2 bg-white dark:bg-slate-900'>
+        <motion.footer 
+            className='border-t border-gray-200 dark:border-slate-700 py-2 bg-white dark:bg-slate-900'
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+        >
             <div className='flex flex-row justify-between mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                 <Text variant='small' className='text-gray-600 dark:text-gray-400'>
                     Building with ❤️ for 🇮🇳 Democracy
@@ -31,6 +41,6 @@ export default function Footer() {
                     </Text>
                 </div>
             </div>
-        </footer>
+        </motion.footer>
     )
 }

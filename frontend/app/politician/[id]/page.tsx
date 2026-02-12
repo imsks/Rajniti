@@ -1,11 +1,13 @@
 "use client"
 
 import { useParams, useRouter } from "next/navigation"
+import { motion } from "framer-motion"
 import { usePolitician } from "@/hooks/usePoliticians"
 import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import type { Politician, ElectionRecord, CrimeRecord, FamilyMember } from "@/types/politician"
+import { fadeInUp, staggerContainer, scaleIn, quickTransition } from "@/utils/motion"
 
 // ── Helper components ─────────────────────────────────────────────────────
 
@@ -19,7 +21,13 @@ function Section({
     children: React.ReactNode
 }) {
     return (
-        <div className='bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-200 dark:border-slate-700 p-6 mb-6'>
+        <motion.div 
+            className='bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-200 dark:border-slate-700 p-6 mb-6'
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={quickTransition}
+        >
             <div className='flex items-center gap-2 mb-4'>
                 <span className='text-xl'>{icon}</span>
                 <Text variant='h4' weight='bold' className='text-gray-900 dark:text-gray-100'>
@@ -27,7 +35,7 @@ function Section({
                 </Text>
             </div>
             {children}
-        </div>
+        </motion.div>
     )
 }
 
