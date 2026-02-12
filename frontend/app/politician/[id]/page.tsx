@@ -1,13 +1,11 @@
 "use client"
 
 import { useParams, useRouter } from "next/navigation"
-import { motion } from "framer-motion"
 import { usePolitician } from "@/hooks/usePoliticians"
 import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import type { Politician, ElectionRecord, CrimeRecord, FamilyMember } from "@/types/politician"
-import { fadeInUp, staggerContainer, scaleIn, quickTransition } from "@/utils/motion"
 
 // ── Helper components ─────────────────────────────────────────────────────
 
@@ -21,13 +19,7 @@ function Section({
     children: React.ReactNode
 }) {
     return (
-        <motion.div 
-            className='bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-200 dark:border-slate-700 p-6 mb-6'
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={quickTransition}
-        >
+        <div className='bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-6'>
             <div className='flex items-center gap-2 mb-4'>
                 <span className='text-xl'>{icon}</span>
                 <Text variant='h4' weight='bold' className='text-gray-900 dark:text-gray-100'>
@@ -35,14 +27,14 @@ function Section({
                 </Text>
             </div>
             {children}
-        </motion.div>
+        </div>
     )
 }
 
 function EmptyHint({ message }: { message: string }) {
     return (
-        <div className='bg-gray-50 dark:bg-slate-900 rounded-lg p-4 border border-dashed border-gray-300 dark:border-slate-600 text-center'>
-            <Text variant='small' className='text-gray-400 dark:text-gray-500'>
+        <div className='bg-gray-50 rounded-lg p-4 border border-dashed border-gray-300 text-center'>
+            <Text variant='small' className='text-gray-400'>
                 {message}
             </Text>
             <a
@@ -90,7 +82,7 @@ function PoliticalHistorySection({
     return (
         <Section title='Political History' icon='🏛️'>
             {summary && (
-                <Text variant='body' className='text-gray-600 dark:text-gray-300 mb-4 italic'>
+                <Text variant='body' className='text-gray-600 mb-4 italic'>
                     {summary}
                 </Text>
             )}
@@ -98,12 +90,12 @@ function PoliticalHistorySection({
                 {elections.map((e, i) => (
                     <div
                         key={i}
-                        className='flex items-center justify-between bg-gradient-to-r from-gray-50 to-white dark:from-slate-800 dark:to-slate-700 rounded-lg p-4 border border-gray-200 dark:border-slate-600'>
+                        className='flex items-center justify-between bg-gradient-to-r from-gray-50 to-white rounded-lg p-4 border border-gray-200'>
                         <div>
-                            <Text variant='body' weight='semibold' className='text-gray-900 dark:text-gray-100'>
+                            <Text variant='body' weight='semibold' className='text-gray-900'>
                                 {e.constituency}, {e.state}
                             </Text>
-                            <Text variant='small' className='text-gray-500 dark:text-gray-400'>
+                            <Text variant='small' className='text-gray-500'>
                                 {e.party} • {e.year} • {e.type}
                             </Text>
                         </div>
@@ -247,10 +239,10 @@ export default function PoliticianPage() {
 
     if (loading) {
         return (
-            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:bg-slate-900 flex items-center justify-center'>
+            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center'>
                 <div className='text-center'>
-                    <div className='inline-block animate-spin rounded-full h-16 w-16 border-4 border-orange-500 dark:border-orange-400 border-t-transparent'></div>
-                    <p className='mt-4 text-gray-600 dark:text-gray-300 font-semibold'>Loading…</p>
+                    <div className='inline-block animate-spin rounded-full h-16 w-16 border-4 border-orange-500 border-t-transparent'></div>
+                    <p className='mt-4 text-gray-600 font-semibold'>Loading…</p>
                 </div>
             </div>
         )
@@ -258,7 +250,7 @@ export default function PoliticianPage() {
 
     if (error || !politician) {
         return (
-            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:bg-slate-900 flex items-center justify-center p-4'>
+            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center p-4'>
                 <div className='bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8 max-w-md w-full border-l-4 border-red-500'>
                     <div className='flex items-center gap-3 mb-4'>
                         <div className='text-red-500 text-3xl'>⚠️</div>
@@ -283,7 +275,7 @@ export default function PoliticianPage() {
     const isMp = p.type === "MP"
 
     return (
-        <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:bg-slate-900'>
+        <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50'>
             <Navbar variant='dashboard' sticky={true} />
 
             <div className='mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8'>
@@ -301,20 +293,20 @@ export default function PoliticianPage() {
                             <img
                                 src={p.photo}
                                 alt={p.name}
-                                className='w-32 h-32 rounded-2xl object-cover border-4 border-orange-200 dark:border-orange-700 flex-shrink-0'
+                                className='w-32 h-32 rounded-2xl object-cover border-4 border-orange-200 shrink-0'
                                 onError={(e) => {
                                     (e.target as HTMLImageElement).style.display = "none"
                                 }}
                             />
                         ) : (
-                            <div className='w-32 h-32 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900 dark:to-orange-800 flex items-center justify-center flex-shrink-0 border-4 border-orange-200 dark:border-orange-700'>
+                            <div className='w-32 h-32 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center shrink-0 border-4 border-orange-200'>
                                 <span className='text-4xl'>🏛️</span>
                             </div>
                         )}
 
                         <div className='flex-1'>
                             <div className='flex items-center gap-3 mb-2'>
-                                <Text variant='h2' weight='bold' className='text-gray-900 dark:text-gray-100'>
+                                <Text variant='h2' weight='bold' className='text-gray-900'>
                                     {p.name}
                                 </Text>
                                 <Badge color={isMp ? "blue" : "purple"}>
@@ -371,7 +363,7 @@ export default function PoliticianPage() {
                 <ContactSection politician={p} />
 
                 {/* Contribute CTA */}
-                <div className='bg-gradient-to-r from-orange-500 to-orange-600 dark:from-orange-600 dark:to-orange-700 rounded-2xl p-6 text-center text-white mt-6 mb-8 shadow-xl'>
+                <div className='bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-6 text-center text-white mt-6 mb-8'>
                     <Text variant='h4' weight='bold' className='text-white mb-2'>
                         Know more about {p.name}?
                     </Text>

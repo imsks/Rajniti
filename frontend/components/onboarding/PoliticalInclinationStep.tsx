@@ -51,7 +51,7 @@ export default function PoliticalInclinationStep({ value, onChange }: PoliticalI
             }`}
           >
             <div className="flex items-start gap-3">
-              <div className={`flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center mt-0.5 ${
+              <div className={`shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center mt-0.5 ${
                 value === option.value
                   ? 'border-orange-500 bg-orange-500'
                   : 'border-gray-300 bg-white'

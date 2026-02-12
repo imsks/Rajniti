@@ -99,6 +99,7 @@ export default function UserDetailsStep({ formData, onChange }: UserDetailsStepP
         <select
           value={formData.state}
           onChange={(e) => onChange('state', e.target.value)}
+          title='Select your state'
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           required
         >
