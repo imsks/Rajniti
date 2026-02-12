@@ -32,7 +32,10 @@ flake8==6.1.0
 pre-commit==3.6.0
 autoflake==2.2.1
 
-# LLM Services - removed Langchain dependencies (will add a fresh implementation later)
+# LLM Services
+langchain>=0.3.0
+langchain-openai>=0.3.0
+langchain-community>=0.3.0
 
 # Authentication
 Authlib
