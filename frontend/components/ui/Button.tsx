@@ -44,12 +44,12 @@ export default function Button(props: ButtonProps) {
 
     const variants = {
         primary:
-            "bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:from-primary-600 hover:to-primary-700 shadow-md hover:shadow-lg focus:ring-primary-500",
+            "bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 shadow-md hover:shadow-lg focus:ring-orange-500",
         secondary:
-            "bg-white text-secondary-700 border-2 border-secondary-300 hover:border-primary-500 hover:text-primary-600 shadow-sm focus:ring-primary-500",
+            "bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-200 border-2 border-slate-300 dark:border-slate-600 hover:border-orange-500 hover:text-orange-600 dark:hover:text-orange-400 shadow-sm focus:ring-orange-500",
         outline:
             "border-2 border-primary-500 text-primary-600 hover:bg-primary-50 focus:ring-primary-500",
-        ghost: "text-secondary-600 hover:text-primary-600 hover:bg-primary-50 focus:ring-primary-500",
+        ghost: "text-gray-600 dark:text-gray-400 hover:text-orange-600 hover:bg-orange-50 dark:hover:bg-orange-900/20 focus:ring-orange-500",
         danger: "text-red-600 hover:bg-red-50 focus:ring-red-500"
     }
 
@@ -76,7 +76,18 @@ export default function Button(props: ButtonProps) {
     )
 
     if (props.href) {
-        const { href, external, ...linkProps } = props as ButtonAsLinkProps
+        const { 
+            href, 
+            external, 
+            variant: _v,
+            size: _s,
+            isLoading: _il,
+            fullWidth: _fw,
+            leftIcon: _li,
+            rightIcon: _ri,
+            className: _cn,
+            ...linkProps 
+        } = props as ButtonAsLinkProps
 
         if (external) {
             return (
@@ -92,10 +103,12 @@ export default function Button(props: ButtonProps) {
         }
 
         return (
-            <Link href={href} legacyBehavior>
-            <a className={classes} {...(linkProps as any)}>
+            <Link 
+                href={href} 
+                className={classes}
+                {...linkProps}
+            >
                 {content}
-            </a>
             </Link>
         )
     }

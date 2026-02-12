@@ -1,5 +1,8 @@
 'use client'
 
+import { motion } from "framer-motion"
+import { fadeInUp, staggerContainer, scaleIn, buttonTap, quickTransition } from "@/utils/motion"
+
 interface PreferencesStepProps {
   formData: {
     preferred_parties: string[]
@@ -45,27 +48,39 @@ export default function PreferencesStep({ formData, onChange }: PreferencesStepP
   }
 
   return (
-    <div className="space-y-6">
-      <div className="text-center mb-6">
+    <motion.div 
+      className="space-y-6"
+      initial="initial"
+      animate="animate"
+      variants={staggerContainer}
+    >
+      <motion.div className="text-center mb-6" variants={fadeInUp}>
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
           Your Preferences
         </h2>
         <p className="text-gray-600">
           Help us tailor content to your interests
         </p>
-      </div>
+      </motion.div>
 
       {/* Preferred Parties */}
-      <div>
+      <motion.div variants={fadeInUp}>
         <label className="block text-sm font-medium text-gray-700 mb-3">
           Preferred Parties <span className="text-gray-400">(Select all that apply)</span>
         </label>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+          variants={staggerContainer}
+        >
           {PARTIES.map((party) => (
-            <button
+            <motion.button
               key={party}
               type="button"
               onClick={() => toggleSelection('preferred_parties', party)}
+              variants={scaleIn}
+              whileTap={buttonTap}
+              whileHover={{ scale: 1.02 }}
+              transition={quickTransition}
               className={`px-4 py-3 rounded-lg border-2 text-sm font-medium transition-all text-left ${
                 formData.preferred_parties.includes(party)
                   ? 'border-orange-500 bg-orange-50 text-orange-700'
@@ -73,7 +88,7 @@ export default function PreferencesStep({ formData, onChange }: PreferencesStepP
               }`}
             >
               <div className="flex items-center gap-2">
-                <div className={`w-4 h-4 rounded border-2 flex items-center justify-center flex-shrink-0 ${
+                <div className={`w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 ${
                   formData.preferred_parties.includes(party)
                     ? 'border-orange-500 bg-orange-500'
                     : 'border-gray-300 bg-white'
@@ -86,22 +101,29 @@ export default function PreferencesStep({ formData, onChange }: PreferencesStepP
                 </div>
                 <span className="truncate">{party}</span>
               </div>
-            </button>
+            </motion.button>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Topics of Interest */}
-      <div>
+      <motion.div variants={fadeInUp}>
         <label className="block text-sm font-medium text-gray-700 mb-3">
           Topics of Interest <span className="text-gray-400">(Select all that apply)</span>
         </label>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        <motion.div 
+          className="grid grid-cols-2 sm:grid-cols-3 gap-3"
+          variants={staggerContainer}
+        >
           {TOPICS.map((topic) => (
-            <button
+            <motion.button
               key={topic}
               type="button"
               onClick={() => toggleSelection('topics_of_interest', topic)}
+              variants={scaleIn}
+              whileTap={buttonTap}
+              whileHover={{ scale: 1.02 }}
+              transition={quickTransition}
               className={`px-4 py-3 rounded-lg border-2 text-sm font-medium transition-all ${
                 formData.topics_of_interest.includes(topic)
                   ? 'border-green-500 bg-green-50 text-green-700'
@@ -109,21 +131,24 @@ export default function PreferencesStep({ formData, onChange }: PreferencesStepP
               }`}
             >
               {topic}
-            </button>
+            </motion.button>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <motion.div 
+        className="bg-blue-50 border border-blue-200 rounded-lg p-4"
+        variants={fadeInUp}
+      >
         <div className="flex gap-3">
-          <svg className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+          <svg className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
           </svg>
           <p className="text-sm text-blue-800">
             Your preferences help us show you relevant political news and updates. You can change these anytime in your profile settings.
           </p>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }

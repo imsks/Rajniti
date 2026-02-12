@@ -1,18 +1,28 @@
+"use client"
+
+import { motion } from "framer-motion"
 import Text from "@/components/ui/Text"
 import Link from "@/components/ui/Link"
+import { fadeIn } from "@/utils/motion"
 
 export default function Footer() {
     return (
-        <footer className='border-t border-gray-200 py-2'>
+        <motion.footer 
+            className='border-t border-gray-200 dark:border-slate-700 py-2 bg-white dark:bg-slate-900'
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+        >
             <div className='flex flex-row justify-between mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-                <Text variant='small' className='text-gray-600'>
+                <Text variant='small' className='text-gray-600 dark:text-gray-400'>
                     Building with ❤️ for 🇮🇳 Democracy
                 </Text>
                 <div className='flex flex-row align-center justify-center gap-4'>
                     <Link
                         href='https://github.com/imsks/rajniti'
                         external
-                        className='text-gray-400 hover:text-gray-600 transition-colors'>
+                        className='text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors'>
                         <span className='sr-only'>GitHub</span>
                         <svg
                             className='w-6 h-6'
@@ -25,12 +35,12 @@ export default function Footer() {
                             />
                         </svg>
                     </Link>
-                    <Text variant='small' className='text-gray-500'>
+                    <Text variant='small' className='text-gray-500 dark:text-gray-400'>
                         © {new Date().getFullYear()} Rajniti. Open source under
                         MIT License.
                     </Text>
                 </div>
             </div>
-        </footer>
+        </motion.footer>
     )
 }

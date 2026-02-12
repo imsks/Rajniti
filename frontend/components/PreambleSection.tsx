@@ -1,4 +1,8 @@
+"use client"
+
+import { motion } from "framer-motion"
 import Text from "@/components/ui/Text"
+import { scrollReveal, staggerContainer, fadeInUp, scaleIn, quickTransition } from "@/utils/motion"
 
 export default function PreambleSection() {
     return (
@@ -9,7 +13,10 @@ export default function PreambleSection() {
 
             <div className='mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative z-10'>
                 {/* Header with Indian Flag Colors Accent */}
-                <div className='text-center mb-12'>
+                <motion.div 
+                    className='text-center mb-12'
+                    {...scrollReveal}
+                >
                     <div className='inline-block'>
                         <div className='h-1 w-32 bg-gradient-to-r from-orange-500 via-white to-green-600 rounded-full mb-6'></div>
                     </div>
@@ -19,66 +26,111 @@ export default function PreambleSection() {
                     <Text variant="body" className='text-gray-600'>
                         The Preamble to our Constitution
                     </Text>
-                </div>
+                </motion.div>
 
                 {/* Main Preamble Card */}
-                <div className='bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden'>
+                <motion.div 
+                    className='bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden'
+                    {...scrollReveal}
+                    transition={{ delay: 0.2, duration: 0.6 }}
+                >
                     {/* Tricolor Top Border */}
                     <div className='h-2 bg-gradient-to-r from-orange-500 via-white to-green-600'></div>
 
                     {/* Content */}
                     <div className='p-8 sm:p-12'>
                         {/* Opening Line - Emphasized */}
-                        <div className='mb-8 text-center'>
+                        <motion.div 
+                            className='mb-8 text-center'
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true, amount: 0.5 }}
+                            transition={{ delay: 0.3, duration: 0.5 }}
+                        >
                             <Text variant="h2" className='text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-600 via-gray-800 to-green-600 bg-clip-text text-transparent leading-tight'>
                                 WE, THE PEOPLE OF INDIA
                             </Text>
-                        </div>
+                        </motion.div>
 
                         {/* Preamble Text */}
-                        <div className='space-y-6 text-gray-700 text-base sm:text-lg leading-relaxed'>
+                        <motion.div 
+                            className='space-y-6 text-gray-700 text-base sm:text-lg leading-relaxed'
+                            initial="initial"
+                            whileInView="animate"
+                            viewport={{ once: true, amount: 0.3 }}
+                            variants={staggerContainer}
+                        >
+                            <motion.div variants={fadeInUp}>
                             <Text variant="body" className='text-center italic block'>
                                 having solemnly resolved to constitute India into a
                             </Text>
+                            </motion.div>
 
+                            <motion.div variants={fadeInUp}>
                             <Text variant="h3" weight="semibold" className='text-center text-xl sm:text-2xl text-gray-900'>
                                 SOVEREIGN SOCIALIST SECULAR
                                 <br />
                                 DEMOCRATIC REPUBLIC
                             </Text>
+                            </motion.div>
 
+                            <motion.div variants={fadeInUp}>
                             <Text variant="body" className='text-center block'>and to secure to all its citizens:</Text>
+                            </motion.div>
 
                             {/* Key Principles */}
-                            <div className='grid sm:grid-cols-2 gap-6 my-8'>
-                                <div className='bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 border border-orange-200'>
+                            <motion.div 
+                                className='grid sm:grid-cols-2 gap-6 my-8'
+                                variants={staggerContainer}
+                            >
+                                <motion.div 
+                                    className='bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 border border-orange-200'
+                                    variants={scaleIn}
+                                    whileHover={{ scale: 1.05, y: -5 }}
+                                    transition={quickTransition}
+                                >
                                     <Text variant="h4" weight="bold" className='text-orange-900 mb-2 text-lg'>
                                         JUSTICE
                                     </Text>
                                     <Text variant="small" className='text-orange-800'>
                                         social, economic and political
                                     </Text>
-                                </div>
+                                </motion.div>
 
-                                <div className='bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200'>
+                                <motion.div 
+                                    className='bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200'
+                                    variants={scaleIn}
+                                    whileHover={{ scale: 1.05, y: -5 }}
+                                    transition={quickTransition}
+                                >
                                     <Text variant="h4" weight="bold" className='text-blue-900 mb-2 text-lg'>
                                         LIBERTY
                                     </Text>
                                     <Text variant="small" className='text-blue-800'>
                                         of thought, expression, belief, faith and worship
                                     </Text>
-                                </div>
+                                </motion.div>
 
-                                <div className='bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200'>
+                                <motion.div 
+                                    className='bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200'
+                                    variants={scaleIn}
+                                    whileHover={{ scale: 1.05, y: -5 }}
+                                    transition={quickTransition}
+                                >
                                     <Text variant="h4" weight="bold" className='text-purple-900 mb-2 text-lg'>
                                         EQUALITY
                                     </Text>
                                     <Text variant="small" className='text-purple-800'>
                                         of status and of opportunity
                                     </Text>
-                                </div>
+                                </motion.div>
 
-                                <div className='bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border border-green-200'>
+                                <motion.div 
+                                    className='bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border border-green-200'
+                                    variants={scaleIn}
+                                    whileHover={{ scale: 1.05, y: -5 }}
+                                    transition={quickTransition}
+                                >
                                     <Text variant="h4" weight="bold" className='text-green-900 mb-2 text-lg'>
                                         FRATERNITY
                                     </Text>
@@ -86,11 +138,14 @@ export default function PreambleSection() {
                                         assuring the dignity of the individual and the
                                         unity and integrity of the Nation
                                     </Text>
-                                </div>
-                            </div>
+                                </motion.div>
+                            </motion.div>
 
                             {/* Closing Statement */}
-                            <div className='text-center pt-6 border-t border-gray-200'>
+                            <motion.div 
+                                className='text-center pt-6 border-t border-gray-200'
+                                variants={fadeInUp}
+                            >
                                 <Text variant="small" className='text-gray-600 italic'>
                                     In our Constituent Assembly this twenty-sixth day of
                                     November, 1949,
@@ -101,21 +156,26 @@ export default function PreambleSection() {
                                         CONSTITUTION
                                     </span>
                                 </Text>
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
                     </div>
 
                     {/* Tricolor Bottom Border */}
                     <div className='h-2 bg-gradient-to-r from-orange-500 via-white to-green-600'></div>
-                </div>
+                </motion.div>
 
                 {/* Ashoka Chakra Symbol */}
-                <div className='text-center mt-8'>
-                    <div className='inline-flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg border-4 border-blue-800'>
+                <motion.div 
+                    className='text-center mt-8'
+                    {...scrollReveal}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                >
+                    <div className='inline-flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg border-4 border-blue-800' suppressHydrationWarning>
                         <svg
                             className='w-12 h-12 text-blue-800'
                             viewBox='0 0 24 24'
-                            fill='currentColor'>
+                            fill='currentColor'
+                            suppressHydrationWarning>
                             <circle cx='12' cy='12' r='1.5' />
                             {Array.from({ length: 24 }).map((_, i) => {
                                 const angle = (i * 360) / 24
@@ -147,7 +207,7 @@ export default function PreambleSection() {
                         </svg>
                     </div>
                     <Text variant="caption" className='text-gray-500 mt-2'>Satyameva Jayate</Text>
-                </div>
+                </motion.div>
             </div>
         </section>
     )
