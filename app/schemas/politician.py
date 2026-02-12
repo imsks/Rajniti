@@ -4,11 +4,17 @@ Politician Data Model
 Unified schema for storing MP and MLA data in a simplified structure.
 """
 
-from pydantic import BaseModel, HttpUrl, Field
-from typing import List, Optional, Literal
+from pydantic import BaseModel, HttpUrl, Field, validator
+from typing import List, Optional
 from enum import Enum
-from datetime import date
-
+from .types import (
+    RelationEnum,
+    QualificationEnum,
+    PoliticianType,
+    StatusEnum,
+    State,
+    STATES,
+)
 
 class Contact(BaseModel):
     email: Optional[str] = None
@@ -27,29 +33,40 @@ class SocialMedia(BaseModel):
 
 class FamilyMember(BaseModel):
     name: str
-    relation: str  # e.g., "Father", "Spouse", "Sibling"
+    relation: RelationEnum
     photo: Optional[HttpUrl] = None
     social_media: Optional[SocialMedia] = None
 
 
 class Education(BaseModel):
-    qualification: str  # e.g., "BA in Political Science"
+    qualification: QualificationEnum
     institution: Optional[str] = None
     year_completed: Optional[int] = None
 
 
 class ElectionRecord(BaseModel):
     year: int
-    type: str  # "MP" or "MLA"
-    state: str
+    type: PoliticianType
+    state: State
     constituency: str
     party: str
-    status: str  # "WON" or "LOST"
+    status: StatusEnum
+
+    @validator("state", pre=True)
+    def validate_state(cls, v):
+        if isinstance(v, str):
+            if v in STATES:
+                return v
+            # allow enum value names too (e.g., "ANDHRA_PRADESH")
+            normalized = v.replace("_", " ").title()
+            if normalized in STATES:
+                return normalized
+        return v
 
 
 class PoliticalBackground(BaseModel):
     elections: List[ElectionRecord]
-    summary: Optional[str] = None  # AI generated summary (optional)
+    summary: Optional[str] = None
 
 
 class CrimeType(Enum):
@@ -65,11 +82,6 @@ class CrimeType(Enum):
 class CrimeRecord(BaseModel):
     """
     Record of a criminal case or allegation related to the politician.
-
-    Fields:
-      - name: short description/charge
-      - type: category (e.g., 'Hinjous', 'Economic', etc.)
-      - year: year of the record/allegation/conviction (optional)
     """
     name: str
     type: Optional[CrimeType] = None
@@ -80,14 +92,14 @@ class Politician(BaseModel):
     id: str = Field(..., description="Unique ID like 'mp_2024_s01_5' or 'mla_2025_cg_123'")
     name: str
     photo: Optional[HttpUrl] = None
-    state: str
+    state: State
     constituency: str
-    type: Literal["MP", "MLA"] = Field(...)
-    
+    type: PoliticianType = Field(...)
+
     education: Optional[Education] = None
     family_background: Optional[List[FamilyMember]] = None
     criminal_records: Optional[List[CrimeRecord]] = None
-    
+
     social_media: Optional[SocialMedia] = None
     contact: Optional[Contact] = None
 
