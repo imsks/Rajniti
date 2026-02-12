@@ -22,7 +22,7 @@ function Section({
         <div className='bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-6'>
             <div className='flex items-center gap-2 mb-4'>
                 <span className='text-xl'>{icon}</span>
-                <Text variant='h4' weight='bold' className='text-gray-900'>
+                <Text variant='h4' weight='bold' className='text-gray-900 dark:text-gray-100'>
                     {title}
                 </Text>
             </div>
@@ -114,12 +114,12 @@ function EducationSection({ education }: { education: Politician["education"] })
 
     return (
         <Section title='Education' icon='🎓'>
-            <div className='bg-orange-50 rounded-lg p-4 border border-orange-200'>
-                <Text variant='body' weight='semibold' className='text-gray-900'>
+            <div className='bg-orange-50 dark:bg-orange-900/20 rounded-lg p-4 border border-orange-200 dark:border-orange-700/50'>
+                <Text variant='body' weight='semibold' className='text-gray-900 dark:text-gray-100'>
                     {education.qualification}
                 </Text>
                 {education.institution && (
-                    <Text variant='small' className='text-gray-600'>
+                    <Text variant='small' className='text-gray-600 dark:text-gray-300'>
                         {education.institution}
                         {education.year_completed && ` (${education.year_completed})`}
                     </Text>
@@ -137,11 +137,11 @@ function FamilySection({ members }: { members?: FamilyMember[] | null }) {
         <Section title='Family Background' icon='👨‍👩‍👧‍👦'>
             <div className='grid gap-3'>
                 {members.map((m, i) => (
-                    <div key={i} className='bg-orange-50 rounded-lg p-4 border border-orange-200'>
-                        <Text variant='body' weight='semibold' className='text-gray-900'>
+                    <div key={i} className='bg-orange-50 dark:bg-orange-900/20 rounded-lg p-4 border border-orange-200 dark:border-orange-700/50'>
+                        <Text variant='body' weight='semibold' className='text-gray-900 dark:text-gray-100'>
                             {m.name}
                         </Text>
-                        <Text variant='small' className='text-gray-600'>
+                        <Text variant='small' className='text-gray-600 dark:text-gray-300'>
                             {m.relation}
                         </Text>
                     </div>
@@ -159,14 +159,14 @@ function CriminalRecordsSection({ records }: { records?: CrimeRecord[] | null })
         <Section title='Criminal Records' icon='⚖️'>
             <div className='space-y-3'>
                 {records.map((c, i) => (
-                    <div key={i} className='bg-red-50 rounded-lg p-4 border border-red-200'>
+                    <div key={i} className='bg-red-50 dark:bg-red-900/20 rounded-lg p-4 border border-red-200 dark:border-red-700/50'>
                         <div className='flex items-start justify-between'>
                             <div>
-                                <Text variant='body' weight='semibold' className='text-gray-900'>
+                                <Text variant='body' weight='semibold' className='text-gray-900 dark:text-gray-100'>
                                     {c.name}
                                 </Text>
                                 {c.year && (
-                                    <Text variant='small' className='text-gray-500'>
+                                    <Text variant='small' className='text-gray-500 dark:text-gray-400'>
                                         Year: {c.year}
                                     </Text>
                                 )}
@@ -195,19 +195,19 @@ function ContactSection({ politician }: { politician: Politician }) {
                 {contact?.email && (
                     <div className='flex items-center gap-2'>
                         <span>📧</span>
-                        <Text variant='body' className='text-gray-700'>{contact.email}</Text>
+                        <Text variant='body' className='text-gray-700 dark:text-gray-300'>{contact.email}</Text>
                     </div>
                 )}
                 {contact?.phone && (
                     <div className='flex items-center gap-2'>
                         <span>📞</span>
-                        <Text variant='body' className='text-gray-700'>{contact.phone}</Text>
+                        <Text variant='body' className='text-gray-700 dark:text-gray-300'>{contact.phone}</Text>
                     </div>
                 )}
                 {contact?.address && (
                     <div className='flex items-center gap-2'>
                         <span>📍</span>
-                        <Text variant='body' className='text-gray-700'>{contact.address}</Text>
+                        <Text variant='body' className='text-gray-700 dark:text-gray-300'>{contact.address}</Text>
                     </div>
                 )}
                 {social_media && (
@@ -251,14 +251,14 @@ export default function PoliticianPage() {
     if (error || !politician) {
         return (
             <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center p-4'>
-                <div className='bg-white rounded-lg shadow-lg p-8 max-w-md w-full border-l-4 border-red-500'>
+                <div className='bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8 max-w-md w-full border-l-4 border-red-500'>
                     <div className='flex items-center gap-3 mb-4'>
                         <div className='text-red-500 text-3xl'>⚠️</div>
-                        <Text variant='h4' weight='bold' className='text-gray-900'>
+                        <Text variant='h4' weight='bold' className='text-gray-900 dark:text-gray-100'>
                             Error
                         </Text>
                     </div>
-                    <Text variant='body' className='text-gray-600 mb-4'>
+                    <Text variant='body' className='text-gray-600 dark:text-gray-300 mb-4'>
                         {error || "Politician not found"}
                     </Text>
                     <Button onClick={() => router.push("/dashboard")} fullWidth>
@@ -287,19 +287,19 @@ export default function PoliticianPage() {
                 </div>
 
                 {/* Hero Card */}
-                <div className='bg-white rounded-2xl shadow-lg p-8 border border-gray-200 mb-6'>
+                <div className='bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-slate-700 mb-6'>
                     <div className='flex flex-col md:flex-row gap-6 items-start'>
                         {p.photo ? (
                             <img
                                 src={p.photo}
                                 alt={p.name}
-                                className='w-32 h-32 rounded-2xl object-cover border-4 border-orange-200 flex-shrink-0'
+                                className='w-32 h-32 rounded-2xl object-cover border-4 border-orange-200 shrink-0'
                                 onError={(e) => {
                                     (e.target as HTMLImageElement).style.display = "none"
                                 }}
                             />
                         ) : (
-                            <div className='w-32 h-32 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center flex-shrink-0 border-4 border-orange-200'>
+                            <div className='w-32 h-32 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center shrink-0 border-4 border-orange-200'>
                                 <span className='text-4xl'>🏛️</span>
                             </div>
                         )}
@@ -316,21 +316,21 @@ export default function PoliticianPage() {
 
                             <div className='space-y-1.5'>
                                 <div className='flex items-center gap-2'>
-                                    <span className='text-gray-400'>🏛️</span>
-                                    <Text variant='body' className='text-gray-700'>
+                                    <span className='text-gray-400 dark:text-gray-500'>🏛️</span>
+                                    <Text variant='body' className='text-gray-700 dark:text-gray-300'>
                                         <span className='font-semibold'>Party:</span> {party}
                                     </Text>
                                 </div>
                                 <div className='flex items-center gap-2'>
-                                    <span className='text-gray-400'>📍</span>
-                                    <Text variant='body' className='text-gray-700'>
+                                    <span className='text-gray-400 dark:text-gray-500'>📍</span>
+                                    <Text variant='body' className='text-gray-700 dark:text-gray-300'>
                                         <span className='font-semibold'>Constituency:</span>{" "}
                                         {p.constituency}
                                     </Text>
                                 </div>
                                 <div className='flex items-center gap-2'>
-                                    <span className='text-gray-400'>🗺️</span>
-                                    <Text variant='body' className='text-gray-700'>
+                                    <span className='text-gray-400 dark:text-gray-500'>🗺️</span>
+                                    <Text variant='body' className='text-gray-700 dark:text-gray-300'>
                                         <span className='font-semibold'>State:</span>{" "}
                                         {p.state}
                                     </Text>
@@ -340,8 +340,8 @@ export default function PoliticianPage() {
                     </div>
 
                     {p.notes && (
-                        <div className='mt-4 pt-4 border-t border-gray-100'>
-                            <Text variant='small' className='text-gray-500 italic'>
+                        <div className='mt-4 pt-4 border-t border-gray-100 dark:border-slate-700'>
+                            <Text variant='small' className='text-gray-500 dark:text-gray-400 italic'>
                                 📝 {p.notes}
                             </Text>
                         </div>
@@ -367,14 +367,14 @@ export default function PoliticianPage() {
                     <Text variant='h4' weight='bold' className='text-white mb-2'>
                         Know more about {p.name}?
                     </Text>
-                    <Text variant='body' className='text-orange-100 mb-4'>
+                    <Text variant='body' className='text-orange-100 dark:text-orange-200 mb-4'>
                         Help us enrich this profile with accurate education, family,
                         criminal records, and contact information.
                     </Text>
                     <Button
                         href={`https://github.com/imsks/rajniti/issues/new?title=Enrich+${encodeURIComponent(p.name)}&body=Politician+ID:+${encodeURIComponent(p.id)}%0A%0APlease+add+details+below:`}
                         external
-                        className='bg-white text-orange-600 hover:bg-gray-50 border-none shadow-lg'
+                        className='bg-white dark:bg-slate-800 text-orange-600 dark:text-orange-400 hover:bg-gray-50 dark:hover:bg-slate-700 border-none shadow-lg'
                         size='md'>
                         Contribute Info →
                     </Button>

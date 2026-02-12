@@ -140,6 +140,7 @@ export default function Dashboard() {
                         <select
                             value={stateFilter}
                             onChange={(e) => setStateFilter(e.target.value)}
+                            title='Filter by state'
                             className='px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 min-w-[180px]'>
                             <option value=''>All States</option>
                             {states.map((s) => (
@@ -153,6 +154,7 @@ export default function Dashboard() {
                         <select
                             value={partyFilter}
                             onChange={(e) => setPartyFilter(e.target.value)}
+                            title='Filter by party'
                             className='px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 min-w-[180px]'>
                             <option value=''>All Parties</option>
                             {parties.map((p) => (

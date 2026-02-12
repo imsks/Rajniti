@@ -1,5 +1,8 @@
 'use client'
 
+import { motion } from 'framer-motion'
+import { fadeInUp, staggerContainer } from '@/utils/motion'
+
 interface UserDetailsStepProps {
   formData: {
     phone: string
@@ -59,18 +62,23 @@ const AGE_GROUPS = [
 
 export default function UserDetailsStep({ formData, onChange }: UserDetailsStepProps) {
   return (
-    <div className="space-y-6">
-      <div className="text-center mb-6">
+    <motion.div 
+      className="space-y-6"
+      initial="initial"
+      animate="animate"
+      variants={staggerContainer}
+    >
+      <motion.div className="text-center mb-6" variants={fadeInUp}>
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
           Basic Details
         </h2>
         <p className="text-gray-600">
           Help us personalize your experience
         </p>
-      </div>
+      </motion.div>
 
       {/* Phone Number */}
-      <div>
+      <motion.div variants={fadeInUp}>
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Phone Number <span className="text-gray-400">(Optional)</span>
         </label>
@@ -81,16 +89,17 @@ export default function UserDetailsStep({ formData, onChange }: UserDetailsStepP
           placeholder="+91-9876543210"
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
         />
-      </div>
+      </motion.div>
 
       {/* State */}
-      <div>
+      <motion.div variants={fadeInUp}>
         <label className="block text-sm font-medium text-gray-700 mb-2">
           State <span className="text-red-500">*</span>
         </label>
         <select
           value={formData.state}
           onChange={(e) => onChange('state', e.target.value)}
+          title='Select your state'
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           required
         >
@@ -101,10 +110,10 @@ export default function UserDetailsStep({ formData, onChange }: UserDetailsStepP
             </option>
           ))}
         </select>
-      </div>
+      </motion.div>
 
       {/* City */}
-      <div>
+      <motion.div variants={fadeInUp}>
         <label className="block text-sm font-medium text-gray-700 mb-2">
           City <span className="text-gray-400">(Optional)</span>
         </label>
@@ -115,19 +124,21 @@ export default function UserDetailsStep({ formData, onChange }: UserDetailsStepP
           placeholder="Enter your city"
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
         />
-      </div>
+      </motion.div>
 
       {/* Age Group */}
-      <div>
+      <motion.div variants={fadeInUp}>
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Age Group <span className="text-red-500">*</span>
         </label>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           {AGE_GROUPS.map((age) => (
-            <button
+            <motion.button
               key={age}
               type="button"
               onClick={() => onChange('age_group', age)}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               className={`px-4 py-3 rounded-lg border-2 text-sm font-medium transition-all ${
                 formData.age_group === age
                   ? 'border-orange-500 bg-orange-50 text-orange-700'
@@ -135,10 +146,10 @@ export default function UserDetailsStep({ formData, onChange }: UserDetailsStepP
               }`}
             >
               {age}
-            </button>
+            </motion.button>
           ))}
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }

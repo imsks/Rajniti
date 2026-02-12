@@ -66,26 +66,25 @@ export default function Onboarding() {
   const totalSteps = 2
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:bg-slate-900 py-12 px-4">
       <div className="max-w-2xl mx-auto">
         {/* Progress bar */}
         <div className="mb-8">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-sm font-medium text-gray-700">Step {step} of {totalSteps}</span>
-            <span className="text-sm text-gray-500">
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Step {step} of {totalSteps}</span>
+            <span className="text-sm text-gray-500 dark:text-gray-400">
               {step === 1 && 'Political Inclination'}
               {step === 2 && 'Username'}
             </span>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
+          <div className="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2">
             <div 
-              className="bg-gradient-to-r from-orange-500 to-green-500 h-2 rounded-full transition-all duration-300"
+              className="bg-gradient-to-r from-orange-500 to-green-500 dark:from-orange-400 dark:to-green-400 h-2 rounded-full transition-all duration-300"
               style={{ width: `${(step / totalSteps) * 100}%` }}
             />
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8 border border-orange-100">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 border border-orange-100 dark:border-slate-700">
           {/* Step 1: Political Inclination */}
           {step === 1 && (
             <PoliticalInclinationStep
@@ -108,7 +107,7 @@ export default function Onboarding() {
             {step > 1 && (
               <button
                 onClick={() => setStep(step - 1)}
-                className="flex-1 px-6 py-3 border-2 border-gray-300 rounded-lg text-gray-700 font-semibold hover:bg-gray-50 transition-all"
+                className="flex-1 px-6 py-3 border-2 border-gray-300 dark:border-slate-600 rounded-lg text-gray-700 dark:text-gray-200 font-semibold hover:bg-gray-50 dark:hover:bg-slate-700 transition-all"
               >
                 Back
               </button>
@@ -118,7 +117,7 @@ export default function Onboarding() {
               <button
                 onClick={() => setStep(step + 1)}
                 disabled={!canProceedToNextStep()}
-                className="flex-1 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg text-white font-semibold hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 dark:from-orange-600 dark:to-orange-700 rounded-lg text-white font-semibold hover:from-orange-600 hover:to-orange-700 dark:hover:from-orange-700 dark:hover:to-orange-800 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Continue
               </button>
@@ -138,7 +137,7 @@ export default function Onboarding() {
         <div className="text-center mt-6">
           <button 
             onClick={() => router.push('/dashboard')}
-            className="text-gray-500 hover:text-gray-700 font-medium"
+            className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 font-medium"
           >
             Skip for now →
           </button>

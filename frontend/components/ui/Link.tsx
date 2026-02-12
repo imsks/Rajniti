@@ -24,13 +24,13 @@ export default function CustomLink({
     ...props
 }: CustomLinkProps) {
     const variants = {
-        default: "text-primary-600 hover:text-primary-700 transition-colors",
-        primary: "text-primary-600 hover:text-primary-700 transition-colors",
-        secondary: "text-gray-600 hover:text-gray-900 transition-colors",
-        nav: "text-gray-600 hover:text-primary-600 transition-colors font-semibold",
+        default: "text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition-colors",
+        primary: "text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 transition-colors",
+        secondary: "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors",
+        nav: "text-gray-600 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 transition-colors font-semibold",
         button: "", // Usually used with Button component inside or styling passed via className
         underline:
-            "text-primary-600 hover:text-primary-700 hover:underline transition-all"
+            "text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 hover:underline transition-all"
     }
 
     if (external) {
