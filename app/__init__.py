@@ -23,6 +23,7 @@ logger = logging.getLogger(__name__)
 def create_app():
     """Create and configure Flask application"""
     from app.core.database import init_db
+    from app.cache import PoliticianCache
 
     app = Flask(__name__)
 
@@ -57,6 +58,9 @@ def create_app():
             logger.warning("Migrations not available; skipping (%s)", e)
     else:
         logger.info("Database not initialized - continuing without database")
+
+    # Initialize politician cache (SQLite)
+    PoliticianCache.get_instance()
 
     # Register routes
     _register_routes(app)

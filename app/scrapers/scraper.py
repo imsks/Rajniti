@@ -10,6 +10,7 @@ Usage:
 """
 
 import logging
+import uuid
 from pathlib import Path
 from typing import Literal, Optional
 
@@ -44,19 +45,8 @@ def _state_name(state_id: str) -> str:
     return STATE_NAMES.get(state_id, "Unknown State")
 
 
-def _make_politician_id(
-    election_type: ElectionType, year: int, state_id: str, constituency_id: str,
-) -> str:
-    """
-    Generate a deterministic politician ID.
-
-    Format: ``{type}_{year}_{state}_{constituency}``
-    Example: ``mp_2024_s01_5``
-    """
-    return (
-        f"{election_type.lower()}_{year}_"
-        f"{state_id.lower()}_{constituency_id}"
-    )
+def _make_politician_id() -> str:
+    return str(uuid.uuid5())
 
 
 def _build_politician(

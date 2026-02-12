@@ -89,7 +89,7 @@ class CrimeRecord(BaseModel):
 
 
 class Politician(BaseModel):
-    id: str = Field(..., description="Unique ID like 'mp_2024_s01_5' or 'mla_2025_cg_123'")
+    id: str = Field(..., description="Unique ID")
     name: str
     photo: Optional[HttpUrl] = None
     state: State
@@ -110,7 +110,7 @@ class Politician(BaseModel):
     class Config:
         json_schema_extra = {
             "example": {
-                "id": "mp_2024_s01_5",
+                "id": "sasa",
                 "name": "C.M.RAMESH",
                 "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S01/RAMES-2024-7564.jpg",
                 "state": "Andhra Pradesh",
