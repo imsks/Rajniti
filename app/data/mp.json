@@ -3730,11 +3730,13 @@
         }
       ]
     },
-    "education": {
-      "qualification": "PROFESSIONAL",
-      "institution": "S.N. Medical College, Agra, UP",
-      "year_completed": null
-    }
+    "education": [
+      {
+        "qualification": "DOCTORATE",
+        "institution": "S.N. Medical College, Agra, UP",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "066fa092-3ec4-4d33-b7ee-491b2187c0fc",
