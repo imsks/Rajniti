@@ -1,6 +1,6 @@
-[ ] Setup SQLite DB for Cache.
-[ ] Setup Chroma DB for CRUD Ops on Politicians.
+[x] Setup SQLite DB for Cache.
 [ ] Update script such that It can run on All MLAs & MPs.
-[ ] Add a Check that makes sure that Education is an Array and if empty then only Execute the Subprocess.
+[x] Add a Check that makes sure that Education is an Array and if empty then only Execute the Subprocess.
 [ ] Separate Prompts from Logic so that we can improve Prompts later.
-[ ] Before any Subprocess to run, Check if the Politician is already enriched for that field.
+[x] Before any Subprocess to run, Check if the Politician is already enriched for that field.
+[ ] Setup Chroma DB for CRUD Ops on Politicians.

@@ -17,7 +17,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": null,
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "11b8288b-ea24-45f7-af67-c8cc7990cff3",
@@ -37,7 +44,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "SIET Women's College, Chennai",
+        "year_completed": 1979
+      },
+      {
+        "qualification": "DIPLOMA",
+        "institution": "Gemological Institute of India, Mumbai",
+        "year_completed": 1996
+      }
+    ]
   },
   {
     "id": "63876a12-ed18-40e3-a92e-4e5307555029",
@@ -57,7 +76,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "null",
+        "year_completed": null
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "null",
+        "year_completed": null
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "null",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "0e0ce8b4-10dc-4d04-8c93-d321914a5e01",
@@ -77,7 +113,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Hansraj College, University of Delhi",
+        "year_completed": null
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Campus Law Centre, Faculty of Law, University of Delhi",
+        "year_completed": 1998
+      }
+    ]
   },
   {
     "id": "8c8b42a8-4cc8-4ade-b669-2af36e8ef27b",
@@ -97,7 +145,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": null,
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "882359dd-660f-4e77-af16-741306863ad0",
@@ -117,7 +172,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Gauhati Commerce College under Gauhati University",
+        "year_completed": 1994
+      }
+    ]
   },
   {
     "id": "f79fe244-f19a-4dfe-830d-de227b7c9e25",
@@ -137,7 +199,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "Gauhati University",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "82789c94-c8f8-4451-b36d-03c1f3c19084",
@@ -177,7 +246,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": null,
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "83c47999-efee-443c-891a-5be34fca83dc",
@@ -197,7 +273,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "P.C. Barjalenga High School",
+        "year_completed": 1975
+      },
+      {
+        "qualification": "DIPLOMA",
+        "institution": "Guru Charan College, Silchar",
+        "year_completed": 1977
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Guru Charan College, Silchar",
+        "year_completed": 1980
+      }
+    ]
   },
   {
     "id": "4ce76917-1421-4390-add4-5dc1c93540cb",
@@ -217,7 +310,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "J.B. College, Jorhat, under Dibrugarh University",
+        "year_completed": 1996
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Dibrugarh University",
+        "year_completed": 1999
+      }
+    ]
   },
   {
     "id": "58944d18-1c1e-460b-bf4c-a8f3a3578787",
@@ -237,7 +342,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": null,
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "e03f1ec9-698c-4dca-b0fc-c2c31034fbf5",
@@ -257,7 +369,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "DIPLOMA",
+        "institution": "Dibrugarh Polytechnic, Assam",
+        "year_completed": 1985
+      }
+    ]
   },
   {
     "id": "e7a343bc-bd83-4dae-a575-6ac459f35681",
@@ -277,7 +396,29 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Dibrugarh University",
+        "year_completed": null
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Dibrugarh University",
+        "year_completed": null
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Gauhati University",
+        "year_completed": null
+      },
+      {
+        "qualification": "MASTER",
+        "institution": null,
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "a38bd518-f555-4359-86f7-c89fe5460c80",
@@ -297,7 +438,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Patna Medical College",
+        "year_completed": 1991
+      },
+      {
+        "qualification": "DOCTORATE",
+        "institution": "Darbhanga Medical College, Lalit Narayan Mithila University",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "f2f41468-b487-410a-887c-d8ffbef7af07",
@@ -337,7 +490,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "DOCTORATE",
+        "institution": "Mithila University",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "4f3253b1-4ccc-431f-a5ae-ffa13f63b072",
@@ -357,7 +517,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": null,
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "8f91acae-e10f-438f-aa1a-ff9adec45f72",
@@ -377,7 +544,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "Lalit Narayan Mithila University",
+        "year_completed": null
+      },
+      {
+        "qualification": "DOCTORATE",
+        "institution": "Lalit Narayan Mithila University",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "f5fd285a-0813-4607-b605-371bcf5d554b",
@@ -397,7 +576,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Patliputra Medical College, Dhanbad",
+        "year_completed": null
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Darbhanga Medical College",
+        "year_completed": null
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Lalit Narayan Mithila University, Darbhanga",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "ffca5a49-9833-401f-9f3d-f7f546b31710",
@@ -417,7 +613,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Rajendra College, Chapra",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "b564b723-a414-45c7-99dd-4e7f7b5e1dcd",
@@ -457,7 +660,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Raj Narayan College, Hajipur, Bihar University",
+        "year_completed": 1986
+      }
+    ]
   },
   {
     "id": "dae03dda-756e-4a96-9ede-1cb0126a82ba",
@@ -477,7 +687,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Magadh University",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "e2c5d398-57f6-4707-a06c-f5c7eb44685b",
@@ -497,7 +714,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Patna University",
+        "year_completed": null
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Patna University",
+        "year_completed": null
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Patna University",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "df35a125-5cb7-4283-8e48-107e0b8640cf",
@@ -517,7 +751,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": null,
+        "year_completed": null
+      },
+      {
+        "qualification": "MASTER",
+        "institution": null,
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "968ad79e-eafb-4350-aad9-916dc23d28ef",
@@ -537,7 +783,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Dhempe College of Arts and Science, Miramar, Panaji, Goa",
+        "year_completed": 1978
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Parvatibai Chowgule College, Margao, Goa",
+        "year_completed": null
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Dempo College of Arts and Science, Bombay University",
+        "year_completed": 1978
+      }
+    ]
   },
   {
     "id": "90318b6d-d475-4da3-9823-52aec72e14f1",
@@ -557,7 +820,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "R.R. Lalan College, Bhuj, Kachchh, Gujrat",
+        "year_completed": null
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Baba Saheb Ambedkar Open University, Gujrat",
+        "year_completed": null
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "S.D. Sethiya College, Mundra, Kachchh",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "1bf0e37c-438f-4275-a25f-63865761a5f7",
@@ -597,7 +877,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": null,
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "cbd157e9-100a-4896-bbf4-9e5269aad983",
@@ -617,7 +904,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": null,
+        "year_completed": null
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": null,
+        "year_completed": 2014
+      }
+    ]
   },
   {
     "id": "c0a8332b-1873-4fc9-abed-0be719097b4c",
@@ -637,7 +936,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "CU Shah Science College, Ahmedabad",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "495da199-a6f3-4b95-9194-1dfd2ae5db3b",
@@ -657,7 +963,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "DIPLOMA",
+        "institution": "R.C. Technical Institute, Ahmedabad",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "960e5c9b-43cf-46e1-8adc-87a2a6710e0d",
