@@ -8,6 +8,7 @@ from app.agents.politician_agent import PoliticianAgent
 
 
 def main() -> None:
+    """Parse CLI args and execute the requested politician agent action."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--id", required=True, help="Politician ID")
     parser.add_argument("--field", default="education", choices=["education"])

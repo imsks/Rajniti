@@ -26,6 +26,7 @@ PROVIDER_CONFIGS = {
 
 
 def _build_llm(provider: str) -> Optional[ChatOpenAI]:
+    """Build a provider-specific ChatOpenAI client if API key is configured."""
     cfg = PROVIDER_CONFIGS.get(provider)
     if not cfg:
         return None
@@ -48,6 +49,8 @@ def _is_fallback_error(exc: Exception) -> bool:
     status_code = getattr(exc, "status_code", None)
     if status_code == 429:
         return True
+    if isinstance(status_code, int) and 500 <= status_code <= 599:
+        return True
 
     code = getattr(exc, "code", None)
     if code in {"insufficient_quota", "rate_limit_exceeded"}:
@@ -62,6 +65,10 @@ def _is_fallback_error(exc: Exception) -> bool:
     message = str(exc).lower()
     if "insufficient_quota" in message or "rate limit" in message:
         return True
+    if "timeout" in message or "timed out" in message:
+        return True
+    if "connection error" in message or "temporary failure" in message:
+        return True
 
     return exc.__class__.__name__ == "RateLimitError"
 
@@ -70,6 +77,7 @@ class FailoverChatLLM:
     """Simple runtime failover wrapper for ChatOpenAI providers."""
 
     def __init__(self, candidates: list[tuple[str, ChatOpenAI]]):
+        """Store ordered provider candidates and track active model index."""
         if not candidates:
             raise ValueError("FailoverChatLLM requires at least one candidate")
         self._candidates = candidates
@@ -77,9 +85,11 @@ class FailoverChatLLM:
 
     @property
     def model_name(self) -> str:
+        """Return the currently active model name."""
         return self._candidates[self._active_index][1].model_name
 
     def invoke(self, *args: Any, **kwargs: Any) -> Any:
+        """Invoke the active provider and fallback on retryable failures."""
         last_exc: Optional[Exception] = None
 
         for index, (provider, llm) in enumerate(self._candidates):
@@ -106,25 +116,41 @@ class FailoverChatLLM:
         return getattr(self._candidates[self._active_index][1], item)
 
 
+class AgentLLMFactory:
+    """Factory for creating a failover-enabled agent LLM."""
+
+    def __init__(self, providers: Optional[list[str]] = None):
+        """Initialize factory with explicit providers or env-based defaults."""
+        self.providers = providers or self._providers_from_env()
+
+    @staticmethod
+    def _providers_from_env() -> list[str]:
+        """Read and normalize provider fallback order from environment."""
+        fallback_str = os.getenv("AGENT_LLM_PROVIDERS", "perplexity,openai")
+        return [p.strip() for p in fallback_str.split(",") if p.strip()]
+
+    def create(self) -> FailoverChatLLM:
+        """Create a failover LLM instance from available provider clients."""
+        candidates: list[tuple[str, ChatOpenAI]] = []
+
+        for provider in self.providers:
+            llm = _build_llm(provider)
+            if llm is None:
+                logger.warning("Agent LLM: %s skipped (no API key)", provider)
+                continue
+            logger.info("Agent LLM: candidate %s (%s)", provider, llm.model_name)
+            candidates.append((provider, llm))
+
+        if candidates:
+            first_provider, first_llm = candidates[0]
+            logger.info("Agent LLM: using %s (%s)", first_provider, first_llm.model_name)
+            return FailoverChatLLM(candidates)
+
+        raise RuntimeError(
+            f"No working LLM provider found. Tried: {self.providers}. "
+            "Check your API keys in .env"
+        )
+
 def get_agent_llm() -> FailoverChatLLM:
-    fallback_str = os.getenv("AGENT_LLM_PROVIDERS", "perplexity,openai")
-    providers = [p.strip() for p in fallback_str.split(",") if p.strip()]
-    candidates: list[tuple[str, ChatOpenAI]] = []
-
-    for provider in providers:
-        llm = _build_llm(provider)
-        if llm is None:
-            logger.warning("Agent LLM: %s skipped (no API key)", provider)
-            continue
-        logger.info("Agent LLM: candidate %s (%s)", provider, llm.model_name)
-        candidates.append((provider, llm))
-
-    if candidates:
-        first_provider, first_llm = candidates[0]
-        logger.info("Agent LLM: using %s (%s)", first_provider, first_llm.model_name)
-        return FailoverChatLLM(candidates)
-
-    raise RuntimeError(
-        f"No working LLM provider found. Tried: {providers}. "
-        "Check your API keys in .env"
-    )
+    """Backward-compatible accessor used by existing agents."""
+    return AgentLLMFactory().create()

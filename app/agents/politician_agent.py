@@ -1,27 +1,28 @@
 from __future__ import annotations
 
-import json
 import logging
-from typing import Any, Dict, Optional
-
-from app.config.agent_config import get_agent_llm
+from typing import Any, Dict
+from app.agents.base_agent import BaseAgent
 from app.services.politician_service import PoliticianService
 
 logger = logging.getLogger(__name__)
 
-class PoliticianAgent:
+class PoliticianAgent(BaseAgent):
     def __init__(self):
-        self.llm = get_agent_llm()
+        """Initialize politician data service and shared agent capabilities."""
+        super().__init__()
         self.politician_service = PoliticianService()
 
-    def run(self, politician_id: str):
-        politician = self.politician_service.get_politician(politician_id)
-        return self.llm.invoke(politician)
+    def run(self, politician_id: str, force: bool = False):
+        """Run the default politician enrichment workflow."""
+        return self.enrich_education(politician_id, force=force)
 
     def get_politician(self, politician_id: str):
+        """Fetch a politician record by id from the JSON data layer."""
         return self.politician_service.get_by_id(politician_id)
 
     def _build_education_prompt(self, politician: Dict[str, Any]) -> str:
+        """Build a strict JSON prompt for education extraction."""
         name = politician.get("name", "")
         state = politician.get("state", "")
         constituency = politician.get("constituency", "")
@@ -39,25 +40,8 @@ class PoliticianAgent:
             "If unknown, use null."
         )
 
-    def _run_llm(self, prompt: str) -> str:
-        response = self.llm.invoke(prompt)
-        return response.content if hasattr(response, "content") else str(response)
-
-    def _parse_json_object(self, text: str) -> Optional[Dict[str, Any]]:
-        text = text.strip()
-        try:
-            return json.loads(text)
-        except Exception:
-            start = text.find("{")
-            end = text.rfind("}") + 1
-            if start != -1 and end != -1:
-                try:
-                    return json.loads(text[start:end])
-                except Exception:
-                    return None
-        return None
-
     def enrich_education(self, politician_id: str, force: bool = False) -> Dict[str, Any]:
+        """Enrich and persist the education field for one politician."""
         politician = self.get_politician(politician_id)
         if not politician:
             return {"ok": False, "error": "politician_not_found"}
