@@ -8,6 +8,7 @@ from pydantic import TypeAdapter
 
 from app.agents.base_agent import BaseAgent
 from app.core import CacheManager, log
+from app.prompts import PoliticianPrompts
 from app.services import PoliticianService
 from app.schemas.politician import Education
 
@@ -23,29 +24,13 @@ class PoliticianEducation:
         """Store shared agent utilities (LLM, parsers, validation helpers)."""
         self.base = base_agent
 
-    def _build_prompt(self, politician: Dict[str, Any]) -> str:
-        """Build a strict JSON prompt for education extraction."""
-        name = politician.get("name", "")
-        state = politician.get("state", "")
-        constituency = politician.get("constituency", "")
-        ptype = politician.get("type", "")
-
-        return (
-            "You are extracting structured data about an Indian politician.\n"
-            "Return ONLY valid JSON array. Each item format:\n"
-            "[{\"qualification\": \"HIGH_SCHOOL|DIPLOMA|BACHELOR|MASTER|DOCTORATE|PROFESSIONAL|OTHERS|null\", "
-            "\"institution\": \"string|null\", \"year_completed\": number|null}]\n"
-            f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
-            "If unknown, return []"
-        )
-
     @log(logger, "PoliticianEducation.run")
     def run(self, politician: Dict[str, Any], force: bool = False) -> Dict[str, Any]:
         """Run education extraction and return a process result payload."""
         if politician.get("education") and not force:
             return {"process": self.name, "ok": True, "skipped": True, "reason": "already_present"}
 
-        prompt = self._build_prompt(politician)
+        prompt = PoliticianPrompts.education(politician)
         logger.info("education: calling LLM (id=%s name=%s)", politician.get("id"), politician.get("name"))
         raw = self.base._run_llm(prompt)
         parsed = self.base._parse_json_value(raw)

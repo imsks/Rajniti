@@ -1,5 +1,6 @@
 import os
 import logging
+import importlib
 from typing import Any, Optional
 
 from dotenv import load_dotenv
@@ -22,11 +23,22 @@ PROVIDER_CONFIGS = {
         "default_model": "sonar",
         "base_url": "https://api.perplexity.ai",
     },
+    "gemini": {
+        "api_key_env": "GEMINI_API_KEY",
+        "model_env": "AGENT_GEMINI_MODEL",
+        "default_model": "gemini-1.5-flash",
+        "base_url": None,
+    },
 }
 
 
-def _build_llm(provider: str) -> Optional[ChatOpenAI]:
-    """Build a provider-specific ChatOpenAI client if API key is configured."""
+def _get_model_name(llm: Any) -> str:
+    """Best-effort model name extraction across providers."""
+    return str(getattr(llm, "model_name", None) or getattr(llm, "model", None) or "unknown")
+
+
+def _build_llm(provider: str) -> Optional[Any]:
+    """Build a provider-specific chat LLM if API key is configured."""
     cfg = PROVIDER_CONFIGS.get(provider)
     if not cfg:
         return None
@@ -37,10 +49,19 @@ def _build_llm(provider: str) -> Optional[ChatOpenAI]:
 
     model = os.getenv(cfg["model_env"], cfg["default_model"])
 
+    if provider == "gemini":
+        try:
+            mod = importlib.import_module("langchain_google_genai")
+            ChatGoogleGenerativeAI = getattr(mod, "ChatGoogleGenerativeAI")
+        except Exception as exc:
+            logger.warning("Gemini provider unavailable (missing deps): %s", exc)
+            return None
+
+        return ChatGoogleGenerativeAI(google_api_key=api_key, model=model, temperature=0)
+
     kwargs = dict(api_key=api_key, model=model, temperature=0)
     if cfg["base_url"]:
         kwargs["base_url"] = cfg["base_url"]
-
     return ChatOpenAI(**kwargs)
 
 
@@ -65,6 +86,8 @@ def _is_fallback_error(exc: Exception) -> bool:
     message = str(exc).lower()
     if "insufficient_quota" in message or "rate limit" in message:
         return True
+    if "resource_exhausted" in message:
+        return True
     if "timeout" in message or "timed out" in message:
         return True
     if "connection error" in message or "temporary failure" in message:
@@ -76,7 +99,7 @@ def _is_fallback_error(exc: Exception) -> bool:
 class FailoverChatLLM:
     """Simple runtime failover wrapper for ChatOpenAI providers."""
 
-    def __init__(self, candidates: list[tuple[str, ChatOpenAI]]):
+    def __init__(self, candidates: list[tuple[str, Any]]):
         """Store ordered provider candidates and track active model index."""
         if not candidates:
             raise ValueError("FailoverChatLLM requires at least one candidate")
@@ -86,7 +109,7 @@ class FailoverChatLLM:
     @property
     def model_name(self) -> str:
         """Return the currently active model name."""
-        return self._candidates[self._active_index][1].model_name
+        return _get_model_name(self._candidates[self._active_index][1])
 
     def invoke(self, *args: Any, **kwargs: Any) -> Any:
         """Invoke the active provider and fallback on retryable failures."""
@@ -131,19 +154,19 @@ class AgentLLMFactory:
 
     def create(self) -> FailoverChatLLM:
         """Create a failover LLM instance from available provider clients."""
-        candidates: list[tuple[str, ChatOpenAI]] = []
+        candidates: list[tuple[str, Any]] = []
 
         for provider in self.providers:
             llm = _build_llm(provider)
             if llm is None:
                 logger.warning("Agent LLM: %s skipped (no API key)", provider)
                 continue
-            logger.info("Agent LLM: candidate %s (%s)", provider, llm.model_name)
+            logger.info("Agent LLM: candidate %s (%s)", provider, _get_model_name(llm))
             candidates.append((provider, llm))
 
         if candidates:
             first_provider, first_llm = candidates[0]
-            logger.info("Agent LLM: using %s (%s)", first_provider, first_llm.model_name)
+            logger.info("Agent LLM: using %s (%s)", first_provider, _get_model_name(first_llm))
             return FailoverChatLLM(candidates)
 
         raise RuntimeError(
