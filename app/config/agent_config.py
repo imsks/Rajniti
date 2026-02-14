@@ -1,7 +1,8 @@
 import os
 import logging
 import importlib
-from typing import Any, Optional
+import time
+from typing import Any, Optional, Callable
 
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
@@ -37,6 +38,28 @@ def _get_model_name(llm: Any) -> str:
     return str(getattr(llm, "model_name", None) or getattr(llm, "model", None) or "unknown")
 
 
+def _get_retry_after_seconds(exc: Exception) -> Optional[float]:
+    """Best-effort extraction of retry-after seconds from provider exception."""
+    retry_delay = getattr(exc, "retry_delay", None)
+    if retry_delay is not None:
+        seconds = getattr(retry_delay, "seconds", None)
+        if isinstance(seconds, (int, float)):
+            return float(seconds)
+    retry_after = getattr(exc, "retry_after", None)
+    if isinstance(retry_after, (int, float)):
+        return float(retry_after)
+    message = str(exc).lower()
+    # common google message includes: "Please retry in 36.7s"
+    if "retry in" in message:
+        try:
+            tail = message.split("retry in", 1)[1].strip()
+            num = "".join(ch for ch in tail if (ch.isdigit() or ch == "."))[:10]
+            return float(num) if num else None
+        except Exception:
+            return None
+    return None
+
+
 def _build_llm(provider: str) -> Optional[Any]:
     """Build a provider-specific chat LLM if API key is configured."""
     cfg = PROVIDER_CONFIGS.get(provider)
@@ -49,20 +72,33 @@ def _build_llm(provider: str) -> Optional[Any]:
 
     model = os.getenv(cfg["model_env"], cfg["default_model"])
 
-    if provider == "gemini":
+    def _build_openai_compatible() -> Any:
+        kwargs = dict(api_key=api_key, model=model, temperature=0)
+        if cfg["base_url"]:
+            kwargs["base_url"] = cfg["base_url"]
+        return ChatOpenAI(**kwargs)
+
+    def _build_gemini() -> Any:
         try:
             mod = importlib.import_module("langchain_google_genai")
             ChatGoogleGenerativeAI = getattr(mod, "ChatGoogleGenerativeAI")
         except Exception as exc:
             logger.warning("Gemini provider unavailable (missing deps): %s", exc)
             return None
-
         return ChatGoogleGenerativeAI(google_api_key=api_key, model=model, temperature=0)
 
-    kwargs = dict(api_key=api_key, model=model, temperature=0)
-    if cfg["base_url"]:
-        kwargs["base_url"] = cfg["base_url"]
-    return ChatOpenAI(**kwargs)
+    builders: dict[str, Callable[[], Any]] = {
+        "openai": _build_openai_compatible,
+        "perplexity": _build_openai_compatible,
+        "gemini": _build_gemini,
+    }
+
+    builder = builders.get(provider)
+    if not builder:
+        return None
+
+    built = builder()
+    return built
 
 
 def _is_fallback_error(exc: Exception) -> bool:
@@ -71,6 +107,10 @@ def _is_fallback_error(exc: Exception) -> bool:
     if status_code == 429:
         return True
     if isinstance(status_code, int) and 500 <= status_code <= 599:
+        return True
+
+    # Google / Gemini quota errors
+    if exc.__class__.__name__ in {"ResourceExhausted"}:
         return True
 
     code = getattr(exc, "code", None)
@@ -87,6 +127,10 @@ def _is_fallback_error(exc: Exception) -> bool:
     if "insufficient_quota" in message or "rate limit" in message:
         return True
     if "resource_exhausted" in message:
+        return True
+    if "quota exceeded" in message:
+        return True
+    if "429" in message and "quota" in message:
         return True
     if "timeout" in message or "timed out" in message:
         return True
@@ -105,6 +149,7 @@ class FailoverChatLLM:
             raise ValueError("FailoverChatLLM requires at least one candidate")
         self._candidates = candidates
         self._active_index = 0
+        self._cooldowns: dict[str, float] = {}
 
     @property
     def model_name(self) -> str:
@@ -114,8 +159,17 @@ class FailoverChatLLM:
     def invoke(self, *args: Any, **kwargs: Any) -> Any:
         """Invoke the active provider and fallback on retryable failures."""
         last_exc: Optional[Exception] = None
+        now = time.time()
 
         for index, (provider, llm) in enumerate(self._candidates):
+            until = self._cooldowns.get(provider)
+            if until and until > now:
+                logger.info(
+                    "Agent LLM: %s in cooldown for %.1fs; skipping",
+                    provider,
+                    until - now,
+                )
+                continue
             try:
                 response = llm.invoke(*args, **kwargs)
                 self._active_index = index
@@ -123,6 +177,9 @@ class FailoverChatLLM:
             except Exception as exc:
                 if not _is_fallback_error(exc) or index == len(self._candidates) - 1:
                     raise
+                retry_after = _get_retry_after_seconds(exc)
+                if retry_after:
+                    self._cooldowns[provider] = time.time() + retry_after
                 logger.warning(
                     "Agent LLM: %s failed (%s). Falling back...",
                     provider,
