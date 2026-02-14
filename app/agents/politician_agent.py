@@ -30,12 +30,10 @@ class PoliticianAgent(BaseAgent):
 
         return (
             "You are extracting structured data about an Indian politician.\n"
-            "Return ONLY valid JSON object with keys:\n"
-            "{"
-            "\"qualification\": \"HIGH_SCHOOL|DIPLOMA|BACHELOR|MASTER|DOCTORATE|PROFESSIONAL|OTHERS|null\", "
-            "\"institution\": \"string|null\", "
-            "\"year_completed\": " "number|null"
-            "}\n\n"
+            "Return ONLY valid JSON array. Each item format:\n"
+            "[{\"qualification\": \"HIGH_SCHOOL|DIPLOMA|BACHELOR|MASTER|DOCTORATE|PROFESSIONAL|OTHERS|null\", "
+            "\"institution\": \"string|null\", \"year_completed\": number|null}]\n"
+            "If unknown, return []"
             f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
             "If unknown, use null."
         )

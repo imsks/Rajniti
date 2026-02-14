@@ -3698,11 +3698,18 @@
         }
       ]
     },
-    "education": {
-      "qualification": "MASTER",
-      "institution": "Gujarat University",
-      "year_completed": 1983
-    }
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "University of Delhi",
+        "year_completed": 1978
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Gujarat University",
+        "year_completed": 1983
+      }
+    ]
   },
   {
     "id": "735510ad-dc74-4551-b0a8-540ff0381da5",
@@ -3722,6 +3729,11 @@
           "status": "WON"
         }
       ]
+    },
+    "education": {
+      "qualification": "PROFESSIONAL",
+      "institution": "S.N. Medical College, Agra, UP",
+      "year_completed": null
     }
   },
   {

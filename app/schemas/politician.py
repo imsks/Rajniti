@@ -96,7 +96,7 @@ class Politician(BaseModel):
     constituency: str
     type: PoliticianType = Field(...)
 
-    education: Optional[Education] = None
+    education: Optional[List[Education]] = None
     family_background: Optional[List[FamilyMember]] = None
     criminal_records: Optional[List[CrimeRecord]] = None
 
@@ -111,29 +111,29 @@ class Politician(BaseModel):
         json_schema_extra = {
             "example": {
                 "id": "sasa",
-                "name": "C.M.RAMESH",
-                "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S01/RAMES-2024-7564.jpg",
-                "state": "Andhra Pradesh",
-                "constituency": "Anakapalle",
-                "type": "MP",
+                "name": "",
+                "photo": "",
+                "state": "",
+                "constituency": "",
+                "type": "",
                 "political_background": {
                     "elections": [
                         {
-                            "year": 2024,
+                            "year": "",
                             "type": "MP",
-                            "state": "Andhra Pradesh",
-                            "constituency": "Anakapalle",
-                            "party": "Bharatiya Janata Party",
-                            "status": "WON"
+                            "state": "",
+                            "constituency": "",
+                            "party": "",
+                            "status": ""
                         }
                     ],
                     "summary": None
                 },
                 "criminal_records": [
                     {
-                        "name": "Alleged corruption case",
-                        "type": "ECONOMIC",
-                        "year": 2022
+                        "name": "",
+                        "type": "",
+                        "year": ""
                     }
                 ]
             }
