@@ -110,20 +110,30 @@ function PoliticalHistorySection({
 }
 
 function EducationSection({ education }: { education: Politician["education"] }) {
-    if (!education) return <Section title='Education' icon='🎓'><EmptyHint message='Education details not yet available.' /></Section>
+    const list = education ?? []
+    if (list.length === 0)
+        return (
+            <Section title='Education' icon='🎓'>
+                <EmptyHint message='Education details not yet available.' />
+            </Section>
+        )
 
     return (
         <Section title='Education' icon='🎓'>
-            <div className='bg-orange-50 rounded-lg p-4 border border-orange-200'>
-                <Text variant='body' weight='semibold' className='text-gray-900'>
-                    {education.qualification}
-                </Text>
-                {education.institution && (
-                    <Text variant='small' className='text-gray-600'>
-                        {education.institution}
-                        {education.year_completed && ` (${education.year_completed})`}
-                    </Text>
-                )}
+            <div className='grid gap-3'>
+                {list.map((e, i) => (
+                    <div key={i} className='bg-orange-50 rounded-lg p-4 border border-orange-200'>
+                        <Text variant='body' weight='semibold' className='text-gray-900'>
+                            {e.qualification}
+                        </Text>
+                        {(e.institution || e.year_completed) && (
+                            <Text variant='small' className='text-gray-600'>
+                                {e.institution ?? "—"}
+                                {e.year_completed ? ` (${e.year_completed})` : ""}
+                            </Text>
+                        )}
+                    </div>
+                ))}
             </div>
         </Section>
     )

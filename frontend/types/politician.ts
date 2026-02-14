@@ -69,7 +69,7 @@ export interface Politician {
     constituency: string
     type: ElectionType
 
-    education?: Education | null
+    education?: Education[] | null
     family_background?: FamilyMember[] | null
     criminal_records?: CrimeRecord[] | null
 
