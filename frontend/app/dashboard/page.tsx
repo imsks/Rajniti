@@ -1,12 +1,14 @@
 "use client"
 
 import { useState, useMemo } from "react"
+import { motion } from "framer-motion"
 import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import PoliticianCard from "@/components/PoliticianCard"
 import { usePoliticians } from "@/hooks/usePoliticians"
 import type { ElectionType } from "@/types/politician"
+import { fadeInUp, fadeIn, staggerContainer, staggerFastContainer, scrollReveal, scaleIn, buttonTap } from "@/utils/motion"
 
 type Tab = "ALL" | "MP" | "MLA"
 
@@ -60,16 +62,28 @@ export default function Dashboard() {
 
             <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8'>
                 {/* Header + Stats */}
-                <div className='mb-8'>
-                    <Text variant='h2' weight='bold' className='text-gray-900 mb-2'>
-                        Indian Politicians
-                    </Text>
-                    <Text variant='body' className='text-gray-600 mb-6'>
-                        Browse elected MPs and MLAs. Help us enrich their profiles!
-                    </Text>
+                <motion.div 
+                    className='mb-8'
+                    initial="initial"
+                    animate="animate"
+                    variants={staggerContainer}
+                >
+                    <motion.div variants={fadeInUp}>
+                        <Text variant='h2' weight='bold' className='text-gray-900 mb-2'>
+                            Indian Politicians
+                        </Text>
+                        <Text variant='body' className='text-gray-600 mb-6'>
+                            Browse elected MPs and MLAs. Help us enrich their profiles!
+                        </Text>
+                    </motion.div>
 
                     {!loading && (
-                        <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-6'>
+                        <motion.div 
+                            className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-6'
+                            variants={staggerFastContainer}
+                            initial="initial"
+                            animate="animate"
+                        >
                             <StatCard
                                 value={stats.total.toLocaleString()}
                                 label='Total Politicians'
@@ -90,14 +104,18 @@ export default function Dashboard() {
                                 label='Top Party'
                                 color='text-purple-600'
                             />
-                        </div>
+                        </motion.div>
                     )}
-                </div>
+                </motion.div>
 
                 {/* Tabs */}
-                <div className='flex gap-2 mb-6'>
-                    {(["ALL", "MP", "MLA"] as Tab[]).map((tab) => (
-                        <button
+                <motion.div 
+                    className='flex gap-2 mb-6'
+                    {...fadeIn}
+                    transition={{ delay: 0.2 }}
+                >
+                    {(["ALL", "MP", "MLA"] as Tab[]).map((tab, index) => (
+                        <motion.button
                             key={tab}
                             onClick={() => {
                                 setActiveTab(tab)
@@ -109,18 +127,28 @@ export default function Dashboard() {
                                 activeTab === tab
                                     ? "bg-orange-500 text-white shadow-md"
                                     : "bg-white text-gray-600 border border-gray-300 hover:border-orange-400 hover:text-orange-600"
-                            }`}>
+                            }`}
+                            whileTap={buttonTap}
+                            whileHover={{ scale: 1.05 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 * index }}
+                        >
                             {tab === "ALL"
                                 ? "All"
                                 : tab === "MP"
                                   ? "MPs"
                                   : "MLAs"}
-                        </button>
+                        </motion.button>
                     ))}
-                </div>
+                </motion.div>
 
                 {/* Search + Filters */}
-                <div className='bg-white rounded-2xl shadow-sm border border-gray-200 p-4 mb-6'>
+                <motion.div 
+                    className='bg-white rounded-2xl shadow-sm border border-gray-200 p-4 mb-6'
+                    {...fadeIn}
+                    transition={{ delay: 0.3 }}
+                >
                     <div className='flex flex-col md:flex-row gap-3'>
                         {/* Search input */}
                         <div className='flex-1 relative'>
@@ -167,7 +195,12 @@ export default function Dashboard() {
 
                     {/* Active filters summary */}
                     {hasActiveFilters && (
-                        <div className='flex items-center gap-2 mt-3 pt-3 border-t border-gray-100'>
+                        <motion.div 
+                            className='flex items-center gap-2 mt-3 pt-3 border-t border-gray-100'
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                        >
                             <Text variant='small' className='text-gray-500'>
                                 Showing {displayPoliticians.length.toLocaleString()} result
                                 {displayPoliticians.length !== 1 ? "s" : ""}
@@ -181,9 +214,9 @@ export default function Dashboard() {
                                 className='ml-2 text-xs text-orange-600 hover:underline'>
                                 Clear filters
                             </button>
-                        </div>
+                        </motion.div>
                     )}
-                </div>
+                </motion.div>
 
                 {/* Loading state */}
                 {loading && (
@@ -199,8 +232,17 @@ export default function Dashboard() {
 
                 {/* Empty state */}
                 {!loading && displayPoliticians.length === 0 && (
-                    <div className='text-center py-20'>
-                        <div className='text-6xl mb-4'>🔍</div>
+                    <motion.div 
+                        className='text-center py-20'
+                        {...fadeIn}
+                    >
+                        <motion.div 
+                            className='text-6xl mb-4'
+                            animate={{ rotate: [0, 10, -10, 0] }}
+                            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                        >
+                            🔍
+                        </motion.div>
                         <Text variant='h4' weight='bold' className='text-gray-700 mb-2'>
                             No politicians found
                         </Text>
@@ -209,20 +251,28 @@ export default function Dashboard() {
                                 ? "Try adjusting your search or filters."
                                 : "No data available yet."}
                         </Text>
-                    </div>
+                    </motion.div>
                 )}
 
                 {/* Politician grid */}
                 {!loading && displayPoliticians.length > 0 && (
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                    <motion.div 
+                        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'
+                        variants={staggerFastContainer}
+                        initial="initial"
+                        animate="animate"
+                    >
                         {displayPoliticians.map((p) => (
                             <PoliticianCard key={p.id} politician={p} />
                         ))}
-                    </div>
+                    </motion.div>
                 )}
 
                 {/* Contribute CTA */}
-                <div className='mt-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-center text-white'>
+                <motion.div 
+                    className='mt-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-center text-white'
+                    {...scrollReveal}
+                >
                     <Text variant='h3' weight='bold' className='text-white mb-2'>
                         Help us build the most comprehensive politician database
                     </Text>
@@ -231,14 +281,16 @@ export default function Dashboard() {
                         details. You can contribute by enriching profiles or reporting
                         inaccuracies.
                     </Text>
-                    <Button
-                        href='https://github.com/imsks/rajniti/issues/new'
-                        external
-                        className='bg-white text-orange-600 hover:bg-gray-50 border-none shadow-lg'
-                        size='lg'>
-                        Contribute on GitHub →
-                    </Button>
-                </div>
+                    <motion.div whileTap={buttonTap}>
+                        <Button
+                            href='https://github.com/imsks/rajniti/issues/new'
+                            external
+                            className='bg-white text-orange-600 hover:bg-gray-50 border-none shadow-lg'
+                            size='lg'>
+                            Contribute on GitHub →
+                        </Button>
+                    </motion.div>
+                </motion.div>
             </div>
 
             <Footer />
@@ -258,13 +310,22 @@ function StatCard({
     color: string
 }) {
     return (
-        <div className='bg-white rounded-xl p-4 border border-gray-200 shadow-sm'>
+        <motion.div 
+            className='bg-white rounded-xl p-4 border border-gray-200 shadow-sm'
+            variants={scaleIn}
+            whileHover={{ 
+                scale: 1.05, 
+                y: -4,
+                boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+            }}
+            transition={{ duration: 0.2 }}
+        >
             <Text variant='h3' weight='bold' className={color}>
                 {value}
             </Text>
             <Text variant='small' className='text-gray-500'>
                 {label}
             </Text>
-        </div>
+        </motion.div>
     )
 }
