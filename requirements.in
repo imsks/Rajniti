@@ -47,3 +47,6 @@ PyJWT
 # Vector database
 chromadb
 numpy<2.0  # ChromaDB 0.5.0 not compatible with numpy 2.0
+
+# FastEmbed
+fastembed
