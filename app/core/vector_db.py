@@ -4,6 +4,9 @@ from typing import Optional
 
 import chromadb
 from fastembed import TextEmbedding
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class VectorDB:
     """ChromaDB wrapper (local persistent) for politician embeddings."""
@@ -96,17 +99,4 @@ if __name__ == "__main__":
     print("Count:", vdb.count())
     print("Get:", vdb.get())
 
-    # Testing
-    vdb.upsert(
-        ids=["1"],
-        documents=["Hello, world!"],
-        metadatas=[{"source": "test"}],
-        embeddings=[[0.1, 0.2, 0.3]]
-    )
-    print("Upserted:", vdb.get())
-    print("Deleted:", vdb.delete(ids=["1"]))
-    print("Reset:", vdb.reset_collection())
-    print("Health:", vdb.health())
-    print("Count:", vdb.count())
-
-    print(vdb.query(query_text="education of Kiren Rijiju", n_results=3))
+    print(vdb.query(query_text="education of Modi", n_results=3))
