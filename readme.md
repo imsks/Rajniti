@@ -177,6 +177,74 @@ python3 scripts/run_politician_agent.py --type MP --log-level INFO
 
 ---
 
+## Contributing: add MLAs for a state
+
+If you'd like to help populate MLAs for a state, run the agent locally with your own API keys and open a PR with the updated JSON data.
+
+1. Fork the repo and create a branch:
+
+```bash
+git clone <your-fork-url>
+cd Rajniti
+git checkout -b add-mlas-<STATE>
+```
+
+2. Setup locally:
+
+```bash
+python3 -m venv venv
+. venv/bin/activate
+pip install -r requirements.txt
+```
+
+3. Obtain API keys
+
+- Gemini (Google Generative AI):
+  - In Google Cloud Console enable the "Generative AI API" (sometimes listed as Gemini / Generative models).
+  - Go to APIs & Services → Credentials → Create credentials → API key.
+  - Copy the key and add to your local `.env` as `GEMINI_API_KEY=<your-key>`.
+  - Note: billing/quota rules apply; free tier limits are strict.
+
+- Alternatives:
+  - You may set `OPENAI_API_KEY` or `PERPLEXITY_API_KEY` and adjust `AGENT_LLM_PROVIDERS`.
+
+4. Configure environment (do NOT commit `.env`)
+
+```bash
+cp .env.example .env
+# edit .env and set GEMINI_API_KEY (and others as needed)
+export AGENT_LLM_PROVIDERS=gemini,perplexity,openai
+```
+
+5. Generate MLAs for a state
+
+```bash
+. venv/bin/activate
+python3 scripts/fetch_mlas.py --state "Andhra Pradesh" --log-level INFO
+```
+
+- Omit `--state` to run for all states (long-running).
+
+6. Inspect and commit changes
+
+- Review `app/data/mla.json` and only commit the updated JSON file(s) with the new/updated MLA records.
+- Never commit `.env` or API keys.
+
+```bash
+git add app/data/mla.json
+git commit -m "Add/refresh MLA data for <STATE>"
+git push -u origin add-mlas-<STATE>
+```
+
+7. Open a Pull Request
+
+- Create a PR to upstream `main`. In the PR body include:
+  - Summary: state name, number of MLAs added/updated
+  - How tested: `python3 scripts/fetch_mlas.py --state "<STATE>"` (attach logs/snippets)
+  - Notes: any uncertain records or manual fixes performed
+
+Thanks — maintainers will review and merge valid additions.
+
 ## Testing
 
 ```bash
