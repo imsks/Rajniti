@@ -4858,5 +4858,2323 @@
         }
       ]
     }
+  },
+  {
+    "id": "f63fba83-aff6-5bfa-a8fa-3c4bafe158e8",
+    "name": "Bijoy Malakar",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Ratabari",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "ddf77fe7-add1-5d65-a7e8-8f1973778f0b",
+    "name": "Krishnendu Paul",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Patharkandi",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "bb68b6cb-b7f3-56bd-b16f-41cf27e47d09",
+    "name": "Kamalakhya Dey Purkayastha",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Karimganj North",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "d49358b5-6416-5248-b8ec-8fcf7950add5",
+    "name": "Siddeque Ahmed",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Karimganj South",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "27fc0514-1e5b-53a2-a3b4-0d72a17f7bb7",
+    "name": "Abdul Aziz",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Badarpur",
+    "party": "AIUDF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "8b6ed1ee-8efb-591c-93f8-ed43ce37df2f",
+    "name": "Nizam Uddin Choudhury",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Algapur",
+    "party": "AIUDF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "45c9406e-3df0-5069-a3e3-402b6fd7c6f0",
+    "name": "Zakir Hussain Laskar",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Hailakandi",
+    "party": "AIUDF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "91e68cdd-2a57-5fb5-b2f1-50a395102900",
+    "name": "Suzam Uddin Laskar",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Katlicherra",
+    "party": "AIUDF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "ebae47d8-76ab-52fa-94e4-69727ab08e94",
+    "name": "Mihir Kanti Shome",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Udarband",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "a19ceb1a-2032-553a-8776-70d4a2d302d6",
+    "name": "Kaushik Rai",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Lakhipur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "3346af14-041a-5653-b327-eaf3e99bd253",
+    "name": "Misbahul Islam Laskar",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Barkhola",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "d4ea5ce6-3d15-5281-8465-8bbff59ce4ae",
+    "name": "Khalil Uddin Mazumder",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Katigora",
+    "party": "AIUDF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "374eee49-6a5f-59ae-aad7-c13b56777457",
+    "name": "Karim Uddin Barbhuiya",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Sonai",
+    "party": "AIUDF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "2e6913e4-5e38-5278-b4cf-f6b7a9cc6dfb",
+    "name": "Parimal Suklabaidya",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Dholai",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "bd8b04d3-785a-5667-a23f-15ad72111fea",
+    "name": "Dipayan Chakraborty",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Silchar",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "54671df8-0b2c-5e33-b4d8-f939c004e214",
+    "name": "Nandita Gorlosa",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Dima Hasao",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f3318134-658a-54b0-a529-3348b4c400e7",
+    "name": "Rupeswar Terang",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Diphu",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "d07ba801-4cc8-5ca0-af0e-f150b63ce65c",
+    "name": "Dorsing Ronghang",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Howraghat",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "da7f103f-0e53-5f1d-b129-780cd58bd4c1",
+    "name": "Numal Momin",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Bokajan",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "282aef01-86ef-5a8e-b16e-c3fef0cdf824",
+    "name": "Biswajit Phukan",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Sarupathar",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "128afccb-cab6-5da4-829c-b81a91611a75",
+    "name": "Ajanta Neog",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Golaghat",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "db4ecf54-bbd1-58b1-87f8-c343e62f7348",
+    "name": "Mrinal Saikia",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Khumtai",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "b1390b6f-7411-5535-97f5-6c971d44daf6",
+    "name": "Bhabendra Nath Bharali",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Dergaon",
+    "party": "AGP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "ea35c766-89db-567a-b5af-9ffe1df31356",
+    "name": "Atul Bora",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Bokakhat",
+    "party": "AGP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "3cd356ed-5a2a-5940-b1b3-adba9827d143",
+    "name": "Bhuban Gam",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Majuli",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "82dbc17e-0d73-589d-896d-2b7f2f00e775",
+    "name": "Hitendra Nath Goswami",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Jorhat",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "d9001c07-130a-5bc8-b0c6-5f07376888ac",
+    "name": "Rupjyoti Kurmi",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Mariani",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "8e47a457-7969-520d-8ab6-00941850f42f",
+    "name": "Bhaskar Jyoti Baruah",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Titabar",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "858f2565-fe63-5b17-8872-4d74ea55a2f9",
+    "name": "Prodip Hazarika",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Amguri",
+    "party": "AGP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "9b0114f0-8975-5d75-b0c2-b310b778e364",
+    "name": "Debabrata Saikia",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Nazira",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "ea31eed9-a4ce-5531-ba72-19a59044ae11",
+    "name": "Akhil Gogoi",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Sivasagar",
+    "party": "Raijor Dal",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "4711005f-52e6-5480-ba7c-17558f0e6971",
+    "name": "Sushanta Borgohain",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Thowra",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "ffe9ff23-dbda-57fc-8391-5ab90063a299",
+    "name": "Dharmeswar Konwar",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Sonari",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "d0ef74c8-f549-56a2-8d61-fa165819af06",
+    "name": "Chakradhar Gogoi",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Moran",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "9a75df73-a57b-57c0-97b6-496665eecad0",
+    "name": "Prasanta Phukan",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Dibrugarh",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "496c22d8-120b-5d97-8b4e-0d93c00f28e2",
+    "name": "Binod Hazarika",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Lahowal",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f33d3e1b-25a5-55ec-a923-7df1b651990a",
+    "name": "Terash Gowalla",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Duliajan",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "6ca31fd4-0ae2-5d21-aae3-a03dbcaf00b9",
+    "name": "Bimal Borah",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Tingkhong",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "bbe02ca0-5b67-571f-876e-4fd5009508f7",
+    "name": "Taranga Gogoi",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Naharkatia",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "e2aaf5d0-a749-5705-8895-85828259a481",
+    "name": "Rupesh Gowala",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Doom Dooma",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "6bae80ee-aaa0-516c-b7e3-d35b38722528",
+    "name": "Suren Phukan",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Digboi",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "9e953b44-b713-5c02-96fb-e19ba5c30ba3",
+    "name": "Bhaskar Sharma",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Margherita",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "d484e6c9-4f01-5641-876a-f2c7c85da1cf",
+    "name": "Sanjoy Kishan",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Tinsukia",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "799be447-d92d-57a6-8bda-8b27306d0c32",
+    "name": "Bolin Chetia",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Sadiya",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "fdc2aebe-6ac8-5bb8-a7cd-da2d83936a21",
+    "name": "Bhuban Pegu",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Jonai",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "0d74e41b-0021-557e-868b-1b392eb0d897",
+    "name": "Ranuj Pegu",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Dhemaji",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "5d9fa092-67af-5788-81c3-4cade3f4f592",
+    "name": "Naba Kumar Doley",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Dhakuakhana",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "299b7d79-475c-5fad-9814-ae6597b91b5c",
+    "name": "Manab Deka",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Lakhimpur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "a21a0d67-9255-5793-8963-87a006f3366e",
+    "name": "Bharat Narah",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Naoboicha",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "10f8c3d1-cac9-58ed-be66-39f5e315bade",
+    "name": "Amiya Kumar Bhuyan",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Bihpuria",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "260dbbdd-49f0-57d1-a7a8-5c76de3e3b38",
+    "name": "Bhabesh Kalita",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Ranganadi",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "0b62e92f-9a01-5a03-a6a9-531f6c4325a3",
+    "name": "Utpal Borah",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Gohpur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f15c71f9-9838-5567-9d76-a18ab2890c3b",
+    "name": "Pramod Borthakur",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Biswanath",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "9e7c1f80-c98a-5913-9c3f-adee82d3f156",
+    "name": "Ranjit Dutta",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Behali",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "c997feb6-d5d1-5828-8739-b0ee75836bd0",
+    "name": "Ashok Singhal",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Dhekiajuli",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "e4239772-9095-592e-8d38-6cd9759ab4e8",
+    "name": "Ganesh Kumar Limbu",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Barchalla",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "afea9c88-4ca2-55b0-b678-5f36e076a63b",
+    "name": "Prithviraj Rabha",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Tezpur",
+    "party": "AGP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "8622c533-a0d8-56cb-a34f-14c214227fe5",
+    "name": "Krishna Kumar Tanti",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Rangapara",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "58dafab0-4adc-5375-9007-214c8bba0fe3",
+    "name": "Padma Hazarika",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Sootea",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "732f9fee-10fb-5906-8847-726596c2a765",
+    "name": "Rupak Sarmah",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Jamuguri",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "8224dbbf-92fe-5da6-8361-cfaa12b6e5d7",
+    "name": "Jogen Mohan",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Naduar",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "81442c9e-8392-5a45-a2c8-1d8dfb6d628f",
+    "name": "Rakibul Hussain",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Kaliabor",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "777a3b7f-9c90-5233-99c4-b0543438dafb",
+    "name": "Nurul Huda",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Rupohihat",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "d67b315b-4618-5ee2-9c62-626a9b2e2af3",
+    "name": "Abu Shah Jahan",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Samaguri",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "0c70fd54-478c-5035-b9f5-ee9b19c5a0e4",
+    "name": "Rupak Sarmah",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Nagaon-Sadar",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "1c856f1a-3499-58e2-80aa-6b4f23ddf02a",
+    "name": "Sashi Kanta Das",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Raha",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "584e1403-d049-5ce9-8e82-8054c21e88fe",
+    "name": "Aminul Islam",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Dhing",
+    "party": "AIUDF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "66b2cd72-5d73-5f6f-9661-939ae71cb913",
+    "name": "Sibamoni Bora",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Batadroba",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "56deff19-cebd-5d44-8b5f-4d04defb0a10",
+    "name": "Asif Mohammad Nazar",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Laharighat",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "24ee9aed-ca78-5b2a-b637-ff3fa5d09ba3",
+    "name": "Pijush Hazarika",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Jagiroad",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "1bc4084d-2757-5d4d-bc14-fab3a5a3dc8a",
+    "name": "Ramakanta Deuri",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Marigaon",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "2dbc786a-3e53-5768-99f9-9794f2a90c93",
+    "name": "Ramakrishna Ghosh",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Hojai",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "7cf3f319-13d5-5c52-ae0e-fc5657f6bdc0",
+    "name": "Sibu Misra",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Lumding",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "18ca9770-c989-5b36-9538-6722c8e49cc8",
+    "name": "Sirajuddin Ajmal",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Jamunamukh",
+    "party": "AIUDF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "5a9c9f6e-24b0-521c-8817-d97c3da94012",
+    "name": "Lakhi Konwar",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Kampur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "c1298835-df60-50ad-9389-5cba03e36037",
+    "name": "Jitu Goswami",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Barhampur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "276a635d-0c65-51f3-8707-41dad34035e2",
+    "name": "Paramananda Rajbongshi",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Sipajhar",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "fb6afb63-2d41-5c35-a111-5b0c5a2f5297",
+    "name": "Basanta Das",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Mangaldoi",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f4d9eb38-0f10-5422-81c3-d19f62c47857",
+    "name": "Majibur Rahman",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Dalgaon",
+    "party": "AIUDF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "2ad016f2-5b47-55f6-a67d-42221d665806",
+    "name": "Durga Das Boro",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Kalaigaon",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "dceb68a4-84d4-5836-ac45-9b464a689f23",
+    "name": "Gobinda Chandra Basumatary",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Udalguri",
+    "party": "UPPL",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "095fc43c-dec3-570a-8485-8581d43b7401",
+    "name": "Charan Boro",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Mazbat",
+    "party": "UPPL",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "c8646127-4281-5c8a-953d-d15a81fb161a",
+    "name": "Jolen Daimary",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Tamulpur",
+    "party": "UPPL",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "603db940-ca02-5523-ac04-f2b5c561fc3a",
+    "name": "Majendra Narzary",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Bhergaon",
+    "party": "UPPL",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f71d1d6d-0715-585d-9299-ec97771b7c7e",
+    "name": "Bhabesh Kalita",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Rangia",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "92d54ae9-a13b-5cae-985f-bfeae18dac71",
+    "name": "Diganta Kalita",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Kamalpur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "e29d544a-859e-5745-9475-3d3796dfd6e6",
+    "name": "Suman Haripriya",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Hajo",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "c6fbabc6-a4e6-5c55-93f9-b80a3f6f3446",
+    "name": "Siddhartha Bhattacharya",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Gauhati East",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f20ab03f-10fe-51df-8d07-bc95b6048ac6",
+    "name": "Ramendra Narayan Kalita",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Gauhati West",
+    "party": "AGP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "0cd33608-978e-5567-9fb3-844ed96b38a6",
+    "name": "Atul Bora",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Dispur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "c36f7854-0c61-5484-940f-d8e05d9571f7",
+    "name": "Hemanga Thakuria",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Palasbari",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "29712532-058d-58cd-9f22-d58d354d46e7",
+    "name": "Rekibuddin Ahmed",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Chaygaon",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "5299352f-dc59-51bb-b0b4-1f4898a0035d",
+    "name": "Nandita Das",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Boko",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "22d36814-e422-52a1-b9d3-aa09e332430f",
+    "name": "Jadab Swargiary",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Dudhnai",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "386f76c9-f757-5087-8988-fa8c876cc985",
+    "name": "Abul Kalam Rasheed Alam",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Goalpara East",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "84da241e-caa1-509e-b9de-b4821b5860a6",
+    "name": "Abdur Rashid Mondal",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Goalpara West",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "a15b13fa-2449-5ddf-8474-a3b11cfe9f6b",
+    "name": "Aftab Uddin Mollah",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Jaleswar",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "83036efb-c2e2-51c7-9ed6-9eda36ad7393",
+    "name": "Aminul Islam",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Mankachar",
+    "party": "AIUDF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f3cdfe7d-5ba1-5be0-b3cf-f704e659ee77",
+    "name": "Wazed Ali Choudhury",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "South Salmara",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f14a3e2e-7d03-5c9d-9b2d-db3b1c5dfe62",
+    "name": "Nazrul Hoque",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Dhubri",
+    "party": "AIUDF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "e9ee1889-da27-5774-b9f3-6c25e9f09617",
+    "name": "Nijanur Rahman",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Gauripur",
+    "party": "AIUDF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "8d3dc6f4-ce4b-5790-8dfb-61d8688f3cbf",
+    "name": "Abdus Sobhan Ali Sarkar",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Golakganj",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f590f787-0c3b-5b36-ab9d-5bc1b7962ee7",
+    "name": "Ashok Kumar Singhi",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Bilasipara East",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "311eda45-1c17-5349-95f1-1707712e2717",
+    "name": "Hafiz Bashir Ahmed",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Bilasipara West",
+    "party": "AIUDF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "6a4bf485-2425-5430-a72d-77c41f69f4c7",
+    "name": "Jiron Basumatary",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Gossaigaon",
+    "party": "UPPL",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "d785c4fd-c067-5040-894b-53f9c1fbc9e9",
+    "name": "Lawrence Islary",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Kokrajhar East",
+    "party": "UPPL",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "eba023b8-121f-5238-b60b-a5882932b552",
+    "name": "Rabiram Narzary",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Kokrajhar West",
+    "party": "BPF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "0cc6946f-eb36-5c27-8797-f455e2acc993",
+    "name": "Jayanta Basumatary",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Sidli",
+    "party": "UPPL",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "83c050fb-d4d1-5a04-a062-17a92fc4a771",
+    "name": "Ajoy Kumar Ray",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Bijni",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "96f84fdd-3f93-5aaf-bec6-cc04e33d6e59",
+    "name": "Phani Bhusan Choudhury",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Bongaigaon",
+    "party": "AGP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "fa923b23-0c67-5025-a94d-b9f9f66cf803",
+    "name": "Abdul Baten Khandakar",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Abhayapuri North",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "21832cd8-bc1f-5696-b03e-f89eabf240af",
+    "name": "Pradip Sarkar",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Abhayapuri South",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "a4478d29-c7fb-55b1-9c07-0462ba4afd3b",
+    "name": "Ranjeet Kumar Dass",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Patacharkuchi",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "bc53f82e-1178-56c8-8534-fbbde64ad900",
+    "name": "Abdul Aziz",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Barpeta",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f91f6f87-7156-55fd-bd1e-3b2919402217",
+    "name": "Sherman Ali Ahmed",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Baghbar",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "0ffa3bc0-125e-592d-909f-a3c5d01d7038",
+    "name": "Jakir Hussain Sikdar",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Sarukhetri",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "059f3a43-7ec0-5381-9477-6ef2cb2e3101",
+    "name": "Ashraful Hussain",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Chenga",
+    "party": "AIUDF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "99b0d0cb-ff22-5673-bd26-717c4d1a8b26",
+    "name": "Rafiqul Islam",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Jania",
+    "party": "AIUDF",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "1f37cd7f-0452-5b06-bef0-b90dd69ef61b",
+    "name": "Manoranjan Talukdar",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Sorbhog",
+    "party": "CPI(M)",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "d144853f-d5a5-529a-a2ca-e7020d2dd89a",
+    "name": "Phanidhar Talukdar",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Bhabanipur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "8df9ab69-db29-502e-bce7-90ae628bba1b",
+    "name": "Pabindra Deka",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Bajali",
+    "party": "AGP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "e5bdc045-6cba-5dcc-85bb-240b6ca7129e",
+    "name": "Jayanta Malla Baruah",
+    "photo": null,
+    "state": "Assam",
+    "constituency": "Nalbari",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
   }
 ]
