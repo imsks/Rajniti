@@ -132,6 +132,31 @@ class StateMLAFetcher(BaseAgent):
         payload = f"{name.strip().lower()}|{state.strip().lower()}|{constituency.strip().lower()}"
         return str(uuid.uuid5(uuid.NAMESPACE_DNS, payload))
 
+    def run_all(self, force: bool = False) -> Dict[str, Any]:
+        """Run for every state in states.json."""
+        logger.info("[StateMLAFetcher] running for ALL %d states (force=%s)", len(self.states), force)
+        results: List[Dict[str, Any]] = []
+        for idx, state in enumerate(self.states, 1):
+            logger.info("[StateMLAFetcher] [%d/%d] %s", idx, len(self.states), state)
+            result = self.run(state, force=force)
+            results.append(result)
+            status = "ok" if result.get("ok") else "FAILED"
+            added = result.get("added", 0)
+            logger.info("[StateMLAFetcher] [%d/%d] %s → %s (added=%d)", idx, len(self.states), state, status, added)
+
+        total_added = sum(r.get("added", 0) for r in results)
+        succeeded = sum(1 for r in results if r.get("ok"))
+        failed = len(results) - succeeded
+        summary = {
+            "ok": failed == 0,
+            "states_total": len(results),
+            "states_succeeded": succeeded,
+            "states_failed": failed,
+            "total_added": total_added,
+        }
+        logger.info("[StateMLAFetcher] all states done: %s", summary)
+        return summary
+
     def run(self, state: str, force: bool = False) -> Dict[str, Any]:
         state_norm = self._validate_state(state)
         logger.info("[StateMLAFetcher] starting for state: %s (force=%s)", state_norm, force)
