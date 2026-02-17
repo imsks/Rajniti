@@ -9,7 +9,7 @@ from app.agents.state_mla_fetcher import StateMLAFetcher
 from app.core import setup_logging
 
 
-def main(state: str | None, force: bool, log_level: str):
+def main(state: "str" = None, force: bool = False, log_level: str = "DEBUG"):
     setup_logging(log_level)
     logger = logging.getLogger(__name__)
 

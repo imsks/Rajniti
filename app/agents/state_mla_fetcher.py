@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import json
 import logging
+import threading
 import uuid
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -10,6 +12,9 @@ from app.agents.base_agent import BaseAgent
 from app.core import CacheManager
 
 logger = logging.getLogger(__name__)
+
+BATCH_SIZE = 30
+MAX_WORKERS = 3
 
 
 class ConstituencyFetcher:
@@ -21,7 +26,7 @@ class ConstituencyFetcher:
         self.agent = agent
 
     def run(self, state: str) -> List[str]:
-        logger.info("[ConstituencyFetcher] calling LLM for %s constituencies", state)
+        logger.info("[ConstituencyFetcher] calling LLM for %s constituencies (this may take ~30s)", state)
         prompt = (
             f"Return ONLY a valid JSON array of all current assembly constituency names "
             f"for the Indian state: {state}.\n"
@@ -42,16 +47,20 @@ class ConstituencyFetcher:
 
 
 class MLADetailsFetcher:
-    """Subprocess: fetch MLA details for given constituencies."""
+    """Subprocess: fetch MLA details in parallel batches."""
 
     name = "mla_details"
 
-    def __init__(self, agent: BaseAgent):
+    def __init__(self, agent: BaseAgent, batch_size: int = BATCH_SIZE, max_workers: int = MAX_WORKERS):
         self.agent = agent
+        self.batch_size = batch_size
+        self.max_workers = max_workers
 
-    def run(self, state: str, constituencies: List[str]) -> List[Dict[str, Any]]:
-        logger.info("[MLADetailsFetcher] calling LLM for %d constituencies in %s", len(constituencies), state)
-        constituency_json = json.dumps(constituencies, ensure_ascii=False)
+    def _fetch_batch(self, state: str, batch: List[str], batch_num: int, total_batches: int) -> List[Dict[str, Any]]:
+        tag = f"[MLADetailsFetcher batch {batch_num}/{total_batches}]"
+        logger.info("%s fetching %d constituencies", tag, len(batch))
+
+        constituency_json = json.dumps(batch, ensure_ascii=False)
         prompt = (
             f"For each constituency listed below in {state}, return the current MLA.\n"
             f"Return ONLY a valid JSON array. Each item must have: "
@@ -59,20 +68,55 @@ class MLADetailsFetcher:
             f"Constituencies: {constituency_json}\n"
         )
         raw = self.agent._run_llm(prompt)
-        logger.info("[MLADetailsFetcher] LLM responded (%d chars)", len(raw))
+        logger.info("%s LLM responded (%d chars)", tag, len(raw))
 
         parsed = self.agent._parse_json_value(raw)
         if parsed is None:
-            logger.warning("[MLADetailsFetcher] failed to parse LLM response as JSON")
+            logger.warning("%s failed to parse JSON", tag)
             return []
 
         items = self.agent._coerce_to_list(parsed) or []
-        result = [
-            d for d in items
-            if isinstance(d, dict) and d.get("name") and d.get("constituency")
-        ]
-        logger.info("[MLADetailsFetcher] parsed %d valid MLA records out of %d items", len(result), len(items))
+        result = [d for d in items if isinstance(d, dict) and d.get("name") and d.get("constituency")]
+        logger.info("%s got %d valid records", tag, len(result))
         return result
+
+    def run(self, state: str, constituencies: List[str]) -> List[Dict[str, Any]]:
+        batches = [constituencies[i:i + self.batch_size] for i in range(0, len(constituencies), self.batch_size)]
+        total = len(batches)
+
+        if total == 1:
+            return self._fetch_batch(state, batches[0], 1, 1)
+
+        logger.info(
+            "[MLADetailsFetcher] %d constituencies → %d batches of ~%d (workers=%d)",
+            len(constituencies), total, self.batch_size, self.max_workers,
+        )
+
+        all_results: List[Dict[str, Any]] = []
+        lock = threading.Lock()
+        completed = [0]
+
+        def _run_batch(idx: int, batch: List[str]) -> List[Dict[str, Any]]:
+            result = self._fetch_batch(state, batch, idx + 1, total)
+            with lock:
+                completed[0] += 1
+                logger.info(
+                    "[MLADetailsFetcher] progress: %d/%d batches done (%d records so far)",
+                    completed[0], total, len(all_results) + len(result),
+                )
+            return result
+
+        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            futures = {executor.submit(_run_batch, i, b): i for i, b in enumerate(batches)}
+            for future in as_completed(futures):
+                try:
+                    all_results.extend(future.result())
+                except Exception as exc:
+                    batch_idx = futures[future]
+                    logger.error("[MLADetailsFetcher] batch %d/%d failed: %s", batch_idx + 1, total, exc)
+
+        logger.info("[MLADetailsFetcher] all batches done → %d total records", len(all_results))
+        return all_results
 
 
 class StateMLAFetcher(BaseAgent):
@@ -82,6 +126,8 @@ class StateMLAFetcher(BaseAgent):
         self,
         data_dir: Optional[Path] = None,
         cache: Optional[CacheManager] = None,
+        batch_size: int = BATCH_SIZE,
+        max_workers: int = MAX_WORKERS,
     ):
         super().__init__()
         self.data_dir = Path(data_dir) if data_dir else Path(__file__).resolve().parents[1] / "data"
@@ -91,7 +137,7 @@ class StateMLAFetcher(BaseAgent):
         self.states = self._load_states()
 
         self.constituency_fetcher = ConstituencyFetcher(self)
-        self.mla_detail_fetcher = MLADetailsFetcher(self)
+        self.mla_detail_fetcher = MLADetailsFetcher(self, batch_size=batch_size, max_workers=max_workers)
 
     def _load_states(self) -> List[str]:
         try:
@@ -133,7 +179,6 @@ class StateMLAFetcher(BaseAgent):
         return str(uuid.uuid5(uuid.NAMESPACE_DNS, payload))
 
     def run_all(self, force: bool = False) -> Dict[str, Any]:
-        """Run for every state in states.json."""
         logger.info("[StateMLAFetcher] running for ALL %d states (force=%s)", len(self.states), force)
         results: List[Dict[str, Any]] = []
         for idx, state in enumerate(self.states, 1):
