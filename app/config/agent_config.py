@@ -5,7 +5,6 @@ import time
 from typing import Any, Optional, Callable
 
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
 
 load_dotenv()
 
@@ -73,6 +72,12 @@ def _build_llm(provider: str) -> Optional[Any]:
     model = os.getenv(cfg["model_env"], cfg["default_model"])
 
     def _build_openai_compatible() -> Any:
+        try:
+            mod = importlib.import_module("langchain_openai")
+            ChatOpenAI = getattr(mod, "ChatOpenAI")
+        except Exception as exc:
+            logger.warning("OpenAI provider unavailable (missing deps): %s", exc)
+            return None
         kwargs = dict(api_key=api_key, model=model, temperature=0)
         if cfg["base_url"]:
             kwargs["base_url"] = cfg["base_url"]
