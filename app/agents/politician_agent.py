@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
 from typing import Any, Dict, Literal, Optional
 
 from pydantic import TypeAdapter
@@ -80,6 +81,9 @@ class PoliticianPoliticalBackground:
             updates["political_background"] = validated.model_dump(mode="json")
             logger.info("political_background: full validation succeeded (id=%s)", politician.get("id"))
             logger.debug("political_background: updates=%s", updates)
+            # If elections empty, attempt to fill via focused elections-only prompt
+            if not updates["political_background"].get("elections"):
+                self._maybe_fill_elections_only(politician, updates)
             return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
 
         # Full validation failed — attempt tolerant partial acceptance:
@@ -99,7 +103,7 @@ class PoliticianPoliticalBackground:
         if isinstance(summary_val, str) and summary_val.strip():
             partial_updates["summary"] = summary_val.strip()
 
-        # If we have at least one useful field, accept partial update
+        # If we have at least one useful field, accept partial update (and try to fill elections)
         if partial_updates["elections"] or partial_updates["summary"] is not None:
             updates["political_background"] = partial_updates
             logger.info(
@@ -107,12 +111,47 @@ class PoliticianPoliticalBackground:
                 politician.get("id"),
                 validation_errors,
             )
+            self._maybe_fill_elections_only(politician, updates)
             logger.debug("political_background: partial updates=%s", updates)
-            return {"process": self.name, "ok": True, "skipped": False, "updates": updates, "validation_errors": validation_errors}
+            return {
+                "process": self.name,
+                "ok": True,
+                "skipped": False,
+                "updates": updates,
+                "validation_errors": validation_errors,
+            }
 
         # Nothing useful could be extracted
         logger.warning("political_background: validation failed (id=%s) errors=%s", politician.get("id"), validation_errors)
         return {"process": self.name, "ok": False, "error": "validation_failed", "details": validation_errors}
+
+    def _maybe_fill_elections_only(self, politician: Dict[str, Any], updates: Dict[str, Any]) -> None:
+        """If elections are empty, issue a focused elections-only prompt and merge."""
+        pb = updates.get("political_background") or {}
+        if pb.get("elections"):
+            return  # already have data
+
+        logger.info("political_background: elections empty; issuing elections-only prompt (id=%s)", politician.get("id"))
+        prompt = PoliticianPrompts.political_background_elections_only(politician)
+        raw = self.base._run_llm(prompt)
+        parsed = self.base._parse_json_value(raw)
+        if parsed is None:
+            logger.warning("political_background: elections-only prompt returned invalid JSON (id=%s)", politician.get("id"))
+            return
+
+        elections_adapter = TypeAdapter(list[ElectionRecord])
+        ev_validated, ev_errors = self.base._validate_with_adapter(parsed, elections_adapter)
+        if ev_errors or ev_validated is None:
+            logger.warning("political_background: elections-only validation failed (id=%s) errors=%s", politician.get("id"), ev_errors)
+            return
+
+        pb["elections"] = [e.model_dump(mode="json") for e in ev_validated]
+        updates["political_background"] = pb
+        logger.info(
+            "political_background: elections-only prompt filled %d records (id=%s)",
+            len(pb["elections"]),
+            politician.get("id"),
+        )
 
 class PoliticianAgent(BaseAgent):
     """Top-level orchestrator for politician enrichment processes."""
@@ -206,25 +245,37 @@ class PoliticianAgent(BaseAgent):
             return {"ok": False, "error": "missing_politician_id"}
 
         process_results: list[Dict[str, Any]] = []
-        updates: Dict[str, Any] = {}
+        updated_fields: set[str] = set()
+
+        # Per-politician write lock to serialize file writes from concurrent processes
+        write_lock = threading.Lock()
 
         with ThreadPoolExecutor(max_workers=max(1, len(self.processes))) as executor:
-            futures = [executor.submit(process.run, politician, force) for process in self.processes]
-            for future in as_completed(futures):
-                result = future.result()
-                process_results.append(result)
-                if result.get("ok") and not result.get("skipped") and result.get("updates"):
-                    updates.update(result["updates"])
+            future_to_process = {executor.submit(process.run, politician, force): process for process in self.processes}
+            for future in as_completed(future_to_process):
+                process = future_to_process[future]
+                try:
+                    result = future.result()
+                except Exception as exc:
+                    logger.exception("process %s crashed: %s", getattr(process, "name", str(process)), exc)
+                    # record failure for summary
+                    process_results.append({"process": getattr(process, "name", "unknown"), "ok": False, "error": str(exc)})
+                    continue
 
-        if updates:
-            updated = self.politician_service.update_politician(politician_id, updates)
-            if not updated:
-                return {
-                    "ok": False,
-                    "id": politician_id,
-                    "error": "update_failed",
-                    "process_results": process_results,
-                }
+                process_results.append(result)
+
+                # Persist each process's updates immediately (serialized by write_lock)
+                if result.get("ok") and not result.get("skipped") and result.get("updates"):
+                    with write_lock:
+                        updated = self.politician_service.update_politician(politician_id, result["updates"])
+                        if not updated:
+                            logger.error("Failed to persist updates for %s from process %s", politician_id, getattr(process, "name", "unknown"))
+                            process_results.append({"process": getattr(process, "name", "unknown"), "ok": False, "error": "update_failed"})
+                        else:
+                            # track updated fields for reporting
+                            for k in result["updates"].keys():
+                                updated_fields.add(k)
+                            logger.info("Persisted updates for %s from process %s: %s", politician_id, getattr(process, "name", "unknown"), list(result["updates"].keys()))
 
         # Per requirement: if id is processed once (even partial), skip in future.
         self._mark_cached(politician_id)
@@ -233,6 +284,6 @@ class PoliticianAgent(BaseAgent):
         return {
             "ok": not has_error,
             "id": politician_id,
-            "updated_fields": sorted(list(updates.keys())),
+            "updated_fields": sorted(list(updated_fields)),
             "process_results": process_results,
         }

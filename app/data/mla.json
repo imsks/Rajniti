@@ -5,7 +5,43 @@
     "photo": "https://results.eci.gov.in/uploads1/candprofile/E30/2025/AC/s04/NANDK-2025-20251018064407.jpg",
     "state": "Bihar",
     "constituency": "RAMNAGAR",
-    "type": "MLA"
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "RAMNAGAR",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        },
+        {
+          "year": 2020,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "Ramnagar (SC)",
+          "party": "RJD",
+          "status": "LOST"
+        },
+        {
+          "year": 2015,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "Ramnagar (SC)",
+          "party": "RJD",
+          "status": "LOST"
+        }
+      ],
+      "summary": "Nand Kishor Ram contested the Bihar Assembly elections from the Ramnagar (SC) constituency as an RJD candidate in 2015 and 2020, losing on both occasions."
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "B.S.S. High School, Ramnagar",
+        "year_completed": 1980
+      }
+    ]
   },
   {
     "id": "24aae84a-0dd4-4514-870c-c32a0669ce2c",
