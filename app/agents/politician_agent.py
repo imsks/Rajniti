@@ -50,7 +50,6 @@ class PoliticianEducation:
         updates = {"education": [item.model_dump(mode="json") for item in validated]}
         return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
 
-
 class PoliticianAgent(BaseAgent):
     """Top-level orchestrator for politician enrichment processes."""
 
