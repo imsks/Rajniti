@@ -10,7 +10,7 @@ from app.agents.base_agent import BaseAgent
 from app.core import CacheManager, log
 from app.prompts import PoliticianPrompts
 from app.services import PoliticianService
-from app.schemas.politician import Education, PoliticalBackground
+from app.schemas.politician import Education, PoliticalBackground, ElectionRecord
 
 logger = logging.getLogger(__name__)
 
@@ -71,13 +71,48 @@ class PoliticianPoliticalBackground:
         parsed = self.base._parse_json_object(raw)
         if parsed is None:
             return {"process": self.name, "ok": False, "error": "invalid_llm_json", "raw": raw}
-
+        # Try full validation first
         adapter = TypeAdapter(PoliticalBackground)
         validated, errors = self.base._validate_with_adapter(parsed, adapter)
-        if errors:
-            return {"process": self.name, "ok": False, "error": "validation_failed", "details": errors}
+        updates: Dict[str, Any] = {}
 
-        return {"process": self.name, "ok": True, "skipped": False, "updates": {"political_background": validated.model_dump(mode="json")}}
+        if not errors and validated is not None:
+            updates["political_background"] = validated.model_dump(mode="json")
+            logger.info("political_background: full validation succeeded (id=%s)", politician.get("id"))
+            logger.debug("political_background: updates=%s", updates)
+            return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
+
+        # Full validation failed — attempt tolerant partial acceptance:
+        validation_errors = errors
+        partial_updates: Dict[str, Any] = {"elections": [], "summary": None}
+
+        # Try to validate elections list individually
+        if isinstance(parsed.get("elections"), list):
+            elections_adapter = TypeAdapter(list[ElectionRecord])
+            ev_validated, ev_errors = self.base._validate_with_adapter(parsed.get("elections"), elections_adapter)
+            if ev_validated is not None and not ev_errors:
+                partial_updates["elections"] = [e.model_dump(mode="json") for e in ev_validated]
+            else:
+                logger.debug("political_background: elections validation failed: %s", ev_errors)
+        # Accept summary if present and non-empty
+        summary_val = parsed.get("summary")
+        if isinstance(summary_val, str) and summary_val.strip():
+            partial_updates["summary"] = summary_val.strip()
+
+        # If we have at least one useful field, accept partial update
+        if partial_updates["elections"] or partial_updates["summary"] is not None:
+            updates["political_background"] = partial_updates
+            logger.info(
+                "political_background: partial acceptance (id=%s) errors=%s",
+                politician.get("id"),
+                validation_errors,
+            )
+            logger.debug("political_background: partial updates=%s", updates)
+            return {"process": self.name, "ok": True, "skipped": False, "updates": updates, "validation_errors": validation_errors}
+
+        # Nothing useful could be extracted
+        logger.warning("political_background: validation failed (id=%s) errors=%s", politician.get("id"), validation_errors)
+        return {"process": self.name, "ok": False, "error": "validation_failed", "details": validation_errors}
 
 class PoliticianAgent(BaseAgent):
     """Top-level orchestrator for politician enrichment processes."""
