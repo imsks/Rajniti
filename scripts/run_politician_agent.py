@@ -7,6 +7,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app.agents.politician_agent import PoliticianAgent
 from app.core import setup_logging
 
+# To run script -> python scripts/run_politician_agent.py --id "e345d97b-f7c3-4974-b190-1662fcfb4a7a"
+
 
 def main() -> None:
     """Parse CLI args and execute the requested politician agent action."""

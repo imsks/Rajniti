@@ -15,9 +15,33 @@
           "constituency": "RAMNAGAR",
           "party": "Bharatiya Janata Party",
           "status": "WON"
+        },
+        {
+          "year": 2020,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "Ramnagar (SC)",
+          "party": "RJD",
+          "status": "LOST"
+        },
+        {
+          "year": 2015,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "Ramnagar (SC)",
+          "party": "RJD",
+          "status": "LOST"
         }
-      ]
-    }
+      ],
+      "summary": "Nand Kishor Ram contested the Bihar Assembly elections from the Ramnagar (SC) constituency as an RJD candidate in 2015 and 2020, losing on both occasions."
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "B.S.S. High School, Ramnagar",
+        "year_completed": 1980
+      }
+    ]
   },
   {
     "id": "24aae84a-0dd4-4514-870c-c32a0669ce2c",
@@ -35,9 +59,33 @@
           "constituency": "NARKATIAGANJ",
           "party": "Bharatiya Janata Party",
           "status": "WON"
+        },
+        {
+          "year": 2020,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NARKATIAGANJ",
+          "party": "BJP",
+          "status": "WON"
+        },
+        {
+          "year": 2015,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NARKATIAGANJ",
+          "party": "BJP",
+          "status": "LOST"
         }
-      ]
-    }
+      ],
+      "summary": "Sanjay Kumar Pandey is an MLA from Narkatiaganj constituency in Bihar, having won the 2020 assembly elections on a BJP ticket. He previously contested and lost from the same constituency in 2015."
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "L.N.M.U. Darbhanga",
+        "year_completed": 1990
+      }
+    ]
   },
   {
     "id": "40f140ba-a5af-4690-ac77-0e00ecaad545",

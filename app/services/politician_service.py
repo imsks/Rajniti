@@ -10,8 +10,6 @@ import logging
 from pathlib import Path
 from typing import Any, Dict, List, Literal, Optional, Set
 
-from app.schemas.politician import Politician
-
 logger = logging.getLogger(__name__)
 
 ElectionType = Literal["MP", "MLA"]
@@ -228,10 +226,54 @@ class PoliticianService:
             records = self._load(etype)  # type: ignore[arg-type]
             for i, p in enumerate(records):
                 if p.get("id") == politician_id:
-                    records[i] = {**p, **updates}
+                    merged = self._merge_nested(p, updates)
+                    records[i] = merged
                     self._save(etype, records)  # type: ignore[arg-type]
                     return records[i]
         return None
+
+    def _merge_nested(self, existing: Dict[str, Any], updates: Dict[str, Any]) -> Dict[str, Any]:
+        """Shallow merge with special handling for political_background (append elections)."""
+        merged = {**existing, **updates}
+
+        if "political_background" in updates and isinstance(existing.get("political_background"), dict):
+            merged["political_background"] = self._merge_political_background(
+                existing.get("political_background") or {}, updates.get("political_background") or {}
+            )
+
+        return merged
+
+    @staticmethod
+    def _merge_political_background(existing_pb: Dict[str, Any], new_pb: Dict[str, Any]) -> Dict[str, Any]:
+        """Append elections without duplicating existing entries; prefer new summary if provided."""
+        existing_elections = existing_pb.get("elections") or []
+        new_elections = new_pb.get("elections") or []
+
+        # Deduplicate by tuple of core fields
+        def key(e: Dict[str, Any]) -> tuple:
+            return (
+                e.get("year"),
+                e.get("type"),
+                (e.get("state") or "").lower(),
+                (e.get("constituency") or "").lower(),
+                (e.get("party") or "").lower(),
+                (e.get("status") or "").lower(),
+            )
+
+        seen = {key(e): e for e in existing_elections if isinstance(e, dict)}
+        for e in new_elections:
+            if not isinstance(e, dict):
+                continue
+            k = key(e)
+            if k not in seen:
+                seen[k] = e
+
+        merged_elections = list(seen.values())
+
+        summary = new_pb.get("summary")
+        merged_summary = summary if summary is not None else existing_pb.get("summary")
+
+        return {"elections": merged_elections, "summary": merged_summary}
 
     # ── cache management ──────────────────────────────────────────────────
 
