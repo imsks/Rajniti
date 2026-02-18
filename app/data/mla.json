@@ -15,9 +15,33 @@
           "constituency": "RAMNAGAR",
           "party": "Bharatiya Janata Party",
           "status": "WON"
+        },
+        {
+          "year": 2020,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "Ramnagar (SC)",
+          "party": "RJD",
+          "status": "LOST"
+        },
+        {
+          "year": 2015,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "Ramnagar (SC)",
+          "party": "RJD",
+          "status": "LOST"
         }
-      ]
-    }
+      ],
+      "summary": "Nand Kishor Ram contested the Bihar Assembly elections from the Ramnagar (SC) constituency as an RJD candidate in 2015 and 2020, losing on both occasions."
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "B.S.S. High School, Ramnagar",
+        "year_completed": 1980
+      }
+    ]
   },
   {
     "id": "24aae84a-0dd4-4514-870c-c32a0669ce2c",
@@ -35,9 +59,33 @@
           "constituency": "NARKATIAGANJ",
           "party": "Bharatiya Janata Party",
           "status": "WON"
+        },
+        {
+          "year": 2020,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NARKATIAGANJ",
+          "party": "BJP",
+          "status": "WON"
+        },
+        {
+          "year": 2015,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NARKATIAGANJ",
+          "party": "BJP",
+          "status": "LOST"
         }
-      ]
-    }
+      ],
+      "summary": "Sanjay Kumar Pandey is an MLA from Narkatiaganj constituency in Bihar, having won the 2020 assembly elections on a BJP ticket. He previously contested and lost from the same constituency in 2015."
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "L.N.M.U. Darbhanga",
+        "year_completed": 1990
+      }
+    ]
   },
   {
     "id": "40f140ba-a5af-4690-ac77-0e00ecaad545",
@@ -7165,6 +7213,1659 @@
     "state": "Assam",
     "constituency": "Nalbari",
     "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "16420c85-8fb6-5811-8541-25f6d8df0a76",
+    "name": "Gajaraj Madhu Sahu",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Durg City",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "c24e5480-f4b6-59e7-86c1-4f7dc22f75f7",
+    "name": "Devendra Yadav",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Bhilai Nagar",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "37e16db9-f872-55d9-909a-5db96f1afc84",
+    "name": "Rikesh Sen",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Vaishali Nagar",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "fb5df8d5-2f68-59db-850a-2579bb3669de",
+    "name": "Domeshwari Verma",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Ahiwara",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "8083494c-c2f1-5783-8c1e-10001507baf2",
+    "name": "Ishwar Sahu",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Saja",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "307f8f19-516d-5642-9b8b-ecad390c6f67",
+    "name": "Dipesh Sahu",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Bemetara",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "cb8b57f6-3511-5330-8675-4b889b33ce2a",
+    "name": "Dayaldas Baghel",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Nawagarh",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "0a2ba646-9fe4-5de3-8612-24777556a58e",
+    "name": "Bhawna Bohra",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Pandariya",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "c079da7f-47f2-5c78-b539-f79a1f3ce0a1",
+    "name": "Vijay Sharma",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Kawardha",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "874fc23c-930d-5aac-bee6-c5545324a9e5",
+    "name": "Yashoda Nilamber Verma",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Khairagarh",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "2083d021-e8b6-5e31-9528-af2145ccc055",
+    "name": "Harshita Swami Baghel",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Dongargarh",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "a666c060-86ba-5d78-a31c-1e58226b6c5d",
+    "name": "Raman Singh",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Rajnandgaon",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "0c05dc10-7f73-5fb7-bf5e-d9fbb28a78ea",
+    "name": "Daleshwar Sahu",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Dongargaon",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "d75d17c6-d009-56d6-a300-da70d9533892",
+    "name": "Bhola Ram Sahu",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Khujji",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "effb4230-e5fc-5c77-9d4c-9aea9e156240",
+    "name": "Indrashah Mandavi",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Mohla-Manpur",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "85c8a81f-a782-5f7e-9e55-6b67274459e7",
+    "name": "Vikram Usendi",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Antagarh",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "75f17d5a-68e4-53a2-ab7c-78b79407b34b",
+    "name": "Savitri Manoj Mandavi",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Bhanupratappur",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "cb7c22ec-0473-52d4-bff2-73af5be009a2",
+    "name": "Asha Ram Netam",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Kanker",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "cbf6f8be-d2e6-5710-9e82-b4d6e7a117c4",
+    "name": "Neelkanth Tekam",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Keshkal",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "de1d2ebd-92b4-5ad0-97fa-e52f888e301c",
+    "name": "Lata Usendi",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Kondagaon",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "91b2fecb-67eb-5229-9b02-0dfa847e9bc7",
+    "name": "Kedar Nath Kashyap",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Narayanpur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "feb886ff-8ad5-5c8d-8979-078174497a04",
+    "name": "Lakheshwar Baghel",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Bastar",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "c0d34cb4-e4fb-5cc5-91e7-21c0c0e385a6",
+    "name": "Kiran Singh Deo",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Jagdalpur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "6cfff8c0-fc9f-5b4f-ba4c-4c36a266403a",
+    "name": "Dipak Kumar Baij",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Chitrakot",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "3ca4f865-ae54-5509-bab8-afebe7a4096e",
+    "name": "Chaitram Aram",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Dantewada",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "139c6eef-1839-578f-8017-ab2c2170d2de",
+    "name": "Vikram Mandavi",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Bijapur",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "34e158b0-5a79-5591-9e71-fc189ff2ddc2",
+    "name": "Kawasi Lakma",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Konta",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "a1d469b5-cfb7-5fa8-a7c9-faa968e44c20",
+    "name": "Sandeep Sahu",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Akaltara",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "7f7f7352-1539-54d3-8725-6852c3b25220",
+    "name": "Vyas Kashyap",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Janjgir-Champa",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "8b07bf60-e0a9-5b80-ab06-73600be6073a",
+    "name": "Dr. Charan Das Mahant",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Sakti",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "680287e3-5921-5643-a852-4c88217290d0",
+    "name": "Ram Kumar Yadav",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Chandrapur",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "8e9914de-3581-5f51-a01b-ed4490d8dc85",
+    "name": "Baleshwar Sahu",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Jaijaipur",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "2ab6639e-bd4e-5182-a468-2ad2a969a47e",
+    "name": "Sheshraj Harvansh",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Pamgarh",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "9021c17d-2b42-59a9-b0c3-5d8a9c340c93",
+    "name": "Chhatram Devangan",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Saraipali",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "acd16122-70b5-5d27-b739-fbd8c59feb1a",
+    "name": "Devendra Bahadur Singh",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Basna",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "2270cfbe-e30b-5b4d-85ad-85f20e997ecf",
+    "name": "Dwarikadhwaj Singh Yadav",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Khallari",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "1763fce1-e29f-5460-981f-b4805711fbfa",
+    "name": "Yogeshwar Raju Sinha",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Mahasamund",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "6b681c9b-34dc-5f19-a413-e2c71d11f01a",
+    "name": "Kavita Pran Lahare",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Bilaigarh",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "2dd46d47-8597-5ee5-8b21-00b78b7172b2",
+    "name": "Tankram Verma",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Baloda Bazar",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "91eaef76-5b79-5fdf-a93d-b5de4cd3a244",
+    "name": "Inder Sao",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Bhatapara",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "9604c127-332b-509d-a403-289c26e83ac1",
+    "name": "Anit Chhatrapal Sahu",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Dharsiwa",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "c770bb79-f683-536e-9cbd-776b5000cba3",
+    "name": "Motilal Sahu",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Raipur Rural",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f2681bef-7fc1-5f90-88a3-c6fc35e62bbf",
+    "name": "Rajesh Munat",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Raipur City West",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "18dece06-db16-51b8-9750-c865203caecb",
+    "name": "Purandar Mishra",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Raipur City North",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "5134ed65-581c-54c1-a730-ca8e5329be08",
+    "name": "Brijmohan Agrawal",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Raipur City South",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "cc9258ed-3652-59b8-8fc6-a193229863b4",
+    "name": "Guru Rudra Kumar",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Arang",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "781ed26e-4fd1-5da6-aca4-7f947a0334ce",
+    "name": "Dhanendra Sahu",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Abhanpur",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "3129d60c-7d39-5359-933a-8d2321c46a05",
+    "name": "Rohit Sahu",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Rajim",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "7762b829-6302-50e2-b2e5-7bb826405a6a",
+    "name": "Janak Dhruv",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Bindranawagarh",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "187d0903-3fd3-5ccd-8ec2-e7550d01828e",
+    "name": "Ambika Markam",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Sihawa",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "bd3fd976-dc82-5c22-a8ca-ad95115d4d93",
+    "name": "Ajay Chandrakar",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Kurud",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "7e770bc6-69dd-5683-9e50-50a0f7946ec7",
+    "name": "Onkar Sahu",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Dhamtari",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "540725dc-9b10-50de-8ff0-ca1dfb2b5a23",
+    "name": "Sangeeta Sinha",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Sanjari-Balod",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "47550eb2-7c47-557b-97b4-a1f183b53253",
+    "name": "Anila Bhendia",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Dondi Lohara",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "979f4e2c-0db4-528d-8a63-a9916a97fc64",
+    "name": "Tamradhwaj Sahu",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Gunderdehi",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "04f00f33-1005-5f94-91aa-f22ff777572a",
+    "name": "Bhupesh Baghel",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Patan",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "a53a7dbb-7e85-5b2a-9e40-3c9f8fa51a1f",
+    "name": "Lalit Chandrakar",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Durg Rural",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "a93f3171-a5d0-5e0c-a3b1-8319176fcaef",
+    "name": "Renuka Singh",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Bharatpur-Sonhat",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "b631aa93-d2f9-5873-a142-ad6c1aaa6683",
+    "name": "Shyam Bihari Jaiswal",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Manendragarh",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "ff7a740b-e139-5ffd-91bb-9c234bbb8d33",
+    "name": "Bhaiyalal Rajwade",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Baikunthpur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "82d28f4f-ce1b-5cf2-9ba2-1fdfc684a4fa",
+    "name": "Bhulan Singh Maravi",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Premnagar",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "ac39a8b7-f023-52b2-ac9d-4c857c41a468",
+    "name": "Laxmi Rajwade",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Bhatgaon",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "932cd468-36a4-5ed0-bdc7-58705852f754",
+    "name": "Shakuntala Singh Portey",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Pratappur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "043ad64e-ffcb-5d77-bad7-ce516da22dfd",
+    "name": "Ramkumar Toppo",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Ramanujganj",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "8d3744fe-d301-5c4e-aa34-0aadb3534a4e",
+    "name": "Rajesh Agrawal",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Ambikapur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "d868888a-19d1-5633-9f03-e3f930da54e8",
+    "name": "Prabodh Minj",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Lundra",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "b6f11265-cd82-5529-83f5-f1dfcde73b50",
+    "name": "Ramkumar Lakra",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Sitapur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "d7427610-bf9c-5694-b5b8-48b54dc7cc50",
+    "name": "Raymuni Bhagat",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Jashpur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "d027878c-9161-5bb7-b913-9c9479e5506d",
+    "name": "Vishnu Deo Sai",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Kunkuri",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "1d2e4f8b-60ca-59ce-b222-13f43c5429ca",
+    "name": "Gomati Sai",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Pathalgaon",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "7f041e1d-2a77-5b21-866e-c9469ee9d3d5",
+    "name": "Sunita Singh Rathia",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Lailunga",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "9200ec3a-4b0d-5a8c-b053-3ab8561f3e45",
+    "name": "O.P. Choudhary",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Raigarh",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "84e8075f-2806-5c0f-a1e4-1f6f5ac898b0",
+    "name": "Uttari Ganpat Jangde",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Sarangarh",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "6fd69f15-542a-566e-b589-0e9979760e5a",
+    "name": "Umesh Patel",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Kharsia",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "cd524f6c-2a3c-53fb-bcc9-6826411f5e69",
+    "name": "Laljeet Singh Rathia",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Dharamjaigarh",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "dbed39e9-8444-5548-aee2-8a9a6ad6b65b",
+    "name": "Phul Singh Rathia",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Rampur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "a5e3b002-b6dd-5920-b4b9-8289955be91b",
+    "name": "Lakhanlal Dewangan",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Korba",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "7eded8a9-a447-56ff-b214-317d5f14b14c",
+    "name": "Premchand Patel",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Katghora",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "e57e04e1-bcb8-5db8-96fb-e2e9da67161f",
+    "name": "Tuleshwar Hira Singh Markam",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Pali-Tanakhar",
+    "party": "GGP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "1966a974-771a-5bd5-9c7a-faa90294258c",
+    "name": "Pranav Kumar Marpachi",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Marwahi",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "24b77428-729b-5139-be81-0053708bdbba",
+    "name": "Atal Shrivastava",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Kota",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "269414b0-983f-59a4-99b6-12d0fa14af43",
+    "name": "Arun Sao",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Lormi",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "6067c5e9-46b4-5c1e-9429-77c0475acc76",
+    "name": "Punnulal Mohle",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Mungeli",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "1e49d456-7f11-56e6-83f6-ad632fe7ed44",
+    "name": "Dharmjeet Singh Thakur",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Takhatpur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f590d216-9b0e-5f0a-a458-82e30d6bf05f",
+    "name": "Amar Agrawal",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Bilaspur",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "77b39413-1195-56b0-b08e-612bf7361c15",
+    "name": "Dharamlal Kaushik",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Bilha",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "bce045f3-f113-51c4-b34e-d454cba49fa6",
+    "name": "Dilip Lahariya",
+    "photo": null,
+    "state": "Chhattisgarh",
+    "constituency": "Masturi",
+    "party": "INC",
     "type": "MLA",
     "education": null,
     "family_background": null,
