@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useMemo } from "react"
+import { motion } from "framer-motion"
 import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
@@ -60,7 +61,11 @@ export default function Dashboard() {
 
             <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8'>
                 {/* Header + Stats */}
-                <div className='mb-8'>
+                <motion.div 
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className='mb-8'>
                     <Text variant='h2' weight='bold' className='text-gray-900 mb-2'>
                         Indian Politicians
                     </Text>
@@ -69,7 +74,11 @@ export default function Dashboard() {
                     </Text>
 
                     {!loading && (
-                        <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-6'>
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                            className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-6'>
                             <StatCard
                                 value={stats.total.toLocaleString()}
                                 label='Total Politicians'
@@ -90,15 +99,24 @@ export default function Dashboard() {
                                 label='Top Party'
                                 color='text-purple-600'
                             />
-                        </div>
+                        </motion.div>
                     )}
-                </div>
+                </motion.div>
 
                 {/* Tabs */}
-                <div className='flex gap-2 mb-6'>
-                    {(["ALL", "MP", "MLA"] as Tab[]).map((tab) => (
-                        <button
+                <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className='flex gap-2 mb-6'>
+                    {(["ALL", "MP", "MLA"] as Tab[]).map((tab, i) => (
+                        <motion.button
                             key={tab}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
                             onClick={() => {
                                 setActiveTab(tab)
                                 setSearchQuery("")
@@ -115,12 +133,16 @@ export default function Dashboard() {
                                 : tab === "MP"
                                   ? "MPs"
                                   : "MLAs"}
-                        </button>
+                        </motion.button>
                     ))}
-                </div>
+                </motion.div>
 
                 {/* Search + Filters */}
-                <div className='bg-white rounded-2xl shadow-sm border border-gray-200 p-4 mb-6'>
+                <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
+                    className='bg-white rounded-2xl shadow-sm border border-gray-200 p-4 mb-6'>
                     <div className='flex flex-col md:flex-row gap-3'>
                         {/* Search input */}
                         <div className='flex-1 relative'>
@@ -181,7 +203,7 @@ export default function Dashboard() {
                             </button>
                         </div>
                     )}
-                </div>
+                </motion.div>
 
                 {/* Loading state */}
                 {loading && (
@@ -212,15 +234,31 @@ export default function Dashboard() {
 
                 {/* Politician grid */}
                 {!loading && displayPoliticians.length > 0 && (
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                        {displayPoliticians.map((p) => (
-                            <PoliticianCard key={p.id} politician={p} />
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                        {displayPoliticians.map((p, i) => (
+                            <motion.div
+                                key={p.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: i * 0.05 }}
+                            >
+                                <PoliticianCard politician={p} />
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 )}
 
                 {/* Contribute CTA */}
-                <div className='mt-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-center text-white'>
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className='mt-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-center text-white'>
                     <Text variant='h3' weight='bold' className='text-white mb-2'>
                         Help us build the most comprehensive politician database
                     </Text>
@@ -229,14 +267,19 @@ export default function Dashboard() {
                         details. You can contribute by enriching profiles or reporting
                         inaccuracies.
                     </Text>
-                    <Button
-                        href='https://github.com/imsks/rajniti/issues/new'
-                        external
-                        className='bg-white text-orange-600 hover:bg-gray-50 border-none shadow-lg'
-                        size='lg'>
-                        Contribute on GitHub →
-                    </Button>
-                </div>
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <Button
+                            href='https://github.com/imsks/rajniti/issues/new'
+                            external
+                            className='bg-white text-orange-600 hover:bg-gray-50 border-none shadow-lg'
+                            size='lg'>
+                            Contribute on GitHub →
+                        </Button>
+                    </motion.div>
+                </motion.div>
             </div>
 
             <Footer />
@@ -256,13 +299,15 @@ function StatCard({
     color: string
 }) {
     return (
-        <div className='bg-white rounded-xl p-4 border border-gray-200 shadow-sm'>
+        <motion.div 
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            className='bg-white rounded-xl p-4 border border-gray-200 shadow-sm'>
             <Text variant='h3' weight='bold' className={color}>
                 {value}
             </Text>
             <Text variant='small' className='text-gray-500'>
                 {label}
             </Text>
-        </div>
+        </motion.div>
     )
 }
