@@ -10,7 +10,7 @@ from app.agents.base_agent import BaseAgent
 from app.core import CacheManager, log
 from app.prompts import PoliticianPrompts
 from app.services import PoliticianService
-from app.schemas.politician import Education
+from app.schemas.politician import Education, PoliticalBackground
 
 logger = logging.getLogger(__name__)
 
@@ -50,6 +50,35 @@ class PoliticianEducation:
         updates = {"education": [item.model_dump(mode="json") for item in validated]}
         return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
 
+
+class PoliticianPoliticalBackground:
+    """Political background enrichment process for one politician."""
+
+    name = "political_background"
+
+    def __init__(self, base_agent: BaseAgent):
+        self.base = base_agent
+
+    @log(logger, "PoliticianPoliticalBackground.run")
+    def run(self, politician: Dict[str, Any], force: bool = False) -> Dict[str, Any]:
+        # skip if present and not force
+        existing = (politician.get("political_background") or {}).get("elections") or []
+        if existing and not force:
+            return {"process": self.name, "ok": True, "skipped": True, "reason": "already_present"}
+
+        prompt = PoliticianPrompts.political_background(politician)
+        raw = self.base._run_llm(prompt)
+        parsed = self.base._parse_json_object(raw)
+        if parsed is None:
+            return {"process": self.name, "ok": False, "error": "invalid_llm_json", "raw": raw}
+
+        adapter = TypeAdapter(PoliticalBackground)
+        validated, errors = self.base._validate_with_adapter(parsed, adapter)
+        if errors:
+            return {"process": self.name, "ok": False, "error": "validation_failed", "details": errors}
+
+        return {"process": self.name, "ok": True, "skipped": False, "updates": {"political_background": validated.model_dump(mode="json")}}
+
 class PoliticianAgent(BaseAgent):
     """Top-level orchestrator for politician enrichment processes."""
 
@@ -58,7 +87,7 @@ class PoliticianAgent(BaseAgent):
         super().__init__()
         self.politician_service = PoliticianService()
         self.cache = CacheManager()
-        self.processes = [PoliticianEducation(self)]
+        self.processes = [PoliticianEducation(self), PoliticianPoliticalBackground(self)]
 
     @log(logger, "PoliticianAgent.run")
     def run(

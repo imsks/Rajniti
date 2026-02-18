@@ -23,3 +23,19 @@ class PoliticianPrompts:
             "If unknown, return []"
         )
 
+    @staticmethod
+    def political_background(politician: Dict[str, Any]) -> str:
+        name = politician.get("name", "")
+        state = politician.get("state", "")
+        constituency = politician.get("constituency", "")
+        ptype = politician.get("type", "")
+        return (
+            "You are extracting a politician's political background.\n"
+            "Return ONLY a valid JSON object matching this shape:\n"
+            '{ "elections": [ { "year": 2024, "type": "MP|MLA", "state": "string", '
+            '"constituency": "string", "party": "string", "status": "WINNER|LOSER|INCUMBENT" } ], '
+            '"summary": "short textual summary or null" }\n'
+            f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
+            "If unknown, return {\"elections\": [], \"summary\": null}"
+        )
+

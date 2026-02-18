@@ -10,8 +10,6 @@ import logging
 from pathlib import Path
 from typing import Any, Dict, List, Literal, Optional, Set
 
-from app.schemas.politician import Politician
-
 logger = logging.getLogger(__name__)
 
 ElectionType = Literal["MP", "MLA"]
