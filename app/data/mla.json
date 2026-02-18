@@ -59,9 +59,33 @@
           "constituency": "NARKATIAGANJ",
           "party": "Bharatiya Janata Party",
           "status": "WON"
+        },
+        {
+          "year": 2020,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NARKATIAGANJ",
+          "party": "BJP",
+          "status": "WON"
+        },
+        {
+          "year": 2015,
+          "type": "MLA",
+          "state": "Bihar",
+          "constituency": "NARKATIAGANJ",
+          "party": "BJP",
+          "status": "LOST"
         }
-      ]
-    }
+      ],
+      "summary": "Sanjay Kumar Pandey is an MLA from Narkatiaganj constituency in Bihar, having won the 2020 assembly elections on a BJP ticket. He previously contested and lost from the same constituency in 2015."
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "L.N.M.U. Darbhanga",
+        "year_completed": 1990
+      }
+    ]
   },
   {
     "id": "40f140ba-a5af-4690-ac77-0e00ecaad545",
