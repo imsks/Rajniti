@@ -4,13 +4,13 @@
 [x] Separate Prompts from Logic so that we can improve Prompts later.
 [x] Before any Subprocess to run, Check if the Politician is already enriched for that field.
 [x] Extend Agentic Setup to Gemini API.
-[ ] Setup Chroma DB for CRUD Ops on Politicians.
+[x] Setup Chroma DB for CRUD Ops on Politicians.
 [ ] Create a New Subprocess -
-[ ] Election History
-[ ] Political Background
+[x] Election History
+[x] Political Background
 [ ] Criminal Records
 [ ] Social Media
 [ ] Contact
 [ ] Family Background
-[ ] Agent to Enrich Politician(MLA) Data by giving State Name
-[ ] Spwan All Subprocesses in Parallel and wait for all to complete.
+[x] Agent to Enrich Politician(MLA) Data by giving State Name
+[x] Spwan All Subprocesses in Parallel and wait for all to complete.
