@@ -18,22 +18,21 @@ export default function Dashboard() {
   const [stateFilter, setStateFilter] = useState("")
   const [partyFilter, setPartyFilter] = useState("")
 
-  // One API call — everything else derived client-side
   const typeParam: ElectionType | undefined =
     activeTab === "ALL" ? undefined : activeTab
 
   const { loading, error, states, parties, stats, filter } =
     usePoliticians(typeParam)
 
-  // Filtered list — pure client-side
-  const displayPoliticians = useMemo(
-    () => filter({ query: searchQuery, state: stateFilter, party: partyFilter }),
-    [filter, searchQuery, stateFilter, partyFilter],
-  )
+  const displayPoliticians = useMemo(() => {
+    return filter({
+      query: searchQuery,
+      state: stateFilter,
+      party: partyFilter,
+    })
+  }, [filter, searchQuery, stateFilter, partyFilter])
 
   const hasActiveFilters = !!(searchQuery || stateFilter || partyFilter)
-
-  // ── Render ────────────────────────────────────────────────────────────
 
   if (error) {
     return (
@@ -307,8 +306,6 @@ export default function Dashboard() {
     </div>
   )
 }
-
-// ── Tiny helper component ─────────────────────────────────────────────────
 
 function StatCard({
   value,
