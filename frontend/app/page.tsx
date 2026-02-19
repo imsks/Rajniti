@@ -34,14 +34,50 @@ export default function Home() {
             <Navbar variant='default' />
 
             {/* Hero Section */}
-            <section className='py-20 sm:py-32 relative z-2'>
-                <div className='text-center w-full px-4 sm:px-6 lg:px-8'>
-                    <div className='text-center'>
+            <section className='pt-6 pb-20 sm:pt-16 sm:pb-32 relative z-2 overflow-hidden'>
+                <motion.svg
+                    className="pointer-events-none absolute right-8 lg:right-16 top-1/2 -translate-y-1/2 w-[520px] h-[520px] sm:w-[640px] sm:h-[640px] text-[#0F1F3D]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 18, repeat: Infinity, ease: "linear" }}>
+                    <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                    {Array.from({ length: 24 }).map((_, i) => {
+                        const angle = (i * 360) / 24
+                        const rad = (angle * Math.PI) / 180
+                        const x1 = 12 + Math.cos(rad) * 3
+                        const y1 = 12 + Math.sin(rad) * 3
+                        const x2 = 12 + Math.cos(rad) * 10
+                        const y2 = 12 + Math.sin(rad) * 10
+                        return (
+                            <line
+                                key={i}
+                                x1={x1}
+                                y1={y1}
+                                x2={x2}
+                                y2={y2}
+                                stroke="currentColor"
+                                strokeWidth="0.5"
+                            />
+                        )
+                    })}
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                    />
+                </motion.svg>
+
+                <div className='w-full px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl mx-auto'>
+                    <div className='max-w-3xl'>
                         <motion.div 
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className='mb-8 flex justify-center'>
+                            className='mb-8 flex justify-start'>
                             <div className='rounded-full bg-gradient-to-r from-orange-500 via-white to-green-500 p-[2px] shadow-lg'>
                                 <div className='rounded-full bg-white px-6 py-2.5 flex items-center gap-2'>
                                     <svg className='w-5 h-5' viewBox='0 0 24 24' fill='none'>
@@ -61,7 +97,7 @@ export default function Home() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}>
-                            <h1 className="font-serif text-[56px] sm:text-[80px] font-semibold leading-[1.08] tracking-[-0.02em] text-[#0F1F3D] text-center mb-4">
+                            <h1 className="font-serif text-[56px] sm:text-[80px] font-semibold leading-[1.08] tracking-[-0.02em] text-[#0F1F3D] text-left mb-4">
                                 Know Your
                                 <br />
                                 <span className="text-orange-600 italic whitespace-nowrap">Elected</span> Representatives
@@ -74,7 +110,7 @@ export default function Home() {
                             transition={{ duration: 0.6, delay: 0.2 }}>
                             <Text
                                 variant='body'
-                                className='mx-auto max-w-2xl text-gray-600 mb-10'>
+                                className='max-w-2xl text-gray-600 mb-10'>
                                 Rajniti is an open-source platform to explore Indian
                                 MPs and MLAs — their political history, education,
                                 family background, criminal records, and more. All free
@@ -86,7 +122,7 @@ export default function Home() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.3 }}
-                            className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
+                            className='flex flex-col sm:flex-row gap-4 justify-start items-start'>
                             <div className='shadow-[0_8px_30px_rgba(249,115,22,0.25)]'>
                                 <Button
                                     href='/dashboard'
