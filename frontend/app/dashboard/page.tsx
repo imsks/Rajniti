@@ -6,308 +6,330 @@ import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import PoliticianCard from "@/components/PoliticianCard"
+import PoliticianGridSkeleton from "@/components/PoliticianGridSkeleton"
 import { usePoliticians } from "@/hooks/usePoliticians"
 import type { ElectionType } from "@/types/politician"
 
 type Tab = "ALL" | "MP" | "MLA"
 
 export default function Dashboard() {
-    const [activeTab, setActiveTab] = useState<Tab>("ALL")
-    const [searchQuery, setSearchQuery] = useState("")
-    const [stateFilter, setStateFilter] = useState("")
-    const [partyFilter, setPartyFilter] = useState("")
+  const [activeTab, setActiveTab] = useState<Tab>("ALL")
+  const [searchQuery, setSearchQuery] = useState("")
+  const [stateFilter, setStateFilter] = useState("")
+  const [partyFilter, setPartyFilter] = useState("")
 
-    // One API call — everything else derived client-side
-    const typeParam: ElectionType | undefined =
-        activeTab === "ALL" ? undefined : activeTab
+  // One API call — everything else derived client-side
+  const typeParam: ElectionType | undefined =
+    activeTab === "ALL" ? undefined : activeTab
 
-    const { all, loading, error, states, parties, stats, filter } =
-        usePoliticians(typeParam)
+  const { loading, error, states, parties, stats, filter } =
+    usePoliticians(typeParam)
 
-    // Filtered list — pure client-side
-    const displayPoliticians = useMemo(
-        () => filter({ query: searchQuery, state: stateFilter, party: partyFilter }),
-        [filter, searchQuery, stateFilter, partyFilter]
-    )
+  // Filtered list — pure client-side
+  const displayPoliticians = useMemo(
+    () => filter({ query: searchQuery, state: stateFilter, party: partyFilter }),
+    [filter, searchQuery, stateFilter, partyFilter],
+  )
 
-    const hasActiveFilters = !!(searchQuery || stateFilter || partyFilter)
+  const hasActiveFilters = !!(searchQuery || stateFilter || partyFilter)
 
-    // ── Render ────────────────────────────────────────────────────────────
+  // ── Render ────────────────────────────────────────────────────────────
 
-    if (error) {
-        return (
-            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center p-4'>
-                <div className='bg-white rounded-lg shadow-lg p-8 max-w-md w-full border-l-4 border-red-500'>
-                    <div className='flex items-center gap-3 mb-4'>
-                        <div className='text-red-500 text-3xl'>⚠️</div>
-                        <Text variant='h4' weight='bold' className='text-gray-900'>
-                            Connection Error
-                        </Text>
-                    </div>
-                    <Text variant='body' className='text-gray-600 mb-4'>
-                        {error}
-                    </Text>
-                    <Button onClick={() => window.location.reload()} fullWidth>
-                        Try Again
-                    </Button>
-                </div>
-            </div>
-        )
-    }
-
+  if (error) {
     return (
-        <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50'>
-            <Navbar variant='dashboard' sticky={true} />
+      <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full border-l-4 border-red-500">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="text-red-500 text-3xl">⚠️</div>
+            <Text variant="h4" weight="bold" className="text-gray-900">
+              Connection Error
+            </Text>
+          </div>
+          <Text variant="body" className="text-gray-600 mb-4">
+            {error}
+          </Text>
+          <Button onClick={() => window.location.reload()} fullWidth>
+            Try Again
+          </Button>
+        </div>
+      </div>
+    )
+  }
 
-            <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8'>
-                {/* Header + Stats */}
-                <motion.div 
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className='mb-8'>
-                    <Text variant='h2' weight='bold' className='text-gray-900 mb-2'>
-                        Indian Politicians
-                    </Text>
-                    <Text variant='body' className='text-gray-600 mb-6'>
-                        Browse elected MPs and MLAs. Help us enrich their profiles!
-                    </Text>
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50">
+      <Navbar variant="dashboard" sticky={true} />
 
-                    {!loading && (
-                        <motion.div 
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-6'>
-                            <StatCard
-                                value={stats.total.toLocaleString()}
-                                label='Total Politicians'
-                                color='text-orange-600'
-                            />
-                            <StatCard
-                                value={stats.totalStates.toString()}
-                                label='States / UTs'
-                                color='text-blue-600'
-                            />
-                            <StatCard
-                                value={stats.totalParties.toString()}
-                                label='Parties'
-                                color='text-green-600'
-                            />
-                            <StatCard
-                                value={stats.topParty}
-                                label='Top Party'
-                                color='text-purple-600'
-                            />
-                        </motion.div>
-                    )}
-                </motion.div>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+        {/* Header + Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8"
+        >
+          <Text variant="h2" weight="bold" className="text-gray-900 mb-2">
+            Indian Politicians
+          </Text>
+          <Text variant="body" className="text-gray-600 mb-6">
+            Browse elected MPs and MLAs. Help us enrich their profiles!
+          </Text>
 
-                {/* Tabs */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    className='flex gap-2 mb-6'>
-                    {(["ALL", "MP", "MLA"] as Tab[]).map((tab, i) => (
-                        <motion.button
-                            key={tab}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
-                            onClick={() => {
-                                setActiveTab(tab)
-                                setSearchQuery("")
-                                setStateFilter("")
-                                setPartyFilter("")
-                            }}
-                            className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                                activeTab === tab
-                                    ? "bg-orange-500 text-white shadow-md"
-                                    : "bg-white text-gray-600 border border-gray-300 hover:border-orange-400 hover:text-orange-600"
-                            }`}>
-                            {tab === "ALL"
-                                ? "All"
-                                : tab === "MP"
-                                  ? "MPs"
-                                  : "MLAs"}
-                        </motion.button>
-                    ))}
-                </motion.div>
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6"
+          >
+            {loading ? (
+              Array.from({ length: 4 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm"
+                >
+                  <div className="h-6 w-20 bg-gray-200 rounded mb-2" />
+                  <div className="h-3 w-24 bg-gray-200 rounded" />
+                </div>
+              ))
+            ) : (
+              <>
+                <StatCard
+                  value={stats.total.toLocaleString()}
+                  label="Total Politicians"
+                  color="text-orange-600"
+                />
+                <StatCard
+                  value={stats.totalStates.toString()}
+                  label="States / UTs"
+                  color="text-blue-600"
+                />
+                <StatCard
+                  value={stats.totalParties.toString()}
+                  label="Parties"
+                  color="text-green-600"
+                />
+                <StatCard
+                  value={stats.topParty}
+                  label="Top Party"
+                  color="text-purple-600"
+                />
+              </>
+            )}
+          </motion.div>
+        </motion.div>
 
-                {/* Search + Filters */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                    className='bg-white rounded-2xl shadow-sm border border-gray-200 p-4 mb-6'>
-                    <div className='flex flex-col md:flex-row gap-3'>
-                        {/* Search input */}
-                        <div className='flex-1 relative'>
-                            <span className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400'>
-                                🔍
-                            </span>
-                            <input
-                                type='text'
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder='Search by name, constituency, state or party...'
-                                className='w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent'
-                            />
-                        </div>
+        {/* Tabs */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex gap-2 mb-6"
+        >
+          {(["ALL", "MP", "MLA"] as Tab[]).map((tab, i) => (
+            <motion.button
+              key={tab}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
+              onClick={() => {
+                setActiveTab(tab)
+                setSearchQuery("")
+                setStateFilter("")
+                setPartyFilter("")
+              }}
+              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${
+                activeTab === tab
+                  ? "bg-orange-500 text-white shadow-md"
+                  : "bg-white text-gray-600 border border-gray-300 hover:border-orange-400 hover:text-orange-600"
+              }`}
+            >
+              {tab === "ALL" ? "All" : tab === "MP" ? "MPs" : "MLAs"}
+            </motion.button>
+          ))}
+        </motion.div>
 
-                        {/* State filter */}
-                        <select
-                            value={stateFilter}
-                            onChange={(e) => setStateFilter(e.target.value)}
-                            className='px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 min-w-[180px]'>
-                            <option value=''>All States</option>
-                            {states.map((s) => (
-                                <option key={s} value={s}>
-                                    {s}
-                                </option>
-                            ))}
-                        </select>
-
-                        {/* Party filter */}
-                        <select
-                            value={partyFilter}
-                            onChange={(e) => setPartyFilter(e.target.value)}
-                            className='px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 min-w-[180px]'>
-                            <option value=''>All Parties</option>
-                            {parties.map((p) => (
-                                <option key={p} value={p}>
-                                    {p}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-
-                    {/* Active filters summary */}
-                    {hasActiveFilters && (
-                        <div className='flex items-center gap-2 mt-3 pt-3 border-t border-gray-100'>
-                            <Text variant='small' className='text-gray-500'>
-                                Showing {displayPoliticians.length.toLocaleString()} result
-                                {displayPoliticians.length !== 1 ? "s" : ""}
-                            </Text>
-                            <button
-                                onClick={() => {
-                                    setSearchQuery("")
-                                    setStateFilter("")
-                                    setPartyFilter("")
-                                }}
-                                className='ml-2 text-xs text-orange-600 hover:underline'>
-                                Clear filters
-                            </button>
-                        </div>
-                    )}
-                </motion.div>
-
-                {/* Loading state */}
-                {loading && (
-                    <div className='flex items-center justify-center py-20'>
-                        <div className='text-center'>
-                            <div className='inline-block animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent'></div>
-                            <p className='mt-4 text-gray-600 font-semibold'>
-                                Loading politicians...
-                            </p>
-                        </div>
-                    </div>
-                )}
-
-                {/* Empty state */}
-                {!loading && displayPoliticians.length === 0 && (
-                    <div className='text-center py-20'>
-                        <div className='text-6xl mb-4'>🔍</div>
-                        <Text variant='h4' weight='bold' className='text-gray-700 mb-2'>
-                            No politicians found
-                        </Text>
-                        <Text variant='body' className='text-gray-500'>
-                            {hasActiveFilters
-                                ? "Try adjusting your search or filters."
-                                : "No data available yet."}
-                        </Text>
-                    </div>
-                )}
-
-                {/* Politician grid */}
-                {!loading && displayPoliticians.length > 0 && (
-                    <motion.div 
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5 }}
-                        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                        {displayPoliticians.map((p, i) => (
-                            <motion.div
-                                key={p.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.4, delay: i * 0.05 }}
-                            >
-                                <PoliticianCard politician={p} />
-                            </motion.div>
-                        ))}
-                    </motion.div>
-                )}
-
-                {/* Contribute CTA */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className='mt-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-center text-white'>
-                    <Text variant='h3' weight='bold' className='text-white mb-2'>
-                        Help us build the most comprehensive politician database
-                    </Text>
-                    <Text variant='body' className='text-orange-100 mb-6 max-w-2xl mx-auto'>
-                        Many profiles are missing education, family, and criminal record
-                        details. You can contribute by enriching profiles or reporting
-                        inaccuracies.
-                    </Text>
-                    <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <Button
-                            href='https://github.com/imsks/rajniti/issues/new'
-                            external
-                            className='bg-white text-orange-600 hover:bg-gray-50 border-none shadow-lg'
-                            size='lg'>
-                            Contribute on GitHub →
-                        </Button>
-                    </motion.div>
-                </motion.div>
+        {/* Search + Filters */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 mb-6"
+        >
+          <div className="flex flex-col md:flex-row gap-3">
+            {/* Search input */}
+            <div className="flex-1 relative">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                🔍
+              </span>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search by name, constituency, state or party..."
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              />
             </div>
 
-            <Footer />
-        </div>
-    )
+            {/* State filter */}
+            <select
+              value={stateFilter}
+              onChange={(e) => setStateFilter(e.target.value)}
+              className="px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 min-w-[180px]"
+            >
+              <option value="">All States</option>
+              {states.map((s) => (
+                <option key={s} value={s}>
+                  {s}
+                </option>
+              ))}
+            </select>
+
+            {/* Party filter */}
+            <select
+              value={partyFilter}
+              onChange={(e) => setPartyFilter(e.target.value)}
+              className="px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 min-w-[180px]"
+            >
+              <option value="">All Parties</option>
+              {parties.map((p) => (
+                <option key={p} value={p}>
+                  {p}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Active filters summary */}
+          {hasActiveFilters && (
+            <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-100">
+              <Text variant="small" className="text-gray-500">
+                Showing {displayPoliticians.length.toLocaleString()} result
+                {displayPoliticians.length !== 1 ? "s" : ""}
+              </Text>
+              <button
+                onClick={() => {
+                  setSearchQuery("")
+                  setStateFilter("")
+                  setPartyFilter("")
+                }}
+                className="ml-2 text-xs text-orange-600 hover:underline"
+              >
+                Clear filters
+              </button>
+            </div>
+          )}
+        </motion.div>
+
+        {/* Loading state */}
+        {loading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <PoliticianGridSkeleton count={9} />
+          </motion.div>
+        )}
+
+        {/* Empty state */}
+        {!loading && displayPoliticians.length === 0 && (
+          <div className="text-center py-20">
+            <div className="text-6xl mb-4">🔍</div>
+            <Text variant="h4" weight="bold" className="text-gray-700 mb-2">
+              No politicians found
+            </Text>
+            <Text variant="body" className="text-gray-500">
+              {hasActiveFilters
+                ? "Try adjusting your search or filters."
+                : "No data available yet."}
+            </Text>
+          </div>
+        )}
+
+        {/* Politician grid */}
+        {!loading && displayPoliticians.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          >
+            {displayPoliticians.map((p, i) => (
+              <motion.div
+                key={p.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+              >
+                <PoliticianCard politician={p} />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+
+        {/* Contribute CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-center text-white"
+        >
+          <Text variant="h3" weight="bold" className="text-white mb-2">
+            Help us build the most comprehensive politician database
+          </Text>
+          <Text
+            variant="body"
+            className="text-orange-100 mb-6 max-w-2xl mx-auto"
+          >
+            Many profiles are missing education, family, and criminal record
+            details. You can contribute by enriching profiles or reporting
+            inaccuracies.
+          </Text>
+
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button
+              href="https://github.com/imsks/rajniti/issues/new"
+              external
+              className="bg-white text-orange-600 hover:bg-gray-50 border-none shadow-lg"
+              size="lg"
+            >
+              Contribute on GitHub →
+            </Button>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      <Footer />
+    </div>
+  )
 }
 
 // ── Tiny helper component ─────────────────────────────────────────────────
 
 function StatCard({
-    value,
-    label,
-    color,
+  value,
+  label,
+  color,
 }: {
-    value: string
-    label: string
-    color: string
+  value: string
+  label: string
+  color: string
 }) {
-    return (
-        <motion.div 
-            whileHover={{ y: -4, transition: { duration: 0.2 } }}
-            className='bg-white rounded-xl p-4 border border-gray-200 shadow-sm'>
-            <Text variant='h3' weight='bold' className={color}>
-                {value}
-            </Text>
-            <Text variant='small' className='text-gray-500'>
-                {label}
-            </Text>
-        </motion.div>
-    )
+  return (
+    <motion.div
+      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+      className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm"
+    >
+      <Text variant="h3" weight="bold" className={color}>
+        {value}
+      </Text>
+      <Text variant="small" className="text-gray-500">
+        {label}
+      </Text>
+    </motion.div>
+  )
 }
