@@ -89,7 +89,7 @@ export default function Home() {
                             className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
                             <div className='shadow-[0_8px_30px_rgba(249,115,22,0.25)]'>
                                 <Button
-                                    href='/Dashboard'
+                                    href='/dashboard'
                                     size='lg'
                                     rightIcon={
                                         <svg

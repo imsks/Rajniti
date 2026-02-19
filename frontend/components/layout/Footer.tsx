@@ -22,11 +22,11 @@ export default function Footer() {
 
                     {/* Links */}
                     <div className='flex gap-6'>
-                        <Link
+                        {/* <Link
                             href='/privacy'
                             className='text-gray-400 hover:text-white transition-colors text-xs uppercase tracking-wider'>
                             PRIVACY
-                        </Link>
+                        </Link> */}
                         <Link
                             href='https://github.com/imsks/rajniti'
                             external
@@ -34,15 +34,15 @@ export default function Footer() {
                             GITHUB
                         </Link>
                         <Link
-                            href='/about'
+                            href='/#about'
                             className='text-gray-400 hover:text-white transition-colors text-xs uppercase tracking-wider'>
                             ABOUT
                         </Link>
-                        <Link
+                        {/* <Link
                             href='/contact'
                             className='text-gray-400 hover:text-white transition-colors text-xs uppercase tracking-wider'>
                             CONTACT
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </div>

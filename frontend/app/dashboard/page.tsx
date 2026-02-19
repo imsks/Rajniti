@@ -369,7 +369,7 @@ export default function Dashboard() {
                         <Button
                             href='https://github.com/imsks/rajniti/issues/new'
                             external
-                            className='bg-white text-orange-600 py-2 px-4 rounded-lg hover:bg-gray-50 border-none shadow-lg'
+                            className='bg-white text-orange-600 py-2 px-4 rounded-lg font-semibold border-none shadow-lg'
                             size='lg'>
                             Contribute on GitHub →
                         </Button>
