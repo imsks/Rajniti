@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
             }
         ]
         // Vercel handles image optimization automatically
+    },
+
+    // Disable scroll restoration
+    experimental: {
+        scrollRestoration: false
     }
 }
 

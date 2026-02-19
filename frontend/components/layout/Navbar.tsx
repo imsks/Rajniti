@@ -22,9 +22,9 @@ export default function Navbar({
             <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                 <div className='flex h-16 items-center justify-between'>
                     <Link href='/' className='flex items-center gap-2 no-underline'>
-                        <div className='text-2xl font-bold'>🗳️</div>
-                        <Text variant='h4' className='text-gray-900'>
-                            Rajniti
+                        <div className='w-7 h-7'><img src="./logo/voting-box.png" alt="Rajniti Logo" /></div>
+                        <Text variant='h3' className='text-[#0F1F3D]  font-bold tracking-tight font-poppins mt-2'>
+                            Raj<span><span className='text-orange-500'>niti</span></span>
                         </Text>
                     </Link>
 

@@ -13,7 +13,7 @@ export default function PreambleSection() {
                     <div className='inline-block'>
                         <div className='h-1 w-32 bg-gradient-to-r from-orange-500 via-white to-green-600 rounded-full mb-6'></div>
                     </div>
-                    <Text variant="h2" weight="bold" className='text-gray-900 mb-2'>
+                    <Text variant="h2" weight="bold" className='text-[#0F1F3D] mb-2'>
                         The Constitution of India
                     </Text>
                     <Text variant="body" className='text-gray-600'>
