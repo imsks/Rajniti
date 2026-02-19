@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { motion } from "framer-motion"
 import Text from "@/components/ui/Text"
 import type { Politician } from "@/types/politician"
 
@@ -37,7 +38,10 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
         <Link
             href={`/politician/${encodeURIComponent(politician.id)}`}
             className='block group'>
-            <div className='bg-white rounded-2xl shadow-sm border border-gray-200 p-5 hover:border-orange-400 hover:shadow-lg transition-all h-full flex flex-col'>
+            <motion.div 
+                whileHover={{ y: -4, scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+                className='bg-white rounded-2xl shadow-sm border border-gray-200 p-5 hover:border-orange-400 hover:shadow-lg transition-all h-full flex flex-col'>
                 {/* Top: Photo / Avatar + Name */}
                 <div className='flex items-start gap-4 mb-3'>
                     {hasPhoto ? (
@@ -97,7 +101,7 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
                     </Text>
                     <span className='ml-1'>→</span>
                 </div>
-            </div>
+            </motion.div>
         </Link>
     )
 }
