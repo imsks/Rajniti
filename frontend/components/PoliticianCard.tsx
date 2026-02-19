@@ -85,21 +85,23 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
                 </div>
 
                 {/* Info pills */}
-                <div className='flex flex-wrap gap-2 mt-auto'>
+                <div className='flex flex-wrap gap-2 mb-3'>
                     <span className='inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 rounded-lg text-xs text-gray-600'>
-                        📍 {politician.constituency}
+                        <img src='/logo/location.png' className='w-4 h-4' /> {politician.constituency}
                     </span>
                     <span className='inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 rounded-lg text-xs text-gray-600'>
-                        🏛️ {politician.state}
+                        <img src='/logo/skyline.png' className='w-4 h-4' /> {politician.state}
                     </span>
                 </div>
 
-                {/* Subtle CTA */}
-                <div className='mt-3 pt-3 border-t border-gray-100 flex items-center text-orange-600 opacity-0 group-hover:opacity-100 transition-opacity'>
-                    <Text variant='small' weight='semibold'>
-                        View Details
-                    </Text>
-                    <span className='ml-1'>→</span>
+                {/* CTA Button - Always visible */}
+                <div className='mt-auto pt-3 border-t border-gray-100'>
+                    <div className='flex items-center justify-between text-orange-600 group-hover:text-orange-700 transition-colors'>
+                        <Text variant='small' weight='semibold'>
+                            View Details
+                        </Text>
+                        <span className='transform group-hover:translate-x-1 transition-transform'>→</span>
+                    </div>
                 </div>
             </motion.div>
         </Link>
