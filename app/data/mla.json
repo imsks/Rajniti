@@ -8877,5 +8877,805 @@
       "summary": null
     },
     "notes": null
+  },
+   {
+    "id": "bc162dca-6622-4eee-8ad4-b3903a7437f4",
+    "name": "SHRI. JIT AROLKAR",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-jit-arolkar_25020220316.1055.JPG",
+    "state": "Goa",
+    "constituency": "MANDREM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "MANDREM",
+          "party": "Maharashtrawadi Gomantak Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "3617f54f-5dda-48b6-822f-91694adb024a",
+    "name": "SHRI. PRAVIN ARLEKAR",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-shripravin-arlekar_25120220316.1113.JPG",
+    "state": "Goa",
+    "constituency": "PERNEM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "PERNEM",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "d9855111-897e-41c4-aa52-c2cdb2931a22",
+    "name": "SHRI. CHANDRAKANT SHETYE",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-shrichandrakant-shetye_25220220316.1112.JPG",
+    "state": "Goa",
+    "constituency": "BICHOLIM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "BICHOLIM",
+          "party": "Independent",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "d122325a-b085-4686-8670-a34d8315edf1",
+    "name": "SHRI. NILKANTH HALARNKAR",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/70_pic_nhalarnkar.jpg",
+    "state": "Goa",
+    "constituency": "TIVIM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "TIVIM",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "9b386955-f8dc-4109-9041-24d2cb0c5251",
+    "name": "SHRI. JOSHUA DE SOUZA",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-joshua-de-souza_24920220316.1130.JPG",
+    "state": "Goa",
+    "constituency": "MAPUSA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "MAPUSA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "7350641f-1364-47cc-ae74-66f8daf6d437",
+    "name": "SMT. DELILAH LOBO",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/smt-delilah-lobo_25320220316.1116.JPG",
+    "state": "Goa",
+    "constituency": "SIOLIM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "SIOLIM",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "0681c4df-c43f-4352-9936-7eecc5e9d032",
+    "name": "SHRI. KEDAR NAIK",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-shrikedar-naik_25420220316.1118.JPG",
+    "state": "Goa",
+    "constituency": "SALIGAO",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "SALIGAO",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "7ed34f19-3cf9-41c8-b54d-a70fe38a75b0",
+    "name": "SHRI. MICHAEL LOBO",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-michael-lobo_5120220316.1202.JPG",
+    "state": "Goa",
+    "constituency": "CALANGUTE",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "CALANGUTE",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bb8e144b-7ab5-49f8-8bd6-80a2c755d14a",
+    "name": "SHRI. ROHAN KHAUNTE",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-rohan-khaunte_3820220316.1216.JPG",
+    "state": "Goa",
+    "constituency": "PORVORIM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "PORVORIM",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "9a535e6e-8452-4d36-8ef2-6d13533d2855",
+    "name": "SHRI. CARLOS FERREIRA",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-carlos-ferreira_25520220316.1218.JPG",
+    "state": "Goa",
+    "constituency": "ALDONA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "ALDONA",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c4736bc3-a073-4255-86cf-9e5022d53695",
+    "name": "SHRI. ATANASIO MONSERRATE",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-atanasio-j-monserrate_2920220316.1351.JPG",
+    "state": "Goa",
+    "constituency": "PANAJI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "PANAJI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "7b08a560-f45f-4639-a1ef-b95e01b1a0f0",
+    "name": "SMT. JENNIFER MONSERRATE",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/smt-jennifer-monserrate_5220220316.1351.JPG",
+    "state": "Goa",
+    "constituency": "TALEIGAO",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "TALEIGAO",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "f8e3569c-a924-405c-b501-9984f28eed8b",
+    "name": "SHRI. RODOLFO FERNANDES",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-rodolfo-fernandes_25620220316.1353.JPG",
+    "state": "Goa",
+    "constituency": "ST. CRUZ",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "ST. CRUZ",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "5e737e70-bedd-402c-ac75-97c226c5dfc6",
+    "name": "SHRI. VIRESH BORKAR",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-viresh-borkar_25720220316.1446.JPG",
+    "state": "Goa",
+    "constituency": "ST. ANDRE",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "ST. ANDRE",
+          "party": "Revolutionary Goans Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "1f04b17d-0ffa-40b1-99b0-200e4cc04da2",
+    "name": "SHRI. RAJESH FALDESSAI",
+    "photo": "https://static.goavidhansabha.gov.in/goalpub/docs/members/shri-rajesh-faldessai_25820250328.1112.jpg",
+    "state": "Goa",
+    "constituency": "CUMBARJUA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "CUMBARJUA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "e5977c25-c416-46db-9d5b-9201fcb62354",
+    "name": "SHRI. PREMENDRA SHET",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-premendra-shet_25920220316.1514.JPG",
+    "state": "Goa",
+    "constituency": "MAEM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "MAEM",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "7ef02d86-5500-4644-9b75-d80fa9d16d4d",
+    "name": "SHRI. PRAMOD SAWANT",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-pramod-sawant_5420220316.1526.JPG",
+    "state": "Goa",
+    "constituency": "SANQUELIM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "SANQUELIM",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "1c2b30e8-9daf-4a82-adac-a10c610ef27c",
+    "name": "SMT. DEVIYA RANE",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/smt-deviya-rane_26020220316.1529.JPG",
+    "state": "Goa",
+    "constituency": "PORIEM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "PORIEM",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "3cf63081-64ac-4bfe-b0ad-90fb75214490",
+    "name": "SHRI. VISHWAJIT RANE",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-vishwajit-pratapsingh-rane_3220220317.1126.JPG",
+    "state": "Goa",
+    "constituency": "VALPOI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "VALPOI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "db8cfaf3-bc81-4a94-ae4e-c6f6d52d22e3",
+    "name": "SHRI. GOVIND GAUDE",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-govind-gaude_24320220316.1630.JPG",
+    "state": "Goa",
+    "constituency": "PRIOL",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "PRIOL",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "d072ce22-1e64-4c57-be1f-4fd59ad434a3",
+    "name": "SHRI. SUBHASH SHIRODKAR",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-subhash-a-shirodkar_9420220316.1647.JPG",
+    "state": "Goa",
+    "constituency": "SHIRODA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "SHIRODA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ae3a1ba1-ba31-443c-98df-78d5c540ef1a",
+    "name": "SHRI. RAMKRISHNA ALIAS SUDIN DHAVALIKAR",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-ramkrishna-alias-sudin-dhavalikar_4320220316.1650.JPG",
+    "state": "Goa",
+    "constituency": "MARCAIM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "MARCAIM",
+          "party": "Maharashtrawadi Gomantak Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "597224ba-8dd4-4997-8ccc-30bc34f015e8",
+    "name": "SHRI. SANKALP AMONKAR",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-sankalp-amonkar_26120220316.1654.JPG",
+    "state": "Goa",
+    "constituency": "MORMUGAO",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "MORMUGAO",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "18c841c7-9aac-4288-9cbb-d5c0cf24d576",
+    "name": "SHRI. KRISHNA SALKAR",
+    "photo": "https://static.goavidhansabha.gov.in/goalpub/docs/members/shri-krishna-salkar_26220260107.1854.jpeg",
+    "state": "Goa",
+    "constituency": "VASCO DA GAMA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "VASCO DA GAMA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "d30a62a0-f734-428b-9bb3-2de2fffc0fe0",
+    "name": "SHRI. MAUVIN GODINHO",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-mauvin-godinho_2620220316.1658.JPG",
+    "state": "Goa",
+    "constituency": "DABOLIM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "DABOLIM",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "0bd300b6-07f8-46ab-9b8e-4da5508b4b21",
+    "name": "SHRI. ANTONIO VAS",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-antonio-vas_26320220317.1032.JPG",
+    "state": "Goa",
+    "constituency": "CORTALIM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "CORTALIM",
+          "party": "Independent",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "c2c61eda-bbb6-4f91-8b9f-4ad753fda493",
+    "name": "SHRI. ALEIXO SEQUEIRA",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-aleixo-sequeira_6820220317.1035.JPG",
+    "state": "Goa",
+    "constituency": "NUVEM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "NUVEM",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "52e7e428-b16b-47da-a4c1-464e3e7d58e5",
+    "name": "SHRI. ALEIXO LOURENCO",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-aleixo-reginaldo-lourenco_3920220317.1044.JPG",
+    "state": "Goa",
+    "constituency": "CURTORIM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "CURTORIM",
+          "party": "Independent",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "b9849ac0-8eeb-4bfe-8d16-6e4bea3a62ee",
+    "name": "SHRI. VIJAI SARDESAI",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-vijai-sardesai_3320220317.1044.JPG",
+    "state": "Goa",
+    "constituency": "FATORDA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "FATORDA",
+          "party": "Goa Forward Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "6bbf3f43-29b2-4d1c-8e41-82a9b83fe9fb",
+    "name": "SHRI. DIGAMBAR KAMAT",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-digambar-kamat_2520220317.1043.JPG",
+    "state": "Goa",
+    "constituency": "MARGAO",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "MARGAO",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "6841db23-1515-4a26-a49b-8b2b596fa2b6",
+    "name": "SHRI. VENZY VIEGAS",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-venzy-viegas_26420220317.1047.JPG",
+    "state": "Goa",
+    "constituency": "BENAULIM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "BENAULIM",
+          "party": "Aam Aadmi Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "00f10084-5309-4742-ae2c-a4c96e50a6ea",
+    "name": "SHRI. ULHAS TUENKAR",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-ulhas-tuenkar_26520220317.1051.JPG",
+    "state": "Goa",
+    "constituency": "NAVELIM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "NAVELIM",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ed1cfc55-b9b0-44d3-af58-9775edb999e6",
+    "name": "SHRI. YURI ALEMAO",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-yuri-alemao_26620220317.1054.JPG",
+    "state": "Goa",
+    "constituency": "CUNCOLIM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "CUNCOLIM",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "2a901a2a-68df-4640-bfc6-6cdc3ca05f46",
+    "name": "SHRI. CRUZ SILVA",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-cruz-silva_26720220317.1057.JPG",
+    "state": "Goa",
+    "constituency": "VELIM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "VELIM",
+          "party": "Aam Aadmi Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bab646e2-10ad-4dc3-9813-8e0212508b54",
+    "name": "SHRI. ALTONE D’COSTA",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-altone-d’costa_26820220317.1105.JPG",
+    "state": "Goa",
+    "constituency": "QUEPEM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "QUEPEM",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "cd0c01f1-124b-4ed3-96b4-c1e8f908fe06",
+    "name": "SHRI. NILESH CABRAL",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-nilesh-cabral_5620220317.1107.JPG",
+    "state": "Goa",
+    "constituency": "CURCHOREM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "CURCHOREM",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "9013ccb7-b022-46a9-9f80-91c8f7308bc3",
+    "name": "DR. GANESH GAUNKER",
+    "photo": "https://static.goavidhansabha.gov.in/goalpub/docs/members/dr-ganesh-gaunker_3620260219.1113.jpg",
+    "state": "Goa",
+    "constituency": "SANVORDEM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "SANVORDEM",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "a74fa1db-df8f-45ce-a87f-7a4f2f2bc138",
+    "name": "SHRI. SUBHASH PHAL DESSAI",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-subhash-uttam-phal-dessai_4020220317.1120.JPG",
+    "state": "Goa",
+    "constituency": "SANGUEM",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "SANGUEM",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "3f4fc3bc-0266-4060-a372-934b769e4f02",
+    "name": "SHRI. RAMESH TAWADKAR",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-ramesh-tawadkar_3420220317.1122.JPG",
+    "state": "Goa",
+    "constituency": "CANACONA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "CANACONA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "af1cb06c-7a68-4822-b379-b82126b3cec7",
+    "name": "SHRI. RAVI NAIK",
+    "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-ravi-s-naik_6320220316.1645.JPG",
+    "state": "Goa",
+    "constituency": "PONDA",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Goa",
+          "constituency": "PONDA",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
   }
 ]
