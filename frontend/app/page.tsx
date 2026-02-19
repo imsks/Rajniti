@@ -35,42 +35,6 @@ export default function Home() {
 
             {/* Hero Section */}
             <section className='pt-6 pb-20 sm:pt-16 sm:pb-32 relative z-2 overflow-hidden'>
-                <motion.svg
-                    className="pointer-events-none absolute right-8 lg:right-16 top-1/2 -translate-y-1/2 w-[520px] h-[520px] sm:w-[640px] sm:h-[640px] text-[#0F1F3D]"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 18, repeat: Infinity, ease: "linear" }}>
-                    <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-                    {Array.from({ length: 24 }).map((_, i) => {
-                        const angle = (i * 360) / 24
-                        const rad = (angle * Math.PI) / 180
-                        const x1 = 12 + Math.cos(rad) * 3
-                        const y1 = 12 + Math.sin(rad) * 3
-                        const x2 = 12 + Math.cos(rad) * 10
-                        const y2 = 12 + Math.sin(rad) * 10
-                        return (
-                            <line
-                                key={i}
-                                x1={x1}
-                                y1={y1}
-                                x2={x2}
-                                y2={y2}
-                                stroke="currentColor"
-                                strokeWidth="0.5"
-                            />
-                        )
-                    })}
-                    <circle
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1"
-                    />
-                </motion.svg>
-
                 <div className='w-full px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl mx-auto'>
                     <div className='max-w-3xl'>
                         <motion.div 
@@ -97,10 +61,10 @@ export default function Home() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}>
-                            <h1 className="font-serif text-[56px] sm:text-[80px] font-semibold leading-[1.08] tracking-[-0.02em] text-[#0F1F3D] text-left mb-4">
+                            <h1 className="font-serif text-[44px] sm:text-[56px] lg:text-[80px] font-semibold leading-[1.08] tracking-[-0.02em] text-[#0F1F3D] text-left mb-4">
                                 Know Your
                                 <br />
-                                <span className="text-orange-600 italic whitespace-nowrap">Elected</span> Representatives
+                                <span className="text-orange-600 italic">Elected</span> Representatives
                             </h1>
                         </motion.div>
 
@@ -166,6 +130,43 @@ export default function Home() {
                             </Button>
                         </motion.div>
                     </div>
+
+                    {/* Ashoka Chakra - Below content on mobile, right side on desktop */}
+                    <motion.svg
+                        className="pointer-events-none mx-auto mt-12 lg:absolute lg:right-[-80px] lg:top-[50%] lg:-translate-y-1/2 lg:mt-0 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[520px] lg:h-[520px] xl:w-[640px] xl:h-[640px] text-blue-800"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}>
+                        <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                        {Array.from({ length: 24 }).map((_, i) => {
+                            const angle = (i * 360) / 24
+                            const rad = (angle * Math.PI) / 180
+                            const x1 = 12 + Math.cos(rad) * 3
+                            const y1 = 12 + Math.sin(rad) * 3
+                            const x2 = 12 + Math.cos(rad) * 10
+                            const y2 = 12 + Math.sin(rad) * 10
+                            return (
+                                <line
+                                    key={i}
+                                    x1={x1}
+                                    y1={y1}
+                                    x2={x2}
+                                    y2={y2}
+                                    stroke="currentColor"
+                                    strokeWidth="0.5"
+                                />
+                            )
+                        })}
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1"
+                        />
+                    </motion.svg>
                 </div>
 
                 {/* Decorative Elements */}

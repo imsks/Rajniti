@@ -34,6 +34,39 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ea580c;
+  border-radius: 6px;
+  border: 2px solid #f1f5f9;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e293b;
+  border-color: #e2e8f0;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #0f172a;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ea580c #f1f5f9;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
