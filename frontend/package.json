@@ -13,6 +13,8 @@
     "test:ci": "jest --ci --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
+    "lucide-react": "^0.575.0",
+    "next": "16.0.1",
     "framer-motion": "^12.34.2",
     "next": "16.0.10",
     "next-auth": "^4.24.13",
