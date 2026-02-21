@@ -5,7 +5,7 @@ User database model with authentication and onboarding support.
 from datetime import datetime
 from typing import List, Optional
 
-from sqlalchemy import Boolean, Column, DateTime, ForeignKey, String, Text
+from sqlalchemy import Boolean, Column, DateTime, String
 from sqlalchemy.orm import Session
 
 from ..base import Base
@@ -33,9 +33,9 @@ class User(Base):
     pincode = Column(String, nullable=True) 
     age_group = Column(String, nullable=True)
 
-    # Constituency information
-    vs_constituency_id = Column(String, ForeignKey("constituencies.id"), nullable=True)
-    ls_constituency_id = Column(String, ForeignKey("constituencies.id"), nullable=True)
+    # Constituency information (stored as plain strings, validated against JSON data)
+    vs_constituency_id = Column(String, nullable=True)
+    ls_constituency_id = Column(String, nullable=True)
     
     # Political preferences
     political_ideology = Column(String, nullable=True)  # e.g., "Rightist", "Leftist", "Communist", "Centrist", "Libertarian", "Neutral"

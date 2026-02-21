@@ -8,13 +8,13 @@ I am the **Frontend UI/UX Specialist** for the Rajniti Election Data Platform. I
 
 ## Core Expertise
 
--   **Next.js 16** with App Router (Server Components, Client Components)
--   **React 19** with latest features and hooks
--   **TypeScript 5+** with strict type safety
--   **Tailwind CSS 4** for styling
--   **Responsive Design** - Mobile-first approach
--   **Performance Optimization** - SSR, code splitting, image optimization
--   **Accessibility** - WCAG 2.1 compliant
+- **Next.js 16** with App Router (Server Components, Client Components)
+- **React 19** with latest features and hooks
+- **TypeScript 5+** with strict type safety
+- **Tailwind CSS 4** for styling
+- **Responsive Design** - Mobile-first approach
+- **Performance Optimization** - SSR, code splitting, image optimization
+- **Accessibility** - WCAG 2.1 compliant
 
 ---
 
@@ -43,30 +43,24 @@ frontend/
 
 ```css
 /* Indian Flag Colors */
---orange: #FF9933      /* Saffron */
---white: #FFFFFF       /* White */
---green: #138808       /* India Green */
---navy: #000080        /* Ashoka Chakra Blue */
-
-/* Extended Palette */
---orange-light: #FFB366
---orange-dark: #CC7A29
---green-light: #16A310
---green-dark: #0D5B05
+--orange: #ff9933 /* Saffron */ --white: #ffffff /* White */ --green: #138808
+    /* India Green */ --navy: #000080 /* Ashoka Chakra Blue */
+    /* Extended Palette */ --orange-light: #ffb366 --orange-dark: #cc7a29
+    --green-light: #16a310 --green-dark: #0d5b05;
 ```
 
 **Typography:**
 
--   Primary Font: System fonts for performance
--   Headers: Bold, large, impactful
--   Body: Readable, 16px minimum
--   Code: Monospace for data display
+- Primary Font: System fonts for performance
+- Headers: Bold, large, impactful
+- Body: Readable, 16px minimum
+- Code: Monospace for data display
 
 **Spacing:**
 
--   Use Tailwind's spacing scale (4px base)
--   Consistent padding: 4, 6, 8, 12, 16, 24px
--   Container max-width: 1280px
+- Use Tailwind's spacing scale (4px base)
+- Consistent padding: 4, 6, 8, 12, 16, 24px
+- Container max-width: 1280px
 
 ---
 
@@ -86,11 +80,11 @@ frontend/
 
 ### Recommended Additions (as needed)
 
--   `@tanstack/react-query` - API data fetching
--   `zod` - Runtime validation
--   `react-hook-form` - Form handling
--   `recharts` or `chart.js` - Data visualization
--   `framer-motion` - Animations
+- `@tanstack/react-query` - API data fetching
+- `zod` - Runtime validation
+- `react-hook-form` - Form handling
+- `recharts` or `chart.js` - Data visualization
+- `framer-motion` - Animations
 
 ---
 
@@ -251,8 +245,7 @@ export interface PaginatedResponse<T> {
 
 ```typescript
 // lib/api.ts
-const API_BASE_URL =
-    process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1"
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL
 
 async function fetchAPI<T>(
     endpoint: string,
@@ -764,23 +757,23 @@ npx tsc --noEmit         # Check TypeScript errors
 
 ## When to Consult Me
 
--   ✅ Creating new UI components
--   ✅ Next.js App Router patterns
--   ✅ TypeScript type definitions
--   ✅ Tailwind CSS styling
--   ✅ API integration
--   ✅ Performance optimization
--   ✅ Responsive design
--   ✅ Accessibility improvements
+- ✅ Creating new UI components
+- ✅ Next.js App Router patterns
+- ✅ TypeScript type definitions
+- ✅ Tailwind CSS styling
+- ✅ API integration
+- ✅ Performance optimization
+- ✅ Responsive design
+- ✅ Accessibility improvements
 
 ---
 
 ## Resources
 
--   Next.js Docs: https://nextjs.org/docs
--   React 19: https://react.dev/
--   Tailwind CSS: https://tailwindcss.com/docs
--   TypeScript: https://www.typescriptlang.org/docs
+- Next.js Docs: https://nextjs.org/docs
+- React 19: https://react.dev/
+- Tailwind CSS: https://tailwindcss.com/docs
+- TypeScript: https://www.typescriptlang.org/docs
 
 ---
 

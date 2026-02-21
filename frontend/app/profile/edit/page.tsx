@@ -3,18 +3,19 @@
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
+import { motion } from 'framer-motion'
 import UserDetailsStep from '@/components/onboarding/UserDetailsStep'
 import PreferencesStep from '@/components/onboarding/PreferencesStep'
 
 // API Base URL - configurable via environment variable
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1"
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL
 
 export default function EditProfile() {
   const router = useRouter()
   const { data: session } = useSession()
   const [loading, setLoading] = useState(false)
   const [fetching, setFetching] = useState(true)
-  
+
   const [formData, setFormData] = useState({
     phone: '',
     state: '',
@@ -37,7 +38,7 @@ export default function EditProfile() {
         if (response.ok) {
           const result = await response.json()
           const user = result.data
-          
+
           setFormData({
             phone: user.phone || '',
             state: user.state || '',
@@ -71,7 +72,7 @@ export default function EditProfile() {
         alert('Please sign in to update your profile')
         return
       }
-      
+
       // Call backend API to update profile
       const response = await fetch(`${API_BASE_URL}/users/${session.user.id}`, {
         method: 'PUT',
@@ -116,15 +117,31 @@ export default function EditProfile() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 py-12 px-4">
-      <div className="max-w-2xl mx-auto">
-        <div className="mb-8">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="max-w-2xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Edit Profile</h1>
           <p className="text-gray-600">Update your personal information and preferences</p>
-        </div>
+        </motion.div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8 border border-orange-100 space-y-8">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="bg-white rounded-2xl shadow-xl p-8 border border-orange-100 space-y-8">
           {/* Basic Details Section */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Basic Details</h2>
             <UserDetailsStep
               formData={{
@@ -135,13 +152,17 @@ export default function EditProfile() {
               }}
               onChange={updateField}
             />
-          </div>
+          </motion.div>
 
           {/* Divider */}
           <div className="border-t border-gray-200"></div>
 
           {/* Preferences Section */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Preferences</h2>
             <PreferencesStep
               formData={{
@@ -150,27 +171,35 @@ export default function EditProfile() {
               }}
               onChange={(field, values) => updateField(field, values)}
             />
-          </div>
+          </motion.div>
 
           {/* Action buttons */}
-          <div className="flex gap-4 pt-4">
-            <button
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="flex gap-4 pt-4">
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => router.push('/dashboard')}
               className="flex-1 px-6 py-3 border-2 border-gray-300 rounded-lg text-gray-700 font-semibold hover:bg-gray-50 transition-all"
             >
               Cancel
-            </button>
-            
-            <button
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: !loading ? 1.02 : 1 }}
+              whileTap={{ scale: !loading ? 0.98 : 1 }}
               onClick={handleSubmit}
               disabled={loading}
               className="flex-1 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg text-white font-semibold hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? 'Saving...' : 'Save Changes'}
-            </button>
-          </div>
-        </div>
-      </div>
+            </motion.button>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </div>
   )
 }

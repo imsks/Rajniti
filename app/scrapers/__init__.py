@@ -1,25 +1,12 @@
 """
-Election data scrapers for Lok Sabha and Vidhan Sabha elections.
+Election data scrapers for ECI (Election Commission of India) results.
+
+Public API:
+    scrape_election(url, election_type)  — scrape and save winning MPs / MLAs
 """
 
-from .base import (
-    clean_margin,
-    clean_votes,
-    get_with_retry,
-    normalize_base_url,
-    save_json,
-)
-from .lok_sabha import LokSabhaScraper
-from .vidhan_sabha import VidhanSabhaScraper
+from .scraper import scrape_election
 
 __all__ = [
-    # Scrapers
-    "LokSabhaScraper",
-    "VidhanSabhaScraper",
-    # Utility functions
-    "get_with_retry",
-    "save_json",
-    "clean_votes",
-    "clean_margin",
-    "normalize_base_url",
+    "scrape_election",
 ]

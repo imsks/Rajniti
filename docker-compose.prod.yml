@@ -1,0 +1,20 @@
+version: "3.8"
+
+# Production: Just DATABASE_URL pointing to Supabase
+
+services:
+    rajniti-api:
+        build:
+            context: .
+            target: production
+        container_name: rajniti-api-prod
+        env_file:
+            - .env
+        ports:
+            - "${FLASK_PORT:-8000}:8000"
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+            interval: 30s
+            timeout: 10s
+            retries: 3
+            start_period: 40s

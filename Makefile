@@ -1,64 +1,96 @@
-# Makefile for Rajniti project
-# Usage: make <command>
+# Rajniti Makefile
+.PHONY: help dev prod run stop logs clean reset test test-unit test-e2e coverage lint format db-init db-migrate db-reset db-shell frontend frontend-test frontend-lint install install-dev
 
-.PHONY: help setup dev test format lint clean install pre-commit
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEVELOPMENT
+# ═══════════════════════════════════════════════════════════════════════════════
 
-help: ## Show this help message
-	@echo "Rajniti Project Commands:"
-	@echo ""
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
+help: ## Show commands
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
-setup: ## Set up the development environment
-	./scripts/setup.sh
+dev: ## Start with local Postgres (Docker)
+	docker compose --profile local-db up --build
 
-dev: ## Start the development server
-	./scripts/dev.sh
+prod: ## Start with Supabase (Docker)
+	docker compose -f docker-compose.prod.yml up --build
 
-test: ## Run tests
-	./scripts/test.sh
+run: ## Run local Python server
+	. venv/bin/activate && python run.py
 
-format: ## Format code with autoflake, black, isort, and flake8
-	./scripts/format.sh
+stop: ## Stop all containers
+	docker compose --profile local-db down
+	docker compose -f docker-compose.prod.yml down 2>/dev/null || true
 
-lint: ## Run linting checks
-	@echo "🔍 Running linting checks..."
-	@source venv/bin/activate && flake8 app/
-	@source venv/bin/activate && black --check app/
-	@source venv/bin/activate && isort --check-only app/
+logs: ## Tail API logs
+	docker compose logs -f rajniti-api
+
+clean: ## Remove containers + volumes
+	docker compose --profile local-db down -v --rmi local 2>/dev/null || true
+	docker compose -f docker-compose.prod.yml down -v --rmi local 2>/dev/null || true
+
+reset: ## Clean volumes and restart fresh (fixes user/credential issues)
+	docker compose --profile local-db down -v
+	docker compose --profile local-db up --build
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TESTING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+test: ## Run all tests
+	. venv/bin/activate && pytest tests/ -v
+
+test-unit: ## Run unit tests
+	. venv/bin/activate && pytest tests/unit/ -v
+
+test-e2e: ## Run E2E tests
+	. venv/bin/activate && pytest tests/e2e/ -v
+
+coverage: ## Run tests with coverage
+	. venv/bin/activate && pytest tests/ --cov=app --cov-report=term-missing --cov-report=html
+
+lint: ## Run linters
+	. venv/bin/activate && flake8 app/ tests/ && black --check app/ tests/
+
+format: ## Format code
+	. venv/bin/activate && black app/ tests/ && isort app/ tests/
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATABASE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+db-init: ## Initialize tables
+	. venv/bin/activate && python scripts/db.py init
+
+db-migrate: ## Run migrations
+	. venv/bin/activate && python scripts/db.py migrate
+
+db-reset: ## Reset database (⚠️ deletes data)
+	. venv/bin/activate && python scripts/db.py reset
+
+db-shell: ## Open psql shell
+	docker exec -it rajniti-postgres psql -U postgres
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FRONTEND
+# ═══════════════════════════════════════════════════════════════════════════════
+
+frontend: ## Start frontend dev server
+	cd frontend && npm run dev
+
+frontend-test: ## Run frontend tests
+	cd frontend && npm test
+
+frontend-lint: ## Lint frontend
+	cd frontend && npm run lint
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SETUP
+# ═══════════════════════════════════════════════════════════════════════════════
 
 install: ## Install dependencies
-	@echo "📥 Installing dependencies..."
-	@source venv/bin/activate && pip install -r requirements.txt
+	python3 -m venv venv
+	. venv/bin/activate && pip install -r requirements.txt
 
-pre-commit: ## Install pre-commit hooks
-	@echo "🔗 Installing pre-commit hooks..."
-	@source venv/bin/activate && pre-commit install
-
-clean: ## Clean up temporary files
-	@echo "🧹 Cleaning up..."
-	@find . -type f -name "*.pyc" -delete
-	@find . -type d -name "__pycache__" -delete
-	@find . -type d -name "*.egg-info" -exec rm -rf {} +
-	@find . -type f -name ".coverage" -delete
-
-docker-build: ## Build Docker image
-	@echo "🐳 Building Docker image..."
-	docker build -t rajniti .
-
-docker-run: ## Run Docker container
-	@echo "🐳 Running Docker container..."
-	docker run -p 8000:8000 rajniti
-
-scrape: ## Run election data scraping
-	@echo "🕸️ Starting election data scraping..."
-	@source venv/bin/activate && python scripts/scrape_elections.py
-
-scrape-help: ## Show scraping help
-	@echo "🕸️ Election Data Scraping Commands:"
-	@echo "  make scrape        - Run the main scraping script"
-	@echo "  python scripts/scrape_elections.py - Run scraping directly"
-	@echo ""
-	@echo "📚 Available scraping tools:"
-	@echo "  - requests: HTTP requests"
-	@echo "  - beautifulsoup4: HTML parsing"
-	@echo "  - httpx: Async HTTP requests"
+install-dev: ## Install with dev dependencies
+	python3 -m venv venv
+	. venv/bin/activate && pip install -r requirements.txt -r requirements-test.txt
