@@ -41,8 +41,15 @@ logger = logging.getLogger(__name__)
 
 
 def _state_name(state_id: str) -> str:
+
     """Resolve a state_id to its human-readable name."""
     return STATE_NAMES.get(state_id, "Unknown State")
+
+    state = STATE_NAMES.get(state_id)
+    if not state:
+        raise ValueError(f"Invalid or unknown state_id: {state_id}")
+    return state
+
 
 
 def _make_politician_id() -> str:

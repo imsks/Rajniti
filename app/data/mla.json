@@ -8878,7 +8878,7 @@
     },
     "notes": null
   },
-   {
+  {
     "id": "bc162dca-6622-4eee-8ad4-b3903a7437f4",
     "name": "SHRI. JIT AROLKAR",
     "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-jit-arolkar_25020220316.1055.JPG",
@@ -9676,6 +9676,82 @@
           "status": "WON"
         }
       ]
+    }
+  },
+  {
+    "id": "ba94ed07-ef76-4add-a7f4-1b1ad1aa2aa6",
+    "name": "ANSHUMAN SINGH BHATI",
+    "photo": "https://suvidha.eci.gov.in/ac/public/uploads1/candprofile/E22/2023/AC/S20/ANSHU-2023-20231109043209.jpg",
+    "state": "Rajasthan",
+    "constituency": "KOLAYAT",
+    "type": "MLA",
+
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Rajasthan University",
+        "year_completed": 2016
+      }
+    ],
+
+    "criminal_records": [
+      {
+        "name": "Act endangering life or personal safety of others (IPC 336, 427, 147, 149)",
+        "type": "OTHERS",
+        "year": 2018
+      }
+    ],
+
+    "political_background": {
+      "elections": [
+        {
+          "year": 2023,
+          "type": "MLA",
+          "state": "Rajasthan",
+          "constituency": "KOLAYAT",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ],
+      "summary": "Elected as MLA from Kolayat constituency in Rajasthan Legislative Assembly 2023."
+    }
+  },
+  {
+    "id": "9874009f-7315-4545-9fcf-37f08cee1188",
+    "name": "BHANWAR SINGH BHATI",
+    "photo": "https://suvidha.eci.gov.in/ac/public/uploads1/candprofile/E22/2023/AC/s20/BHANW-2023-20231103040103.jpg",
+    "state": "Rajasthan",
+    "constituency": "KOLAYAT",
+    "type": "MLA",
+
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Indira Gandhi National Open University",
+        "year_completed": 2018
+      }
+    ],
+
+    "criminal_records": [
+      {
+        "name": "FIR 168/2018 - Police Station Bajju (IPC 307, 336, 283, 341, 143, 27)",
+        "type": "OTHERS",
+        "year": 2018
+      }
+    ],
+
+    "political_background": {
+      "elections": [
+        {
+          "year": 2023,
+          "type": "MLA",
+          "state": "Rajasthan",
+          "constituency": "KOLAYAT",
+          "party": "Indian National Congress",
+          "status": "LOST"
+        }
+      ],
+      "summary": "Contested Rajasthan Assembly Election 2023 from Kolayat representing Indian National Congress."
     }
   }
 ]
