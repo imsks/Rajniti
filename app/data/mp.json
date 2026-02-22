@@ -14847,5 +14847,101 @@
         "year_completed": null
       }
     ]
+  },
+  {
+    "name": "NARESH BANSAL",
+    "photo": null,
+    "state": "Uttarakhand",
+    "constituency": "Rajya Sabha (Uttarakhand)",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2020,
+          "type": "MP",
+          "state": "Uttarakhand",
+          "constituency": "Rajya Sabha",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "DAV College, Dehradun",
+        "year_completed": null
+      }
+    ],
+    "id": "e4a2b1c3-1111-4a1b-8c2d-000000000006",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "DR. KALPANA SAINI",
+    "photo": null,
+    "state": "Uttarakhand",
+    "constituency": "Rajya Sabha (Uttarakhand)",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MP",
+          "state": "Uttarakhand",
+          "constituency": "Rajya Sabha",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "DOCTORATE",
+        "institution": "Meerut University",
+        "year_completed": 1989
+      }
+    ],
+    "id": "e4a2b1c3-1111-4a1b-8c2d-000000000007",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "MAHENDRA BHATT",
+    "photo": null,
+    "state": "Uttarakhand",
+    "constituency": "Rajya Sabha (Uttarakhand)",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Uttarakhand",
+          "constituency": "Rajya Sabha",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "H.N.B. Garhwal University",
+        "year_completed": null
+      }
+    ],
+    "id": "e4a2b1c3-1111-4a1b-8c2d-000000000008",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
   }
 ]
