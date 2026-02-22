@@ -8878,7 +8878,7 @@
     },
     "notes": null
   },
-   {
+  {
     "id": "bc162dca-6622-4eee-8ad4-b3903a7437f4",
     "name": "SHRI. JIT AROLKAR",
     "photo": "https://www.goavidhansabha.gov.in/uploads/members/shri-jit-arolkar_25020220316.1055.JPG",
@@ -9677,5 +9677,1961 @@
         }
       ]
     }
+  },
+  {
+    "id": "921b595f-d88d-508f-a5d5-1b61c7d1f6d6",
+    "name": "Sumit Hridayesh",
+    "photo": null,
+    "state": "Uttarakhand",
+    "constituency": "Haldwani",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Haldwani",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "bb9e86b8-f071-5ea8-8a4d-26276a7f14ba",
+    "name": "Saurabh Bahuguna",
+    "photo": null,
+    "state": "Uttarakhand",
+    "constituency": "Sitarganj",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Sitarganj",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "5d3a3ea3-02d5-5c84-a5c7-a966593f3f00",
+    "name": "Ganesh Joshi",
+    "photo": null,
+    "state": "Uttarakhand",
+    "constituency": "Mussoorie",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Mussoorie",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "name": "DURGESHWAR LAL",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_1.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Purola",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Purola",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Kendriya Secondary Education Board",
+        "year_completed": 2003
+      }
+    ],
+    "id": "760bd624-09f2-5f6b-8c0c-c1b0b02fc492",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Sanjay Dobhal",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_2.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Yamunotri",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Yamunotri",
+          "party": "Independent",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Govt Inter College Barkot",
+        "year_completed": 1989
+      }
+    ],
+    "id": "92a50f7d-b625-516a-a081-316200ee7e24",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "SURESH SINGH CHAUHAN",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_3.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Gangotri",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Gangotri",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "UP Education Board Allahabad",
+        "year_completed": 1984
+      }
+    ],
+    "id": "d8492883-3212-5e1e-9717-a7a7585a209c",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Rajendra Singh Bhandari",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_4.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Badrinath",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Badrinath",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "Hemvati Nandan Bahuguna Garhwal Central University",
+        "year_completed": 1986
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Hemvati Nandan Bahuguna Garhwal Central University",
+        "year_completed": 1989
+      }
+    ],
+    "id": "8606284b-4445-58ab-b787-db965f75d558",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Bhupal Ram Tamta",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_5.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Tharali",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Tharali",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "REK Narayangarh",
+        "year_completed": 1973
+      },
+      {
+        "qualification": "DIPLOMA",
+        "institution": "ITI Shrinagar",
+        "year_completed": 1975
+      }
+    ],
+    "id": "9482f979-f0e4-582c-848b-9ea096e2c20d",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Anil Nautiyal",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_6.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Karnprayag",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Karnprayag",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "SP Vano Sanatan Dharm Inter College, Dehradun",
+        "year_completed": 1974
+      }
+    ],
+    "id": "a8bef636-61ea-53eb-8f15-9b368aadc99a",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "SHAILA RANI RAWAT",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_7.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Kedarnath",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Kedarnath",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "Garhwal University",
+        "year_completed": 1982
+      }
+    ],
+    "id": "f2969af3-e69c-5fb9-ad8e-ff09f1999163",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "BHARAT SINGH CHAUDHARY",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_8.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Rudraprayag",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Rudraprayag",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Garhwal University Srinagar Garhwal",
+        "year_completed": 1979
+      }
+    ],
+    "id": "35491490-195e-5631-aaa4-8e04d2acadda",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "SHAKTI LAL SHAH",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_9.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Ghanshali",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Ghanshali",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Janta Inter Collage Tehri Garhwal",
+        "year_completed": 2003
+      }
+    ],
+    "id": "babcee1d-1b04-5bdb-bb48-cafe2bf78e58",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Vinod Kandari",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_10.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Deoprayag",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Deoprayag",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "H.N.G University Shrinagar Garhwal",
+        "year_completed": 2009
+      }
+    ],
+    "id": "3ee8d7cb-ae70-5428-99e5-699fc5e1efed",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "SUBODH UNIYAL",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_11.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Narendranagar",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Narendranagar",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "Allahabad University",
+        "year_completed": 1983
+      }
+    ],
+    "id": "3527b1b2-a418-5050-9fd5-5bad886e6bc9",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Vikram Singh Negi",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_12.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Pratapnagar",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Pratapnagar",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Garhwal University Sri Nagar",
+        "year_completed": 1991
+      }
+    ],
+    "id": "4f4e2756-bd4d-52ae-bdcc-97adfc320c86",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Kishore Upadhyay",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_13.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Tehri",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Tehri",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "DOCTORATE",
+        "institution": "Gurukul University Haridwar",
+        "year_completed": null
+      }
+    ],
+    "id": "3aa6bfba-1a2e-577f-8bf0-d8ae02cc62ec",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Pritam Singh Panwar",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_14.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Dhanolti",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Dhanolti",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Hindi Sahitya Sammelan Allahabad",
+        "year_completed": 2001
+      }
+    ],
+    "id": "273c47a9-1789-576d-afe9-163091c81229",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Pritam Singh",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_15.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Chakrata",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Chakrata",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "D.A.V. P.G. College Dehradun, H.N.B. Garhwal University",
+        "year_completed": 1983
+      }
+    ],
+    "id": "4836ee5d-7dae-5e4d-bdb6-2afd3404c99f",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Munna Singh Chauhan",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_16.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Vikasnagar",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Vikasnagar",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "D.A.V. (P.G.) College Dehradun, Garhwal University",
+        "year_completed": 1985
+      }
+    ],
+    "id": "545831fd-4f41-5ee9-86aa-3cf36a9d5e29",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "SAHDEV SINGH PUNDIR",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_17.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Sahaspur",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Sahaspur",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "D.A.V (PG) College Dehradun, Hemvati Nandan Bahuguna Garhwal University",
+        "year_completed": 1999
+      }
+    ],
+    "id": "6aa443b7-f9c9-5d2e-bfa3-106c9ffe68a0",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "VINOD CHAMOLI",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_18.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Dharampur",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Dharampur",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "PPN College Kanpur University",
+        "year_completed": 1982
+      }
+    ],
+    "id": "7502599c-e586-5f31-8edc-dbbe3f9fe4f3",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "UMESH SHARMA KAU",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_19.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Raipur",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Raipur",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "DAV (PG) College, HNB Garhwal University",
+        "year_completed": 1973
+      }
+    ],
+    "id": "749770cb-3e9e-5011-9cc6-f3d43881608b",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "KHAJAN DASS",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_20.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Rajpur Road",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Rajpur Road",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": [
+      {
+        "qualification": "OTHERS",
+        "institution": "Junior High School",
+        "year_completed": null
+      }
+    ],
+    "id": "ee162c34-d66d-5325-9b36-9f64b27c2aa3",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Savita Kapoor",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_21.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Dehradun Cantt.",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Dehradun Cantt.",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "fbe184cf-0f21-5867-a69b-c6934ab1b72e",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "BRIJ BHUSHAN GAIROLA",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_23.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Doiwala",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Doiwala",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "f4309f6d-39f2-5dc2-b21c-2edd11c721cc",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "PREM CHAND AGGARWAL",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_24.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Rishikesh",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Rishikesh",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "6fa64adc-3138-58ad-9f7c-077a15f1a0f8",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "MADAN KAUSHIK",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_25.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Hardwar",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Hardwar",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "fef6fe77-4cb3-5587-9959-5f478816c1e3",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Adesh Chauhan",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_26.jpg",
+    "state": "Uttarakhand",
+    "constituency": "B.H.E.L. Ranipur",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "B.H.E.L. Ranipur",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "446b65b3-84d0-5c14-8caa-962afc95ca41",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Er. Ravi Bahadur",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_27.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Jwalapur",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Jwalapur",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "860e830c-b24d-5f9a-83fc-0f6b64b595b1",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Mamta Rakesh",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_28.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Bhagwanpur",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Bhagwanpur",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "a9a025e2-40bf-5bbc-819a-60ad7a158348",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Virendra Kumar",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_29.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Jhabrera",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Jhabrera",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "e27a5876-a320-5900-831b-3a89f935dd0e",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "FURKAN AHMAD",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_30.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Pirankaliyar",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Pirankaliyar",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "d522b511-819a-5c5b-a2c3-1fa0ccc8c3f3",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Pradeep Batra",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_31.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Roorkee",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Roorkee",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "1ed2b95c-972c-5796-9876-4c9924368a2f",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "UMESH KUMAR PATRKAR",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_32.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Khanpur",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Khanpur",
+          "party": "Independent",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "d95e1aa4-91cd-5a9a-a859-7f8ee9c63cb3",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Sarwat Kareem Ansari",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_33.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Manglaur",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Manglaur",
+          "party": "Bahujan Samaj Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "01d24b91-b443-5a39-94f4-7e9bf42c3f45",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Shahzad",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_34.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Laksar",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Laksar",
+          "party": "Bahujan Samaj Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "b579d50b-18b0-5f26-985f-bc7ed643c520",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Anupama Rawat",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_35.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Hardwar Rural",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Hardwar Rural",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "59e3cf08-4231-5df8-a06b-de32d491472b",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "RENU BISHT",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_36.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Yamkeshwar",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Yamkeshwar",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "c42d6fa1-fb83-55be-9f3c-9fa693e80ad9",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Rajkumar Pori",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_37.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Pauri",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Pauri",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "b3e29064-71f8-51fd-83ea-74accae7f00e",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "(Dr) Dhan Singh Rawat",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_38.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Srinagar",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Srinagar",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "3c11f260-a875-52e8-a0cb-d2517bb459a9",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "SATPAL MAHARAJ",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_39.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Chaubattakhal",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Chaubattakhal",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "6919b073-2c55-5dc3-af28-3db0fc30a66b",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "DALEEP SINGH RAWAT",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_40.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Lansdowne",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Lansdowne",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "4a8ab731-b142-5d20-98af-7652a0d009a8",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Ritu Khanduri Bhushan",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_41.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Kotdwar",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Kotdwar",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "67f305cd-c66c-5473-a1f2-4a9e70a48d04",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "HARISH SINGH DHAMI",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_42.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Dharchula",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Dharchula",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "61666091-2964-5c36-8aa5-206c05a6aca3",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "VISHAN SINGH",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_43.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Didihat",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Didihat",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "c89aa6d6-78fb-56a5-b866-f7220c20c3cd",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Mayukh Mahar",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_44.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Pithoragarh",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Pithoragarh",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "71954bd4-4d42-5315-b003-d10ecc0a96ac",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "FAKEER RAM",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_45.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Gangolihat",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Gangolihat",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "3bd7736b-9d17-5e4a-9373-be36b7c998fa",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Suresh Gariya",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_46.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Kapkot",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Kapkot",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "b4c0b537-e5aa-59e5-837e-30047d404147",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "CHANDAN RAM DASS",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_47.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Bageshwar",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Bageshwar",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "e89dc87a-35a0-5882-91b6-92f3f82bf575",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "MADAN SINGH BISHT",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_48.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Dwarahat",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Dwarahat",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "768db14d-0cc4-5188-850d-d170d3019d51",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Mahesh Jeena",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_49.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Salt",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Salt",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "7b2b6a9e-3712-543b-aa00-a186b5eec99f",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "PRAMOD NAINWAL",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_50.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Ranikhet",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Ranikhet",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "c84bd727-d9e5-54c7-94dc-0a0882914341",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Rekha Arya",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_51.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Someshwar",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Someshwar",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "e20984fe-fc2e-599e-982b-be0099fc3044",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "MANOJ TEWARI",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_52.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Almora",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Almora",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "d206ce65-bcfe-58a3-8a5d-ac4e12dc5caf",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "MOHAN SINGH",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_53.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Jageshwar",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Jageshwar",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "c671286b-b4bf-5c9c-a944-481b18546dc9",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "KHUSHAL SINGH ADHIKARI",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_54.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Lohaghat",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Lohaghat",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "27bd5aba-b7fd-50cb-8d91-3aad33279c45",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Kailash Chandra Gahtori",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_55.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Champawat",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Champawat",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "83820174-f18d-561f-973c-2276534b1bf7",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Dr. Mohan Singh Bisht",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_56.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Lalkuwa",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Lalkuwa",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "a887dded-151d-56c2-a28c-cc587d5b9a70",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "RAM SINGH KAIRA",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_57.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Bhimtal",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Bhimtal",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "8932dc08-d83d-5c49-ac68-d63095088e2c",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Sarita Arya",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_58.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Nainital",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Nainital",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "99f7a40f-6032-5222-82c6-c2891efdda74",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "BANSHIDHAR BHAGAT",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_60.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Kaladhungi",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Kaladhungi",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "d25c0b48-39c7-53e1-b732-15f8113a24ab",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "DIWAN SINGH BISHT",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_61.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Ramnagar",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Ramnagar",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "58e12460-ec1c-5e6c-9b35-10d06579561b",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "ADESH SINGH CHAUHAN",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_62.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Jaspur",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Jaspur",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "b9f3d7e3-e0ea-5866-bd26-7d6f28d3390c",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Trilok Singh Cheema",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_63.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Kashipur",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Kashipur",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "8d3d9f13-a343-5ef5-a860-96a04606cde8",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "YASHPAL ARYA",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_64.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Bajpur",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Bajpur",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "544cda66-0708-5fa3-9f74-a39e86d55678",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Arvind Pandey",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_65.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Gadarpur",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Gadarpur",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "dda8e918-64d7-58e1-890e-96fbad1cddbd",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Shiv Arora",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_66.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Rudrapur",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Rudrapur",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "434fb05e-b469-5e26-8146-8f53ba0a4bcd",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Tilak Raj Behar",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_67.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Kichha",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Kichha",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "c0eac762-62b9-55ce-8c86-2ba1a5ac81df",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "GOPAL SINGH RANA",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_69.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Nanak Matta",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Nanak Matta",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "bb0789f0-6976-50ad-a10f-18fc05a581fd",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
+  },
+  {
+    "name": "Bhuwan Chandra Kapri",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2022/AC/S28/cand_70.jpg",
+    "state": "Uttarakhand",
+    "constituency": "Khatima",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Uttarakhand",
+          "constituency": "Khatima",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ]
+    },
+    "education": null,
+    "id": "716c7ea5-c2b7-5fd6-8b5e-5857028118cc",
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "notes": null
   }
 ]
