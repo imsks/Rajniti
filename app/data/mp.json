@@ -15,16 +15,49 @@
           "constituency": "Anakapalle",
           "party": "Bharatiya Janata Party",
           "status": "WON"
+        },
+        {
+          "year": 2012,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "",
+          "party": "TDP",
+          "status": "WON"
+        },
+        {
+          "year": 2018,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "",
+          "party": "TDP",
+          "status": "WON"
+        },
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "Anakapalle",
+          "party": "BJP",
+          "status": "WON"
         }
-      ]
+      ],
+      "summary": "C.M. Ramesh served two terms as a Rajya Sabha MP from Andhra Pradesh (2012-2018, 2018-2024) representing the TDP. He later joined the BJP and successfully won the 2024 Lok Sabha election from the Anakapalle constituency."
     },
     "education": [
       {
-        "qualification": "HIGH_SCHOOL",
-        "institution": null,
-        "year_completed": null
+        "qualification": "BACHELOR",
+        "institution": "Andhra University, Visakhapatnam",
+        "year_completed": 1983
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "11b8288b-ea24-45f7-af67-c8cc7990cff3",
@@ -42,8 +75,49 @@
           "constituency": "Rajahmundry",
           "party": "Bharatiya Janata Party",
           "status": "WON"
+        },
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "Rajahmundry",
+          "party": "BJP",
+          "status": "WON"
+        },
+        {
+          "year": 2019,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "Visakhapatnam",
+          "party": "BJP",
+          "status": "LOST"
+        },
+        {
+          "year": 2014,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "Rajampet",
+          "party": "INC",
+          "status": "LOST"
+        },
+        {
+          "year": 2009,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "Visakhapatnam",
+          "party": "INC",
+          "status": "WON"
+        },
+        {
+          "year": 2004,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "Bapatla",
+          "party": "INC",
+          "status": "WON"
         }
-      ]
+      ],
+      "summary": "Daggubati Purandheshwari has a notable political career, having been elected as an MP three times. She won from Bapatla in 2004 and Visakhapatnam in 2009 as an Indian National Congress candidate. After joining the BJP, she contested and lost from Rajampet in 2014 and Visakhapatnam in 2019. In 2024, she successfully won the Lok Sabha election from Rajahmundry as a BJP candidate."
     },
     "education": [
       {
@@ -56,7 +130,15 @@
         "institution": "Gemological Institute of India, Mumbai",
         "year_completed": 1996
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/purandeswariBJP",
+      "facebook": "https://www.facebook.com/DaggubatiPurandeswariOfficial/",
+      "instagram": "https://www.instagram.com/purandeswaribjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@DaggubatiPurandeswariOfficial",
+      "website": null
+    }
   },
   {
     "id": "63876a12-ed18-40e3-a92e-4e5307555029",
@@ -93,7 +175,15 @@
         "institution": "null",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/bjpvarma_mp",
+      "facebook": "https://www.facebook.com/bjpvarma.mp/",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@bjpvarma",
+      "website": null
+    }
   },
   {
     "id": "0e0ce8b4-10dc-4d04-8c93-d321914a5e01",
@@ -125,7 +215,15 @@
         "institution": "Campus Law Centre, Faculty of Law, University of Delhi",
         "year_completed": 1998
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/KirenRijiju",
+      "facebook": "https://www.facebook.com/KirenRijijuOfficial/",
+      "instagram": "https://www.instagram.com/kiren.rijiju/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@KirenRijijuOfficial",
+      "website": null
+    }
   },
   {
     "id": "8c8b42a8-4cc8-4ade-b669-2af36e8ef27b",
@@ -152,7 +250,15 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/TapirGao",
+      "facebook": "https://www.facebook.com/tapirgaoBJP/",
+      "instagram": "https://www.instagram.com/tapirgao/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@TapirGaoOfficial",
+      "website": null
+    }
   },
   {
     "id": "882359dd-660f-4e77-af16-741306863ad0",
@@ -179,7 +285,15 @@
         "institution": "Gauhati Commerce College under Gauhati University",
         "year_completed": 1994
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/DilipSaikiaBJP",
+      "facebook": "https://www.facebook.com/dilipsaikia.bjp/",
+      "instagram": "https://www.instagram.com/dilipsaikia.bjp/",
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "f79fe244-f19a-4dfe-830d-de227b7c9e25",
@@ -206,7 +320,15 @@
         "institution": "Gauhati University",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/BijuliKMedhi",
+      "facebook": "https://www.facebook.com/BijuliKalitaMedhiOfficial/",
+      "instagram": "https://www.instagram.com/bijulikalitamedhi/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@BijuliKalitaMedhi",
+      "website": null
+    }
   },
   {
     "id": "82789c94-c8f8-4451-b36d-03c1f3c19084",
@@ -226,6 +348,21 @@
           "status": "WON"
         }
       ]
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": null,
+        "year_completed": null
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/amarsingtisso",
+      "facebook": "https://www.facebook.com/amarsingtissoofficial/",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
     }
   },
   {
@@ -290,7 +427,15 @@
         "institution": "Guru Charan College, Silchar",
         "year_completed": 1980
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/ParimalSuklaba1",
+      "facebook": "https://www.facebook.com/ParimalSuklabaidyaOfficial/",
+      "instagram": "https://www.instagram.com/parimalsuklabaidyaofficial/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@ParimalSuklabaidyaOfficial",
+      "website": null
+    }
   },
   {
     "id": "4ce76917-1421-4390-add4-5dc1c93540cb",
@@ -322,7 +467,15 @@
         "institution": "Dibrugarh University",
         "year_completed": 1999
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/KamakhyaTasa",
+      "facebook": "https://www.facebook.com/KamakhyaPrasadTasaOfficial/",
+      "instagram": "https://www.instagram.com/kamakhyaprasadtasa/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@KamakhyaPrasadTasaOfficial",
+      "website": null
+    }
   },
   {
     "id": "58944d18-1c1e-460b-bf4c-a8f3a3578787",
@@ -349,7 +502,15 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "e03f1ec9-698c-4dca-b0fc-c2c31034fbf5",
@@ -376,7 +537,15 @@
         "institution": "Dibrugarh Polytechnic, Assam",
         "year_completed": 1985
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/PradanBaruahBJP",
+      "facebook": "https://www.facebook.com/PradanBaruahOfficial/",
+      "instagram": "https://www.instagram.com/pradanbaruah_official/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@pradanbaruah9999",
+      "website": null
+    }
   },
   {
     "id": "e7a343bc-bd83-4dae-a575-6ac459f35681",
@@ -418,7 +587,15 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/sarbanandsonwal",
+      "facebook": "https://www.facebook.com/sarbanandasonowal",
+      "instagram": "https://www.instagram.com/sarbanandasonowal/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@SarbanandaSonowalOfficial",
+      "website": null
+    }
   },
   {
     "id": "a38bd518-f555-4359-86f7-c89fe5460c80",
@@ -450,7 +627,15 @@
         "institution": "Darbhanga Medical College, Lalit Narayan Mithila University",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/DrSanjayJaiswal",
+      "facebook": "https://www.facebook.com/DrSanjayJaiswalBJP/",
+      "instagram": "https://www.instagram.com/drsanjayjaiswal_official/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@DrSanjayJaiswalOfficial",
+      "website": null
+    }
   },
   {
     "id": "f2f41468-b487-410a-887c-d8ffbef7af07",
@@ -470,6 +655,21 @@
           "status": "WON"
         }
       ]
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Bihar University, Muzaffarpur, Bihar",
+        "year_completed": 1971
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/RadhamohanBJP",
+      "facebook": "https://www.facebook.com/RadhaMohanSinghBJP/",
+      "instagram": "https://www.instagram.com/radhamohansinghbjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@RadhaMohanSinghBJP",
+      "website": null
     }
   },
   {
@@ -497,7 +697,15 @@
         "institution": "Mithila University",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/DrAshokYadavJDU",
+      "facebook": "https://www.facebook.com/DrAshokYadavJDU/",
+      "instagram": "https://www.instagram.com/drashokyadavjdu/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@DrAshokKumarYadavJDU",
+      "website": null
+    }
   },
   {
     "id": "4f3253b1-4ccc-431f-a5ae-ffa13f63b072",
@@ -524,7 +732,15 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/PradeepSinghBJP",
+      "facebook": "https://www.facebook.com/PradeepKumarSinghBJP",
+      "instagram": "https://www.instagram.com/pradeepkumarsinghbjp/",
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "8f91acae-e10f-438f-aa1a-ff9adec45f72",
@@ -556,7 +772,15 @@
         "institution": "Lalit Narayan Mithila University",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/gopaljeethakur",
+      "facebook": "https://www.facebook.com/gopaljeethakur.bjp/",
+      "instagram": "https://www.instagram.com/gopaljeethakur_bjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@GopalJeeThakurBJP",
+      "website": null
+    }
   },
   {
     "id": "f5fd285a-0813-4607-b605-371bcf5d554b",
@@ -620,7 +844,15 @@
         "institution": "Rajendra College, Chapra",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/JSSigriwal",
+      "facebook": "https://www.facebook.com/JanardanSinghSigriwalBJP/",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@JanardanSinghSigriwal",
+      "website": null
+    }
   },
   {
     "id": "b564b723-a414-45c7-99dd-4e7f7b5e1dcd",
@@ -731,7 +963,15 @@
         "institution": "Patna University",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/rsprasad",
+      "facebook": "https://www.facebook.com/RaviShankarPrasadOfficial/",
+      "instagram": "https://www.instagram.com/ravishankarprasad.in/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@RaviShankarPrasadOfficial",
+      "website": null
+    }
   },
   {
     "id": "df35a125-5cb7-4283-8e48-107e0b8640cf",
@@ -2523,7 +2763,15 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/Janardan_BJP",
+      "facebook": "https://www.facebook.com/JanardanMishraBJP/",
+      "instagram": "https://www.instagram.com/janardanmishrabjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@JanardanMishraBJP",
+      "website": null
+    }
   },
   {
     "id": "16ce35fa-d96a-4658-8cde-2a6edc6f57da",
@@ -2550,7 +2798,15 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "cd5e03fb-eb9a-4ebf-8835-848717ffbbcf",
@@ -2570,7 +2826,22 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/himadrisingh_",
+      "facebook": "https://www.facebook.com/himadrisingh.official/",
+      "instagram": "https://www.instagram.com/himadrisingh_/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@himadrisingh_",
+      "website": null
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "A.P.S. University, Rewa",
+        "year_completed": 2010
+      }
+    ]
   },
   {
     "id": "b8779686-3691-4a37-ace1-4684f05144e4",
@@ -2607,7 +2878,15 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/AshishDubey_BJP",
+      "facebook": "https://www.facebook.com/AshishDubeyBJP/",
+      "instagram": "https://www.instagram.com/ashishdubey_bjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@AshishDubeyBJP",
+      "website": null
+    }
   },
   {
     "id": "c361ee72-c86a-44d6-acb9-7340c93e6d88",
@@ -2639,7 +2918,15 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/fskulaste",
+      "facebook": "https://www.facebook.com/faggansinghkulasteofficial/",
+      "instagram": "https://www.instagram.com/faggansinghkulaste/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@FagganSinghKulasteOfficial",
+      "website": null
+    }
   },
   {
     "id": "7fbb2aa9-4f28-46aa-8e5f-4615bd2ed5e3",
@@ -2666,7 +2953,15 @@
         "institution": "Rani Durgavati University, Jabalpur",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "bc4b5189-998b-4faf-9c9c-dd67a55d3061",
@@ -2693,7 +2988,15 @@
         "institution": "null",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "ae562470-aa23-4d53-9494-9501c21d5b10",
@@ -2713,6 +3016,21 @@
           "status": "WON"
         }
       ]
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Dr. H.S. Gour University, Sagar",
+        "year_completed": 1984
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/DarshanSinghBJP",
+      "facebook": "https://www.facebook.com/DarshanSinghChoudharyBJP/",
+      "instagram": "https://www.instagram.com/darshansinghchoudhary_bjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@DarshanSinghChoudharyBJP",
+      "website": null
     }
   },
   {
@@ -2750,7 +3068,15 @@
         "institution": "Barkatullah University, Bhopal",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/ChouhanShivraj",
+      "facebook": "https://www.facebook.com/ChouhanShivraj/",
+      "instagram": "https://www.instagram.com/shivrajsinghchouhan/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/c/ShivrajSinghChouhanOfficial",
+      "website": null
+    }
   },
   {
     "id": "c3cbc264-3328-45dd-aeb5-f8a07d6b1e3a",
@@ -2777,7 +3103,15 @@
         "institution": "Bhopal University",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/AlokSharmaINC",
+      "facebook": "https://www.facebook.com/AlokSharmaINC",
+      "instagram": "https://www.instagram.com/aloksharmainc/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@AlokSharmaINC",
+      "website": null
+    }
   },
   {
     "id": "29f46d32-c2db-4e0c-a809-d0f6c9052bcf",
@@ -2804,7 +3138,15 @@
         "institution": "Vikram University",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/RodmalNagarBJP",
+      "facebook": "https://www.facebook.com/RodmalNagarBJP/",
+      "instagram": "https://www.instagram.com/rodmalnagarbjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@RodmalNagarBJP",
+      "website": null
+    }
   },
   {
     "id": "fee7add4-4b02-444b-99da-6e24dff51828",
@@ -2831,7 +3173,15 @@
         "institution": "Indore Institute of Law, Madhya Pradesh, Atal Bihari Vajapayee Arts & Commerce, Indore",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/MahendraSolank1",
+      "facebook": "https://www.facebook.com/MahendraSinghSolankyBJP/",
+      "instagram": "https://www.instagram.com/mahendrasinghsolanky/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@MahendraSinghSolanky",
+      "website": null
+    }
   },
   {
     "id": "54e64ed0-ab4b-4504-b789-058d9351c693",
@@ -2863,7 +3213,15 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/AnilFirojiya",
+      "facebook": "https://www.facebook.com/AnilFirojiyaBJP/",
+      "instagram": "https://www.instagram.com/anilfirojiya_bjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@AnilFirojiyaBJP",
+      "website": null
+    }
   },
   {
     "id": "09ac14b7-ac38-4549-ac60-1e58622bf03c",
@@ -2883,7 +3241,27 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/sudheerguptabjp",
+      "facebook": "https://www.facebook.com/sudheerguptabjp/",
+      "instagram": "https://www.instagram.com/sudheerguptabjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@sudheerguptabjp",
+      "website": null
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Vikram University, Ujjain",
+        "year_completed": 1989
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Vikram University, Ujjain",
+        "year_completed": 1992
+      }
+    ]
   },
   {
     "id": "bab70728-2636-49ce-93a6-be57d974cced",
@@ -2915,7 +3293,15 @@
         "institution": "Sage University, Indore",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "b4ef2ded-ac12-4a27-8d9e-61c88887abff",
@@ -2942,7 +3328,15 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/SavitriThakurMP",
+      "facebook": "https://www.facebook.com/SavitriThakurMP/",
+      "instagram": "https://www.instagram.com/savitrithakurmp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@SavitriThakurMP",
+      "website": null
+    }
   },
   {
     "id": "ce035850-fbba-4ddd-b70a-6529cd94940d",
@@ -2974,7 +3368,15 @@
         "institution": "Veermata Jijabai Technological Institute",
         "year_completed": 1984
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/ShankarLalwani",
+      "facebook": "https://www.facebook.com/ShankarLalwaniBJP/",
+      "instagram": "https://www.instagram.com/shankar_lalwani_bjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@ShankarLalwaniBJP",
+      "website": null
+    }
   },
   {
     "id": "2a688e21-640e-4853-9c63-941c086991f7",
@@ -2994,7 +3396,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Devi Ahilya Vishwavidyalaya, Indore",
+        "year_completed": 2000
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Devi Ahilya Vishwavidyalaya, Indore",
+        "year_completed": 2003
+      }
+    ]
   },
   {
     "id": "d0aa280a-9a16-499e-ad61-7f188eb4f16a",
@@ -3041,6 +3455,14 @@
           "status": "WON"
         }
       ]
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/DDUikey",
+      "facebook": "https://www.facebook.com/DDUikeyOfficial/",
+      "instagram": "https://www.instagram.com/dduikeyofficial/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@DDUikeyOfficial",
+      "website": null
     }
   },
   {
@@ -3177,7 +3599,15 @@
         "institution": "Mumbai University's Grant Medical College",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/DrHemantSavara",
+      "facebook": "https://www.facebook.com/DrHemantVishnuSavara/",
+      "instagram": "https://www.instagram.com/drhemantsavara/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@DrHemantVishnuSavara",
+      "website": null
+    }
   },
   {
     "id": "5d180411-9442-4f3c-9408-3a2ce1313221",

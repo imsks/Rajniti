@@ -54,4 +54,19 @@ class PoliticianPrompts:
             f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
             "If unknown, return []"
         )
-
+    @staticmethod
+    def social_media(politician: Dict[str, Any]) -> str:
+        name = politician.get("name", "")
+        state = politician.get("state", "")
+        constituency = politician.get("constituency", "")
+        ptype = politician.get("type", "")
+        return (
+        "You are extracting social media profiles for an Indian politician.\n"
+        "Return ONLY a valid JSON object matching this shape:\n"
+        '{ "twitter": "url or null", "instagram": "url or null", '
+        '"facebook": "url or null", "youtube": "url or null", "wikipedia": "url or null" }\n'
+        f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
+        "Only include verified/official profiles. If unknown return null for that field.\n"
+        '{"twitter": null, "instagram": null, "facebook": null, "youtube": null, "wikipedia": null}'
+    )
+    

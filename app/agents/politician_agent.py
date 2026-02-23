@@ -11,7 +11,7 @@ from app.agents.base_agent import BaseAgent
 from app.core import CacheManager, log
 from app.prompts import PoliticianPrompts
 from app.services import PoliticianService
-from app.schemas.politician import Education, PoliticalBackground, ElectionRecord
+from app.schemas.politician import Education, PoliticalBackground, ElectionRecord, SocialMedia
 
 logger = logging.getLogger(__name__)
 
@@ -153,6 +153,38 @@ class PoliticianPoliticalBackground:
             politician.get("id"),
         )
 
+
+class PoliticianSocialMedia:
+    """Social media enrichment process for one politician."""
+
+    name = "social_media"
+
+    def __init__(self, base_agent: BaseAgent):
+        self.base = base_agent
+
+    @log(logger, "PoliticianSocialMedia.run")
+    def run(self, politician: Dict[str, Any], force: bool = False) -> Dict[str, Any]:
+        existing = politician.get("social_media") or {}
+        has_data = any(v for v in existing.values() if v)
+        if has_data and not force:
+            return {"process": self.name, "ok": True, "skipped": True, "reason": "already_present"}
+
+        prompt = PoliticianPrompts.social_media(politician)
+        logger.info("social_media: calling LLM (id=%s name=%s)", politician.get("id"), politician.get("name"))
+        raw = self.base._run_llm(prompt)
+
+        parsed = self.base._parse_json_object(raw)
+        if parsed is None:
+            return {"process": self.name, "ok": False, "error": "invalid_llm_json", "raw": raw}
+
+        adapter = TypeAdapter(SocialMedia)
+        validated, errors = self.base._validate_with_adapter(parsed, adapter)
+        if errors:
+            return {"process": self.name, "ok": False, "error": "validation_failed", "details": errors}
+
+        updates = {"social_media": validated.model_dump(mode="json")}
+        return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
+
 class PoliticianAgent(BaseAgent):
     """Top-level orchestrator for politician enrichment processes."""
 
@@ -161,7 +193,7 @@ class PoliticianAgent(BaseAgent):
         super().__init__()
         self.politician_service = PoliticianService()
         self.cache = CacheManager()
-        self.processes = [PoliticianEducation(self), PoliticianPoliticalBackground(self)]
+        self.processes = [PoliticianEducation(self), PoliticianPoliticalBackground(self), PoliticianSocialMedia(self)]
 
     @log(logger, "PoliticianAgent.run")
     def run(
