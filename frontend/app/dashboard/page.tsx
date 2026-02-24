@@ -8,6 +8,7 @@ import Text from "@/components/ui/Text"
 import PoliticianCard from "@/components/PoliticianCard"
 import { usePoliticians } from "@/hooks/usePoliticians"
 import type { ElectionType } from "@/types/politician"
+import { PoliticianCardSkeleton, StatCardSkeleton } from "@/components/skeletons"
 
 type Tab = "ALL" | "MP" | "MLA"
 
@@ -73,7 +74,13 @@ export default function Dashboard() {
                         Browse elected MPs and MLAs. Help us enrich their profiles!
                     </Text>
 
-                    {!loading && (
+                    {loading ? (
+                        <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-6'>
+                            {[...Array(4)].map((_, i) => (
+                                <StatCardSkeleton key={i} />
+                            ))}
+                        </div>
+                    ) : (
                         <motion.div 
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
@@ -205,15 +212,12 @@ export default function Dashboard() {
                     )}
                 </motion.div>
 
-                {/* Loading state */}
+                {/* Loading state - Card Grid Skeletons */}
                 {loading && (
-                    <div className='flex items-center justify-center py-20'>
-                        <div className='text-center'>
-                            <div className='inline-block animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent'></div>
-                            <p className='mt-4 text-gray-600 font-semibold'>
-                                Loading politicians...
-                            </p>
-                        </div>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 transition-all'>
+                        {[...Array(6)].map((_, i) => (
+                            <PoliticianCardSkeleton key={i} />
+                        ))}
                     </div>
                 )}
 
