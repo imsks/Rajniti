@@ -3,6 +3,7 @@ Database configuration for Rajniti application.
 
 Simple PostgreSQL setup without any schema definitions yet.
 """
+
 import logging
 
 from sqlalchemy import create_engine, text

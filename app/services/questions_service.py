@@ -5,7 +5,7 @@ Provides predefined questions and free-form search.
 """
 
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from app.schemas.questions import PREDEFINED_QUESTIONS
 
@@ -45,20 +45,26 @@ class QuestionsService:
             politicians_info = []
             for r in results:
                 meta = r.get("metadata", {})
-                politicians_info.append({
-                    "id": r.get("id", ""),
-                    "name": meta.get("name", "Unknown"),
-                    "type": meta.get("type", ""),
-                    "state": meta.get("state", ""),
-                    "constituency": meta.get("constituency", ""),
-                    "party": meta.get("party", ""),
-                    "relevance": round(1 - r.get("distance", 0), 3)
-                    if r.get("distance") is not None
-                    else None,
-                    "snippet": (r.get("document", "")[:300] + "...")
-                    if r.get("document")
-                    else "",
-                })
+                politicians_info.append(
+                    {
+                        "id": r.get("id", ""),
+                        "name": meta.get("name", "Unknown"),
+                        "type": meta.get("type", ""),
+                        "state": meta.get("state", ""),
+                        "constituency": meta.get("constituency", ""),
+                        "party": meta.get("party", ""),
+                        "relevance": (
+                            round(1 - r.get("distance", 0), 3)
+                            if r.get("distance") is not None
+                            else None
+                        ),
+                        "snippet": (
+                            (r.get("document", "")[:300] + "...")
+                            if r.get("document")
+                            else ""
+                        ),
+                    }
+                )
 
             answer = self._summarize(question, results)
 
