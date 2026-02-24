@@ -41,4 +41,3 @@ def log(
         return cast(Callable[..., T], wrapper)
 
     return decorator
-

@@ -1,6 +1,6 @@
+import json
 from enum import Enum as _Enum
 from pathlib import Path
-import json
 from typing import List
 
 # Load states from data/states.json
@@ -53,4 +53,3 @@ def _make_state_enum():
 
 
 State = _make_state_enum()
-

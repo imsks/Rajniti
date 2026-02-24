@@ -1,8 +1,8 @@
-import os
-import logging
 import importlib
+import logging
+import os
 import time
-from typing import Any, Optional, Callable
+from typing import Any, Callable, Optional
 
 from dotenv import load_dotenv
 
@@ -34,7 +34,9 @@ PROVIDER_CONFIGS = {
 
 def _get_model_name(llm: Any) -> str:
     """Best-effort model name extraction across providers."""
-    return str(getattr(llm, "model_name", None) or getattr(llm, "model", None) or "unknown")
+    return str(
+        getattr(llm, "model_name", None) or getattr(llm, "model", None) or "unknown"
+    )
 
 
 def _get_retry_after_seconds(exc: Exception) -> Optional[float]:
@@ -65,11 +67,11 @@ def _build_llm(provider: str) -> Optional[Any]:
     if not cfg:
         return None
 
-    api_key = os.getenv(cfg["api_key_env"])
+    api_key = os.getenv(cfg["api_key_env"])  # type: ignore[index]
     if not api_key:
         return None
 
-    model = os.getenv(cfg["model_env"], cfg["default_model"])
+    model = os.getenv(cfg["model_env"], cfg["default_model"])  # type: ignore[index]
 
     def _build_openai_compatible() -> Any:
         try:
@@ -79,8 +81,8 @@ def _build_llm(provider: str) -> Optional[Any]:
             logger.warning("OpenAI provider unavailable (missing deps): %s", exc)
             return None
         kwargs = dict(api_key=api_key, model=model, temperature=0)
-        if cfg["base_url"]:
-            kwargs["base_url"] = cfg["base_url"]
+        if cfg["base_url"]:  # type: ignore[index]
+            kwargs["base_url"] = cfg["base_url"]  # type: ignore[index]
         return ChatOpenAI(**kwargs)
 
     def _build_gemini() -> Any:
@@ -90,7 +92,9 @@ def _build_llm(provider: str) -> Optional[Any]:
         except Exception as exc:
             logger.warning("Gemini provider unavailable (missing deps): %s", exc)
             return None
-        return ChatGoogleGenerativeAI(google_api_key=api_key, model=model, temperature=0)
+        return ChatGoogleGenerativeAI(
+            google_api_key=api_key, model=model, temperature=0
+        )
 
     builders: dict[str, Callable[[], Any]] = {
         "openai": _build_openai_compatible,
@@ -228,13 +232,16 @@ class AgentLLMFactory:
 
         if candidates:
             first_provider, first_llm = candidates[0]
-            logger.info("Agent LLM: using %s (%s)", first_provider, _get_model_name(first_llm))
+            logger.info(
+                "Agent LLM: using %s (%s)", first_provider, _get_model_name(first_llm)
+            )
             return FailoverChatLLM(candidates)
 
         raise RuntimeError(
             f"No working LLM provider found. Tried: {self.providers}. "
             "Check your API keys in .env"
         )
+
 
 def get_agent_llm() -> FailoverChatLLM:
     """Backward-compatible accessor used by existing agents."""

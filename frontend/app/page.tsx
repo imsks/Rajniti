@@ -16,7 +16,7 @@ export default function Home() {
             <section className='py-20 sm:py-32 relative z-2'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <div className='text-center'>
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
@@ -56,7 +56,7 @@ export default function Home() {
                             </Text>
                         </motion.div>
 
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.3 }}
@@ -105,12 +105,12 @@ export default function Home() {
                 </div>
 
                 {/* Decorative Elements */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 0.2, scale: 1 }}
                     transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
                     className='absolute top-0 left-0 w-72 h-72 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl z-1 pointer-events-none'></motion.div>
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 0.2, scale: 1 }}
                     transition={{ duration: 1.5, delay: 0.5, repeat: Infinity, repeatType: "reverse" }}
@@ -120,7 +120,7 @@ export default function Home() {
             {/* What You Can Find */}
             <section id='about' className='py-20 bg-white'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -139,7 +139,7 @@ export default function Home() {
                     </motion.div>
 
                     <div className='grid md:grid-cols-3 gap-8'>
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
@@ -159,7 +159,7 @@ export default function Home() {
                             </Text>
                         </motion.div>
 
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
@@ -179,7 +179,7 @@ export default function Home() {
                             </Text>
                         </motion.div>
 
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
@@ -210,7 +210,7 @@ export default function Home() {
                 id='contribute'
                 className='py-20 bg-linear-to-r from-orange-600 to-orange-500 text-white'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -229,7 +229,7 @@ export default function Home() {
                     </motion.div>
 
                     <div className='grid md:grid-cols-2 gap-8 max-w-4xl mx-auto'>
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -269,7 +269,7 @@ export default function Home() {
                             </Link>
                         </motion.div>
 
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -310,7 +310,7 @@ export default function Home() {
                         </motion.div>
                     </div>
 
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}

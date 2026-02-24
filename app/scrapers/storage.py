@@ -21,7 +21,9 @@ def _serialize(obj: Any) -> Any:
         return {k: _serialize(v) for k, v in obj.items()}
     if isinstance(obj, list):
         return [_serialize(v) for v in obj]
-    if hasattr(obj, "__str__") and not isinstance(obj, (str, int, float, bool, type(None))):
+    if hasattr(obj, "__str__") and not isinstance(
+        obj, (str, int, float, bool, type(None))
+    ):
         return str(obj)
     return obj
 

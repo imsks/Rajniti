@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import logging
-from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Any, Dict, Literal, Optional
 
 from pydantic import TypeAdapter
@@ -10,8 +10,8 @@ from pydantic import TypeAdapter
 from app.agents.base_agent import BaseAgent
 from app.core import CacheManager, log
 from app.prompts import PoliticianPrompts
+from app.schemas.politician import Education, ElectionRecord, PoliticalBackground
 from app.services import PoliticianService
-from app.schemas.politician import Education, PoliticalBackground, ElectionRecord
 
 logger = logging.getLogger(__name__)
 
@@ -29,24 +29,48 @@ class PoliticianEducation:
     def run(self, politician: Dict[str, Any], force: bool = False) -> Dict[str, Any]:
         """Run education extraction and return a process result payload."""
         if politician.get("education") and not force:
-            return {"process": self.name, "ok": True, "skipped": True, "reason": "already_present"}
+            return {
+                "process": self.name,
+                "ok": True,
+                "skipped": True,
+                "reason": "already_present",
+            }
 
         prompt = PoliticianPrompts.education(politician)
-        logger.info("education: calling LLM (id=%s name=%s)", politician.get("id"), politician.get("name"))
+        logger.info(
+            "education: calling LLM (id=%s name=%s)",
+            politician.get("id"),
+            politician.get("name"),
+        )
         raw = self.base._run_llm(prompt)
         parsed = self.base._parse_json_value(raw)
 
         if parsed is None:
-            return {"process": self.name, "ok": False, "error": "invalid_llm_json", "raw": raw}
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "invalid_llm_json",
+                "raw": raw,
+            }
 
         items = self.base._coerce_to_list(parsed)
         if items is None:
-            return {"process": self.name, "ok": False, "error": "invalid_shape", "raw": raw}
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "invalid_shape",
+                "raw": raw,
+            }
 
         adapter = TypeAdapter(list[Education])
         validated, errors = self.base._validate_with_adapter(items, adapter)
         if errors:
-            return {"process": self.name, "ok": False, "error": "validation_failed", "details": errors}
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "validation_failed",
+                "details": errors,
+            }
 
         updates = {"education": [item.model_dump(mode="json") for item in validated]}
         return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
@@ -65,13 +89,23 @@ class PoliticianPoliticalBackground:
         # skip if present and not force
         existing = (politician.get("political_background") or {}).get("elections") or []
         if existing and not force:
-            return {"process": self.name, "ok": True, "skipped": True, "reason": "already_present"}
+            return {
+                "process": self.name,
+                "ok": True,
+                "skipped": True,
+                "reason": "already_present",
+            }
 
         prompt = PoliticianPrompts.political_background(politician)
         raw = self.base._run_llm(prompt)
         parsed = self.base._parse_json_object(raw)
         if parsed is None:
-            return {"process": self.name, "ok": False, "error": "invalid_llm_json", "raw": raw}
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "invalid_llm_json",
+                "raw": raw,
+            }
         # Try full validation first
         adapter = TypeAdapter(PoliticalBackground)
         validated, errors = self.base._validate_with_adapter(parsed, adapter)
@@ -79,12 +113,20 @@ class PoliticianPoliticalBackground:
 
         if not errors and validated is not None:
             updates["political_background"] = validated.model_dump(mode="json")
-            logger.info("political_background: full validation succeeded (id=%s)", politician.get("id"))
+            logger.info(
+                "political_background: full validation succeeded (id=%s)",
+                politician.get("id"),
+            )
             logger.debug("political_background: updates=%s", updates)
             # If elections empty, attempt to fill via focused elections-only prompt
             if not updates["political_background"].get("elections"):
                 self._maybe_fill_elections_only(politician, updates)
-            return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
+            return {
+                "process": self.name,
+                "ok": True,
+                "skipped": False,
+                "updates": updates,
+            }
 
         # Full validation failed — attempt tolerant partial acceptance:
         validation_errors = errors
@@ -93,11 +135,17 @@ class PoliticianPoliticalBackground:
         # Try to validate elections list individually
         if isinstance(parsed.get("elections"), list):
             elections_adapter = TypeAdapter(list[ElectionRecord])
-            ev_validated, ev_errors = self.base._validate_with_adapter(parsed.get("elections"), elections_adapter)
+            ev_validated, ev_errors = self.base._validate_with_adapter(
+                parsed.get("elections"), elections_adapter
+            )
             if ev_validated is not None and not ev_errors:
-                partial_updates["elections"] = [e.model_dump(mode="json") for e in ev_validated]
+                partial_updates["elections"] = [
+                    e.model_dump(mode="json") for e in ev_validated
+                ]
             else:
-                logger.debug("political_background: elections validation failed: %s", ev_errors)
+                logger.debug(
+                    "political_background: elections validation failed: %s", ev_errors
+                )
         # Accept summary if present and non-empty
         summary_val = parsed.get("summary")
         if isinstance(summary_val, str) and summary_val.strip():
@@ -122,27 +170,50 @@ class PoliticianPoliticalBackground:
             }
 
         # Nothing useful could be extracted
-        logger.warning("political_background: validation failed (id=%s) errors=%s", politician.get("id"), validation_errors)
-        return {"process": self.name, "ok": False, "error": "validation_failed", "details": validation_errors}
+        logger.warning(
+            "political_background: validation failed (id=%s) errors=%s",
+            politician.get("id"),
+            validation_errors,
+        )
+        return {
+            "process": self.name,
+            "ok": False,
+            "error": "validation_failed",
+            "details": validation_errors,
+        }
 
-    def _maybe_fill_elections_only(self, politician: Dict[str, Any], updates: Dict[str, Any]) -> None:
+    def _maybe_fill_elections_only(
+        self, politician: Dict[str, Any], updates: Dict[str, Any]
+    ) -> None:
         """If elections are empty, issue a focused elections-only prompt and merge."""
         pb = updates.get("political_background") or {}
         if pb.get("elections"):
             return  # already have data
 
-        logger.info("political_background: elections empty; issuing elections-only prompt (id=%s)", politician.get("id"))
+        logger.info(
+            "political_background: elections empty; issuing elections-only prompt (id=%s)",
+            politician.get("id"),
+        )
         prompt = PoliticianPrompts.political_background_elections_only(politician)
         raw = self.base._run_llm(prompt)
         parsed = self.base._parse_json_value(raw)
         if parsed is None:
-            logger.warning("political_background: elections-only prompt returned invalid JSON (id=%s)", politician.get("id"))
+            logger.warning(
+                "political_background: elections-only prompt returned invalid JSON (id=%s)",
+                politician.get("id"),
+            )
             return
 
         elections_adapter = TypeAdapter(list[ElectionRecord])
-        ev_validated, ev_errors = self.base._validate_with_adapter(parsed, elections_adapter)
+        ev_validated, ev_errors = self.base._validate_with_adapter(
+            parsed, elections_adapter
+        )
         if ev_errors or ev_validated is None:
-            logger.warning("political_background: elections-only validation failed (id=%s) errors=%s", politician.get("id"), ev_errors)
+            logger.warning(
+                "political_background: elections-only validation failed (id=%s) errors=%s",
+                politician.get("id"),
+                ev_errors,
+            )
             return
 
         pb["elections"] = [e.model_dump(mode="json") for e in ev_validated]
@@ -153,6 +224,7 @@ class PoliticianPoliticalBackground:
             politician.get("id"),
         )
 
+
 class PoliticianAgent(BaseAgent):
     """Top-level orchestrator for politician enrichment processes."""
 
@@ -161,7 +233,10 @@ class PoliticianAgent(BaseAgent):
         super().__init__()
         self.politician_service = PoliticianService()
         self.cache = CacheManager()
-        self.processes = [PoliticianEducation(self), PoliticianPoliticalBackground(self)]
+        self.processes = [
+            PoliticianEducation(self),
+            PoliticianPoliticalBackground(self),
+        ]
 
     @log(logger, "PoliticianAgent.run")
     def run(
@@ -191,7 +266,12 @@ class PoliticianAgent(BaseAgent):
         """Run all processes for a single politician id."""
         if self._is_cached(politician_id) and not force:
             logger.info("skip cached: %s", politician_id)
-            return {"ok": True, "id": politician_id, "skipped": True, "reason": "already_processed"}
+            return {
+                "ok": True,
+                "id": politician_id,
+                "skipped": True,
+                "reason": "already_processed",
+            }
 
         politician = self.politician_service.get_by_id(politician_id)
         if not politician:
@@ -222,7 +302,13 @@ class PoliticianAgent(BaseAgent):
                 summary["failed"] += 1
                 continue
 
-            logger.info("[%d/%d] politician=%s name=%s", idx, len(politicians), pid, politician.get("name"))
+            logger.info(
+                "[%d/%d] politician=%s name=%s",
+                idx,
+                len(politicians),
+                pid,
+                politician.get("name"),
+            )
 
             if self._is_cached(pid) and not force:
                 summary["skipped"] += 1
@@ -238,7 +324,9 @@ class PoliticianAgent(BaseAgent):
         return summary
 
     @log(logger, "PoliticianAgent._run_for_politician")
-    def _run_for_politician(self, politician: Dict[str, Any], force: bool = False) -> Dict[str, Any]:
+    def _run_for_politician(
+        self, politician: Dict[str, Any], force: bool = False
+    ) -> Dict[str, Any]:
         """Run registered processes in parallel for one politician."""
         politician_id = politician.get("id")
         if not politician_id:
@@ -251,31 +339,65 @@ class PoliticianAgent(BaseAgent):
         write_lock = threading.Lock()
 
         with ThreadPoolExecutor(max_workers=max(1, len(self.processes))) as executor:
-            future_to_process = {executor.submit(process.run, politician, force): process for process in self.processes}
+            future_to_process = {
+                executor.submit(process.run, politician, force): process
+                for process in self.processes
+            }
             for future in as_completed(future_to_process):
                 process = future_to_process[future]
                 try:
                     result = future.result()
                 except Exception as exc:
-                    logger.exception("process %s crashed: %s", getattr(process, "name", str(process)), exc)
+                    logger.exception(
+                        "process %s crashed: %s",
+                        getattr(process, "name", str(process)),
+                        exc,
+                    )
                     # record failure for summary
-                    process_results.append({"process": getattr(process, "name", "unknown"), "ok": False, "error": str(exc)})
+                    process_results.append(
+                        {
+                            "process": getattr(process, "name", "unknown"),
+                            "ok": False,
+                            "error": str(exc),
+                        }
+                    )
                     continue
 
                 process_results.append(result)
 
                 # Persist each process's updates immediately (serialized by write_lock)
-                if result.get("ok") and not result.get("skipped") and result.get("updates"):
+                if (
+                    result.get("ok")
+                    and not result.get("skipped")
+                    and result.get("updates")
+                ):
                     with write_lock:
-                        updated = self.politician_service.update_politician(politician_id, result["updates"])
+                        updated = self.politician_service.update_politician(
+                            politician_id, result["updates"]
+                        )
                         if not updated:
-                            logger.error("Failed to persist updates for %s from process %s", politician_id, getattr(process, "name", "unknown"))
-                            process_results.append({"process": getattr(process, "name", "unknown"), "ok": False, "error": "update_failed"})
+                            logger.error(
+                                "Failed to persist updates for %s from process %s",
+                                politician_id,
+                                getattr(process, "name", "unknown"),
+                            )
+                            process_results.append(
+                                {
+                                    "process": getattr(process, "name", "unknown"),
+                                    "ok": False,
+                                    "error": "update_failed",
+                                }
+                            )
                         else:
                             # track updated fields for reporting
                             for k in result["updates"].keys():
                                 updated_fields.add(k)
-                            logger.info("Persisted updates for %s from process %s: %s", politician_id, getattr(process, "name", "unknown"), list(result["updates"].keys()))
+                            logger.info(
+                                "Persisted updates for %s from process %s: %s",
+                                politician_id,
+                                getattr(process, "name", "unknown"),
+                                list(result["updates"].keys()),
+                            )
 
         # Per requirement: if id is processed once (even partial), skip in future.
         self._mark_cached(politician_id)

@@ -2,9 +2,9 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [main, develop]
+    branches: [production, development]
   pull_request:
-    branches: [main, develop]
+    branches: [production, development]
 
 env:
   PYTHON_VERSION: "3.11"
@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install flake8 black isort
+          pip install flake8 black isort mypy
 
       - name: Run Black (formatting check)
         run: black --check app/ tests/
@@ -38,7 +38,10 @@ jobs:
         run: isort --check-only app/ tests/
 
       - name: Run Flake8 (linting)
-        run: flake8 app/ tests/ --max-line-length=88 --extend-ignore=E203,W503,E501
+        run: flake8 app/ tests/
+
+      - name: Run mypy (type checking)
+        run: mypy app/ --ignore-missing-imports
 
   backend-unit-tests:
     name: Backend Unit Tests
