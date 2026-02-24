@@ -8,8 +8,8 @@ Can be extended to use Redis or other persistent cache backends.
 import hashlib
 import json
 import logging
-from typing import Any, Dict, Optional
 from datetime import datetime, timedelta
+from typing import Any, Dict, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 class LLMCache:
     """
     Simple in-memory cache for LLM responses.
-    
+
     Cache keys are based on query hash + location hash.
     Cache entries expire after a configurable TTL.
     """
@@ -113,4 +113,3 @@ def get_cache(ttl_hours: int = 24) -> LLMCache:
     if _global_cache is None:
         _global_cache = LLMCache(ttl_hours=ttl_hours)
     return _global_cache
-
