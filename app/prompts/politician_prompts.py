@@ -17,8 +17,8 @@ class PoliticianPrompts:
         return (
             "You are extracting structured data about an Indian politician.\n"
             "Return ONLY valid JSON array. Each item format:\n"
-            "[{\"qualification\": \"HIGH_SCHOOL|DIPLOMA|BACHELOR|MASTER|DOCTORATE|PROFESSIONAL|OTHERS|null\", "
-            "\"institution\": \"string|null\", \"year_completed\": number|null}]\n"
+            '[{"qualification": "HIGH_SCHOOL|DIPLOMA|BACHELOR|MASTER|DOCTORATE|PROFESSIONAL|OTHERS|null", '
+            '"institution": "string|null", "year_completed": number|null}]\n'
             f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
             "If unknown, return []"
         )
@@ -36,7 +36,7 @@ class PoliticianPrompts:
             '"constituency": "string", "party": "string", "status": "WON|LOST|CONTESTED" } ], '
             '"summary": "short textual summary or null" }\n'
             f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
-            "If unknown, return {\"elections\": [], \"summary\": null}"
+            'If unknown, return {"elections": [], "summary": null}'
         )
 
     @staticmethod
@@ -54,4 +54,3 @@ class PoliticianPrompts:
             f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
             "If unknown, return []"
         )
-

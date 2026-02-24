@@ -26,7 +26,10 @@ class ConstituencyFetcher:
         self.agent = agent
 
     def run(self, state: str) -> List[str]:
-        logger.info("[ConstituencyFetcher] calling LLM for %s constituencies (this may take ~30s)", state)
+        logger.info(
+            "[ConstituencyFetcher] calling LLM for %s constituencies (this may take ~30s)",
+            state,
+        )
         prompt = (
             f"Return ONLY a valid JSON array of all current assembly constituency names "
             f"for the Indian state: {state}.\n"
@@ -51,12 +54,19 @@ class MLADetailsFetcher:
 
     name = "mla_details"
 
-    def __init__(self, agent: BaseAgent, batch_size: int = BATCH_SIZE, max_workers: int = MAX_WORKERS):
+    def __init__(
+        self,
+        agent: BaseAgent,
+        batch_size: int = BATCH_SIZE,
+        max_workers: int = MAX_WORKERS,
+    ):
         self.agent = agent
         self.batch_size = batch_size
         self.max_workers = max_workers
 
-    def _fetch_batch(self, state: str, batch: List[str], batch_num: int, total_batches: int) -> List[Dict[str, Any]]:
+    def _fetch_batch(
+        self, state: str, batch: List[str], batch_num: int, total_batches: int
+    ) -> List[Dict[str, Any]]:
         tag = f"[MLADetailsFetcher batch {batch_num}/{total_batches}]"
         logger.info("%s fetching %d constituencies", tag, len(batch))
 
@@ -76,12 +86,19 @@ class MLADetailsFetcher:
             return []
 
         items = self.agent._coerce_to_list(parsed) or []
-        result = [d for d in items if isinstance(d, dict) and d.get("name") and d.get("constituency")]
+        result = [
+            d
+            for d in items
+            if isinstance(d, dict) and d.get("name") and d.get("constituency")
+        ]
         logger.info("%s got %d valid records", tag, len(result))
         return result
 
     def run(self, state: str, constituencies: List[str]) -> List[Dict[str, Any]]:
-        batches = [constituencies[i:i + self.batch_size] for i in range(0, len(constituencies), self.batch_size)]
+        batches = [
+            constituencies[i : i + self.batch_size]
+            for i in range(0, len(constituencies), self.batch_size)
+        ]
         total = len(batches)
 
         if total == 1:
@@ -89,7 +106,10 @@ class MLADetailsFetcher:
 
         logger.info(
             "[MLADetailsFetcher] %d constituencies → %d batches of ~%d (workers=%d)",
-            len(constituencies), total, self.batch_size, self.max_workers,
+            len(constituencies),
+            total,
+            self.batch_size,
+            self.max_workers,
         )
 
         all_results: List[Dict[str, Any]] = []
@@ -102,20 +122,31 @@ class MLADetailsFetcher:
                 completed[0] += 1
                 logger.info(
                     "[MLADetailsFetcher] progress: %d/%d batches done (%d records so far)",
-                    completed[0], total, len(all_results) + len(result),
+                    completed[0],
+                    total,
+                    len(all_results) + len(result),
                 )
             return result
 
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
-            futures = {executor.submit(_run_batch, i, b): i for i, b in enumerate(batches)}
+            futures = {
+                executor.submit(_run_batch, i, b): i for i, b in enumerate(batches)
+            }
             for future in as_completed(futures):
                 try:
                     all_results.extend(future.result())
                 except Exception as exc:
                     batch_idx = futures[future]
-                    logger.error("[MLADetailsFetcher] batch %d/%d failed: %s", batch_idx + 1, total, exc)
+                    logger.error(
+                        "[MLADetailsFetcher] batch %d/%d failed: %s",
+                        batch_idx + 1,
+                        total,
+                        exc,
+                    )
 
-        logger.info("[MLADetailsFetcher] all batches done → %d total records", len(all_results))
+        logger.info(
+            "[MLADetailsFetcher] all batches done → %d total records", len(all_results)
+        )
         return all_results
 
 
@@ -130,14 +161,18 @@ class StateMLAFetcher(BaseAgent):
         max_workers: int = MAX_WORKERS,
     ):
         super().__init__()
-        self.data_dir = Path(data_dir) if data_dir else Path(__file__).resolve().parents[1] / "data"
+        self.data_dir = (
+            Path(data_dir) if data_dir else Path(__file__).resolve().parents[1] / "data"
+        )
         self.mla_path = self.data_dir / "mla.json"
         self.states_path = self.data_dir / "states.json"
         self.cache = cache or CacheManager()
         self.states = self._load_states()
 
         self.constituency_fetcher = ConstituencyFetcher(self)
-        self.mla_detail_fetcher = MLADetailsFetcher(self, batch_size=batch_size, max_workers=max_workers)
+        self.mla_detail_fetcher = MLADetailsFetcher(
+            self, batch_size=batch_size, max_workers=max_workers
+        )
 
     def _load_states(self) -> List[str]:
         try:
@@ -166,7 +201,9 @@ class StateMLAFetcher(BaseAgent):
 
     def _save(self, records: List[Dict[str, Any]]) -> None:
         tmp = self.mla_path.with_suffix(".tmp")
-        tmp.write_text(json.dumps(records, ensure_ascii=False, indent=2), encoding="utf-8")
+        tmp.write_text(
+            json.dumps(records, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
         tmp.replace(self.mla_path)
 
     @staticmethod
@@ -179,7 +216,11 @@ class StateMLAFetcher(BaseAgent):
         return str(uuid.uuid5(uuid.NAMESPACE_DNS, payload))
 
     def run_all(self, force: bool = False) -> Dict[str, Any]:
-        logger.info("[StateMLAFetcher] running for ALL %d states (force=%s)", len(self.states), force)
+        logger.info(
+            "[StateMLAFetcher] running for ALL %d states (force=%s)",
+            len(self.states),
+            force,
+        )
         results: List[Dict[str, Any]] = []
         for idx, state in enumerate(self.states, 1):
             logger.info("[StateMLAFetcher] [%d/%d] %s", idx, len(self.states), state)
@@ -187,7 +228,14 @@ class StateMLAFetcher(BaseAgent):
             results.append(result)
             status = "ok" if result.get("ok") else "FAILED"
             added = result.get("added", 0)
-            logger.info("[StateMLAFetcher] [%d/%d] %s → %s (added=%d)", idx, len(self.states), state, status, added)
+            logger.info(
+                "[StateMLAFetcher] [%d/%d] %s → %s (added=%d)",
+                idx,
+                len(self.states),
+                state,
+                status,
+                added,
+            )
 
         total_added = sum(r.get("added", 0) for r in results)
         succeeded = sum(1 for r in results if r.get("ok"))
@@ -204,16 +252,22 @@ class StateMLAFetcher(BaseAgent):
 
     def run(self, state: str, force: bool = False) -> Dict[str, Any]:
         state_norm = self._validate_state(state)
-        logger.info("[StateMLAFetcher] starting for state: %s (force=%s)", state_norm, force)
+        logger.info(
+            "[StateMLAFetcher] starting for state: %s (force=%s)", state_norm, force
+        )
 
         logger.info("[Step 1/3] Fetching constituencies for %s", state_norm)
         constituencies = self.constituency_fetcher.run(state_norm)
         if not constituencies:
             logger.warning("[Step 1/3] No constituencies found, aborting")
             return {"ok": False, "error": "no_constituencies_found"}
-        logger.info("[Step 1/3] Got %d constituencies for %s", len(constituencies), state_norm)
+        logger.info(
+            "[Step 1/3] Got %d constituencies for %s", len(constituencies), state_norm
+        )
 
-        logger.info("[Step 2/3] Fetching MLA details for %d constituencies", len(constituencies))
+        logger.info(
+            "[Step 2/3] Fetching MLA details for %d constituencies", len(constituencies)
+        )
         fetched = self.mla_detail_fetcher.run(state_norm, constituencies)
         if not fetched:
             logger.warning("[Step 2/3] No MLA data fetched, aborting")
@@ -222,7 +276,10 @@ class StateMLAFetcher(BaseAgent):
 
         logger.info("[Step 3/3] Deduplicating and persisting records")
         existing = self._load_existing()
-        seen = {self._dedupe_key(p.get("name", ""), p.get("constituency", "")): p for p in existing}
+        seen = {
+            self._dedupe_key(p.get("name", ""), p.get("constituency", "")): p
+            for p in existing
+        }
         added, skipped_cached, skipped_duplicate = 0, 0, 0
 
         for item in fetched:
@@ -271,7 +328,11 @@ class StateMLAFetcher(BaseAgent):
             logger.info("[Step 3/3] No new records to save")
 
         if skipped_cached or skipped_duplicate:
-            logger.info("[Step 3/3] Skipped: %d cached, %d duplicate", skipped_cached, skipped_duplicate)
+            logger.info(
+                "[Step 3/3] Skipped: %d cached, %d duplicate",
+                skipped_cached,
+                skipped_duplicate,
+            )
 
         summary = {
             "ok": True,

@@ -3,9 +3,10 @@ Environment variable checker for Rajniti application.
 
 Logs missing and present environment variables on server startup.
 """
+
 import logging
 import os
-from typing import Dict, List
+from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -19,7 +20,7 @@ def check_environment_variables() -> None:
     - Present environment variables (without exposing sensitive values)
     """
     # Define environment variables with their properties
-    env_vars: Dict[str, Dict[str, any]] = {
+    env_vars: Dict[str, Dict[str, Any]] = {
         # Required/Important variables (no defaults or sensitive defaults)
         "DATABASE_URL": {
             "required": False,

@@ -12,10 +12,10 @@ Usage:
 import logging
 import uuid
 from pathlib import Path
-from typing import Literal, Optional
+from typing import Optional
 
-from app.schemas.politician import ElectionRecord, Politician, PoliticalBackground
 from app.constants import STATE_NAMES
+from app.schemas.politician import ElectionRecord, PoliticalBackground, Politician
 
 from .http import fetch_page, normalize_base_url
 from .parsers import (
@@ -43,7 +43,6 @@ logger = logging.getLogger(__name__)
 def _state_name(state_id: str) -> str:
     """Resolve a state_id to its human-readable name."""
     return STATE_NAMES.get(state_id, "Unknown State")
-
 
 
 def _make_politician_id() -> str:
@@ -126,7 +125,9 @@ def scrape_election(
 
     logger.info("=" * 70)
     logger.info("Scraping %s elections from %s", election_type, base_url)
-    logger.info("Year: %d | Output: %s | Existing: %d", year, output_path, len(existing_ids))
+    logger.info(
+        "Year: %d | Output: %s | Existing: %d", year, output_path, len(existing_ids)
+    )
     logger.info("=" * 70)
 
     # ── Step 1: Fetch index page ─────────────────────────────────────────
@@ -137,7 +138,9 @@ def scrape_election(
 
     # ── Step 2: Detect state (MLA only) ──────────────────────────────────
     if election_type == "MLA":
-        state_info = detect_state_from_text(base_url) or detect_state_from_index_html(index_html)
+        state_info = detect_state_from_text(base_url) or detect_state_from_index_html(
+            index_html
+        )
         if state_info:
             logger.info("Detected state: %s (%s)", state_info[1], state_info[0])
         else:
@@ -162,18 +165,24 @@ def scrape_election(
         constituencies = parse_constituencies(party_html)
         logger.info(
             "Party: %s (%s) — %d constituencies",
-            party.name, party.id, len(constituencies),
+            party.name,
+            party.id,
+            len(constituencies),
         )
 
         for constituency in constituencies:
             # Build a deterministic ID to skip early if already stored
-            pid = _make_politician_id(election_type, year, constituency.state_id, constituency.id)
+            pid = _make_politician_id(
+                election_type, year, constituency.state_id, constituency.id
+            )
             if pid in existing_ids:
                 logger.debug("Already stored: %s — skipping fetch", pid)
                 continue
 
             const_url = build_constituency_page_url(
-                base_url, constituency.state_id, constituency.id,
+                base_url,
+                constituency.state_id,
+                constituency.id,
             )
             const_html = fetch_page(const_url, referer=base_url)
             if not const_html:
@@ -208,6 +217,11 @@ def scrape_election(
                 logger.info("  ✓ Saved: %s ← %s", constituency.name, winner.name)
 
     logger.info("=" * 70)
-    logger.info("✅ Done! Added %d new %ss (total on disk: %d)", added, election_type, len(existing_ids))
+    logger.info(
+        "✅ Done! Added %d new %ss (total on disk: %d)",
+        added,
+        election_type,
+        len(existing_ids),
+    )
     logger.info("=" * 70)
     return added

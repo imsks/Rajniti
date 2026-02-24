@@ -5,6 +5,7 @@ Clean, minimal setup without unnecessary complexity.
 Election data is served directly from JSON files.
 Only User table is stored in the database.
 """
+
 import logging
 import os
 

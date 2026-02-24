@@ -1,0 +1,23 @@
+[flake8]
+max-line-length = 88
+extend-ignore =
+    E203,
+    W503,
+    E501,
+exclude =
+    .git,
+    __pycache__,
+    venv,
+    .venv,
+    build,
+    dist,
+    alembic/versions,
+    chroma_db,
+per-file-ignores =
+    __init__.py:F401,
+    app/__init__.py:E402,
+    app/prompts/*:E501,
+    tests/test_langchain_setup.py:E402,
+    tests/unit/models/test_user_model.py:E402,
+    tests/unit/services/test_user_service.py:E402,
+    tests/unit/config/test_agent_config.py:E402,

@@ -3,10 +3,11 @@ from pathlib import Path
 from typing import Optional
 
 import chromadb
-from fastembed import TextEmbedding
 from dotenv import load_dotenv
+from fastembed import TextEmbedding
 
 load_dotenv()
+
 
 class VectorDB:
     """ChromaDB wrapper (local persistent) for politician embeddings."""
@@ -23,7 +24,9 @@ class VectorDB:
 
         self.db_path.mkdir(parents=True, exist_ok=True)
         self.client = chromadb.PersistentClient(path=str(self.db_path))
-        self.collection = self.client.get_or_create_collection(name=self.collection_name)
+        self.collection = self.client.get_or_create_collection(
+            name=self.collection_name
+        )
         self.embedder = TextEmbedding()
 
     def health(self) -> bool:
@@ -76,19 +79,24 @@ class VectorDB:
     def reset_collection(self) -> None:
         """Drop and recreate the collection (useful for weekly rebuild)."""
         self.client.delete_collection(name=self.collection_name)
-        self.collection = self.client.get_or_create_collection(name=self.collection_name)
+        self.collection = self.client.get_or_create_collection(
+            name=self.collection_name
+        )
 
     def embed_texts(self, texts: list[str]) -> list[list[float]]:
         """Create local embeddings for a list of texts."""
         return [v.tolist() for v in self.embedder.embed(texts)]
 
-    def query(self, *, query_text: str, n_results: int = 5, where: Optional[dict] = None):
+    def query(
+        self, *, query_text: str, n_results: int = 5, where: Optional[dict] = None
+    ):
         """Semantic search over politician documents."""
         qvec = self.embed_texts([query_text])[0]
         kwargs = {"query_embeddings": [qvec], "n_results": n_results}
         if where is not None:
             kwargs["where"] = where
         return self.collection.query(**kwargs)
+
 
 # If called as a script, run the main function
 if __name__ == "__main__":
