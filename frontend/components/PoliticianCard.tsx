@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import Text from "@/components/ui/Text"
+import Image from "@/components/ui/Image"
 import type { Politician } from "@/types/politician"
 
 interface PoliticianCardProps {
@@ -45,13 +46,13 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
                 {/* Top: Photo / Avatar + Name */}
                 <div className='flex items-start gap-4 mb-3'>
                     {hasPhoto ? (
-                        <img
+                        <Image
                             src={politician.photo!}
                             alt={politician.name}
-                            className='w-14 h-14 rounded-full object-cover border-2 border-orange-200 flex-shrink-0'
-                            onError={(e) => {
-                                (e.target as HTMLImageElement).style.display = "none"
-                            }}
+                            width={56}
+                            height={56}
+                            rounded='full'
+                            className='w-14 h-14 object-cover border-2 border-orange-200 flex-shrink-0'
                         />
                     ) : (
                         <div className='w-14 h-14 rounded-full bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center flex-shrink-0 border-2 border-orange-200'>

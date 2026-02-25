@@ -318,7 +318,7 @@ export default function Home() {
                         className='text-center mt-12'>
                         <Button
                             href='/dashboard'
-                            className='bg-white text-orange-600 hover:bg-gray-50 border-none shadow-lg hover:shadow-xl hover:scale-105'
+                            variant='secondary'
                             size='lg'
                             rightIcon={
                                 <svg

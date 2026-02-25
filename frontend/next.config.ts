@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
                 protocol: "https",
                 hostname: "results.eci.gov.in",
                 pathname: "/**"
+            },
+            {
+                protocol: "https",
+                hostname: "lh3.googleusercontent.com",
+                pathname: "/**"
             }
         ]
         // Vercel handles image optimization automatically

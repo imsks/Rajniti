@@ -1,3 +1,5 @@
+"use client"
+
 import NextImage, { ImageProps as NextImageProps } from "next/image"
 import { useState } from "react"
 
@@ -28,6 +30,7 @@ export default function Image({
         <NextImage
             src={error ? fallbackSrc : src}
             alt={alt}
+            loading='lazy'
             className={`${roundedStyles[rounded]} ${className}`}
             onError={() => setError(true)}
             {...props}

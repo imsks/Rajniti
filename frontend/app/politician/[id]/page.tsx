@@ -5,6 +5,7 @@ import { usePolitician } from "@/hooks/usePoliticians"
 import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
+import Image from "@/components/ui/Image"
 import type { Politician, ElectionRecord, CrimeRecord, FamilyMember } from "@/types/politician"
 
 // ── Helper components ─────────────────────────────────────────────────────
@@ -300,13 +301,12 @@ export default function PoliticianPage() {
                 <div className='bg-white rounded-2xl shadow-lg p-8 border border-gray-200 mb-6'>
                     <div className='flex flex-col md:flex-row gap-6 items-start'>
                         {p.photo ? (
-                            <img
+                            <Image
                                 src={p.photo}
                                 alt={p.name}
+                                width={128}
+                                height={128}
                                 className='w-32 h-32 rounded-2xl object-cover border-4 border-orange-200 flex-shrink-0'
-                                onError={(e) => {
-                                    (e.target as HTMLImageElement).style.display = "none"
-                                }}
                             />
                         ) : (
                             <div className='w-32 h-32 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center flex-shrink-0 border-4 border-orange-200'>
