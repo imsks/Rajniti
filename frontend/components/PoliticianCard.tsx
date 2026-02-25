@@ -34,6 +34,7 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
     const initial = getPartyInitial(politician)
     const isMp = politician.type === "MP"
     const hasPhoto = !!politician.photo
+    console.log(politician)
 
     return (
         <Link

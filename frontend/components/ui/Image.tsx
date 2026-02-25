@@ -12,8 +12,9 @@ export default function Image({
     src,
     alt,
     className = "",
-    fallbackSrc = "/default-avatar.png", // Adjust default fallback path as needed
+    fallbackSrc = "/default-avatar.png",
     rounded = "none",
+    unoptimized,
     ...props
 }: ImageProps) {
     const [error, setError] = useState(false)
@@ -26,11 +27,15 @@ export default function Image({
         full: "rounded-full"
     }
 
+    const isExternal =
+        typeof src === "string" && src.startsWith("http")
+
     return (
         <NextImage
             src={error ? fallbackSrc : src}
             alt={alt}
             loading='lazy'
+            unoptimized={unoptimized ?? isExternal}
             className={`${roundedStyles[rounded]} ${className}`}
             onError={() => setError(true)}
             {...props}
