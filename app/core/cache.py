@@ -9,6 +9,7 @@ from .logger import log
 
 logger = logging.getLogger(__name__)
 
+
 class CacheManager:
     """Minimal SQLite cache with set/get/delete (TTL support optional)."""
 

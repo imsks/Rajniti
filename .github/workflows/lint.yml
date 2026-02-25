@@ -1,0 +1,81 @@
+name: Lint Gate
+
+on:
+  pull_request:
+    branches: [production, development]
+
+concurrency:
+  group: lint-${{ github.head_ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHON_VERSION: "3.11"
+  NODE_VERSION: "20"
+
+jobs:
+  backend-lint:
+    name: Backend Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+
+      - name: Install linters
+        run: pip install flake8 black isort mypy
+
+      - name: Black
+        run: black --check app/ tests/
+
+      - name: isort
+        run: isort --check-only app/ tests/
+
+      - name: Flake8
+        run: flake8 app/ tests/
+
+      - name: mypy
+        run: mypy app/ --ignore-missing-imports
+
+  frontend-lint:
+    name: Frontend Lint
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: ESLint
+        run: npm run lint
+
+      - name: TypeScript
+        run: npx tsc --noEmit
+
+  lint-passed:
+    name: Lint Passed
+    runs-on: ubuntu-latest
+    needs: [backend-lint, frontend-lint]
+    if: always()
+    steps:
+      - name: Check results
+        run: |
+          if [[ "${{ needs.backend-lint.result }}" != "success" ]] || \
+             [[ "${{ needs.frontend-lint.result }}" != "success" ]]; then
+            echo "::error::Lint checks failed — fix issues before merging"
+            exit 1
+          fi
+          echo "All lint checks passed"

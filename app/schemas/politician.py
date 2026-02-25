@@ -4,17 +4,20 @@ Politician Data Model
 Unified schema for storing MP and MLA data in a simplified structure.
 """
 
-from pydantic import BaseModel, HttpUrl, Field, validator
-from typing import List, Optional
 from enum import Enum
+from typing import List, Optional
+
+from pydantic import BaseModel, Field, HttpUrl, validator
+
 from .types import (
-    RelationEnum,
-    QualificationEnum,
-    PoliticianType,
-    StatusEnum,
-    State,
     STATES,
+    PoliticianType,
+    QualificationEnum,
+    RelationEnum,
+    State,
+    StatusEnum,
 )
+
 
 class Contact(BaseModel):
     email: Optional[str] = None
@@ -83,6 +86,7 @@ class CrimeRecord(BaseModel):
     """
     Record of a criminal case or allegation related to the politician.
     """
+
     name: str
     type: Optional[CrimeType] = None
     year: Optional[int] = None
@@ -124,17 +128,11 @@ class Politician(BaseModel):
                             "state": "",
                             "constituency": "",
                             "party": "",
-                            "status": ""
+                            "status": "",
                         }
                     ],
-                    "summary": None
+                    "summary": None,
                 },
-                "criminal_records": [
-                    {
-                        "name": "",
-                        "type": "",
-                        "year": ""
-                    }
-                ]
+                "criminal_records": [{"name": "", "type": "", "year": ""}],
             }
         }

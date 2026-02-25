@@ -22,9 +22,11 @@ ElectionType = Literal["MP", "MLA"]
 
 # ── Intermediate data types ──────────────────────────────────────────────────
 
+
 @dataclass(frozen=True)
 class ParsedParty:
     """A party row scraped from the main index page."""
+
     id: str
     name: str
     short_name: str
@@ -33,6 +35,7 @@ class ParsedParty:
 @dataclass(frozen=True)
 class ParsedConstituency:
     """A constituency won by a party, scraped from the party-wise page."""
+
     id: str
     name: str
     state_id: str
@@ -41,6 +44,7 @@ class ParsedConstituency:
 @dataclass(frozen=True)
 class ParsedWinner:
     """The winning candidate from a constituency page."""
+
     name: str
     party_name: str
     photo_url: Optional[str]
@@ -48,19 +52,25 @@ class ParsedWinner:
 
 # ── URL builders (pure) ─────────────────────────────────────────────────────
 
-def build_party_page_url(base_url: str, party_id: str, election_type: ElectionType) -> str:
+
+def build_party_page_url(
+    base_url: str, party_id: str, election_type: ElectionType
+) -> str:
     """Build the URL for a party's won-constituencies page."""
     if election_type == "MP":
         return f"{base_url}/partywisewinresultState-{party_id}.htm"
     return f"{base_url}/partywisewinresult-{party_id}.htm"
 
 
-def build_constituency_page_url(base_url: str, state_id: str, constituency_id: str) -> str:
+def build_constituency_page_url(
+    base_url: str, state_id: str, constituency_id: str
+) -> str:
     """Build the URL for a constituency's candidate page."""
     return f"{base_url}/candidateswise-{state_id}{constituency_id}.htm"
 
 
 # ── Year / state extraction (pure) ──────────────────────────────────────────
+
 
 def extract_year_from_url(url: str, default: int = 2024) -> int:
     """Pull the first 4-digit year from a URL string."""
@@ -116,6 +126,7 @@ def detect_state_from_index_html(html: bytes) -> Optional[tuple[str, str]]:
 
 
 # ── Party parser ─────────────────────────────────────────────────────────────
+
 
 def _parse_mp_party_row(cols: list[Tag]) -> Optional[ParsedParty]:
     """Parse a party row from a Lok Sabha index page."""
@@ -182,6 +193,7 @@ def parse_parties(html: bytes, election_type: ElectionType) -> List[ParsedParty]
 
 # ── Constituency parser ──────────────────────────────────────────────────────
 
+
 def parse_constituencies(html: bytes) -> List[ParsedConstituency]:
     """
     Parse won constituencies from a party-wise results page.
@@ -216,15 +228,20 @@ def parse_constituencies(html: bytes) -> List[ParsedConstituency]:
 
             if key not in seen:
                 seen.add(key)
-                results.append(ParsedConstituency(
-                    id=constituency_id, name=name, state_id=state_id,
-                ))
+                results.append(
+                    ParsedConstituency(
+                        id=constituency_id,
+                        name=name,
+                        state_id=state_id,
+                    )
+                )
         except Exception as exc:
             logger.debug("Skipping constituency row: %s", exc)
     return results
 
 
 # ── Candidate / winner parser ────────────────────────────────────────────────
+
 
 def _extract_status(cand_info: Tag) -> Optional[str]:
     """Extract status string (WON / LOST / …) from a cand-info block."""
@@ -233,7 +250,9 @@ def _extract_status(cand_info: Tag) -> Optional[str]:
         return None
 
     # Strategy 1: div with text-transform (Lok Sabha)
-    styled = status_div.find("div", {"style": lambda x: x and "text-transform" in str(x)})
+    styled = status_div.find(
+        "div", {"style": lambda x: x and "text-transform" in str(x)}
+    )
     if styled:
         return styled.get_text(strip=True).upper()
 
