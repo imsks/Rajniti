@@ -239,14 +239,14 @@ export default function Dashboard() {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
                         className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                        {displayPoliticians.map((p, i) => (
+                        {displayPoliticians.map((politician, i) => (
                             <motion.div
-                                key={p.id}
+                                key={politician.id}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.4, delay: i * 0.05 }}
                             >
-                                <PoliticianCard politician={p} />
+                                <PoliticianCard politician={politician} />
                             </motion.div>
                         ))}
                     </motion.div>
