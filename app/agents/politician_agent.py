@@ -10,9 +10,8 @@ from pydantic import TypeAdapter
 from app.agents.base_agent import BaseAgent
 from app.core import CacheManager, log
 from app.prompts import PoliticianPrompts
-from app.schemas.politician import Education, ElectionRecord, PoliticalBackground
+from app.schemas.politician import Education, ElectionRecord, PoliticalBackground, SocialMedia
 from app.services import PoliticianService
-from app.schemas.politician import Education, PoliticalBackground, ElectionRecord, SocialMedia
 
 logger = logging.getLogger(__name__)
 
