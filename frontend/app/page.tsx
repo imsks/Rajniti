@@ -387,7 +387,7 @@ export default function Home() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className='text-center mt-12'>
-                        <Button
+                        <Link
                             href='/dashboard'
                             size='lg'
                             className='inline-flex items-center gap-3 bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg border-2 border-orange-600  hover:text-white shadow-[0_8px_30px_rgba(249,115,22,0.2)]  hover:-translate-y-0.5 transition-all duration-300'

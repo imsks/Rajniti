@@ -12,9 +12,9 @@ const nextConfig: NextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "results.eci.gov.in",
+                hostname: "*",
                 pathname: "/**"
-            }
+            },
         ]
         // Vercel handles image optimization automatically
     },
