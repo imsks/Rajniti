@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
@@ -16,6 +16,8 @@ export default function Dashboard() {
     const [searchQuery, setSearchQuery] = useState("")
     const [stateFilter, setStateFilter] = useState("")
     const [partyFilter, setPartyFilter] = useState("")
+    const [currentPage, setCurrentPage] = useState(1)
+    const [itemsPerPage, setItemsPerPage] = useState(12)
 
     // One API call — everything else derived client-side
     const typeParam: ElectionType | undefined =
@@ -29,6 +31,22 @@ export default function Dashboard() {
         () => filter({ query: searchQuery, state: stateFilter, party: partyFilter }),
         [filter, searchQuery, stateFilter, partyFilter]
     )
+
+    // Pagination calculations
+    const totalPages = Math.ceil(displayPoliticians.length / itemsPerPage)
+    const startIndex = (currentPage - 1) * itemsPerPage
+    const endIndex = startIndex + itemsPerPage
+    const paginatedPoliticians = displayPoliticians.slice(startIndex, endIndex)
+
+    // Reset to page 1 when filters change
+    useMemo(() => {
+        setCurrentPage(1)
+    }, [searchQuery, stateFilter, partyFilter, activeTab, itemsPerPage])
+
+    // Scroll to top when page changes
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, [currentPage])
 
     const hasActiveFilters = !!(searchQuery || stateFilter || partyFilter)
 
@@ -67,7 +85,7 @@ export default function Dashboard() {
                     transition={{ duration: 0.6 }}
                     className='mb-8'>
                     <Text variant='h2' weight='bold' className='text-gray-900 mb-2'>
-                        Indian Politicians
+                        <span className='text-orange-600'>Indian</span>  Politicians
                     </Text>
                     <Text variant='body' className='text-gray-600 mb-6'>
                         Browse elected MPs and MLAs. Help us enrich their profiles!
@@ -87,17 +105,17 @@ export default function Dashboard() {
                             <StatCard
                                 value={stats.totalStates.toString()}
                                 label='States / UTs'
-                                color='text-blue-600'
+                                color='text-[#1E40AF]'
                             />
                             <StatCard
                                 value={stats.totalParties.toString()}
                                 label='Parties'
-                                color='text-green-600'
+                                color='text-green-800'
                             />
                             <StatCard
                                 value={stats.topParty}
                                 label='Top Party'
-                                color='text-purple-600'
+                                color='text-[#1E40AF] '
                             />
                         </motion.div>
                     )}
@@ -147,7 +165,11 @@ export default function Dashboard() {
                         {/* Search input */}
                         <div className='flex-1 relative'>
                             <span className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400'>
-                                🔍
+                                <img
+                                    src='/logo/search.png'
+                                    alt='Search'
+                                    className='w-5 h-5'
+                                />
                             </span>
                             <input
                                 type='text'
@@ -234,22 +256,95 @@ export default function Dashboard() {
 
                 {/* Politician grid */}
                 {!loading && displayPoliticians.length > 0 && (
-                    <motion.div 
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5 }}
-                        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                        {displayPoliticians.map((politician, i) => (
-                            <motion.div
-                                key={politician.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.4, delay: i * 0.05 }}
-                            >
-                                <PoliticianCard politician={politician} />
-                            </motion.div>
-                        ))}
-                    </motion.div>
+                    <>
+                        {/* Results info and items per page selector */}
+                        <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6'>
+                            <Text variant='body' className='text-gray-600'>
+                                Showing {startIndex + 1}-{Math.min(endIndex, displayPoliticians.length)} of {displayPoliticians.length} politicians
+                            </Text>
+                            <div className='flex items-center gap-2'>
+                                <Text variant='body' className='text-gray-600 text-sm'>
+                                    Show:
+                                </Text>
+                                <select
+                                    value={itemsPerPage}
+                                    onChange={(e) => setItemsPerPage(Number(e.target.value))}
+                                    className='px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white'>
+                                    <option value={12}>12</option>
+                                    <option value={24}>24</option>
+                                    <option value={48}>48</option>
+                                    <option value={96}>96</option>
+                                </select>
+                                <Text variant='body' className='text-gray-600 text-sm'>
+                                    per page
+                                </Text>
+                            </div>
+                        </div>
+
+                        <motion.div 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5 }}
+                            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                            {paginatedPoliticians.map((p, i) => (
+                                <motion.div
+                                    key={p.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.4, delay: i * 0.05 }}
+                                >
+                                    <PoliticianCard politician={p} />
+                                </motion.div>
+                            ))}
+                        </motion.div>
+
+                        {/* Pagination controls */}
+                        {totalPages > 1 && (
+                            <div className='flex justify-center items-center gap-2 mt-8'>
+                                <button
+                                    onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                                    disabled={currentPage === 1}
+                                    className='px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors'>
+                                    Previous
+                                </button>
+                                
+                                <div className='flex gap-1'>
+                                    {Array.from({ length: Math.min(totalPages, 7) }, (_, i) => {
+                                        let pageNum: number
+                                        if (totalPages <= 7) {
+                                            pageNum = i + 1
+                                        } else if (currentPage <= 4) {
+                                            pageNum = i + 1
+                                        } else if (currentPage >= totalPages - 3) {
+                                            pageNum = totalPages - 6 + i
+                                        } else {
+                                            pageNum = currentPage - 3 + i
+                                        }
+                                        
+                                        return (
+                                            <button
+                                                key={pageNum}
+                                                onClick={() => setCurrentPage(pageNum)}
+                                                className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
+                                                    currentPage === pageNum
+                                                        ? 'bg-orange-600 text-white'
+                                                        : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
+                                                }`}>
+                                                {pageNum}
+                                            </button>
+                                        )
+                                    })}
+                                </div>
+
+                                <button
+                                    onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                                    disabled={currentPage === totalPages}
+                                    className='px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors'>
+                                    Next
+                                </button>
+                            </div>
+                        )}
+                    </>
                 )}
 
                 {/* Contribute CTA */}
@@ -274,7 +369,7 @@ export default function Dashboard() {
                         <Button
                             href='https://github.com/imsks/rajniti/issues/new'
                             external
-                            className='bg-white text-orange-600 hover:bg-gray-50 border-none shadow-lg'
+                            className='bg-white text-orange-600 py-2 px-4 rounded-lg font-semibold border-none shadow-lg'
                             size='lg'>
                             Contribute on GitHub →
                         </Button>

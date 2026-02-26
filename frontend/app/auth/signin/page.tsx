@@ -29,7 +29,7 @@ function SignInContent() {
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3, type: "spring", stiffness: 200 }}
               className="flex justify-center mb-4">
-              <div className="text-5xl">🗳️</div>
+              <div className="text-5xl"><img src="/logo/voting-box.png" alt="Rajniti Logo" className='w-9 h-9' /></div>
             </motion.div>
             <motion.h1 
               initial={{ opacity: 0, y: 10 }}

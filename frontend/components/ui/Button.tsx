@@ -76,7 +76,7 @@ export default function Button(props: ButtonProps) {
     )
 
     if (props.href) {
-        const { href, external, ...linkProps } = props as ButtonAsLinkProps
+        const { href, external, ...linkProps } = rest as ButtonAsLinkProps
 
         if (external) {
             return (
@@ -92,10 +92,8 @@ export default function Button(props: ButtonProps) {
         }
 
         return (
-            <Link href={href} legacyBehavior>
-            <a className={classes} {...(linkProps as any)}>
+            <Link href={href} className={classes} {...(linkProps as any)}>
                 {content}
-            </a>
             </Link>
         )
     }
