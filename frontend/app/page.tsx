@@ -316,11 +316,11 @@ export default function Home() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className='text-center mt-12'>
-                        <Button
+                        <Link
                             href='/dashboard'
-                            variant='secondary'
-                            size='lg'
-                            rightIcon={
+                            className='inline-flex items-center justify-center px-8 py-3 text-lg font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white text-orange-600 hover:bg-gray-50 border-none shadow-lg hover:shadow-xl hover:scale-105 rounded-lg'>
+                            Start Exploring
+                            <span className='ml-2 pointer-events-none'>
                                 <svg
                                     className='w-5 h-5'
                                     fill='none'
@@ -333,9 +333,8 @@ export default function Home() {
                                         d='M13 7l5 5m0 0l-5 5m5-5H6'
                                     />
                                 </svg>
-                            }>
-                            Start Exploring
-                        </Button>
+                            </span>
+                        </Link>
                     </motion.div>
                 </div>
             </section>
