@@ -9753,5 +9753,428 @@
       ],
       "summary": "Contested Rajasthan Assembly Election 2023 from Kolayat representing Indian National Congress."
     }
+  },
+  {
+    "id": "c9e2f2f1-0f8d-4c3c-9a9a-6f3f1a2e7b11",
+    "name": "BIHARI LAL",
+    "photo": "https://myneta.info/images_candidate/mynetai_ews5Rajasthan2023/fafb8d4cf2a0db7bf5c6bdcac5be440fba031aca.jpg",
+    "state": "Rajasthan",
+    "constituency": "NOKHA",
+    "type": "MLA",
+
+    "education": [
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Maharaja Ganga Singh University, Bikaner",
+        "year_completed": 2012
+      }
+    ],
+
+    "criminal_records": [
+      {
+        "name": "FIR 104/2023 - P.S Sadar Bazar Bikaner (IPC 279, 304A)",
+        "type": "OTHERS",
+        "year": 2023
+      }
+    ],
+
+    "political_background": {
+      "elections": [
+        {
+          "year": 2023,
+          "type": "MLA",
+          "state": "Rajasthan",
+          "constituency": "NOKHA",
+          "party": "Bharatiya Janata Party",
+          "status": "LOST"
+        }
+      ],
+      "summary": "Elected as MLA from Nokha constituency in Rajasthan Legislative Assembly 2023 representing Bharatiya Janata Party."
+    }
+  },
+  {
+    "id": "58d66f2b-daf0-4cf8-b7a4-ab1a339aca44",
+    "name": "BULAKI DAS KALLA",
+    "photo": "https://myneta.info/images_candidate/mynetai_ews5Rajasthan2023/49c00030a10ca5a95dc39c73a5e1cee8f526c748.jpg",
+    "state": "Rajasthan",
+    "constituency": "BIKANER WEST",
+    "type": "MLA",
+
+    "education": [
+      {
+        "qualification": "DOCTORATE",
+        "institution": "Rajasthan University, Jaipur",
+        "year_completed": 1992
+      }
+    ],
+
+    "criminal_records": [
+      {
+        "name": "No criminal cases have been reported against the candidate.",
+        "type": "OTHERS",
+        "year": null
+      }
+    ],
+
+    "political_background": {
+      "elections": [
+        {
+          "year": 2023,
+          "type": "MLA",
+          "state": "Rajasthan",
+          "constituency": "BIKANER WEST",
+          "party": "Indian National Congress",
+          "status": "LOST"
+        }
+      ],
+      "summary": "Senior Indian National Congress leader from Bikaner West constituency, Rajasthan."
+    }
+  },
+  {
+    "id": "79dcbc88-d21b-4de8-aa8a-b358ae00066d",
+    "name": "BULAKI DAS KALLA",
+    "photo": "https://myneta.info/images_candidate/mynetai_ews5Rajasthan2023/a7a3ebf6689687828125640c9c1bd2c4bedf1127.jpg",
+    "state": "Rajasthan",
+    "constituency": "BIKANER WEST",
+    "type": "MLA",
+
+    "education": [
+      {
+        "qualification": "DOCTORATE",
+        "institution": "Rajasthan University, Jaipur",
+        "year_completed": 1992
+      }
+    ],
+
+    "criminal_records": [
+      {
+        "name": "No criminal cases have been reported against the candidate.",
+        "type": "OTHERS",
+        "year": null
+      }
+    ],
+
+    "political_background": {
+      "elections": [
+        {
+          "year": 2023,
+          "type": "MLA",
+          "state": "Rajasthan",
+          "constituency": "BIKANER WEST",
+          "party": "Indian National Congress",
+          "status": "LOST"
+        }
+      ],
+      "summary": "Senior Indian National Congress leader from Bikaner West constituency, Rajasthan."
+    }
+  },
+  {
+    "id": "3f8b2d41-6b7c-4c91-9e5f-2a7d9b8e4c12",
+    "name": "DR. RAJENDRA MOOND",
+    "photo": "https://myneta.info/images_candidate/mynetai_ews5Rajasthan2023/88b4e891d7c349740c9a10929833601a50f2c390.jpg",
+    "state": "Rajasthan",
+    "constituency": "LUNKARANSAR",
+    "type": "MLA",
+
+    "education": [
+      {
+        "qualification": "DOCTORATE",
+        "institution": "Rajasthan College of Agriculture Udaipur, Maharana Pratap Agriculture & Technology University Udaipur",
+        "year_completed": 2007
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Rajasthan College of Agriculture Udaipur, Maharana Pratap Agriculture & Technology University Udaipur",
+        "year_completed": 2003
+      }
+    ],
+
+    "criminal_records": [
+      {
+        "name": "FIR 64/2021 - PS Kalu, Lunkaransar (IPC 420, 467, 468, 120B), Case No. 84/2022 pending before Add. Chief Judicial Magistrate, Lunkaransar.",
+        "type": "OTHERS",
+        "year": 2021
+      }
+    ],
+
+    "political_background": {
+      "elections": [
+        {
+          "year": 2023,
+          "type": "MLA",
+          "state": "Rajasthan",
+          "constituency": "LUNKARANSAR",
+          "party": "Indian National Congress",
+          "status": "LOST"
+        }
+      ],
+      "summary": "Contested Rajasthan Assembly Election 2023 from Lunkaransar constituency representing Indian National Congress."
+    }
+  },
+  {
+    "id": "8c4f1a92-3d6b-4e7a-9f21-5b8c2d7e9a45",
+    "name": "DR. VIVEK MACHRA",
+    "photo": "https://myneta.info/images_candidate/mynetai_ews5Rajasthan2023/29910e8abe35e9bd4c74cbcd8a6aefc349be0269.jpg",
+    "state": "Rajasthan",
+    "constituency": "DUNGARGARH",
+    "type": "MLA",
+
+    "education": [
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Rajasthan Dental College, Jaipur",
+        "year_completed": 2016
+      }
+    ],
+
+    "criminal_records": [
+      {
+        "name": "FIR 370/2023 - PS Sridungargarh (IPC 145, 149, 186, 188, 283, 295A, 298, 353) pending case.",
+        "type": "OTHERS",
+        "year": 2023
+      }
+    ],
+
+    "political_background": {
+      "elections": [
+        {
+          "year": 2023,
+          "type": "MLA",
+          "state": "Rajasthan",
+          "constituency": "DUNGARGARH",
+          "party": "Rashtriya Loktantrik Party",
+          "status": "LOST"
+        }
+      ],
+      "summary": "Contested Rajasthan Assembly Election 2023 from Dungargarh constituency representing Rashtriya Loktantrik Party."
+    }
+  },
+  {
+    "id": "5d2a9c71-4f8b-4c6e-9a13-7e2b1d9f3c84",
+    "name": "GOVINDRAM MEGHWAL",
+    "photo": "https://myneta.info/images_candidate/mynetai_ews5Rajasthan2023/449122ecdf91c6fba2170898564fa1c5cc09286f.jpg",
+    "state": "Rajasthan",
+    "constituency": "KHAJUWALA (SC)",
+    "type": "MLA",
+
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "Rajasthan University, Jaipur",
+        "year_completed": 1986
+      }
+    ],
+
+    "criminal_records": [
+      {
+        "name": "No criminal cases have been reported against the candidate.",
+        "type": "OTHERS",
+        "year": null
+      }
+    ],
+
+    "political_background": {
+      "elections": [
+        {
+          "year": 2023,
+          "type": "MLA",
+          "state": "Rajasthan",
+          "constituency": "KHAJUWALA (SC)",
+          "party": "Indian National Congress",
+          "status": "LOST"
+        }
+      ],
+      "summary": "Contested Rajasthan Assembly Election 2023 from Khajuwala (SC) constituency representing Indian National Congress."
+    }
+  },
+  {
+    "id": "c1f9a7e2-5d4b-4a8f-9c2e-7b6d3e1f8a90",
+    "name": "JAIPRAKASH",
+    "photo": "https://myneta.info/images_candidate/mynetai_ews5Rajasthan2023/bd48a1e8564c94beaee8267427a52d2f9ac7ec30.jpg",
+    "state": "Rajasthan",
+    "constituency": "KHAJUWALA (SC)",
+    "type": "MLA",
+
+    "education": [
+      {
+        "qualification": "OTHERS",
+        "institution": "Intermediate School Jaitpur, Bikaner",
+        "year_completed": 1981
+      }
+    ],
+
+    "criminal_records": [
+      {
+        "name": "22 pending criminal cases including IPC 120B, 201, 409, 420, 467, 468, 471, 477A and cases under Prevention of Money Laundering Act and MMDR Act (2014–2023).",
+        "type": "OTHERS",
+        "year": 2014
+      }
+    ],
+
+    "political_background": {
+      "elections": [
+        {
+          "year": 2023,
+          "type": "MLA",
+          "state": "Rajasthan",
+          "constituency": "KHAJUWALA (SC)",
+          "party": "Rashtriya Loktantrik Party",
+          "status": "LOST"
+        }
+      ],
+      "summary": "Contested Rajasthan Assembly Election 2023 from Khajuwala (SC) constituency representing Rashtriya Loktantrik Party."
+    }
+  },
+  {
+    "id": "7e4c2a91-9b6d-4f3a-8c1e-2d9f5b7a6e30",
+    "name": "JETHANAND VYAS",
+    "photo": "https://myneta.info/images_candidate/mynetai_ews5Rajasthan2023/b9efd329c69d57d5a021380befed40a3a79b81a4.jpg",
+    "state": "Rajasthan",
+    "constituency": "BIKANER WEST",
+    "type": "MLA",
+
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Rajkiya Dungar College Bikaner, Maharshi Dayanand Saraswati University, Ajmer",
+        "year_completed": 1998
+      }
+    ],
+
+    "criminal_records": [
+      {
+        "name": "4 pending criminal cases including IPC 153A, 295, 295A, 143, 188, 269, 270, 353 and sections under Rajasthan Epidemic Act and Disaster Management Act (2021).",
+        "type": "OTHERS",
+        "year": 2021
+      }
+    ],
+
+    "political_background": {
+      "elections": [
+        {
+          "year": 2023,
+          "type": "MLA",
+          "state": "Rajasthan",
+          "constituency": "BIKANER WEST",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ],
+      "summary": "Elected as MLA from Bikaner West constituency in Rajasthan Assembly Election 2023 representing Bharatiya Janata Party."
+    }
+  },
+  {
+    "id": "9a6d3f21-4b8e-4c7a-9d12-6e5f2a1c8b73",
+    "name": "KANHAIYALAL JHANWAR",
+    "photo": "https://myneta.info/images_candidate/mynetai_ews5Rajasthan2023/e683211c305e1cf4c1aa9a9b47e3a4d489718175.jpg",
+    "state": "Rajasthan",
+    "constituency": "NOKHA",
+    "type": "MLA",
+
+    "education": [
+      {
+        "qualification": "OTHERS",
+        "institution": "Govt. Baba Chotunath Higher Secondary School, Nokha",
+        "year_completed": 1965
+      }
+    ],
+
+    "criminal_records": [
+      {
+        "name": "No criminal cases have been reported against the candidate.",
+        "type": "OTHERS",
+        "year": null
+      }
+    ],
+
+    "political_background": {
+      "elections": [
+        {
+          "year": 2023,
+          "type": "MLA",
+          "state": "Rajasthan",
+          "constituency": "NOKHA",
+          "party": "Vikas Manch",
+          "status": "LOST"
+        }
+      ],
+      "summary": "Contested Rajasthan Assembly Election 2023 from Nokha constituency representing Vikas Manch."
+    }
+  },
+  {
+    "id": "2b7e4c91-6d3f-4a8a-9c12-5e7f1b3d8a64",
+    "name": "MANGLARAM GODARA",
+    "photo": "https://myneta.info/images_candidate/mynetai_ews5Rajasthan2023/4a1b379abfad9392b84ddaaf210ee3fb3fc3ed25.jpg",
+    "state": "Rajasthan",
+    "constituency": "DUNGARGARH",
+    "type": "MLA",
+
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Board of Secondary Education, Rajasthan",
+        "year_completed": 2019
+      }
+    ],
+
+    "criminal_records": [
+      {
+        "name": "No criminal cases have been reported against the candidate.",
+        "type": "OTHERS",
+        "year": null
+      }
+    ],
+
+    "political_background": {
+      "elections": [
+        {
+          "year": 2023,
+          "type": "MLA",
+          "state": "Rajasthan",
+          "constituency": "DUNGARGARH",
+          "party": "Indian National Congress",
+          "status": "LOST"
+        }
+      ],
+      "summary": "Contested Rajasthan Assembly Election 2023 from Dungargarh constituency representing Indian National Congress."
+    }
+  },
+  {
+    "id": "6f3b2c91-4d8e-4a7a-9c25-1e7d5b3a8f60",
+    "name": "MAYAWATI",
+    "photo": "https://myneta.info/images_candidate/mynetai_ews5Rajasthan2023/62241cab91928002dcd0224204d791a3dca39f75.jpg",
+    "state": "Rajasthan",
+    "constituency": "KHAJUWALA (SC)",
+    "type": "MLA",
+
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Vardhman Mahaveer Open University, Kota",
+        "year_completed": 2016
+      }
+    ],
+
+    "criminal_records": [
+      {
+        "name": "No criminal cases have been reported against the candidate.",
+        "type": "OTHERS",
+        "year": null
+      }
+    ],
+
+    "political_background": {
+      "elections": [
+        {
+          "year": 2023,
+          "type": "MLA",
+          "state": "Rajasthan",
+          "constituency": "KHAJUWALA (SC)",
+          "party": "Bahujan Samaj Party",
+          "status": "LOST"
+        }
+      ],
+      "summary": "Contested Rajasthan Assembly Election 2023 from Khajuwala (SC) constituency representing Bahujan Samaj Party."
+    }
   }
 ]
