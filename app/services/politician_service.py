@@ -120,11 +120,13 @@ class PoliticianService:
                         continue
 
                 # Search across key text fields
-                searchable = " ".join([
-                    p.get("name", ""),
-                    p.get("state", ""),
-                    p.get("constituency", ""),
-                ]).lower()
+                searchable = " ".join(
+                    [
+                        p.get("name", ""),
+                        p.get("state", ""),
+                        p.get("constituency", ""),
+                    ]
+                ).lower()
 
                 # Also include party names from elections
                 bg = p.get("political_background", {})
@@ -208,8 +210,12 @@ class PoliticianService:
             "total_politicians": total,
             "total_states": len(by_state),
             "total_parties": len(by_party),
-            "top_parties": sorted(by_party.items(), key=lambda x: x[1], reverse=True)[:10],
-            "top_states": sorted(by_state.items(), key=lambda x: x[1], reverse=True)[:10],
+            "top_parties": sorted(by_party.items(), key=lambda x: x[1], reverse=True)[
+                :10
+            ],
+            "top_states": sorted(by_state.items(), key=lambda x: x[1], reverse=True)[
+                :10
+            ],
         }
 
     # ── public API: write ─────────────────────────────────────────────────
@@ -232,19 +238,26 @@ class PoliticianService:
                     return records[i]
         return None
 
-    def _merge_nested(self, existing: Dict[str, Any], updates: Dict[str, Any]) -> Dict[str, Any]:
+    def _merge_nested(
+        self, existing: Dict[str, Any], updates: Dict[str, Any]
+    ) -> Dict[str, Any]:
         """Shallow merge with special handling for political_background (append elections)."""
         merged = {**existing, **updates}
 
-        if "political_background" in updates and isinstance(existing.get("political_background"), dict):
+        if "political_background" in updates and isinstance(
+            existing.get("political_background"), dict
+        ):
             merged["political_background"] = self._merge_political_background(
-                existing.get("political_background") or {}, updates.get("political_background") or {}
+                existing.get("political_background") or {},
+                updates.get("political_background") or {},
             )
 
         return merged
 
     @staticmethod
-    def _merge_political_background(existing_pb: Dict[str, Any], new_pb: Dict[str, Any]) -> Dict[str, Any]:
+    def _merge_political_background(
+        existing_pb: Dict[str, Any], new_pb: Dict[str, Any]
+    ) -> Dict[str, Any]:
         """Append elections without duplicating existing entries; prefer new summary if provided."""
         existing_elections = existing_pb.get("elections") or []
         new_elections = new_pb.get("elections") or []

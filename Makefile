@@ -48,10 +48,17 @@ test-e2e: ## Run E2E tests
 coverage: ## Run tests with coverage
 	. venv/bin/activate && pytest tests/ --cov=app --cov-report=term-missing --cov-report=html
 
-lint: ## Run linters
-	. venv/bin/activate && flake8 app/ tests/ && black --check app/ tests/
+lint: ## Run all linters (backend + frontend)
+	. venv/bin/activate && black --check app/ tests/ && isort --check-only app/ tests/ && flake8 app/ tests/ && mypy app/ --ignore-missing-imports
+	cd frontend && npx eslint . && npx tsc --noEmit
 
-format: ## Format code
+lint-backend: ## Run backend linters only
+	. venv/bin/activate && black --check app/ tests/ && isort --check-only app/ tests/ && flake8 app/ tests/ && mypy app/ --ignore-missing-imports
+
+lint-frontend: ## Run frontend linters only
+	cd frontend && npx eslint . && npx tsc --noEmit
+
+format: ## Auto-format code
 	. venv/bin/activate && black app/ tests/ && isort app/ tests/
 
 # ═══════════════════════════════════════════════════════════════════════════════

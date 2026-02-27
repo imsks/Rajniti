@@ -13,6 +13,7 @@ T = TypeVar("T")
 
 logger = logging.getLogger(__name__)
 
+
 class BaseAgent:
     def __init__(self):
         """Initialize the shared LLM client for all agents."""
