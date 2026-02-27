@@ -13,6 +13,8 @@ exclude =
     dist,
     alembic/versions,
     chroma_db,
+    frontend/node_modules,
+    frontend/.next
 per-file-ignores =
     __init__.py:F401,
     app/__init__.py:E402,
@@ -21,3 +23,4 @@ per-file-ignores =
     tests/unit/models/test_user_model.py:E402,
     tests/unit/services/test_user_service.py:E402,
     tests/unit/config/test_agent_config.py:E402,
+    scripts/*.py:E402
