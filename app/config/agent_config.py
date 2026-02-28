@@ -10,26 +10,20 @@ load_dotenv()
 
 logger = logging.getLogger(__name__)
 
-PROVIDER_CONFIGS = {
-    "openai": {
-        "api_key_env": "OPENAI_API_KEY",
-        "model_env": "AGENT_OPENAI_MODEL",
-        "default_model": "gpt-4o-mini",
-        "base_url": None,
-    },
-    "perplexity": {
-        "api_key_env": "PERPLEXITY_API_KEY",
-        "model_env": "AGENT_PERPLEXITY_MODEL",
-        "default_model": "sonar",
-        "base_url": "https://api.perplexity.ai",
-    },
-    "gemini": {
-        "api_key_env": "GEMINI_API_KEY",
-        "model_env": "AGENT_GEMINI_MODEL",
-        "default_model": "gemini-1.5-flash",
-        "base_url": None,
-    },
-}
+# Flat list: fallback order is top to bottom. Exhaust models of one provider, then next.
+# API keys stay in .env; model names are configured here.
+PROVIDER_CONFIGS = [
+    # Gemini (try in order)
+    {"provider": "gemini", "model": "gemini-3.1-pro-preview", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-3-pro-preview", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-3-flash-preview", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-2.5-flash", "api_key_env": "GEMINI_API_KEY"},
+    # OpenAI (try in order)
+    {"provider": "openai", "model": "gpt-4o-mini", "api_key_env": "OPENAI_API_KEY", "base_url": None},
+    {"provider": "openai", "model": "gpt-4o", "api_key_env": "OPENAI_API_KEY", "base_url": None},
+    # Perplexity
+    {"provider": "perplexity", "model": "sonar", "api_key_env": "PERPLEXITY_API_KEY", "base_url": "https://api.perplexity.ai"},
+]
 
 
 def _get_model_name(llm: Any) -> str:
@@ -61,17 +55,15 @@ def _get_retry_after_seconds(exc: Exception) -> Optional[float]:
     return None
 
 
-def _build_llm(provider: str) -> Optional[Any]:
-    """Build a provider-specific chat LLM if API key is configured."""
-    cfg = PROVIDER_CONFIGS.get(provider)
-    if not cfg:
+def _build_llm(
+    provider: str,
+    model: str,
+    api_key: str,
+    base_url: Optional[str] = None,
+) -> Optional[Any]:
+    """Build a provider-specific chat LLM with explicit model name and API key."""
+    if not model or not api_key:
         return None
-
-    api_key = os.getenv(cfg["api_key_env"])  # type: ignore[index]
-    if not api_key:
-        return None
-
-    model = os.getenv(cfg["model_env"], cfg["default_model"])  # type: ignore[index]
 
     def _build_openai_compatible() -> Any:
         try:
@@ -80,9 +72,9 @@ def _build_llm(provider: str) -> Optional[Any]:
         except Exception as exc:
             logger.warning("OpenAI provider unavailable (missing deps): %s", exc)
             return None
-        kwargs = dict(api_key=api_key, model=model, temperature=0)
-        if cfg["base_url"]:  # type: ignore[index]
-            kwargs["base_url"] = cfg["base_url"]  # type: ignore[index]
+        kwargs: dict[str, Any] = dict(api_key=api_key, model=model, temperature=0)
+        if base_url:
+            kwargs["base_url"] = base_url
         return ChatOpenAI(**kwargs)
 
     def _build_gemini() -> Any:
@@ -106,93 +98,111 @@ def _build_llm(provider: str) -> Optional[Any]:
     if not builder:
         return None
 
-    built = builder()
-    return built
+    return builder()
 
 
 def _is_fallback_error(exc: Exception) -> bool:
-    """Return True when provider failure should trigger fallback."""
+    """Return True when provider failure should trigger fallback (default: True for most errors)."""
+    # Log all error details for debugging
+    exc_str = str(exc)
+    class_name = exc.__class__.__name__
     status_code = getattr(exc, "status_code", None)
-    if status_code == 429:
-        return True
-    if isinstance(status_code, int) and 500 <= status_code <= 599:
-        return True
-
-    # Google / Gemini quota errors
-    if exc.__class__.__name__ in {"ResourceExhausted"}:
-        return True
-
     code = getattr(exc, "code", None)
-    if code in {"insufficient_quota", "rate_limit_exceeded"}:
-        return True
-
-    error_attr = getattr(exc, "error", None)
-    if isinstance(error_attr, dict):
-        nested_code = error_attr.get("code")
-        if nested_code in {"insufficient_quota", "rate_limit_exceeded"}:
-            return True
-
-    message = str(exc).lower()
-    if "insufficient_quota" in message or "rate limit" in message:
-        return True
-    if "resource_exhausted" in message:
-        return True
-    if "quota exceeded" in message:
-        return True
-    if "429" in message and "quota" in message:
-        return True
-    if "timeout" in message or "timed out" in message:
-        return True
-    if "connection error" in message or "temporary failure" in message:
-        return True
-
-    return exc.__class__.__name__ == "RateLimitError"
+    
+    logger.error(
+        "Agent LLM error - class: %s, status: %s, code: %s, message: %s",
+        class_name,
+        status_code,
+        code,
+        exc_str[:300],
+    )
+    
+    # Only these specific errors should NOT trigger fallback:
+    # 1. Authentication errors (401, 403) - won't be fixed by trying another model
+    if status_code in {401, 403}:
+        logger.info("Non-retryable: authentication error (status %s)", status_code)
+        return False
+    
+    if class_name in {"AuthenticationError", "PermissionDenied", "Unauthorized"}:
+        logger.info("Non-retryable: authentication error (%s)", class_name)
+        return False
+    
+    # 2. Clear validation errors (but not quota/rate limits)
+    if status_code == 400:
+        message_lower = exc_str.lower()
+        if "invalid" in message_lower and "quota" not in message_lower and "rate" not in message_lower:
+            logger.info("Non-retryable: validation error (400 with 'invalid')")
+            return False
+    
+    # Everything else (quota, rate limit, server errors, network errors, etc.) should trigger fallback
+    logger.info("Error is retryable, will fallback to next model")
+    return True
 
 
 class FailoverChatLLM:
-    """Simple runtime failover wrapper for ChatOpenAI providers."""
+    """Runtime failover wrapper: tries candidates in order with per-model cooldown on rate limit."""
 
-    def __init__(self, candidates: list[tuple[str, Any]]):
-        """Store ordered provider candidates and track active model index."""
+    def __init__(self, candidates: list[tuple[str, str, Any]]):
+        """Store ordered (provider, model, llm) candidates and per-model cooldowns."""
         if not candidates:
             raise ValueError("FailoverChatLLM requires at least one candidate")
         self._candidates = candidates
         self._active_index = 0
-        self._cooldowns: dict[str, float] = {}
+        self._cooldowns: dict[tuple[str, str], float] = {}
 
     @property
     def model_name(self) -> str:
         """Return the currently active model name."""
-        return _get_model_name(self._candidates[self._active_index][1])
+        _provider, model, llm = self._candidates[self._active_index]
+        return model
 
     def invoke(self, *args: Any, **kwargs: Any) -> Any:
-        """Invoke the active provider and fallback on retryable failures."""
+        """Invoke candidates in order; on retryable failure, cooldown this model and try next."""
         last_exc: Optional[Exception] = None
         now = time.time()
 
-        for index, (provider, llm) in enumerate(self._candidates):
-            until = self._cooldowns.get(provider)
+        for index, (provider, model, llm) in enumerate(self._candidates):
+            key = (provider, model)
+            until = self._cooldowns.get(key)
             if until and until > now:
                 logger.info(
-                    "Agent LLM: %s in cooldown for %.1fs; skipping",
+                    "Agent LLM: %s/%s in cooldown for %.1fs; skipping",
                     provider,
+                    model,
                     until - now,
                 )
                 continue
+            
+            logger.info("Agent LLM: trying %s/%s (candidate %d/%d)", provider, model, index + 1, len(self._candidates))
+            
             try:
                 response = llm.invoke(*args, **kwargs)
                 self._active_index = index
+                logger.info("Agent LLM: SUCCESS with %s/%s", provider, model)
                 return response
             except Exception as exc:
-                if not _is_fallback_error(exc) or index == len(self._candidates) - 1:
+                is_last = index == len(self._candidates) - 1
+                is_retryable = _is_fallback_error(exc)
+                
+                if not is_retryable:
+                    logger.error("Agent LLM: non-retryable error, raising immediately")
                     raise
+                
+                if is_last:
+                    logger.error("Agent LLM: last candidate failed, no more fallbacks")
+                    raise
+                
+                # Set cooldown (default 60s if not specified)
                 retry_after = _get_retry_after_seconds(exc)
-                if retry_after:
-                    self._cooldowns[provider] = time.time() + retry_after
+                cooldown_duration = retry_after if retry_after else 60.0
+                self._cooldowns[key] = time.time() + cooldown_duration
+                
                 logger.warning(
-                    "Agent LLM: %s failed (%s). Falling back...",
+                    "Agent LLM: %s/%s FAILED (%s), cooldown %.0fs, trying next model...",
                     provider,
+                    model,
                     exc.__class__.__name__,
+                    cooldown_duration,
                 )
                 last_exc = exc
 
@@ -202,44 +212,51 @@ class FailoverChatLLM:
 
     def __getattr__(self, item: str) -> Any:
         """Delegate unknown attributes to currently active provider."""
-        return getattr(self._candidates[self._active_index][1], item)
+        return getattr(self._candidates[self._active_index][2], item)
 
 
 class AgentLLMFactory:
-    """Factory for creating a failover-enabled agent LLM."""
+    """Factory for creating a failover-enabled agent LLM from PROVIDER_CONFIGS."""
 
-    def __init__(self, providers: Optional[list[str]] = None):
-        """Initialize factory with explicit providers or env-based defaults."""
-        self.providers = providers or self._providers_from_env()
-
-    @staticmethod
-    def _providers_from_env() -> list[str]:
-        """Read and normalize provider fallback order from environment."""
-        fallback_str = os.getenv("AGENT_LLM_PROVIDERS", "perplexity,openai")
-        return [p.strip() for p in fallback_str.split(",") if p.strip()]
+    def __init__(self, config_list: Optional[list[dict[str, Any]]] = None):
+        """Initialize with explicit config or default PROVIDER_CONFIGS."""
+        self.config_list = config_list or PROVIDER_CONFIGS
 
     def create(self) -> FailoverChatLLM:
-        """Create a failover LLM instance from available provider clients."""
-        candidates: list[tuple[str, Any]] = []
+        """Build all configured models with valid API keys; return failover LLM."""
+        candidates: list[tuple[str, str, Any]] = []
 
-        for provider in self.providers:
-            llm = _build_llm(provider)
-            if llm is None:
-                logger.warning("Agent LLM: %s skipped (no API key)", provider)
+        for cfg in self.config_list:
+            provider = cfg["provider"]
+            model = cfg["model"]
+            api_key_env = cfg["api_key_env"]
+            base_url = cfg.get("base_url")
+
+            api_key = os.getenv(api_key_env)
+            if not api_key:
+                logger.warning(
+                    "Agent LLM: %s/%s skipped (no %s in .env)",
+                    provider,
+                    model,
+                    api_key_env,
+                )
                 continue
-            logger.info("Agent LLM: candidate %s (%s)", provider, _get_model_name(llm))
-            candidates.append((provider, llm))
+
+            llm = _build_llm(provider, model, api_key, base_url)
+            if llm is None:
+                logger.warning("Agent LLM: %s/%s build failed", provider, model)
+                continue
+
+            logger.info("Agent LLM: candidate %s/%s", provider, model)
+            candidates.append((provider, model, llm))
 
         if candidates:
-            first_provider, first_llm = candidates[0]
-            logger.info(
-                "Agent LLM: using %s (%s)", first_provider, _get_model_name(first_llm)
-            )
+            first_provider, first_model, _ = candidates[0]
+            logger.info("Agent LLM: using %s/%s", first_provider, first_model)
             return FailoverChatLLM(candidates)
 
         raise RuntimeError(
-            f"No working LLM provider found. Tried: {self.providers}. "
-            "Check your API keys in .env"
+            "No working LLM provider found. Check your API keys in .env"
         )
 
 

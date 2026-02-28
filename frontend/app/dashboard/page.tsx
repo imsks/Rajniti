@@ -6,9 +6,8 @@ import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import PoliticianCard from "@/components/PoliticianCard"
+import MyPoliticiansSection from "@/components/MyPoliticiansSection"
 import { usePoliticians } from "@/hooks/usePoliticians"
-import type { ElectionType } from "@/types/politician"
-
 type Tab = "ALL" | "MP" | "MLA"
 
 export default function Dashboard() {
@@ -19,18 +18,21 @@ export default function Dashboard() {
     const [currentPage, setCurrentPage] = useState(1)
     const [itemsPerPage, setItemsPerPage] = useState(12)
 
-    // One API call — everything else derived client-side
-    const typeParam: ElectionType | undefined =
-        activeTab === "ALL" ? undefined : activeTab
-
+    // One API call for all politicians; filter client-side by tab + search/filters
     const { all, loading, error, states, parties, stats, filter } =
-        usePoliticians(typeParam)
+        usePoliticians()
 
-    // Filtered list — pure client-side
-    const displayPoliticians = useMemo(
-        () => filter({ query: searchQuery, state: stateFilter, party: partyFilter }),
-        [filter, searchQuery, stateFilter, partyFilter]
-    )
+    // Filtered list — pure client-side (type from tab + query, state, party)
+    const displayPoliticians = useMemo(() => {
+        let list = filter({
+            query: searchQuery,
+            state: stateFilter,
+            party: partyFilter,
+        })
+        if (activeTab === "MP") list = list.filter((p) => p.type === "MP")
+        else if (activeTab === "MLA") list = list.filter((p) => p.type === "MLA")
+        return list
+    }, [filter, searchQuery, stateFilter, partyFilter, activeTab])
 
     // Pagination calculations
     const totalPages = Math.ceil(displayPoliticians.length / itemsPerPage)
@@ -78,6 +80,9 @@ export default function Dashboard() {
             <Navbar variant='dashboard' sticky={true} />
 
             <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8'>
+                {/* Your Politicians (MP + MLA slots) */}
+                <MyPoliticiansSection allPoliticians={all} />
+
                 {/* Header + Stats */}
                 <motion.div 
                     initial={{ opacity: 0, y: -20 }}
@@ -307,34 +312,6 @@ export default function Dashboard() {
                                     className='px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors'>
                                     Previous
                                 </button>
-                                
-                                <div className='flex gap-1'>
-                                    {Array.from({ length: Math.min(totalPages, 7) }, (_, i) => {
-                                        let pageNum: number
-                                        if (totalPages <= 7) {
-                                            pageNum = i + 1
-                                        } else if (currentPage <= 4) {
-                                            pageNum = i + 1
-                                        } else if (currentPage >= totalPages - 3) {
-                                            pageNum = totalPages - 6 + i
-                                        } else {
-                                            pageNum = currentPage - 3 + i
-                                        }
-                                        
-                                        return (
-                                            <button
-                                                key={pageNum}
-                                                onClick={() => setCurrentPage(pageNum)}
-                                                className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
-                                                    currentPage === pageNum
-                                                        ? 'bg-orange-600 text-white'
-                                                        : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
-                                                }`}>
-                                                {pageNum}
-                                            </button>
-                                        )
-                                    })}
-                                </div>
 
                                 <button
                                     onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}

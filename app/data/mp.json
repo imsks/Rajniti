@@ -872,7 +872,29 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "St. Stephen's College, Delhi University",
+        "year_completed": 1982
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Jawaharlal Nehru University",
+        "year_completed": 1984
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Patna Law College, Patna University",
+        "year_completed": 1985
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "International Centre for Public Enterprises, Ljubljana, Yugoslavia",
+        "year_completed": 1986
+      }
+    ]
   },
   {
     "id": "84ccc7fe-36e8-4c80-a172-d368efca3f4f",
@@ -1097,7 +1119,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Gujarat University",
+        "year_completed": 1987
+      }
+    ]
   },
   {
     "id": "365bab96-db40-4075-89ba-d425087d3e59",
@@ -1230,7 +1259,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": null,
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "17808d96-560a-459c-86f0-2b59ec448912",
@@ -1518,7 +1554,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Gujarat Secondary and Higher Secondary Education Board, Gandhinagar",
+        "year_completed": 1999
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Gujarat University, Ahmedabad",
+        "year_completed": 2002
+      }
+    ]
   },
   {
     "id": "bc8b4d9f-8da9-45b1-87be-c5676ba71a39",
@@ -1538,7 +1586,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Gujarat University, Ahmedabad",
+        "year_completed": 1987
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Gujarat University, Ahmedabad",
+        "year_completed": 1989
+      }
+    ]
   },
   {
     "id": "c97e0184-ca9f-43d6-b5cd-e45ead4c215d",
@@ -1847,7 +1907,18 @@
         }
       ]
     },
-    "education": []
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "Punjab University, Chandigarh",
+        "year_completed": 1970
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Punjab University, Chandigarh",
+        "year_completed": 1973
+      }
+    ]
   },
   {
     "id": "1d08fe3f-237f-4d81-9256-70de9ee67c94",
@@ -1904,7 +1975,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "J.V.Jain College, Saharanpur",
+        "year_completed": 1978
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Meerut University",
+        "year_completed": 1982
+      }
+    ]
   },
   {
     "id": "e71103f4-3781-4345-a9be-517b2a1f593b",
@@ -1924,7 +2007,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "IGMC Shimla",
+        "year_completed": 1987
+      },
+      {
+        "qualification": "DOCTORATE",
+        "institution": "IGMC Shimla",
+        "year_completed": 1991
+      }
+    ]
   },
   {
     "id": "30d14e2f-5caa-4a0e-b5cb-f66fb9085fb7",
@@ -2062,7 +2157,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Karnataka University, Dharwad",
+        "year_completed": 1984
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Karnataka University, Dharwad",
+        "year_completed": 1987
+      }
+    ]
   },
   {
     "id": "633dec7c-30de-4c06-8648-6ce829e0e470",
@@ -2141,7 +2248,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Karnataka University, Dharwad",
+        "year_completed": 1982
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Karnataka University, Dharwad",
+        "year_completed": 1985
+      }
+    ]
   },
   {
     "id": "fd54480b-3eb8-4b0f-ad6f-e876ac42f591",
@@ -2306,7 +2425,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Mysore University",
+        "year_completed": 1974
+      }
+    ]
   },
   {
     "id": "45a69d36-6f7a-465b-bc66-28fc22ff8ff7",
@@ -2518,7 +2644,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Mar Ivanios College, Thiruvananthapuram",
+        "year_completed": 1979
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "School of Letters, Mahatma Gandhi University, Kottayam",
+        "year_completed": 1981
+      }
+    ]
   },
   {
     "id": "83273391-0e75-4ce3-b3b0-24a4da4fa019",
@@ -2565,7 +2703,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Jiwaji University, Gwalior",
+        "year_completed": 1990
+      }
+    ]
   },
   {
     "id": "57b492ba-814f-46f8-87b1-e27edbf2494f",
@@ -2585,7 +2730,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Jiwaji University, Gwalior",
+        "year_completed": 1990
+      }
+    ]
   },
   {
     "id": "d500b88c-b941-470e-9422-5e111523ff5d",
@@ -2605,7 +2757,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "The Doon School",
+        "year_completed": null
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Harvard University",
+        "year_completed": 1993
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Stanford Graduate School of Business",
+        "year_completed": 2001
+      }
+    ]
   },
   {
     "id": "66b53628-f912-4f58-a06f-b8bd6acb3a93",
@@ -2625,7 +2794,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "G.R. Medical College, Gwalior",
+        "year_completed": 1987
+      }
+    ]
   },
   {
     "id": "e3173dec-507b-46df-8b5b-f46f4c44daae",
@@ -2677,7 +2853,29 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Govt. H.S. School, Damoh",
+        "year_completed": 1997
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Govt. H.S. School, Damoh",
+        "year_completed": 1999
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Bundelkhand University, Jhansi",
+        "year_completed": 2002
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Bundelkhand University, Jhansi",
+        "year_completed": 2004
+      }
+    ]
   },
   {
     "id": "7bc3c236-6649-4a6a-a16b-d0dbbeba213c",
@@ -3463,7 +3661,19 @@
       "linkedin": null,
       "youtube": "https://www.youtube.com/@DDUikeyOfficial",
       "website": null
-    }
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "Barkatullah University, Bhopal",
+        "year_completed": 1990
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Barkatullah University, Bhopal",
+        "year_completed": 1991
+      }
+    ]
   },
   {
     "id": "6dfa55b8-f0e9-440a-a8f2-579e02498ef4",
@@ -3483,7 +3693,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "S.S.V.P.S. Arts & Commerce College, Dhule",
+        "year_completed": 1989
+      }
+    ]
   },
   {
     "id": "9b9434f0-632e-4154-bb2c-4c49b14e9ddd",
@@ -3503,7 +3720,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "S.N.D.T. University, Mumbai",
+        "year_completed": 2003
+      }
+    ]
   },
   {
     "id": "62704a7d-bc14-4972-955b-802d9d9f1e1d",
@@ -3627,7 +3851,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "H.R. College of Commerce and Economics, University of Mumbai",
+        "year_completed": null
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Institute of Chartered Accountants of India",
+        "year_completed": null
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Government Law College, University of Mumbai",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "80b257fe-7f6f-419d-a16c-6f99cbca045b",
@@ -3706,7 +3947,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Maratha Mandir's Babasaheb Gawde English Medium School",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "d01abf46-4306-4183-9958-60ca740ffcac",
@@ -3753,7 +4001,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "S.G. Women's College, Rourkela, Sambalpur University",
+        "year_completed": 1976
+      }
+    ]
   },
   {
     "id": "ef5b2920-f28e-4bf1-ab1d-a93932c4cc72",
@@ -4998,7 +5253,18 @@
         }
       ]
     },
-    "education": []
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "R.B.S. Inter College, Agra",
+        "year_completed": 1984
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Agra College, Agra",
+        "year_completed": 1987
+      }
+    ]
   },
   {
     "id": "fc46c315-85ed-483e-9a55-b4cb024ac7c2",
@@ -5104,7 +5370,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "C.S.J.M. University, Kanpur",
+        "year_completed": 1980
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "C.S.J.M. University, Kanpur",
+        "year_completed": 1983
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "C.S.J.M. University, Kanpur",
+        "year_completed": 1987
+      }
+    ]
   },
   {
     "id": "b4a4bcdb-2995-462a-9a4a-2a5c2621b941",
@@ -5372,7 +5655,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Dr. Ram Manohar Lohia Avadh University",
+        "year_completed": 2011
+      },
+      {
+        "qualification": "DIPLOMA",
+        "institution": "Australia",
+        "year_completed": 2013
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Dr. Ram Manohar Lohia Avadh University",
+        "year_completed": 2017
+      }
+    ]
   },
   {
     "id": "59ee518c-a68d-41ea-9b7f-ce57d3e644a0",
@@ -5479,7 +5779,13 @@
         }
       ]
     },
-    "education": []
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Rizvi College of Arts, Science and Commerce, Bandra, Mumbai",
+        "year_completed": 1990
+      }
+    ]
   },
   {
     "id": "120e6371-daf6-4f33-9e0f-62a303143532",
@@ -5553,7 +5859,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "St. Andrews College, Gorakhpur",
+        "year_completed": 1994
+      }
+    ]
   },
   {
     "id": "ef8a4654-1d09-4a06-bae7-14377bc08387",
@@ -5687,7 +6000,13 @@
         }
       ]
     },
-    "education": []
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Manipur University",
+        "year_completed": 2006
+      }
+    ]
   },
   {
     "id": "d6661b53-793c-460b-9984-4e2634c56b3f",
@@ -5707,7 +6026,29 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "North Bengal University",
+        "year_completed": 1994
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Raiganj College (University of North Bengal)",
+        "year_completed": 1991
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Raiganj Coronation High School",
+        "year_completed": 1988
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Raiganj Coronation High School",
+        "year_completed": 1986
+      }
+    ]
   },
   {
     "id": "e0b34baf-662b-4f41-b96c-aaf3552848c3",
@@ -6125,7 +6466,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Durga College, Raipur (Pt. Ravishankar Shukla University)",
+        "year_completed": 1980
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Durga College, Raipur (Pt. Ravishankar Shukla University)",
+        "year_completed": 1982
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Durga College, Raipur (Pt. Ravishankar Shukla University)",
+        "year_completed": 1985
+      }
+    ]
   },
   {
     "id": "5d4de0c9-4d36-4c41-9691-8511e39c30a1",
@@ -6285,7 +6643,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "Ranchi University",
+        "year_completed": 1993
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Ranchi University",
+        "year_completed": 1991
+      }
+    ]
   },
   {
     "id": "6ef55c71-bc31-44e7-bcda-5a20503b8c97",
@@ -6305,7 +6675,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Katras High School, Katrasgarh",
+        "year_completed": 1991
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Katras College, Katrasgarh",
+        "year_completed": 1995
+      }
+    ]
   },
   {
     "id": "5530dd71-a4b3-4287-ab2f-3c91381e1ecc",
@@ -6389,7 +6771,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Zila School, Arrah",
+        "year_completed": 1967
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Patna College, Patna University",
+        "year_completed": 1971
+      }
+    ]
   },
   {
     "id": "0e3bd0c5-d4d7-4336-96d9-245f8a5cc0d7",
@@ -6463,7 +6857,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Hemvati Nandan Bahuguna Garhwal University",
+        "year_completed": 1994
+      },
+      {
+        "qualification": "DIPLOMA",
+        "institution": "Bhartiya Vidya Bhavan, New Delhi",
+        "year_completed": 1996
+      }
+    ]
   },
   {
     "id": "56480edb-4410-488e-9e18-4d05b119e856",
@@ -6542,7 +6948,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "Hemvati Nandan Bahuguna Garhwal University, Srinagar",
+        "year_completed": 1983
+      }
+    ]
   },
   {
     "id": "693984f2-62b6-44e9-b6c8-d0e7d1dd1f2d",
@@ -6589,7 +7002,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Sri Saraswathi Shishumandir, Karimnagar",
+        "year_completed": 1986
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Govt. Junior College, Karimnagar",
+        "year_completed": 1989
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Madurai Kamaraj University",
+        "year_completed": 2014
+      }
+    ]
   },
   {
     "id": "68f61499-eac5-4fdd-bbbc-58050071852a",
@@ -6636,7 +7066,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Osmania University",
+        "year_completed": 1989
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Osmania University",
+        "year_completed": 1994
+      },
+      {
+        "qualification": "DIPLOMA",
+        "institution": "University of Hyderabad",
+        "year_completed": 1996
+      }
+    ]
   },
   {
     "id": "91de1147-4d6e-4bc7-aa95-ceefa679b9e5",
@@ -6657,7 +7104,23 @@
         }
       ]
     },
-    "education": []
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "City Science College, Hyderabad (Osmania University)",
+        "year_completed": 1984
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Government Junior College, Huzurabad",
+        "year_completed": 1980
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Zilla Parishad High School, Kamalapur",
+        "year_completed": 1978
+      }
+    ]
   },
   {
     "id": "b31cfb6e-cd58-4e21-a0da-6255e526c531",
@@ -6950,7 +7413,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "School of Open Learning, University of Delhi",
+        "year_completed": 2001
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Govt. Boys Sr. Sec. School, Dev Nagar",
+        "year_completed": 1980
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Govt. Boys Sr. Sec. School, Dev Nagar",
+        "year_completed": 1978
+      }
+    ]
   },
   {
     "id": "f8537863-9873-44ad-bc09-80bb14cd0738",
@@ -7305,7 +7785,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Goa Engineering College, Goa University",
+        "year_completed": 1991
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "University of Madras",
+        "year_completed": 2007
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Indira Gandhi National Open University (IGNOU)",
+        "year_completed": 2012
+      }
+    ]
   },
   {
     "id": "f684343f-82e8-46f8-9ac9-8ac7464a7309",
@@ -7448,7 +7945,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Sampurnanand Sanskrit Vishwavidyalaya, Varanasi",
+        "year_completed": 1992
+      }
+    ]
   },
   {
     "id": "9f1d0467-1678-434d-a89b-5d6d90759b64",
@@ -7505,7 +8009,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "KLS Gogte Institute of Technology, Belagavi (VTU)",
+        "year_completed": 2018
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "KLS Gogte Institute of Technology, Belagavi (VTU)",
+        "year_completed": 2021
+      }
+    ]
   },
   {
     "id": "f8039d17-edd2-4157-987d-5ce225a8ce19",
@@ -7606,7 +8122,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "S.K.N.G. Government First Grade College, Gangavathi",
+        "year_completed": 1994
+      }
+    ]
   },
   {
     "id": "9835b0f5-a0ad-4aca-a6ec-68e6c3a0fe28",
@@ -7658,7 +8181,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Bapuji Dental College and Hospital, Davanagere",
+        "year_completed": 1998
+      }
+    ]
   },
   {
     "id": "fd51decf-fa50-46ee-8046-9fcb404e5f7b",
@@ -7678,7 +8208,8 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": []
   },
   {
     "id": "4f5582f3-bbd6-4e22-942a-2f8cd5e07409",
@@ -7752,7 +8283,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "University of Calicut",
+        "year_completed": 1981
+      }
+    ]
   },
   {
     "id": "82a93029-f5da-49d6-afa4-df1527387423",
@@ -7799,7 +8337,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "St. Stephen's College, Delhi University",
+        "year_completed": null
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Trinity College, Cambridge University",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "80efe371-5c66-4cf4-bbda-379ee3c958fa",
@@ -7900,7 +8450,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "St. Joseph's College, Devagiri",
+        "year_completed": 1995
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Government Law College, Ernakulam",
+        "year_completed": 1998
+      }
+    ]
   },
   {
     "id": "7cd209ef-051f-4113-8a53-1d7678e04135",
@@ -8027,7 +8589,18 @@
         }
       ]
     },
-    "education": []
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "St. Thomas College, Ranni",
+        "year_completed": 1982
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Kerala Law Academy Law College, Thiruvananthapuram",
+        "year_completed": 1985
+      }
+    ]
   },
   {
     "id": "0a27b786-d54d-4968-a6e1-1aebccca5572",
@@ -8202,7 +8775,8 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": []
   },
   {
     "id": "6fdf97a2-3cee-4ee6-b896-440d952153ac",
@@ -8222,7 +8796,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "DOCTORATE",
+        "institution": "Nagpur University",
+        "year_completed": 2005
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Nagpur University",
+        "year_completed": 1998
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Nagpur University",
+        "year_completed": 1995
+      }
+    ]
   },
   {
     "id": "c316c994-5da0-4898-8aee-5fba86382855",
@@ -8392,7 +8983,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "DOCTORATE",
+        "institution": "Osmania University",
+        "year_completed": 1998
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Marathwada University",
+        "year_completed": 1985
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Shivaji University",
+        "year_completed": 1981
+      }
+    ]
   },
   {
     "id": "c8fa2379-7dfb-4462-a6d0-a4334ddd14db",
@@ -8439,7 +9047,8 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": []
   },
   {
     "id": "5f4ef0f0-d61d-488d-9550-1d46e48df05b",
@@ -8513,7 +9122,8 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": []
   },
   {
     "id": "8a3faa84-1e28-4cac-b6a1-e473304e141d",
@@ -8555,7 +9165,13 @@
         }
       ]
     },
-    "education": []
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Andhra University",
+        "year_completed": 1998
+      }
+    ]
   },
   {
     "id": "d2f4697c-bafb-4be1-836f-1174ddf223e2",
@@ -8671,7 +9287,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Panjab University, Chandigarh",
+        "year_completed": 1998
+      }
+    ]
   },
   {
     "id": "ffe421f5-2a62-4810-9267-5680439836af",
@@ -8723,7 +9346,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Panjab University, Chandigarh",
+        "year_completed": 1978
+      }
+    ]
   },
   {
     "id": "787ff5c5-b388-4786-b3bb-9602fea68d3b",
@@ -8743,7 +9373,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "DOCTORATE",
+        "institution": "Panjab University, Chandigarh",
+        "year_completed": 1984
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Panjab University, Chandigarh",
+        "year_completed": 1979
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Panjab University, Chandigarh",
+        "year_completed": 1977
+      }
+    ]
   },
   {
     "id": "42dc9e5f-166c-4f75-8a8c-b9c24701e14e",
@@ -8952,7 +9599,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "JNVU, Jodhpur",
+        "year_completed": 1978
+      }
+    ]
   },
   {
     "id": "b1eed177-b465-4a57-9c42-e4068d0dc0b0",
@@ -9229,7 +9883,8 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": []
   },
   {
     "id": "90176d1e-e2aa-458c-b7b6-689d2c2b7bc3",
@@ -9666,7 +10321,8 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": []
   },
   {
     "id": "35b9886e-8c0d-4f29-8cf4-481651ba2669",
