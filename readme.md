@@ -130,7 +130,6 @@ GEMINI_API_KEY=...
 # Models
 AGENT_PERPLEXITY_MODEL=sonar
 AGENT_OPENAI_MODEL=gpt-4o-mini
-AGENT_GEMINI_MODEL=gemini-2.5-flash
 ```
 
 ### Gemini dependencies

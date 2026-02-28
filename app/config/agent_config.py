@@ -25,8 +25,14 @@ PROVIDER_CONFIGS = {
     },
     "gemini": {
         "api_key_env": "GEMINI_API_KEY",
-        "model_env": "AGENT_GEMINI_MODEL",
+        "model_env": "gemini-2.5-flash",
         "default_model": "gemini-1.5-flash",
+        "base_url": None,
+    },
+    "gemini": {
+        "api_key_env": "GEMINI_API_KEY",
+        "model_env": "gemini-1.5-flash",
+        "default_model": "",
         "base_url": None,
     },
 }

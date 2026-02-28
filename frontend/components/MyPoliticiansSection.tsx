@@ -100,24 +100,28 @@ export default function MyPoliticiansSection({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className='mb-10'
+            className='mb-10 rounded-2xl bg-gradient-to-br from-amber-50/80 via-orange-50/40 to-amber-50/60 border border-amber-200/60 shadow-sm overflow-hidden'
         >
-            <div className='mb-4'>
-                <Text
-                    variant='h2'
-                    weight='bold'
-                    className='text-gray-900 mb-1'
-                >
-                    {isEmpty
-                        ? "Add Your Local Politicians"
-                        : "Your Politicians"}
-                </Text>
-                <Text variant='body' className='text-gray-600'>
-                    {isEmpty
-                        ? "Track their performance and know their progress"
-                        : "Analyse their performance"}
-                </Text>
-            </div>
+            <div className='p-6 sm:p-8'>
+                <div className='mb-4'>
+                    <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100/80 text-amber-800 text-xs font-semibold uppercase tracking-wide mb-3'>
+                        Your dashboard
+                    </div>
+                    <Text
+                        variant='h2'
+                        weight='bold'
+                        className='text-gray-900 mb-1'
+                    >
+                        {isEmpty
+                            ? "Add Your Local Politicians"
+                            : "Your Politicians"}
+                    </Text>
+                    <Text variant='body' className='text-gray-600'>
+                        {isEmpty
+                            ? "Track their performance and know their progress"
+                            : "Analyse their performance"}
+                    </Text>
+                </div>
 
             {isEmpty && (
                 <div className='flex flex-wrap items-center gap-3 mb-4'>
@@ -153,7 +157,7 @@ export default function MyPoliticiansSection({
                             searchQuery.trim().length >= 2 && setDropdownOpen(true)
                         }
                         placeholder='Find your MP or MLA, e.g. Modi'
-                        className='w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent'
+                        className='w-full pl-10 pr-4 py-3 border border-amber-200 rounded-lg bg-white/80 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-300'
                     />
                 </div>
                 {showDropdown && (
@@ -229,15 +233,17 @@ export default function MyPoliticiansSection({
                     politician={myMP}
                     slotType='MP'
                     onAddClick={focusSearch}
+                    onRemove={myMP ? () => setMyMP(null) : undefined}
                 />
                 <MyPoliticianCard
                     politician={myMLA}
                     slotType='MLA'
                     onAddClick={focusSearch}
+                    onRemove={myMLA ? () => setMyMLA(null) : undefined}
                 />
             </div>
 
-            <div className='border-t border-gray-200 pt-4'>
+            <div className='border-t border-amber-200/60 pt-4'>
                 <Text variant='small' className='text-gray-600 mb-2'>
                     Don&apos;t know your MLA or MP?
                 </Text>
@@ -275,6 +281,7 @@ export default function MyPoliticiansSection({
                         </button>
                     </div>
                 )}
+            </div>
             </div>
         </motion.section>
     )
