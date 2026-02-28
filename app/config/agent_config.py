@@ -102,42 +102,41 @@ def _build_llm(
 
 
 def _is_fallback_error(exc: Exception) -> bool:
-    """Return True when provider failure should trigger fallback."""
+    """Return True when provider failure should trigger fallback (default: True for most errors)."""
+    # Log all error details for debugging
+    exc_str = str(exc)
+    class_name = exc.__class__.__name__
     status_code = getattr(exc, "status_code", None)
-    if status_code == 429:
-        return True
-    if isinstance(status_code, int) and 500 <= status_code <= 599:
-        return True
-
-    # Google / Gemini quota and API errors
-    if exc.__class__.__name__ in {"ResourceExhausted", "GoogleAPIError"}:
-        return True
-
     code = getattr(exc, "code", None)
-    if code in {"insufficient_quota", "rate_limit_exceeded"}:
-        return True
-
-    error_attr = getattr(exc, "error", None)
-    if isinstance(error_attr, dict):
-        nested_code = error_attr.get("code")
-        if nested_code in {"insufficient_quota", "rate_limit_exceeded"}:
-            return True
-
-    message = str(exc).lower()
-    if "insufficient_quota" in message or "rate limit" in message:
-        return True
-    if "resource_exhausted" in message:
-        return True
-    if "quota exceeded" in message:
-        return True
-    if "429" in message and "quota" in message:
-        return True
-    if "timeout" in message or "timed out" in message:
-        return True
-    if "connection error" in message or "temporary failure" in message:
-        return True
-
-    return exc.__class__.__name__ == "RateLimitError"
+    
+    logger.error(
+        "Agent LLM error - class: %s, status: %s, code: %s, message: %s",
+        class_name,
+        status_code,
+        code,
+        exc_str[:300],
+    )
+    
+    # Only these specific errors should NOT trigger fallback:
+    # 1. Authentication errors (401, 403) - won't be fixed by trying another model
+    if status_code in {401, 403}:
+        logger.info("Non-retryable: authentication error (status %s)", status_code)
+        return False
+    
+    if class_name in {"AuthenticationError", "PermissionDenied", "Unauthorized"}:
+        logger.info("Non-retryable: authentication error (%s)", class_name)
+        return False
+    
+    # 2. Clear validation errors (but not quota/rate limits)
+    if status_code == 400:
+        message_lower = exc_str.lower()
+        if "invalid" in message_lower and "quota" not in message_lower and "rate" not in message_lower:
+            logger.info("Non-retryable: validation error (400 with 'invalid')")
+            return False
+    
+    # Everything else (quota, rate limit, server errors, network errors, etc.) should trigger fallback
+    logger.info("Error is retryable, will fallback to next model")
+    return True
 
 
 class FailoverChatLLM:
@@ -173,21 +172,37 @@ class FailoverChatLLM:
                     until - now,
                 )
                 continue
+            
+            logger.info("Agent LLM: trying %s/%s (candidate %d/%d)", provider, model, index + 1, len(self._candidates))
+            
             try:
                 response = llm.invoke(*args, **kwargs)
                 self._active_index = index
+                logger.info("Agent LLM: SUCCESS with %s/%s", provider, model)
                 return response
             except Exception as exc:
-                if not _is_fallback_error(exc) or index == len(self._candidates) - 1:
+                is_last = index == len(self._candidates) - 1
+                is_retryable = _is_fallback_error(exc)
+                
+                if not is_retryable:
+                    logger.error("Agent LLM: non-retryable error, raising immediately")
                     raise
+                
+                if is_last:
+                    logger.error("Agent LLM: last candidate failed, no more fallbacks")
+                    raise
+                
+                # Set cooldown (default 60s if not specified)
                 retry_after = _get_retry_after_seconds(exc)
-                if retry_after:
-                    self._cooldowns[key] = time.time() + retry_after
+                cooldown_duration = retry_after if retry_after else 60.0
+                self._cooldowns[key] = time.time() + cooldown_duration
+                
                 logger.warning(
-                    "Agent LLM: %s/%s failed (%s). Falling back...",
+                    "Agent LLM: %s/%s FAILED (%s), cooldown %.0fs, trying next model...",
                     provider,
                     model,
                     exc.__class__.__name__,
+                    cooldown_duration,
                 )
                 last_exc = exc
 
