@@ -123,19 +123,6 @@ export default function MyPoliticiansSection({
                     </Text>
                 </div>
 
-            {isEmpty && (
-                <div className='flex flex-wrap items-center gap-3 mb-4'>
-                    <Button
-                        variant='primary'
-                        size='md'
-                        leftIcon={<span className='text-lg'>+</span>}
-                        onClick={focusSearch}
-                    >
-                        Add
-                    </Button>
-                </div>
-            )}
-
             <div ref={searchContainerRef} className='relative mb-6'>
                 <div className='relative'>
                     <span className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400'>

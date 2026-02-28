@@ -312,34 +312,6 @@ export default function Dashboard() {
                                     className='px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors'>
                                     Previous
                                 </button>
-                                
-                                <div className='flex gap-1'>
-                                    {Array.from({ length: Math.min(totalPages, 7) }, (_, i) => {
-                                        let pageNum: number
-                                        if (totalPages <= 7) {
-                                            pageNum = i + 1
-                                        } else if (currentPage <= 4) {
-                                            pageNum = i + 1
-                                        } else if (currentPage >= totalPages - 3) {
-                                            pageNum = totalPages - 6 + i
-                                        } else {
-                                            pageNum = currentPage - 3 + i
-                                        }
-                                        
-                                        return (
-                                            <button
-                                                key={pageNum}
-                                                onClick={() => setCurrentPage(pageNum)}
-                                                className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
-                                                    currentPage === pageNum
-                                                        ? 'bg-orange-600 text-white'
-                                                        : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
-                                                }`}>
-                                                {pageNum}
-                                            </button>
-                                        )
-                                    })}
-                                </div>
 
                                 <button
                                     onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}

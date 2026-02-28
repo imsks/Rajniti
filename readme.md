@@ -108,29 +108,24 @@ python3 scripts/run_politician_agent.py --type MP --limit 3 --log-level DEBUG
 
 ---
 
-## LLM providers (Gemini primary, Perplexity / OpenAI fallback)
+## LLM providers (multi-model failover with per-model cooldown)
 
 Agents use a **failover LLM client** (`app/config/agent_config.py`):
 
-- Provider order comes from `AGENT_LLM_PROVIDERS`
-- If a provider hits quota/rate limits, it falls back to the next provider
-- Gemini quota errors (`ResourceExhausted`, 429) are handled and put into cooldown before fallback
+- **Model list** is defined in `PROVIDER_CONFIGS` in `app/config/agent_config.py` (no ENV for model names). Fallback order is top to bottom: try all models of one provider, then the next.
+- **Rate limits**: If a model hits quota/429, it goes into a per-model cooldown and the client tries the next model. Cooldown is per model (e.g. `gemini-1.5-flash` cooling does not block `gemini-2.0-flash`).
+- **API keys** stay in `.env`; only keys are required, not model names.
 
-### Configure providers in `.env`
+### Configure in `.env`
 
 ```bash
-# Provider priority order (first = preferred)
-AGENT_LLM_PROVIDERS=gemini,perplexity,openai
-
-# API keys
+# API keys (at least one required for agents)
 PERPLEXITY_API_KEY=pplx-...
 OPENAI_API_KEY=sk-...
 GEMINI_API_KEY=...
-
-# Models
-AGENT_PERPLEXITY_MODEL=sonar
-AGENT_OPENAI_MODEL=gpt-4o-mini
 ```
+
+To add or reorder models, edit `PROVIDER_CONFIGS` in `app/config/agent_config.py` (list of `provider`, `model`, `api_key_env`, optional `base_url`).
 
 ### Gemini dependencies
 
@@ -205,14 +200,13 @@ pip install -r requirements.txt
   - Note: billing/quota rules apply; free tier limits are strict.
 
 - Alternatives:
-  - You may set `OPENAI_API_KEY` or `PERPLEXITY_API_KEY` and adjust `AGENT_LLM_PROVIDERS`.
+  - You may set `OPENAI_API_KEY` or `PERPLEXITY_API_KEY`; model order is in `app/config/agent_config.py` (`PROVIDER_CONFIGS`).
 
 4. Configure environment (do NOT commit `.env`)
 
 ```bash
 cp .env.example .env
 # edit .env and set GEMINI_API_KEY (and others as needed)
-export AGENT_LLM_PROVIDERS=gemini,perplexity,openai
 ```
 
 5. Generate MLAs for a state
