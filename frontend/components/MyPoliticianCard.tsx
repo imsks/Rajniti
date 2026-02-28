@@ -69,24 +69,8 @@ export default function MyPoliticianCard({
         <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className='bg-white rounded-xl shadow-md border border-amber-200/70 p-5 hover:border-amber-400/80 hover:shadow-lg transition-all h-full flex flex-col relative'
+            className='bg-white rounded-xl shadow-md border border-amber-200/70 p-5 hover:border-amber-400/80 hover:shadow-lg transition-all h-full flex flex-col'
         >
-            {onRemove && (
-                <button
-                    type='button'
-                    onClick={(e) => {
-                        e.preventDefault()
-                        onRemove?.()
-                    }}
-                    className='absolute top-3 right-3 p-1.5 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors'
-                    title='Remove from your politicians'
-                    aria-label='Remove from your politicians'
-                >
-                    <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16' />
-                    </svg>
-                </button>
-            )}
             <div className='flex items-start gap-4 mb-3'>
                 {hasPhoto ? (
                     <Image
@@ -144,16 +128,21 @@ export default function MyPoliticianCard({
                     View more
                 </Button>
                 {onRemove && (
-                    <button
+                    <Button
                         type='button'
+                        variant='ghost'
+                        size='sm'
                         onClick={(e) => {
                             e.preventDefault()
                             onRemove()
                         }}
-                        className='text-xs text-gray-500 hover:text-red-600 transition-colors'
+                        className='text-gray-400 hover:text-red-600 hover:bg-red-50 p-2 min-w-0'
+                        aria-label='Remove from your politicians'
                     >
-                        Remove
-                    </button>
+                        <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24' aria-hidden>
+                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16' />
+                        </svg>
+                    </Button>
                 )}
             </div>
         </motion.div>
