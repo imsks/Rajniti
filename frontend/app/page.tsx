@@ -5,6 +5,7 @@ import { Navbar, Footer } from "@/components/layout"
 import Text from "@/components/ui/Text"
 import Link from "@/components/ui/Link"
 import Button from "@/components/ui/Button"
+import SpotlightCard from "@/components/ui/SpotlightCard"
 import { motion } from "framer-motion"
 
 export default function Home() {
@@ -144,19 +145,22 @@ export default function Home() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.1 }}
-                            whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                            className='bg-linear-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border border-blue-200'>
-                            <div className='text-4xl mb-4'>🏛️</div>
-                            <Text
-                                variant='h4'
-                                weight='bold'
-                                className='text-gray-900 mb-3'>
-                                Members of Parliament
-                            </Text>
-                            <Text variant='body' color='muted'>
-                                Browse all winning Lok Sabha MPs — their party,
-                                constituency, state, and election history.
-                            </Text>
+                            className='h-full'>
+                            <SpotlightCard
+                                className='h-full bg-linear-to-br from-blue-50 to-blue-100 p-8 border border-blue-200'
+                                glowColor='rgba(59, 130, 246, 0.24)'>
+                                <div className='text-4xl mb-4'>🏛️</div>
+                                <Text
+                                    variant='h4'
+                                    weight='bold'
+                                    className='text-gray-900 mb-3'>
+                                    Members of Parliament
+                                </Text>
+                                <Text variant='body' color='muted'>
+                                    Browse all winning Lok Sabha MPs — their party,
+                                    constituency, state, and election history.
+                                </Text>
+                            </SpotlightCard>
                         </motion.div>
 
                         <motion.div
@@ -164,19 +168,22 @@ export default function Home() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                            className='bg-linear-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border border-purple-200'>
-                            <div className='text-4xl mb-4'>🏢</div>
-                            <Text
-                                variant='h4'
-                                weight='bold'
-                                className='text-gray-900 mb-3'>
-                                State Assembly MLAs
-                            </Text>
-                            <Text variant='body' color='muted'>
-                                Explore elected MLAs from state assemblies across
-                                India with detailed political backgrounds.
-                            </Text>
+                            className='h-full'>
+                            <SpotlightCard
+                                className='h-full bg-linear-to-br from-purple-50 to-purple-100 p-8 border border-purple-200'
+                                glowColor='rgba(168, 85, 247, 0.24)'>
+                                <div className='text-4xl mb-4'>🏢</div>
+                                <Text
+                                    variant='h4'
+                                    weight='bold'
+                                    className='text-gray-900 mb-3'>
+                                    State Assembly MLAs
+                                </Text>
+                                <Text variant='body' color='muted'>
+                                    Explore elected MLAs from state assemblies across
+                                    India with detailed political backgrounds.
+                                </Text>
+                            </SpotlightCard>
                         </motion.div>
 
                         <motion.div
@@ -184,19 +191,22 @@ export default function Home() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.3 }}
-                            whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                            className='bg-linear-to-br from-orange-50 to-orange-100 rounded-2xl p-8 border border-orange-200'>
-                            <div className='text-4xl mb-4'>📊</div>
-                            <Text
-                                variant='h4'
-                                weight='bold'
-                                className='text-gray-900 mb-3'>
-                                Rich Profiles
-                            </Text>
-                            <Text variant='body' color='muted'>
-                                Education, family, criminal records, social media,
-                                and more — enriched with community contributions.
-                            </Text>
+                            className='h-full'>
+                            <SpotlightCard
+                                className='h-full bg-linear-to-br from-orange-50 to-orange-100 p-8 border border-orange-200'
+                                glowColor='rgba(249, 115, 22, 0.24)'>
+                                <div className='text-4xl mb-4'>📊</div>
+                                <Text
+                                    variant='h4'
+                                    weight='bold'
+                                    className='text-gray-900 mb-3'>
+                                    Rich Profiles
+                                </Text>
+                                <Text variant='body' color='muted'>
+                                    Education, family, criminal records, social media,
+                                    and more — enriched with community contributions.
+                                </Text>
+                            </SpotlightCard>
                         </motion.div>
                     </div>
                 </div>

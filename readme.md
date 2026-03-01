@@ -16,7 +16,7 @@ Indian election + politician data project with a **JSON-first data layer** and a
 
 ### Recommended high-impact contributions (start here)
 
-If you want to make a serious, useful contribution, these are the best opportunities based on the current codebase:
+If you want to make a serious, useful contribution, these are the best 2 opportunities based on the current codebase:
 
 1. **Stabilize the AI Q&A path by implementing `VectorDBService` (backend + AI)**
    - Why this matters: `QuestionsService` currently imports `app.services.vector_db_service.VectorDBService`, but that module does not exist yet, so `/api/v1/questions/*` can fail at runtime.
@@ -38,21 +38,9 @@ If you want to make a serious, useful contribution, these are the best opportuni
      - `app/routes/api_routes.py` + `app/services/politician_service.py`
      - frontend tests in `frontend/__tests__/`
    - Suggested first PR:
-      - Add safe default API base (`/api/v1`) in frontend API helpers.
-      - Use `/api/v1/politicians/search` for query/state/party filtering (instead of client-only filtering).
-      - Add pagination params (`page`, `limit`) to reduce payload size and improve UX on large datasets.
-
-3. **Add a modern frontend motion/effects layer (UX contribution)**
-   - Why this matters: the UI already uses `framer-motion`, but animations are page-local and not standardized into reusable patterns; a shared motion system will improve polish and consistency.
-   - Where to work:
-     - `frontend/app/page.tsx`
-     - `frontend/app/dashboard/page.tsx`
-     - `frontend/components/PoliticianCard.tsx`
-     - `frontend/components/ui/` (new reusable wrappers)
-   - Suggested first PR:
-     - Define reusable motion presets (`fadeInUp`, `staggerContainer`, `hoverLift`) and refactor current usages to use them.
-     - Add one premium micro-interaction component inspired by modern UI kits (Aceternity/ReactBits-style glow border, spotlight card, or animated gradient CTA) without changing core data flows.
-     - Respect reduced-motion preferences so effects stay accessible.
+     - Add safe default API base (`/api/v1`) in frontend API helpers.
+     - Use `/api/v1/politicians/search` for query/state/party filtering (instead of client-only filtering).
+     - Add pagination params (`page`, `limit`) to reduce payload size and improve UX on large datasets.
 
 ---
 
