@@ -2605,7 +2605,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Bihar University, Muzaffarpur",
+        "year_completed": 1978
+      }
+    ]
   },
   {
     "id": "ff7c4cf2-6197-4429-af4c-812cac63ad31",
@@ -2625,7 +2632,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "L.N. Mithila University, Darbhanga",
+        "year_completed": 1989
+      }
+    ]
   },
   {
     "id": "86381eb9-95a5-46a7-bc7d-4ba98c85b7b3",
@@ -2645,7 +2659,29 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "B.S.E.B. Patna",
+        "year_completed": 1993
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "B.R.A. Bihar University, Muzaffarpur",
+        "year_completed": 1995
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "L.N. Mithila University, Darbhanga",
+        "year_completed": 1998
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "L.N. Mithila University, Darbhanga",
+        "year_completed": 2000
+      }
+    ]
   },
   {
     "id": "ec8087f2-fd2a-4545-b2c0-bf053383b964",
@@ -2665,7 +2701,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": null,
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "7ccf569a-e6b0-40cd-ac64-4c569a554a65",
@@ -2685,7 +2728,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "L.N.M.U. Darbhanga",
+        "year_completed": 1989
+      }
+    ]
   },
   {
     "id": "c2454a4b-07da-4bd9-bcc4-dd08e25967f9",
@@ -2705,7 +2755,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "L.N. Mithila University, Darbhanga",
+        "year_completed": 1980
+      }
+    ]
   },
   {
     "id": "18999ea1-a45f-4740-8da5-2087b2f93dd7",
@@ -2725,7 +2782,8 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": []
   },
   {
     "id": "0bbd6b2e-d32d-4576-8700-657ffc2f4641",
@@ -2785,7 +2843,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": null,
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "8ac96b58-6a68-451f-87ab-c87dfc4fea68",
@@ -2805,7 +2870,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": null,
+        "year_completed": null
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Indian Institute of Management Lucknow",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "d934c8bd-4cb3-4e6c-b1b8-b8aeafc1a125",
@@ -2825,7 +2902,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": null,
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "f2406474-ab65-4656-80eb-2757586da2f8",
@@ -2845,7 +2929,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "OTHERS",
+        "institution": null,
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "3c763102-d8df-451e-8250-9c00401343b5",
@@ -9685,7 +9776,6 @@
     "state": "Rajasthan",
     "constituency": "KOLAYAT",
     "type": "MLA",
-
     "education": [
       {
         "qualification": "BACHELOR",
@@ -9693,7 +9783,6 @@
         "year_completed": 2016
       }
     ],
-
     "criminal_records": [
       {
         "name": "Act endangering life or personal safety of others (IPC 336, 427, 147, 149)",
@@ -9701,7 +9790,6 @@
         "year": 2018
       }
     ],
-
     "political_background": {
       "elections": [
         {
@@ -9723,7 +9811,6 @@
     "state": "Rajasthan",
     "constituency": "KOLAYAT",
     "type": "MLA",
-
     "education": [
       {
         "qualification": "BACHELOR",
@@ -9731,7 +9818,6 @@
         "year_completed": 2018
       }
     ],
-
     "criminal_records": [
       {
         "name": "FIR 168/2018 - Police Station Bajju (IPC 307, 336, 283, 341, 143, 27)",
@@ -9739,7 +9825,6 @@
         "year": 2018
       }
     ],
-
     "political_background": {
       "elections": [
         {

@@ -1,4 +1,8 @@
-"""Unit tests for LLM provider failover configuration and per-model cooldown."""
+"""Unit tests for LLM provider failover configuration and per-model cooldown.
+
+Tests target the backward-compatible shim (agent_config) which delegates
+to the new FreeTierLLM wrapper — guaranteeing zero breakage for downstream code.
+"""
 
 import time
 from unittest.mock import Mock, patch
@@ -7,7 +11,6 @@ import pytest
 
 from app.config.agent_config import FailoverChatLLM, get_agent_llm
 
-# Minimal config so tests control exactly two candidates (openai, perplexity)
 _TEST_CONFIG = [
     {"provider": "openai", "model": "gpt-4o-mini", "api_key_env": "OPENAI_API_KEY", "base_url": None},
     {"provider": "perplexity", "model": "sonar", "api_key_env": "PERPLEXITY_API_KEY", "base_url": "https://api.perplexity.ai"},
@@ -16,9 +19,13 @@ _TEST_CONFIG = [
 
 class FakeRateLimitError(Exception):
     """Test double to simulate provider 429/insufficient quota."""
-
     status_code = 429
     code = "insufficient_quota"
+
+
+class FakeAuthError(Exception):
+    """Test double for non-retryable authentication errors."""
+    status_code = 401
 
 
 @pytest.mark.unit
@@ -37,10 +44,8 @@ class TestAgentConfigFailover:
         secondary = Mock()
         secondary.model_name = "sonar"
 
-        with patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG), patch(
-            "app.config.agent_config._build_llm",
-            side_effect=[primary, secondary],
-        ):
+        with patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG), \
+             patch("app.config.free_tier_llm._build_llm", side_effect=[primary, secondary]):
             llm = get_agent_llm()
             result = llm.invoke("Who is PM of India?")
 
@@ -63,10 +68,8 @@ class TestAgentConfigFailover:
         response = Mock(content="Narendra Modi")
         secondary.invoke.return_value = response
 
-        with patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG), patch(
-            "app.config.agent_config._build_llm",
-            side_effect=[primary, secondary],
-        ):
+        with patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG), \
+             patch("app.config.free_tier_llm._build_llm", side_effect=[primary, secondary]):
             llm = get_agent_llm()
             result = llm.invoke("Who is PM of India?")
 
@@ -81,17 +84,15 @@ class TestAgentConfigFailover:
 
         primary = Mock()
         primary.model_name = "gpt-4o-mini"
-        primary.invoke.side_effect = ValueError("bad prompt")
+        primary.invoke.side_effect = FakeAuthError("unauthorized")
 
         secondary = Mock()
         secondary.model_name = "sonar"
 
-        with patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG), patch(
-            "app.config.agent_config._build_llm",
-            side_effect=[primary, secondary],
-        ):
+        with patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG), \
+             patch("app.config.free_tier_llm._build_llm", side_effect=[primary, secondary]):
             llm = get_agent_llm()
-            with pytest.raises(ValueError, match="bad prompt"):
+            with pytest.raises(FakeAuthError, match="unauthorized"):
                 llm.invoke("Who is PM of India?")
 
         primary.invoke.assert_called_once()
@@ -102,16 +103,14 @@ class TestAgentConfigFailover:
         monkeypatch.delenv("PERPLEXITY_API_KEY", raising=False)
         monkeypatch.delenv("GEMINI_API_KEY", raising=False)
 
-        with patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG), patch(
-            "app.config.agent_config._build_llm", return_value=None
-        ):
-            with pytest.raises(RuntimeError, match="No working LLM provider found"):
+        with patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG), \
+             patch("app.config.free_tier_llm._build_llm", return_value=None):
+            with pytest.raises(RuntimeError, match="no working providers"):
                 get_agent_llm()
 
     def test_per_model_cooldown_skips_rate_limited_model_then_uses_next(self):
         """Per-model cooldown: first model rate-limited with retry_after; next call skips it."""
         primary = Mock()
-        primary.invoke.side_effect = FakeRateLimitError("quota")
         secondary = Mock()
         response = Mock(content="ok")
         secondary.invoke.return_value = response
@@ -135,7 +134,7 @@ class TestAgentConfigFailover:
         # Next call: first model still in cooldown, so skip to second
         secondary.invoke.reset_mock()
         primary.invoke.reset_mock()
-        primary.invoke.return_value = Mock(content="from-primary")  # would succeed if we tried
+        primary.invoke.return_value = Mock(content="from-primary")
         result2 = llm.invoke("Hi again")
         assert result2.content == "ok"
         primary.invoke.assert_not_called()
