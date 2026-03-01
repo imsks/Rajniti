@@ -147,7 +147,7 @@ export default function Home() {
                             transition={{ duration: 0.5, delay: 0.1 }}
                             className='h-full'>
                             <SpotlightCard
-                                className='h-full bg-linear-to-br from-blue-50 to-blue-100 p-8 border border-blue-200'
+                                className='h-full bg-gradient-to-br from-blue-50 to-blue-100 p-8 border border-blue-200'
                                 glowColor='rgba(59, 130, 246, 0.24)'>
                                 <div className='text-4xl mb-4'>🏛️</div>
                                 <Text
@@ -170,7 +170,7 @@ export default function Home() {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             className='h-full'>
                             <SpotlightCard
-                                className='h-full bg-linear-to-br from-purple-50 to-purple-100 p-8 border border-purple-200'
+                                className='h-full bg-gradient-to-br from-purple-50 to-purple-100 p-8 border border-purple-200'
                                 glowColor='rgba(168, 85, 247, 0.24)'>
                                 <div className='text-4xl mb-4'>🏢</div>
                                 <Text
@@ -193,7 +193,7 @@ export default function Home() {
                             transition={{ duration: 0.5, delay: 0.3 }}
                             className='h-full'>
                             <SpotlightCard
-                                className='h-full bg-linear-to-br from-orange-50 to-orange-100 p-8 border border-orange-200'
+                                className='h-full bg-gradient-to-br from-orange-50 to-orange-100 p-8 border border-orange-200'
                                 glowColor='rgba(249, 115, 22, 0.24)'>
                                 <div className='text-4xl mb-4'>📊</div>
                                 <Text

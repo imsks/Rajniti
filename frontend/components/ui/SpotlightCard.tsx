@@ -18,7 +18,7 @@ type SpotlightStyle = CSSProperties & {
 export default function SpotlightCard({
     children,
     className = "",
-    glowColor = "rgba(249, 115, 22, 0.30)",
+    glowColor = "rgba(249, 115, 22, 0.24)",
 }: SpotlightCardProps) {
     const reduceMotion = useReducedMotion()
 
@@ -47,7 +47,7 @@ export default function SpotlightCard({
                     "--spotlight-color": glowColor,
                 } as SpotlightStyle
             }>
-            <div className='pointer-events-none absolute inset-0 rounded-2xl border border-white/20'></div>
+            <div className='pointer-events-none absolute inset-0 border border-white/20'></div>
             <div
                 aria-hidden='true'
                 className='pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100'

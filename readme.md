@@ -16,7 +16,7 @@ Indian election + politician data project with a **JSON-first data layer** and a
 
 ### Recommended high-impact contributions (start here)
 
-If you want to make a serious, useful contribution, these are the best 2 opportunities based on the current codebase:
+If you want to make a serious, useful contribution, these are the best opportunities based on the current codebase:
 
 1. **Stabilize the AI Q&A path by implementing `VectorDBService` (backend + AI)**
    - Why this matters: `QuestionsService` currently imports `app.services.vector_db_service.VectorDBService`, but that module does not exist yet, so `/api/v1/questions/*` can fail at runtime.
