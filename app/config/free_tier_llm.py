@@ -76,6 +76,7 @@ DEFAULT_PROVIDERS: list[dict[str, Any]] = [
     # --- Gemini (generous free tier) ---
     {"provider": "gemini", "model": "gemini-3.1-pro-preview", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-3-pro", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-3-flash-preview", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-2.5-pro", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-3-flash", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-2.5-flash", "api_key_env": "GEMINI_API_KEY"},
@@ -83,8 +84,12 @@ DEFAULT_PROVIDERS: list[dict[str, Any]] = [
     # --- Groq (ultra-fast free inference) ---
     {"provider": "groq", "model": "llama-3.3-70b-versatile", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
     {"provider": "groq", "model": "llama-3.1-8b-instant", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
+    {"provider": "groq", "model": "meta-llama/llama-4-scout-17b-16e-instruct", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
+    {"provider": "groq", "model": "gemma-7b-it", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
     {"provider": "groq", "model": "gemma2-9b-it", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
-    # --- Mistral (1B tokens/month free) ---
+    {"provider": "groq", "model": "qwen/qwen3-32b", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
+    {"provider": "groq", "model": "deepseek-r1-distill-llama-70b", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
+    # # --- Mistral (1B tokens/month free) ---
     {"provider": "mistral", "model": "mistral-small-latest", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
     # --- OpenRouter (access to many free models) ---
     {"provider": "openrouter", "model": "google/gemini-2.0-flash-exp:free", "api_key_env": "OPENROUTER_API_KEY", "base_url": "https://openrouter.ai/api/v1"},
