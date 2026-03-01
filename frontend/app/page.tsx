@@ -122,7 +122,7 @@ export default function Home() {
             <section id='about' className='py-20 bg-white'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={false}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
@@ -141,7 +141,7 @@ export default function Home() {
 
                     <div className='grid md:grid-cols-3 gap-8'>
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={false}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.1 }}
@@ -164,7 +164,7 @@ export default function Home() {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={false}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.2 }}
@@ -187,7 +187,7 @@ export default function Home() {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={false}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.3 }}
@@ -221,7 +221,7 @@ export default function Home() {
                 className='py-20 bg-linear-to-r from-orange-600 to-orange-500 text-white'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={false}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
@@ -240,7 +240,7 @@ export default function Home() {
 
                     <div className='grid md:grid-cols-2 gap-8 max-w-4xl mx-auto'>
                         <motion.div
-                            initial={{ opacity: 0, x: -20 }}
+                            initial={false}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: 0.2 }}
@@ -280,7 +280,7 @@ export default function Home() {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, x: 20 }}
+                            initial={false}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: 0.3 }}
@@ -321,7 +321,7 @@ export default function Home() {
                     </div>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={false}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.4 }}

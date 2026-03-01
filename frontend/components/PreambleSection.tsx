@@ -120,10 +120,10 @@ export default function PreambleSection() {
                             {Array.from({ length: 24 }).map((_, i) => {
                                 const angle = (i * 360) / 24
                                 const rad = (angle * Math.PI) / 180
-                                const x1 = 12 + Math.cos(rad) * 3
-                                const y1 = 12 + Math.sin(rad) * 3
-                                const x2 = 12 + Math.cos(rad) * 10
-                                const y2 = 12 + Math.sin(rad) * 10
+                                const x1 = Math.round((12 + Math.cos(rad) * 3) * 10000) / 10000
+                                const y1 = Math.round((12 + Math.sin(rad) * 3) * 10000) / 10000
+                                const x2 = Math.round((12 + Math.cos(rad) * 10) * 10000) / 10000
+                                const y2 = Math.round((12 + Math.sin(rad) * 10) * 10000) / 10000
                                 return (
                                     <line
                                         key={i}
