@@ -10,4 +10,14 @@ describe("Homepage sections visibility", () => {
         ).toBeVisible()
         expect(screen.getByRole("heading", { name: "Contribute Data" })).toBeVisible()
     })
+
+    it("uses component icons instead of emoji placeholders in feature cards", () => {
+        render(<Home />)
+
+        expect(screen.queryByText("🏛️")).not.toBeInTheDocument()
+        expect(screen.queryByText("🏢")).not.toBeInTheDocument()
+        expect(screen.queryByText("📊")).not.toBeInTheDocument()
+        expect(screen.queryByText("💻")).not.toBeInTheDocument()
+        expect(screen.queryByText("🔧")).not.toBeInTheDocument()
+    })
 })
