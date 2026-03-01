@@ -3,8 +3,19 @@
 import UserButton from "@/components/auth/UserButton"
 import Text from "@/components/ui/Text"
 import Link from "@/components/ui/Link"
-import { Bug, Compass, HandHeart, Home, Info, MessageCircle, Users } from "lucide-react"
+import {
+    Bug,
+    Compass,
+    HandHeart,
+    Home,
+    Info,
+    Menu,
+    MessageCircle,
+    Users,
+    X
+} from "lucide-react"
 import { usePathname } from "next/navigation"
+import { useEffect, useState } from "react"
 
 interface NavbarProps {
     variant?: "default" | "dashboard"
@@ -17,6 +28,7 @@ export default function Navbar({
 }: NavbarProps) {
     const isDashboard = variant === "dashboard"
     const pathname = usePathname()
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const stickyClasses = sticky ? "sticky top-0 z-10" : ""
     const homeNavItems = [
         { href: "/dashboard", label: "Explore Politicians", icon: Compass },
@@ -41,6 +53,10 @@ export default function Navbar({
     ]
     const navItems = isDashboard ? dashboardNavItems : homeNavItems
 
+    useEffect(() => {
+        setIsMobileMenuOpen(false)
+    }, [pathname])
+
     return (
         <header
             className={`border-b border-orange-200/80 bg-white/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/70 ${stickyClasses}`}>
@@ -53,7 +69,7 @@ export default function Navbar({
                         </Text>
                     </Link>
 
-                    <nav className='min-w-0 flex-1' aria-label='Primary navigation'>
+                    <nav className='hidden sm:block min-w-0 flex-1' aria-label='Primary navigation'>
                         <div className='flex items-center gap-1 overflow-x-auto whitespace-nowrap rounded-full border border-orange-100 bg-orange-50/60 p-1'>
                             {navItems.map(item => {
                                 const Icon = item.icon
@@ -83,24 +99,50 @@ export default function Navbar({
                         </div>
                     </nav>
 
-                    <div className='shrink-0'>
-                        {isDashboard ? (
-                            <UserButton />
-                        ) : (
-                            <div className='hidden sm:block'>
-                                <UserButton />
-                            </div>
-                        )}
+                    <div className='hidden sm:block shrink-0'>
+                        <UserButton />
                     </div>
 
-                    {!isDashboard && (
-                        <div className='sm:hidden shrink-0'>
-                            <Link href='/dashboard' variant='nav' className='text-sm font-semibold'>
-                                Explore
-                            </Link>
-                        </div>
-                    )}
+                    <button
+                        type='button'
+                        aria-expanded={isMobileMenuOpen}
+                        aria-controls='mobile-nav-panel'
+                        aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                        onClick={() => setIsMobileMenuOpen(open => !open)}
+                        className='sm:hidden ml-auto inline-flex items-center justify-center rounded-md border border-orange-200 bg-white p-2 text-gray-700 hover:bg-orange-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2'>
+                        {isMobileMenuOpen ? (
+                            <X aria-hidden='true' className='h-5 w-5' />
+                        ) : (
+                            <Menu aria-hidden='true' className='h-5 w-5' />
+                        )}
+                    </button>
                 </div>
+
+                {isMobileMenuOpen && (
+                    <div id='mobile-nav-panel' className='sm:hidden border-t border-orange-100 py-3'>
+                        <nav aria-label='Mobile navigation' className='grid gap-1'>
+                            {navItems.map(item => {
+                                const Icon = item.icon
+                                return (
+                                    <Link
+                                        key={`mobile-${item.href}`}
+                                        href={item.href}
+                                        variant='nav'
+                                        external={item.external}
+                                        className='inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-orange-50'>
+                                        {Icon && <Icon aria-hidden='true' className='h-4 w-4' />}
+                                        {item.label}
+                                    </Link>
+                                )
+                            })}
+                            {isDashboard && (
+                                <div className='pt-1'>
+                                    <UserButton />
+                                </div>
+                            )}
+                        </nav>
+                    </div>
+                )}
             </div>
         </header>
     )

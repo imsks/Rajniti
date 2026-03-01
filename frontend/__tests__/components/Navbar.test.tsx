@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react"
+import { fireEvent, render, screen, within } from "@testing-library/react"
 import Navbar from "@/components/layout/Navbar"
 
 describe("Navbar", () => {
@@ -36,5 +36,21 @@ describe("Navbar", () => {
             "href",
             "https://github.com/imsks/rajniti/issues/new"
         )
+    })
+
+    it("toggles mobile burger menu and renders mobile links", () => {
+        render(<Navbar variant='default' />)
+
+        const toggle = screen.getByRole("button", { name: /open menu/i })
+        fireEvent.click(toggle)
+
+        const mobileNav = screen.getByRole("navigation", { name: /mobile navigation/i })
+        expect(within(mobileNav).getByRole("link", { name: /explore politicians/i })).toHaveAttribute(
+            "href",
+            "/dashboard"
+        )
+
+        fireEvent.click(screen.getByRole("button", { name: /close menu/i }))
+        expect(screen.queryByRole("navigation", { name: /mobile navigation/i })).not.toBeInTheDocument()
     })
 })
