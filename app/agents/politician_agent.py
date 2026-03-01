@@ -10,7 +10,15 @@ from pydantic import TypeAdapter
 from app.agents.base_agent import BaseAgent
 from app.core import CacheManager, log
 from app.prompts import PoliticianPrompts
-from app.schemas.politician import Education, ElectionRecord, PoliticalBackground, SocialMedia
+from app.schemas.politician import (
+    Contact,
+    CrimeRecord,
+    Education,
+    ElectionRecord,
+    FamilyMember,
+    PoliticalBackground,
+    SocialMedia,
+)
 from app.services import PoliticianService
 
 logger = logging.getLogger(__name__)
@@ -256,6 +264,178 @@ class PoliticianSocialMedia:
         updates = {"social_media": validated.model_dump(mode="json")}
         return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
 
+
+class PoliticianFamilyBackground:
+    """Family background enrichment process for one politician."""
+
+    name = "family_background"
+
+    def __init__(self, base_agent: BaseAgent):
+        self.base = base_agent
+
+    @log(logger, "PoliticianFamilyBackground.run")
+    def run(self, politician: Dict[str, Any], force: bool = False) -> Dict[str, Any]:
+        if politician.get("family_background") and not force:
+            return {
+                "process": self.name,
+                "ok": True,
+                "skipped": True,
+                "reason": "already_present",
+            }
+
+        prompt = PoliticianPrompts.family_background(politician)
+        logger.info(
+            "family_background: calling LLM (id=%s name=%s)",
+            politician.get("id"),
+            politician.get("name"),
+        )
+        raw = self.base._run_llm(prompt)
+        parsed = self.base._parse_json_value(raw)
+
+        if parsed is None:
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "invalid_llm_json",
+                "raw": raw,
+            }
+
+        items = self.base._coerce_to_list(parsed)
+        if items is None:
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "invalid_shape",
+                "raw": raw,
+            }
+
+        adapter = TypeAdapter(list[FamilyMember])
+        validated, errors = self.base._validate_with_adapter(items, adapter)
+        if errors:
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "validation_failed",
+                "details": errors,
+            }
+
+        updates = {
+            "family_background": [item.model_dump(mode="json") for item in validated]
+        }
+        return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
+
+
+class PoliticianCriminalRecords:
+    """Criminal records enrichment process for one politician."""
+
+    name = "criminal_records"
+
+    def __init__(self, base_agent: BaseAgent):
+        self.base = base_agent
+
+    @log(logger, "PoliticianCriminalRecords.run")
+    def run(self, politician: Dict[str, Any], force: bool = False) -> Dict[str, Any]:
+        if politician.get("criminal_records") and not force:
+            return {
+                "process": self.name,
+                "ok": True,
+                "skipped": True,
+                "reason": "already_present",
+            }
+
+        prompt = PoliticianPrompts.criminal_records(politician)
+        logger.info(
+            "criminal_records: calling LLM (id=%s name=%s)",
+            politician.get("id"),
+            politician.get("name"),
+        )
+        raw = self.base._run_llm(prompt)
+        parsed = self.base._parse_json_value(raw)
+
+        if parsed is None:
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "invalid_llm_json",
+                "raw": raw,
+            }
+
+        items = self.base._coerce_to_list(parsed)
+        if items is None:
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "invalid_shape",
+                "raw": raw,
+            }
+
+        adapter = TypeAdapter(list[CrimeRecord])
+        validated, errors = self.base._validate_with_adapter(items, adapter)
+        if errors:
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "validation_failed",
+                "details": errors,
+            }
+
+        updates = {
+            "criminal_records": [item.model_dump(mode="json") for item in validated]
+        }
+        return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
+
+
+class PoliticianContact:
+    """Contact information enrichment process for one politician."""
+
+    name = "contact"
+
+    def __init__(self, base_agent: BaseAgent):
+        self.base = base_agent
+
+    @log(logger, "PoliticianContact.run")
+    def run(self, politician: Dict[str, Any], force: bool = False) -> Dict[str, Any]:
+        existing = politician.get("contact") or {}
+        has_data = any(v for v in existing.values() if v)
+        if has_data and not force:
+            return {
+                "process": self.name,
+                "ok": True,
+                "skipped": True,
+                "reason": "already_present",
+            }
+
+        prompt = PoliticianPrompts.contact(politician)
+        logger.info(
+            "contact: calling LLM (id=%s name=%s)",
+            politician.get("id"),
+            politician.get("name"),
+        )
+        raw = self.base._run_llm(prompt)
+
+        parsed = self.base._parse_json_object(raw)
+        if parsed is None:
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "invalid_llm_json",
+                "raw": raw,
+            }
+
+        adapter = TypeAdapter(Contact)
+        validated, errors = self.base._validate_with_adapter(parsed, adapter)
+        if errors:
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "validation_failed",
+                "details": errors,
+            }
+
+        updates = {"contact": validated.model_dump(mode="json")}
+        return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
+
+
 class PoliticianAgent(BaseAgent):
     """Top-level orchestrator for politician enrichment processes."""
 
@@ -264,10 +444,13 @@ class PoliticianAgent(BaseAgent):
         super().__init__()
         self.politician_service = PoliticianService()
         self.cache = CacheManager()
-        self.processes = [PoliticianEducation(self), PoliticianPoliticalBackground(self), PoliticianSocialMedia(self)]
         self.processes = [
             PoliticianEducation(self),
             PoliticianPoliticalBackground(self),
+            PoliticianSocialMedia(self),
+            PoliticianFamilyBackground(self),
+            PoliticianCriminalRecords(self),
+            PoliticianContact(self),
         ]
 
     @log(logger, "PoliticianAgent.run")
@@ -295,16 +478,11 @@ class PoliticianAgent(BaseAgent):
 
     @log(logger, "PoliticianAgent._run_one_by_id")
     def _run_one_by_id(self, politician_id: str, force: bool = False) -> Dict[str, Any]:
-        """Run all processes for a single politician id."""
-        if self._is_cached(politician_id) and not force:
-            logger.info("skip cached: %s", politician_id)
-            return {
-                "ok": True,
-                "id": politician_id,
-                "skipped": True,
-                "reason": "already_processed",
-            }
+        """Run all processes for a single politician id.
 
+        Each subprocess decides independently whether to fetch or skip
+        based on whether its field already has data.
+        """
         politician = self.politician_service.get_by_id(politician_id)
         if not politician:
             return {"ok": False, "id": politician_id, "error": "politician_not_found"}
@@ -327,7 +505,7 @@ class PoliticianAgent(BaseAgent):
         if limit and limit > 0:
             politicians = politicians[:limit]
 
-        summary = {"total": len(politicians), "processed": 0, "skipped": 0, "failed": 0}
+        summary = {"total": len(politicians), "processed": 0, "failed": 0}
         for idx, politician in enumerate(politicians, 1):
             pid = politician.get("id")
             if not pid:
@@ -341,11 +519,6 @@ class PoliticianAgent(BaseAgent):
                 pid,
                 politician.get("name"),
             )
-
-            if self._is_cached(pid) and not force:
-                summary["skipped"] += 1
-                logger.info("  ↳ skipped (cached)")
-                continue
 
             result = self._run_for_politician(politician, force=force)
             if result.get("ok"):
@@ -431,7 +604,6 @@ class PoliticianAgent(BaseAgent):
                                 list(result["updates"].keys()),
                             )
 
-        # Per requirement: if id is processed once (even partial), skip in future.
         self._mark_cached(politician_id)
 
         has_error = any(not r.get("ok") for r in process_results)
