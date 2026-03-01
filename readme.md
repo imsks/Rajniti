@@ -14,36 +14,6 @@ Indian election + politician data project with a **JSON-first data layer** and a
 - **Education**: implemented (stored as an array in schema + JSON)
 - More fields (family, crime, contact, social, etc.) can be added as new process classes.
 
-### Recommended high-impact contributions (start here)
-
-If you want to make a serious, useful contribution, these are the best 2 opportunities based on the current codebase:
-
-1. **Stabilize the AI Q&A path by implementing `VectorDBService` (backend + AI)**
-   - Why this matters: `QuestionsService` currently imports `app.services.vector_db_service.VectorDBService`, but that module does not exist yet, so `/api/v1/questions/*` can fail at runtime.
-   - Where to work:
-     - `app/services/questions_service.py`
-     - `app/core/vector_db.py`
-     - `app/routes/api_routes.py`
-     - `tests/` for new unit/integration coverage
-   - Suggested first PR:
-     - Add `app/services/vector_db_service.py` that wraps `VectorDB` for `search()`, `count()`, and result formatting.
-     - Add tests for `/api/v1/questions/ask` success/failure paths.
-     - Keep behavior backward-compatible for existing question endpoints.
-
-2. **Move politician discovery to server-side search/pagination + fix frontend API base fallback (frontend + backend)**
-   - Why this matters: frontend currently fetches up to 1000 politicians and filters in-browser (`frontend/hooks/usePoliticians.ts`), and user API calls can become `undefined/...` when `NEXT_PUBLIC_API_URL` is unset (`frontend/lib/api/user.ts`), which already causes test/runtime issues.
-   - Where to work:
-     - `frontend/hooks/usePoliticians.ts`
-     - `frontend/lib/api/user.ts`
-     - `app/routes/api_routes.py` + `app/services/politician_service.py`
-     - frontend tests in `frontend/__tests__/`
-   - Suggested first PR:
-     - Add safe default API base (`/api/v1`) in frontend API helpers.
-     - Use `/api/v1/politicians/search` for query/state/party filtering (instead of client-only filtering).
-     - Add pagination params (`page`, `limit`) to reduce payload size and improve UX on large datasets.
-
----
-
 ## Quick start (backend)
 
 ### Requirements
