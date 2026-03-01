@@ -1,5 +1,4 @@
-const API_BASE_URL =
-    process.env.NEXT_PUBLIC_API_URL
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "/api/v1"
 
 export interface UserData {
     id?: string
@@ -18,13 +17,6 @@ export const userService = {
      * Used during authentication
      */
     async syncUser(userData: UserData) {
-        console.log("userData", `${API_BASE_URL}/users/sync`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(userData)
-        })
         const response = await fetch(`${API_BASE_URL}/users/sync`, {
             method: "POST",
             headers: {
