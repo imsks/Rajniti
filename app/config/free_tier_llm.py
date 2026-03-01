@@ -74,8 +74,10 @@ class ProviderConfig:
 
 DEFAULT_PROVIDERS: list[dict[str, Any]] = [
     # --- Gemini (generous free tier) ---
-    {"provider": "gemini", "model": "gemini-2.5-pro-preview-05-06", "api_key_env": "GEMINI_API_KEY"},
-    {"provider": "gemini", "model": "gemini-2.5-flash-preview-05-20", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-3.1-pro", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-3-pro", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-2.5-pro", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-3-flash", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-2.5-flash", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-2.0-flash", "api_key_env": "GEMINI_API_KEY"},
     # --- Groq (ultra-fast free inference) ---
