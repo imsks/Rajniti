@@ -74,7 +74,7 @@ class ProviderConfig:
 
 DEFAULT_PROVIDERS: list[dict[str, Any]] = [
     # --- Gemini (generous free tier) ---
-    {"provider": "gemini", "model": "gemini-3.1-pro", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-3.1-pro-preview", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-3-pro", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-2.5-pro", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-3-flash", "api_key_env": "GEMINI_API_KEY"},
@@ -115,7 +115,10 @@ def _build_llm(
         except Exception as exc:
             logger.warning("OpenAI-compatible provider unavailable: %s", exc)
             return None
-        kwargs: dict[str, Any] = dict(api_key=api_key, model=model, temperature=0)
+        kwargs: dict[str, Any] = dict(
+            api_key=api_key, model=model, temperature=0,
+            max_retries=0,  # our wrapper handles fallback — no internal retries
+        )
         if base_url:
             kwargs["base_url"] = base_url
         return ChatOpenAI(**kwargs)
@@ -128,7 +131,8 @@ def _build_llm(
             logger.warning("Gemini provider unavailable: %s", exc)
             return None
         return ChatGoogleGenerativeAI(
-            google_api_key=api_key, model=model, temperature=0
+            google_api_key=api_key, model=model, temperature=0,
+            max_retries=0,  # our wrapper handles fallback — no internal retries
         )
 
     _BUILDERS: dict[str, Callable[[], Any]] = {
@@ -185,6 +189,12 @@ def _is_retryable(exc: Exception) -> bool:
     status_code = getattr(exc, "status_code", None)
     code = getattr(exc, "code", None)
 
+    # Google API exceptions (ResourceExhausted, etc.) expose HTTP status via
+    # .code (int) rather than .status_code.  Normalize so all downstream
+    # checks work uniformly.
+    if status_code is None and isinstance(code, int):
+        status_code = code
+
     logger.error(
         "FreeTierLLM error — class=%s status=%s code=%s msg=%s",
         class_name, status_code, code, exc_str[:300],
@@ -202,15 +212,26 @@ def _is_retryable(exc: Exception) -> bool:
         if "invalid" in msg and "quota" not in msg and "rate" not in msg:
             return False
 
-    # Exceptions without a status_code are retryable only if they look like
-    # network / timeout errors.  Plain Python exceptions (ValueError, TypeError, …)
-    # indicate a bug and should not trigger fallback.
+    # Known retryable HTTP status codes (rate-limit, server errors)
+    if status_code in {429, 500, 502, 503, 504, 529}:
+        return True
+
+    # Exceptions without any status code: check class name and message for
+    # known retryable patterns before defaulting to non-retryable.
     if status_code is None:
         name_lower = class_name.lower()
-        if any(kw in name_lower for kw in ("timeout", "connection", "network", "dns")):
+        if any(kw in name_lower for kw in (
+            "timeout", "connection", "network", "dns",
+            "resourceexhausted", "ratelimit", "toomanyrequests",
+            "serviceunavailable", "internalserver",
+        )):
             return True
         msg_lower = exc_str.lower()
-        if any(kw in msg_lower for kw in ("timeout", "connection refused", "unreachable")):
+        if any(kw in msg_lower for kw in (
+            "timeout", "connection refused", "unreachable",
+            "429", "quota", "rate limit", "resource exhausted",
+            "too many requests", "capacity", "overloaded",
+        )):
             return True
         return False
 

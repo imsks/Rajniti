@@ -23,6 +23,14 @@ class FakeQuotaExhausted(Exception):
         return "Resource exhausted: daily quota used up"
 
 
+class FakeGoogleResourceExhausted(Exception):
+    """Simulates google.api_core.exceptions.ResourceExhausted which has .code (int), not .status_code."""
+    code = 429
+
+    def __str__(self):
+        return "429 You exceeded your current quota, please check your plan and billing details."
+
+
 class FakeQuotaWithLongRetry(Exception):
     """Simulates quota exceeded with a long retry-after (> 5 min)."""
     status_code = 429
@@ -89,6 +97,19 @@ class TestFreeTierLLMFallback:
         with pytest.raises(ValueError, match="bad input"):
             llm.invoke("hi")
         cands[1][2].invoke.assert_not_called()
+
+    def test_google_resource_exhausted_triggers_fallback(self):
+        """Google API exceptions have .code (int) not .status_code — must still fallback."""
+        cands = _make_candidates("m1", "m2")
+        cands[0][2].invoke.side_effect = FakeGoogleResourceExhausted()
+        cands[1][2].invoke.return_value = Mock(content="from m2")
+        llm = FreeTierLLM(cands)
+
+        result = llm.invoke("hi")
+        assert result.content == "from m2"
+        assert llm.model_name == "m2"
+        cands[0][2].invoke.assert_called_once()
+        cands[1][2].invoke.assert_called_once()
 
     def test_raises_last_error_when_all_fail(self):
         cands = _make_candidates("m1", "m2")
