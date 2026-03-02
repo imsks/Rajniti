@@ -76,13 +76,8 @@ def validate_file(path: Path) -> Tuple[bool, List[str]]:
 
 def collect_json_files(path: Path) -> List[Path]:
     if path.is_dir():
-        return sorted([
-            p for p in path.rglob("*.json")
-            if p.is_file() and p.name not in {"states.json"}
-        ])
+        return sorted([p for p in path.rglob("*.json") if p.is_file()])
     if path.is_file():
-        if path.name == "states.json":
-            return []
         return [path]
     return []
 
