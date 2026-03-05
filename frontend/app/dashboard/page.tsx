@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo, useEffect } from "react"
+import { Suspense, useState, useMemo, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
@@ -12,6 +12,18 @@ import { useAnalytics } from "@/hooks/useAnalytics"
 type Tab = "ALL" | "MP" | "MLA"
 
 export default function Dashboard() {
+    return (
+        <Suspense fallback={
+            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center'>
+                <div className='inline-block animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent'></div>
+            </div>
+        }>
+            <DashboardContent />
+        </Suspense>
+    )
+}
+
+function DashboardContent() {
     const [activeTab, setActiveTab] = useState<Tab>("ALL")
     const [searchQuery, setSearchQuery] = useState("")
     const [stateFilter, setStateFilter] = useState("")

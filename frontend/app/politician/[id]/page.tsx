@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import { Suspense, useEffect } from "react"
 import { useParams, useRouter } from "next/navigation"
 import { usePolitician } from "@/hooks/usePoliticians"
 import { Footer, Navbar } from "@/components/layout"
@@ -247,6 +247,18 @@ function ContactSection({ politician }: { politician: Politician }) {
 // ── Main Page ─────────────────────────────────────────────────────────────
 
 export default function PoliticianPage() {
+    return (
+        <Suspense fallback={
+            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center'>
+                <div className='inline-block animate-spin rounded-full h-16 w-16 border-4 border-orange-500 border-t-transparent'></div>
+            </div>
+        }>
+            <PoliticianPageContent />
+        </Suspense>
+    )
+}
+
+function PoliticianPageContent() {
     const params = useParams()
     const router = useRouter()
     const { trackEvent } = useAnalytics()

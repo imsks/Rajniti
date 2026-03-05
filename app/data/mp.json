@@ -2498,16 +2498,16 @@
       }
     ],
     "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
+      "email": "bharatsinh.dabhi@sansad.nic.in",
+      "phone": "09426361001",
+      "address": "101, Narmada, Dr. B. D. Marg, New Delhi - 110001"
     },
     "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
+      "twitter": "https://twitter.com/BharatsinhDabhi",
+      "facebook": "https://www.facebook.com/BharatsinhjiDabhiOfficial",
+      "instagram": "https://www.instagram.com/bharatsinhjidabhi",
       "linkedin": null,
-      "youtube": null,
+      "youtube": "https://www.youtube.com/@bharatsinhjidabhi",
       "website": null
     },
     "family_background": [
@@ -2574,9 +2574,9 @@
       "address": null
     },
     "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
+      "twitter": "https://twitter.com/HaribhaiPPatel",
+      "facebook": "https://www.facebook.com/HaribhaiPPatel",
+      "instagram": "https://www.instagram.com/haribhaippatel",
       "linkedin": null,
       "youtube": null,
       "website": null
@@ -2821,8 +2821,8 @@
       "address": null
     },
     "social_media": {
-      "twitter": null,
-      "facebook": null,
+      "twitter": "https://twitter.com/HasmukhPatelBJP",
+      "facebook": "https://www.facebook.com/HasmukhPatelBJP/",
       "instagram": null,
       "linkedin": null,
       "youtube": null,
@@ -4507,9 +4507,9 @@
     ],
     "criminal_records": [],
     "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
+      "email": "ml.khattar@sansad.nic.in",
+      "phone": "011-23015047",
+      "address": "3, Motilal Nehru Marg, New Delhi - 110011"
     }
   },
   {
@@ -4545,14 +4545,14 @@
     ],
     "criminal_records": [],
     "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
+      "email": "dharambir.singh@sansad.nic.in",
+      "phone": "09416055555",
+      "address": "10, Dr. Bishamber Das Marg, New Delhi - 110001"
     },
     "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
+      "twitter": "https://twitter.com/mp_dharambir",
+      "facebook": "https://www.facebook.com/MPDharambirSingh",
+      "instagram": "https://www.instagram.com/mp_dharambir",
       "linkedin": null,
       "youtube": null,
       "website": null
@@ -4609,12 +4609,12 @@
       "address": null
     },
     "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
+      "twitter": "https://twitter.com/Rao_InderjitS",
+      "facebook": "https://www.facebook.com/RaoInderjitSinghOfficial",
+      "instagram": "https://www.instagram.com/rao_inderjitsingh",
       "linkedin": null,
-      "youtube": null,
-      "website": null
+      "youtube": "https://www.youtube.com/@RaoInderjitSinghOfficial",
+      "website": "http://raoinderjitsingh.com/"
     },
     "family_background": [
       {
@@ -4656,7 +4656,32 @@
         "year_completed": 1982
       }
     ],
-    "family_background": [],
+    "family_background": [
+      {
+        "name": "Hans Raj Zaildar",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Nirmala Devi",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Devender Chaudhary",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Naveen Chaudhary",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      }
+    ],
     "criminal_records": [],
     "social_media": {
       "twitter": null,
@@ -5256,17 +5281,30 @@
     ],
     "criminal_records": [],
     "contact": {
-      "email": null,
+      "email": "kota.poojary@sansad.nic.in",
       "phone": null,
-      "address": null
+      "address": "Giliyaru, Kota, Brahmavara Taluk, Udupi District, Karnataka"
     },
-    "family_background": [],
+    "family_background": [
+      {
+        "name": "Annappa Poojary",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Shanta",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      }
+    ],
     "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
+      "twitter": "https://twitter.com/_KotaSrinivas",
+      "facebook": "https://www.facebook.com/KotaSrinivasPoojary",
+      "instagram": "https://www.instagram.com/kotasrinivaspoojary",
       "linkedin": null,
-      "youtube": null,
+      "youtube": "https://www.youtube.com/@KotaSrinivasPoojary",
       "website": null
     }
   },
@@ -6548,7 +6586,8 @@
       "linkedin": null,
       "youtube": "https://www.youtube.com/@SavitriThakurMP",
       "website": null
-    }
+    },
+    "family_background": []
   },
   {
     "id": "ce035850-fbba-4ddd-b70a-6529cd94940d",

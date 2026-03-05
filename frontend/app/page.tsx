@@ -1,5 +1,6 @@
 "use client"
 
+import { Suspense } from "react"
 import PreambleSection from "@/components/PreambleSection"
 import { Navbar, Footer } from "@/components/layout"
 import Text from "@/components/ui/Text"
@@ -10,6 +11,14 @@ import { useEffect, useState } from "react"
 import { useAnalytics } from "@/hooks/useAnalytics"
 
 export default function Home() {
+    return (
+        <Suspense>
+            <HomeContent />
+        </Suspense>
+    )
+}
+
+function HomeContent() {
     const [isReady, setIsReady] = useState(false)
     const { trackEvent } = useAnalytics()
 

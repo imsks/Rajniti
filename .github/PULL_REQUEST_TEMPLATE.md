@@ -28,6 +28,15 @@
 # make test
 ```
 
+## Version bump
+
+<!-- Add ONE label to this PR to control the automatic version bump when merged to production. -->
+<!-- If no label is added, defaults to `patch`. -->
+
+- [ ] `patch` — Bug fixes, small tweaks (0.3.5 → 0.3.6)
+- [ ] `minor` — New features, enhancements (0.3.5 → 0.4.0)
+- [ ] `major` — Breaking changes (0.3.5 → 1.0.0)
+
 ## Checklist
 
 - [ ] I have **not** committed `.env`, API keys, or any secrets
