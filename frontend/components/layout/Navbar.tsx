@@ -22,6 +22,8 @@ interface NavbarProps {
     sticky?: boolean
 }
 
+const MOBILE_BREAKPOINT = 640
+
 export default function Navbar({
     variant = "default",
     sticky = false
@@ -59,7 +61,7 @@ export default function Navbar({
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 640) {
+            if (window.innerWidth >= MOBILE_BREAKPOINT) {
                 setIsMobileMenuOpen(false)
             }
         }
