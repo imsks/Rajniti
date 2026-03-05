@@ -6,7 +6,7 @@ describe("Navbar", () => {
         render(<Navbar variant='default' />)
 
         const nav = screen.getByRole("navigation", { name: /primary navigation/i })
-        expect(nav.firstChild).toHaveClass("overflow-x-auto")
+        expect(nav.firstElementChild).toHaveClass("overflow-x-auto")
 
         expect(within(nav).getByRole("link", { name: /explore politicians/i })).toHaveAttribute(
             "href",
