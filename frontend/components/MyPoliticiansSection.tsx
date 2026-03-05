@@ -7,6 +7,7 @@ import Button from "@/components/ui/Button"
 import MyPoliticianCard from "@/components/MyPoliticianCard"
 import { useMyPoliticians } from "@/hooks/useMyPoliticians"
 import { usePoliticianSearch } from "@/hooks/usePoliticianSearch"
+import { useAnalytics } from "@/hooks/useAnalytics"
 import {
     getCurrentPosition,
     getPincodeFromCoords,
@@ -27,6 +28,7 @@ export default function MyPoliticiansSection({
 }: MyPoliticiansSectionProps) {
     const { myMP, myMLA, setMyMP, setMyMLA } =
         useMyPoliticians(allPoliticians)
+    const { trackEvent, trackSearch } = useAnalytics()
     const [searchQuery, setSearchQuery] = useState("")
     const [dropdownOpen, setDropdownOpen] = useState(false)
     const [locationLoading, setLocationLoading] = useState(false)
@@ -36,6 +38,10 @@ export default function MyPoliticiansSection({
 
     const { results, loading } = usePoliticianSearch(searchQuery)
     const showDropdown = dropdownOpen && searchQuery.trim().length >= 2
+
+    useEffect(() => {
+        trackSearch(searchQuery, "my_politicians", results.length)
+    }, [searchQuery, results.length, trackSearch])
     const isEmpty = !myMP && !myMLA
     const hasAny = !!myMP || !!myMLA
 
@@ -55,6 +61,7 @@ export default function MyPoliticiansSection({
     const handleSelectResult = (p: Politician) => {
         if (p.type === "MP") setMyMP(p)
         else setMyMLA(p)
+        trackEvent('my_politician_set', { politician_id: p.id, politician_name: p.name, slot_type: p.type as "MP" | "MLA" })
         setSearchQuery("")
         setDropdownOpen(false)
     }
@@ -66,12 +73,15 @@ export default function MyPoliticiansSection({
         if (pos) {
             const pincode = await getPincodeFromCoords(pos.lat, pos.lon)
             if (pincode) {
+                trackEvent('location_lookup', { method: 'gps', success: true })
                 window.open(buildGoogleSearchUrlForMlaMp(pincode), "_blank")
             } else {
+                trackEvent('location_lookup', { method: 'gps', success: false })
                 setPincodeInput("")
                 setShowPincodeFallback(true)
             }
         } else {
+            trackEvent('location_lookup', { method: 'gps', success: false })
             setPincodeInput("")
             setShowPincodeFallback(true)
         }
@@ -81,6 +91,7 @@ export default function MyPoliticiansSection({
     const handlePincodeSubmit = () => {
         const value = pincodeInput.trim()
         if (value) {
+            trackEvent('location_lookup', { method: 'pincode', success: true })
             window.open(buildGoogleSearchUrlForMlaMp(value), "_blank")
             setPincodeInput("")
             setShowPincodeFallback(false)
@@ -220,13 +231,13 @@ export default function MyPoliticiansSection({
                     politician={myMP}
                     slotType='MP'
                     onAddClick={focusSearch}
-                    onRemove={myMP ? () => setMyMP(null) : undefined}
+                    onRemove={myMP ? () => { setMyMP(null); trackEvent('my_politician_remove', { slot_type: 'MP' }) } : undefined}
                 />
                 <MyPoliticianCard
                     politician={myMLA}
                     slotType='MLA'
                     onAddClick={focusSearch}
-                    onRemove={myMLA ? () => setMyMLA(null) : undefined}
+                    onRemove={myMLA ? () => { setMyMLA(null); trackEvent('my_politician_remove', { slot_type: 'MLA' }) } : undefined}
                 />
             </div>
 

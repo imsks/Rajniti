@@ -14,6 +14,7 @@ interface CustomLinkProps extends LinkProps {
         | "secondary"
     target?: string
     rel?: string
+    onClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 
 export default function CustomLink({
@@ -43,7 +44,8 @@ export default function CustomLink({
                 href={props.href.toString()}
                 className={`${variants[variant]} ${className}`}
                 target='_blank'
-                rel='noopener noreferrer'>
+                rel='noopener noreferrer'
+                onClick={props.onClick}>
                 {children}
             </a>
         )

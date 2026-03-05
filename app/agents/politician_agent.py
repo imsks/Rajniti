@@ -24,19 +24,30 @@ from app.services import PoliticianService
 logger = logging.getLogger(__name__)
 
 
+# ---------------------------------------------------------------------------
+# Sub-processes (each enriches one field)
+# ---------------------------------------------------------------------------
+
+
 class PoliticianEducation:
     """Education enrichment process for one politician."""
 
     name = "education"
 
     def __init__(self, base_agent: BaseAgent):
-        """Store shared agent utilities (LLM, parsers, validation helpers)."""
         self.base = base_agent
 
+    def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
+        return force or not politician.get("education")
+
     @log(logger, "PoliticianEducation.run")
-    def run(self, politician: Dict[str, Any], force: bool = False) -> Dict[str, Any]:
-        """Run education extraction and return a process result payload."""
-        if politician.get("education") and not force:
+    def run(
+        self,
+        politician: Dict[str, Any],
+        force: bool = False,
+        context: str = "",
+    ) -> Dict[str, Any]:
+        if not self.should_run(politician, force):
             return {
                 "process": self.name,
                 "ok": True,
@@ -50,7 +61,7 @@ class PoliticianEducation:
             politician.get("id"),
             politician.get("name"),
         )
-        raw = self.base._run_llm(prompt)
+        raw = self.base._run_llm_with_context(prompt, context)
         parsed = self.base._parse_json_value(raw)
 
         if parsed is None:
@@ -92,11 +103,20 @@ class PoliticianPoliticalBackground:
     def __init__(self, base_agent: BaseAgent):
         self.base = base_agent
 
+    def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
+        if force:
+            return True
+        elections = (politician.get("political_background") or {}).get("elections") or []
+        return not elections
+
     @log(logger, "PoliticianPoliticalBackground.run")
-    def run(self, politician: Dict[str, Any], force: bool = False) -> Dict[str, Any]:
-        # skip if present and not force
-        existing = (politician.get("political_background") or {}).get("elections") or []
-        if existing and not force:
+    def run(
+        self,
+        politician: Dict[str, Any],
+        force: bool = False,
+        context: str = "",
+    ) -> Dict[str, Any]:
+        if not self.should_run(politician, force):
             return {
                 "process": self.name,
                 "ok": True,
@@ -105,7 +125,7 @@ class PoliticianPoliticalBackground:
             }
 
         prompt = PoliticianPrompts.political_background(politician)
-        raw = self.base._run_llm(prompt)
+        raw = self.base._run_llm_with_context(prompt, context)
         parsed = self.base._parse_json_object(raw)
         if parsed is None:
             return {
@@ -114,7 +134,7 @@ class PoliticianPoliticalBackground:
                 "error": "invalid_llm_json",
                 "raw": raw,
             }
-        # Try full validation first
+
         adapter = TypeAdapter(PoliticalBackground)
         validated, errors = self.base._validate_with_adapter(parsed, adapter)
         updates: Dict[str, Any] = {}
@@ -126,9 +146,8 @@ class PoliticianPoliticalBackground:
                 politician.get("id"),
             )
             logger.debug("political_background: updates=%s", updates)
-            # If elections empty, attempt to fill via focused elections-only prompt
             if not updates["political_background"].get("elections"):
-                self._maybe_fill_elections_only(politician, updates)
+                self._maybe_fill_elections_only(politician, updates, context)
             return {
                 "process": self.name,
                 "ok": True,
@@ -136,11 +155,9 @@ class PoliticianPoliticalBackground:
                 "updates": updates,
             }
 
-        # Full validation failed — attempt tolerant partial acceptance:
         validation_errors = errors
         partial_updates: Dict[str, Any] = {"elections": [], "summary": None}
 
-        # Try to validate elections list individually
         if isinstance(parsed.get("elections"), list):
             elections_adapter = TypeAdapter(list[ElectionRecord])
             ev_validated, ev_errors = self.base._validate_with_adapter(
@@ -152,14 +169,14 @@ class PoliticianPoliticalBackground:
                 ]
             else:
                 logger.debug(
-                    "political_background: elections validation failed: %s", ev_errors
+                    "political_background: elections validation failed: %s",
+                    ev_errors,
                 )
-        # Accept summary if present and non-empty
+
         summary_val = parsed.get("summary")
         if isinstance(summary_val, str) and summary_val.strip():
             partial_updates["summary"] = summary_val.strip()
 
-        # If we have at least one useful field, accept partial update (and try to fill elections)
         if partial_updates["elections"] or partial_updates["summary"] is not None:
             updates["political_background"] = partial_updates
             logger.info(
@@ -167,7 +184,7 @@ class PoliticianPoliticalBackground:
                 politician.get("id"),
                 validation_errors,
             )
-            self._maybe_fill_elections_only(politician, updates)
+            self._maybe_fill_elections_only(politician, updates, context)
             logger.debug("political_background: partial updates=%s", updates)
             return {
                 "process": self.name,
@@ -177,7 +194,6 @@ class PoliticianPoliticalBackground:
                 "validation_errors": validation_errors,
             }
 
-        # Nothing useful could be extracted
         logger.warning(
             "political_background: validation failed (id=%s) errors=%s",
             politician.get("id"),
@@ -191,19 +207,22 @@ class PoliticianPoliticalBackground:
         }
 
     def _maybe_fill_elections_only(
-        self, politician: Dict[str, Any], updates: Dict[str, Any]
+        self,
+        politician: Dict[str, Any],
+        updates: Dict[str, Any],
+        context: str = "",
     ) -> None:
         """If elections are empty, issue a focused elections-only prompt and merge."""
         pb = updates.get("political_background") or {}
         if pb.get("elections"):
-            return  # already have data
+            return
 
         logger.info(
             "political_background: elections empty; issuing elections-only prompt (id=%s)",
             politician.get("id"),
         )
         prompt = PoliticianPrompts.political_background_elections_only(politician)
-        raw = self.base._run_llm(prompt)
+        raw = self.base._run_llm_with_context(prompt, context)
         parsed = self.base._parse_json_value(raw)
         if parsed is None:
             logger.warning(
@@ -241,25 +260,53 @@ class PoliticianSocialMedia:
     def __init__(self, base_agent: BaseAgent):
         self.base = base_agent
 
-    @log(logger, "PoliticianSocialMedia.run")
-    def run(self, politician: Dict[str, Any], force: bool = False) -> Dict[str, Any]:
+    def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
+        if force:
+            return True
         existing = politician.get("social_media") or {}
-        has_data = any(v for v in existing.values() if v)
-        if has_data and not force:
-            return {"process": self.name, "ok": True, "skipped": True, "reason": "already_present"}
+        return not any(v for v in existing.values() if v)
+
+    @log(logger, "PoliticianSocialMedia.run")
+    def run(
+        self,
+        politician: Dict[str, Any],
+        force: bool = False,
+        context: str = "",
+    ) -> Dict[str, Any]:
+        if not self.should_run(politician, force):
+            return {
+                "process": self.name,
+                "ok": True,
+                "skipped": True,
+                "reason": "already_present",
+            }
 
         prompt = PoliticianPrompts.social_media(politician)
-        logger.info("social_media: calling LLM (id=%s name=%s)", politician.get("id"), politician.get("name"))
-        raw = self.base._run_llm(prompt)
+        logger.info(
+            "social_media: calling LLM (id=%s name=%s)",
+            politician.get("id"),
+            politician.get("name"),
+        )
+        raw = self.base._run_llm_with_context(prompt, context)
 
         parsed = self.base._parse_json_object(raw)
         if parsed is None:
-            return {"process": self.name, "ok": False, "error": "invalid_llm_json", "raw": raw}
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "invalid_llm_json",
+                "raw": raw,
+            }
 
         adapter = TypeAdapter(SocialMedia)
         validated, errors = self.base._validate_with_adapter(parsed, adapter)
         if errors:
-            return {"process": self.name, "ok": False, "error": "validation_failed", "details": errors}
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "validation_failed",
+                "details": errors,
+            }
 
         updates = {"social_media": validated.model_dump(mode="json")}
         return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
@@ -273,9 +320,17 @@ class PoliticianFamilyBackground:
     def __init__(self, base_agent: BaseAgent):
         self.base = base_agent
 
+    def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
+        return force or not politician.get("family_background")
+
     @log(logger, "PoliticianFamilyBackground.run")
-    def run(self, politician: Dict[str, Any], force: bool = False) -> Dict[str, Any]:
-        if politician.get("family_background") and not force:
+    def run(
+        self,
+        politician: Dict[str, Any],
+        force: bool = False,
+        context: str = "",
+    ) -> Dict[str, Any]:
+        if not self.should_run(politician, force):
             return {
                 "process": self.name,
                 "ok": True,
@@ -289,7 +344,7 @@ class PoliticianFamilyBackground:
             politician.get("id"),
             politician.get("name"),
         )
-        raw = self.base._run_llm(prompt)
+        raw = self.base._run_llm_with_context(prompt, context)
         parsed = self.base._parse_json_value(raw)
 
         if parsed is None:
@@ -333,9 +388,17 @@ class PoliticianCriminalRecords:
     def __init__(self, base_agent: BaseAgent):
         self.base = base_agent
 
+    def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
+        return force or not politician.get("criminal_records")
+
     @log(logger, "PoliticianCriminalRecords.run")
-    def run(self, politician: Dict[str, Any], force: bool = False) -> Dict[str, Any]:
-        if politician.get("criminal_records") and not force:
+    def run(
+        self,
+        politician: Dict[str, Any],
+        force: bool = False,
+        context: str = "",
+    ) -> Dict[str, Any]:
+        if not self.should_run(politician, force):
             return {
                 "process": self.name,
                 "ok": True,
@@ -349,7 +412,7 @@ class PoliticianCriminalRecords:
             politician.get("id"),
             politician.get("name"),
         )
-        raw = self.base._run_llm(prompt)
+        raw = self.base._run_llm_with_context(prompt, context)
         parsed = self.base._parse_json_value(raw)
 
         if parsed is None:
@@ -393,11 +456,20 @@ class PoliticianContact:
     def __init__(self, base_agent: BaseAgent):
         self.base = base_agent
 
-    @log(logger, "PoliticianContact.run")
-    def run(self, politician: Dict[str, Any], force: bool = False) -> Dict[str, Any]:
+    def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
+        if force:
+            return True
         existing = politician.get("contact") or {}
-        has_data = any(v for v in existing.values() if v)
-        if has_data and not force:
+        return not any(v for v in existing.values() if v)
+
+    @log(logger, "PoliticianContact.run")
+    def run(
+        self,
+        politician: Dict[str, Any],
+        force: bool = False,
+        context: str = "",
+    ) -> Dict[str, Any]:
+        if not self.should_run(politician, force):
             return {
                 "process": self.name,
                 "ok": True,
@@ -411,7 +483,7 @@ class PoliticianContact:
             politician.get("id"),
             politician.get("name"),
         )
-        raw = self.base._run_llm(prompt)
+        raw = self.base._run_llm_with_context(prompt, context)
 
         parsed = self.base._parse_json_object(raw)
         if parsed is None:
@@ -436,11 +508,15 @@ class PoliticianContact:
         return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
 
 
+# ---------------------------------------------------------------------------
+# Orchestrator
+# ---------------------------------------------------------------------------
+
+
 class PoliticianAgent(BaseAgent):
     """Top-level orchestrator for politician enrichment processes."""
 
-    def __init__(self):
-        """Initialize dependencies and register available processes."""
+    def __init__(self) -> None:
         super().__init__()
         self.politician_service = PoliticianService()
         self.cache = CacheManager()
@@ -462,27 +538,26 @@ class PoliticianAgent(BaseAgent):
         limit: int = 0,
     ) -> Dict[str, Any]:
         """Run enrichment for one politician or all politicians by type."""
-        if politician_id:
-            return self._run_one_by_id(politician_id, force=force)
-        return self._run_all(election_type=election_type, force=force, limit=limit)
+        self.clear_errors()
+        try:
+            if politician_id:
+                return self._run_one_by_id(politician_id, force=force)
+            return self._run_all(election_type=election_type, force=force, limit=limit)
+        finally:
+            self.print_error_summary()
 
     @log(logger, "PoliticianAgent._is_cached")
     def _is_cached(self, politician_id: str) -> bool:
-        """Return True when politician id already exists in cache."""
         return self.cache.exists(politician_id)
 
     @log(logger, "PoliticianAgent._mark_cached")
     def _mark_cached(self, politician_id: str) -> None:
-        """Mark politician id as processed (full/partial both count)."""
         self.cache.set(politician_id, {"processed": True})
 
     @log(logger, "PoliticianAgent._run_one_by_id")
-    def _run_one_by_id(self, politician_id: str, force: bool = False) -> Dict[str, Any]:
-        """Run all processes for a single politician id.
-
-        Each subprocess decides independently whether to fetch or skip
-        based on whether its field already has data.
-        """
+    def _run_one_by_id(
+        self, politician_id: str, force: bool = False
+    ) -> Dict[str, Any]:
         politician = self.politician_service.get_by_id(politician_id)
         if not politician:
             return {"ok": False, "id": politician_id, "error": "politician_not_found"}
@@ -496,7 +571,6 @@ class PoliticianAgent(BaseAgent):
         force: bool = False,
         limit: int = 0,
     ) -> Dict[str, Any]:
-        """Run all processes for MP/MLA/all politicians."""
         if election_type in ("MP", "MLA"):
             politicians = self.politician_service.get_all(election_type)
         else:
@@ -505,12 +579,34 @@ class PoliticianAgent(BaseAgent):
         if limit and limit > 0:
             politicians = politicians[:limit]
 
-        summary = {"total": len(politicians), "processed": 0, "failed": 0}
+        summary: Dict[str, Any] = {
+            "total": len(politicians),
+            "processed": 0,
+            "skipped": 0,
+            "failed": 0,
+        }
+
         for idx, politician in enumerate(politicians, 1):
             pid = politician.get("id")
             if not pid:
                 summary["failed"] += 1
                 continue
+
+            # ── Fast-path: skip fully-cached politicians ─────────────────
+            if not force and self._is_cached(pid):
+                needs_work = any(
+                    p.should_run(politician, force) for p in self.processes
+                )
+                if not needs_work:
+                    logger.info(
+                        "[%d/%d] SKIP %s (%s) — fully enriched",
+                        idx,
+                        len(politicians),
+                        politician.get("name"),
+                        pid,
+                    )
+                    summary["skipped"] += 1
+                    continue
 
             logger.info(
                 "[%d/%d] politician=%s name=%s",
@@ -526,51 +622,114 @@ class PoliticianAgent(BaseAgent):
             else:
                 summary["failed"] += 1
 
+        logger.info(
+            "Run complete: %d total, %d processed, %d skipped, %d failed",
+            summary["total"],
+            summary["processed"],
+            summary["skipped"],
+            summary["failed"],
+        )
         return summary
 
     @log(logger, "PoliticianAgent._run_for_politician")
     def _run_for_politician(
         self, politician: Dict[str, Any], force: bool = False
     ) -> Dict[str, Any]:
-        """Run registered processes in parallel for one politician."""
+        """Pre-check what needs work, gather context only if necessary,
+        then run only the active sub-processes in parallel."""
         politician_id = politician.get("id")
         if not politician_id:
             return {"ok": False, "error": "missing_politician_id"}
 
-        process_results: list[Dict[str, Any]] = []
-        updated_fields: set[str] = set()
+        # ── 1. Pre-check: which processes actually need to run? ──────────
+        active_processes: list = []
+        skipped_results: list[Dict[str, Any]] = []
 
-        # Per-politician write lock to serialize file writes from concurrent processes
+        for process in self.processes:
+            if process.should_run(politician, force):
+                active_processes.append(process)
+            else:
+                skipped_results.append(
+                    {
+                        "process": process.name,
+                        "ok": True,
+                        "skipped": True,
+                        "reason": "already_present",
+                    }
+                )
+
+        if not active_processes:
+            logger.info(
+                "All data present for %s (%s) — nothing to enrich",
+                politician.get("name"),
+                politician_id,
+            )
+            self._mark_cached(politician_id)
+            return {
+                "ok": True,
+                "id": politician_id,
+                "updated_fields": [],
+                "process_results": skipped_results,
+            }
+
+        logger.info(
+            "%d/%d processes need data for %s: %s",
+            len(active_processes),
+            len(self.processes),
+            politician.get("name"),
+            [p.name for p in active_processes],
+        )
+
+        # ── 2. Gather real-world context ONLY when there is work to do ───
+        context = self._gather_politician_context(politician)
+        if context:
+            logger.info(
+                "Context gathered (%d chars) for %s",
+                len(context),
+                politician.get("name"),
+            )
+        else:
+            logger.info(
+                "No external context for %s — LLM knowledge only",
+                politician.get("name"),
+            )
+
+        # ── 3. Run only active processes in parallel ─────────────────────
+        process_results: list[Dict[str, Any]] = list(skipped_results)
+        updated_fields: set[str] = set()
         write_lock = threading.Lock()
 
-        with ThreadPoolExecutor(max_workers=max(1, len(self.processes))) as executor:
+        with ThreadPoolExecutor(max_workers=max(1, len(active_processes))) as executor:
             future_to_process = {
-                executor.submit(process.run, politician, force): process
-                for process in self.processes
+                executor.submit(process.run, politician, force, context): process
+                for process in active_processes
             }
             for future in as_completed(future_to_process):
                 process = future_to_process[future]
                 try:
                     result = future.result()
                 except Exception as exc:
-                    logger.exception(
-                        "process %s crashed: %s",
-                        getattr(process, "name", str(process)),
+                    pname = getattr(process, "name", str(process))
+                    logger.error(
+                        "Process %s crashed for %s: %s",
+                        pname,
+                        politician_id,
                         exc,
                     )
-                    # record failure for summary
+                    self._record_error(
+                        "agent",
+                        f"Process {pname} crashed: {exc}",
+                        context=politician_id,
+                        exc=exc,
+                    )
                     process_results.append(
-                        {
-                            "process": getattr(process, "name", "unknown"),
-                            "ok": False,
-                            "error": str(exc),
-                        }
+                        {"process": pname, "ok": False, "error": str(exc)}
                     )
                     continue
 
                 process_results.append(result)
 
-                # Persist each process's updates immediately (serialized by write_lock)
+                # ── 4. Persist updates immediately (serialised) ──────────
                 if (
                     result.get("ok")
                     and not result.get("skipped")
@@ -594,22 +753,22 @@ class PoliticianAgent(BaseAgent):
                                 }
                             )
                         else:
-                            # track updated fields for reporting
-                            for k in result["updates"].keys():
+                            for k in result["updates"]:
                                 updated_fields.add(k)
                             logger.info(
-                                "Persisted updates for %s from process %s: %s",
+                                "Persisted %s for %s from %s",
+                                list(result["updates"].keys()),
                                 politician_id,
                                 getattr(process, "name", "unknown"),
-                                list(result["updates"].keys()),
                             )
 
+        # ── 5. Mark cached and return ────────────────────────────────────
         self._mark_cached(politician_id)
 
         has_error = any(not r.get("ok") for r in process_results)
         return {
             "ok": not has_error,
             "id": politician_id,
-            "updated_fields": sorted(list(updated_fields)),
+            "updated_fields": sorted(updated_fields),
             "process_results": process_results,
         }

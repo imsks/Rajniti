@@ -7,9 +7,11 @@ import Link from "@/components/ui/Link"
 import Button from "@/components/ui/Button"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
+import { useAnalytics } from "@/hooks/useAnalytics"
 
 export default function Home() {
     const [isReady, setIsReady] = useState(false)
+    const { trackEvent } = useAnalytics()
 
     useEffect(() => {
         // Ensure page starts at top
@@ -91,6 +93,7 @@ export default function Home() {
                                 <Button
                                     href='/dashboard'
                                     size='lg'
+                                    onClick={() => trackEvent('cta_click', { cta_name: 'explore_politicians', cta_url: '/dashboard', page_location: 'home_hero' })}
                                     rightIcon={
                                         <svg
                                             className='w-5 h-5'
@@ -114,6 +117,7 @@ export default function Home() {
                                 external
                                 variant='secondary'
                                 size='lg'
+                                onClick={() => trackEvent('external_link_click', { link_text: 'View on GitHub', link_url: 'https://github.com/imsks/rajniti', page_location: 'home_hero' })}
                                 leftIcon={
                                     <svg
                                         className='w-5 h-5'
@@ -322,6 +326,7 @@ export default function Home() {
                             <Link
                                 href='https://github.com/imsks/rajniti/issues'
                                 external
+                                onClick={() => trackEvent('contribute_click', { contribute_type: 'data', page_location: 'home_contribute' })}
                                 className='inline-flex items-center gap-2 text-[#0F1F3D] font-bold hover:underline'>
                                 Open an Issue
                                 <svg
@@ -363,6 +368,7 @@ export default function Home() {
                             <Link
                                 href='https://github.com/imsks/rajniti/fork'
                                 external
+                                onClick={() => trackEvent('contribute_click', { contribute_type: 'code', page_location: 'home_contribute' })}
                                 className='inline-flex items-center gap-2 text-[#FFD700] font-bold hover:underline mt-4 '>
                                 Fork &amp; Contribute
                                 <svg
@@ -390,6 +396,7 @@ export default function Home() {
                         <Button
                             href='/dashboard'
                             size='lg'
+                            onClick={() => trackEvent('cta_click', { cta_name: 'explore_politicians', cta_url: '/dashboard', page_location: 'home_contribute' })}
                             className='inline-flex items-center gap-3 bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg border-2 border-orange-600  hover:text-white shadow-[0_8px_30px_rgba(249,115,22,0.2)]  hover:-translate-y-0.5 transition-all duration-300'
                             rightIcon={
                                 <svg

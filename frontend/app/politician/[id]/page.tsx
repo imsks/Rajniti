@@ -1,11 +1,13 @@
 "use client"
 
+import { useEffect } from "react"
 import { useParams, useRouter } from "next/navigation"
 import { usePolitician } from "@/hooks/usePoliticians"
 import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import Image from "@/components/ui/Image"
+import { useAnalytics } from "@/hooks/useAnalytics"
 import type { Politician, ElectionRecord, CrimeRecord, FamilyMember } from "@/types/politician"
 
 // ── Helper components ─────────────────────────────────────────────────────
@@ -247,9 +249,27 @@ function ContactSection({ politician }: { politician: Politician }) {
 export default function PoliticianPage() {
     const params = useParams()
     const router = useRouter()
+    const { trackEvent } = useAnalytics()
     const politicianId = params.id as string
 
     const { politician, loading, error } = usePolitician(politicianId)
+
+    useEffect(() => {
+        if (!politician) return
+        const latestElection = politician.political_background.elections?.[0]
+        trackEvent('politician_profile_view', {
+            politician_id: politician.id,
+            politician_name: politician.name,
+            politician_type: politician.type as "MP" | "MLA",
+            party: latestElection?.party ?? "—",
+            state: politician.state,
+            constituency: politician.constituency,
+        })
+    }, [politician, trackEvent])
+
+    useEffect(() => {
+        if (error) trackEvent('error_view', { error_type: error === "Politician not found" ? 'not_found' : 'api', error_message: error, page_location: 'politician_detail' })
+    }, [error, trackEvent])
 
     if (loading) {
         return (
@@ -390,6 +410,7 @@ export default function PoliticianPage() {
                         <Button
                             href={`https://github.com/imsks/rajniti/issues/new?title=Enrich+${encodeURIComponent(p.name)}&body=Politician+ID:+${encodeURIComponent(p.id)}%0A%0APlease+add+details+below:`}
                             external
+                            onClick={() => trackEvent('contribute_click', { contribute_type: 'info', politician_id: p.id, page_location: 'politician_detail' })}
                             className='bg-white text-orange-600 py-2 px-4 rounded-lg hover:bg-gray-50 border-none shadow-lg'
                             size='md'>
                             Contribute Info →

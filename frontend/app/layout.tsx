@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lora, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import AuthProvider from "@/components/auth/AuthProvider";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${lora.variable} ${jakarta.variable}`}>
       <body className="antialiased">
+        <GoogleAnalytics />
         <AuthProvider>
           {children}
         </AuthProvider>

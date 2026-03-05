@@ -8,6 +8,7 @@ import Text from "@/components/ui/Text"
 import PoliticianCard from "@/components/PoliticianCard"
 import MyPoliticiansSection from "@/components/MyPoliticiansSection"
 import { usePoliticians } from "@/hooks/usePoliticians"
+import { useAnalytics } from "@/hooks/useAnalytics"
 type Tab = "ALL" | "MP" | "MLA"
 
 export default function Dashboard() {
@@ -17,6 +18,7 @@ export default function Dashboard() {
     const [partyFilter, setPartyFilter] = useState("")
     const [currentPage, setCurrentPage] = useState(1)
     const [itemsPerPage, setItemsPerPage] = useState(12)
+    const { trackEvent, trackSearch } = useAnalytics()
 
     // One API call for all politicians; filter client-side by tab + search/filters
     const { all, loading, error, states, parties, stats, filter } =
@@ -50,9 +52,18 @@ export default function Dashboard() {
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }, [currentPage])
 
+    // Debounced search tracking
+    useEffect(() => {
+        trackSearch(searchQuery, "dashboard", displayPoliticians.length)
+    }, [searchQuery, trackSearch, displayPoliticians.length])
+
     const hasActiveFilters = !!(searchQuery || stateFilter || partyFilter)
 
     // ── Render ────────────────────────────────────────────────────────────
+
+    useEffect(() => {
+        if (error) trackEvent('error_view', { error_type: 'connection', error_message: error, page_location: 'dashboard' })
+    }, [error, trackEvent])
 
     if (error) {
         return (
@@ -145,6 +156,7 @@ export default function Dashboard() {
                                 setSearchQuery("")
                                 setStateFilter("")
                                 setPartyFilter("")
+                                trackEvent('filter_apply', { filter_type: 'tab', filter_value: tab })
                             }}
                             className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${
                                 activeTab === tab
@@ -188,7 +200,10 @@ export default function Dashboard() {
                         {/* State filter */}
                         <select
                             value={stateFilter}
-                            onChange={(e) => setStateFilter(e.target.value)}
+                            onChange={(e) => {
+                                setStateFilter(e.target.value)
+                                if (e.target.value) trackEvent('filter_apply', { filter_type: 'state', filter_value: e.target.value })
+                            }}
                             className='px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 min-w-[180px]'>
                             <option value=''>All States</option>
                             {states.map((s) => (
@@ -201,7 +216,10 @@ export default function Dashboard() {
                         {/* Party filter */}
                         <select
                             value={partyFilter}
-                            onChange={(e) => setPartyFilter(e.target.value)}
+                            onChange={(e) => {
+                                setPartyFilter(e.target.value)
+                                if (e.target.value) trackEvent('filter_apply', { filter_type: 'party', filter_value: e.target.value })
+                            }}
                             className='px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 min-w-[180px]'>
                             <option value=''>All Parties</option>
                             {parties.map((p) => (
@@ -224,6 +242,7 @@ export default function Dashboard() {
                                     setSearchQuery("")
                                     setStateFilter("")
                                     setPartyFilter("")
+                                    trackEvent('filter_clear', {})
                                 }}
                                 className='ml-2 text-xs text-orange-600 hover:underline'>
                                 Clear filters
@@ -273,7 +292,11 @@ export default function Dashboard() {
                                 </Text>
                                 <select
                                     value={itemsPerPage}
-                                    onChange={(e) => setItemsPerPage(Number(e.target.value))}
+                                    onChange={(e) => {
+                                        const val = Number(e.target.value)
+                                        setItemsPerPage(val)
+                                        trackEvent('filter_apply', { filter_type: 'items_per_page', filter_value: String(val) })
+                                    }}
                                     className='px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white'>
                                     <option value={12}>12</option>
                                     <option value={24}>24</option>
@@ -307,14 +330,22 @@ export default function Dashboard() {
                         {totalPages > 1 && (
                             <div className='flex justify-center items-center gap-2 mt-8'>
                                 <button
-                                    onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                                    onClick={() => {
+                                        const newPage = Math.max(1, currentPage - 1)
+                                        setCurrentPage(newPage)
+                                        trackEvent('pagination', { direction: 'previous', page_number: newPage, total_pages: totalPages })
+                                    }}
                                     disabled={currentPage === 1}
                                     className='px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors'>
                                     Previous
                                 </button>
 
                                 <button
-                                    onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                                    onClick={() => {
+                                        const newPage = Math.min(totalPages, currentPage + 1)
+                                        setCurrentPage(newPage)
+                                        trackEvent('pagination', { direction: 'next', page_number: newPage, total_pages: totalPages })
+                                    }}
                                     disabled={currentPage === totalPages}
                                     className='px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors'>
                                     Next
@@ -346,6 +377,7 @@ export default function Dashboard() {
                         <Button
                             href='https://github.com/imsks/rajniti/issues/new'
                             external
+                            onClick={() => trackEvent('contribute_click', { contribute_type: 'data', page_location: 'dashboard_cta' })}
                             className='bg-white text-orange-600 py-2 px-4 rounded-lg font-semibold border-none shadow-lg'
                             size='lg'>
                             Contribute on GitHub →
