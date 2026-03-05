@@ -1,0 +1,137 @@
+name: Release
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [production]
+
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: "Version bump type"
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+        default: patch
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.pull_request.merged == true)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Determine bump type
+        id: bump
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "type=${{ inputs.bump }}" >> "$GITHUB_OUTPUT"
+          else
+            LABELS='${{ toJSON(github.event.pull_request.labels.*.name) }}'
+            if echo "$LABELS" | grep -q '"major"'; then
+              echo "type=major" >> "$GITHUB_OUTPUT"
+            elif echo "$LABELS" | grep -q '"minor"'; then
+              echo "type=minor" >> "$GITHUB_OUTPUT"
+            else
+              echo "type=patch" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+
+      - name: Get latest tag
+        id: latest_tag
+        run: |
+          TAG=$(git tag --list 'v*' --sort=-v:refname | head -n1)
+          if [[ -z "$TAG" ]]; then
+            TAG=$(git tag --list 'V*' --sort=-v:refname | head -n1)
+          fi
+          if [[ -z "$TAG" ]]; then
+            TAG="v0.0.0"
+          fi
+          # Normalize to lowercase v prefix
+          TAG=$(echo "$TAG" | sed 's/^V/v/')
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "Latest tag: $TAG"
+
+      - name: Calculate next version
+        id: next
+        run: |
+          CURRENT="${{ steps.latest_tag.outputs.tag }}"
+          CURRENT="${CURRENT#v}"  # strip v prefix
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT"
+
+          BUMP="${{ steps.bump.outputs.type }}"
+          case "$BUMP" in
+            major) MAJOR=$((MAJOR + 1)); MINOR=0; PATCH=0 ;;
+            minor) MINOR=$((MINOR + 1)); PATCH=0 ;;
+            patch) PATCH=$((PATCH + 1)) ;;
+          esac
+
+          VERSION="${MAJOR}.${MINOR}.${PATCH}"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Next version: $VERSION (bump=$BUMP)"
+
+      - name: Update pyproject.toml
+        run: |
+          sed -i "s/^version = \".*\"/version = \"${{ steps.next.outputs.version }}\"/" pyproject.toml
+
+      - name: Update frontend/package.json
+        run: |
+          cd frontend
+          npm version "${{ steps.next.outputs.version }}" --no-git-tag-version
+
+      - name: Commit version bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add pyproject.toml frontend/package.json
+          git commit -m "chore: bump version to v${{ steps.next.outputs.version }}"
+          git push
+
+      - name: Create tag
+        run: |
+          git tag "v${{ steps.next.outputs.version }}"
+          git push origin "v${{ steps.next.outputs.version }}"
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          PREV_TAG="${{ steps.latest_tag.outputs.tag }}"
+          NEW_TAG="v${{ steps.next.outputs.version }}"
+
+          {
+            echo "body<<CHANGELOG_EOF"
+            echo "## What's Changed"
+            echo ""
+
+            if git rev-parse "$PREV_TAG" >/dev/null 2>&1; then
+              git log "${PREV_TAG}..HEAD~1" --pretty=format:"- %s (%h)" --no-merges
+            else
+              git log --pretty=format:"- %s (%h)" --no-merges -20
+            fi
+
+            echo ""
+            echo ""
+            echo "**Full Changelog**: https://github.com/${{ github.repository }}/compare/${PREV_TAG}...${NEW_TAG}"
+            echo "CHANGELOG_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "v${{ steps.next.outputs.version }}"
+          name: "v${{ steps.next.outputs.version }}"
+          body: ${{ steps.changelog.outputs.body }}
+          generate_release_notes: true

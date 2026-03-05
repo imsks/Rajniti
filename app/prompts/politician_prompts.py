@@ -54,3 +54,69 @@ class PoliticianPrompts:
             f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
             "If unknown, return []"
         )
+
+    @staticmethod
+    def social_media(politician: Dict[str, Any]) -> str:
+        name = politician.get("name", "")
+        state = politician.get("state", "")
+        constituency = politician.get("constituency", "")
+        ptype = politician.get("type", "")
+        return (
+            "You are extracting social media links for an Indian politician.\n"
+            "Return ONLY a valid JSON object matching this shape:\n"
+            '{"twitter": "url|null", "facebook": "url|null", "instagram": "url|null", '
+            '"linkedin": "url|null", "youtube": "url|null", "website": "url|null"}\n'
+            f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
+            "Only include verified/official links. "
+            'If unknown, return {"twitter": null, "facebook": null, "instagram": null, '
+            '"linkedin": null, "youtube": null, "website": null}'
+        )
+
+    @staticmethod
+    def family_background(politician: Dict[str, Any]) -> str:
+        name = politician.get("name", "")
+        state = politician.get("state", "")
+        constituency = politician.get("constituency", "")
+        ptype = politician.get("type", "")
+        return (
+            "You are extracting family background for an Indian politician.\n"
+            "Return ONLY a valid JSON array. Each item format:\n"
+            '[{"name": "string", '
+            '"relation": "FATHER|MOTHER|SIBLING|SON|DAUGHTER|WIFE|HUSBAND|OTHERS", '
+            '"photo": "url|null", "social_media": null}]\n'
+            f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
+            "Only include publicly known family members. "
+            "If unknown, return []"
+        )
+
+    @staticmethod
+    def criminal_records(politician: Dict[str, Any]) -> str:
+        name = politician.get("name", "")
+        state = politician.get("state", "")
+        constituency = politician.get("constituency", "")
+        ptype = politician.get("type", "")
+        return (
+            "You are extracting criminal records for an Indian politician.\n"
+            "Return ONLY a valid JSON array. Each item format:\n"
+            '[{"name": "brief case description", '
+            '"type": "MURDER|RAPE|KIDNAPPING|THEFT|CORRUPTION|ECONOMIC|OTHERS|null", '
+            '"year": number|null}]\n'
+            f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
+            "Only include publicly reported and documented cases. Do not speculate. "
+            "If unknown or none, return []"
+        )
+
+    @staticmethod
+    def contact(politician: Dict[str, Any]) -> str:
+        name = politician.get("name", "")
+        state = politician.get("state", "")
+        constituency = politician.get("constituency", "")
+        ptype = politician.get("type", "")
+        return (
+            "You are extracting contact information for an Indian politician.\n"
+            "Return ONLY a valid JSON object matching this shape:\n"
+            '{"email": "string|null", "phone": "string|null", "address": "string|null"}\n'
+            f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
+            "Only include officially published contact details. "
+            'If unknown, return {"email": null, "phone": null, "address": null}'
+        )

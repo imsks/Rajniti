@@ -1,15 +1,47 @@
 "use client"
 
+import { Suspense } from "react"
 import PreambleSection from "@/components/PreambleSection"
 import { Navbar, Footer } from "@/components/layout"
 import Text from "@/components/ui/Text"
 import Link from "@/components/ui/Link"
 import Button from "@/components/ui/Button"
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
+import { useAnalytics } from "@/hooks/useAnalytics"
 
 export default function Home() {
     return (
-        <div className='min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50'>
+        <Suspense>
+            <HomeContent />
+        </Suspense>
+    )
+}
+
+function HomeContent() {
+    const [isReady, setIsReady] = useState(false)
+    const { trackEvent } = useAnalytics()
+
+    useEffect(() => {
+        // Ensure page starts at top
+        window.scrollTo(0, 0)
+        document.documentElement.scrollTop = 0
+        document.body.scrollTop = 0
+        
+        // Disable scroll restoration
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual'
+        }
+        
+        setIsReady(true)
+    }, [])
+
+    if (!isReady) {
+        return null
+    }
+
+    return (
+        <div className='min-h-screen bg-linear-to-b from-orange-50 via-white to-green-70'>
             <Navbar variant='default' />
 
             {/* Hero Section */}
@@ -20,11 +52,17 @@ export default function Home() {
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className='mb-8 flex justify-center'>
-                            <div className='rounded-full bg-linear-to-r from-orange-500 via-white to-green-500 p-1'>
-                                <div className='rounded-full bg-white px-6 py-2'>
-                                    <span className='text-sm font-semibold text-gray-700'>
-                                        Built for 🇮🇳 Democracy
+                            className='mb-8 flex justify-start'>
+                            <div className='rounded-full bg-gradient-to-r from-orange-500 via-white to-green-500 p-[2px] shadow-lg'>
+                                <div className='rounded-full bg-white px-6 py-2.5 flex items-center gap-2'>
+                                    <svg className='w-5 h-5' viewBox='0 0 24 24' fill='none'>
+                                        <circle cx='12' cy='12' r='10' fill='#FF9933'/>
+                                        <circle cx='12' cy='12' r='6.5' fill='#F5F5F5'/>
+                                        <circle cx='12' cy='12' r='3' fill='#138808'/>
+                                        <circle cx='12' cy='12' r='1.5' fill='#000080'/>
+                                    </svg>
+                                    <span className='text-sm font-semibold bg-gradient-to-r from-orange-600 via-gray-700 to-green-600 bg-clip-text text-transparent'>
+                                        Built for the Indian Democracy
                                     </span>
                                 </div>
                             </div>
@@ -34,12 +72,11 @@ export default function Home() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}>
-                            <Text variant='h1' className='text-gray-900 mb-6'>
-                                Know Your{" "}
-                                <span className='block bg-linear-to-r from-orange-600 via-orange-500 to-green-600 bg-clip-text text-transparent'>
-                                    Elected Representatives
-                                </span>
-                            </Text>
+                            <h1 className="font-serif text-[44px] sm:text-[56px] lg:text-[80px] font-semibold leading-[1.08] tracking-[-0.02em] text-[#0F1F3D] text-left mb-4">
+                                Know Your
+                                <br />
+                                <span className="text-orange-600 italic">Elected</span> Representatives
+                            </h1>
                         </motion.div>
 
                         <motion.div
@@ -48,7 +85,7 @@ export default function Home() {
                             transition={{ duration: 0.6, delay: 0.2 }}>
                             <Text
                                 variant='body'
-                                className='mx-auto max-w-2xl text-gray-600 mb-10'>
+                                className='max-w-2xl text-gray-600 mb-10'>
                                 Rajniti is an open-source platform to explore Indian
                                 MPs and MLAs — their political history, education,
                                 family background, criminal records, and more. All free
@@ -60,32 +97,36 @@ export default function Home() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.3 }}
-                            className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-                            <Button
-                                href='/dashboard'
-                                size='lg'
-                                rightIcon={
-                                    <svg
-                                        className='w-5 h-5'
-                                        fill='none'
-                                        stroke='currentColor'
-                                        viewBox='0 0 24 24'>
-                                        <path
-                                            strokeLinecap='round'
-                                            strokeLinejoin='round'
-                                            strokeWidth={2}
-                                            d='M13 7l5 5m0 0l-5 5m5-5H6'
-                                        />
-                                    </svg>
-                                }>
-                                Explore Politicians
-                            </Button>
+                            className='flex flex-col sm:flex-row gap-4 justify-start items-start'>
+                            <div className='shadow-[0_8px_30px_rgba(249,115,22,0.25)]'>
+                                <Button
+                                    href='/dashboard'
+                                    size='lg'
+                                    onClick={() => trackEvent('cta_click', { cta_name: 'explore_politicians', cta_url: '/dashboard', page_location: 'home_hero' })}
+                                    rightIcon={
+                                        <svg
+                                            className='w-5 h-5'
+                                            fill='none'
+                                            stroke='currentColor'
+                                            viewBox='0 0 24 24'>
+                                            <path
+                                                strokeLinecap='round'
+                                                strokeLinejoin='round'
+                                                strokeWidth={2}
+                                                d='M13 7l5 5m0 0l-5 5m5-5H6'
+                                            />
+                                        </svg>
+                                    }>
+                                    Explore Politicians
+                                </Button>
+                            </div>
 
                             <Button
                                 href='https://github.com/imsks/rajniti'
                                 external
                                 variant='secondary'
                                 size='lg'
+                                onClick={() => trackEvent('external_link_click', { link_text: 'View on GitHub', link_url: 'https://github.com/imsks/rajniti', page_location: 'home_hero' })}
                                 leftIcon={
                                     <svg
                                         className='w-5 h-5'
@@ -102,6 +143,43 @@ export default function Home() {
                             </Button>
                         </motion.div>
                     </div>
+
+                    {/* Ashoka Chakra - Below content on mobile, right side on desktop */}
+                    <motion.svg
+                        className="pointer-events-none mx-auto mt-12 lg:absolute lg:right-[-80px] lg:top-[50%] lg:-translate-y-1/2 lg:mt-0 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[520px] lg:h-[520px] xl:w-[640px] xl:h-[640px] text-blue-800"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}>
+                        <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                        {Array.from({ length: 24 }).map((_, i) => {
+                            const angle = (i * 360) / 24
+                            const rad = (angle * Math.PI) / 180
+                            const x1 = 12 + Math.cos(rad) * 3
+                            const y1 = 12 + Math.sin(rad) * 3
+                            const x2 = 12 + Math.cos(rad) * 10
+                            const y2 = 12 + Math.sin(rad) * 10
+                            return (
+                                <line
+                                    key={i}
+                                    x1={x1}
+                                    y1={y1}
+                                    x2={x2}
+                                    y2={y2}
+                                    stroke="currentColor"
+                                    strokeWidth="0.5"
+                                />
+                            )
+                        })}
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1"
+                        />
+                    </motion.svg>
                 </div>
 
                 {/* Decorative Elements */}
@@ -126,9 +204,13 @@ export default function Home() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                         className='text-center mb-16'>
-                        <Text variant='h2' className='text-gray-900 mb-4'>
+                        <div className='flex items-center justify-center gap-3 text-md font-semibold text-orange-600 mb-4 uppercase tracking-wider'>
+                            <div className='w-8 h-0.5 border-t-2  border-orange-600'></div>
                             What You&apos;ll Find
-                        </Text>
+                        </div>
+                        <h2 className='text-xl md:text-4xl lg:text-5xl font-serif font-bold text-[#0F1F3D] mb-6'>
+                            Transparency for Every <span className='text-orange-600 italic'>Citizen</span>
+                        </h2>
                         <Text
                             variant='body'
                             className='text-gray-600 max-w-3xl mx-auto'>
@@ -145,12 +227,12 @@ export default function Home() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.1 }}
                             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                            className='bg-linear-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border border-blue-200'>
-                            <div className='text-4xl mb-4'>🏛️</div>
+                            className=' rounded-2xl p-8 border border-black/10'>
+                            <div className='text-4xl mb-4'><img src="./logo/parliament.png" alt="Parliament Logo" className="w-10 h-10" />  </div>
                             <Text
                                 variant='h4'
                                 weight='bold'
-                                className='text-gray-900 mb-3'>
+                                className='text-[#0F1F3D] mb-3'>
                                 Members of Parliament
                             </Text>
                             <Text variant='body' color='muted'>
@@ -165,12 +247,12 @@ export default function Home() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                            className='bg-linear-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border border-purple-200'>
-                            <div className='text-4xl mb-4'>🏢</div>
+                            className=' rounded-2xl p-8 border border-black/10'>
+                            <div className='text-4xl mb-4'><img src="./logo/Assembly.png" alt="State Assembly Logo" className="w-10 h-10" />  </div>
                             <Text
                                 variant='h4'
                                 weight='bold'
-                                className='text-gray-900 mb-3'>
+                                className='text-[#0F1F3D] mb-3'>
                                 State Assembly MLAs
                             </Text>
                             <Text variant='body' color='muted'>
@@ -185,12 +267,12 @@ export default function Home() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.3 }}
                             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                            className='bg-linear-to-br from-orange-50 to-orange-100 rounded-2xl p-8 border border-orange-200'>
-                            <div className='text-4xl mb-4'>📊</div>
+                            className=' rounded-2xl p-8 border border-black/10'>
+                            <div className='text-4xl mb-4'><img src="./logo/Profile.png" alt="Rich Profile Logo" className="w-9 h-9" />  </div>
                             <Text
                                 variant='h4'
                                 weight='bold'
-                                className='text-gray-900 mb-3'>
+                                className='text-[#0F1F3D] mb-3'>
                                 Rich Profiles
                             </Text>
                             <Text variant='body' color='muted'>
@@ -208,7 +290,7 @@ export default function Home() {
             {/* Contribute Section */}
             <section
                 id='contribute'
-                className='py-20 bg-linear-to-r from-orange-600 to-orange-500 text-white'>
+                className='py-20 bg-[#162844] text-white'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -216,8 +298,8 @@ export default function Home() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                         className='text-center mb-12'>
-                        <Text variant='h2' className='text-white mb-4'>
-                            Help Us Enrich Profiles
+                        <Text variant='h1' className='text-white mb-4'>
+                            Help Us Enrich <span className='text-orange-400 italic'>Profiles</span> 
                         </Text>
                         <Text
                             variant='body'
@@ -236,7 +318,7 @@ export default function Home() {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                             className='bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20'>
-                            <div className='text-3xl mb-3'>💻</div>
+                            <div className='text-3xl mb-3'><img src="./logo/ContributeData.png" alt="Contribute Logo" className="w-10 h-10" />  </div>
                             <Text
                                 variant='h4'
                                 weight='bold'
@@ -249,10 +331,12 @@ export default function Home() {
                                 Found a politician with missing info? Open an issue
                                 with the details and we&apos;ll update the profile.
                             </Text>
+                            <div className='border-t border-white/20 my-4'></div>
                             <Link
                                 href='https://github.com/imsks/rajniti/issues'
                                 external
-                                className='inline-flex items-center gap-2 text-white font-semibold hover:underline'>
+                                onClick={() => trackEvent('contribute_click', { contribute_type: 'data', page_location: 'home_contribute' })}
+                                className='inline-flex items-center gap-2 text-[#0F1F3D] font-bold hover:underline'>
                                 Open an Issue
                                 <svg
                                     className='w-4 h-4'
@@ -276,7 +360,7 @@ export default function Home() {
                             transition={{ duration: 0.5, delay: 0.3 }}
                             whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                             className='bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20'>
-                            <div className='text-3xl mb-3'>🔧</div>
+                            <div className='text-3xl mb-3'><img src="./logo/Contribute.png" alt="Contribute Logo" className="w-10 h-10" />  </div>
                             <Text
                                 variant='h4'
                                 weight='bold'
@@ -287,12 +371,14 @@ export default function Home() {
                                 variant='body'
                                 className='text-orange-100 mb-4'>
                                 Help improve the scraper, add new state MLAs, or
-                                enhance the UI. PRs welcome!
+                                enhance the UI. All contributions are welcome, big or small!
                             </Text>
+                            <div className='border-t border-white/20 '></div>
                             <Link
                                 href='https://github.com/imsks/rajniti/fork'
                                 external
-                                className='inline-flex items-center gap-2 text-white font-semibold hover:underline'>
+                                onClick={() => trackEvent('contribute_click', { contribute_type: 'code', page_location: 'home_contribute' })}
+                                className='inline-flex items-center gap-2 text-[#FFD700] font-bold hover:underline mt-4 '>
                                 Fork &amp; Contribute
                                 <svg
                                     className='w-4 h-4'
@@ -318,8 +404,9 @@ export default function Home() {
                         className='text-center mt-12'>
                         <Button
                             href='/dashboard'
-                            className='bg-white text-orange-600 hover:bg-gray-50 border-none shadow-lg hover:shadow-xl hover:scale-105'
                             size='lg'
+                            onClick={() => trackEvent('cta_click', { cta_name: 'explore_politicians', cta_url: '/dashboard', page_location: 'home_contribute' })}
+                            className='inline-flex items-center gap-3 bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg border-2 border-orange-600  hover:text-white shadow-[0_8px_30px_rgba(249,115,22,0.2)]  hover:-translate-y-0.5 transition-all duration-300'
                             rightIcon={
                                 <svg
                                     className='w-5 h-5'
@@ -334,7 +421,7 @@ export default function Home() {
                                     />
                                 </svg>
                             }>
-                            Start Exploring
+                            Explore Politicians
                         </Button>
                     </motion.div>
                 </div>
