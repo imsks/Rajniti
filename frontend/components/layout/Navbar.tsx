@@ -57,6 +57,17 @@ export default function Navbar({
         setIsMobileMenuOpen(false)
     }, [pathname])
 
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 640) {
+                setIsMobileMenuOpen(false)
+            }
+        }
+
+        window.addEventListener("resize", handleResize)
+        return () => window.removeEventListener("resize", handleResize)
+    }, [])
+
     return (
         <header
             className={`border-b border-orange-200/80 bg-white/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/70 ${stickyClasses}`}>
@@ -70,7 +81,7 @@ export default function Navbar({
                     </Link>
 
                     <nav className='hidden sm:block min-w-0 flex-1' aria-label='Primary navigation'>
-                        <div className='flex items-center gap-1 overflow-x-auto whitespace-nowrap rounded-full border border-orange-100 bg-orange-50/60 p-1'>
+                        <div className='flex items-center gap-1 overflow-x-auto md:overflow-visible whitespace-nowrap rounded-full border border-orange-100 bg-orange-50/60 p-1'>
                             {navItems.map(item => {
                                 const Icon = item.icon
                                 const isHashLink = item.href.startsWith("#")

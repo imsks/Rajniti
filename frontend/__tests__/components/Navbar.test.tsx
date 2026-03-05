@@ -53,4 +53,16 @@ describe("Navbar", () => {
         fireEvent.click(screen.getByRole("button", { name: /close menu/i }))
         expect(screen.queryByRole("navigation", { name: /mobile navigation/i })).not.toBeInTheDocument()
     })
+
+    it("closes mobile menu when resizing to desktop viewport", () => {
+        render(<Navbar variant='default' />)
+
+        fireEvent.click(screen.getByRole("button", { name: /open menu/i }))
+        expect(screen.getByRole("navigation", { name: /mobile navigation/i })).toBeInTheDocument()
+
+        Object.defineProperty(window, "innerWidth", { configurable: true, writable: true, value: 1024 })
+        fireEvent(window, new Event("resize"))
+
+        expect(screen.queryByRole("navigation", { name: /mobile navigation/i })).not.toBeInTheDocument()
+    })
 })
