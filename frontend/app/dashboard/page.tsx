@@ -6,6 +6,7 @@ import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import PoliticianCard from "@/components/PoliticianCard"
+import PoliticianCardSkeleton from "@/components/PoliticianCardSkeleton"
 import MyPoliticiansSection from "@/components/MyPoliticiansSection"
 import { usePoliticians } from "@/hooks/usePoliticians"
 import { useAnalytics } from "@/hooks/useAnalytics"
@@ -33,8 +34,9 @@ function DashboardContent() {
     const { trackEvent, trackSearch } = useAnalytics()
 
     // One API call for all politicians; filter client-side by tab + search/filters
-    const { all, loading, error, states, parties, stats, filter } =
-        usePoliticians()
+const { all, loading, error, states, parties, stats, filter } =
+    usePoliticians()
+
 
     // Filtered list — pure client-side (type from tab + query, state, party)
     const displayPoliticians = useMemo(() => {
@@ -264,16 +266,13 @@ function DashboardContent() {
                 </motion.div>
 
                 {/* Loading state */}
-                {loading && (
-                    <div className='flex items-center justify-center py-20'>
-                        <div className='text-center'>
-                            <div className='inline-block animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent'></div>
-                            <p className='mt-4 text-gray-600 font-semibold'>
-                                Loading politicians...
-                            </p>
-                        </div>
-                    </div>
-                )}
+               {loading && (
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+        {Array.from({ length: 12 }).map((_, i) => (
+            <PoliticianCardSkeleton key={i} />
+        ))}
+    </div>
+)}
 
                 {/* Empty state */}
                 {!loading && displayPoliticians.length === 0 && (
