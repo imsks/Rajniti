@@ -1,10 +1,13 @@
 "use client"
 
+import { Suspense, useEffect } from "react"
 import { useParams, useRouter } from "next/navigation"
 import { usePolitician } from "@/hooks/usePoliticians"
 import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
+import Image from "@/components/ui/Image"
+import { useAnalytics } from "@/hooks/useAnalytics"
 import type { Politician, ElectionRecord, CrimeRecord, FamilyMember } from "@/types/politician"
 
 // ── Helper components ─────────────────────────────────────────────────────
@@ -20,8 +23,8 @@ function Section({
 }) {
     return (
         <div className='bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-6'>
-            <div className='flex items-center gap-2 mb-4'>
-                <span className='text-xl'>{icon}</span>
+            <div className='flex items-center gap-3 mb-4'>
+                <img src={icon} alt={title} className='w-6 h-6 object-contain' />
                 <Text variant='h4' weight='bold' className='text-gray-900'>
                     {title}
                 </Text>
@@ -80,7 +83,7 @@ function PoliticalHistorySection({
     summary?: string | null
 }) {
     return (
-        <Section title='Political History' icon='🏛️'>
+        <Section title='Political History' icon='/logo/Parliament.png'>
             {summary && (
                 <Text variant='body' className='text-gray-600 mb-4 italic'>
                     {summary}
@@ -113,13 +116,13 @@ function EducationSection({ education }: { education: Politician["education"] })
     const list = education ?? []
     if (list.length === 0)
         return (
-            <Section title='Education' icon='🎓'>
+            <Section title='Education' icon='/logo/Profile.png'>
                 <EmptyHint message='Education details not yet available.' />
             </Section>
         )
 
     return (
-        <Section title='Education' icon='🎓'>
+        <Section title='Education' icon='/logo/graduation.png'>
             <div className='grid gap-3'>
                 {list.map((e, i) => (
                     <div key={i} className='bg-orange-50 rounded-lg p-4 border border-orange-200'>
@@ -141,10 +144,10 @@ function EducationSection({ education }: { education: Politician["education"] })
 
 function FamilySection({ members }: { members?: FamilyMember[] | null }) {
     if (!members || members.length === 0)
-        return <Section title='Family Background' icon='👨‍👩‍👧‍👦'><EmptyHint message='Family details not yet available.' /></Section>
+        return <Section title='Family Background' icon='/logo/familyRecord.png'><EmptyHint message='Family details not yet available.' /></Section>
 
     return (
-        <Section title='Family Background' icon='👨‍👩‍👧‍👦'>
+        <Section title='Family Background' icon='/logo/familyRecord.png'>
             <div className='grid gap-3'>
                 {members.map((m, i) => (
                     <div key={i} className='bg-orange-50 rounded-lg p-4 border border-orange-200'>
@@ -163,10 +166,10 @@ function FamilySection({ members }: { members?: FamilyMember[] | null }) {
 
 function CriminalRecordsSection({ records }: { records?: CrimeRecord[] | null }) {
     if (!records || records.length === 0)
-        return <Section title='Criminal Records' icon='⚖️'><EmptyHint message='No criminal records data available.' /></Section>
+        return <Section title='Criminal Records' icon='/logo/criminal-record.png'><EmptyHint message='No criminal records data available.' /></Section>
 
     return (
-        <Section title='Criminal Records' icon='⚖️'>
+        <Section title='Criminal Records' icon='/logo/criminal-record.png'>
             <div className='space-y-3'>
                 {records.map((c, i) => (
                     <div key={i} className='bg-red-50 rounded-lg p-4 border border-red-200'>
@@ -197,26 +200,26 @@ function ContactSection({ politician }: { politician: Politician }) {
         social_media?.twitter || social_media?.facebook || social_media?.website
 
     if (!hasAny)
-        return <Section title='Contact & Social Media' icon='📱'><EmptyHint message='Contact info not yet available.' /></Section>
+        return <Section title='Contact & Social Media' icon='/logo/contact.png'><EmptyHint message='Contact info not yet available.' /></Section>
 
     return (
-        <Section title='Contact & Social Media' icon='📱'>
+        <Section title='Contact & Social Media' icon='/logo/contact.png'>
             <div className='grid gap-3'>
                 {contact?.email && (
                     <div className='flex items-center gap-2'>
-                        <span>📧</span>
+                        <img src='/logo/location.png' alt='Email' className='w-4 h-4' />
                         <Text variant='body' className='text-gray-700'>{contact.email}</Text>
                     </div>
                 )}
                 {contact?.phone && (
                     <div className='flex items-center gap-2'>
-                        <span>📞</span>
+                        <img src='/logo/location.png' alt='Phone' className='w-4 h-4' />
                         <Text variant='body' className='text-gray-700'>{contact.phone}</Text>
                     </div>
                 )}
                 {contact?.address && (
                     <div className='flex items-center gap-2'>
-                        <span>📍</span>
+                        <img src='/logo/location.png' alt='Address' className='w-4 h-4' />
                         <Text variant='body' className='text-gray-700'>{contact.address}</Text>
                     </div>
                 )}
@@ -229,7 +232,10 @@ function ContactSection({ politician }: { politician: Politician }) {
                             <a href={social_media.facebook} target='_blank' rel='noopener noreferrer' className='text-blue-700 hover:underline text-sm'>Facebook</a>
                         )}
                         {social_media.website && (
-                            <a href={social_media.website} target='_blank' rel='noopener noreferrer' className='text-green-600 hover:underline text-sm'>🌐 Website</a>
+                            <a href={social_media.website} target='_blank' rel='noopener noreferrer' className='text-green-600 hover:underline text-sm flex items-center gap-1'>
+                                <img src='/logo/location.png' alt='Website' className='w-3 h-3' />
+                                Website
+                            </a>
                         )}
                     </div>
                 )}
@@ -241,11 +247,41 @@ function ContactSection({ politician }: { politician: Politician }) {
 // ── Main Page ─────────────────────────────────────────────────────────────
 
 export default function PoliticianPage() {
+    return (
+        <Suspense fallback={
+            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center'>
+                <div className='inline-block animate-spin rounded-full h-16 w-16 border-4 border-orange-500 border-t-transparent'></div>
+            </div>
+        }>
+            <PoliticianPageContent />
+        </Suspense>
+    )
+}
+
+function PoliticianPageContent() {
     const params = useParams()
     const router = useRouter()
+    const { trackEvent } = useAnalytics()
     const politicianId = params.id as string
 
     const { politician, loading, error } = usePolitician(politicianId)
+
+    useEffect(() => {
+        if (!politician) return
+        const latestElection = politician.political_background.elections?.[0]
+        trackEvent('politician_profile_view', {
+            politician_id: politician.id,
+            politician_name: politician.name,
+            politician_type: politician.type as "MP" | "MLA",
+            party: latestElection?.party ?? "—",
+            state: politician.state,
+            constituency: politician.constituency,
+        })
+    }, [politician, trackEvent])
+
+    useEffect(() => {
+        if (error) trackEvent('error_view', { error_type: error === "Politician not found" ? 'not_found' : 'api', error_message: error, page_location: 'politician_detail' })
+    }, [error, trackEvent])
 
     if (loading) {
         return (
@@ -288,7 +324,7 @@ export default function PoliticianPage() {
         <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50'>
             <Navbar variant='dashboard' sticky={true} />
 
-            <div className='mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8'>
+            <div className='mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8'>
                 {/* Back */}
                 <div className='mb-6'>
                     <Button onClick={() => router.back()} variant='secondary' size='sm'>
@@ -300,17 +336,16 @@ export default function PoliticianPage() {
                 <div className='bg-white rounded-2xl shadow-lg p-8 border border-gray-200 mb-6'>
                     <div className='flex flex-col md:flex-row gap-6 items-start'>
                         {p.photo ? (
-                            <img
+                            <Image
                                 src={p.photo}
                                 alt={p.name}
+                                width={128}
+                                height={128}
                                 className='w-32 h-32 rounded-2xl object-cover border-4 border-orange-200 flex-shrink-0'
-                                onError={(e) => {
-                                    (e.target as HTMLImageElement).style.display = "none"
-                                }}
                             />
                         ) : (
                             <div className='w-32 h-32 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center flex-shrink-0 border-4 border-orange-200'>
-                                <span className='text-4xl'>🏛️</span>
+                                <img src='/logo/Parliament.png' alt='Politician' className='w-16 h-16 object-contain' />
                             </div>
                         )}
 
@@ -326,20 +361,20 @@ export default function PoliticianPage() {
 
                             <div className='space-y-1.5'>
                                 <div className='flex items-center gap-2'>
-                                    <span className='text-gray-400'>🏛️</span>
+                                    <img src='/logo/Parliament.png' alt='Party' className='w-4 h-4 object-contain opacity-60' />
                                     <Text variant='body' className='text-gray-700'>
                                         <span className='font-semibold'>Party:</span> {party}
                                     </Text>
                                 </div>
                                 <div className='flex items-center gap-2'>
-                                    <span className='text-gray-400'>📍</span>
+                                    <img src='/logo/Assembly.png' alt='Constituency' className='w-4 h-4 object-contain opacity-60' />
                                     <Text variant='body' className='text-gray-700'>
                                         <span className='font-semibold'>Constituency:</span>{" "}
                                         {p.constituency}
                                     </Text>
                                 </div>
                                 <div className='flex items-center gap-2'>
-                                    <span className='text-gray-400'>🗺️</span>
+                                    <img src='/logo/location.png' alt='State' className='w-4 h-4 object-contain opacity-60' />
                                     <Text variant='body' className='text-gray-700'>
                                         <span className='font-semibold'>State:</span>{" "}
                                         {p.state}
@@ -359,35 +394,40 @@ export default function PoliticianPage() {
                 </div>
 
                 {/* Sections */}
-                <PoliticalHistorySection
-                    elections={p.political_background.elections}
-                    summary={p.political_background.summary}
-                />
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
+                    <div className='lg:col-span-2'>
+                        <PoliticalHistorySection
+                            elections={p.political_background.elections}
+                            summary={p.political_background.summary}
+                        />
+                    </div>
 
-                <EducationSection education={p.education} />
+                    <EducationSection education={p.education} />
 
-                <FamilySection members={p.family_background} />
+                    <FamilySection members={p.family_background} />
 
-                <CriminalRecordsSection records={p.criminal_records} />
+                    <CriminalRecordsSection records={p.criminal_records} />
 
-                <ContactSection politician={p} />
+                    <ContactSection politician={p} />
 
-                {/* Contribute CTA */}
-                <div className='bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-6 text-center text-white mt-6 mb-8'>
-                    <Text variant='h4' weight='bold' className='text-white mb-2'>
-                        Know more about {p.name}?
-                    </Text>
-                    <Text variant='body' className='text-orange-100 mb-4'>
-                        Help us enrich this profile with accurate education, family,
-                        criminal records, and contact information.
-                    </Text>
-                    <Button
-                        href={`https://github.com/imsks/rajniti/issues/new?title=Enrich+${encodeURIComponent(p.name)}&body=Politician+ID:+${encodeURIComponent(p.id)}%0A%0APlease+add+details+below:`}
-                        external
-                        className='bg-white text-orange-600 hover:bg-gray-50 border-none shadow-lg'
-                        size='md'>
-                        Contribute Info →
-                    </Button>
+                    {/* Contribute CTA */}
+                    <div className='lg:col-span-2 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-6 text-center text-white mb-8'>
+                        <Text variant='h4' weight='bold' className='text-white mb-2'>
+                            Know more about {p.name}?
+                        </Text>
+                        <Text variant='body' className='text-orange-100 mb-4'>
+                            Help us enrich this profile with accurate education, family,
+                            criminal records, and contact information.
+                        </Text>
+                        <Button
+                            href={`https://github.com/imsks/rajniti/issues/new?title=Enrich+${encodeURIComponent(p.name)}&body=Politician+ID:+${encodeURIComponent(p.id)}%0A%0APlease+add+details+below:`}
+                            external
+                            onClick={() => trackEvent('contribute_click', { contribute_type: 'info', politician_id: p.id, page_location: 'politician_detail' })}
+                            className='bg-white text-orange-600 py-2 px-4 rounded-lg hover:bg-gray-50 border-none shadow-lg'
+                            size='md'>
+                            Contribute Info →
+                        </Button>
+                    </div>
                 </div>
             </div>
 

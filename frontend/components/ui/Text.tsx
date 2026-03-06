@@ -29,20 +29,20 @@ export default function Text({
     )
 
     const baseStyles = "transition-colors"
-    
+
     const variants = {
-        h1: "text-4xl sm:text-6xl tracking-tight",
-        h2: "text-3xl sm:text-4xl tracking-tight",
-        h3: "text-2xl sm:text-3xl",
-        h4: "text-xl",
-        body: "text-base sm:text-lg",
-        small: "text-sm",
-        caption: "text-xs"
+        h1: "text-4xl sm:text-6xl font-serif tracking-[-0.025em] leading-[1.06]",
+        h2: "text-3xl sm:text-4xl font-serif tracking-[-0.015em] leading-[1.1]",
+        h3: "text-2xl sm:text-3xl font-serif tracking-[-0.01em] leading-[1.2]",
+        h4: "text-xl font-serif tracking-[-0.01em] leading-[1.3]",
+        body: "text-base sm:text-lg font-sans leading-[1.8]",
+        small: "text-sm font-sans leading-[1.75]",
+        caption: "text-xs font-sans leading-normal"
     }
 
     const colors = {
-        default: "text-gray-900",
-        muted: "text-gray-600",
+        default: "text-[#0F1F3D]",
+        muted: "text-gray-500",
         primary: "text-orange-600",
         white: "text-white",
         danger: "text-red-600",
@@ -56,7 +56,6 @@ export default function Text({
         bold: "font-bold"
     }
 
-    // Default weights per variant if not specified
     const defaultWeights: Record<TextVariant, TextWeight> = {
         h1: "bold",
         h2: "bold",

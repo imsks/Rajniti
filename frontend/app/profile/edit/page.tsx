@@ -1,18 +1,32 @@
 'use client'
 
+import { Suspense } from 'react'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { motion } from 'framer-motion'
 import UserDetailsStep from '@/components/onboarding/UserDetailsStep'
 import PreferencesStep from '@/components/onboarding/PreferencesStep'
+import { useAnalytics } from '@/hooks/useAnalytics'
 
-// API Base URL - configurable via environment variable
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL
 
 export default function EditProfile() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 py-12 px-4 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+      </div>
+    }>
+      <EditProfileContent />
+    </Suspense>
+  )
+}
+
+function EditProfileContent() {
   const router = useRouter()
   const { data: session } = useSession()
+  const { trackEvent } = useAnalytics()
   const [loading, setLoading] = useState(false)
   const [fetching, setFetching] = useState(true)
 
@@ -67,13 +81,13 @@ export default function EditProfile() {
 
   const handleSubmit = async () => {
     setLoading(true)
+    trackEvent('profile_update_submit', {})
     try {
       if (!session?.user?.id) {
         alert('Please sign in to update your profile')
         return
       }
 
-      // Call backend API to update profile
       const response = await fetch(`${API_BASE_URL}/users/${session.user.id}`, {
         method: 'PUT',
         headers: {
@@ -90,14 +104,17 @@ export default function EditProfile() {
       })
 
       if (response.ok) {
+        trackEvent('profile_update_success', {})
         alert('Profile updated successfully!')
         router.push('/dashboard')
       } else {
         const error = await response.json()
+        trackEvent('profile_update_error', { error_message: error.error || 'Unknown error' })
         alert(error.error || 'Failed to update profile')
       }
     } catch (error) {
       console.error('Profile update failed:', error)
+      trackEvent('profile_update_error', { error_message: 'Network error' })
       alert('Failed to update profile. Please try again.')
     } finally {
       setLoading(false)

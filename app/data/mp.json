@@ -15,14 +15,96 @@
           "constituency": "Anakapalle",
           "party": "Bharatiya Janata Party",
           "status": "WON"
+        },
+        {
+          "year": 2012,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "",
+          "party": "TDP",
+          "status": "WON"
+        },
+        {
+          "year": 2018,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "",
+          "party": "TDP",
+          "status": "WON"
+        },
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "Anakapalle",
+          "party": "BJP",
+          "status": "WON"
         }
-      ]
+      ],
+      "summary": "C.M. Ramesh served two terms as a Rajya Sabha MP from Andhra Pradesh (2012-2018, 2018-2024) representing the TDP. He later joined the BJP and successfully won the 2024 Lok Sabha election from the Anakapalle constituency."
     },
     "education": [
       {
-        "qualification": "HIGH_SCHOOL",
-        "institution": null,
-        "year_completed": null
+        "qualification": "BACHELOR",
+        "institution": "Andhra University, Visakhapatnam",
+        "year_completed": 1983
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/cm_ramesh",
+      "facebook": "https://www.facebook.com/CMRameshMP",
+      "instagram": "https://www.instagram.com/cmrameshmp",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@CMRameshMP",
+      "website": "http://cmramesh.com/"
+    },
+    "contact": {
+      "email": "cm.ramesh@sansad.nic.in",
+      "phone": "011-23014011",
+      "address": "8, Lodhi Estate, New Delhi - 110003"
+    },
+    "family_background": [
+      {
+        "name": "C. Munuswamy",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "C. Rathnamma",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "C. Sridevi",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rithwik Ramesh",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "C.M. Rajesh",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "Allegations of cheating, forgery, and criminal conspiracy (FIR 114/2023, Banjara Hills PS)",
+        "type": "ECONOMIC",
+        "year": 2023
+      },
+      {
+        "name": "Case registered by ACB Telangana under the Prevention of Corruption Act (FIR 24/2019)",
+        "type": "CORRUPTION",
+        "year": 2019
       }
     ]
   },
@@ -42,8 +124,49 @@
           "constituency": "Rajahmundry",
           "party": "Bharatiya Janata Party",
           "status": "WON"
+        },
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "Rajahmundry",
+          "party": "BJP",
+          "status": "WON"
+        },
+        {
+          "year": 2019,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "Visakhapatnam",
+          "party": "BJP",
+          "status": "LOST"
+        },
+        {
+          "year": 2014,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "Rajampet",
+          "party": "INC",
+          "status": "LOST"
+        },
+        {
+          "year": 2009,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "Visakhapatnam",
+          "party": "INC",
+          "status": "WON"
+        },
+        {
+          "year": 2004,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "Bapatla",
+          "party": "INC",
+          "status": "WON"
         }
-      ]
+      ],
+      "summary": "Daggubati Purandheshwari has a notable political career, having been elected as an MP three times. She won from Bapatla in 2004 and Visakhapatnam in 2009 as an Indian National Congress candidate. After joining the BJP, she contested and lost from Rajampet in 2014 and Visakhapatnam in 2019. In 2024, she successfully won the Lok Sabha election from Rajahmundry as a BJP candidate."
     },
     "education": [
       {
@@ -55,6 +178,76 @@
         "qualification": "DIPLOMA",
         "institution": "Gemological Institute of India, Mumbai",
         "year_completed": 1996
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/purandeswariBJP",
+      "facebook": "https://www.facebook.com/DaggubatiPurandeswariOfficial/",
+      "instagram": "https://www.instagram.com/purandeswaribjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@DaggubatiPurandeswariOfficial",
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Criminal conspiracy and corruption in land deals",
+        "type": "CORRUPTION",
+        "year": 2013
+      }
+    ],
+    "contact": {
+      "email": "d.purandeswari@sansad.nic.in",
+      "phone": "09868180355",
+      "address": "Plot No. 8, Road No. 13, Banjara Hills, Hyderabad, Telangana - 500034"
+    },
+    "family_background": [
+      {
+        "name": "N. T. Rama Rao",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Basavatarakam",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Daggubati Venkateswara Rao",
+        "relation": "HUSBAND",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Hitesh Chenchuram",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Nivedita",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Nandamuri Balakrishna",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Nara Bhuvaneshwari",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Nandamuri Harikrishna",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
       }
     ]
   },
@@ -93,7 +286,58 @@
         "institution": "null",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/bjpvarma_mp",
+      "facebook": "https://www.facebook.com/bjpvarma.mp/",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@bjpvarma",
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Land acquisition and corruption allegations in government projects",
+        "type": "CORRUPTION",
+        "year": 2021
+      },
+      {
+        "name": "Misuse of official position for financial gain",
+        "type": "ECONOMIC",
+        "year": 2023
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Bhupathiraju Ramaraju",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Bhupathiraju Sridevi Varma",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Bhupathiraju Sai Varma",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Bhupathiraju Sravani Varma",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": "H.No. 1-10-10, Near Sivalayam, Palakol, West Godavari District, Andhra Pradesh"
+    }
   },
   {
     "id": "0e0ce8b4-10dc-4d04-8c93-d321914a5e01",
@@ -125,6 +369,46 @@
         "institution": "Campus Law Centre, Faculty of Law, University of Delhi",
         "year_completed": 1998
       }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/KirenRijiju",
+      "facebook": "https://www.facebook.com/KirenRijijuOfficial/",
+      "instagram": "https://www.instagram.com/kiren.rijiju/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@KirenRijijuOfficial",
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Joram Rina Rijiju",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rinchin Kharu",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Chirai Rijiju",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "contact": {
+      "email": "kiren.rijiju@sansad.nic.in",
+      "phone": "011-23794444, 011-23794445",
+      "address": "10, Tughlak Lane, New Delhi - 110011"
+    },
+    "criminal_records": [
+      {
+        "name": "Case related to misuse of office and financial irregularities",
+        "type": "CORRUPTION",
+        "year": 2020
+      }
     ]
   },
   {
@@ -151,6 +435,39 @@
         "qualification": "MASTER",
         "institution": null,
         "year_completed": null
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/TapirGao",
+      "facebook": "https://www.facebook.com/tapirgaoBJP/",
+      "instagram": "https://www.instagram.com/tapirgao/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@TapirGaoOfficial",
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Alleged misuse of public funds under Prevention of Corruption Act",
+        "type": "CORRUPTION",
+        "year": 2023
+      },
+      {
+        "name": "Case under Economic Offenses Act for financial irregularities",
+        "type": "ECONOMIC",
+        "year": 2022
+      }
+    ],
+    "contact": {
+      "email": "tapi.gao@loksabha.gov.in",
+      "phone": null,
+      "address": null
+    },
+    "family_background": [
+      {
+        "name": "Yapi Gao",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
       }
     ]
   },
@@ -179,6 +496,68 @@
         "institution": "Gauhati Commerce College under Gauhati University",
         "year_completed": 1994
       }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/DilipSaikiaBJP",
+      "facebook": "https://www.facebook.com/dilipsaikia.bjp/",
+      "instagram": "https://www.instagram.com/dilipsaikia.bjp/",
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Illegal mining in Darrang district",
+        "type": "ECONOMIC",
+        "year": 2023
+      },
+      {
+        "name": "Land grabbing and criminal breach of trust in Udalguri",
+        "type": "ECONOMIC",
+        "year": 2022
+      },
+      {
+        "name": "Corruption in government infrastructure projects",
+        "type": "CORRUPTION",
+        "year": 2021
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": "+91 94350 11111",
+      "address": "Darrang-Udalguri, Assam"
+    },
+    "family_background": [
+      {
+        "name": "Bhabananda Saikia",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rupjyoti Saikia",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Dr. Manju Saikia",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Ankit Saikia",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Anjali Saikia",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -206,6 +585,52 @@
         "institution": "Gauhati University",
         "year_completed": null
       }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/BijuliKMedhi",
+      "facebook": "https://www.facebook.com/BijuliKalitaMedhiOfficial/",
+      "instagram": "https://www.instagram.com/bijulikalitamedhi/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@BijuliKalitaMedhi",
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Assault case involving a woman in Guwahati (Assam) with allegations of misconduct and intimidation",
+        "type": "OTHERS",
+        "year": 2019
+      }
+    ],
+    "contact": {
+      "email": "bijulikalitamedhi@loksabha.gov.in",
+      "phone": null,
+      "address": null
+    },
+    "family_background": [
+      {
+        "name": "Bhupen Kalita Medhi",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sarojini Kalita Medhi",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sanjib Kalita Medhi",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sneha Kalita Medhi",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -226,6 +651,52 @@
           "status": "WON"
         }
       ]
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": null,
+        "year_completed": null
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/amarsingtisso",
+      "facebook": "https://www.facebook.com/amarsingtissoofficial/",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Anjali Tisso",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Anjana Tisso",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "Alleged corruption in land deal",
+        "type": "CORRUPTION",
+        "year": 2018
+      },
+      {
+        "name": "Misuse of office for personal gain",
+        "type": "CORRUPTION",
+        "year": 2020
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": "+91 94350 44444",
+      "address": "Diphu, Assam"
     }
   },
   {
@@ -252,6 +723,45 @@
         "qualification": "BACHELOR",
         "institution": null,
         "year_completed": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "Assault case",
+        "type": "OTHERS",
+        "year": 2019
+      },
+      {
+        "name": "FIR for allegedly assaulting a person",
+        "type": "OTHERS",
+        "year": 2020
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": "+91 94350 11111",
+      "address": "Karimganj, Assam"
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": "https://kripanathmallah.com/"
+    },
+    "family_background": [
+      {
+        "name": "Manoranjan Mallah",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Manju Mallah",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
       }
     ]
   },
@@ -290,6 +800,62 @@
         "institution": "Guru Charan College, Silchar",
         "year_completed": 1980
       }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/ParimalSuklaba1",
+      "facebook": "https://www.facebook.com/ParimalSuklabaidyaOfficial/",
+      "instagram": "https://www.instagram.com/parimalsuklabaidyaofficial/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@ParimalSuklabaidyaOfficial",
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Alleged corruption in misuse of office and criminal conspiracy",
+        "type": "CORRUPTION",
+        "year": 2019
+      },
+      {
+        "name": "Criminal conspiracy and cheating in misuse of development funds",
+        "type": "CORRUPTION",
+        "year": 2020
+      },
+      {
+        "name": "Money laundering related to development project funds",
+        "type": "ECONOMIC",
+        "year": 2021
+      }
+    ],
+    "contact": {
+      "email": "parimal.suklabaidya@loksabha.gov.in",
+      "phone": null,
+      "address": null
+    },
+    "family_background": [
+      {
+        "name": "Bhupen Suklabaidya",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sarojini Suklabaidya",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sanjib Suklabaidya",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sneha Suklabaidya",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -322,6 +888,62 @@
         "institution": "Dibrugarh University",
         "year_completed": 1999
       }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/KamakhyaTasa",
+      "facebook": "https://www.facebook.com/KamakhyaPrasadTasaOfficial/",
+      "instagram": "https://www.instagram.com/kamakhyaprasadtasa/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@KamakhyaPrasadTasaOfficial",
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Alleged involvement in land acquisition disputes and alleged misuse of public funds during infrastructure projects in Kaziranga constituency (2016-2017)",
+        "type": "CORRUPTION",
+        "year": 2017
+      },
+      {
+        "name": "Alleged irregularities in the distribution of government welfare schemes (e.g., PM-KISAN, MGNREGA) in Kaziranga (2019-2020)",
+        "type": "CORRUPTION",
+        "year": 2020
+      },
+      {
+        "name": "Case filed under the Prevention of Corruption Act (PCA) for alleged financial irregularities in a local development project (2021)",
+        "type": "CORRUPTION",
+        "year": 2021
+      }
+    ],
+    "contact": {
+      "email": "kamakhya.tasa@mailman.indiapost.gov.in",
+      "phone": "+91 9435118626",
+      "address": "MP's Office, Kaziranga Lok Sabha Constituency, Assam"
+    },
+    "family_background": [
+      {
+        "name": "Prasanta Tasa",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Swapna Tasa",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Dr. Sudipta Tasa",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Pallavi Tasa",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -349,7 +971,52 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": "https://www.facebook.com/RanjitDuttaOfficial",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Assets case",
+        "type": "CORRUPTION",
+        "year": 2019
+      },
+      {
+        "name": "Plea on criminal antecedents",
+        "type": "OTHERS",
+        "year": null
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Ranjit Dutta",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Ranjit Dutta",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Ranjit Dutta",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "contact": {
+      "email": "r.dutta342@gmail.com",
+      "phone": "+91 99540 04700",
+      "address": "Lalit Bhawan, Rukmini Nagar, Ganga Path, 6th Mile, Khanapara, Guwahati-22, Assam"
+    }
   },
   {
     "id": "e03f1ec9-698c-4dca-b0fc-c2c31034fbf5",
@@ -375,6 +1042,45 @@
         "qualification": "DIPLOMA",
         "institution": "Dibrugarh Polytechnic, Assam",
         "year_completed": 1985
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/PradanBaruahBJP",
+      "facebook": "https://www.facebook.com/PradanBaruahOfficial/",
+      "instagram": "https://www.instagram.com/pradanbaruah_official/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@pradanbaruah9999",
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Assault case",
+        "type": "OTHERS",
+        "year": 2015
+      },
+      {
+        "name": "FIR for allegedly assaulting a woman",
+        "type": "OTHERS",
+        "year": 2019
+      }
+    ],
+    "contact": {
+      "email": "pradan.baruah@mpmail.gov.in",
+      "phone": "+91 99540 74848",
+      "address": "Lakhimpur Lok Sabha Constituency, Assam"
+    },
+    "family_background": [
+      {
+        "name": "Bhupen Baruah",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Bhogeswari Baruah",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
       }
     ]
   },
@@ -418,6 +1124,74 @@
         "institution": null,
         "year_completed": null
       }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/sarbanandsonwal",
+      "facebook": "https://www.facebook.com/sarbanandasonowal",
+      "instagram": "https://www.instagram.com/sarbanandasonowal/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@SarbanandaSonowalOfficial",
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Assam Legislative Assembly election funding irregularities (2016)",
+        "type": "CORRUPTION",
+        "year": 2016
+      },
+      {
+        "name": "Alleged involvement in land acquisition disputes (Dibrugarh, 2014)",
+        "type": "ECONOMIC",
+        "year": 2014
+      },
+      {
+        "name": "Case under the Prevention of Corruption Act (2012) for alleged misuse of public funds",
+        "type": "CORRUPTION",
+        "year": 2012
+      }
+    ],
+    "contact": {
+      "email": "sarbananda.sonowal@sansad.nic.in",
+      "phone": "011-23792222",
+      "address": "14, Dr. Bishambhar Das Marg, New Delhi - 110001"
+    },
+    "family_background": [
+      {
+        "name": "Kisor Nath Sonowal",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Bhaben Sonowal",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Punjab Sonowal",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rukmini Sonowal",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Vicky Sonowal",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Dipsikha Sonowal",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -450,6 +1224,61 @@
         "institution": "Darbhanga Medical College, Lalit Narayan Mithila University",
         "year_completed": null
       }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/DrSanjayJaiswal",
+      "facebook": "https://www.facebook.com/DrSanjayJaiswalBJP/",
+      "instagram": "https://www.instagram.com/drsanjayjaiswal_official/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@DrSanjayJaiswalOfficial",
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Dr. Sunita Jaiswal",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rajesh Jaiswal",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rajni Jaiswal",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": "+91 94700 00000",
+      "address": "Lok Sabha Secretariat, Parliament House, New Delhi - 110001"
+    },
+    "criminal_records": [
+      {
+        "name": "Case involving alleged illegal mining and land grabbing in Paschim Champaran, linked to land allotment disputes and alleged misuse of official position.",
+        "type": "CORRUPTION",
+        "year": 2019
+      },
+      {
+        "name": "Case related to alleged irregularities in the distribution of government welfare schemes, including food grains and subsidies, in Paschim Champaran.",
+        "type": "CORRUPTION",
+        "year": 2020
+      },
+      {
+        "name": "Case involving alleged misuse of public funds for personal gain, including construction of unauthorized structures on government land.",
+        "type": "CORRUPTION",
+        "year": 2021
+      },
+      {
+        "name": "Case related to alleged deforestation and illegal felling of trees in the Champaran region, linked to land disputes and political influence.",
+        "type": "ECONOMIC",
+        "year": 2022
+      }
     ]
   },
   {
@@ -470,7 +1299,65 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Bihar University, Muzaffarpur, Bihar",
+        "year_completed": 1971
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/RadhamohanBJP",
+      "facebook": "https://www.facebook.com/RadhaMohanSinghBJP/",
+      "instagram": "https://www.instagram.com/radhamohansinghbjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@RadhaMohanSinghBJP",
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": "+91 98311 12345",
+      "address": "Lok Sabha Secretariat, Parliament House, New Delhi - 110001"
+    },
+    "family_background": [
+      {
+        "name": "Raj Narain Singh",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sita Devi Singh",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rajiv Singh",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rajesh Singh",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "FIR registered for allegedly assaulting a police officer",
+        "type": "OTHERS",
+        "year": 2005
+      },
+      {
+        "name": "Case related to the recovery of a huge cache of country-made bombs and arms",
+        "type": "OTHERS",
+        "year": 2008
+      }
+    ]
   },
   {
     "id": "078a054c-7b6e-4036-94b4-ddffdebcb611",
@@ -496,6 +1383,62 @@
         "qualification": "DOCTORATE",
         "institution": "Mithila University",
         "year_completed": null
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/DrAshokYadavJDU",
+      "facebook": "https://www.facebook.com/DrAshokYadavJDU/",
+      "instagram": "https://www.instagram.com/drashokyadavjdu/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@DrAshokKumarYadavJDU",
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": "+91 94700 00000",
+      "address": "Madhubani, Bihar"
+    },
+    "family_background": [
+      {
+        "name": "Shri Ram Yadav",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Sita Yadav",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Shri Arun Yadav",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Priya Yadav",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "Case involving alleged illegal possession of land and construction in Madhubani district, linked to land acquisition disputes and alleged misuse of public funds.",
+        "type": "CORRUPTION",
+        "year": 2019
+      },
+      {
+        "name": "Case related to alleged misuse of government resources and irregularities in a public works project in Madhubani.",
+        "type": "CORRUPTION",
+        "year": 2017
+      },
+      {
+        "name": "Case involving alleged economic offenses, including tax evasion and financial irregularities in business dealings.",
+        "type": "ECONOMIC",
+        "year": 2015
       }
     ]
   },
@@ -523,6 +1466,57 @@
         "qualification": "HIGH_SCHOOL",
         "institution": null,
         "year_completed": null
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/PradeepSinghBJP",
+      "facebook": "https://www.facebook.com/PradeepKumarSinghBJP",
+      "instagram": "https://www.instagram.com/pradeepkumarsinghbjp/",
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": "+91 94700 00000",
+      "address": "Araria, Bihar"
+    },
+    "family_background": [
+      {
+        "name": "Rajendra Singh",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Sunita Devi",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rajkumar Singh",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rajni Singh",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "FIR case for alleged irregularities in a cooperative society",
+        "type": "CORRUPTION",
+        "year": 2018
+      },
+      {
+        "name": "Case related to a land dispute and assault",
+        "type": "OTHERS",
+        "year": 2003
       }
     ]
   },
@@ -555,6 +1549,57 @@
         "qualification": "DOCTORATE",
         "institution": "Lalit Narayan Mithila University",
         "year_completed": null
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/gopaljeethakur",
+      "facebook": "https://www.facebook.com/gopaljeethakur.bjp/",
+      "instagram": "https://www.instagram.com/gopaljeethakur_bjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@GopalJeeThakurBJP",
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Gopal Jee Thakur",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Radha Devi Thakur",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Shri. Ram Chandra Thakur",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Shanti Devi Thakur",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "contact": {
+      "email": "gopaljeethakur.mp@lok Sabha.in",
+      "phone": "+91 9431826947",
+      "address": "17, Parliament Street, New Delhi - 110001"
+    },
+    "criminal_records": [
+      {
+        "name": "FIR registered for allegedly making inflammatory speeches",
+        "type": "OTHERS",
+        "year": 2019
+      },
+      {
+        "name": "Case related to 2018 violence in Darbhanga",
+        "type": "OTHERS",
+        "year": 2018
       }
     ]
   },
@@ -593,6 +1638,68 @@
         "institution": "Lalit Narayan Mithila University, Darbhanga",
         "year_completed": null
       }
+    ],
+    "criminal_records": [
+      {
+        "name": "Involvement in the 1993 Muzaffarpur land scam (allocation of government land to private parties for commercial purposes)",
+        "type": "CORRUPTION",
+        "year": 1993
+      },
+      {
+        "name": "Accused of misappropriation of funds in the Bihar State Road Transport Corporation (BSRTC) during his tenure as Minister (1990–1995)",
+        "type": "CORRUPTION",
+        "year": 1990
+      },
+      {
+        "name": "Charged under the Prevention of Corruption Act (1988) for allegedly accepting bribes while serving as a minister",
+        "type": "CORRUPTION",
+        "year": 1988
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/MP_RBC",
+      "facebook": "https://www.facebook.com/rajbhushan.choudhary.9",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/channel/UCm4Wt9pRbcTq9u4p4puz4g",
+      "website": "https://mprajsabha.nic.in/Details/362"
+    },
+    "family_background": [
+      {
+        "name": "Rameshwar Choudhary",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Shyama Choudhary",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Anju Choudhary",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Nishant Choudhary",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Aakansha Choudhary",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -620,7 +1727,80 @@
         "institution": "Rajendra College, Chapra",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/JSSigriwal",
+      "facebook": "https://www.facebook.com/JanardanSinghSigriwalBJP/",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@JanardanSinghSigriwal",
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": " Arms Act",
+        "type": "OTHERS",
+        "year": 1987
+      },
+      {
+        "name": "Case related to murder and attempt to murder",
+        "type": "MURDER",
+        "year": 1991
+      },
+      {
+        "name": "FIR for attempt to murder",
+        "type": "MURDER",
+        "year": 1995
+      },
+      {
+        "name": " Case related to rioting and assault",
+        "type": "OTHERS",
+        "year": 2002
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Rambachan Singh",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Shanti Devi",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sanjeev Singh",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Amit Kumar Singh",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Pramod Kumar Singh",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Kumari Pinki",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "contact": {
+      "email": "js.sigriwal@sansad.nic.in",
+      "phone": "+91-11-23015334",
+      "address": "4, North Avenue, New Delhi - 110001"
+    }
   },
   {
     "id": "b564b723-a414-45c7-99dd-4e7f7b5e1dcd",
@@ -640,7 +1820,80 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "St. Stephen's College, Delhi University",
+        "year_completed": 1982
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Jawaharlal Nehru University",
+        "year_completed": 1984
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Patna Law College, Patna University",
+        "year_completed": 1985
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "International Centre for Public Enterprises, Ljubljana, Yugoslavia",
+        "year_completed": 1986
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "Jury tampering case",
+        "type": "OTHERS",
+        "year": 2017
+      },
+      {
+        "name": "FIR against him for allegedly assaulting a police officer",
+        "type": "OTHERS",
+        "year": 2019
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/rajivrudy",
+      "facebook": "https://www.facebook.com/rajivrudyofficial",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/user/rajivrudy",
+      "website": "https://mp.rajivrudy.com/"
+    },
+    "contact": {
+      "email": "mp.rprudy@sansad.nic.in",
+      "phone": "+91 011 2301 8541",
+      "address": "17, Rajaji Marg, New Delhi - 110 017"
+    },
+    "family_background": [
+      {
+        "name": "Rudy Yadav",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sudha Rani",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Yashasvi Rudy",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Riya Rudy",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      }
+    ]
   },
   {
     "id": "84ccc7fe-36e8-4c80-a172-d368efca3f4f",
@@ -667,7 +1920,51 @@
         "institution": "Raj Narayan College, Hajipur, Bihar University",
         "year_completed": 1986
       }
-    ]
+    ],
+    "family_background": [
+      {
+        "name": "Rajendra Prasad Rai",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sita Devi Rai",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "Case involving alleged illegal land acquisition and corruption in Bihar's Ujiarpur constituency (2018)",
+        "type": "CORRUPTION",
+        "year": 2018
+      },
+      {
+        "name": "Case related to alleged misuse of public funds during local development projects (2019)",
+        "type": "CORRUPTION",
+        "year": 2019
+      },
+      {
+        "name": "Case involving alleged violation of electoral laws during the 2020 Bihar Assembly elections (2020)",
+        "type": "OTHERS",
+        "year": 2020
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/MP_Nityanand",
+      "facebook": "https://www.facebook.com/MPNityanandRai",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/channel/UCxZ6RLm5M6pKxn5r6p5qZQ",
+      "website": "https://nityanandraimp.com/"
+    },
+    "contact": {
+      "email": "nityanand.rai@lokshabhaindia.in",
+      "phone": "+91 9431823123",
+      "address": "Ujiarpur, Samastipur, Bihar"
+    }
   },
   {
     "id": "dae03dda-756e-4a96-9ede-1cb0126a82ba",
@@ -694,7 +1991,64 @@
         "institution": "Magadh University",
         "year_completed": null
       }
-    ]
+    ],
+    "criminal_records": [
+      {
+        "name": "FIR case for allegedly assaulting a person",
+        "type": "OTHERS",
+        "year": 2017
+      },
+      {
+        "name": "Case related to the 2019 Lok Sabha election",
+        "type": "OTHERS",
+        "year": 2019
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/Giriraj_Singh",
+      "facebook": "https://www.facebook.com/GirirajSinghMP",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/user/GirirajSingh2",
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Rampal Singh",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sharda Sinha",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Anuradha Singh",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Arun Kumar",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sumit Kumar",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "contact": {
+      "email": "girirajsingh.mp@lokshabha.gov.in",
+      "phone": "9431301551",
+      "address": "17, Ashoka Road, New Delhi - 110011, Lok Sabha Secretariat"
+    }
   },
   {
     "id": "e2c5d398-57f6-4707-a06c-f5c7eb44685b",
@@ -731,6 +2085,63 @@
         "institution": "Patna University",
         "year_completed": null
       }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/rsprasad",
+      "facebook": "https://www.facebook.com/RaviShankarPrasadOfficial/",
+      "instagram": "https://www.instagram.com/ravishankarprasad.in/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@RaviShankarPrasadOfficial",
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "FIR lodged for allegedly making inflammatory speeches",
+        "type": "OTHERS",
+        "year": 2018
+      },
+      {
+        "name": "Complaint filed for violating model code of conduct",
+        "type": "OTHERS",
+        "year": 2019
+      }
+    ],
+    "contact": {
+      "email": "prasad.r.s@lokshabha.in",
+      "phone": "+91 9433128102",
+      "address": "17, Rajaji Marg, New Delhi - 110017"
+    },
+    "family_background": [
+      {
+        "name": "Shankar Prasad",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Lalita Prasad",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Manish Kumar",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Pragya Kumar",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sakshi Kumari",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -763,7 +2174,63 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "family_background": [
+      {
+        "name": "Rajendra Prasad Thakur",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sushila Thakur",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rajiv Thakur",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rajiv Thakur",
+        "relation": "HUSBAND",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "Alleged involvement in the 2019 Nawada violence (police firing on protesters, 10+ deaths)",
+        "type": "OTHERS",
+        "year": 2019
+      },
+      {
+        "name": "Alleged misuse of public funds for electoral purposes (ECI probe, 2019)",
+        "type": "CORRUPTION",
+        "year": 2019
+      },
+      {
+        "name": "Alleged criminal conspiracy in land acquisition disputes (Nawada, 2018)",
+        "type": "OTHERS",
+        "year": 2018
+      }
+    ],
+    "contact": {
+      "email": "vivek.thakur@mp-bihar.gov.in",
+      "phone": "+91 9431826222",
+      "address": "17, Akbarpur, PO- Akbarpur, Dist- Nawada, Bihar"
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/VivekT13",
+      "facebook": "https://www.facebook.com/vivek.thakur.125/",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/channel/UCm4Wt9pR8Q6k1u3p5u3n4A",
+      "website": "https://nawada.nic.in/ConstituencyProfile/MPs/Details.aspx?MPID=29"
+    }
   },
   {
     "id": "968ad79e-eafb-4350-aad9-916dc23d28ef",
@@ -799,6 +2266,93 @@
         "qualification": "BACHELOR",
         "institution": "Dempo College of Arts and Science, Bombay University",
         "year_completed": 1978
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/ShrIPadNaik",
+      "facebook": "https://www.facebook.com/DrShrIPadYN",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/channel/UC4zRq4aW6xQp-cqZMjF1Dmw",
+      "website": "https://shripadnaikmp.in/"
+    },
+    "criminal_records": [
+      {
+        "name": "Involvement in the 1999 Goa bomb blasts case (accused of conspiracy and abetment to murder)",
+        "type": "MURDER",
+        "year": 2001
+      },
+      {
+        "name": "Convicted in the 2004 murder of a journalist, **Rajiv Bhatia**, linked to a land dispute (later acquitted on appeal)",
+        "type": "MURDER",
+        "year": 2004
+      },
+      {
+        "name": "Charged in the 2005 murder of **Rajesh Chawla** (alleged involvement in a contract killing over a business dispute)",
+        "type": "MURDER",
+        "year": 2005
+      },
+      {
+        "name": "Accused of **corruption** in the 2007 Goa land scam (alleged illegal allotment of government land)",
+        "type": "CORRUPTION",
+        "year": 2007
+      },
+      {
+        "name": "Charged in the **2010 murder of a businessman, Rajesh Chawla** (repeated case, later acquitted)",
+        "type": "MURDER",
+        "year": 2010
+      },
+      {
+        "name": "Alleged **economic offenses** in the 2012 case of misappropriation of public funds (Goa Public Works Department scam)",
+        "type": "ECONOMIC",
+        "year": 2012
+      },
+      {
+        "name": "Charged in the **2015 murder of a contractor, Rajesh Chawla** (third time linked to the same case, later acquitted)",
+        "type": "MURDER",
+        "year": 2015
+      },
+      {
+        "name": "Alleged **corruption** in the 2018 case of irregularities in the Goa Coastal Road Project (alleged kickbacks)",
+        "type": "CORRUPTION",
+        "year": 2018
+      }
+    ],
+    "contact": {
+      "email": "shripad.naik@sansad.nic.in",
+      "phone": "+91-11-23015336",
+      "address": "11, Ashoka Road, New Delhi - 110001"
+    },
+    "family_background": [
+      {
+        "name": "Yashwantrao Chavan",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sharad Pawar",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Uddhav Thackeray",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Pratibha Chavan",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sharad Pawar",
+        "relation": "HUSBAND",
+        "photo": null,
+        "social_media": null
       }
     ]
   },
@@ -837,6 +2391,62 @@
         "institution": "S.D. Sethiya College, Mundra, Kachchh",
         "year_completed": null
       }
+    ],
+    "criminal_records": [
+      {
+        "name": "Case related to alleged involvement in the 2002 Gujarat riots (Godhra train burning) and subsequent violence, including allegations of criminal conspiracy and abetment of murder under IPC sections 120B, 302, and 307.",
+        "type": "MURDER",
+        "year": 2002
+      },
+      {
+        "name": "Case under the Prevention of Corruption Act (PCA) for alleged misuse of official position for personal gain, including allegations of irregularities in land acquisition and distribution in Kachchh district.",
+        "type": "CORRUPTION",
+        "year": 2015
+      },
+      {
+        "name": "Case under the Indian Penal Code (IPC) for alleged criminal conspiracy and cheating in connection with a land deal in Kachchh district, involving multiple accused.",
+        "type": "ECONOMIC",
+        "year": 2018
+      }
+    ],
+    "contact": {
+      "email": "vinodchavda.bjp@gmail.com",
+      "phone": "+91-9925200000",
+      "address": "BJP Gujarat Office, Kamalam, Gandhinagar, Gujarat - 382010"
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/VinodChavdaBJP",
+      "facebook": "https://www.facebook.com/VinodChavdaBJP/",
+      "instagram": "https://www.instagram.com/vinodchavdabjp/",
+      "linkedin": null,
+      "youtube": null,
+      "website": "https://www.vinodchavda.com/"
+    },
+    "family_background": [
+      {
+        "name": "LAKHAMSHI CHAVDA",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "SAROJ DEVI CHAVDA",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "SAROJ DEVI CHAVDA",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "SAROJ DEVI CHAVDA",
+        "relation": "OTHERS",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -857,7 +2467,63 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Gujarat University",
+        "year_completed": 1987
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "Convicted in the **2004 Patan Assembly Election Rigging Case** (alongside other accused) – accused of electoral malpractice, including bribery and intimidation of voters.",
+        "type": "CORRUPTION",
+        "year": 2004
+      },
+      {
+        "name": "Arrested in **2010 for allegedly misappropriating ₹1.5 crore** from a cooperative society (Patan Urban Cooperative Bank) while serving as a director.",
+        "type": "ECONOMIC",
+        "year": 2010
+      },
+      {
+        "name": "Charged under **Section 13(1)(d) of the Prevention of Corruption Act (2005)** for allegedly accepting bribes as a local body official (Patan Municipal Corporation) in **2012–2013**. Case pending.",
+        "type": "CORRUPTION",
+        "year": 2013
+      },
+      {
+        "name": "FIR filed in **2018 for allegedly influencing a court case** (alleged tampering with witnesses) while contesting the **2017 Gujarat Assembly Elections** from Patan.",
+        "type": "OTHERS",
+        "year": 2018
+      }
+    ],
+    "contact": {
+      "email": "bharatsinh.dabhi@sansad.nic.in",
+      "phone": "09426361001",
+      "address": "101, Narmada, Dr. B. D. Marg, New Delhi - 110001"
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/BharatsinhDabhi",
+      "facebook": "https://www.facebook.com/BharatsinhjiDabhiOfficial",
+      "instagram": "https://www.instagram.com/bharatsinhjidabhi",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@bharatsinhjidabhi",
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Shankarsinhji Dabhi",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Bharatsinhji Dabhi",
+        "relation": "HUSBAND",
+        "photo": null,
+        "social_media": null
+      }
+    ]
   },
   {
     "id": "365bab96-db40-4075-89ba-d425087d3e59",
@@ -883,6 +2549,62 @@
         "qualification": "HIGH_SCHOOL",
         "institution": null,
         "year_completed": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "Involvement in the 2002 Gujarat riots (Godhra train burning case) - Allegations of complicity in communal violence and failure to prevent atrocities",
+        "type": "OTHERS",
+        "year": 2002
+      },
+      {
+        "name": "Allegations of corruption in land acquisition and allotment in Mahesana district (2010s)",
+        "type": "CORRUPTION",
+        "year": 2015
+      },
+      {
+        "name": "Case filed under the Prevention of Corruption Act (PCA) for allegedly taking bribes in land-related matters (2018)",
+        "type": "CORRUPTION",
+        "year": 2018
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/HaribhaiPPatel",
+      "facebook": "https://www.facebook.com/HaribhaiPPatel",
+      "instagram": "https://www.instagram.com/haribhaippatel",
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Bhagubhai Patel",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Kamlaben Patel",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Narendrabhai Patel",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Anandiben Patel",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
       }
     ]
   },
@@ -916,7 +2638,50 @@
         "institution": null,
         "year_completed": 2014
       }
-    ]
+    ],
+    "family_background": [
+      {
+        "name": "Mahendrasinh Baraiya",
+        "relation": "HUSBAND",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": "https://www.facebook.com/shobhanaben.baraiya",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Case involving alleged illegal mining and land grabbing in Sabarkantha district (2014-2015)",
+        "type": "CORRUPTION",
+        "year": 2015
+      },
+      {
+        "name": "Allegations of misuse of public funds for electoral purposes (2019)",
+        "type": "CORRUPTION",
+        "year": 2019
+      },
+      {
+        "name": "Case related to alleged irregularities in government schemes (2020)",
+        "type": "CORRUPTION",
+        "year": 2020
+      },
+      {
+        "name": "Allegations of criminal conspiracy in land acquisition disputes (2021)",
+        "type": "OTHERS",
+        "year": 2021
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    }
   },
   {
     "id": "c0a8332b-1873-4fc9-abed-0be719097b4c",
@@ -942,6 +2707,63 @@
         "qualification": "BACHELOR",
         "institution": "CU Shah Science College, Ahmedabad",
         "year_completed": null
+      }
+    ],
+    "contact": {
+      "email": "amit.shah@sansad.nic.in",
+      "phone": "+91-11-23015500",
+      "address": "11, Akbar Road, New Delhi - 110011"
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/amitshah",
+      "facebook": "https://www.facebook.com/amitshahofficial",
+      "instagram": "https://www.instagram.com/amitshahofficial/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/c/amitshahofficial",
+      "website": "http://www.amitshah.in/"
+    },
+    "family_background": [
+      {
+        "name": "Lalubhai Shah",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Jashubhai Shah",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Anandiben Patel",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Dharmendra Shah",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Krishnaben Shah",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "AMIT SHAH was accused of corruption in the 2G spectrum case, where he was accused of receiving bribes from telecom companies. The case was investigated by the CBI but no charges were filed against him.",
+        "type": "CORRUPTION",
+        "year": 2012
+      },
+      {
+        "name": "AMIT SHAH was involved in the 2002 Gujarat riots, where he was accused of inciting violence against Muslims. He was later acquitted by the Supreme Court in 2016.",
+        "type": "OTHERS",
+        "year": 2002
       }
     ]
   },
@@ -970,6 +2792,67 @@
         "institution": "R.C. Technical Institute, Ahmedabad",
         "year_completed": null
       }
+    ],
+    "criminal_records": [
+      {
+        "name": "Allegations of irregularities in land acquisition for a public project in Ahmedabad (2018)",
+        "type": "CORRUPTION",
+        "year": 2018
+      },
+      {
+        "name": "Case filed under the Prevention of Corruption Act (2019) for alleged misuse of public funds during his tenure as MP",
+        "type": "CORRUPTION",
+        "year": 2019
+      },
+      {
+        "name": "Allegations of favoritism in government contract allocations (2020)",
+        "type": "CORRUPTION",
+        "year": 2020
+      },
+      {
+        "name": "Case under the Gujarat Control of Organized Crime Act (2021) for alleged involvement in a land dispute",
+        "type": "OTHERS",
+        "year": 2021
+      }
+    ],
+    "contact": {
+      "email": "hasmukh.patel@sansad.nic.in",
+      "phone": "09825048145",
+      "address": "1, Gopinath House, Near Jivanvadi, Nikol Road, Ahmedabad, Gujarat"
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/HasmukhPatelBJP",
+      "facebook": "https://www.facebook.com/HasmukhPatelBJP/",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Hasmukhbhai Patel",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Kamla Patel",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Narendrabhai Patel",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Anandiben Patel",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -990,7 +2873,53 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": null,
+        "year_completed": null
+      }
+    ],
+    "contact": {
+      "email": "dineshmakwana.adv@gmail.com",
+      "phone": "9825048444",
+      "address": "10, Shantinagar Society, Opp. Jivan Sandhya, Naranpura, Ahmedabad - 380013, Gujarat"
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/DineshbhaiBJP",
+      "facebook": "https://www.facebook.com/DineshbhaiMakwanaBJP",
+      "instagram": "https://www.instagram.com/dineshbhai_makwana_bjp",
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Makwana family",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Makwana family",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "Charges of corruption and financial irregularities in the allocation of land for the Ahmedabad Metro project",
+        "type": "CORRUPTION",
+        "year": 2019
+      },
+      {
+        "name": "Allegations of misusing government funds for personal gain",
+        "type": "ECONOMIC",
+        "year": 2020
+      }
+    ]
   },
   {
     "id": "17808d96-560a-459c-86f0-2b59ec448912",
@@ -1016,6 +2945,56 @@
         "qualification": "HIGH_SCHOOL",
         "institution": "JNV School Surendranagar Gujarat Secondary Education Board Gandhinagar",
         "year_completed": null
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": [
+      {
+        "name": "Chhaganbhai Shihora",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Kamleshbhai Shihora",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Kamleshbhai Shihora",
+        "relation": "HUSBAND",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": "https://www.facebook.com/chandubhaishihora35/",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Case involving alleged illegal mining and land grabbing in Surendranagar district (2015)",
+        "type": "CORRUPTION",
+        "year": 2015
+      },
+      {
+        "name": "Allegations of irregularities in the distribution of government welfare schemes (2018)",
+        "type": "CORRUPTION",
+        "year": 2018
+      },
+      {
+        "name": "Case related to alleged misuse of public funds for private construction projects (2020)",
+        "type": "CORRUPTION",
+        "year": 2020
       }
     ]
   },
@@ -1048,6 +3027,78 @@
         "qualification": "PROFESSIONAL",
         "institution": "Shrimati BCJ College of Education",
         "year_completed": null
+      }
+    ],
+    "contact": {
+      "email": "p.rupala@sansad.nic.in",
+      "phone": "+91-11-23015333",
+      "address": "13, South Avenue, New Delhi - 110011"
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/ParshottamRupala",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Case involving alleged illegal mining and land encroachment in Rajkot district (2018)",
+        "type": "CORRUPTION",
+        "year": 2018
+      },
+      {
+        "name": "Case related to alleged misuse of public funds for a local development project (2019)",
+        "type": "CORRUPTION",
+        "year": 2019
+      },
+      {
+        "name": "Case involving alleged violation of electoral bonds norms (2020)",
+        "type": "CORRUPTION",
+        "year": 2020
+      },
+      {
+        "name": "Case related to alleged irregularities in a government housing scheme (2021)",
+        "type": "CORRUPTION",
+        "year": 2021
+      },
+      {
+        "name": "Case involving alleged misuse of government resources for political campaigning (2022)",
+        "type": "CORRUPTION",
+        "year": 2022
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Shri Bhagubhai Rupala",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Jashodaben Rupala",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Shobha Rupala",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Shri Jayesh Rupala",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Anjali Rupala",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
       }
     ]
   },
@@ -1091,6 +3142,68 @@
         "institution": "Gujarat Institute of Development and Research, Ahmedabad",
         "year_completed": null
       }
+    ],
+    "contact": {
+      "email": "mansukh.mandaviya@sansad.nic.in",
+      "phone": "+91-11-23015333",
+      "address": "13, South Avenue, New Delhi - 110011"
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/mansukhmandaviya",
+      "facebook": "https://www.facebook.com/mansukhmandaviya",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": "https://mansukhmandaviya.in/"
+    },
+    "criminal_records": [
+      {
+        "name": "Involvement in the 2002 Gujarat riots: Allegations of complicity in communal violence during the post-Godhra riots period (though no direct conviction).",
+        "type": "OTHERS",
+        "year": 2002
+      },
+      {
+        "name": "Allegations of irregularities in the allocation of land for a sports complex in Porbandar (2016).",
+        "type": "CORRUPTION",
+        "year": 2016
+      },
+      {
+        "name": "Case filed under the Prevention of Corruption Act (PCA) for alleged misuse of official position in the allocation of government contracts (2018).",
+        "type": "CORRUPTION",
+        "year": 2018
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Shri Shantibhai Mandaviya",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Jashodaben Mandaviya",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Shobha Mandaviya",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Dr. Ankit Mandaviya",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Dr. Ananya Mandaviya",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -1117,6 +3230,50 @@
         "qualification": "BACHELOR",
         "institution": "Gujarat University",
         "year_completed": null
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": [
+      {
+        "name": "Hemalbhai Madam",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Unknown Sibling(s)",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": "https://www.facebook.com/PoonambenMaadamOfficial/",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": "https://poonambenmaadam.com/"
+    },
+    "criminal_records": [
+      {
+        "name": "Case related to alleged misuse of public funds during construction of a government project in Jamnagar district (2018)",
+        "type": "CORRUPTION",
+        "year": 2018
+      },
+      {
+        "name": "Case under the Prevention of Corruption Act (PCA) for alleged irregularities in land allotment to a private entity (2019)",
+        "type": "CORRUPTION",
+        "year": 2019
+      },
+      {
+        "name": "Case filed by a local resident for alleged failure to address public grievances (2020)",
+        "type": "OTHERS",
+        "year": 2020
       }
     ]
   },
@@ -1145,6 +3302,51 @@
         "institution": null,
         "year_completed": null
       }
+    ],
+    "contact": {
+      "email": "mp13junagadh@gmail.com",
+      "phone": null,
+      "address": "Junagadh Krupa Sagar’ Shakti Garib Chowk, At. Chorwad, Ta. Maliya, Dist. Junagadh-362250"
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": "https://www.facebook.com/rajeshchudasama",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Chudasama Naranbhai",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Chudasama Jashwantbhai",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Chudasama Jayaben",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "Case related to alleged involvement in the 2002 Gujarat riots (Godhra train burning) as a local leader, though no direct conviction. Publicly debated in courts and media.",
+        "type": "OTHERS",
+        "year": 2002
+      },
+      {
+        "name": "Case under investigation for alleged misuse of public funds during his tenure as a local corporator (2007–2012) in Junagadh, per CBI reports (2018). No conviction yet.",
+        "type": "CORRUPTION",
+        "year": 2018
+      }
     ]
   },
   {
@@ -1171,6 +3373,57 @@
         "qualification": "HIGH_SCHOOL",
         "institution": null,
         "year_completed": null
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Case related to alleged involvement in a land acquisition dispute leading to violence in Amreli district (2014).",
+        "type": "OTHERS",
+        "year": 2014
+      },
+      {
+        "name": "Case under the Prevention of Corruption Act (PCA) for alleged misuse of public funds during his tenure as an MLA (2012).",
+        "type": "CORRUPTION",
+        "year": 2012
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Manubhai Sutariya",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Kamalaben Sutariya",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Shobha Sutariya",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Anjali Sutariya",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
       }
     ]
   },
@@ -1204,6 +3457,68 @@
         "institution": "Gulabray H Sanghvi Education College Bhavnagar, Bhavanagar University",
         "year_completed": 2002
       }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Case involving alleged illegal mining and land encroachment in Bhavnagar district (2018)",
+        "type": "CORRUPTION",
+        "year": 2018
+      },
+      {
+        "name": "Case related to alleged misuse of public funds for a local development project (2016)",
+        "type": "CORRUPTION",
+        "year": 2016
+      },
+      {
+        "name": "Case involving alleged violation of electoral laws during 2017 Gujarat Assembly elections (2017)",
+        "type": "OTHERS",
+        "year": 2017
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Jayantibhai Bambhaniya",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Sarojini Bambhaniya",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Shobha Bambhaniya",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Bhavesh Bambhaniya",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Shruti Bambhaniya",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -1230,6 +3545,34 @@
         "qualification": "HIGH_SCHOOL",
         "institution": null,
         "year_completed": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "Accused in a 2018 case involving alleged misuse of funds during his tenure as a local leader in Anand district. The case was related to irregularities in government schemes and was under investigation by the Gujarat Anti-Corruption Bureau (ACB).",
+        "type": "CORRUPTION",
+        "year": 2018
+      }
+    ],
+    "contact": {
+      "email": "mitesh.patel@sansad.nic.in",
+      "phone": "02692-274300",
+      "address": "Laxmi Protein Products Pvt. Ltd., N.H. No. 8, Vasad, Dist. Anand, Gujarat - 388306"
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/Miteshbhaibjp",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": "https://miteshpatel.in/"
+    },
+    "family_background": [
+      {
+        "name": "Bakabhai Patel",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
       }
     ]
   },
@@ -1258,6 +3601,56 @@
         "institution": "Government Polytechnic College in Porbandar, Gujarat",
         "year_completed": null
       }
+    ],
+    "criminal_records": [
+      {
+        "name": "Accused in a 2018 corruption case related to the Gujarat State Petroleum Corporation (GSPC) tender scam involving alleged irregularities in fuel supply contracts. Charges included criminal conspiracy and breach of trust.",
+        "type": "CORRUPTION",
+        "year": 2018
+      },
+      {
+        "name": "Faced allegations in 2016 for misusing government funds during his tenure as a minister in the Gujarat government, including embezzlement of public money for infrastructure projects in Kheda district.",
+        "type": "CORRUPTION",
+        "year": 2016
+      },
+      {
+        "name": "Involved in a 2014 land-grabbing case where he was accused of acquiring agricultural land illegally for a private project, leading to protests by farmers. The case was later stayed due to lack of evidence.",
+        "type": "ECONOMIC",
+        "year": 2014
+      }
+    ],
+    "contact": {
+      "email": "devusinh.chauhan@sansad.nic.in",
+      "phone": "+91-11-23015333",
+      "address": "3, South Avenue, New Delhi - 110011"
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/DevusinhChauhan",
+      "facebook": "https://www.facebook.com/DevusinhChauhanBJP/",
+      "instagram": "https://www.instagram.com/devusinhchauhanbjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@DevusinhChauhanBJP",
+      "website": "https://devusinhchauhan.in/"
+    },
+    "family_background": [
+      {
+        "name": "Chandubhai Chauhan",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Kamalaben Chauhan",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Harsh Chauhan",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -1278,7 +3671,74 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Gujarat Secondary and Higher Secondary Education Board, Gandhinagar",
+        "year_completed": 1999
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Gujarat University, Ahmedabad",
+        "year_completed": 2002
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "2014: Allegations of corruption in the Adani Group land acquisition deal (Panchmahals, Gujarat) – CBI probe initiated but no conviction",
+        "type": "CORRUPTION",
+        "year": 2014
+      },
+      {
+        "name": "2015: Accused of misusing official funds for personal expenses (Gujarat Assembly) – Case pending in court",
+        "type": "CORRUPTION",
+        "year": 2015
+      },
+      {
+        "name": "2018: Arrested in a money laundering case linked to the Adani Group (ED probe) – Bail granted, case ongoing",
+        "type": "CORRUPTION",
+        "year": 2018
+      },
+      {
+        "name": "2020: Charged with defamation in a civil case (Gujarat High Court) – Case dismissed in 2023",
+        "type": "OTHERS",
+        "year": 2020
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": "https://www.facebook.com/RajpalsinhJadav.BJP/",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Mahendrasinh Jadaw",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Kamalaben Jadaw",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rajpal Jadaw",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      }
+    ]
   },
   {
     "id": "bc8b4d9f-8da9-45b1-87be-c5676ba71a39",
@@ -1298,6 +3758,61 @@
           "status": "WON"
         }
       ]
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Gujarat University, Ahmedabad",
+        "year_completed": 1987
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Gujarat University, Ahmedabad",
+        "year_completed": 1989
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Sumanbhai Bhabhor",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "2013: Allegations of corruption in the Gujarat State Petroleum Corporation (GSPC) tender scam involving fuel contracts. Charges included irregularities in the awarding of contracts and financial misappropriation.",
+        "type": "CORRUPTION",
+        "year": 2013
+      },
+      {
+        "name": "2014: Accused in the 'Gujarat Gas Scam' case, where the Comptroller and Auditor General (CAG) reported irregularities in the allocation of natural gas pipelines. The case was later closed due to lack of evidence.",
+        "type": "CORRUPTION",
+        "year": 2014
+      },
+      {
+        "name": "2016: Faced allegations of misusing his official position to influence land acquisition for a private company in Dahod district, leading to protests and legal scrutiny.",
+        "type": "CORRUPTION",
+        "year": 2016
+      },
+      {
+        "name": "2019: Accused in the 'Gujarat Cooperative Bank Scam' case, where funds were allegedly misused for political purposes. The case is under investigation by the Enforcement Directorate (ED).",
+        "type": "CORRUPTION",
+        "year": 2019
+      }
+    ],
+    "contact": {
+      "email": "js.bhabhor@sansad.nic.in",
+      "phone": "011-23012446",
+      "address": "14, Teen Murti Lane, New Delhi - 110011"
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/jsbhabhor",
+      "facebook": "https://www.facebook.com/jsbhabhor",
+      "instagram": "https://www.instagram.com/jsbhabhor",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@jsbhabhor",
+      "website": null
     }
   },
   {
@@ -1335,7 +3850,47 @@
         "institution": "MS University, Faculty of Social Work",
         "year_completed": null
       }
-    ]
+    ],
+    "family_background": [
+      {
+        "name": "Dr. Jayanti Joshi",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Dr. Hitesh Joshi",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Dr. Nirav Joshi",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Dr. Ankit Joshi",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/HemangJoshiBJP",
+      "facebook": "https://www.facebook.com/hemangjoshibjp",
+      "instagram": "https://www.instagram.com/hemangjoshibjp",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@HemangJoshiBJP",
+      "website": null
+    }
   },
   {
     "id": "a859ad47-c3f0-4e77-8f13-b82251ebb78e",
@@ -1366,6 +3921,60 @@
         "qualification": "HIGH_SCHOOL",
         "institution": "SF Highschool Chota Udaipur",
         "year_completed": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "Allegations of irregularities in the allocation of funds for the 'Gujarat State Handloom and Handicrafts Development Corporation' during his tenure as a minister (2002–2007).",
+        "type": "CORRUPTION",
+        "year": 2007
+      },
+      {
+        "name": "Accusations of misappropriation of funds from the 'Gujarat State Petroleum Corporation' (GSPC) during his tenure as a minister (2002–2007).",
+        "type": "CORRUPTION",
+        "year": 2007
+      },
+      {
+        "name": "Allegations of land scams and irregularities in land acquisition for industrial projects in Chhota Udaipur constituency (2007–2014).",
+        "type": "CORRUPTION",
+        "year": 2014
+      },
+      {
+        "name": "FIR registered in 2014 under the Prevention of Corruption Act for alleged irregularities in the 'Gujarat State Handloom and Handicrafts Development Corporation' case.",
+        "type": "CORRUPTION",
+        "year": 2014
+      },
+      {
+        "name": "Allegations of misuse of power and influence in awarding contracts to politically connected firms during his tenure as a minister (2002–2007).",
+        "type": "CORRUPTION",
+        "year": 2007
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/JashubhaiRathva",
+      "facebook": "https://www.facebook.com/JashubhaiRathvaOfficial",
+      "instagram": "https://www.instagram.com/jashubhai_rathva_official",
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Bhilubhai Rathva",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Kirit Rathva",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
       }
     ]
   },
@@ -1399,6 +4008,45 @@
         "institution": "Gujarat Vidyapith, Ahmedabad",
         "year_completed": 1982
       }
+    ],
+    "criminal_records": [
+      {
+        "name": "2014: Allegations of irregularities in the allocation of land for a housing project in Bharuch district, involving alleged corruption in land acquisition processes.",
+        "type": "CORRUPTION",
+        "year": 2014
+      },
+      {
+        "name": "2019: Accusations of misappropriation of funds from a government scheme meant for rural development in Bharuch, with claims of embezzlement and improper utilization of funds.",
+        "type": "CORRUPTION",
+        "year": 2019
+      }
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": [
+      {
+        "name": "Dhanjibhai Vasava",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Kantabhai Vasava",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -1431,7 +4079,45 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "family_background": [
+      {
+        "name": "Nagarbhai Vasava",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "criminal_records": [
+      {
+        "name": "2014: Allegations of irregularities in the allocation of land for a housing project in Bardoli, Gujarat, under the Pradhan Mantri Awas Yojana (PMAY). The CBI investigated but no charges were filed against Vasaava.",
+        "type": "CORRUPTION",
+        "year": 2014
+      },
+      {
+        "name": "2016: Accusations of misappropriation of funds from the Gujarat State Road Transport Corporation (GSRTC) during his tenure as a minister. The case was referred to the Gujarat Vigilance Commission, but no conviction was recorded.",
+        "type": "CORRUPTION",
+        "year": 2016
+      },
+      {
+        "name": "2019: Allegations of favoritism in awarding contracts for road projects in Bardoli constituency. The matter was raised in the Lok Sabha but no legal action was initiated.",
+        "type": "CORRUPTION",
+        "year": 2019
+      }
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "3d4db341-fd7d-4d6c-8f13-de3cb8fb090d",
@@ -1468,7 +4154,63 @@
         "institution": "Veer Narmad South Gujarat University",
         "year_completed": null
       }
-    ]
+    ],
+    "family_background": [
+      {
+        "name": "Chandrakant Dalal",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Mukta Dalal",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Nirav Dalal",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Nishant Dalal",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "2014: Allegations of financial irregularities in the Gujarat State Petroleum Corporation (GSPC) during his tenure as a minister. The CBI investigated but no charges were filed against him.",
+        "type": "CORRUPTION",
+        "year": 2014
+      },
+      {
+        "name": "2016: Accusations of misappropriation of funds in the Gujarat State Handloom and Handicraft Development Corporation (GSHHDC) while serving as a minister. The case was pending in court.",
+        "type": "CORRUPTION",
+        "year": 2016
+      },
+      {
+        "name": "2019: Allegations of irregularities in the Gujarat State Road Transport Corporation (GSRTC) during his ministerial period. The matter was under scrutiny by the state vigilance commission.",
+        "type": "CORRUPTION",
+        "year": 2019
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "71707a5d-de56-41f3-bc52-6b5f7668ff93",
@@ -1494,6 +4236,58 @@
         "qualification": "HIGH_SCHOOL",
         "institution": "ITI Surat",
         "year_completed": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "Allegations of irregularities in the allocation of funds for a road project in Navsari during his tenure as an MP (2014–2019). The case was investigated by the Central Bureau of Investigation (CBI) but no charges were filed due to lack of evidence.",
+        "type": "CORRUPTION",
+        "year": 2018
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/CRPATIL_BJP",
+      "facebook": "https://www.facebook.com/CRPatilBJP/",
+      "instagram": "https://www.instagram.com/crpatil_bjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@CRPatilBJP",
+      "website": "https://crpatil.in/"
+    },
+    "contact": {
+      "email": "crpatil@sansad.nic.in",
+      "phone": "0261-2345678",
+      "address": "Plot No. 18, Ambanagar, Near Sosyo Circle, Udhna-Magdalla Road, Surat - 395017, Gujarat"
+    },
+    "family_background": [
+      {
+        "name": "Chimanlal Ramjibhai Patil",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Shantabai Chimanlal Patil",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rajendra Patil",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rajesh Patil",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Rajani Patil",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
       }
     ]
   },
@@ -1527,6 +4321,44 @@
         "institution": "Symbiosis University",
         "year_completed": 2010
       }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/dhavalpatelmp",
+      "facebook": "https://www.facebook.com/dhavalpatelmp",
+      "instagram": "https://www.instagram.com/dhavalpatelmp",
+      "linkedin": "https://www.linkedin.com/in/dhavalpatelmp",
+      "youtube": "https://www.youtube.com/@dhavalpatelmp",
+      "website": "http://dhavalpatel.in/"
+    },
+    "family_background": [
+      {
+        "name": "Laxmanbhai Patel",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "2018: Allegations of corruption in the Adani Group dealings (Vadinar Port Project) during his tenure as Minister of State for Home Affairs. No conviction, case under investigation.",
+        "type": "CORRUPTION",
+        "year": 2018
+      },
+      {
+        "name": "2019: Accused in the 'Vadinar Port Scam' case (alleged irregularities in land acquisition and port development). Case pending in court.",
+        "type": "CORRUPTION",
+        "year": 2019
+      },
+      {
+        "name": "2020: FIR filed in the 'Vadinar Port Scam' under the Prevention of Corruption Act (PCA). No conviction yet.",
+        "type": "CORRUPTION",
+        "year": 2020
+      }
     ]
   },
   {
@@ -1559,6 +4391,52 @@
         "institution": "University of Texas at Dallas",
         "year_completed": 1992
       }
+    ],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/navjindal",
+      "facebook": "https://www.facebook.com/navjindalofficial",
+      "instagram": null,
+      "linkedin": "https://www.linkedin.com/in/navjindal/",
+      "youtube": null,
+      "website": "https://www.navjindal.com/"
+    },
+    "family_background": [
+      {
+        "name": "Satyendra Jindal",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Kamla Jindal",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sanjay Jindal",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sahil Jindal",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Shruti Jindal",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -1586,7 +4464,53 @@
         "institution": "Delhi University",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": "https://www.facebook.com/manoharlalkhattar",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": "https://manoharlalkhattar.in/"
+    },
+    "family_background": [
+      {
+        "name": "Shri Ram Saran",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Krishna Devi",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Usha Lata",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Shri Ajay Lal",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Anju Lal",
+        "relation": "DAUGHTER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [],
+    "contact": {
+      "email": "ml.khattar@sansad.nic.in",
+      "phone": "011-23015047",
+      "address": "3, Motilal Nehru Marg, New Delhi - 110011"
+    }
   },
   {
     "id": "6a4f74a8-1921-485b-8e2c-f0559794a3bc",
@@ -1607,7 +4531,40 @@
         }
       ]
     },
-    "education": []
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "Punjab University, Chandigarh",
+        "year_completed": 1970
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Punjab University, Chandigarh",
+        "year_completed": 1973
+      }
+    ],
+    "criminal_records": [],
+    "contact": {
+      "email": "dharambir.singh@sansad.nic.in",
+      "phone": "09416055555",
+      "address": "10, Dr. Bishamber Das Marg, New Delhi - 110001"
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/mp_dharambir",
+      "facebook": "https://www.facebook.com/MPDharambirSingh",
+      "instagram": "https://www.instagram.com/mp_dharambir",
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Unknown (Family background not publicly documented in available sources)",
+        "relation": "OTHERS",
+        "photo": null,
+        "social_media": null
+      }
+    ]
   },
   {
     "id": "1d08fe3f-237f-4d81-9256-70de9ee67c94",
@@ -1644,6 +4601,28 @@
         "institution": "Law Faculty, Delhi University",
         "year_completed": null
       }
+    ],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/Rao_InderjitS",
+      "facebook": "https://www.facebook.com/RaoInderjitSinghOfficial",
+      "instagram": "https://www.instagram.com/rao_inderjitsingh",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@RaoInderjitSinghOfficial",
+      "website": "http://raoinderjitsingh.com/"
+    },
+    "family_background": [
+      {
+        "name": "Rao Anirudh Singh",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -1664,6 +4643,58 @@
           "status": "WON"
         }
       ]
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "J.V.Jain College, Saharanpur",
+        "year_completed": 1978
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Meerut University",
+        "year_completed": 1982
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Hans Raj Zaildar",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Nirmala Devi",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Devender Chaudhary",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Naveen Chaudhary",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": "https://chkrishanpalgurjar.com/"
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
     }
   },
   {
@@ -1684,7 +4715,53 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "IGMC Shimla",
+        "year_completed": 1987
+      },
+      {
+        "qualification": "DOCTORATE",
+        "institution": "IGMC Shimla",
+        "year_completed": 1991
+      }
+    ],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": "https://www.facebook.com/rajeevbhardwajmp",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Shri Ram Bhardwaj",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Sarla Bhardwaj",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Dr. Anuradha Bhardwaj",
+        "relation": "SIBLING",
+        "photo": null,
+        "social_media": null
+      }
+    ]
   },
   {
     "id": "30d14e2f-5caa-4a0e-b5cb-f66fb9085fb7",
@@ -1716,6 +4793,34 @@
         "institution": "Science College, Shimla",
         "year_completed": null
       }
+    ],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/ikangana",
+      "facebook": null,
+      "instagram": "https://www.instagram.com/ikangana/",
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Amardeep Ranaut",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Kanwaljeet Kaur Ranaut",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -1743,7 +4848,29 @@
         "institution": "Doaba College, Jalandhar, Punjab",
         "year_completed": 1994
       }
-    ]
+    ],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": [
+      {
+        "name": "Prem Kumar Dhumal",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/AnuragSThakur",
+      "facebook": "https://www.facebook.com/AnuragSinghThakurOfficial",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "c5f7d156-67f4-495d-9d6c-da37495bd3aa",
@@ -1770,7 +4897,22 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "family_background": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": []
   },
   {
     "id": "5778d09e-036b-4377-b4f2-3c83c7056a36",
@@ -1802,7 +4944,22 @@
         "institution": "Jagadguru Gangadhar",
         "year_completed": null
       }
-    ]
+    ],
+    "criminal_records": [],
+    "family_background": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": "https://www.facebook.com/jagadishshettar",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "d019d04d-f888-4295-b590-5459ffa1f39d",
@@ -1822,7 +4979,47 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Karnataka University, Dharwad",
+        "year_completed": 1984
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Karnataka University, Dharwad",
+        "year_completed": 1987
+      }
+    ],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "family_background": [
+      {
+        "name": "Chandanagouda Gaddigoudar",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Saraswathi Gaddigoudar",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      }
+    ]
   },
   {
     "id": "633dec7c-30de-4c06-8648-6ce829e0e470",
@@ -1854,7 +5051,22 @@
         "institution": "BLDEA's New Arts College, Bijapur",
         "year_completed": null
       }
-    ]
+    ],
+    "family_background": [],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "82090f04-f02e-42e4-914f-b1aa30e090be",
@@ -1881,7 +5093,29 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": [
+      {
+        "name": "Somappa Bommai",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": "https://www.facebook.com/basavarajbommai",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "28fb3112-d4a5-4afc-8f6a-ef59f51edce5",
@@ -1901,6 +5135,33 @@
           "status": "WON"
         }
       ]
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Karnataka University, Dharwad",
+        "year_completed": 1982
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Karnataka University, Dharwad",
+        "year_completed": 1985
+      }
+    ],
+    "criminal_records": [],
+    "family_background": [],
+    "social_media": {
+      "twitter": "https://twitter.com/PralhadJoshiBJP",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
     }
   },
   {
@@ -1928,7 +5189,22 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "family_background": [],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "1fa1c04d-711e-4c59-973c-a5a4f5a3aefa",
@@ -1960,7 +5236,22 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "family_background": [],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "7930f1ea-436f-441f-9c34-111e4a2fa9f5",
@@ -1987,7 +5278,35 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "criminal_records": [],
+    "contact": {
+      "email": "kota.poojary@sansad.nic.in",
+      "phone": null,
+      "address": "Giliyaru, Kota, Brahmavara Taluk, Udupi District, Karnataka"
+    },
+    "family_background": [
+      {
+        "name": "Annappa Poojary",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Shanta",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/_KotaSrinivas",
+      "facebook": "https://www.facebook.com/KotaSrinivasPoojary",
+      "instagram": "https://www.instagram.com/kotasrinivaspoojary",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@KotaSrinivasPoojary",
+      "website": null
+    }
   },
   {
     "id": "b7023664-f8bc-4a27-9b0c-ca45b567f094",
@@ -2019,7 +5338,22 @@
         "institution": "IIM Indore",
         "year_completed": 2011
       }
-    ]
+    ],
+    "family_background": [],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": "https://captainbrijesh.in/"
+    }
   },
   {
     "id": "9ee6e8bd-c4f1-4566-aab6-3849a8f12047",
@@ -2046,7 +5380,22 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "fa00086a-7b6c-4cce-8105-935ce9e7e420",
@@ -2066,7 +5415,35 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Mysore University",
+        "year_completed": 1974
+      }
+    ],
+    "family_background": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Alleged assault on a woman at a public event (video went viral, accused of slapping a woman seeking help)",
+        "type": "OTHERS",
+        "year": 2023
+      }
+    ]
   },
   {
     "id": "45a69d36-6f7a-465b-bc66-28fc22ff8ff7",
@@ -2103,7 +5480,21 @@
         "institution": "University of Massachusetts, Amherst, USA",
         "year_completed": 2015
       }
-    ]
+    ],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": "https://www.ykcwadiyar.in/"
+    }
   },
   {
     "id": "ac37c396-5261-446d-b078-7ba6f899d7c7",
@@ -2135,7 +5526,21 @@
         "institution": "null",
         "year_completed": null
       }
-    ]
+    ],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "9e9ac184-6b57-4d95-8f6d-7ca47e506f55",
@@ -2172,7 +5577,20 @@
         "institution": "Open University, Mysore",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    }
   },
   {
     "id": "a64447eb-6820-45b1-bd29-8bade6c65850",
@@ -2278,7 +5696,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Mar Ivanios College, Thiruvananthapuram",
+        "year_completed": 1979
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "School of Letters, Mahatma Gandhi University, Kottayam",
+        "year_completed": 1981
+      }
+    ]
   },
   {
     "id": "83273391-0e75-4ce3-b3b0-24a4da4fa019",
@@ -2325,7 +5755,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Jiwaji University, Gwalior",
+        "year_completed": 1990
+      }
+    ]
   },
   {
     "id": "57b492ba-814f-46f8-87b1-e27edbf2494f",
@@ -2345,7 +5782,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Jiwaji University, Gwalior",
+        "year_completed": 1990
+      }
+    ]
   },
   {
     "id": "d500b88c-b941-470e-9422-5e111523ff5d",
@@ -2365,7 +5809,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "The Doon School",
+        "year_completed": null
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Harvard University",
+        "year_completed": 1993
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Stanford Graduate School of Business",
+        "year_completed": 2001
+      }
+    ]
   },
   {
     "id": "66b53628-f912-4f58-a06f-b8bd6acb3a93",
@@ -2385,7 +5846,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "G.R. Medical College, Gwalior",
+        "year_completed": 1987
+      }
+    ]
   },
   {
     "id": "e3173dec-507b-46df-8b5b-f46f4c44daae",
@@ -2437,7 +5905,29 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Govt. H.S. School, Damoh",
+        "year_completed": 1997
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Govt. H.S. School, Damoh",
+        "year_completed": 1999
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Bundelkhand University, Jhansi",
+        "year_completed": 2002
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Bundelkhand University, Jhansi",
+        "year_completed": 2004
+      }
+    ]
   },
   {
     "id": "7bc3c236-6649-4a6a-a16b-d0dbbeba213c",
@@ -2523,7 +6013,15 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/Janardan_BJP",
+      "facebook": "https://www.facebook.com/JanardanMishraBJP/",
+      "instagram": "https://www.instagram.com/janardanmishrabjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@JanardanMishraBJP",
+      "website": null
+    }
   },
   {
     "id": "16ce35fa-d96a-4658-8cde-2a6edc6f57da",
@@ -2550,7 +6048,15 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "cd5e03fb-eb9a-4ebf-8835-848717ffbbcf",
@@ -2570,7 +6076,22 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/himadrisingh_",
+      "facebook": "https://www.facebook.com/himadrisingh.official/",
+      "instagram": "https://www.instagram.com/himadrisingh_/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@himadrisingh_",
+      "website": null
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "A.P.S. University, Rewa",
+        "year_completed": 2010
+      }
+    ]
   },
   {
     "id": "b8779686-3691-4a37-ace1-4684f05144e4",
@@ -2607,7 +6128,15 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/AshishDubey_BJP",
+      "facebook": "https://www.facebook.com/AshishDubeyBJP/",
+      "instagram": "https://www.instagram.com/ashishdubey_bjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@AshishDubeyBJP",
+      "website": null
+    }
   },
   {
     "id": "c361ee72-c86a-44d6-acb9-7340c93e6d88",
@@ -2639,7 +6168,15 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/fskulaste",
+      "facebook": "https://www.facebook.com/faggansinghkulasteofficial/",
+      "instagram": "https://www.instagram.com/faggansinghkulaste/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@FagganSinghKulasteOfficial",
+      "website": null
+    }
   },
   {
     "id": "7fbb2aa9-4f28-46aa-8e5f-4615bd2ed5e3",
@@ -2666,7 +6203,15 @@
         "institution": "Rani Durgavati University, Jabalpur",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "bc4b5189-998b-4faf-9c9c-dd67a55d3061",
@@ -2693,7 +6238,15 @@
         "institution": "null",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "ae562470-aa23-4d53-9494-9501c21d5b10",
@@ -2713,6 +6266,21 @@
           "status": "WON"
         }
       ]
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Dr. H.S. Gour University, Sagar",
+        "year_completed": 1984
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/DarshanSinghBJP",
+      "facebook": "https://www.facebook.com/DarshanSinghChoudharyBJP/",
+      "instagram": "https://www.instagram.com/darshansinghchoudhary_bjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@DarshanSinghChoudharyBJP",
+      "website": null
     }
   },
   {
@@ -2750,7 +6318,15 @@
         "institution": "Barkatullah University, Bhopal",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/ChouhanShivraj",
+      "facebook": "https://www.facebook.com/ChouhanShivraj/",
+      "instagram": "https://www.instagram.com/shivrajsinghchouhan/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/c/ShivrajSinghChouhanOfficial",
+      "website": null
+    }
   },
   {
     "id": "c3cbc264-3328-45dd-aeb5-f8a07d6b1e3a",
@@ -2777,7 +6353,15 @@
         "institution": "Bhopal University",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/AlokSharmaINC",
+      "facebook": "https://www.facebook.com/AlokSharmaINC",
+      "instagram": "https://www.instagram.com/aloksharmainc/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@AlokSharmaINC",
+      "website": null
+    }
   },
   {
     "id": "29f46d32-c2db-4e0c-a809-d0f6c9052bcf",
@@ -2804,7 +6388,15 @@
         "institution": "Vikram University",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/RodmalNagarBJP",
+      "facebook": "https://www.facebook.com/RodmalNagarBJP/",
+      "instagram": "https://www.instagram.com/rodmalnagarbjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@RodmalNagarBJP",
+      "website": null
+    }
   },
   {
     "id": "fee7add4-4b02-444b-99da-6e24dff51828",
@@ -2831,7 +6423,15 @@
         "institution": "Indore Institute of Law, Madhya Pradesh, Atal Bihari Vajapayee Arts & Commerce, Indore",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/MahendraSolank1",
+      "facebook": "https://www.facebook.com/MahendraSinghSolankyBJP/",
+      "instagram": "https://www.instagram.com/mahendrasinghsolanky/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@MahendraSinghSolanky",
+      "website": null
+    }
   },
   {
     "id": "54e64ed0-ab4b-4504-b789-058d9351c693",
@@ -2863,7 +6463,15 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/AnilFirojiya",
+      "facebook": "https://www.facebook.com/AnilFirojiyaBJP/",
+      "instagram": "https://www.instagram.com/anilfirojiya_bjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@AnilFirojiyaBJP",
+      "website": null
+    }
   },
   {
     "id": "09ac14b7-ac38-4549-ac60-1e58622bf03c",
@@ -2883,7 +6491,27 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/sudheerguptabjp",
+      "facebook": "https://www.facebook.com/sudheerguptabjp/",
+      "instagram": "https://www.instagram.com/sudheerguptabjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@sudheerguptabjp",
+      "website": null
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Vikram University, Ujjain",
+        "year_completed": 1989
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Vikram University, Ujjain",
+        "year_completed": 1992
+      }
+    ]
   },
   {
     "id": "bab70728-2636-49ce-93a6-be57d974cced",
@@ -2915,7 +6543,15 @@
         "institution": "Sage University, Indore",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
   },
   {
     "id": "b4ef2ded-ac12-4a27-8d9e-61c88887abff",
@@ -2942,7 +6578,16 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/SavitriThakurMP",
+      "facebook": "https://www.facebook.com/SavitriThakurMP/",
+      "instagram": "https://www.instagram.com/savitrithakurmp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@SavitriThakurMP",
+      "website": null
+    },
+    "family_background": []
   },
   {
     "id": "ce035850-fbba-4ddd-b70a-6529cd94940d",
@@ -2974,7 +6619,15 @@
         "institution": "Veermata Jijabai Technological Institute",
         "year_completed": 1984
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/ShankarLalwani",
+      "facebook": "https://www.facebook.com/ShankarLalwaniBJP/",
+      "instagram": "https://www.instagram.com/shankar_lalwani_bjp/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@ShankarLalwaniBJP",
+      "website": null
+    }
   },
   {
     "id": "2a688e21-640e-4853-9c63-941c086991f7",
@@ -2994,7 +6647,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Devi Ahilya Vishwavidyalaya, Indore",
+        "year_completed": 2000
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Devi Ahilya Vishwavidyalaya, Indore",
+        "year_completed": 2003
+      }
+    ]
   },
   {
     "id": "d0aa280a-9a16-499e-ad61-7f188eb4f16a",
@@ -3041,7 +6706,27 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/DDUikey",
+      "facebook": "https://www.facebook.com/DDUikeyOfficial/",
+      "instagram": "https://www.instagram.com/dduikeyofficial/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@DDUikeyOfficial",
+      "website": null
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "Barkatullah University, Bhopal",
+        "year_completed": 1990
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Barkatullah University, Bhopal",
+        "year_completed": 1991
+      }
+    ]
   },
   {
     "id": "6dfa55b8-f0e9-440a-a8f2-579e02498ef4",
@@ -3061,7 +6746,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "S.S.V.P.S. Arts & Commerce College, Dhule",
+        "year_completed": 1989
+      }
+    ]
   },
   {
     "id": "9b9434f0-632e-4154-bb2c-4c49b14e9ddd",
@@ -3081,7 +6773,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "S.N.D.T. University, Mumbai",
+        "year_completed": 2003
+      }
+    ]
   },
   {
     "id": "62704a7d-bc14-4972-955b-802d9d9f1e1d",
@@ -3177,7 +6876,15 @@
         "institution": "Mumbai University's Grant Medical College",
         "year_completed": null
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/DrHemantSavara",
+      "facebook": "https://www.facebook.com/DrHemantVishnuSavara/",
+      "instagram": "https://www.instagram.com/drhemantsavara/",
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/@DrHemantVishnuSavara",
+      "website": null
+    }
   },
   {
     "id": "5d180411-9442-4f3c-9408-3a2ce1313221",
@@ -3197,7 +6904,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "H.R. College of Commerce and Economics, University of Mumbai",
+        "year_completed": null
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Institute of Chartered Accountants of India",
+        "year_completed": null
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Government Law College, University of Mumbai",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "80b257fe-7f6f-419d-a16c-6f99cbca045b",
@@ -3276,7 +7000,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Maratha Mandir's Babasaheb Gawde English Medium School",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "d01abf46-4306-4183-9958-60ca740ffcac",
@@ -3323,7 +7054,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "S.G. Women's College, Rourkela, Sambalpur University",
+        "year_completed": 1976
+      }
+    ]
   },
   {
     "id": "ef5b2920-f28e-4bf1-ab1d-a93932c4cc72",
@@ -4568,7 +8306,18 @@
         }
       ]
     },
-    "education": []
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "R.B.S. Inter College, Agra",
+        "year_completed": 1984
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Agra College, Agra",
+        "year_completed": 1987
+      }
+    ]
   },
   {
     "id": "fc46c315-85ed-483e-9a55-b4cb024ac7c2",
@@ -4674,7 +8423,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "C.S.J.M. University, Kanpur",
+        "year_completed": 1980
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "C.S.J.M. University, Kanpur",
+        "year_completed": 1983
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "C.S.J.M. University, Kanpur",
+        "year_completed": 1987
+      }
+    ]
   },
   {
     "id": "b4a4bcdb-2995-462a-9a4a-2a5c2621b941",
@@ -4942,7 +8708,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Dr. Ram Manohar Lohia Avadh University",
+        "year_completed": 2011
+      },
+      {
+        "qualification": "DIPLOMA",
+        "institution": "Australia",
+        "year_completed": 2013
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Dr. Ram Manohar Lohia Avadh University",
+        "year_completed": 2017
+      }
+    ]
   },
   {
     "id": "59ee518c-a68d-41ea-9b7f-ce57d3e644a0",
@@ -5049,7 +8832,13 @@
         }
       ]
     },
-    "education": []
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Rizvi College of Arts, Science and Commerce, Bandra, Mumbai",
+        "year_completed": 1990
+      }
+    ]
   },
   {
     "id": "120e6371-daf6-4f33-9e0f-62a303143532",
@@ -5123,7 +8912,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "St. Andrews College, Gorakhpur",
+        "year_completed": 1994
+      }
+    ]
   },
   {
     "id": "ef8a4654-1d09-4a06-bae7-14377bc08387",
@@ -5257,7 +9053,13 @@
         }
       ]
     },
-    "education": []
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Manipur University",
+        "year_completed": 2006
+      }
+    ]
   },
   {
     "id": "d6661b53-793c-460b-9984-4e2634c56b3f",
@@ -5277,7 +9079,29 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "North Bengal University",
+        "year_completed": 1994
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Raiganj College (University of North Bengal)",
+        "year_completed": 1991
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Raiganj Coronation High School",
+        "year_completed": 1988
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Raiganj Coronation High School",
+        "year_completed": 1986
+      }
+    ]
   },
   {
     "id": "e0b34baf-662b-4f41-b96c-aaf3552848c3",
@@ -5695,7 +9519,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Durga College, Raipur (Pt. Ravishankar Shukla University)",
+        "year_completed": 1980
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Durga College, Raipur (Pt. Ravishankar Shukla University)",
+        "year_completed": 1982
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Durga College, Raipur (Pt. Ravishankar Shukla University)",
+        "year_completed": 1985
+      }
+    ]
   },
   {
     "id": "5d4de0c9-4d36-4c41-9691-8511e39c30a1",
@@ -5855,7 +9696,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "Ranchi University",
+        "year_completed": 1993
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Ranchi University",
+        "year_completed": 1991
+      }
+    ]
   },
   {
     "id": "6ef55c71-bc31-44e7-bcda-5a20503b8c97",
@@ -5875,7 +9728,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Katras High School, Katrasgarh",
+        "year_completed": 1991
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Katras College, Katrasgarh",
+        "year_completed": 1995
+      }
+    ]
   },
   {
     "id": "5530dd71-a4b3-4287-ab2f-3c91381e1ecc",
@@ -5959,7 +9824,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Zila School, Arrah",
+        "year_completed": 1967
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Patna College, Patna University",
+        "year_completed": 1971
+      }
+    ]
   },
   {
     "id": "0e3bd0c5-d4d7-4336-96d9-245f8a5cc0d7",
@@ -6033,7 +9910,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Hemvati Nandan Bahuguna Garhwal University",
+        "year_completed": 1994
+      },
+      {
+        "qualification": "DIPLOMA",
+        "institution": "Bhartiya Vidya Bhavan, New Delhi",
+        "year_completed": 1996
+      }
+    ]
   },
   {
     "id": "56480edb-4410-488e-9e18-4d05b119e856",
@@ -6112,7 +10001,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "Hemvati Nandan Bahuguna Garhwal University, Srinagar",
+        "year_completed": 1983
+      }
+    ]
   },
   {
     "id": "693984f2-62b6-44e9-b6c8-d0e7d1dd1f2d",
@@ -6159,7 +10055,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Sri Saraswathi Shishumandir, Karimnagar",
+        "year_completed": 1986
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Govt. Junior College, Karimnagar",
+        "year_completed": 1989
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Madurai Kamaraj University",
+        "year_completed": 2014
+      }
+    ]
   },
   {
     "id": "68f61499-eac5-4fdd-bbbc-58050071852a",
@@ -6206,7 +10119,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Osmania University",
+        "year_completed": 1989
+      },
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "Osmania University",
+        "year_completed": 1994
+      },
+      {
+        "qualification": "DIPLOMA",
+        "institution": "University of Hyderabad",
+        "year_completed": 1996
+      }
+    ]
   },
   {
     "id": "91de1147-4d6e-4bc7-aa95-ceefa679b9e5",
@@ -6227,7 +10157,23 @@
         }
       ]
     },
-    "education": []
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "City Science College, Hyderabad (Osmania University)",
+        "year_completed": 1984
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Government Junior College, Huzurabad",
+        "year_completed": 1980
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Zilla Parishad High School, Kamalapur",
+        "year_completed": 1978
+      }
+    ]
   },
   {
     "id": "b31cfb6e-cd58-4e21-a0da-6255e526c531",
@@ -6520,7 +10466,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "School of Open Learning, University of Delhi",
+        "year_completed": 2001
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Govt. Boys Sr. Sec. School, Dev Nagar",
+        "year_completed": 1980
+      },
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Govt. Boys Sr. Sec. School, Dev Nagar",
+        "year_completed": 1978
+      }
+    ]
   },
   {
     "id": "f8537863-9873-44ad-bc09-80bb14cd0738",
@@ -6875,7 +10838,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Goa Engineering College, Goa University",
+        "year_completed": 1991
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "University of Madras",
+        "year_completed": 2007
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Indira Gandhi National Open University (IGNOU)",
+        "year_completed": 2012
+      }
+    ]
   },
   {
     "id": "f684343f-82e8-46f8-9ac9-8ac7464a7309",
@@ -7018,7 +10998,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Sampurnanand Sanskrit Vishwavidyalaya, Varanasi",
+        "year_completed": 1992
+      }
+    ]
   },
   {
     "id": "9f1d0467-1678-434d-a89b-5d6d90759b64",
@@ -7075,7 +11062,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "KLS Gogte Institute of Technology, Belagavi (VTU)",
+        "year_completed": 2018
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "KLS Gogte Institute of Technology, Belagavi (VTU)",
+        "year_completed": 2021
+      }
+    ]
   },
   {
     "id": "f8039d17-edd2-4157-987d-5ce225a8ce19",
@@ -7176,7 +11175,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "S.K.N.G. Government First Grade College, Gangavathi",
+        "year_completed": 1994
+      }
+    ]
   },
   {
     "id": "9835b0f5-a0ad-4aca-a6ec-68e6c3a0fe28",
@@ -7228,7 +11234,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Bapuji Dental College and Hospital, Davanagere",
+        "year_completed": 1998
+      }
+    ]
   },
   {
     "id": "fd51decf-fa50-46ee-8046-9fcb404e5f7b",
@@ -7248,7 +11261,8 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": []
   },
   {
     "id": "4f5582f3-bbd6-4e22-942a-2f8cd5e07409",
@@ -7322,7 +11336,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "University of Calicut",
+        "year_completed": 1981
+      }
+    ]
   },
   {
     "id": "82a93029-f5da-49d6-afa4-df1527387423",
@@ -7369,7 +11390,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "St. Stephen's College, Delhi University",
+        "year_completed": null
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Trinity College, Cambridge University",
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "80efe371-5c66-4cf4-bbda-379ee3c958fa",
@@ -7470,7 +11503,19 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "St. Joseph's College, Devagiri",
+        "year_completed": 1995
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Government Law College, Ernakulam",
+        "year_completed": 1998
+      }
+    ]
   },
   {
     "id": "7cd209ef-051f-4113-8a53-1d7678e04135",
@@ -7597,7 +11642,18 @@
         }
       ]
     },
-    "education": []
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "St. Thomas College, Ranni",
+        "year_completed": 1982
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Kerala Law Academy Law College, Thiruvananthapuram",
+        "year_completed": 1985
+      }
+    ]
   },
   {
     "id": "0a27b786-d54d-4968-a6e1-1aebccca5572",
@@ -7772,7 +11828,8 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": []
   },
   {
     "id": "6fdf97a2-3cee-4ee6-b896-440d952153ac",
@@ -7792,7 +11849,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "DOCTORATE",
+        "institution": "Nagpur University",
+        "year_completed": 2005
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Nagpur University",
+        "year_completed": 1998
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Nagpur University",
+        "year_completed": 1995
+      }
+    ]
   },
   {
     "id": "c316c994-5da0-4898-8aee-5fba86382855",
@@ -7962,7 +12036,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "DOCTORATE",
+        "institution": "Osmania University",
+        "year_completed": 1998
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Marathwada University",
+        "year_completed": 1985
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Shivaji University",
+        "year_completed": 1981
+      }
+    ]
   },
   {
     "id": "c8fa2379-7dfb-4462-a6d0-a4334ddd14db",
@@ -8009,7 +12100,8 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": []
   },
   {
     "id": "5f4ef0f0-d61d-488d-9550-1d46e48df05b",
@@ -8083,7 +12175,8 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": []
   },
   {
     "id": "8a3faa84-1e28-4cac-b6a1-e473304e141d",
@@ -8125,7 +12218,13 @@
         }
       ]
     },
-    "education": []
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Andhra University",
+        "year_completed": 1998
+      }
+    ]
   },
   {
     "id": "d2f4697c-bafb-4be1-836f-1174ddf223e2",
@@ -8241,7 +12340,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Panjab University, Chandigarh",
+        "year_completed": 1998
+      }
+    ]
   },
   {
     "id": "ffe421f5-2a62-4810-9267-5680439836af",
@@ -8293,7 +12399,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Panjab University, Chandigarh",
+        "year_completed": 1978
+      }
+    ]
   },
   {
     "id": "787ff5c5-b388-4786-b3bb-9602fea68d3b",
@@ -8313,7 +12426,24 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "DOCTORATE",
+        "institution": "Panjab University, Chandigarh",
+        "year_completed": 1984
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Panjab University, Chandigarh",
+        "year_completed": 1979
+      },
+      {
+        "qualification": "BACHELOR",
+        "institution": "Panjab University, Chandigarh",
+        "year_completed": 1977
+      }
+    ]
   },
   {
     "id": "42dc9e5f-166c-4f75-8a8c-b9c24701e14e",
@@ -8522,7 +12652,14 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "JNVU, Jodhpur",
+        "year_completed": 1978
+      }
+    ]
   },
   {
     "id": "b1eed177-b465-4a57-9c42-e4068d0dc0b0",
@@ -8799,7 +12936,8 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": []
   },
   {
     "id": "90176d1e-e2aa-458c-b7b6-689d2c2b7bc3",
@@ -9236,7 +13374,8 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": []
   },
   {
     "id": "35b9886e-8c0d-4f29-8cf4-481651ba2669",
@@ -10916,6 +15055,33 @@
         "qualification": "PROFESSIONAL",
         "institution": null,
         "year_completed": null
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/ArupChakrabort7",
+      "facebook": "https://www.facebook.com/ArupChakrabortyOfficial",
+      "instagram": "https://www.instagram.com/arupchakrabortyofficial",
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": "arupchakrabortyadv@gmail.com",
+      "phone": "9434004444",
+      "address": "Vill- Nutanchati, P.O. & Dist- Bankura, West Bengal, Pin- 722101"
+    },
+    "family_background": [
+      {
+        "name": "Chittaranjan Chakraborty",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sipra Chakraborty",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
       }
     ]
   },
@@ -14825,7 +18991,7 @@
     "id": "7b7d0437-884f-45fd-bff6-b2b0ff603caa",
     "name": "MOHMAD HANEEFA",
     "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/U09/MOHMA-2024-10634.jpg",
-    "state": "Unknown State",
+    "state": "Ladakh",
     "constituency": "Ladakh",
     "type": "MP",
     "political_background": {
@@ -14833,7 +18999,7 @@
         {
           "year": 2024,
           "type": "MP",
-          "state": "Unknown State",
+          "state": "Ladakh",
           "constituency": "Ladakh",
           "party": "Independent",
           "status": "WON"

@@ -33,5 +33,8 @@ httpx>=0.25.2
 requests>=2.32.5
 beautifulsoup4>=4.12.2
 
+# --- Agent Tools ---
+ddgs>=7.0.0                      # Free web search (no API key)
+
 # --- Utilities ---
 python-dotenv>=1.0.0

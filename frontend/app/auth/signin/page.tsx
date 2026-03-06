@@ -5,10 +5,12 @@ import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useAnalytics } from '@/hooks/useAnalytics'
 
 function SignInContent() {
   const searchParams = useSearchParams()
   const callbackUrl = searchParams.get('callbackUrl') || '/dashboard'
+  const { trackEvent } = useAnalytics()
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center p-4">
@@ -29,7 +31,7 @@ function SignInContent() {
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3, type: "spring", stiffness: 200 }}
               className="flex justify-center mb-4">
-              <div className="text-5xl">🗳️</div>
+              <div className="text-5xl"><img src="/logo/voting-box.png" alt="Rajniti Logo" className='w-9 h-9' /></div>
             </motion.div>
             <motion.h1 
               initial={{ opacity: 0, y: 10 }}
@@ -54,7 +56,10 @@ function SignInContent() {
             transition={{ duration: 0.5, delay: 0.6 }}
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => signIn('google', { callbackUrl })}
+            onClick={() => {
+              trackEvent('login_start', { method: 'google', trigger_location: 'signin_page' })
+              signIn('google', { callbackUrl })
+            }}
             className="w-full flex items-center justify-center gap-3 bg-white border-2 border-gray-200 rounded-lg px-6 py-4 text-gray-700 font-semibold hover:bg-gray-50 hover:border-orange-300 transition-all shadow-sm hover:shadow-md">
             <svg className="w-6 h-6" viewBox="0 0 24 24">
               <path

@@ -6,11 +6,13 @@ import Image from "@/components/ui/Image"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import Link from "@/components/ui/Link"
+import { useAnalytics } from "@/hooks/useAnalytics"
 
 export default function UserButton() {
     const { data: session } = useSession()
     const [showMenu, setShowMenu] = useState(false)
     const menuRef = useRef<HTMLDivElement>(null)
+    const { trackEvent } = useAnalytics()
 
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
@@ -29,7 +31,10 @@ export default function UserButton() {
     }, [])
 
     if (!session) {
-        return <Button onClick={() => signIn()}>Sign In</Button>
+        return <Button onClick={() => {
+            trackEvent('login_start', { method: 'google', trigger_location: 'navbar_button' })
+            signIn()
+        }}>Sign In</Button>
     }
 
     return (
@@ -61,6 +66,7 @@ export default function UserButton() {
                     <Link
                         href='/dashboard'
                         variant='secondary'
+                        onClick={() => trackEvent('nav_click', { link_text: 'Dashboard', link_url: '/dashboard', nav_section: 'user_menu' })}
                         className='block px-4 py-2 text-sm hover:bg-gray-50 transition-colors cursor-pointer'>
                         Dashboard
                     </Link>
@@ -73,7 +79,10 @@ export default function UserButton() {
                     </Link> */}
 
                     <button
-                        onClick={() => signOut({ callbackUrl: "/" })}
+                        onClick={() => {
+                            trackEvent('logout', {})
+                            signOut({ callbackUrl: "/" })
+                        }}
                         className='w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors cursor-pointer'>
                         Sign Out
                     </button>
