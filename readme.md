@@ -14,8 +14,6 @@ Indian election + politician data project with a **JSON-first data layer** and a
 - **Education**: implemented (stored as an array in schema + JSON)
 - More fields (family, crime, contact, social, etc.) can be added as new process classes.
 
----
-
 ## Quick start (backend)
 
 ### Requirements

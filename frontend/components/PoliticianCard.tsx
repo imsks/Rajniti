@@ -1,10 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { motion } from "framer-motion"
 import Text from "@/components/ui/Text"
-import Image from "@/components/ui/Image"
-import { useAnalytics } from "@/hooks/useAnalytics"
+import SpotlightCard from "@/components/ui/SpotlightCard"
 import type { Politician } from "@/types/politician"
 
 interface PoliticianCardProps {
@@ -35,33 +33,22 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
     const initial = getPartyInitial(politician)
     const isMp = politician.type === "MP"
     const hasPhoto = !!politician.photo
-    const { trackEvent } = useAnalytics()
 
     return (
         <Link
             href={`/politician/${encodeURIComponent(politician.id)}`}
-            className='block group'
-            onClick={() => trackEvent('politician_card_click', {
-                politician_id: politician.id,
-                politician_name: politician.name,
-                politician_type: politician.type as "MP" | "MLA",
-                party,
-                state: politician.state,
-            })}>
-            <motion.div 
-                whileHover={{ y: -4, scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-                className='bg-white rounded-2xl shadow-sm border border-gray-200 p-5 hover:border-orange-400 hover:shadow-lg transition-all h-full flex flex-col'>
+            className='block group'>
+            <SpotlightCard className='bg-white rounded-2xl shadow-sm border border-gray-200 p-5 hover:border-orange-400 hover:shadow-lg transition-all h-full flex flex-col'>
                 {/* Top: Photo / Avatar + Name */}
                 <div className='flex items-start gap-4 mb-3'>
                     {hasPhoto ? (
-                        <Image
+                        <img
                             src={politician.photo!}
                             alt={politician.name}
-                            width={56}
-                            height={56}
-                            rounded='full'
-                            className='w-14 h-14 object-cover border-2 border-orange-200 flex-shrink-0'
+                            className='w-14 h-14 rounded-full object-cover border-2 border-orange-200 flex-shrink-0'
+                            onError={(e) => {
+                                (e.target as HTMLImageElement).style.display = "none"
+                            }}
                         />
                     ) : (
                         <div className='w-14 h-14 rounded-full bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center flex-shrink-0 border-2 border-orange-200'>
@@ -95,25 +82,23 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
                 </div>
 
                 {/* Info pills */}
-                <div className='flex flex-wrap gap-2 mb-3'>
+                <div className='flex flex-wrap gap-2 mt-auto'>
                     <span className='inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 rounded-lg text-xs text-gray-600'>
-                        <img src='/logo/location.png' className='w-4 h-4' /> {politician.constituency}
+                        📍 {politician.constituency}
                     </span>
                     <span className='inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 rounded-lg text-xs text-gray-600'>
-                        <img src='/logo/skyline.png' className='w-4 h-4' /> {politician.state}
+                        🏛️ {politician.state}
                     </span>
                 </div>
 
-                {/* CTA Button - Always visible */}
-                <div className='mt-auto pt-3 border-t border-gray-100'>
-                    <div className='flex items-center justify-between text-orange-600 group-hover:text-orange-700 transition-colors'>
-                        <Text variant='small' weight='semibold'>
-                            View Details
-                        </Text>
-                        <span className='transform group-hover:translate-x-1 transition-transform'>→</span>
-                    </div>
+                {/* Subtle CTA */}
+                <div className='mt-3 pt-3 border-t border-gray-100 flex items-center text-orange-600 opacity-0 group-hover:opacity-100 transition-opacity'>
+                    <Text variant='small' weight='semibold'>
+                        View Details
+                    </Text>
+                    <span className='ml-1'>→</span>
                 </div>
-            </motion.div>
+            </SpotlightCard>
         </Link>
     )
 }
