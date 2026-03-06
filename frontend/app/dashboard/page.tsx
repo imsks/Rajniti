@@ -6,7 +6,7 @@ import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import PoliticianCard from "@/components/PoliticianCard"
-import PoliticianCardSkeleton from "@/components/PoliticianCardSkeleton"
+import PoliticianCardWrapper from "@/components/PoliticianCardWrapper"
 import MyPoliticiansSection from "@/components/MyPoliticiansSection"
 import { usePoliticians } from "@/hooks/usePoliticians"
 import { useAnalytics } from "@/hooks/useAnalytics"
@@ -269,7 +269,7 @@ const { all, loading, error, states, parties, stats, filter } =
                {loading && (
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
         {Array.from({ length: 12 }).map((_, i) => (
-            <PoliticianCardSkeleton key={i} />
+            <PoliticianCardWrapper key={i} loading={true} />
         ))}
     </div>
 )}
