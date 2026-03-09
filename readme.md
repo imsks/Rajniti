@@ -193,6 +193,9 @@ Models fail over automatically (Gemini → OpenAI → Perplexity). Order is conf
 **3. Run the agent**
 
 ```bash
+# Run the agent for all politicians
+python3 scripts/run_politician_agent.py
+
 # Test with a small batch first
 python3 scripts/run_politician_agent.py --type MP --limit 3 --log-level INFO
 

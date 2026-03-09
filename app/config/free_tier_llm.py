@@ -75,7 +75,6 @@ class ProviderConfig:
 DEFAULT_PROVIDERS: list[dict[str, Any]] = [
     # --- Gemini (generous free tier) ---
     {"provider": "gemini", "model": "gemini-3.1-pro-preview", "api_key_env": "GEMINI_API_KEY"},
-    {"provider": "gemini", "model": "gemini-3-pro", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-3-flash-preview", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-2.5-pro", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-3-flash", "api_key_env": "GEMINI_API_KEY"},
@@ -442,7 +441,7 @@ class FreeTierLLM:
             if free_only and cfg.tier != "free":
                 continue
 
-            api_key = os.getenv(cfg.api_key_env)
+            api_key = (os.getenv(cfg.api_key_env) or "").strip()
             if not api_key:
                 logger.warning(
                     "FreeTierLLM: skip %s/%s (no %s)",
