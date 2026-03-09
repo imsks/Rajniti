@@ -103,13 +103,16 @@ Enrich politician profiles automatically using LLM-based agents.
 git clone https://github.com/<your-username>/Rajniti.git
 cd Rajniti
 
-# Backend
+# Backend (runs via Python venv)
 make install            # creates venv + installs deps
 cp .env.example .env    # configure your environment
+. venv/bin/activate     # activate the virtual environment
 
 # Frontend
 cd frontend && npm install
 ```
+
+Backend commands (`make run`, `make test`, db and lint targets) use the project **virtualenv** (`venv/`) automatically. To run Python scripts by hand, either use those Make targets or activate the venv first: `source venv/bin/activate` (or `make venv` for an interactive shell with venv active).
 
 ### 2. Configure Environment
 
@@ -135,12 +138,14 @@ NEXT_PUBLIC_API_URL=http://localhost:8000
 # Option A: Docker (backend + Postgres)
 make dev
 
-# Option B: Run backend directly
-make run                # starts Flask API on :8000
+# Option B: Run backend directly (via venv)
+make run                # starts Flask API on :8000 (uses project venv)
 
 # Frontend (separate terminal)
 make frontend           # starts Next.js on :3000
 ```
+
+To run other Python commands in the project venv, use `make venv` to open a shell with the venv activated, or run `source venv/bin/activate` in your terminal first.
 
 ### 4. Verify
 
