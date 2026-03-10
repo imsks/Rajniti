@@ -15,7 +15,7 @@ type Tab = "ALL" | "MP" | "MLA"
 export default function Dashboard() {
     return (
         <Suspense fallback={
-            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center'>
+            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 flex items-center justify-center'>
                 <div className='inline-block animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent'></div>
             </div>
         }>
@@ -81,15 +81,15 @@ const { all, loading, error, states, parties, stats, filter } =
 
     if (error) {
         return (
-            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center p-4'>
-                <div className='bg-white rounded-lg shadow-lg p-8 max-w-md w-full border-l-4 border-red-500'>
+            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 flex items-center justify-center p-4'>
+                <div className='bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 max-w-md w-full border-l-4 border-red-500'>
                     <div className='flex items-center gap-3 mb-4'>
                         <div className='text-red-500 text-3xl'>⚠️</div>
-                        <Text variant='h4' weight='bold' className='text-gray-900'>
+                        <Text variant='h4' weight='bold' className='text-gray-900 dark:text-white'>
                             Connection Error
                         </Text>
                     </div>
-                    <Text variant='body' className='text-gray-600 mb-4'>
+                    <Text variant='body' className='text-gray-600 dark:text-gray-400 mb-4'>
                         {error}
                     </Text>
                     <Button onClick={() => window.location.reload()} fullWidth>
@@ -101,7 +101,7 @@ const { all, loading, error, states, parties, stats, filter } =
     }
 
     return (
-        <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50'>
+        <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900'>
             <Navbar variant='dashboard' sticky={true} />
 
             <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8'>
@@ -114,10 +114,10 @@ const { all, loading, error, states, parties, stats, filter } =
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     className='mb-8'>
-                    <Text variant='h2' weight='bold' className='text-gray-900 mb-2'>
+                    <Text variant='h2' weight='bold' className='text-gray-900 dark:text-white mb-2'>
                         <span className='text-orange-600'>Indian</span>  Politicians
                     </Text>
-                    <Text variant='body' className='text-gray-600 mb-6'>
+                    <Text variant='body' className='text-gray-600 dark:text-gray-400 mb-6'>
                         Browse elected MPs and MLAs. Help us enrich their profiles!
                     </Text>
 
@@ -175,7 +175,7 @@ const { all, loading, error, states, parties, stats, filter } =
                             className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${
                                 activeTab === tab
                                     ? "bg-orange-500 text-white shadow-md"
-                                    : "bg-white text-gray-600 border border-gray-300 hover:border-orange-400 hover:text-orange-600"
+                                    : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:border-orange-400 dark:hover:border-orange-500 hover:text-orange-600 dark:hover:text-orange-400"
                             }`}>
                             {tab === "ALL"
                                 ? "All"
@@ -191,7 +191,7 @@ const { all, loading, error, states, parties, stats, filter } =
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
-                    className='bg-white rounded-2xl shadow-sm border border-gray-200 p-4 mb-6'>
+                    className='bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 mb-6'>
                     <div className='flex flex-col md:flex-row gap-3'>
                         {/* Search input */}
                         <div className='flex-1 relative'>
@@ -207,7 +207,7 @@ const { all, loading, error, states, parties, stats, filter } =
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 placeholder='Search by name, constituency, state or party...'
-                                className='w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent'
+                                className='w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent'
                             />
                         </div>
 
@@ -218,7 +218,7 @@ const { all, loading, error, states, parties, stats, filter } =
                                 setStateFilter(e.target.value)
                                 if (e.target.value) trackEvent('filter_apply', { filter_type: 'state', filter_value: e.target.value })
                             }}
-                            className='px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 min-w-[180px]'>
+                            className='px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 min-w-[180px]'>
                             <option value=''>All States</option>
                             {states.map((s) => (
                                 <option key={s} value={s}>
@@ -234,7 +234,7 @@ const { all, loading, error, states, parties, stats, filter } =
                                 setPartyFilter(e.target.value)
                                 if (e.target.value) trackEvent('filter_apply', { filter_type: 'party', filter_value: e.target.value })
                             }}
-                            className='px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 min-w-[180px]'>
+                            className='px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 min-w-[180px]'>
                             <option value=''>All Parties</option>
                             {parties.map((p) => (
                                 <option key={p} value={p}>
@@ -246,8 +246,8 @@ const { all, loading, error, states, parties, stats, filter } =
 
                     {/* Active filters summary */}
                     {hasActiveFilters && (
-                        <div className='flex items-center gap-2 mt-3 pt-3 border-t border-gray-100'>
-                            <Text variant='small' className='text-gray-500'>
+                        <div className='flex items-center gap-2 mt-3 pt-3 border-t border-gray-100 dark:border-gray-700'>
+                            <Text variant='small' className='text-gray-500 dark:text-gray-400'>
                                 Showing {displayPoliticians.length.toLocaleString()} result
                                 {displayPoliticians.length !== 1 ? "s" : ""}
                             </Text>
@@ -278,10 +278,10 @@ const { all, loading, error, states, parties, stats, filter } =
                 {!loading && displayPoliticians.length === 0 && (
                     <div className='text-center py-20'>
                         <div className='text-6xl mb-4'>🔍</div>
-                        <Text variant='h4' weight='bold' className='text-gray-700 mb-2'>
+                        <Text variant='h4' weight='bold' className='text-gray-700 dark:text-gray-200 mb-2'>
                             No politicians found
                         </Text>
-                        <Text variant='body' className='text-gray-500'>
+                        <Text variant='body' className='text-gray-500 dark:text-gray-400'>
                             {hasActiveFilters
                                 ? "Try adjusting your search or filters."
                                 : "No data available yet."}
@@ -294,11 +294,11 @@ const { all, loading, error, states, parties, stats, filter } =
                     <>
                         {/* Results info and items per page selector */}
                         <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6'>
-                            <Text variant='body' className='text-gray-600'>
+                            <Text variant='body' className='text-gray-600 dark:text-gray-400'>
                                 Showing {startIndex + 1}-{Math.min(endIndex, displayPoliticians.length)} of {displayPoliticians.length} politicians
                             </Text>
                             <div className='flex items-center gap-2'>
-                                <Text variant='body' className='text-gray-600 text-sm'>
+                                <Text variant='body' className='text-gray-600 dark:text-gray-400 text-sm'>
                                     Show:
                                 </Text>
                                 <select
@@ -308,13 +308,13 @@ const { all, loading, error, states, parties, stats, filter } =
                                         setItemsPerPage(val)
                                         trackEvent('filter_apply', { filter_type: 'items_per_page', filter_value: String(val) })
                                     }}
-                                    className='px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white'>
+                                    className='px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200'>
                                     <option value={12}>12</option>
                                     <option value={24}>24</option>
                                     <option value={48}>48</option>
                                     <option value={96}>96</option>
                                 </select>
-                                <Text variant='body' className='text-gray-600 text-sm'>
+                                <Text variant='body' className='text-gray-600 dark:text-gray-400 text-sm'>
                                     per page
                                 </Text>
                             </div>
@@ -347,7 +347,7 @@ const { all, loading, error, states, parties, stats, filter } =
                                         trackEvent('pagination', { direction: 'previous', page_number: newPage, total_pages: totalPages })
                                     }}
                                     disabled={currentPage === 1}
-                                    className='px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors'>
+                                    className='px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors'>
                                     Previous
                                 </button>
 
@@ -358,7 +358,7 @@ const { all, loading, error, states, parties, stats, filter } =
                                         trackEvent('pagination', { direction: 'next', page_number: newPage, total_pages: totalPages })
                                     }}
                                     disabled={currentPage === totalPages}
-                                    className='px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors'>
+                                    className='px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors'>
                                     Next
                                 </button>
                             </div>
@@ -416,11 +416,11 @@ function StatCard({
     return (
         <motion.div 
             whileHover={{ y: -4, transition: { duration: 0.2 } }}
-            className='bg-white rounded-xl p-4 border border-gray-200 shadow-sm'>
+            className='bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm'>
             <Text variant='h3' weight='bold' className={color}>
                 {value}
             </Text>
-            <Text variant='small' className='text-gray-500'>
+            <Text variant='small' className='text-gray-500 dark:text-gray-400'>
                 {label}
             </Text>
         </motion.div>

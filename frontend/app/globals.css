@@ -1,8 +1,15 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
 }
 
 body {
@@ -61,10 +68,33 @@ html {
   background: #0f172a;
 }
 
+/* Dark mode scrollbar */
+:where(.dark) ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+:where(.dark) ::-webkit-scrollbar-thumb {
+  background: #ea580c;
+  border-color: #1e293b;
+}
+
+:where(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+  border-color: #334155;
+}
+
+:where(.dark) ::-webkit-scrollbar-thumb:active {
+  background: #fb923c;
+}
+
 /* Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: #ea580c #f1f5f9;
+}
+
+:where(.dark) * {
+  scrollbar-color: #ea580c #1e293b;
 }
 
 @theme inline {

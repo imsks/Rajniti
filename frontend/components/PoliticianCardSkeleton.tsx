@@ -4,7 +4,7 @@ import Shimmer from "@/components/ui/Shimmer"
 
 function SkeletonBox({ className }: { className: string }) {
     return (
-        <div className={`relative overflow-hidden bg-gray-200 rounded ${className}`}>
+        <div className={`relative overflow-hidden bg-gray-200 dark:bg-gray-700 rounded ${className}`}>
             <Shimmer />
         </div>
     )
@@ -12,7 +12,7 @@ function SkeletonBox({ className }: { className: string }) {
 
 export default function PoliticianCardSkeleton() {
     return (
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-5 h-full flex flex-col">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 h-full flex flex-col">
             {/* Avatar + Name */}
             <div className="flex items-start gap-4 mb-3">
                 <SkeletonBox className="w-14 h-14 rounded-full flex-shrink-0" />
@@ -30,7 +30,7 @@ export default function PoliticianCardSkeleton() {
             </div>
 
             {/* Footer */}
-            <div className="mt-auto pt-3 border-t border-gray-100">
+            <div className="mt-auto pt-3 border-t border-gray-100 dark:border-gray-700">
                 <SkeletonBox className="h-4 w-24 rounded" />
             </div>
         </div>
