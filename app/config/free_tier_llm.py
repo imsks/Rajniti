@@ -34,6 +34,22 @@ load_dotenv()
 
 logger = logging.getLogger(__name__)
 
+
+def _float_env(name: str, default: float) -> float:
+    """Read a positive float from env, else fallback to default."""
+    raw = (os.getenv(name) or "").strip()
+    if not raw:
+        return default
+    try:
+        value = float(raw)
+        return value if value > 0 else default
+    except Exception:
+        return default
+
+
+# Hard timeout per candidate call so failover cannot stall indefinitely.
+_REQUEST_TIMEOUT_SECS = _float_env("FREE_TIER_LLM_TIMEOUT_SECS", 7.0)
+
 # ---------------------------------------------------------------------------
 # 1. Provider config schema
 # ---------------------------------------------------------------------------
@@ -84,7 +100,6 @@ DEFAULT_PROVIDERS: list[dict[str, Any]] = [
     {"provider": "groq", "model": "llama-3.3-70b-versatile", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
     {"provider": "groq", "model": "llama-3.1-8b-instant", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
     {"provider": "groq", "model": "meta-llama/llama-4-scout-17b-16e-instruct", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
-    {"provider": "groq", "model": "gemma2-9b-it", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
     {"provider": "groq", "model": "qwen/qwen3-32b", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
     {"provider": "groq", "model": "meta-llama/llama-4-scout-17b-16e-instruct", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
     {"provider": "groq", "model": "openai/gpt-oss-safeguard-20b", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
@@ -135,6 +150,7 @@ def _build_llm(
         kwargs: dict[str, Any] = dict(
             api_key=api_key, model=model, temperature=0,
             max_retries=0,  # our wrapper handles fallback — no internal retries
+            request_timeout=_REQUEST_TIMEOUT_SECS,
         )
         if base_url:
             kwargs["base_url"] = base_url
@@ -150,6 +166,7 @@ def _build_llm(
         return ChatGoogleGenerativeAI(
             google_api_key=api_key, model=model, temperature=0,
             max_retries=0,  # our wrapper handles fallback — no internal retries
+            timeout=_REQUEST_TIMEOUT_SECS,
         )
 
     _BUILDERS: dict[str, Callable[[], Any]] = {
