@@ -122,7 +122,7 @@ Copy `.env.example` and fill in the required values:
 # Backend — .env
 FLASK_ENV=development
 DATABASE_URL=postgresql://postgres:postgres@localhost:5432/rajniti   # optional
-GEMINI_API_KEY=your-key-here          # at least one LLM key required for agents
+GEMINI_API_KEY=your-key-here          # free tier — only key you need to get started
 
 # Frontend — frontend/.env
 NEXTAUTH_URL=http://localhost:3000
@@ -182,11 +182,13 @@ cp .env.example .env                 # add your API key(s)
 
 **2. Get an API key** (at least one)
 
-| Provider | How to Get a Key | Env Variable |
-|----------|-----------------|--------------|
-| **Gemini** | [Google AI Studio](https://aistudio.google.com/apikey) | `GEMINI_API_KEY` |
-| **OpenAI** | [platform.openai.com](https://platform.openai.com/api-keys) | `OPENAI_API_KEY` |
-| **Perplexity** | [perplexity.ai](https://www.perplexity.ai/settings/api) | `PERPLEXITY_API_KEY` |
+| Provider | How to Get a Key | Env Variable | Cost |
+|----------|-----------------|--------------|------|
+| **Gemini** | [Google AI Studio](https://aistudio.google.com/apikey) | `GEMINI_API_KEY` | **Free tier** (rate-limited) |
+| **OpenAI** | [platform.openai.com](https://platform.openai.com/api-keys) | `OPENAI_API_KEY` | Paid |
+| **Perplexity** | [perplexity.ai](https://www.perplexity.ai/settings/api) | `PERPLEXITY_API_KEY` | Paid |
+
+> **Fastest setup:** Get a free Gemini key from [Google AI Studio](https://aistudio.google.com/apikey), paste it as `GEMINI_API_KEY` in your `.env`, and you're ready to run agents — no paid key needed.
 
 Models fail over automatically (Gemini → OpenAI → Perplexity). Order is configured in `app/config/agent_config.py`.
 
@@ -304,6 +306,7 @@ Rajniti/
 ├── frontend/
 │   ├── app/               # Next.js App Router pages
 │   ├── components/        # React components
+│   ├── data/              # Generated static data (contributors.json)
 │   ├── hooks/             # Custom React hooks
 │   └── lib/               # Shared utilities
 ├── scripts/               # CLI scripts (agent runner, DB, MLA fetcher)
@@ -341,6 +344,28 @@ make prod      # API only, expects external Postgres (e.g. Supabase)
 make stop      # Stop all containers
 make clean     # Remove containers + volumes
 make reset     # Full reset (wipes data, fresh start)
+```
+
+---
+
+## 👥 Contributors
+
+Contributors are highlighted on the website at [`/contributors`](https://rajniti.in/contributors).
+
+**How it works:**
+
+- `scripts/generate_contributors.py` fetches contributor data from the GitHub API and writes `frontend/data/contributors.json`.
+- A GitHub Actions workflow (`.github/workflows/update_contributors.yml`) runs weekly (Monday midnight UTC) and on manual dispatch to keep the file up to date. It only commits when the data has actually changed.
+- The frontend reads the static JSON at build time — no runtime GitHub API calls.
+
+**Running locally:**
+
+```bash
+# Generate/refresh contributors data (optional GITHUB_TOKEN for higher rate limits)
+python scripts/generate_contributors.py
+
+# With a token
+GITHUB_TOKEN=ghp_... python scripts/generate_contributors.py
 ```
 
 ---

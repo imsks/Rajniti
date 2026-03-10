@@ -19,7 +19,7 @@ export default function Footer() {
                             Open source · Built for India · Community driven
                         </Text>
                         <p className='text-gray-500 text-sm mt-1'>
-                            Built with love ❤️ in India 🇮🇳
+                            Built with ❤️ in 🇮🇳
                         </p>
                     </div>
 
@@ -42,6 +42,13 @@ export default function Footer() {
                             className='text-gray-400 hover:text-white transition-colors text-sm'
                         >
                             About
+                        </Link>
+                        <Link
+                            href='/contributors'
+                            onClick={() => trackEvent('nav_click', { link_text: 'Contributors', link_url: '/contributors', nav_section: 'footer' })}
+                            className='text-gray-400 hover:text-white transition-colors text-sm'
+                        >
+                            Contributors
                         </Link>
                     </nav>
                 </div>
