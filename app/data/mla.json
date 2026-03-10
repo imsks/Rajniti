@@ -45967,5 +45967,1152 @@
       "summary": null
     },
     "notes": null
+  },
+  {
+    "id": "e5a1c24f-1cc8-5677-98a2-132683396d3e",
+    "name": "PRADYUMANSINH MAHIPATSINH JADEJA",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "ABDASA",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [
+      {
+        "qualification": "OTHERS",
+        "institution": "Viranimoti Private School",
+        "year_completed": 1975
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Mahipatsinh Kesharisingh Jadeja",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": null,
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": null,
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [
+      {
+        "name": "Case under IPC sections 332, 186, 504, 114 related to obstructing and assaulting a public servant",
+        "type": "OTHERS",
+        "year": 2012
+      }
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": "[http://pmjadeja.com](http://pmjadeja.com)"
+    },
+    "contact": {
+      "email": "[pmjadeja7007@gmail.com](mailto:pmjadeja7007@gmail.com)",
+      "phone": "9427767007",
+      "address": "Shop No 2, Shyam Plaza, Near Animal Healthcare, Nakhatrana, Kachchh, Gujarat 370615"
+    },
+    "political_background": {
+      "elections": [
+        {
+          "year": 2017,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Abdasa",
+          "party": "Indian National Congress",
+          "status": "WON"
+        },
+        {
+          "year": 2020,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Abdasa",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        },
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Abdasa",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ],
+      "summary": "Pradyumansinh Mahipatsinh Jadeja is a Gujarat MLA from Abdasa. He first won the seat in 2017 as an Indian National Congress candidate, later resigned from Congress in 2020 and joined the Bharatiya Janata Party. He won the 2020 by-election and was re-elected in the 2022 Gujarat Legislative Assembly election as a BJP candidate."
+    },
+    "notes": null
+  },
+  {
+    "id": "8220ccbd-1966-5f4a-90a8-432a47a63568",
+    "name": "CHAITANYA MAKARANDBHAI DESAI",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "AKOTA",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Maharaja Sayajirao University of Baroda",
+        "year_completed": 1995
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Makarandbhai Desai",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": null,
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Akota",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ],
+      "summary": "Chaitanya Makarandbhai Desai is an Indian politician from Gujarat and a member of the Bharatiya Janata Party. He was elected as a Member of the Gujarat Legislative Assembly from the Akota constituency in the 2022 Gujarat Assembly elections."
+    },
+    "notes": null
+  },
+  {
+    "id": "3bea87e3-a7b8-5d5c-ab46-ef307c6655d7",
+    "name": "DR HASMUKH PATEL",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "AMRAIWADI",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [
+      {
+        "qualification": "PROFESSIONAL",
+        "institution": "B. J. Medical College, Ahmedabad",
+        "year_completed": 1990
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Ranchhodbhai Patel",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": null,
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [
+        {
+          "year": 2017,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Amraiwadi",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        },
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Amraiwadi",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ],
+      "summary": "Dr. Hasmukh Patel is an Indian politician and medical professional from Gujarat. He is a member of the Bharatiya Janata Party and has been elected as the MLA from the Amraiwadi constituency in the Gujarat Legislative Assembly in 2017 and again in 2022."
+    },
+    "notes": null
+  },
+  {
+    "id": "93400a0a-9f83-5994-8b5a-fb9ebc492747",
+    "name": "KAUSHIK KANTIBHAI VEKARIYA",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "AMRELI",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Saurashtra University",
+        "year_completed": 2003
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Kantibhai Vekariya",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": null,
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Amreli",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ],
+      "summary": "Kaushik Kantibhai Vekariya is an Indian politician from Gujarat and a member of the Bharatiya Janata Party. He was elected as a Member of the Gujarat Legislative Assembly from the Amreli constituency in the 2022 Gujarat Assembly election."
+    },
+    "notes": null
+  },
+  {
+    "id": "3cf0ddf6-d8a9-5a82-8b77-c835d10eeea4",
+    "name": "YOGESH R PATEL",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "ANAND",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": "Sardar Patel University",
+        "year_completed": 1980
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Ramanbhai Patel",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": null,
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [
+        {
+          "year": 1998,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Anand",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        },
+        {
+          "year": 2002,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Anand",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        },
+        {
+          "year": 2007,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Anand",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        },
+        {
+          "year": 2012,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Anand",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        },
+        {
+          "year": 2017,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Anand",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        },
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Anand",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ],
+      "summary": "Yogesh R. Patel is a senior Bharatiya Janata Party leader from Gujarat and a long-serving MLA from the Anand constituency. He has been elected multiple times since 1998 and has served as a minister in the Government of Gujarat, holding portfolios including Narmada Development, Water Resources, and Water Supply."
+    },
+    "notes": null
+  },
+  {
+    "id": "286c6a77-ff1e-5d41-b1f3-a4348b1d7aa6",
+    "name": "CHHANGA TRIKAM BIJAL",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "ANJAR",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": null,
+        "year_completed": null
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Trikam Bijal",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": null,
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [
+        {
+          "year": 2017,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Anjar",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        },
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Anjar",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ],
+      "summary": "Chhanga Trikam Bijal is an Indian politician from Gujarat and a member of the Bharatiya Janata Party. He has been elected as a Member of the Gujarat Legislative Assembly from the Anjar constituency, winning the seat in the 2017 and 2022 Gujarat Assembly elections."
+    },
+    "notes": null
+  },
+  {
+    "id": "fed67017-78ad-5f6b-82bd-4ac2aa34ff81",
+    "name": "AMIT CHAVDA",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "ANKLAV",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Sardar Patel University",
+        "year_completed": 2001
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Sardar Patel University",
+        "year_completed": 2003
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Ishwarbhai Chavda",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": null,
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": "[https://twitter.com/AmitChavdaINC](https://twitter.com/AmitChavdaINC)",
+      "facebook": "[https://www.facebook.com/AmitChavdaINC](https://www.facebook.com/AmitChavdaINC)",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [
+        {
+          "year": 2012,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Anklav",
+          "party": "Indian National Congress",
+          "status": "WON"
+        },
+        {
+          "year": 2017,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Anklav",
+          "party": "Indian National Congress",
+          "status": "WON"
+        },
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Anklav",
+          "party": "Indian National Congress",
+          "status": "WON"
+        }
+      ],
+      "summary": "Amit Chavda is an Indian politician from Gujarat and a senior leader of the Indian National Congress. He has been elected multiple times as the MLA from the Anklav constituency since 2012. He previously served as the President of the Gujarat Pradesh Congress Committee and has been an active figure in state politics."
+    },
+    "notes": null
+  },
+  {
+    "id": "e00df34b-ba8b-5996-bb12-fa54be92d3ab",
+    "name": "ISHWARSINH THAKORBHAI PATEL",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "ANKLESHWAR",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [
+      {
+        "qualification": "HIGH_SCHOOL",
+        "institution": null,
+        "year_completed": null
+      }
+    ],
+    "family_background": [
+      {
+        "name": "Thakorbhai Patel",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": null,
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [
+        {
+          "year": 2017,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Ankleshwar",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        },
+        {
+          "year": 2022,
+          "type": "MLA",
+          "state": "Gujarat",
+          "constituency": "Ankleshwar",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ],
+      "summary": "Ishwarsinh Thakorbhai Patel is an Indian politician from Gujarat and a member of the Bharatiya Janata Party. He has been elected as the Member of the Gujarat Legislative Assembly from the Ankleshwar constituency, winning the seat in the 2017 and 2022 Gujarat Assembly elections."
+    },
+    "notes": null
+  },
+  {
+    "id": "33df5a4a-4871-5ee4-87ea-ed78de8d432e",
+    "name": "DARSHNA M VAGHELA",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "ASARWA",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "9cf14810-18e7-5cf6-a378-c65d93df765c",
+    "name": "MANSINH KOHYABHAI CHAUHAN",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "BALASINOR",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "1cb3c4c9-0363-59fa-b03c-495728cb81c2",
+    "name": "ANANTKUMAR HASMUKHBHAI PATEL",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "BANSDA",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "ba47523c-674f-5ad0-98f8-acb4b5d26df7",
+    "name": "DINESHSINH RAJENDRASINH KUSHWAHA",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "BAPUNAGAR",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "a941ac5a-fa99-55a5-a8d6-27c8494eb963",
+    "name": "ISHVARBHAI ALIAS ANILBHAI RAMANBHAI PARMAR",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "BARDOLI",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "42292b6f-6688-529f-af5d-1e4344dd3c5c",
+    "name": "DHAVALSINH NARENDRASINH ZALA",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "BAYAD",
+    "party": "Independent",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "a9fe28b7-7d9a-5945-ab0b-4b9dc9c4575e",
+    "name": "THAKOR SUKHAJI SOMAJI",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "BECHARAJI",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "6e880563-c7f4-5e9e-ac63-f14701fc9f8b",
+    "name": "RAMESHBHAI NARANDAS MISTRY",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "BHARUCH",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "fdc6e02e-f8ac-54b7-828d-0cebbaf82d4e",
+    "name": "SEJALBEN RAJIVKUMAR PANDYA",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "BHAVNAGAR EAST",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "85a12880-c002-59b2-b8da-6f77db0a72e0",
+    "name": "PARSHOTTAMBHAI ODHAVJIBHAI SOLANKI",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "BHAVNAGAR RURAL",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "5c9021bf-aada-52cf-9d75-58a9b62b86a1",
+    "name": "JITENDRA SAVJIBHAI VAGHANI",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "BHAVNAGAR WEST",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "2f4e117c-bb0f-5daa-a1f9-93c4441c8e20",
+    "name": "POONAMCHAND BARANDA",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "BHILODA",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "d59a9b7d-1f40-5f68-a8d9-7bbde516f835",
+    "name": "KESHAVLAL SHIVDAS PATEL",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "BHUJ",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "1067ab69-c050-5588-8328-5815be7a0801",
+    "name": "KESHRAJJI CHAUHAN",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "DEODAR",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "2cd4bc7e-e4e7-528f-882f-9eea054df39b",
+    "name": "PRAVEEN MALI",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "DEESA",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "11c3bf03-db77-5ee1-9904-e9cbd43822b9",
+    "name": "SHAILESH PARMAR",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "DANILIMDA",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "c210da4c-ecd3-5ea9-86e5-f4fcb58181de",
+    "name": "KAUSHIK JAIN",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "DARIAPUR",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "34c537a5-0799-5e30-a72a-b0b895cad715",
+    "name": "RAJENDRA CHAVDA",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "KADI",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "a0cfa7be-80d1-5e6c-91c0-2f415078b974",
+    "name": "BHUPENDRABHAI PATEL",
+    "photo": null,
+    "state": "Gujarat",
+    "constituency": "GHATLODIA",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
   }
 ]
