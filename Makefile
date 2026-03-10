@@ -1,8 +1,8 @@
 # Rajniti Makefile
-.PHONY: help dev prod run stop logs clean reset test test-unit test-e2e coverage lint format db-init db-migrate db-reset db-shell frontend frontend-test frontend-lint install install-dev
+.PHONY: help dev prod run venv stop logs clean reset test test-unit test-e2e coverage lint format db-init db-migrate db-reset db-shell frontend frontend-test frontend-lint install install-dev
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# DEVELOPMENT
+# DEVELOPMENT (backend targets use project venv: venv/)
 # ═══════════════════════════════════════════════════════════════════════════════
 
 help: ## Show commands
@@ -14,7 +14,7 @@ dev: ## Start with local Postgres (Docker)
 prod: ## Start with Supabase (Docker)
 	docker compose -f docker-compose.prod.yml up --build
 
-run: ## Run local Python server
+run: ## Run local Python server (via venv)
 	. venv/bin/activate && python run.py
 
 stop: ## Stop all containers

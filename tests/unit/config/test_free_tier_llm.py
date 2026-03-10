@@ -5,7 +5,7 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from app.config.free_tier_llm import FreeTierLLM, ProviderConfig
+from app.config.free_tier_llm import FreeTierLLM, ProviderConfig, _build_llm
 
 
 # -- helpers ----------------------------------------------------------------
@@ -274,3 +274,41 @@ class TestProviderConfig:
         assert cfg.base_url == "https://custom.api"
         assert cfg.tier == "paid"
         assert cfg.tags == ("fallback", "expensive")
+
+
+@pytest.mark.unit
+class TestBuildLLMTimeouts:
+
+    def test_openai_compatible_includes_request_timeout(self):
+        captured = {}
+
+        class DummyChatOpenAI:
+            def __init__(self, **kwargs):
+                captured.update(kwargs)
+
+        class DummyModule:
+            ChatOpenAI = DummyChatOpenAI
+
+        with patch("importlib.import_module", return_value=DummyModule()):
+            llm = _build_llm("groq", "llama-3.3-70b-versatile", "k", "https://api.groq.com/openai/v1")
+
+        assert llm is not None
+        assert "request_timeout" in captured
+        assert captured["request_timeout"] > 0
+
+    def test_gemini_includes_timeout(self):
+        captured = {}
+
+        class DummyChatGoogleGenerativeAI:
+            def __init__(self, **kwargs):
+                captured.update(kwargs)
+
+        class DummyModule:
+            ChatGoogleGenerativeAI = DummyChatGoogleGenerativeAI
+
+        with patch("importlib.import_module", return_value=DummyModule()):
+            llm = _build_llm("gemini", "gemini-3-flash-preview", "k")
+
+        assert llm is not None
+        assert "timeout" in captured
+        assert captured["timeout"] > 0

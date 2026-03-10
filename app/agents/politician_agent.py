@@ -554,6 +554,15 @@ class PoliticianAgent(BaseAgent):
     def _mark_cached(self, politician_id: str) -> None:
         self.cache.set(politician_id, {"processed": True})
 
+    def _process_cache_key(self, politician_id: str, process_name: str) -> str:
+        return f"{politician_id}:{process_name}"
+
+    def _is_process_cached(self, politician_id: str, process_name: str) -> bool:
+        return self.cache.exists(self._process_cache_key(politician_id, process_name))
+
+    def _mark_process_cached(self, politician_id: str, process_name: str) -> None:
+        self.cache.set(self._process_cache_key(politician_id, process_name), {"processed": True})
+
     @log(logger, "PoliticianAgent._run_one_by_id")
     def _run_one_by_id(
         self, politician_id: str, force: bool = False
@@ -646,6 +655,16 @@ class PoliticianAgent(BaseAgent):
         skipped_results: list[Dict[str, Any]] = []
 
         for process in self.processes:
+            if not force and self._is_process_cached(politician_id, process.name):
+                skipped_results.append(
+                    {
+                        "process": process.name,
+                        "ok": True,
+                        "skipped": True,
+                        "reason": "cached_processed",
+                    }
+                )
+                continue
             if process.should_run(politician, force):
                 active_processes.append(process)
             else:
@@ -730,6 +749,8 @@ class PoliticianAgent(BaseAgent):
                 process_results.append(result)
 
                 # ── 4. Persist updates immediately (serialised) ──────────
+                if result.get("ok") and not result.get("skipped"):
+                    self._mark_process_cached(politician_id, process.name)
                 if (
                     result.get("ok")
                     and not result.get("skipped")

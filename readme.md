@@ -1,260 +1,385 @@
-## Rajniti
+<div align="center">
 
-Indian election + politician data project with a **JSON-first data layer** and an **agentic enrichment layer** (LLM-powered).
+# 🏛️ Rajniti
 
-### What lives where
+**Open-source Indian politician data platform — powered by AI enrichment**
 
-- **JSON data (source of truth)**: `app/data/mp.json`, `app/data/mla.json`
-- **Agentic enrichment (writes back to JSON)**: `app/agents/`
-- **Prompt builders**: `app/prompts/`
-- **Mini cache (skip already-processed politician IDs)**: `app/database/cache.db` (SQLite)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=flat&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![Flask](https://img.shields.io/badge/Flask-REST_API-000000?style=flat&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![LangChain](https://img.shields.io/badge/LangChain-Agents-1C3C3C?style=flat&logo=langchain&logoColor=white)](https://www.langchain.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat)](https://opensource.org/licenses/MIT)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com/)
+[![CI](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white)](#)
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
 
-### Current enrichment coverage
+<br />
 
-- **Education**: implemented (stored as an array in schema + JSON)
-- More fields (family, crime, contact, social, etc.) can be added as new process classes.
+Browse, search, and explore data on Indian MPs and MLAs.  
+Enrich politician profiles automatically using LLM-based agents.
 
----
+[Getting Started](#-getting-started) · [Contributing with AI](#-contributing-with-ai) · [API Reference](#-api-endpoints) · [Project Structure](#-project-structure)
 
-## Quick start (backend)
-
-### Requirements
-
-- **Python**: 3.9+
-
-### Setup (one simple install)
-
-```bash
-python3 -m venv venv
-. venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env
-```
-
-To install test/dev-only tools (optional):
-
-```bash
-. venv/bin/activate
-pip install -r requirements-test.txt
-```
-
-### Update / upgrade dependencies
-
-```bash
-. venv/bin/activate
-pip install -U -r requirements.txt
-```
-
-### Run API
-
-```bash
-make run
-```
+</div>
 
 ---
 
-## Agentic enrichment (how to fill politician details)
+## ✨ Features
 
-The enrichment pipeline:
-
-- Reads MPs/MLAs from JSON (`PoliticianService`)
-- Skips any politician ID already in SQLite cache (unless `--force`)
-- Runs available processes (currently only **Education**)
-- Persists updates back to `mp.json` / `mla.json`
-
-### Run the politician agent
-
-- **All politicians (MP + MLA)**:
-
-```bash
-python3 scripts/run_politician_agent.py
-```
-
-- **Only MPs**:
-
-```bash
-python3 scripts/run_politician_agent.py --type MP
-```
-
-- **Only MLAs**:
-
-```bash
-python3 scripts/run_politician_agent.py --type MLA
-```
-
-- **Single politician by ID**:
-
-```bash
-python3 scripts/run_politician_agent.py --id "<POLITICIAN_ID>"
-```
-
-- **Force re-run (ignore cache)**:
-
-```bash
-python3 scripts/run_politician_agent.py --type MP --force
-```
-
-- **Limit processed (useful for testing)**:
-
-```bash
-python3 scripts/run_politician_agent.py --type MP --limit 5
-```
-
-### Logging (recommended)
-
-```bash
-python3 scripts/run_politician_agent.py --type MP --limit 3 --log-level DEBUG
-```
+| | Feature | Description |
+|---|---|---|
+| 🔍 | **Search & Browse** | Look up MPs and MLAs by name, state, constituency, or party |
+| 🤖 | **AI Enrichment** | Automatically fill education, family, criminal records, and more using LLMs |
+| 🔄 | **Multi-Model Failover** | Gemini → OpenAI → Perplexity with per-model cooldown on rate limits |
+| 🗃️ | **JSON-First Data** | Source of truth lives in version-controlled JSON files |
+| 🧠 | **Vector Search** | Ask natural-language questions about politicians (ChromaDB) |
+| 🔐 | **Google OAuth** | User accounts via NextAuth with backend sync |
+| 📊 | **Stats Dashboard** | Party breakdown, state coverage, and enrichment progress |
 
 ---
 
-## LLM providers (multi-model failover with per-model cooldown)
+## 🏗️ Tech Stack
 
-Agents use a **failover LLM client** (`app/config/agent_config.py`):
+<table>
+<tr>
+<td align="center" width="50%">
 
-- **Model list** is defined in `PROVIDER_CONFIGS` in `app/config/agent_config.py` (no ENV for model names). Fallback order is top to bottom: try all models of one provider, then the next.
-- **Rate limits**: If a model hits quota/429, it goes into a per-model cooldown and the client tries the next model. Cooldown is per model (e.g. `gemini-1.5-flash` cooling does not block `gemini-2.0-flash`).
-- **API keys** stay in `.env`; only keys are required, not model names.
+**Backend**
 
-### Configure in `.env`
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 
-```bash
-# API keys (at least one required for agents)
-PERPLEXITY_API_KEY=pplx-...
-OPENAI_API_KEY=sk-...
-GEMINI_API_KEY=...
-```
+</td>
+<td align="center" width="50%">
 
-To add or reorder models, edit `PROVIDER_CONFIGS` in `app/config/agent_config.py` (list of `provider`, `model`, `api_key_env`, optional `base_url`).
+**Frontend**
 
-### Gemini dependencies
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 
-Already included in `requirements.txt` (no extra install needed).
+</td>
+</tr>
+<tr>
+<td align="center">
 
----
+**AI / LLM**
 
-## Contributing (fill missing details + raise PR)
+![Gemini](https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
 
-We want contributors to help populate missing politician fields safely and consistently.
+</td>
+<td align="center">
 
-### Contribution workflow
+**Infrastructure**
 
-- **Pick a scope**: MPs or MLAs, or a specific state/segment (start small)
-- **Run the agent with a small limit** to verify your environment and outputs:
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![GCP](https://img.shields.io/badge/Cloud_Run-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-```bash
-python3 scripts/run_politician_agent.py --type MP --limit 3 --log-level INFO
-```
-
-- **Run larger batch** when confident:
-
-```bash
-python3 scripts/run_politician_agent.py --type MP --log-level INFO
-```
-
-### Important rules
-
-- **Never commit secrets**:
-    - Do not commit `.env`
-    - Do not commit any API keys
-- **Cache is local**:
-    - `app/database/cache.db` is a local SQLite file; do not commit it
-- **Data changes are the PR**:
-    - Your PR should primarily include updates to:
-        - `app/data/mp.json` and/or `app/data/mla.json`
-
-### Adding a new enrichment process (extensible)
-
-- Add prompt builder to: `app/prompts/politician_prompts.py`
-- Add a new process class in: `app/agents/politician_agent.py`
-- Register it in `PoliticianAgent.__init__` by appending to `self.processes`
+</td>
+</tr>
+</table>
 
 ---
 
-## Contributing: add MLAs for a state
+## 🚀 Getting Started
 
-If you'd like to help populate MLAs for a state, run the agent locally with your own API keys and open a PR with the updated JSON data.
+### Prerequisites
 
-1. Fork the repo and create a branch:
+| Tool | Version |
+|------|---------|
+| Python | 3.11+ |
+| Node.js | 18+ |
+| Docker | Latest (optional, for Postgres) |
+
+### 1. Clone & Install
+
+```bash
+git clone https://github.com/<your-username>/Rajniti.git
+cd Rajniti
+
+# Backend (runs via Python venv)
+make install            # creates venv + installs deps
+cp .env.example .env    # configure your environment
+. venv/bin/activate     # activate the virtual environment
+
+# Frontend
+cd frontend && npm install
+```
+
+Backend commands (`make run`, `make test`, db and lint targets) use the project **virtualenv** (`venv/`) automatically. To run Python scripts by hand, either use those Make targets or activate the venv first: `source venv/bin/activate` (or `make venv` for an interactive shell with venv active).
+
+### 2. Configure Environment
+
+Copy `.env.example` and fill in the required values:
+
+```bash
+# Backend — .env
+FLASK_ENV=development
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/rajniti   # optional
+GEMINI_API_KEY=your-key-here          # free tier — only key you need to get started
+
+# Frontend — frontend/.env
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-secret
+GOOGLE_CLIENT_ID=...
+GOOGLE_CLIENT_SECRET=...
+NEXT_PUBLIC_API_URL=http://localhost:8000
+```
+
+### 3. Run
+
+```bash
+# Option A: Docker (backend + Postgres)
+make dev
+
+# Option B: Run backend directly (via venv)
+make run                # starts Flask API on :8000 (uses project venv)
+
+# Frontend (separate terminal)
+make frontend           # starts Next.js on :3000
+```
+
+To run other Python commands in the project venv, use `make venv` to open a shell with the venv activated, or run `source venv/bin/activate` in your terminal first.
+
+### 4. Verify
+
+Open `http://localhost:8000/api/v1/health` — you should see a healthy response.
+
+---
+
+## 🤖 Contributing with AI
+
+> **This is the easiest way to contribute.** Run AI agents locally with your own API keys, and open a PR with enriched politician data.
+
+### How It Works
+
+```
+┌──────────────┐     ┌───────────────┐     ┌──────────────┐     ┌──────────────┐
+│  JSON Data   │────▶│  LLM Agents   │────▶│  Enriched    │────▶│  Open a PR   │
+│  (mp/mla)    │     │  (Gemini/GPT) │     │  JSON Data   │     │              │
+└──────────────┘     └───────────────┘     └──────────────┘     └──────────────┘
+```
+
+The enrichment pipeline reads politicians from JSON, queries LLMs for missing details (education, family, criminal records, etc.), and writes the results back. A local SQLite cache prevents re-processing.
+
+### Step-by-Step
+
+**1. Fork & set up**
 
 ```bash
 git clone <your-fork-url>
 cd Rajniti
-git checkout -b add-mlas-<STATE>
+git checkout -b enrich/<scope>       # e.g. enrich/mp-education
+make install
+cp .env.example .env                 # add your API key(s)
 ```
 
-2. Setup locally:
+**2. Get an API key** (at least one)
+
+| Provider | How to Get a Key | Env Variable | Cost |
+|----------|-----------------|--------------|------|
+| **Gemini** | [Google AI Studio](https://aistudio.google.com/apikey) | `GEMINI_API_KEY` | **Free tier** (rate-limited) |
+| **OpenAI** | [platform.openai.com](https://platform.openai.com/api-keys) | `OPENAI_API_KEY` | Paid |
+| **Perplexity** | [perplexity.ai](https://www.perplexity.ai/settings/api) | `PERPLEXITY_API_KEY` | Paid |
+
+> **Fastest setup:** Get a free Gemini key from [Google AI Studio](https://aistudio.google.com/apikey), paste it as `GEMINI_API_KEY` in your `.env`, and you're ready to run agents — no paid key needed.
+
+Models fail over automatically (Gemini → OpenAI → Perplexity). Order is configured in `app/config/agent_config.py`.
+
+**3. Run the agent**
 
 ```bash
-python3 -m venv venv
-. venv/bin/activate
-pip install -r requirements.txt
+# Run the agent for all politicians
+python3 scripts/run_politician_agent.py
+
+# Test with a small batch first
+python3 scripts/run_politician_agent.py --type MP --limit 3 --log-level INFO
+
+# Run for all MPs
+python3 scripts/run_politician_agent.py --type MP --log-level INFO
+
+# Run for all MLAs
+python3 scripts/run_politician_agent.py --type MLA --log-level INFO
+
+# Target a single politician
+python3 scripts/run_politician_agent.py --id "<POLITICIAN_ID>"
+
+# Force re-run (ignore cache)
+python3 scripts/run_politician_agent.py --type MP --force
 ```
 
-3. Obtain API keys
-
-- Gemini (Google Generative AI):
-  - In Google Cloud Console enable the "Generative AI API" (sometimes listed as Gemini / Generative models).
-  - Go to APIs & Services → Credentials → Create credentials → API key.
-  - Copy the key and add to your local `.env` as `GEMINI_API_KEY=<your-key>`.
-  - Note: billing/quota rules apply; free tier limits are strict.
-
-- Alternatives:
-  - You may set `OPENAI_API_KEY` or `PERPLEXITY_API_KEY`; model order is in `app/config/agent_config.py` (`PROVIDER_CONFIGS`).
-
-4. Configure environment (do NOT commit `.env`)
+**4. Add MLAs for a new state**
 
 ```bash
-cp .env.example .env
-# edit .env and set GEMINI_API_KEY (and others as needed)
-```
-
-5. Generate MLAs for a state
-
-```bash
-. venv/bin/activate
 python3 scripts/fetch_mlas.py --state "Andhra Pradesh" --log-level INFO
 ```
 
-- Omit `--state` to run for all states (long-running).
-
-6. Inspect and commit changes
-
-- Review `app/data/mla.json` and only commit the updated JSON file(s) with the new/updated MLA records.
-- Never commit `.env` or API keys.
+**5. Open a PR**
 
 ```bash
-git add app/data/mla.json
-git commit -m "Add/refresh MLA data for <STATE>"
-git push -u origin add-mlas-<STATE>
+git add app/data/mp.json app/data/mla.json
+git commit -m "Enrich MP education data"
+git push -u origin enrich/<scope>
 ```
 
-7. Open a Pull Request
+Then open a Pull Request. Include: the state/scope, number of records, and how you tested.
 
-- Create a PR to upstream `main`. In the PR body include:
-  - Summary: state name, number of MLAs added/updated
-  - How tested: `python3 scripts/fetch_mlas.py --state "<STATE>"` (attach logs/snippets)
-  - Notes: any uncertain records or manual fixes performed
+---
 
-Thanks — maintainers will review and merge valid additions.
+## 🛡️ Contribution Rules
 
-## Testing
+> **These rules are non-negotiable for all PRs.**
+
+| Rule | Details |
+|------|---------|
+| **No secrets** | Never commit `.env` or API keys |
+| **No cache files** | `app/database/cache.db` is local-only |
+| **Data PRs only touch JSON** | Your PR should update `app/data/mp.json` and/or `app/data/mla.json` |
+| **Tests must pass** | Run `make test` before pushing |
+| **Review your diff** | Ensure only intended changes are included |
+
+---
+
+## 🔌 API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/v1/politicians` | List politicians (filter by type) |
+| `GET` | `/api/v1/politicians/search?q=` | Search by name |
+| `GET` | `/api/v1/politicians/<id>` | Get a single politician |
+| `GET` | `/api/v1/politicians/state/<state>` | Filter by state |
+| `GET` | `/api/v1/politicians/party/<party>` | Filter by party |
+| `GET` | `/api/v1/stats` | Summary statistics |
+| `GET` | `/api/v1/states` | List all states |
+| `GET` | `/api/v1/parties` | List all parties |
+| `POST` | `/api/v1/questions/ask` | Ask a question (vector search) |
+| `GET` | `/api/v1/health` | Health check |
+
+---
+
+## 🧩 Adding a New Enrichment Process
+
+Want to enrich a new field (e.g., criminal records, social media)?
+
+1. **Add a prompt builder** in `app/prompts/politician_prompts.py`
+2. **Create a process class** in `app/agents/politician_agent.py`
+3. **Register it** in `PoliticianAgent.__init__` by appending to `self.processes`
+
+The architecture is designed to be extensible — each enrichment field is an independent process.
+
+---
+
+## 🧪 Testing
 
 ```bash
-make test
+make test              # all tests
+make test-unit         # unit tests only
+make test-e2e          # end-to-end tests
+make coverage          # tests + coverage report
+make lint              # backend + frontend linting
+make format            # auto-format with Black + isort
 ```
 
 ---
 
-## Project structure (high-level)
+## 📂 Project Structure
 
 ```
-app/
-  agents/              # Agentic enrichment layer (writes to JSON)
-  prompts/             # Prompt builders (LLM input)
-  data/                # JSON data layer (source of truth)
-  core/                # shared utilities (logger, cache, errors)
-  services/            # read/write services over JSON + other services
-scripts/
-  run_politician_agent.py
+Rajniti/
+├── app/
+│   ├── agents/            # LLM-based enrichment agents
+│   ├── config/            # Agent & provider configuration
+│   ├── controllers/       # API request handlers
+│   ├── core/              # Utilities, logging, errors
+│   ├── data/              # mp.json, mla.json (source of truth)
+│   ├── database/          # Models, migrations, SQLite cache
+│   ├── prompts/           # LLM prompt builders
+│   ├── routes/            # Flask route definitions
+│   ├── schemas/           # Pydantic validation schemas
+│   └── services/          # Business logic layer
+├── frontend/
+│   ├── app/               # Next.js App Router pages
+│   ├── components/        # React components
+│   ├── data/              # Generated static data (contributors.json)
+│   ├── hooks/             # Custom React hooks
+│   └── lib/               # Shared utilities
+├── scripts/               # CLI scripts (agent runner, DB, MLA fetcher)
+├── tests/                 # Unit, integration, and E2E tests
+├── alembic/               # Database migrations
+├── docker/                # Docker init scripts
+├── .github/
+│   ├── workflows/         # CI/CD (lint, test, release)
+│   └── PULL_REQUEST_TEMPLATE.md
+├── Dockerfile
+├── docker-compose.yml
+├── Makefile
+├── requirements.txt
+└── pyproject.toml
 ```
+
+---
+
+## ⚙️ LLM Provider Configuration
+
+Agents use a **failover LLM client** with automatic per-model cooldown:
+
+- Models are tried top-to-bottom from `PROVIDER_CONFIGS` in `app/config/agent_config.py`
+- If a model hits a rate limit (429), it enters cooldown and the next model is used
+- Cooldown is per-model — `gemini-1.5-flash` cooling doesn't block `gemini-2.0-flash`
+- Only API keys go in `.env`; model names and order are configured in code
+
+---
+
+## 🐳 Docker
+
+```bash
+make dev       # Local Postgres + API (development)
+make prod      # API only, expects external Postgres (e.g. Supabase)
+make stop      # Stop all containers
+make clean     # Remove containers + volumes
+make reset     # Full reset (wipes data, fresh start)
+```
+
+---
+
+## 👥 Contributors
+
+Contributors are highlighted on the website at [`/contributors`](https://rajniti.in/contributors).
+
+**How it works:**
+
+- `scripts/generate_contributors.py` fetches contributor data from the GitHub API and writes `frontend/data/contributors.json`.
+- A GitHub Actions workflow (`.github/workflows/update_contributors.yml`) runs weekly (Monday midnight UTC) and on manual dispatch to keep the file up to date. It only commits when the data has actually changed.
+- The frontend reads the static JSON at build time — no runtime GitHub API calls.
+
+**Running locally:**
+
+```bash
+# Generate/refresh contributors data (optional GITHUB_TOKEN for higher rate limits)
+python scripts/generate_contributors.py
+
+# With a token
+GITHUB_TOKEN=ghp_... python scripts/generate_contributors.py
+```
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+<div align="center">
+
+**Built with care for Indian democracy** 🇮🇳
+
+[Report a Bug](../../issues/new) · [Request a Feature](../../issues/new) · [Contribute Data](#-contributing-with-ai)
+
+</div>

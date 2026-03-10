@@ -6,9 +6,11 @@ import { Navbar, Footer } from "@/components/layout"
 import Text from "@/components/ui/Text"
 import Link from "@/components/ui/Link"
 import Button from "@/components/ui/Button"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { useAnalytics } from "@/hooks/useAnalytics"
+import contributors from "@/data/contributors.json"
 
 export default function Home() {
     return (
@@ -422,6 +424,84 @@ function HomeContent() {
                                 </svg>
                             }>
                             Explore Politicians
+                        </Button>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Top Contributors Preview */}
+            <section id="contributors" className="py-20 bg-white">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="text-center mb-12"
+                    >
+                        <div className="flex items-center justify-center gap-3 text-md font-semibold text-orange-600 mb-4 uppercase tracking-wider">
+                            <div className="w-8 h-0.5 border-t-2 border-orange-600" />
+                            Community
+                        </div>
+                        <h2 className="text-xl md:text-4xl lg:text-5xl font-serif font-bold text-[#0F1F3D] mb-6">
+                            Built by <span className="text-orange-600 italic">Contributors</span>
+                        </h2>
+                        <Text variant="body" className="text-gray-600 max-w-3xl mx-auto">
+                            Rajniti is open source and community-driven. Meet the people
+                            making Indian democracy more transparent.
+                        </Text>
+                    </motion.div>
+
+                    <div className="flex flex-wrap justify-center gap-6">
+                        {contributors.slice(0, 6).map((c, i) => (
+                            <motion.a
+                                key={c.login}
+                                href={c.html_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: i * 0.08 }}
+                                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                                className="flex flex-col items-center gap-3 rounded-2xl border border-black/10 bg-white p-6 w-36 text-center hover:shadow-lg transition-shadow"
+                            >
+                                <Image
+                                    src={c.avatar_url}
+                                    alt={c.login}
+                                    width={64}
+                                    height={64}
+                                    className="rounded-full"
+                                />
+                                <Text variant="small" weight="semibold" className="text-[#0F1F3D] truncate max-w-full">
+                                    {c.login}
+                                </Text>
+                                <Text variant="caption" color="muted">
+                                    {c.contributions} commit{c.contributions !== 1 ? "s" : ""}
+                                </Text>
+                            </motion.a>
+                        ))}
+                    </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="text-center mt-10"
+                    >
+                        <Button
+                            href="/contributors"
+                            variant="secondary"
+                            size="lg"
+                            onClick={() => trackEvent('cta_click', { cta_name: 'view_all_contributors', cta_url: '/contributors', page_location: 'home_contributors' })}
+                            rightIcon={
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                            }
+                        >
+                            View All Contributors
                         </Button>
                     </motion.div>
                 </div>

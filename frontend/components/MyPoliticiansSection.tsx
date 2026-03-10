@@ -166,17 +166,28 @@ export default function MyPoliticiansSection({
                             </div>
                         ) : results.length === 0 ? (
                             <div className='px-4 py-3'>
-                                <p className='text-gray-500 text-sm mb-2'>
-                                    Not found? Help us add them
+                                <p className='text-gray-500 text-sm mb-1'>
+                                    Not found? Some MLAs may not be in our dataset yet.
                                 </p>
-                                <a
-                                    href={GITHUB_ISSUE_URL}
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='text-orange-600 hover:underline text-sm font-medium'
-                                >
-                                    Contribute →
-                                </a>
+                                <div className='flex flex-wrap items-center gap-x-3 gap-y-1'>
+                                    <a
+                                        href={GITHUB_ISSUE_URL}
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-orange-600 hover:underline text-sm font-medium'
+                                    >
+                                        Request addition →
+                                    </a>
+                                    <span className='text-gray-300 text-sm'>|</span>
+                                    <a
+                                        href='https://github.com/imsks/rajniti#-contributing-with-ai'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className='text-gray-500 hover:text-orange-600 hover:underline text-xs'
+                                    >
+                                        Dev? Run the state agent & open a PR
+                                    </a>
+                                </div>
                             </div>
                         ) : (
                             <ul className='divide-y divide-gray-100'>
@@ -279,6 +290,17 @@ export default function MyPoliticiansSection({
                         </button>
                     </div>
                 )}
+                <p className='text-xs text-gray-500 mt-3'>
+                    Can&apos;t find your MLA? Data for some states is still being added.{" "}
+                    <a
+                        href='https://github.com/imsks/rajniti#-contributing-with-ai'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='text-orange-600 hover:underline'
+                    >
+                        Developers can help&nbsp;&rarr;
+                    </a>
+                </p>
             </div>
             </div>
         </motion.section>
