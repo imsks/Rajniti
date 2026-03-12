@@ -2,6 +2,7 @@
 
 import { Suspense, useState, useMemo, useEffect } from "react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
@@ -56,11 +57,6 @@ const { all, loading, error, states, parties, stats, filter } =
     const endIndex = startIndex + itemsPerPage
     const paginatedPoliticians = displayPoliticians.slice(startIndex, endIndex)
 
-    // Reset to page 1 when filters change
-    useMemo(() => {
-        setCurrentPage(1)
-    }, [searchQuery, stateFilter, partyFilter, activeTab, itemsPerPage])
-
     // Scroll to top when page changes
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -72,6 +68,8 @@ const { all, loading, error, states, parties, stats, filter } =
     }, [searchQuery, trackSearch, displayPoliticians.length])
 
     const hasActiveFilters = !!(searchQuery || stateFilter || partyFilter)
+    const activeViewLabel =
+        activeTab === "ALL" ? "All representatives" : activeTab === "MP" ? "Members of Parliament" : "State Assembly MLAs"
 
     // ── Render ────────────────────────────────────────────────────────────
 
@@ -114,12 +112,67 @@ const { all, loading, error, states, parties, stats, filter } =
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     className='mb-8'>
-                    <Text variant='h2' weight='bold' className='text-gray-900 mb-2'>
-                        <span className='text-orange-600'>Indian</span>  Politicians
-                    </Text>
-                    <Text variant='body' className='text-gray-600 mb-6'>
-                        Browse elected MPs and MLAs. Help us enrich their profiles!
-                    </Text>
+                    <div className='overflow-hidden rounded-[28px] border border-slate-200 bg-white/80 p-6 shadow-[0_18px_60px_rgba(15,31,61,0.08)] backdrop-blur sm:p-8'>
+                        <div className='grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(280px,0.95fr)] lg:items-start'>
+                            <div>
+                                <div className='mb-4 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-orange-700'>
+                                    Civic Data Dashboard
+                                </div>
+                                <Text variant='h2' weight='bold' className='text-gray-900 mb-3'>
+                                    <span className='text-orange-600'>Indian</span> Politicians
+                                </Text>
+                                <Text variant='body' className='max-w-2xl text-gray-600 mb-6'>
+                                    Search, compare, and shortlist representatives with a cleaner overview of states, parties, and public-profile context.
+                                </Text>
+
+                                <div className='flex flex-wrap gap-3'>
+                                    <div className='rounded-full bg-[#0F1F3D] px-4 py-2 text-sm font-semibold text-white'>
+                                        {activeViewLabel}
+                                    </div>
+                                    {stateFilter && (
+                                        <div className='rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-600'>
+                                            State: {stateFilter}
+                                        </div>
+                                    )}
+                                    {partyFilter && (
+                                        <div className='rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-600'>
+                                            Party: {partyFilter}
+                                        </div>
+                                    )}
+                                    {searchQuery && (
+                                        <div className='rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-600'>
+                                            Search: {searchQuery}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-1'>
+                                <div className='rounded-3xl bg-[#0F1F3D] p-5 text-white'>
+                                    <div className='text-xs font-semibold uppercase tracking-[0.24em] text-orange-300'>
+                                        Current view
+                                    </div>
+                                    <div className='mt-3 text-3xl font-semibold'>
+                                        {loading ? "..." : displayPoliticians.length.toLocaleString()}
+                                    </div>
+                                    <div className='mt-2 text-sm text-slate-300'>
+                                        records matching your current filters
+                                    </div>
+                                </div>
+                                <div className='rounded-3xl border border-slate-200 bg-slate-50 p-5'>
+                                    <div className='text-xs font-semibold uppercase tracking-[0.24em] text-slate-500'>
+                                        Quick action
+                                    </div>
+                                    <div className='mt-3 text-lg font-semibold text-slate-800'>
+                                        Save your MP and MLA picks
+                                    </div>
+                                    <div className='mt-2 text-sm text-slate-600'>
+                                        Use the cards below to pin representatives into your personal view and keep comparisons handy.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     {!loading && (
                         <motion.div 
@@ -156,7 +209,7 @@ const { all, loading, error, states, parties, stats, filter } =
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
-                    className='flex gap-2 mb-6'>
+                    className='mb-6 flex flex-wrap gap-2'>
                     {(["ALL", "MP", "MLA"] as Tab[]).map((tab, i) => (
                         <motion.button
                             key={tab}
@@ -170,6 +223,7 @@ const { all, loading, error, states, parties, stats, filter } =
                                 setSearchQuery("")
                                 setStateFilter("")
                                 setPartyFilter("")
+                                setCurrentPage(1)
                                 trackEvent('filter_apply', { filter_type: 'tab', filter_value: tab })
                             }}
                             className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${
@@ -191,21 +245,26 @@ const { all, loading, error, states, parties, stats, filter } =
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
-                    className='bg-white rounded-2xl shadow-sm border border-gray-200 p-4 mb-6'>
+                    className='rounded-[24px] border border-gray-200 bg-white p-4 shadow-sm mb-6'>
                     <div className='flex flex-col md:flex-row gap-3'>
                         {/* Search input */}
                         <div className='flex-1 relative'>
                             <span className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400'>
-                                <img
+                                <Image
                                     src='/logo/search.png'
                                     alt='Search'
+                                    width={20}
+                                    height={20}
                                     className='w-5 h-5'
                                 />
                             </span>
                             <input
                                 type='text'
                                 value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
+                                onChange={(e) => {
+                                    setSearchQuery(e.target.value)
+                                    setCurrentPage(1)
+                                }}
                                 placeholder='Search by name, constituency, state or party...'
                                 className='w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent'
                             />
@@ -216,6 +275,7 @@ const { all, loading, error, states, parties, stats, filter } =
                             value={stateFilter}
                             onChange={(e) => {
                                 setStateFilter(e.target.value)
+                                setCurrentPage(1)
                                 if (e.target.value) trackEvent('filter_apply', { filter_type: 'state', filter_value: e.target.value })
                             }}
                             className='px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 min-w-[180px]'>
@@ -232,6 +292,7 @@ const { all, loading, error, states, parties, stats, filter } =
                             value={partyFilter}
                             onChange={(e) => {
                                 setPartyFilter(e.target.value)
+                                setCurrentPage(1)
                                 if (e.target.value) trackEvent('filter_apply', { filter_type: 'party', filter_value: e.target.value })
                             }}
                             className='px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 min-w-[180px]'>
@@ -246,16 +307,32 @@ const { all, loading, error, states, parties, stats, filter } =
 
                     {/* Active filters summary */}
                     {hasActiveFilters && (
-                        <div className='flex items-center gap-2 mt-3 pt-3 border-t border-gray-100'>
+                        <div className='mt-4 flex flex-wrap items-center gap-2 border-t border-gray-100 pt-4'>
                             <Text variant='small' className='text-gray-500'>
                                 Showing {displayPoliticians.length.toLocaleString()} result
                                 {displayPoliticians.length !== 1 ? "s" : ""}
                             </Text>
+                            {searchQuery && (
+                                <span className='rounded-full bg-orange-50 px-3 py-1 text-xs font-medium text-orange-700'>
+                                    {searchQuery}
+                                </span>
+                            )}
+                            {stateFilter && (
+                                <span className='rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600'>
+                                    {stateFilter}
+                                </span>
+                            )}
+                            {partyFilter && (
+                                <span className='rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600'>
+                                    {partyFilter}
+                                </span>
+                            )}
                             <button
                                 onClick={() => {
                                     setSearchQuery("")
                                     setStateFilter("")
                                     setPartyFilter("")
+                                    setCurrentPage(1)
                                     trackEvent('filter_clear', {})
                                 }}
                                 className='ml-2 text-xs text-orange-600 hover:underline'>
@@ -306,6 +383,7 @@ const { all, loading, error, states, parties, stats, filter } =
                                     onChange={(e) => {
                                         const val = Number(e.target.value)
                                         setItemsPerPage(val)
+                                        setCurrentPage(1)
                                         trackEvent('filter_apply', { filter_type: 'items_per_page', filter_value: String(val) })
                                     }}
                                     className='px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white'>
