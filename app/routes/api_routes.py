@@ -31,7 +31,7 @@ def list_politicians():
     """
     try:
         election_type = request.args.get("type")
-        limit = request.args.get("limit", default=100, type=int)
+        limit = min(request.args.get("limit", default=100, type=int),200)
         result = politician_ctrl.get_all(election_type=election_type, limit=limit)
         return jsonify({"success": True, "data": result})
     except Exception as e:
