@@ -90,36 +90,153 @@ class ProviderConfig:
 
 DEFAULT_PROVIDERS: list[dict[str, Any]] = [
     # --- Gemini (generous free tier) ---
-    {"provider": "gemini", "model": "gemini-3.1-pro-preview", "api_key_env": "GEMINI_API_KEY"},
-    {"provider": "gemini", "model": "gemini-3-flash-preview", "api_key_env": "GEMINI_API_KEY"},
+    {
+        "provider": "gemini",
+        "model": "gemini-3.1-pro-preview",
+        "api_key_env": "GEMINI_API_KEY",
+    },
+    {
+        "provider": "gemini",
+        "model": "gemini-3-flash-preview",
+        "api_key_env": "GEMINI_API_KEY",
+    },
     {"provider": "gemini", "model": "gemini-2.5-pro", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-3-flash", "api_key_env": "GEMINI_API_KEY"},
-    {"provider": "gemini", "model": "gemini-2.5-flash", "api_key_env": "GEMINI_API_KEY"},
-    {"provider": "gemini", "model": "gemini-2.0-flash", "api_key_env": "GEMINI_API_KEY"},
+    {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash",
+        "api_key_env": "GEMINI_API_KEY",
+    },
+    {
+        "provider": "gemini",
+        "model": "gemini-2.0-flash",
+        "api_key_env": "GEMINI_API_KEY",
+    },
     # --- Groq (ultra-fast free inference) ---
-    {"provider": "groq", "model": "llama-3.3-70b-versatile", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
-    {"provider": "groq", "model": "llama-3.1-8b-instant", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
-    {"provider": "groq", "model": "meta-llama/llama-4-scout-17b-16e-instruct", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
-    {"provider": "groq", "model": "qwen/qwen3-32b", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
-    {"provider": "groq", "model": "openai/gpt-oss-safeguard-20b", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
+    {
+        "provider": "groq",
+        "model": "llama-3.3-70b-versatile",
+        "api_key_env": "GROQ_API_KEY",
+        "base_url": "https://api.groq.com/openai/v1",
+    },
+    {
+        "provider": "groq",
+        "model": "llama-3.1-8b-instant",
+        "api_key_env": "GROQ_API_KEY",
+        "base_url": "https://api.groq.com/openai/v1",
+    },
+    {
+        "provider": "groq",
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "api_key_env": "GROQ_API_KEY",
+        "base_url": "https://api.groq.com/openai/v1",
+    },
+    {
+        "provider": "groq",
+        "model": "qwen/qwen3-32b",
+        "api_key_env": "GROQ_API_KEY",
+        "base_url": "https://api.groq.com/openai/v1",
+    },
+    {
+        "provider": "groq",
+        "model": "openai/gpt-oss-safeguard-20b",
+        "api_key_env": "GROQ_API_KEY",
+        "base_url": "https://api.groq.com/openai/v1",
+    },
     # --- Mistral (1B tokens/month free) ---
-    {"provider": "mistral", "model": "codestral-latest", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "open-mistral-7b", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "open-mixtral-8x22b", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "mistral-large-2512", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "open-mistral-nemo-2407", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "mistral-medium-2508", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "mistral-small-2506", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "ministral-14b-2512", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "ministral-8b-2512", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "ministral-3b-2512", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "magistral-medium-2509", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "magistral-small-2509", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
+    {
+        "provider": "mistral",
+        "model": "codestral-latest",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "open-mistral-7b",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "open-mixtral-8x22b",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "mistral-large-2512",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "open-mistral-nemo-2407",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "mistral-medium-2508",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "mistral-small-2506",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "ministral-14b-2512",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "ministral-8b-2512",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "ministral-3b-2512",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "magistral-medium-2509",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "magistral-small-2509",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
     # --- OpenRouter (access to many free models) ---
-    {"provider": "openrouter", "model": "google/gemini-2.0-flash-exp:free", "api_key_env": "OPENROUTER_API_KEY", "base_url": "https://openrouter.ai/api/v1"},
+    {
+        "provider": "openrouter",
+        "model": "google/gemini-2.0-flash-exp:free",
+        "api_key_env": "OPENROUTER_API_KEY",
+        "base_url": "https://openrouter.ai/api/v1",
+    },
     # --- Paid fallbacks (safety net) ---
-    {"provider": "openai", "model": "gpt-4o-mini", "api_key_env": "OPENAI_API_KEY", "tier": "paid"},
-    {"provider": "perplexity", "model": "sonar", "api_key_env": "PERPLEXITY_API_KEY", "base_url": "https://api.perplexity.ai", "tier": "paid"},
+    {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "api_key_env": "OPENAI_API_KEY",
+        "tier": "paid",
+    },
+    {
+        "provider": "perplexity",
+        "model": "sonar",
+        "api_key_env": "PERPLEXITY_API_KEY",
+        "base_url": "https://api.perplexity.ai",
+        "tier": "paid",
+    },
 ]
 
 
