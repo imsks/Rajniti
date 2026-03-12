@@ -20346,5 +20346,105 @@
         "year_completed": null
       }
     ]
+  },
+  {
+    "id": "0693fe93-197b-5f02-a242-0aaf7eb359bd",
+    "name": "AGA SYED RUHULLAH MEHDI",
+    "photo": null,
+    "state": "Jammu and Kashmir",
+    "constituency": "Srinagar",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Jammu and Kashmir",
+          "constituency": "Srinagar",
+          "party": "Jammu & Kashmir National Conference",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "6c564319-bd44-5de3-b383-bb4cf47a3163",
+    "name": "MIAN ALTAF AHMAD",
+    "photo": null,
+    "state": "Jammu and Kashmir",
+    "constituency": "Anantnag-Rajouri",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Jammu and Kashmir",
+          "constituency": "Anantnag-Rajouri",
+          "party": "Jammu & Kashmir National Conference",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "483e397c-ec8c-56de-b6ae-78d627680122",
+    "name": "ABDUL RASHID SHEIKH",
+    "photo": null,
+    "state": "Jammu and Kashmir",
+    "constituency": "Baramulla",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Jammu and Kashmir",
+          "constituency": "Baramulla",
+          "party": "Independent",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "e541bf90-0d7f-5c14-a316-e173630c41f0",
+    "name": "JUGAL KISHORE SHARMA",
+    "photo": null,
+    "state": "Jammu and Kashmir",
+    "constituency": "Jammu",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Jammu and Kashmir",
+          "constituency": "Jammu",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
+  },
+  {
+    "id": "e194eec4-569d-537d-862c-fe0a718ed467",
+    "name": "JITENDRA SINGH",
+    "photo": null,
+    "state": "Jammu and Kashmir",
+    "constituency": "Udhampur",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Jammu and Kashmir",
+          "constituency": "Udhampur",
+          "party": "Bharatiya Janata Party",
+          "status": "WON"
+        }
+      ]
+    }
   }
 ]
