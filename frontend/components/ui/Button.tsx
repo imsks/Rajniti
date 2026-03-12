@@ -40,17 +40,17 @@ export default function Button(props: ButtonProps) {
     } = props
 
     const baseStyles =
-        "inline-flex items-center justify-center font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
+        "inline-flex items-center justify-center font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
 
     const variants = {
         primary:
             "bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:from-primary-600 hover:to-primary-700 shadow-md hover:shadow-lg focus:ring-primary-500",
         secondary:
-            "bg-white text-secondary-700 border-2 border-secondary-300 hover:border-primary-500 hover:text-primary-600 shadow-sm focus:ring-primary-500",
+            "bg-white dark:bg-gray-800 text-secondary-700 dark:text-gray-200 border-2 border-secondary-300 dark:border-gray-600 hover:border-primary-500 dark:hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-400 shadow-sm focus:ring-primary-500",
         outline:
-            "border-2 border-primary-500 text-primary-600 hover:bg-primary-50 focus:ring-primary-500",
-        ghost: "text-secondary-600 hover:text-primary-600 hover:bg-primary-50 focus:ring-primary-500",
-        danger: "text-red-600 hover:bg-red-50 focus:ring-red-500"
+            "border-2 border-primary-500 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/30 focus:ring-primary-500",
+        ghost: "text-secondary-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/30 focus:ring-primary-500",
+        danger: "text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 focus:ring-red-500"
     }
 
     const sizes = {

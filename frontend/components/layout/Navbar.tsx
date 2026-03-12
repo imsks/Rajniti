@@ -3,6 +3,7 @@
 import UserButton from "@/components/auth/UserButton"
 import Text from "@/components/ui/Text"
 import Link from "@/components/ui/Link"
+import ThemeToggle from "@/components/ui/ThemeToggle"
 import { useAnalytics } from "@/hooks/useAnalytics"
 
 interface NavbarProps {
@@ -21,12 +22,12 @@ export default function Navbar({
 
     return (
         <header
-            className={`border-b border-orange-200 bg-white/80 backdrop-blur-sm ${stickyClasses}`}>
+            className={`border-b border-orange-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm ${stickyClasses}`}>
             <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                 <div className='flex h-16 items-center justify-between'>
                     <Link href='/' onClick={() => trackNav('Logo', '/')} className='flex items-center gap-2 no-underline'>
                         <div className='w-7 h-7'><img src='/logo/voting-box.png' alt='Rajniti Logo' /></div>
-                        <Text variant='h3' className='text-[#0F1F3D]  font-bold tracking-tight font-poppins mt-2'>
+                        <Text variant='h3' className='text-[#0F1F3D] dark:text-white font-bold tracking-tight font-poppins mt-2'>
                             Raj<span><span className='text-orange-600'>niti</span></span>
                         </Text>
                     </Link>
@@ -72,6 +73,7 @@ export default function Navbar({
                             </nav>
                         )}
 
+                        <ThemeToggle />
                         <UserButton />
                     </div>
                 </div>
