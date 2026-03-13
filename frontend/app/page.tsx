@@ -29,12 +29,12 @@ function HomeContent() {
         window.scrollTo(0, 0)
         document.documentElement.scrollTop = 0
         document.body.scrollTop = 0
-        
+
         // Disable scroll restoration
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual'
         }
-        
+
         setIsReady(true)
     }, [])
 
@@ -43,11 +43,11 @@ function HomeContent() {
     }
 
     return (
-        <div className='min-h-screen bg-linear-to-b from-orange-50 via-white to-green-70'>
+        <div className='min-h-screen bg-linear-to-b from-orange-50 via-white to-green-70 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900'>
             <Navbar variant='default' />
 
             {/* Hero Section */}
-            <section className='py-20 sm:py-32 relative z-2'>
+            <section className='py-20 sm:py-32 relative z-2 overflow-hidden'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <div className='text-center'>
                         <motion.div
@@ -56,12 +56,12 @@ function HomeContent() {
                             transition={{ duration: 0.6 }}
                             className='mb-8 flex justify-start'>
                             <div className='rounded-full bg-gradient-to-r from-orange-500 via-white to-green-500 p-[2px] shadow-lg'>
-                                <div className='rounded-full bg-white px-6 py-2.5 flex items-center gap-2'>
+                                <div className='rounded-full bg-white dark:bg-gray-800 px-6 py-2.5 flex items-center gap-2'>
                                     <svg className='w-5 h-5' viewBox='0 0 24 24' fill='none'>
-                                        <circle cx='12' cy='12' r='10' fill='#FF9933'/>
-                                        <circle cx='12' cy='12' r='6.5' fill='#F5F5F5'/>
-                                        <circle cx='12' cy='12' r='3' fill='#138808'/>
-                                        <circle cx='12' cy='12' r='1.5' fill='#000080'/>
+                                        <circle cx='12' cy='12' r='10' fill='#FF9933' />
+                                        <circle cx='12' cy='12' r='6.5' fill='#F5F5F5' />
+                                        <circle cx='12' cy='12' r='3' fill='#138808' />
+                                        <circle cx='12' cy='12' r='1.5' fill='#000080' />
                                     </svg>
                                     <span className='text-sm font-semibold bg-gradient-to-r from-orange-600 via-gray-700 to-green-600 bg-clip-text text-transparent'>
                                         Built for the Indian Democracy
@@ -74,7 +74,7 @@ function HomeContent() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}>
-                            <h1 className="font-serif text-[44px] sm:text-[56px] lg:text-[80px] font-semibold leading-[1.08] tracking-[-0.02em] text-[#0F1F3D] text-left mb-4">
+                            <h1 className="font-serif text-[44px] sm:text-[56px] lg:text-[80px] font-semibold leading-[1.08] tracking-[-0.02em] text-[#0F1F3D] dark:text-white text-left mb-4">
                                 Know Your
                                 <br />
                                 <span className="text-orange-600 italic">Elected</span> Representatives
@@ -87,7 +87,7 @@ function HomeContent() {
                             transition={{ duration: 0.6, delay: 0.2 }}>
                             <Text
                                 variant='body'
-                                className='max-w-2xl text-gray-600 mb-10'>
+                                className='max-w-2xl text-gray-600 dark:text-gray-400 mb-10'>
                                 Rajniti is an open-source platform to explore Indian
                                 MPs and MLAs — their political history, education,
                                 family background, criminal records, and more. All free
@@ -189,16 +189,16 @@ function HomeContent() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 0.2, scale: 1 }}
                     transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
-                    className='absolute top-0 left-0 w-72 h-72 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl z-1 pointer-events-none'></motion.div>
+                    className='absolute top-0 left-0 w-72 h-72 bg-orange-200 dark:bg-orange-900/30 rounded-full mix-blend-multiply filter blur-3xl z-1 pointer-events-none'></motion.div>
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 0.2, scale: 1 }}
                     transition={{ duration: 1.5, delay: 0.5, repeat: Infinity, repeatType: "reverse" }}
-                    className='absolute bottom-0 right-0 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl z-1 pointer-events-none'></motion.div>
+                    className='absolute bottom-0 right-0 w-72 h-72 bg-green-200 dark:bg-green-900/30 rounded-full mix-blend-multiply filter blur-3xl z-1 pointer-events-none'></motion.div>
             </section>
 
             {/* What You Can Find */}
-            <section id='about' className='py-20 bg-white'>
+            <section id='about' className='py-20 bg-white dark:bg-gray-900'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -210,12 +210,12 @@ function HomeContent() {
                             <div className='w-8 h-0.5 border-t-2  border-orange-600'></div>
                             What You&apos;ll Find
                         </div>
-                        <h2 className='text-xl md:text-4xl lg:text-5xl font-serif font-bold text-[#0F1F3D] mb-6'>
+                        <h2 className='text-xl md:text-4xl lg:text-5xl font-serif font-bold text-[#0F1F3D] dark:text-white mb-6'>
                             Transparency for Every <span className='text-orange-600 italic'>Citizen</span>
                         </h2>
                         <Text
                             variant='body'
-                            className='text-gray-600 max-w-3xl mx-auto'>
+                            className='text-gray-600 dark:text-gray-400 max-w-3xl mx-auto'>
                             We&apos;re building the most transparent and
                             comprehensive database of Indian elected
                             representatives.
@@ -229,12 +229,12 @@ function HomeContent() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.1 }}
                             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                            className=' rounded-2xl p-8 border border-black/10'>
+                            className=' rounded-2xl p-8 border border-black/10 dark:border-gray-700 dark:bg-gray-800'>
                             <div className='text-4xl mb-4'><img src="./logo/parliament.png" alt="Parliament Logo" className="w-10 h-10" />  </div>
                             <Text
                                 variant='h4'
                                 weight='bold'
-                                className='text-[#0F1F3D] mb-3'>
+                                className='text-[#0F1F3D] dark:text-white mb-3'>
                                 Members of Parliament
                             </Text>
                             <Text variant='body' color='muted'>
@@ -249,12 +249,12 @@ function HomeContent() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                            className=' rounded-2xl p-8 border border-black/10'>
+                            className=' rounded-2xl p-8 border border-black/10 dark:border-gray-700 dark:bg-gray-800'>
                             <div className='text-4xl mb-4'><img src="./logo/Assembly.png" alt="State Assembly Logo" className="w-10 h-10" />  </div>
                             <Text
                                 variant='h4'
                                 weight='bold'
-                                className='text-[#0F1F3D] mb-3'>
+                                className='text-[#0F1F3D] dark:text-white mb-3'>
                                 State Assembly MLAs
                             </Text>
                             <Text variant='body' color='muted'>
@@ -269,12 +269,12 @@ function HomeContent() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.3 }}
                             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                            className=' rounded-2xl p-8 border border-black/10'>
+                            className=' rounded-2xl p-8 border border-black/10 dark:border-gray-700 dark:bg-gray-800'>
                             <div className='text-4xl mb-4'><img src="./logo/Profile.png" alt="Rich Profile Logo" className="w-9 h-9" />  </div>
                             <Text
                                 variant='h4'
                                 weight='bold'
-                                className='text-[#0F1F3D] mb-3'>
+                                className='text-[#0F1F3D] dark:text-white mb-3'>
                                 Rich Profiles
                             </Text>
                             <Text variant='body' color='muted'>
@@ -292,7 +292,7 @@ function HomeContent() {
             {/* Contribute Section */}
             <section
                 id='contribute'
-                className='py-20 bg-[#162844] text-white'>
+                className='py-20 bg-[#162844] dark:bg-gray-950 text-white'>
                 <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -301,7 +301,7 @@ function HomeContent() {
                         transition={{ duration: 0.6 }}
                         className='text-center mb-12'>
                         <Text variant='h1' className='text-white mb-4'>
-                            Help Us Enrich <span className='text-orange-400 italic'>Profiles</span> 
+                            Help Us Enrich <span className='text-orange-400 italic'>Profiles</span>
                         </Text>
                         <Text
                             variant='body'
@@ -430,7 +430,7 @@ function HomeContent() {
             </section>
 
             {/* Top Contributors Preview */}
-            <section id="contributors" className="py-20 bg-white">
+            <section id="contributors" className="py-20 bg-white dark:bg-gray-900">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -443,10 +443,10 @@ function HomeContent() {
                             <div className="w-8 h-0.5 border-t-2 border-orange-600" />
                             Community
                         </div>
-                        <h2 className="text-xl md:text-4xl lg:text-5xl font-serif font-bold text-[#0F1F3D] mb-6">
+                        <h2 className="text-xl md:text-4xl lg:text-5xl font-serif font-bold text-[#0F1F3D] dark:text-white mb-6">
                             Built by <span className="text-orange-600 italic">Contributors</span>
                         </h2>
-                        <Text variant="body" className="text-gray-600 max-w-3xl mx-auto">
+                        <Text variant="body" className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
                             Rajniti is open source and community-driven. Meet the people
                             making Indian democracy more transparent.
                         </Text>
@@ -464,7 +464,7 @@ function HomeContent() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.4, delay: i * 0.08 }}
                                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                                className="flex flex-col items-center gap-3 rounded-2xl border border-black/10 bg-white p-6 w-36 text-center hover:shadow-lg transition-shadow"
+                                className="flex flex-col items-center gap-3 rounded-2xl border border-black/10 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 w-36 text-center hover:shadow-lg transition-shadow"
                             >
                                 <Image
                                     src={c.avatar_url}
@@ -473,7 +473,7 @@ function HomeContent() {
                                     height={64}
                                     className="rounded-full"
                                 />
-                                <Text variant="small" weight="semibold" className="text-[#0F1F3D] truncate max-w-full">
+                                <Text variant="small" weight="semibold" className="text-[#0F1F3D] dark:text-white truncate max-w-full">
                                     {c.login}
                                 </Text>
                                 <Text variant="caption" color="muted">
