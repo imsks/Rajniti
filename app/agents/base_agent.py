@@ -182,10 +182,12 @@ class BaseAgent:
             content = response.content if hasattr(response, "content") else str(response)
             if isinstance(content, list):
                 content = "".join(
-                    part if isinstance(part, str) else part.get("text", str(part))
+                    part if isinstance(part, str)
+                    else part.get("text", str(part)) if isinstance(part, dict)
+                    else getattr(part, "text", str(part))
                     for part in content
                 )
-            return content
+            return str(content) if not isinstance(content, str) else content
         except Exception as exc:
             self._record_error("llm", str(exc), exc=exc)
             raise

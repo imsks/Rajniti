@@ -239,14 +239,15 @@ def _is_retryable(exc: Exception) -> bool:
     if class_name in {"AuthenticationError", "PermissionDenied", "Unauthorized"}:
         return False
 
-    # Pure validation errors (but not quota/rate messages).
-    # Model-not-found (404) should always failover to the next candidate.
+    # Model/config errors — failover to the next candidate so that
+    # a single bad model entry (wrong name, invalid deadline, etc.)
+    # does not block the entire chain.
     if status_code == 404:
         return True
     if status_code == 400:
         msg = exc_str.lower()
         if "invalid" in msg and "quota" not in msg and "rate" not in msg:
-            return True  # fail over so bad model configs don't block the chain
+            return True
 
     # Known retryable HTTP status codes (rate-limit, server errors)
     if status_code in {429, 500, 502, 503, 504, 529}:
