@@ -4946,7 +4946,32 @@
       }
     ],
     "criminal_records": [],
-    "family_background": [],
+    "family_background": [
+      {
+        "name": "Shivappa Shettar",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Shilpa Shettar",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Prashant Shettar",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sankalp Shettar",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      }
+    ],
     "contact": {
       "email": null,
       "phone": null,
