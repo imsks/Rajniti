@@ -22,10 +22,10 @@ function Section({
     children: React.ReactNode
 }) {
     return (
-        <div className='bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-6'>
+        <div className='bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6'>
             <div className='flex items-center gap-3 mb-4'>
                 <img src={icon} alt={title} className='w-6 h-6 object-contain' />
-                <Text variant='h4' weight='bold' className='text-gray-900'>
+                <Text variant='h4' weight='bold' className='text-gray-900 dark:text-white'>
                     {title}
                 </Text>
             </div>
@@ -36,8 +36,8 @@ function Section({
 
 function EmptyHint({ message }: { message: string }) {
     return (
-        <div className='bg-gray-50 rounded-lg p-4 border border-dashed border-gray-300 text-center'>
-            <Text variant='small' className='text-gray-400'>
+        <div className='bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 border border-dashed border-gray-300 dark:border-gray-600 text-center'>
+            <Text variant='small' className='text-gray-400 dark:text-gray-500'>
                 {message}
             </Text>
             <a
@@ -59,12 +59,12 @@ function Badge({
     color: "blue" | "purple" | "green" | "red" | "orange" | "gray"
 }) {
     const styles: Record<string, string> = {
-        blue: "bg-blue-100 text-blue-700",
-        purple: "bg-purple-100 text-purple-700",
-        green: "bg-green-100 text-green-700",
-        red: "bg-red-100 text-red-700",
-        orange: "bg-orange-100 text-orange-700",
-        gray: "bg-gray-100 text-gray-600",
+        blue: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
+        purple: "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300",
+        green: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300",
+        red: "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300",
+        orange: "bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300",
+        gray: "bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300",
     }
     return (
         <span className={`px-3 py-1 rounded-full text-xs font-bold ${styles[color]}`}>
@@ -85,7 +85,7 @@ function PoliticalHistorySection({
     return (
         <Section title='Political History' icon='/logo/Parliament.png'>
             {summary && (
-                <Text variant='body' className='text-gray-600 mb-4 italic'>
+                <Text variant='body' className='text-gray-600 dark:text-gray-400 mb-4 italic'>
                     {summary}
                 </Text>
             )}
@@ -93,12 +93,12 @@ function PoliticalHistorySection({
                 {elections.map((e, i) => (
                     <div
                         key={i}
-                        className='flex items-center justify-between bg-gradient-to-r from-gray-50 to-white rounded-lg p-4 border border-gray-200'>
+                        className='flex items-center justify-between bg-gradient-to-r from-gray-50 to-white dark:from-gray-700/50 dark:to-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700'>
                         <div>
-                            <Text variant='body' weight='semibold' className='text-gray-900'>
+                            <Text variant='body' weight='semibold' className='text-gray-900 dark:text-white'>
                                 {e.constituency}, {e.state}
                             </Text>
-                            <Text variant='small' className='text-gray-500'>
+                            <Text variant='small' className='text-gray-500 dark:text-gray-400'>
                                 {e.party} • {e.year} • {e.type}
                             </Text>
                         </div>
@@ -125,12 +125,12 @@ function EducationSection({ education }: { education: Politician["education"] })
         <Section title='Education' icon='/logo/graduation.png'>
             <div className='grid gap-3'>
                 {list.map((e, i) => (
-                    <div key={i} className='bg-orange-50 rounded-lg p-4 border border-orange-200'>
-                        <Text variant='body' weight='semibold' className='text-gray-900'>
+                    <div key={i} className='bg-orange-50 dark:bg-orange-900/20 rounded-lg p-4 border border-orange-200 dark:border-orange-800'>
+                        <Text variant='body' weight='semibold' className='text-gray-900 dark:text-white'>
                             {e.qualification}
                         </Text>
                         {(e.institution || e.year_completed) && (
-                            <Text variant='small' className='text-gray-600'>
+                            <Text variant='small' className='text-gray-600 dark:text-gray-400'>
                                 {e.institution ?? "—"}
                                 {e.year_completed ? ` (${e.year_completed})` : ""}
                             </Text>
@@ -150,11 +150,11 @@ function FamilySection({ members }: { members?: FamilyMember[] | null }) {
         <Section title='Family Background' icon='/logo/familyRecord.png'>
             <div className='grid gap-3'>
                 {members.map((m, i) => (
-                    <div key={i} className='bg-orange-50 rounded-lg p-4 border border-orange-200'>
-                        <Text variant='body' weight='semibold' className='text-gray-900'>
+                    <div key={i} className='bg-orange-50 dark:bg-orange-900/20 rounded-lg p-4 border border-orange-200 dark:border-orange-800'>
+                        <Text variant='body' weight='semibold' className='text-gray-900 dark:text-white'>
                             {m.name}
                         </Text>
-                        <Text variant='small' className='text-gray-600'>
+                        <Text variant='small' className='text-gray-600 dark:text-gray-400'>
                             {m.relation}
                         </Text>
                     </div>
@@ -172,14 +172,14 @@ function CriminalRecordsSection({ records }: { records?: CrimeRecord[] | null })
         <Section title='Criminal Records' icon='/logo/criminal-record.png'>
             <div className='space-y-3'>
                 {records.map((c, i) => (
-                    <div key={i} className='bg-red-50 rounded-lg p-4 border border-red-200'>
+                    <div key={i} className='bg-red-50 dark:bg-red-900/20 rounded-lg p-4 border border-red-200 dark:border-red-800'>
                         <div className='flex items-start justify-between'>
                             <div>
-                                <Text variant='body' weight='semibold' className='text-gray-900'>
+                                <Text variant='body' weight='semibold' className='text-gray-900 dark:text-white'>
                                     {c.name}
                                 </Text>
                                 {c.year && (
-                                    <Text variant='small' className='text-gray-500'>
+                                    <Text variant='small' className='text-gray-500 dark:text-gray-400'>
                                         Year: {c.year}
                                     </Text>
                                 )}
@@ -208,19 +208,19 @@ function ContactSection({ politician }: { politician: Politician }) {
                 {contact?.email && (
                     <div className='flex items-center gap-2'>
                         <img src='/logo/location.png' alt='Email' className='w-4 h-4' />
-                        <Text variant='body' className='text-gray-700'>{contact.email}</Text>
+                        <Text variant='body' className='text-gray-700 dark:text-gray-300'>{contact.email}</Text>
                     </div>
                 )}
                 {contact?.phone && (
                     <div className='flex items-center gap-2'>
                         <img src='/logo/location.png' alt='Phone' className='w-4 h-4' />
-                        <Text variant='body' className='text-gray-700'>{contact.phone}</Text>
+                        <Text variant='body' className='text-gray-700 dark:text-gray-300'>{contact.phone}</Text>
                     </div>
                 )}
                 {contact?.address && (
                     <div className='flex items-center gap-2'>
                         <img src='/logo/location.png' alt='Address' className='w-4 h-4' />
-                        <Text variant='body' className='text-gray-700'>{contact.address}</Text>
+                        <Text variant='body' className='text-gray-700 dark:text-gray-300'>{contact.address}</Text>
                     </div>
                 )}
                 {social_media && (
@@ -249,7 +249,7 @@ function ContactSection({ politician }: { politician: Politician }) {
 export default function PoliticianPage() {
     return (
         <Suspense fallback={
-            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center'>
+            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 flex items-center justify-center'>
                 <div className='inline-block animate-spin rounded-full h-16 w-16 border-4 border-orange-500 border-t-transparent'></div>
             </div>
         }>
@@ -285,10 +285,10 @@ function PoliticianPageContent() {
 
     if (loading) {
         return (
-            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center'>
+            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 flex items-center justify-center'>
                 <div className='text-center'>
                     <div className='inline-block animate-spin rounded-full h-16 w-16 border-4 border-orange-500 border-t-transparent'></div>
-                    <p className='mt-4 text-gray-600 font-semibold'>Loading…</p>
+                    <p className='mt-4 text-gray-600 dark:text-gray-400 font-semibold'>Loading…</p>
                 </div>
             </div>
         )
@@ -296,15 +296,15 @@ function PoliticianPageContent() {
 
     if (error || !politician) {
         return (
-            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center p-4'>
-                <div className='bg-white rounded-lg shadow-lg p-8 max-w-md w-full border-l-4 border-red-500'>
+            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 flex items-center justify-center p-4'>
+                <div className='bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 max-w-md w-full border-l-4 border-red-500'>
                     <div className='flex items-center gap-3 mb-4'>
                         <div className='text-red-500 text-3xl'>⚠️</div>
-                        <Text variant='h4' weight='bold' className='text-gray-900'>
+                        <Text variant='h4' weight='bold' className='text-gray-900 dark:text-white'>
                             Error
                         </Text>
                     </div>
-                    <Text variant='body' className='text-gray-600 mb-4'>
+                    <Text variant='body' className='text-gray-600 dark:text-gray-400 mb-4'>
                         {error || "Politician not found"}
                     </Text>
                     <Button onClick={() => router.push("/dashboard")} fullWidth>
@@ -321,7 +321,7 @@ function PoliticianPageContent() {
     const isMp = p.type === "MP"
 
     return (
-        <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50'>
+        <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900'>
             <Navbar variant='dashboard' sticky={true} />
 
             <div className='mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8'>
@@ -333,7 +333,7 @@ function PoliticianPageContent() {
                 </div>
 
                 {/* Hero Card */}
-                <div className='bg-white rounded-2xl shadow-lg p-8 border border-gray-200 mb-6'>
+                <div className='bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700 mb-6'>
                     <div className='flex flex-col md:flex-row gap-6 items-start'>
                         {p.photo ? (
                             <Image
@@ -341,17 +341,17 @@ function PoliticianPageContent() {
                                 alt={p.name}
                                 width={128}
                                 height={128}
-                                className='w-32 h-32 rounded-2xl object-cover border-4 border-orange-200 flex-shrink-0'
+                                className='w-32 h-32 rounded-2xl object-cover border-4 border-orange-200 dark:border-orange-800 flex-shrink-0'
                             />
                         ) : (
-                            <div className='w-32 h-32 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center flex-shrink-0 border-4 border-orange-200'>
+                            <div className='w-32 h-32 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/30 flex items-center justify-center flex-shrink-0 border-4 border-orange-200 dark:border-orange-800'>
                                 <img src='/logo/Parliament.png' alt='Politician' className='w-16 h-16 object-contain' />
                             </div>
                         )}
 
                         <div className='flex-1'>
                             <div className='flex items-center gap-3 mb-2'>
-                                <Text variant='h2' weight='bold' className='text-gray-900'>
+                                <Text variant='h2' weight='bold' className='text-gray-900 dark:text-white'>
                                     {p.name}
                                 </Text>
                                 <Badge color={isMp ? "blue" : "purple"}>
@@ -362,20 +362,20 @@ function PoliticianPageContent() {
                             <div className='space-y-1.5'>
                                 <div className='flex items-center gap-2'>
                                     <img src='/logo/Parliament.png' alt='Party' className='w-4 h-4 object-contain opacity-60' />
-                                    <Text variant='body' className='text-gray-700'>
+                                    <Text variant='body' className='text-gray-700 dark:text-gray-300'>
                                         <span className='font-semibold'>Party:</span> {party}
                                     </Text>
                                 </div>
                                 <div className='flex items-center gap-2'>
                                     <img src='/logo/Assembly.png' alt='Constituency' className='w-4 h-4 object-contain opacity-60' />
-                                    <Text variant='body' className='text-gray-700'>
+                                    <Text variant='body' className='text-gray-700 dark:text-gray-300'>
                                         <span className='font-semibold'>Constituency:</span>{" "}
                                         {p.constituency}
                                     </Text>
                                 </div>
                                 <div className='flex items-center gap-2'>
                                     <img src='/logo/location.png' alt='State' className='w-4 h-4 object-contain opacity-60' />
-                                    <Text variant='body' className='text-gray-700'>
+                                    <Text variant='body' className='text-gray-700 dark:text-gray-300'>
                                         <span className='font-semibold'>State:</span>{" "}
                                         {p.state}
                                     </Text>
@@ -385,8 +385,8 @@ function PoliticianPageContent() {
                     </div>
 
                     {p.notes && (
-                        <div className='mt-4 pt-4 border-t border-gray-100'>
-                            <Text variant='small' className='text-gray-500 italic'>
+                        <div className='mt-4 pt-4 border-t border-gray-100 dark:border-gray-700'>
+                            <Text variant='small' className='text-gray-500 dark:text-gray-400 italic'>
                                 📝 {p.notes}
                             </Text>
                         </div>
@@ -411,7 +411,7 @@ function PoliticianPageContent() {
                     <ContactSection politician={p} />
 
                     {/* Contribute CTA */}
-                    <div className='lg:col-span-2 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-6 text-center text-white mb-8'>
+                    <div className='lg:col-span-2 bg-gradient-to-r from-orange-500 to-orange-600 dark:from-orange-600 dark:to-orange-700 rounded-2xl p-6 text-center text-white mb-8'>
                         <Text variant='h4' weight='bold' className='text-white mb-2'>
                             Know more about {p.name}?
                         </Text>
