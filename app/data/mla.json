@@ -41,7 +41,22 @@
         "institution": "B.S.S. High School, Ramnagar",
         "year_completed": 1980
       }
-    ]
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": []
   },
   {
     "id": "24aae84a-0dd4-4514-870c-c32a0669ce2c",
@@ -85,6 +100,28 @@
         "institution": "L.N.M.U. Darbhanga",
         "year_completed": 1990
       }
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "criminal_records": [],
+    "family_background": [
+      {
+        "name": "Shambhu Nath Pandey",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      }
     ]
   },
   {
@@ -105,7 +142,23 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": [],
+    "criminal_records": []
   },
   {
     "id": "f98931df-6f29-49c0-9286-1a1c94249ffe",
@@ -125,7 +178,23 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "education": [],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": []
   },
   {
     "id": "22dbafc5-6e58-4a76-b76d-509ee9977484",
@@ -145,6 +214,22 @@
           "status": "WON"
         }
       ]
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "family_background": [],
+    "criminal_records": [],
+    "education": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
     }
   },
   {
@@ -165,6 +250,22 @@
           "status": "WON"
         }
       ]
+    },
+    "education": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": "https://www.instagram.com/renu_bjpbihar/?hl=en",
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [],
+    "family_background": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
     }
   },
   {
@@ -185,7 +286,23 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "family_background": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "criminal_records": []
   },
   {
     "id": "9d443c2e-731f-4998-921b-c2b447b0866c",
@@ -205,6 +322,22 @@
           "status": "WON"
         }
       ]
+    },
+    "education": [],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
     }
   },
   {
@@ -225,7 +358,29 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": [],
+    "education": [
+      {
+        "qualification": "MASTER",
+        "institution": null,
+        "year_completed": null
+      }
+    ]
   },
   {
     "id": "d37b9e4c-12fb-462e-a11e-36629b20b966",
@@ -245,7 +400,29 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [
+      {
+        "name": "Extortion complaint filed against the Navyuvak Organisation of Jharkhand (NOJ)",
+        "type": "OTHERS",
+        "year": 2017
+      }
+    ],
+    "family_background": []
   },
   {
     "id": "beebadd6-3f46-4b06-afad-c568a80f38ea",
@@ -265,7 +442,30 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "family_background": [
+      {
+        "name": "Sitaram Singh",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [],
+    "education": []
   },
   {
     "id": "66c3b603-ba50-4145-a0ee-1ba7531d129f",
@@ -285,6 +485,22 @@
           "status": "WON"
         }
       ]
+    },
+    "education": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": "https://www.youtube.com/channel/UCFJPYNMLlnNIro1BxLwGsAw",
+      "website": null
     }
   },
   {
@@ -305,7 +521,21 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "education": [
+      {
+        "qualification": "OTHERS",
+        "institution": null,
+        "year_completed": null
+      }
+    ],
+    "family_background": [],
+    "criminal_records": []
   },
   {
     "id": "8546e1e8-98a0-4610-9975-b324110fa1bb",
@@ -325,6 +555,22 @@
           "status": "WON"
         }
       ]
+    },
+    "education": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
     }
   },
   {
@@ -345,6 +591,22 @@
           "status": "WON"
         }
       ]
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "education": [],
+    "family_background": [],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
     }
   },
   {
@@ -365,7 +627,22 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": [],
+    "criminal_records": []
   },
   {
     "id": "0be3422f-6373-4545-90dc-866ec02c3b2c",
@@ -385,7 +662,23 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "family_background": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "education": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": "https://www.facebook.com/sunilkrpintu/",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": []
   },
   {
     "id": "3e5a33b0-9ea5-4eee-9eb1-0d15cedbb701",
@@ -405,7 +698,23 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "education": [],
+    "social_media": {
+      "twitter": "https://twitter.com/VinodNarayanJha",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [],
+    "family_background": []
   },
   {
     "id": "b61ad57b-033c-4165-8b8e-6bc673c79148",
@@ -425,6 +734,29 @@
           "status": "WON"
         }
       ]
+    },
+    "family_background": [
+      {
+        "name": "Satya Narayan Prasad",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "education": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
     }
   },
   {
@@ -445,7 +777,23 @@
           "status": "WON"
         }
       ]
-    }
+    },
+    "education": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": []
   },
   {
     "id": "d08f36bc-592e-4cb8-b391-beaaeef65658",
