@@ -179,7 +179,14 @@ class BaseAgent:
         """Send a prompt to the LLM and return plain text."""
         try:
             response = self.llm.invoke(prompt)
-            return response.content if hasattr(response, "content") else str(response)
+            content = response.content if hasattr(response, "content") else str(response)
+            if isinstance(content, list):
+                content = " ".join(
+                    part.get("text", "") if isinstance(part, dict) else str(part)
+                    for part in content
+                )
+            return content
+
         except Exception as exc:
             self._record_error("llm", str(exc), exc=exc)
             raise

@@ -90,12 +90,13 @@ class ProviderConfig:
 
 DEFAULT_PROVIDERS: list[dict[str, Any]] = [
     # --- Gemini (generous free tier) ---
+    {"provider": "gemini", "model": "gemini-2.5-flash", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-2.5-pro", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-2.0-flash", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-2.0-flash-lite", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-3.1-pro-preview", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-3-flash-preview", "api_key_env": "GEMINI_API_KEY"},
-    {"provider": "gemini", "model": "gemini-2.5-pro", "api_key_env": "GEMINI_API_KEY"},
-    {"provider": "gemini", "model": "gemini-3-flash", "api_key_env": "GEMINI_API_KEY"},
-    {"provider": "gemini", "model": "gemini-2.5-flash", "api_key_env": "GEMINI_API_KEY"},
-    {"provider": "gemini", "model": "gemini-2.0-flash", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-3.1-flash-lite-preview", "api_key_env": "GEMINI_API_KEY"},
     # --- Groq (ultra-fast free inference) ---
     {"provider": "groq", "model": "llama-3.3-70b-versatile", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
     {"provider": "groq", "model": "llama-3.1-8b-instant", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
