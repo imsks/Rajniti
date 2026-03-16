@@ -54,6 +54,7 @@ _REQUEST_TIMEOUT_SECS = _float_env("FREE_TIER_LLM_TIMEOUT_SECS", 7.0)
 # 1. Provider config schema
 # ---------------------------------------------------------------------------
 
+
 @dataclass(frozen=True)
 class ProviderConfig:
     """One model slot in the fallback chain.
@@ -90,45 +91,166 @@ class ProviderConfig:
 
 DEFAULT_PROVIDERS: list[dict[str, Any]] = [
     # --- Gemini (generous free tier) ---
-    {"provider": "gemini", "model": "gemini-3.1-pro-preview", "api_key_env": "GEMINI_API_KEY"},
-    {"provider": "gemini", "model": "gemini-3-flash-preview", "api_key_env": "GEMINI_API_KEY"},
+    {
+        "provider": "gemini",
+        "model": "gemini-3.1-pro-preview",
+        "api_key_env": "GEMINI_API_KEY",
+    },
+    {
+        "provider": "gemini",
+        "model": "gemini-3-flash-preview",
+        "api_key_env": "GEMINI_API_KEY",
+    },
     {"provider": "gemini", "model": "gemini-2.5-pro", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "gemini", "model": "gemini-3-flash", "api_key_env": "GEMINI_API_KEY"},
-    {"provider": "gemini", "model": "gemini-2.5-flash", "api_key_env": "GEMINI_API_KEY"},
-    {"provider": "gemini", "model": "gemini-2.0-flash", "api_key_env": "GEMINI_API_KEY"},
+    {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash",
+        "api_key_env": "GEMINI_API_KEY",
+    },
+    {
+        "provider": "gemini",
+        "model": "gemini-2.0-flash",
+        "api_key_env": "GEMINI_API_KEY",
+    },
     # --- Groq (ultra-fast free inference) ---
-    {"provider": "groq", "model": "llama-3.3-70b-versatile", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
-    {"provider": "groq", "model": "llama-3.1-8b-instant", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
-    {"provider": "groq", "model": "meta-llama/llama-4-scout-17b-16e-instruct", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
-    {"provider": "groq", "model": "qwen/qwen3-32b", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
-    {"provider": "groq", "model": "meta-llama/llama-4-scout-17b-16e-instruct", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
-    {"provider": "groq", "model": "openai/gpt-oss-safeguard-20b", "api_key_env": "GROQ_API_KEY", "base_url": "https://api.groq.com/openai/v1"},
+    {
+        "provider": "groq",
+        "model": "llama-3.3-70b-versatile",
+        "api_key_env": "GROQ_API_KEY",
+        "base_url": "https://api.groq.com/openai/v1",
+    },
+    {
+        "provider": "groq",
+        "model": "llama-3.1-8b-instant",
+        "api_key_env": "GROQ_API_KEY",
+        "base_url": "https://api.groq.com/openai/v1",
+    },
+    {
+        "provider": "groq",
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "api_key_env": "GROQ_API_KEY",
+        "base_url": "https://api.groq.com/openai/v1",
+    },
+    {
+        "provider": "groq",
+        "model": "qwen/qwen3-32b",
+        "api_key_env": "GROQ_API_KEY",
+        "base_url": "https://api.groq.com/openai/v1",
+    },
+    {
+        "provider": "groq",
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "api_key_env": "GROQ_API_KEY",
+        "base_url": "https://api.groq.com/openai/v1",
+    },
+    {
+        "provider": "groq",
+        "model": "openai/gpt-oss-safeguard-20b",
+        "api_key_env": "GROQ_API_KEY",
+        "base_url": "https://api.groq.com/openai/v1",
+    },
     # --- Mistral (1B tokens/month free) ---
-    {"provider": "mistral", "model": "codestral-latest", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "open-mistral-7b", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "open-mixtral-8x22b", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "mistral-large-2512", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "open-mistral-nemo-2407", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "mistral-medium-2508", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "mistral-small-2506", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "ministral-14b-2512", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "ministral-8b-2512", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "ministral-3b-2512", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "magistral-medium-2509", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "magistral-small-2509", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "ministral-14b-2512", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
-    {"provider": "mistral", "model": "ministral-14b-2512", "api_key_env": "MISTRAL_API_KEY", "base_url": "https://api.mistral.ai/v1"},
+    {
+        "provider": "mistral",
+        "model": "codestral-latest",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "open-mistral-7b",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "open-mixtral-8x22b",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "mistral-large-2512",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "open-mistral-nemo-2407",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "mistral-medium-2508",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "mistral-small-2506",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "ministral-14b-2512",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "ministral-8b-2512",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "ministral-3b-2512",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "magistral-medium-2509",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
+    {
+        "provider": "mistral",
+        "model": "magistral-small-2509",
+        "api_key_env": "MISTRAL_API_KEY",
+        "base_url": "https://api.mistral.ai/v1",
+    },
     # --- OpenRouter (access to many free models) ---
-    {"provider": "openrouter", "model": "google/gemini-2.0-flash-exp:free", "api_key_env": "OPENROUTER_API_KEY", "base_url": "https://openrouter.ai/api/v1"},
+    {
+        "provider": "openrouter",
+        "model": "google/gemini-2.0-flash-exp:free",
+        "api_key_env": "OPENROUTER_API_KEY",
+        "base_url": "https://openrouter.ai/api/v1",
+    },
     # --- Paid fallbacks (safety net) ---
-    {"provider": "openai", "model": "gpt-4o-mini", "api_key_env": "OPENAI_API_KEY", "tier": "paid"},
-    {"provider": "perplexity", "model": "sonar", "api_key_env": "PERPLEXITY_API_KEY", "base_url": "https://api.perplexity.ai", "tier": "paid"},
+    {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "api_key_env": "OPENAI_API_KEY",
+        "tier": "paid",
+    },
+    {
+        "provider": "perplexity",
+        "model": "sonar",
+        "api_key_env": "PERPLEXITY_API_KEY",
+        "base_url": "https://api.perplexity.ai",
+        "tier": "paid",
+    },
 ]
 
 
 # ---------------------------------------------------------------------------
 # 3. Provider builders (LangChain adapters)
 # ---------------------------------------------------------------------------
+
 
 def _build_llm(
     provider: str,
@@ -148,7 +270,9 @@ def _build_llm(
             logger.warning("OpenAI-compatible provider unavailable: %s", exc)
             return None
         kwargs: dict[str, Any] = dict(
-            api_key=api_key, model=model, temperature=0,
+            api_key=api_key,
+            model=model,
+            temperature=0,
             max_retries=0,  # our wrapper handles fallback — no internal retries
             request_timeout=_REQUEST_TIMEOUT_SECS,
         )
@@ -164,7 +288,9 @@ def _build_llm(
             logger.warning("Gemini provider unavailable: %s", exc)
             return None
         return ChatGoogleGenerativeAI(
-            google_api_key=api_key, model=model, temperature=0,
+            google_api_key=api_key,
+            model=model,
+            temperature=0,
             max_retries=0,  # our wrapper handles fallback — no internal retries
             timeout=_REQUEST_TIMEOUT_SECS,
         )
@@ -192,6 +318,7 @@ def _build_llm(
 # ---------------------------------------------------------------------------
 # 4. Error classification
 # ---------------------------------------------------------------------------
+
 
 def _get_retry_after_seconds(exc: Exception) -> Optional[float]:
     """Best-effort extraction of retry-after seconds from provider exceptions."""
@@ -231,7 +358,10 @@ def _is_retryable(exc: Exception) -> bool:
 
     logger.error(
         "FreeTierLLM error — class=%s status=%s code=%s msg=%s",
-        class_name, status_code, code, exc_str[:300],
+        class_name,
+        status_code,
+        code,
+        exc_str[:300],
     )
 
     # Auth errors: cannot fix by switching models of *same* provider key
@@ -254,18 +384,37 @@ def _is_retryable(exc: Exception) -> bool:
     # known retryable patterns before defaulting to non-retryable.
     if status_code is None:
         name_lower = class_name.lower()
-        if any(kw in name_lower for kw in (
-            "timeout", "connection", "network", "dns",
-            "resourceexhausted", "ratelimit", "toomanyrequests",
-            "serviceunavailable", "internalserver",
-        )):
+        if any(
+            kw in name_lower
+            for kw in (
+                "timeout",
+                "connection",
+                "network",
+                "dns",
+                "resourceexhausted",
+                "ratelimit",
+                "toomanyrequests",
+                "serviceunavailable",
+                "internalserver",
+            )
+        ):
             return True
         msg_lower = exc_str.lower()
-        if any(kw in msg_lower for kw in (
-            "timeout", "connection refused", "unreachable",
-            "429", "quota", "rate limit", "resource exhausted",
-            "too many requests", "capacity", "overloaded",
-        )):
+        if any(
+            kw in msg_lower
+            for kw in (
+                "timeout",
+                "connection refused",
+                "unreachable",
+                "429",
+                "quota",
+                "rate limit",
+                "resource exhausted",
+                "too many requests",
+                "capacity",
+                "overloaded",
+            )
+        ):
             return True
         return False
 
@@ -350,20 +499,27 @@ class FreeTierLLM:
             key: _ModelKey = (provider, model)
 
             if key in self._session_exhausted:
-                logger.debug("FreeTierLLM: %s/%s exhausted for session, skip", provider, model)
+                logger.debug(
+                    "FreeTierLLM: %s/%s exhausted for session, skip", provider, model
+                )
                 continue
 
             cooldown_until = self._cooldowns.get(key)
             if cooldown_until and cooldown_until > now:
                 logger.debug(
                     "FreeTierLLM: %s/%s cooldown %.0fs, skip",
-                    provider, model, cooldown_until - now,
+                    provider,
+                    model,
+                    cooldown_until - now,
                 )
                 continue
 
             logger.info(
                 "FreeTierLLM: trying %s/%s (%d/%d)",
-                provider, model, idx + 1, len(self._candidates),
+                provider,
+                model,
+                idx + 1,
+                len(self._candidates),
             )
 
             try:
@@ -384,7 +540,10 @@ class FreeTierLLM:
                     raise
                 logger.warning(
                     "FreeTierLLM: %s/%s failed (%s), %d candidates remain",
-                    provider, model, exc.__class__.__name__, remaining,
+                    provider,
+                    model,
+                    exc.__class__.__name__,
+                    remaining,
                 )
 
         if last_exc:
@@ -402,14 +561,17 @@ class FreeTierLLM:
         """Set cooldown or mark model as session-exhausted based on error signals."""
         msg = str(exc).lower()
         is_quota_exhausted = any(
-            kw in msg for kw in ("quota", "resource exhausted", "daily limit", "exceeded")
+            kw in msg
+            for kw in ("quota", "resource exhausted", "daily limit", "exceeded")
         )
 
         if is_quota_exhausted and retry_after and retry_after > 300:
             self._session_exhausted.add(key)
             logger.warning(
                 "FreeTierLLM: %s/%s marked EXHAUSTED for session (retry_after=%.0fs)",
-                key[0], key[1], retry_after,
+                key[0],
+                key[1],
+                retry_after,
             )
             return
 
@@ -417,7 +579,8 @@ class FreeTierLLM:
             self._session_exhausted.add(key)
             logger.warning(
                 "FreeTierLLM: %s/%s marked EXHAUSTED for session (quota error, no retry hint)",
-                key[0], key[1],
+                key[0],
+                key[1],
             )
             return
 
@@ -425,7 +588,9 @@ class FreeTierLLM:
         self._cooldowns[key] = time.time() + duration
         logger.info(
             "FreeTierLLM: %s/%s cooldown for %.0fs",
-            key[0], key[1], duration,
+            key[0],
+            key[1],
+            duration,
         )
 
     # -- attribute proxy to active LLM --------------------------------------
@@ -462,16 +627,22 @@ class FreeTierLLM:
             if not api_key:
                 logger.warning(
                     "FreeTierLLM: skip %s/%s (no %s)",
-                    cfg.provider, cfg.model, cfg.api_key_env,
+                    cfg.provider,
+                    cfg.model,
+                    cfg.api_key_env,
                 )
                 continue
 
             llm = _build_llm(cfg.provider, cfg.model, api_key, cfg.base_url)
             if llm is None:
-                logger.warning("FreeTierLLM: skip %s/%s (build failed)", cfg.provider, cfg.model)
+                logger.warning(
+                    "FreeTierLLM: skip %s/%s (build failed)", cfg.provider, cfg.model
+                )
                 continue
 
-            logger.info("FreeTierLLM: registered %s/%s [%s]", cfg.provider, cfg.model, cfg.tier)
+            logger.info(
+                "FreeTierLLM: registered %s/%s [%s]", cfg.provider, cfg.model, cfg.tier
+            )
             candidates.append((cfg.provider, cfg.model, llm))
 
         if not candidates:

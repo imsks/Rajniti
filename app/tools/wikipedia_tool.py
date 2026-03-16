@@ -8,7 +8,7 @@ party history, family — all from a single ``politician_context()`` call.
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Optional
 
 import httpx
 
@@ -46,8 +46,7 @@ class WikipediaTool:
             resp.raise_for_status()
             hits = resp.json().get("query", {}).get("search", [])
             return [
-                {"title": h["title"], "snippet": h.get("snippet", "")}
-                for h in hits
+                {"title": h["title"], "snippet": h.get("snippet", "")} for h in hits
             ]
         except Exception as exc:
             logger.warning("Wikipedia search failed for %r: %s", query, exc)
@@ -77,9 +76,7 @@ class WikipediaTool:
             return None
         return self.summary(hits[0]["title"])
 
-    def politician_context(
-        self, name: str, state: str = "", party: str = ""
-    ) -> str:
+    def politician_context(self, name: str, state: str = "", party: str = "") -> str:
         """Build a context block about an Indian politician from Wikipedia."""
         query = f"{name} Indian politician"
         if state:
