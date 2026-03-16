@@ -1,85 +1,58 @@
 """
 Database configuration for Rajniti application.
 
-Simple PostgreSQL setup without any schema definitions yet.
+Delegates to the canonical app.database package for engine/session/Base
+so there is a single source of truth for all DB operations.
 """
 
 import logging
 
-from sqlalchemy import create_engine, text
+from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
-from sqlalchemy.orm import declarative_base, sessionmaker
 
 from app.database.config import get_database_url
 
 logger = logging.getLogger(__name__)
 
-# SQLAlchemy base for future models
-Base = declarative_base()
-
-# Global engine and session factory (used for simple setup)
-# Note: In production, consider using Flask-SQLAlchemy or similar
-# for better integration with Flask's application context
-engine = None
-SessionLocal = None
-
 
 def init_db(app=None):
     """
-    Initialize database connection.
+    Initialize database connection and create tables.
+
+    Delegates to app.database.session which owns the engine, SessionLocal,
+    and the Base that all models inherit from.
 
     Args:
-        app: Flask application instance (optional)
+        app: Flask application instance (optional, reserved for future use)
     """
-    global engine, SessionLocal
-
-    # Get database URL from unified config (works with local PostgreSQL or Supabase)
     database_url = get_database_url(required=False)
     if not database_url:
         logger.warning("DATABASE_URL not set. Database will not be initialized.")
         return False
 
     try:
-        # Create engine
-        engine = create_engine(
-            database_url,
-            pool_pre_ping=True,  # Verify connections before using
-            echo=False,  # Set to True for SQL query logging
-        )
+        from app.database.session import init_db as create_tables
+        from app.database.session import init_engine
 
-        # Create session factory
-        SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+        db_engine = init_engine()
+        if db_engine is None:
+            logger.error("Failed to create database engine.")
+            return False
 
-        # Test connection
-        with engine.connect() as conn:
+        with db_engine.connect() as conn:
             conn.execute(text("SELECT 1"))
 
-        logger.info("Database connection established successfully")
+        create_tables()
+
+        logger.info("Database connection established and tables ensured")
         return True
 
     except SQLAlchemyError as e:
-        logger.error(f"Database error during initialization: {str(e)}")
+        logger.error(f"Database error during initialization: {e}")
         return False
     except Exception as e:
-        logger.error(f"Unexpected error initializing database: {str(e)}")
+        logger.error(f"Unexpected error initializing database: {e}")
         return False
-
-
-def get_db():
-    """
-    Get a database session.
-
-    Yields:
-        Session: SQLAlchemy database session
-    """
-    if SessionLocal is None:
-        raise RuntimeError("Database not initialized. Call init_db() first.")
-
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 
 def check_db_health():
@@ -89,6 +62,8 @@ def check_db_health():
     Returns:
         bool: True if database is healthy, False otherwise
     """
+    from app.database.session import engine
+
     if engine is None:
         return False
 
@@ -97,8 +72,8 @@ def check_db_health():
             conn.execute(text("SELECT 1"))
         return True
     except SQLAlchemyError as e:
-        logger.error(f"Database health check failed: {str(e)}")
+        logger.error(f"Database health check failed: {e}")
         return False
     except Exception as e:
-        logger.error(f"Unexpected error during health check: {str(e)}")
+        logger.error(f"Unexpected error during health check: {e}")
         return False
