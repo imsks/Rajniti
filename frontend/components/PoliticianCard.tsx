@@ -36,10 +36,11 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
     const isMp = politician.type === "MP"
     const hasPhoto = !!politician.photo
     const { trackEvent } = useAnalytics()
+    const politicianUrlSlugOrId = politician.slug ?? politician.id
 
     return (
         <Link
-            href={`/politician/${encodeURIComponent(politician.id)}`}
+            href={`/politician/${encodeURIComponent(politicianUrlSlugOrId)}`}
             className='block group'
             onClick={() => trackEvent('politician_card_click', {
                 politician_id: politician.id,
@@ -97,10 +98,10 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
                 {/* Info pills */}
                 <div className='flex flex-wrap gap-2 mb-3'>
                     <span className='inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 dark:bg-gray-700 rounded-lg text-xs text-gray-600 dark:text-gray-300'>
-                        <img src='/logo/location.png' className='w-4 h-4' /> {politician.constituency}
+                        <img src='/logo/location.png' alt='Constituency' className='w-4 h-4' /> {politician.constituency}
                     </span>
                     <span className='inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 dark:bg-gray-700 rounded-lg text-xs text-gray-600 dark:text-gray-300'>
-                        <img src='/logo/skyline.png' className='w-4 h-4' /> {politician.state}
+                        <img src='/logo/skyline.png' alt='State' className='w-4 h-4' /> {politician.state}
                     </span>
                 </div>
 
