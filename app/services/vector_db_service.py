@@ -58,10 +58,25 @@ class VectorDBService:
             logger.error("VectorDB query failed: %s", exc)
             return []
 
-        ids = raw.get("ids", [[]])[0]
-        docs = raw.get("documents", [[]])[0]
-        metas = raw.get("metadatas", [[]])[0]
-        dists = raw.get("distances", [[]])[0]
+        def _normalize_first_list(key: str) -> List[Any]:
+            """
+            Safely extract the first inner list for a given key from the raw
+            VectorDB response. Returns an empty list if the structure is
+            missing, empty, or malformed.
+            """
+            value = raw.get(key) or [[]]
+            if not isinstance(value, list) or not value:
+                return []
+            first = value[0]
+            if isinstance(first, list):
+                return first
+            # If the first element is not a list, treat as malformed.
+            return []
+
+        ids = _normalize_first_list("ids")
+        docs = _normalize_first_list("documents")
+        metas = _normalize_first_list("metadatas")
+        dists = _normalize_first_list("distances")
 
         results: List[Dict[str, Any]] = []
         for i, pid in enumerate(ids):
