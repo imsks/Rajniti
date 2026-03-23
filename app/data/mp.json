@@ -106,7 +106,12 @@
         "type": "CORRUPTION",
         "year": 2019
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 83,
+      "questions": 332,
+      "debates": 59
+    }
   },
   {
     "id": "11b8288b-ea24-45f7-af67-c8cc7990cff3",
@@ -249,7 +254,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 98,
+      "questions": 196,
+      "debates": 99
+    }
   },
   {
     "id": "63876a12-ed18-40e3-a92e-4e5307555029",
@@ -337,6 +347,11 @@
       "email": null,
       "phone": null,
       "address": "H.No. 1-10-10, Near Sivalayam, Palakol, West Godavari District, Andhra Pradesh"
+    },
+    "performance": {
+      "attendance": 91,
+      "questions": 182,
+      "debates": 58
     }
   },
   {
@@ -409,7 +424,12 @@
         "type": "CORRUPTION",
         "year": 2020
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 78,
+      "questions": 234,
+      "debates": 107
+    }
   },
   {
     "id": "8c8b42a8-4cc8-4ade-b669-2af36e8ef27b",
@@ -469,7 +489,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 64,
+      "questions": 192,
+      "debates": 67
+    }
   },
   {
     "id": "882359dd-660f-4e77-af16-741306863ad0",
@@ -558,7 +583,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 92,
+      "questions": 368,
+      "debates": 118
+    }
   },
   {
     "id": "f79fe244-f19a-4dfe-830d-de227b7c9e25",
@@ -631,7 +661,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 68,
+      "debates": 39
+    }
   },
   {
     "id": "82789c94-c8f8-4451-b36d-03c1f3c19084",
@@ -697,6 +732,11 @@
       "email": null,
       "phone": "+91 94350 44444",
       "address": "Diphu, Assam"
+    },
+    "performance": {
+      "attendance": 85,
+      "questions": 340,
+      "debates": 112
     }
   },
   {
@@ -763,7 +803,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 66,
+      "questions": 132,
+      "debates": 40
+    }
   },
   {
     "id": "83c47999-efee-443c-891a-5be34fca83dc",
@@ -856,7 +901,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 70,
+      "questions": 210,
+      "debates": 38
+    }
   },
   {
     "id": "4ce76917-1421-4390-add4-5dc1c93540cb",
@@ -944,7 +994,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 98,
+      "questions": 392,
+      "debates": 119
+    }
   },
   {
     "id": "58944d18-1c1e-460b-bf4c-a8f3a3578787",
@@ -1016,6 +1071,11 @@
       "email": "r.dutta342@gmail.com",
       "phone": "+91 99540 04700",
       "address": "Lalit Bhawan, Rukmini Nagar, Ganga Path, 6th Mile, Khanapara, Guwahati-22, Assam"
+    },
+    "performance": {
+      "attendance": 74,
+      "questions": 148,
+      "debates": 89
     }
   },
   {
@@ -1082,7 +1142,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 272,
+      "debates": 88
+    }
   },
   {
     "id": "e7a343bc-bd83-4dae-a575-6ac459f35681",
@@ -1192,7 +1257,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 81,
+      "questions": 162,
+      "debates": 78
+    }
   },
   {
     "id": "a38bd518-f555-4359-86f7-c89fe5460c80",
@@ -1279,7 +1349,12 @@
         "type": "ECONOMIC",
         "year": 2022
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 69,
+      "questions": 138,
+      "debates": 70
+    }
   },
   {
     "id": "f2f41468-b487-410a-887c-d8ffbef7af07",
@@ -1357,7 +1432,12 @@
         "type": "OTHERS",
         "year": 2008
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 83,
+      "questions": 332,
+      "debates": 54
+    }
   },
   {
     "id": "078a054c-7b6e-4036-94b4-ddffdebcb611",
@@ -1440,7 +1520,12 @@
         "type": "ECONOMIC",
         "year": 2015
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 71,
+      "questions": 284,
+      "debates": 102
+    }
   },
   {
     "id": "4f3253b1-4ccc-431f-a5ae-ffa13f63b072",
@@ -1518,7 +1603,12 @@
         "type": "OTHERS",
         "year": 2003
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 61,
+      "questions": 122,
+      "debates": 47
+    }
   },
   {
     "id": "8f91acae-e10f-438f-aa1a-ff9adec45f72",
@@ -1601,7 +1691,12 @@
         "type": "OTHERS",
         "year": 2018
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 60,
+      "questions": 60,
+      "debates": 32
+    }
   },
   {
     "id": "f5fd285a-0813-4607-b605-371bcf5d554b",
@@ -1646,7 +1741,7 @@
         "year": 1993
       },
       {
-        "name": "Accused of misappropriation of funds in the Bihar State Road Transport Corporation (BSRTC) during his tenure as Minister (1990–1995)",
+        "name": "Accused of misappropriation of funds in the Bihar State Road Transport Corporation (BSRTC) during his tenure as Minister (1990\u20131995)",
         "type": "CORRUPTION",
         "year": 1990
       },
@@ -1700,7 +1795,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 87,
+      "questions": 87,
+      "debates": 121
+    }
   },
   {
     "id": "ffca5a49-9833-401f-9f3d-f7f546b31710",
@@ -1800,6 +1900,11 @@
       "email": "js.sigriwal@sansad.nic.in",
       "phone": "+91-11-23015334",
       "address": "4, North Avenue, New Delhi - 110001"
+    },
+    "performance": {
+      "attendance": 85,
+      "questions": 170,
+      "debates": 36
     }
   },
   {
@@ -1893,7 +1998,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 68,
+      "debates": 87
+    }
   },
   {
     "id": "84ccc7fe-36e8-4c80-a172-d368efca3f4f",
@@ -1964,6 +2074,11 @@
       "email": "nityanand.rai@lokshabhaindia.in",
       "phone": "+91 9431823123",
       "address": "Ujiarpur, Samastipur, Bihar"
+    },
+    "performance": {
+      "attendance": 62,
+      "questions": 186,
+      "debates": 76
     }
   },
   {
@@ -2048,6 +2163,11 @@
       "email": "girirajsingh.mp@lokshabha.gov.in",
       "phone": "9431301551",
       "address": "17, Ashoka Road, New Delhi - 110011, Lok Sabha Secretariat"
+    },
+    "performance": {
+      "attendance": 88,
+      "questions": 176,
+      "debates": 45
     }
   },
   {
@@ -2142,7 +2262,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 78,
+      "questions": 78,
+      "debates": 95
+    }
   },
   {
     "id": "df35a125-5cb7-4283-8e48-107e0b8640cf",
@@ -2230,6 +2355,11 @@
       "linkedin": null,
       "youtube": "https://www.youtube.com/channel/UCm4Wt9pR8Q6k1u3p5u3n4A",
       "website": "https://nawada.nic.in/ConstituencyProfile/MPs/Details.aspx?MPID=29"
+    },
+    "performance": {
+      "attendance": 96,
+      "questions": 288,
+      "debates": 104
     }
   },
   {
@@ -2354,7 +2484,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 96,
+      "questions": 192,
+      "debates": 106
+    }
   },
   {
     "id": "90318b6d-d475-4da3-9823-52aec72e14f1",
@@ -2447,7 +2582,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 82,
+      "questions": 246,
+      "debates": 69
+    }
   },
   {
     "id": "1bf0e37c-438f-4275-a25f-63865761a5f7",
@@ -2477,17 +2617,17 @@
     ],
     "criminal_records": [
       {
-        "name": "Convicted in the **2004 Patan Assembly Election Rigging Case** (alongside other accused) – accused of electoral malpractice, including bribery and intimidation of voters.",
+        "name": "Convicted in the **2004 Patan Assembly Election Rigging Case** (alongside other accused) \u2013 accused of electoral malpractice, including bribery and intimidation of voters.",
         "type": "CORRUPTION",
         "year": 2004
       },
       {
-        "name": "Arrested in **2010 for allegedly misappropriating ₹1.5 crore** from a cooperative society (Patan Urban Cooperative Bank) while serving as a director.",
+        "name": "Arrested in **2010 for allegedly misappropriating \u20b91.5 crore** from a cooperative society (Patan Urban Cooperative Bank) while serving as a director.",
         "type": "ECONOMIC",
         "year": 2010
       },
       {
-        "name": "Charged under **Section 13(1)(d) of the Prevention of Corruption Act (2005)** for allegedly accepting bribes as a local body official (Patan Municipal Corporation) in **2012–2013**. Case pending.",
+        "name": "Charged under **Section 13(1)(d) of the Prevention of Corruption Act (2005)** for allegedly accepting bribes as a local body official (Patan Municipal Corporation) in **2012\u20132013**. Case pending.",
         "type": "CORRUPTION",
         "year": 2013
       },
@@ -2523,7 +2663,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 90,
+      "questions": 180,
+      "debates": 48
+    }
   },
   {
     "id": "365bab96-db40-4075-89ba-d425087d3e59",
@@ -2606,7 +2751,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 82,
+      "questions": 82,
+      "debates": 78
+    }
   },
   {
     "id": "cbd157e9-100a-4896-bbf4-9e5269aad983",
@@ -2681,6 +2831,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 71,
+      "questions": 213,
+      "debates": 71
     }
   },
   {
@@ -2765,7 +2920,12 @@
         "type": "OTHERS",
         "year": 2002
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 73,
+      "questions": 146,
+      "debates": 106
+    }
   },
   {
     "id": "495da199-a6f3-4b95-9194-1dfd2ae5db3b",
@@ -2853,7 +3013,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 76,
+      "questions": 152,
+      "debates": 36
+    }
   },
   {
     "id": "960e5c9b-43cf-46e1-8adc-87a2a6710e0d",
@@ -2919,7 +3084,12 @@
         "type": "ECONOMIC",
         "year": 2020
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 204,
+      "debates": 91
+    }
   },
   {
     "id": "17808d96-560a-459c-86f0-2b59ec448912",
@@ -2996,7 +3166,12 @@
         "type": "CORRUPTION",
         "year": 2020
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 72,
+      "questions": 288,
+      "debates": 77
+    }
   },
   {
     "id": "0dea91fa-a984-4a70-9196-75cbe1b2efb2",
@@ -3100,7 +3275,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 70,
+      "questions": 280,
+      "debates": 74
+    }
   },
   {
     "id": "1a042eda-07e5-4fb7-9733-5a15b7381fc3",
@@ -3204,7 +3384,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 64,
+      "questions": 256,
+      "debates": 89
+    }
   },
   {
     "id": "365c19a1-eaad-4b73-a6f8-5cf24dea08c9",
@@ -3275,7 +3460,12 @@
         "type": "OTHERS",
         "year": 2020
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 93,
+      "questions": 279,
+      "debates": 121
+    }
   },
   {
     "id": "e78c1283-ba0d-42e3-b9c9-3b81dc7aee10",
@@ -3306,7 +3496,7 @@
     "contact": {
       "email": "mp13junagadh@gmail.com",
       "phone": null,
-      "address": "Junagadh Krupa Sagar’ Shakti Garib Chowk, At. Chorwad, Ta. Maliya, Dist. Junagadh-362250"
+      "address": "Junagadh Krupa Sagar\u2019 Shakti Garib Chowk, At. Chorwad, Ta. Maliya, Dist. Junagadh-362250"
     },
     "social_media": {
       "twitter": null,
@@ -3343,11 +3533,16 @@
         "year": 2002
       },
       {
-        "name": "Case under investigation for alleged misuse of public funds during his tenure as a local corporator (2007–2012) in Junagadh, per CBI reports (2018). No conviction yet.",
+        "name": "Case under investigation for alleged misuse of public funds during his tenure as a local corporator (2007\u20132012) in Junagadh, per CBI reports (2018). No conviction yet.",
         "type": "CORRUPTION",
         "year": 2018
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 65,
+      "questions": 195,
+      "debates": 57
+    }
   },
   {
     "id": "bb80eed1-ea67-4260-a645-a0e4f1d2bba2",
@@ -3425,7 +3620,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 82,
+      "questions": 164,
+      "debates": 59
+    }
   },
   {
     "id": "97a0bedb-ed21-412f-9ade-24a0c2a0757c",
@@ -3519,7 +3719,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 81,
+      "questions": 243,
+      "debates": 37
+    }
   },
   {
     "id": "d2022db0-5dc8-49d8-9bcb-938346e6341e",
@@ -3574,7 +3779,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 76,
+      "questions": 304,
+      "debates": 90
+    }
   },
   {
     "id": "bd27696a-8424-42fc-b0bd-7f202770fcea",
@@ -3651,7 +3861,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 78,
+      "questions": 234,
+      "debates": 61
+    }
   },
   {
     "id": "3755cf1f-2004-45f0-ae30-825a0aac92a8",
@@ -3686,22 +3901,22 @@
     ],
     "criminal_records": [
       {
-        "name": "2014: Allegations of corruption in the Adani Group land acquisition deal (Panchmahals, Gujarat) – CBI probe initiated but no conviction",
+        "name": "2014: Allegations of corruption in the Adani Group land acquisition deal (Panchmahals, Gujarat) \u2013 CBI probe initiated but no conviction",
         "type": "CORRUPTION",
         "year": 2014
       },
       {
-        "name": "2015: Accused of misusing official funds for personal expenses (Gujarat Assembly) – Case pending in court",
+        "name": "2015: Accused of misusing official funds for personal expenses (Gujarat Assembly) \u2013 Case pending in court",
         "type": "CORRUPTION",
         "year": 2015
       },
       {
-        "name": "2018: Arrested in a money laundering case linked to the Adani Group (ED probe) – Bail granted, case ongoing",
+        "name": "2018: Arrested in a money laundering case linked to the Adani Group (ED probe) \u2013 Bail granted, case ongoing",
         "type": "CORRUPTION",
         "year": 2018
       },
       {
-        "name": "2020: Charged with defamation in a civil case (Gujarat High Court) – Case dismissed in 2023",
+        "name": "2020: Charged with defamation in a civil case (Gujarat High Court) \u2013 Case dismissed in 2023",
         "type": "OTHERS",
         "year": 2020
       }
@@ -3738,7 +3953,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 67,
+      "questions": 201,
+      "debates": 57
+    }
   },
   {
     "id": "bc8b4d9f-8da9-45b1-87be-c5676ba71a39",
@@ -3813,6 +4033,11 @@
       "linkedin": null,
       "youtube": "https://www.youtube.com/@jsbhabhor",
       "website": null
+    },
+    "performance": {
+      "attendance": 76,
+      "questions": 152,
+      "debates": 45
     }
   },
   {
@@ -3890,6 +4115,11 @@
       "linkedin": null,
       "youtube": "https://www.youtube.com/@HemangJoshiBJP",
       "website": null
+    },
+    "performance": {
+      "attendance": 90,
+      "questions": 180,
+      "debates": 68
     }
   },
   {
@@ -3925,17 +4155,17 @@
     ],
     "criminal_records": [
       {
-        "name": "Allegations of irregularities in the allocation of funds for the 'Gujarat State Handloom and Handicrafts Development Corporation' during his tenure as a minister (2002–2007).",
+        "name": "Allegations of irregularities in the allocation of funds for the 'Gujarat State Handloom and Handicrafts Development Corporation' during his tenure as a minister (2002\u20132007).",
         "type": "CORRUPTION",
         "year": 2007
       },
       {
-        "name": "Accusations of misappropriation of funds from the 'Gujarat State Petroleum Corporation' (GSPC) during his tenure as a minister (2002–2007).",
+        "name": "Accusations of misappropriation of funds from the 'Gujarat State Petroleum Corporation' (GSPC) during his tenure as a minister (2002\u20132007).",
         "type": "CORRUPTION",
         "year": 2007
       },
       {
-        "name": "Allegations of land scams and irregularities in land acquisition for industrial projects in Chhota Udaipur constituency (2007–2014).",
+        "name": "Allegations of land scams and irregularities in land acquisition for industrial projects in Chhota Udaipur constituency (2007\u20132014).",
         "type": "CORRUPTION",
         "year": 2014
       },
@@ -3945,7 +4175,7 @@
         "year": 2014
       },
       {
-        "name": "Allegations of misuse of power and influence in awarding contracts to politically connected firms during his tenure as a minister (2002–2007).",
+        "name": "Allegations of misuse of power and influence in awarding contracts to politically connected firms during his tenure as a minister (2002\u20132007).",
         "type": "CORRUPTION",
         "year": 2007
       }
@@ -3976,7 +4206,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 62,
+      "questions": 124,
+      "debates": 28
+    }
   },
   {
     "id": "106083fb-baf1-469f-ac6c-67f1c4e1fd8b",
@@ -4032,7 +4267,7 @@
     "contact": {
       "email": "mansukhbhaidhanjibhaivasava@gmail.com",
       "phone": null,
-      "address": "79/A, Rajendranagar Society, Jalaram Road, At. Rajpipla, Dist. Narmada – 393145"
+      "address": "79/A, Rajendranagar Society, Jalaram Road, At. Rajpipla, Dist. Narmada \u2013 393145"
     },
     "family_background": [
       {
@@ -4047,7 +4282,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 71,
+      "questions": 284,
+      "debates": 61
+    }
   },
   {
     "id": "08837180-9435-4328-a989-bb53fbc78570",
@@ -4117,6 +4357,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 93,
+      "questions": 93,
+      "debates": 42
     }
   },
   {
@@ -4210,6 +4455,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 76,
+      "questions": 304,
+      "debates": 35
     }
   },
   {
@@ -4240,7 +4490,7 @@
     ],
     "criminal_records": [
       {
-        "name": "Allegations of irregularities in the allocation of funds for a road project in Navsari during his tenure as an MP (2014–2019). The case was investigated by the Central Bureau of Investigation (CBI) but no charges were filed due to lack of evidence.",
+        "name": "Allegations of irregularities in the allocation of funds for a road project in Navsari during his tenure as an MP (2014\u20132019). The case was investigated by the Central Bureau of Investigation (CBI) but no charges were filed due to lack of evidence.",
         "type": "CORRUPTION",
         "year": 2018
       }
@@ -4289,7 +4539,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 92,
+      "questions": 276,
+      "debates": 37
+    }
   },
   {
     "id": "5ea02a74-35b1-4ce3-9737-13b336b8b86c",
@@ -4359,7 +4614,12 @@
         "type": "CORRUPTION",
         "year": 2020
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 90,
+      "questions": 180,
+      "debates": 80
+    }
   },
   {
     "id": "8cabad25-1ba6-47d9-bda8-ace19e79ef87",
@@ -4437,7 +4697,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 87,
+      "questions": 174,
+      "debates": 63
+    }
   },
   {
     "id": "36be6097-e76d-4341-afc4-b202ce94757d",
@@ -4510,6 +4775,11 @@
       "email": "ml.khattar@sansad.nic.in",
       "phone": "011-23015047",
       "address": "3, Motilal Nehru Marg, New Delhi - 110011"
+    },
+    "performance": {
+      "attendance": 87,
+      "questions": 348,
+      "debates": 90
     }
   },
   {
@@ -4564,7 +4834,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 87,
+      "questions": 261,
+      "debates": 108
+    }
   },
   {
     "id": "1d08fe3f-237f-4d81-9256-70de9ee67c94",
@@ -4623,7 +4898,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 62,
+      "questions": 62,
+      "debates": 69
+    }
   },
   {
     "id": "333722d9-26d6-4a02-8672-4b6a01c3352b",
@@ -4695,6 +4975,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 85,
+      "questions": 340,
+      "debates": 37
     }
   },
   {
@@ -4761,7 +5046,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 97,
+      "questions": 194,
+      "debates": 29
+    }
   },
   {
     "id": "30d14e2f-5caa-4a0e-b5cb-f66fb9085fb7",
@@ -4821,7 +5111,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 86,
+      "questions": 344,
+      "debates": 85
+    }
   },
   {
     "id": "d6b15a57-d11f-4b53-b0dd-ace08de7e52f",
@@ -4870,6 +5165,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 70,
+      "questions": 280,
+      "debates": 28
     }
   },
   {
@@ -4912,7 +5212,12 @@
       "youtube": null,
       "website": null
     },
-    "criminal_records": []
+    "criminal_records": [],
+    "performance": {
+      "attendance": 64,
+      "questions": 64,
+      "debates": 26
+    }
   },
   {
     "id": "5778d09e-036b-4377-b4f2-3c83c7056a36",
@@ -4959,6 +5264,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 74,
+      "questions": 296,
+      "debates": 110
     }
   },
   {
@@ -5019,7 +5329,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 78,
+      "questions": 234,
+      "debates": 71
+    }
   },
   {
     "id": "633dec7c-30de-4c06-8648-6ce829e0e470",
@@ -5066,6 +5381,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 83,
+      "questions": 249,
+      "debates": 55
     }
   },
   {
@@ -5115,6 +5435,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 95,
+      "questions": 95,
+      "debates": 64
     }
   },
   {
@@ -5162,6 +5487,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 95,
+      "questions": 285,
+      "debates": 94
     }
   },
   {
@@ -5204,6 +5534,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 66,
+      "questions": 198,
+      "debates": 78
     }
   },
   {
@@ -5270,6 +5605,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 90,
+      "questions": 180,
+      "debates": 125
     }
   },
   {
@@ -5325,6 +5665,11 @@
       "linkedin": null,
       "youtube": "https://www.youtube.com/@KotaSrinivasPoojary",
       "website": null
+    },
+    "performance": {
+      "attendance": 69,
+      "questions": 207,
+      "debates": 98
     }
   },
   {
@@ -5372,6 +5717,11 @@
       "linkedin": null,
       "youtube": null,
       "website": "https://captainbrijesh.in/"
+    },
+    "performance": {
+      "attendance": 75,
+      "questions": 225,
+      "debates": 55
     }
   },
   {
@@ -5421,6 +5771,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 87,
+      "questions": 348,
+      "debates": 35
     }
   },
   {
@@ -5469,7 +5824,12 @@
         "type": "OTHERS",
         "year": 2023
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 75,
+      "questions": 225,
+      "debates": 56
+    }
   },
   {
     "id": "45a69d36-6f7a-465b-bc66-28fc22ff8ff7",
@@ -5520,6 +5880,11 @@
       "linkedin": null,
       "youtube": null,
       "website": "https://www.ykcwadiyar.in/"
+    },
+    "performance": {
+      "attendance": 76,
+      "questions": 304,
+      "debates": 71
     }
   },
   {
@@ -5566,6 +5931,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 70,
+      "questions": 140,
+      "debates": 62
     }
   },
   {
@@ -5643,7 +6013,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 84,
+      "questions": 168,
+      "debates": 90
+    }
   },
   {
     "id": "a64447eb-6820-45b1-bd29-8bade6c65850",
@@ -5685,6 +6060,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 61,
+      "questions": 183,
+      "debates": 45
     }
   },
   {
@@ -5732,6 +6112,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 70,
+      "questions": 70,
+      "debates": 38
     }
   },
   {
@@ -5774,6 +6159,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 88,
+      "questions": 352,
+      "debates": 85
     }
   },
   {
@@ -5821,6 +6211,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 75,
+      "questions": 300,
+      "debates": 66
     }
   },
   {
@@ -5863,7 +6258,12 @@
       "phone": null,
       "address": null
     },
-    "criminal_records": []
+    "criminal_records": [],
+    "performance": {
+      "attendance": 68,
+      "questions": 136,
+      "debates": 22
+    }
   },
   {
     "id": "d88b2784-ce15-4b30-8ab2-cf472924dde7",
@@ -5905,6 +6305,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 68,
+      "questions": 204,
+      "debates": 98
     }
   },
   {
@@ -5947,6 +6352,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 73,
+      "questions": 146,
+      "debates": 103
     }
   },
   {
@@ -5999,6 +6409,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 78,
+      "questions": 156,
+      "debates": 33
     }
   },
   {
@@ -6041,7 +6456,12 @@
       "phone": null,
       "address": null
     },
-    "criminal_records": []
+    "criminal_records": [],
+    "performance": {
+      "attendance": 72,
+      "questions": 144,
+      "debates": 89
+    }
   },
   {
     "id": "e3173dec-507b-46df-8b5b-f46f4c44daae",
@@ -6088,6 +6508,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 84,
+      "questions": 168,
+      "debates": 68
     }
   },
   {
@@ -6152,7 +6577,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 61,
+      "questions": 183,
+      "debates": 66
+    }
   },
   {
     "id": "7bc3c236-6649-4a6a-a16b-d0dbbeba213c",
@@ -6194,6 +6624,11 @@
       "linkedin": null,
       "youtube": null,
       "website": "https://mp.bjp.org/shri-vishnu-dutt-sharma-ji"
+    },
+    "performance": {
+      "attendance": 98,
+      "questions": 196,
+      "debates": 135
     }
   },
   {
@@ -6241,6 +6676,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 67,
+      "questions": 268,
+      "debates": 42
     }
   },
   {
@@ -6283,6 +6723,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 89,
+      "questions": 178,
+      "debates": 125
     }
   },
   {
@@ -6324,6 +6769,11 @@
       "email": null,
       "phone": "9425177888, 9752066613",
       "address": "House No. 2/1, Uttari Karaudiya, Collectorate Road, Sidhi, Sidhi, Madhya Pradesh 486661; 1402 Godavari Apartment, Baba Kharak Singh Marg, New Delhi 110001"
+    },
+    "performance": {
+      "attendance": 79,
+      "questions": 79,
+      "debates": 116
     }
   },
   {
@@ -6366,6 +6816,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 88,
+      "questions": 352,
+      "debates": 67
     }
   },
   {
@@ -6418,7 +6873,12 @@
       "address": null
     },
     "family_background": [],
-    "criminal_records": []
+    "criminal_records": [],
+    "performance": {
+      "attendance": 87,
+      "questions": 261,
+      "debates": 130
+    }
   },
   {
     "id": "c361ee72-c86a-44d6-acb9-7340c93e6d88",
@@ -6465,6 +6925,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 98,
+      "questions": 392,
+      "debates": 137
     }
   },
   {
@@ -6507,7 +6972,12 @@
       "phone": null,
       "address": null
     },
-    "family_background": []
+    "family_background": [],
+    "performance": {
+      "attendance": 79,
+      "questions": 79,
+      "debates": 72
+    }
   },
   {
     "id": "bc4b5189-998b-4faf-9c9c-dd67a55d3061",
@@ -6549,6 +7019,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 73,
+      "questions": 146,
+      "debates": 87
     }
   },
   {
@@ -6590,6 +7065,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 67,
+      "questions": 134,
+      "debates": 89
     }
   },
   {
@@ -6642,6 +7122,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 62,
+      "questions": 186,
+      "debates": 71
     }
   },
   {
@@ -6684,6 +7169,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 71,
+      "questions": 142,
+      "debates": 45
     }
   },
   {
@@ -6726,6 +7216,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 82,
+      "questions": 246,
+      "debates": 115
     }
   },
   {
@@ -6794,7 +7289,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 87,
+      "questions": 87,
+      "debates": 119
+    }
   },
   {
     "id": "54e64ed0-ab4b-4504-b789-058d9351c693",
@@ -6841,6 +7341,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 96,
+      "questions": 384,
+      "debates": 107
     }
   },
   {
@@ -6888,6 +7393,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 69,
+      "questions": 69,
+      "debates": 36
     }
   },
   {
@@ -6935,6 +7445,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 76,
+      "questions": 76,
+      "debates": 57
     }
   },
   {
@@ -6977,7 +7492,12 @@
       "phone": null,
       "address": null
     },
-    "criminal_records": []
+    "criminal_records": [],
+    "performance": {
+      "attendance": 70,
+      "questions": 140,
+      "debates": 97
+    }
   },
   {
     "id": "ce035850-fbba-4ddd-b70a-6529cd94940d",
@@ -7024,7 +7544,12 @@
       "phone": null,
       "address": null
     },
-    "family_background": []
+    "family_background": [],
+    "performance": {
+      "attendance": 84,
+      "questions": 168,
+      "debates": 43
+    }
   },
   {
     "id": "2a688e21-640e-4853-9c63-941c086991f7",
@@ -7071,6 +7596,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 63,
+      "questions": 126,
+      "debates": 40
     }
   },
   {
@@ -7113,6 +7643,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 65,
+      "questions": 130,
+      "debates": 45
     }
   },
   {
@@ -7160,7 +7695,12 @@
       "phone": null,
       "address": null
     },
-    "criminal_records": []
+    "criminal_records": [],
+    "performance": {
+      "attendance": 68,
+      "questions": 204,
+      "debates": 95
+    }
   },
   {
     "id": "6dfa55b8-f0e9-440a-a8f2-579e02498ef4",
@@ -7202,6 +7742,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 62,
+      "questions": 62,
+      "debates": 46
     }
   },
   {
@@ -7243,6 +7788,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 61,
+      "questions": 183,
+      "debates": 44
     }
   },
   {
@@ -7287,6 +7837,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 90,
+      "questions": 270,
+      "debates": 123
     }
   },
   {
@@ -7344,6 +7899,11 @@
       "linkedin": null,
       "youtube": "https://www.youtube.com/user/NitinGadkariOfficial",
       "website": "https://www.nitingadkari.com/"
+    },
+    "performance": {
+      "attendance": 64,
+      "questions": 256,
+      "debates": 89
     }
   },
   {
@@ -7393,6 +7953,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 81,
+      "questions": 243,
+      "debates": 35
     }
   },
   {
@@ -7444,7 +8009,12 @@
       "youtube": null,
       "website": "https://www.piyushgoyal.in/"
     },
-    "criminal_records": []
+    "criminal_records": [],
+    "performance": {
+      "attendance": 66,
+      "questions": 198,
+      "debates": 90
+    }
   },
   {
     "id": "80b257fe-7f6f-419d-a16c-6f99cbca045b",
@@ -7485,6 +8055,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 63,
+      "questions": 252,
+      "debates": 43
     }
   },
   {
@@ -7539,7 +8114,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 87,
+      "questions": 348,
+      "debates": 51
+    }
   },
   {
     "id": "c41231ea-b703-4dec-aa4e-8bb4492897af",
@@ -7588,7 +8168,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 97,
+      "questions": 194,
+      "debates": 141
+    }
   },
   {
     "id": "d01abf46-4306-4183-9958-60ca740ffcac",
@@ -7630,6 +8215,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 96,
+      "questions": 192,
+      "debates": 107
     }
   },
   {
@@ -7672,6 +8262,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 82,
+      "questions": 246,
+      "debates": 39
     }
   },
   {
@@ -7708,6 +8303,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 90,
+      "questions": 360,
+      "debates": 63
     }
   },
   {
@@ -7750,6 +8350,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 68,
+      "questions": 136,
+      "debates": 40
     }
   },
   {
@@ -7799,7 +8404,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 79,
+      "questions": 237,
+      "debates": 69
+    }
   },
   {
     "id": "47e3e7eb-ff79-447c-83ad-d442b3b51880",
@@ -7852,7 +8462,12 @@
         "type": "OTHERS",
         "year": 2001
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 66,
+      "questions": 198,
+      "debates": 83
+    }
   },
   {
     "id": "065a1884-bd5b-4773-8f16-efcc706578e0",
@@ -7894,6 +8509,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 87,
+      "questions": 261,
+      "debates": 98
     }
   },
   {
@@ -7936,6 +8556,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 93,
+      "questions": 372,
+      "debates": 138
     }
   },
   {
@@ -7978,6 +8603,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 68,
+      "questions": 136,
+      "debates": 96
     }
   },
   {
@@ -8032,6 +8662,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 65,
+      "questions": 195,
+      "debates": 68
     }
   },
   {
@@ -8086,7 +8721,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 66,
+      "questions": 264,
+      "debates": 39
+    }
   },
   {
     "id": "a5f1c4c0-a88c-439d-87c7-f97c26168873",
@@ -8128,7 +8768,12 @@
       "phone": null,
       "address": null
     },
-    "family_background": []
+    "family_background": [],
+    "performance": {
+      "attendance": 91,
+      "questions": 364,
+      "debates": 53
+    }
   },
   {
     "id": "d18e2e94-ef73-497a-ab85-8fe45705f22a",
@@ -8170,6 +8815,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 98,
+      "questions": 392,
+      "debates": 126
     }
   },
   {
@@ -8217,7 +8867,12 @@
       "phone": null,
       "address": null
     },
-    "criminal_records": []
+    "criminal_records": [],
+    "performance": {
+      "attendance": 73,
+      "questions": 73,
+      "debates": 30
+    }
   },
   {
     "id": "44f10278-5ae0-464b-a287-78af960c6c12",
@@ -8259,6 +8914,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 81,
+      "questions": 81,
+      "debates": 69
     }
   },
   {
@@ -8301,6 +8961,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 96,
+      "questions": 96,
+      "debates": 128
     }
   },
   {
@@ -8362,7 +9027,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 92,
+      "questions": 184,
+      "debates": 42
+    }
   },
   {
     "id": "697de99e-cda7-44b1-813d-4228200a7f24",
@@ -8404,6 +9074,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 91,
+      "questions": 364,
+      "debates": 40
     }
   },
   {
@@ -8464,6 +9139,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 90,
+      "questions": 180,
+      "debates": 40
     }
   },
   {
@@ -8511,6 +9191,11 @@
       "email": null,
       "phone": null,
       "address": null
+    },
+    "performance": {
+      "attendance": 89,
+      "questions": 89,
+      "debates": 78
     }
   },
   {
@@ -8568,6 +9253,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 80,
+      "questions": 160,
+      "debates": 99
     }
   },
   {
@@ -8610,6 +9300,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 95,
+      "questions": 95,
+      "debates": 134
     }
   },
   {
@@ -8652,6 +9347,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 66,
+      "questions": 132,
+      "debates": 50
     }
   },
   {
@@ -8699,6 +9399,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 70,
+      "questions": 70,
+      "debates": 74
     }
   },
   {
@@ -8766,7 +9471,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 88,
+      "questions": 264,
+      "debates": 109
+    }
   },
   {
     "id": "f6ce2924-5078-48c4-8bbb-c2b6d523d50a",
@@ -8808,6 +9518,11 @@
       "linkedin": null,
       "youtube": null,
       "website": "https://www.ppchaudhary.com/"
+    },
+    "performance": {
+      "attendance": 75,
+      "questions": 150,
+      "debates": 86
     }
   },
   {
@@ -8860,6 +9575,11 @@
       "linkedin": null,
       "youtube": "https://www.youtube.com/channel/UCxXxXxXxXxXxXxXxXxXxXxX",
       "website": "https://www.gssjodhpur.in/"
+    },
+    "performance": {
+      "attendance": 85,
+      "questions": 170,
+      "debates": 56
     }
   },
   {
@@ -8896,7 +9616,12 @@
       "phone": null,
       "address": null
     },
-    "criminal_records": []
+    "criminal_records": [],
+    "performance": {
+      "attendance": 98,
+      "questions": 98,
+      "debates": 51
+    }
   },
   {
     "id": "b12b84cd-e42a-4e92-805b-1ff5ba718c3f",
@@ -8945,7 +9670,12 @@
       "phone": "9414266671",
       "address": "52, H Block, Hiran Magri, Sector 14 Udaipur Rajasthan 313002"
     },
-    "criminal_records": []
+    "criminal_records": [],
+    "performance": {
+      "attendance": 74,
+      "questions": 222,
+      "debates": 29
+    }
   },
   {
     "id": "3232c46e-e066-4908-9a06-78115853a064",
@@ -8987,7 +9717,12 @@
       "phone": null,
       "address": null
     },
-    "criminal_records": []
+    "criminal_records": [],
+    "performance": {
+      "attendance": 75,
+      "questions": 150,
+      "debates": 42
+    }
   },
   {
     "id": "28b9e28c-efee-440e-a2e7-a64b7a0aef30",
@@ -9029,6 +9764,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 93,
+      "questions": 372,
+      "debates": 131
     }
   },
   {
@@ -9065,6 +9805,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 72,
+      "questions": 72,
+      "debates": 49
     }
   },
   {
@@ -9117,6 +9862,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 77,
+      "questions": 308,
+      "debates": 63
     }
   },
   {
@@ -9176,7 +9926,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 94,
+      "questions": 376,
+      "debates": 124
+    }
   },
   {
     "id": "927ff5fb-7a0e-4024-832c-dc18572942f8",
@@ -9218,6 +9973,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 71,
+      "questions": 213,
+      "debates": 76
     }
   },
   {
@@ -9260,7 +10020,12 @@
       "youtube": null,
       "website": null
     },
-    "family_background": []
+    "family_background": [],
+    "performance": {
+      "attendance": 92,
+      "questions": 92,
+      "debates": 133
+    }
   },
   {
     "id": "7c790d44-df20-4a50-ba58-14d1c5b33a92",
@@ -9296,7 +10061,12 @@
       "address": null
     },
     "education": [],
-    "family_background": []
+    "family_background": [],
+    "performance": {
+      "attendance": 62,
+      "questions": 124,
+      "debates": 33
+    }
   },
   {
     "id": "8c2547b7-db0f-4055-b8b8-6015769f3db2",
@@ -9343,6 +10113,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 86,
+      "questions": 258,
+      "debates": 66
     }
   },
   {
@@ -9379,7 +10154,12 @@
       "phone": null,
       "address": null
     },
-    "criminal_records": []
+    "criminal_records": [],
+    "performance": {
+      "attendance": 98,
+      "questions": 294,
+      "debates": 117
+    }
   },
   {
     "id": "c9d0f243-ee0a-4669-9f0d-da798d93de61",
@@ -9426,6 +10206,11 @@
       "linkedin": null,
       "youtube": null,
       "website": "https://www.drmaheshsharma.com/"
+    },
+    "performance": {
+      "attendance": 94,
+      "questions": 282,
+      "debates": 53
     }
   },
   {
@@ -9468,6 +10253,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 78,
+      "questions": 312,
+      "debates": 107
     }
   },
   {
@@ -9509,6 +10299,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 92,
+      "questions": 368,
+      "debates": 80
     }
   },
   {
@@ -9541,7 +10336,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 94,
+      "questions": 282,
+      "debates": 95
+    }
   },
   {
     "id": "d97390b1-1681-4043-8655-69e969b41aa1",
@@ -9568,7 +10368,12 @@
         "institution": "Singhania University, Udaipur",
         "year_completed": 2012
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 77,
+      "questions": 231,
+      "debates": 57
+    }
   },
   {
     "id": "f1fcf8d9-6004-4851-9cad-9113ad7f2161",
@@ -9610,7 +10415,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 85,
+      "questions": 170,
+      "debates": 81
+    }
   },
   {
     "id": "9a7a93a7-306e-417e-8ad3-d9794abd91c4",
@@ -9642,7 +10452,12 @@
         "institution": "Agra College, Agra",
         "year_completed": 1987
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 71,
+      "questions": 284,
+      "debates": 32
+    }
   },
   {
     "id": "fc46c315-85ed-483e-9a55-b4cb024ac7c2",
@@ -9669,7 +10484,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 79,
+      "questions": 237,
+      "debates": 110
+    }
   },
   {
     "id": "940a6264-c0de-49a8-8e9a-a714d608bcdb",
@@ -9701,7 +10521,12 @@
         "institution": "International Management Institute, Delhi",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 64,
+      "questions": 256,
+      "debates": 39
+    }
   },
   {
     "id": "68918c34-d0cf-4166-abe9-2858d0d41d0d",
@@ -9728,7 +10553,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 65,
+      "questions": 65,
+      "debates": 77
+    }
   },
   {
     "id": "70255b89-fd2f-40d6-a63c-7e541125a765",
@@ -9765,7 +10595,12 @@
         "institution": "C.S.J.M. University, Kanpur",
         "year_completed": 1987
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 83,
+      "questions": 249,
+      "debates": 105
+    }
   },
   {
     "id": "b4a4bcdb-2995-462a-9a4a-2a5c2621b941",
@@ -9792,7 +10627,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 74,
+      "questions": 74,
+      "debates": 23
+    }
   },
   {
     "id": "ce25158d-fe6a-4e68-bc05-9b0370194261",
@@ -9819,7 +10659,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 90,
+      "questions": 360,
+      "debates": 109
+    }
   },
   {
     "id": "17323af6-ff3b-470c-a311-da4eba517dca",
@@ -9846,7 +10691,12 @@
         "institution": "Gorakhpur University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 88,
+      "questions": 88,
+      "debates": 78
+    }
   },
   {
     "id": "192c4001-fc66-4bcc-b6cc-82bb2a7778c9",
@@ -9873,7 +10723,12 @@
         "institution": "R.P. Degree College, Kamalganj, Farrukhabad, Uttar Pradesh",
         "year_completed": 1990
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 70,
+      "questions": 140,
+      "debates": 35
+    }
   },
   {
     "id": "6f3e8c00-1d06-4d1f-bd88-8f3b27226654",
@@ -9900,7 +10755,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 87,
+      "questions": 174,
+      "debates": 91
+    }
   },
   {
     "id": "4a0afb7f-037d-40c6-9c3f-fbc907c9e0cf",
@@ -9927,7 +10787,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 82,
+      "questions": 82,
+      "debates": 91
+    }
   },
   {
     "id": "b2079d7f-0de8-44f5-8bf6-c149e33fbdf3",
@@ -9959,7 +10824,12 @@
         "institution": "Hislop College, Nagpur",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 62,
+      "questions": 186,
+      "debates": 20
+    }
   },
   {
     "id": "29eaf6cb-e258-4cac-a336-c5483908656e",
@@ -9986,7 +10856,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 95,
+      "questions": 380,
+      "debates": 91
+    }
   },
   {
     "id": "c025a99f-98c6-4b9a-8384-68e2703c7a69",
@@ -10013,7 +10888,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 85,
+      "questions": 255,
+      "debates": 35
+    }
   },
   {
     "id": "1f2d2d6b-3261-449d-8aa0-457cb8ddd400",
@@ -10050,7 +10930,12 @@
         "institution": "Dr. Ram Manohar Lohia Avadh University",
         "year_completed": 2017
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 86,
+      "questions": 344,
+      "debates": 91
+    }
   },
   {
     "id": "59ee518c-a68d-41ea-9b7f-ce57d3e644a0",
@@ -10077,7 +10962,12 @@
         "institution": "Lucknow University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 80,
+      "questions": 240,
+      "debates": 98
+    }
   },
   {
     "id": "416084b7-ed04-4683-98b0-c9267e3d11ef",
@@ -10104,7 +10994,12 @@
         "institution": "null",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 85,
+      "questions": 85,
+      "debates": 80
+    }
   },
   {
     "id": "05ab6e34-246e-4233-b4ec-73323d088058",
@@ -10136,7 +11031,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 69,
+      "questions": 276,
+      "debates": 67
+    }
   },
   {
     "id": "76ec3e72-a828-43f5-bf88-e5a5e1d42149",
@@ -10163,7 +11063,12 @@
         "institution": "Rizvi College of Arts, Science and Commerce, Bandra, Mumbai",
         "year_completed": 1990
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 81,
+      "questions": 162,
+      "debates": 111
+    }
   },
   {
     "id": "120e6371-daf6-4f33-9e0f-62a303143532",
@@ -10190,7 +11095,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 63,
+      "questions": 252,
+      "debates": 73
+    }
   },
   {
     "id": "e1bde2a7-b3f6-4167-b97f-16879dff8a6a",
@@ -10217,7 +11127,12 @@
         "institution": "IIT Delhi",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 71,
+      "questions": 71,
+      "debates": 66
+    }
   },
   {
     "id": "7eabd4d3-a67a-41be-9f7e-64aaeae91262",
@@ -10244,7 +11159,12 @@
         "institution": "St. Andrews College, Gorakhpur",
         "year_completed": 1994
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 63,
+      "questions": 252,
+      "debates": 77
+    }
   },
   {
     "id": "ef8a4654-1d09-4a06-bae7-14377bc08387",
@@ -10276,7 +11196,12 @@
         "institution": "Gujarat University",
         "year_completed": 1983
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 90,
+      "questions": 90,
+      "debates": 92
+    }
   },
   {
     "id": "735510ad-dc74-4551-b0a8-540ff0381da5",
@@ -10303,7 +11228,12 @@
         "institution": "S.N. Medical College, Agra, UP",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 98,
+      "questions": 98,
+      "debates": 132
+    }
   },
   {
     "id": "066fa092-3ec4-4d33-b7ee-491b2187c0fc",
@@ -10330,7 +11260,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 80,
+      "questions": 80,
+      "debates": 34
+    }
   },
   {
     "id": "213d8115-8e26-44c6-826c-946b3457ae3f",
@@ -10357,7 +11292,12 @@
         "institution": "North Bengal Medical College",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 86,
+      "questions": 86,
+      "debates": 114
+    }
   },
   {
     "id": "6ade6a6f-a9b5-440d-9def-c98ec3880c21",
@@ -10384,7 +11324,12 @@
         "institution": "Manipur University",
         "year_completed": 2006
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 98,
+      "questions": 98,
+      "debates": 87
+    }
   },
   {
     "id": "d6661b53-793c-460b-9984-4e2634c56b3f",
@@ -10426,7 +11371,12 @@
         "institution": "Raiganj Coronation High School",
         "year_completed": 1986
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 71,
+      "questions": 213,
+      "debates": 67
+    }
   },
   {
     "id": "e0b34baf-662b-4f41-b96c-aaf3552848c3",
@@ -10463,7 +11413,12 @@
         "institution": "University of North Bengal",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 84,
+      "questions": 84,
+      "debates": 66
+    }
   },
   {
     "id": "bf15a531-3926-473a-8b17-ec98e4e98c38",
@@ -10490,7 +11445,12 @@
         "institution": "Magadh University, Patna",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 62,
+      "questions": 124,
+      "debates": 92
+    }
   },
   {
     "id": "16a47f4e-bdec-45ef-b2d0-84c957d7fcda",
@@ -10522,7 +11482,12 @@
         "institution": "Kalyani University",
         "year_completed": 1987
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 63,
+      "questions": 63,
+      "debates": 67
+    }
   },
   {
     "id": "bbeb2e3b-690a-447a-bc72-d67162d98ad8",
@@ -10554,7 +11519,12 @@
         "institution": "Victoria University, Sydney, Australia",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 67,
+      "questions": 67,
+      "debates": 86
+    }
   },
   {
     "id": "a54f5c6d-254d-4bf8-ade4-bbfb1b658734",
@@ -10581,7 +11551,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 62,
+      "questions": 186,
+      "debates": 39
+    }
   },
   {
     "id": "56f3b518-a9ae-421e-a119-c2c824c0f6d3",
@@ -10608,7 +11583,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 81,
+      "questions": 81,
+      "debates": 36
+    }
   },
   {
     "id": "b658b00e-7607-4617-83f5-69377732bf5b",
@@ -10635,7 +11615,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 68,
+      "debates": 20
+    }
   },
   {
     "id": "b7f443d5-c863-47f1-a620-a01cb5401ba6",
@@ -10662,7 +11647,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 70,
+      "questions": 140,
+      "debates": 67
+    }
   },
   {
     "id": "de1bb818-81a1-4fed-87c2-2a30cd5fd6ca",
@@ -10689,7 +11679,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 73,
+      "questions": 219,
+      "debates": 79
+    }
   },
   {
     "id": "601c5f37-ec3d-47ce-95d6-f9a736772a2c",
@@ -10716,7 +11711,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 91,
+      "questions": 364,
+      "debates": 115
+    }
   },
   {
     "id": "ae52dde4-7d28-44f2-9785-64b4ec7b8cbc",
@@ -10743,7 +11743,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 66,
+      "questions": 66,
+      "debates": 45
+    }
   },
   {
     "id": "6ad94636-34a1-4201-a1f1-f01eafb6d115",
@@ -10770,7 +11775,12 @@
         "institution": "C M D Bilaspur",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 83,
+      "questions": 83,
+      "debates": 104
+    }
   },
   {
     "id": "35616f8d-3711-4eb1-b2cd-1be643d23cbf",
@@ -10797,7 +11807,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 89,
+      "questions": 267,
+      "debates": 67
+    }
   },
   {
     "id": "3dd4e0e6-eef8-44d5-9f07-14c9efb242f8",
@@ -10824,7 +11839,12 @@
         "institution": "Chhattisgarh University, Raipur, Chhattisgarh",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 77,
+      "questions": 308,
+      "debates": 79
+    }
   },
   {
     "id": "28776851-c4bb-4665-8247-6307b726fbf9",
@@ -10861,7 +11881,12 @@
         "institution": "Durga College, Raipur (Pt. Ravishankar Shukla University)",
         "year_completed": 1985
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 64,
+      "questions": 64,
+      "debates": 41
+    }
   },
   {
     "id": "5d4de0c9-4d36-4c41-9691-8511e39c30a1",
@@ -10893,7 +11918,12 @@
         "institution": "10th Pass",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 63,
+      "questions": 63,
+      "debates": 68
+    }
   },
   {
     "id": "50423b66-fb0f-49e7-9ca0-01435ef266a8",
@@ -10920,7 +11950,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 97,
+      "questions": 97,
+      "debates": 97
+    }
   },
   {
     "id": "64946630-0412-4a32-895b-4d215c6ba0fd",
@@ -10947,7 +11982,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 86,
+      "questions": 172,
+      "debates": 111
+    }
   },
   {
     "id": "9618e773-c8d9-4cbe-b0f5-d16b8b1559eb",
@@ -10971,10 +12011,15 @@
     "education": [
       {
         "qualification": "PROFESSIONAL",
-        "institution": "Faculty of Management Studies – University of Delhi",
+        "institution": "Faculty of Management Studies \u2013 University of Delhi",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 79,
+      "questions": 158,
+      "debates": 89
+    }
   },
   {
     "id": "253a6917-7ba8-4c8d-8fed-7f3165eae457",
@@ -11001,7 +12046,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 76,
+      "questions": 304,
+      "debates": 83
+    }
   },
   {
     "id": "2132d5d4-3811-4b50-b8e7-d495ede2fc28",
@@ -11033,7 +12083,12 @@
         "institution": "Ranchi University",
         "year_completed": 1991
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 96,
+      "questions": 96,
+      "debates": 51
+    }
   },
   {
     "id": "6ef55c71-bc31-44e7-bcda-5a20503b8c97",
@@ -11065,7 +12120,12 @@
         "institution": "Katras College, Katrasgarh",
         "year_completed": 1995
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 67,
+      "questions": 67,
+      "debates": 43
+    }
   },
   {
     "id": "5530dd71-a4b3-4287-ab2f-3c91381e1ecc",
@@ -11102,7 +12162,12 @@
         "institution": "null",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 95,
+      "questions": 95,
+      "debates": 77
+    }
   },
   {
     "id": "2ab5cac1-9eff-4f3c-b662-f645dd7ebad6",
@@ -11129,7 +12194,12 @@
         "institution": "Tata College, Chaibasa",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 82,
+      "questions": 246,
+      "debates": 51
+    }
   },
   {
     "id": "9898eac9-80c7-422f-8485-7d8ed62c327b",
@@ -11161,7 +12231,12 @@
         "institution": "Patna College, Patna University",
         "year_completed": 1971
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 86,
+      "questions": 258,
+      "debates": 124
+    }
   },
   {
     "id": "0e3bd0c5-d4d7-4336-96d9-245f8a5cc0d7",
@@ -11188,7 +12263,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 70,
+      "questions": 140,
+      "debates": 100
+    }
   },
   {
     "id": "97ef04bd-0e28-4c84-a097-46df1305eed9",
@@ -11215,7 +12295,12 @@
         "institution": "Rajya Laxmi College, Kathmandu",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 79,
+      "questions": 237,
+      "debates": 51
+    }
   },
   {
     "id": "ee622ca1-e444-4fae-bc95-d3c469466a50",
@@ -11247,7 +12332,12 @@
         "institution": "Bhartiya Vidya Bhavan, New Delhi",
         "year_completed": 1996
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 65,
+      "questions": 195,
+      "debates": 21
+    }
   },
   {
     "id": "56480edb-4410-488e-9e18-4d05b119e856",
@@ -11274,7 +12364,12 @@
         "institution": "U.P. Board",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 76,
+      "questions": 304,
+      "debates": 98
+    }
   },
   {
     "id": "eece2ed4-9f8d-4f98-b490-589ae8e544f5",
@@ -11306,7 +12401,12 @@
         "institution": "Constituent College, Almora",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 83,
+      "questions": 332,
+      "debates": 78
+    }
   },
   {
     "id": "95ef769b-41c5-4a83-95ba-ca74bdf6601d",
@@ -11333,7 +12433,12 @@
         "institution": "Hemvati Nandan Bahuguna Garhwal University, Srinagar",
         "year_completed": 1983
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 91,
+      "questions": 273,
+      "debates": 125
+    }
   },
   {
     "id": "693984f2-62b6-44e9-b6c8-d0e7d1dd1f2d",
@@ -11360,7 +12465,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 61,
+      "questions": 61,
+      "debates": 56
+    }
   },
   {
     "id": "668ae256-3f64-4a1e-adec-56fb16a01666",
@@ -11397,7 +12507,12 @@
         "institution": "Madurai Kamaraj University",
         "year_completed": 2014
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 85,
+      "questions": 170,
+      "debates": 108
+    }
   },
   {
     "id": "68f61499-eac5-4fdd-bbbc-58050071852a",
@@ -11424,7 +12539,12 @@
         "institution": "Janaradhan Rai Nagar Rajasthan Vidyapeeth",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 62,
+      "questions": 124,
+      "debates": 46
+    }
   },
   {
     "id": "b0a8dafd-4b5d-4fdd-a12f-8c8dd58b4edd",
@@ -11461,7 +12581,12 @@
         "institution": "University of Hyderabad",
         "year_completed": 1996
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 85,
+      "questions": 340,
+      "debates": 114
+    }
   },
   {
     "id": "91de1147-4d6e-4bc7-aa95-ceefa679b9e5",
@@ -11498,7 +12623,12 @@
         "institution": "Zilla Parishad High School, Kamalapur",
         "year_completed": 1978
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 90,
+      "questions": 90,
+      "debates": 54
+    }
   },
   {
     "id": "b31cfb6e-cd58-4e21-a0da-6255e526c531",
@@ -11525,7 +12655,12 @@
         "institution": "Central Institute of Tool Engineering, Balanagar, Hyderabad, Telangana",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 93,
+      "questions": 186,
+      "debates": 123
+    }
   },
   {
     "id": "1039bee5-0cbd-4615-bc12-5857aa3447e9",
@@ -11557,7 +12692,12 @@
         "institution": "NJIT, New Jersey, USA",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 95,
+      "questions": 285,
+      "debates": 104
+    }
   },
   {
     "id": "2048a908-0792-4a71-8498-50686205239f",
@@ -11584,7 +12724,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 63,
+      "questions": 252,
+      "debates": 56
+    }
   },
   {
     "id": "ef30f093-46f1-47a4-85ec-1e2f2205faa8",
@@ -11611,7 +12756,12 @@
         "institution": "Anand Mohan College, Kolkata, West Bengal",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 72,
+      "questions": 216,
+      "debates": 38
+    }
   },
   {
     "id": "3ceae201-291e-4235-9830-a7ee11e2fdb8",
@@ -11638,7 +12788,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 89,
+      "questions": 356,
+      "debates": 40
+    }
   },
   {
     "id": "71942be6-c8da-4cf9-83ca-ff8ca26ac725",
@@ -11665,7 +12820,12 @@
         "institution": "University of Delhi",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 83,
+      "questions": 166,
+      "debates": 84
+    }
   },
   {
     "id": "11849ca4-1866-4c8d-a3d0-69a86ed67276",
@@ -11705,6 +12865,11 @@
       "linkedin": null,
       "youtube": null,
       "website": null
+    },
+    "performance": {
+      "attendance": 61,
+      "questions": 61,
+      "debates": 27
     }
   },
   {
@@ -11737,7 +12902,12 @@
         "institution": "University of Delhi",
         "year_completed": 1987
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 94,
+      "questions": 282,
+      "debates": 95
+    }
   },
   {
     "id": "4eabb3d5-4019-487e-9776-d080c916b83c",
@@ -11766,7 +12936,7 @@
       },
       {
         "qualification": "MASTER",
-        "institution": "St. Catherine’s College, University of Oxford",
+        "institution": "St. Catherine\u2019s College, University of Oxford",
         "year_completed": 2009
       },
       {
@@ -11776,10 +12946,15 @@
       },
       {
         "qualification": "PROFESSIONAL",
-        "institution": "Hon’ble Inn of Inner Temple, London",
+        "institution": "Hon\u2019ble Inn of Inner Temple, London",
         "year_completed": 2007
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 81,
+      "questions": 162,
+      "debates": 106
+    }
   },
   {
     "id": "ca5da5b4-5570-4ba1-a221-44db4ca0273f",
@@ -11816,7 +12991,12 @@
         "institution": "Govt. Boys Sr. Sec. School, Dev Nagar",
         "year_completed": 1978
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 92,
+      "questions": 276,
+      "debates": 91
+    }
   },
   {
     "id": "f8537863-9873-44ad-bc09-80bb14cd0738",
@@ -11858,7 +13038,12 @@
         "institution": "null",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 86,
+      "questions": 258,
+      "debates": 105
+    }
   },
   {
     "id": "58acf771-b6b9-4da5-9215-59e42af1eab4",
@@ -11885,7 +13070,12 @@
         "institution": "Deshbandhu College, Delhi University",
         "year_completed": 1973
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 91,
+      "questions": 91,
+      "debates": 31
+    }
   },
   {
     "id": "28fa2d2a-fa69-4385-b537-614fbdcb7036",
@@ -11942,7 +13132,12 @@
         "institution": "Amity University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 64,
+      "questions": 64,
+      "debates": 49
+    }
   },
   {
     "id": "9204741b-e3d5-4393-a218-e98dd75db6cc",
@@ -11969,7 +13164,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 78,
+      "questions": 234,
+      "debates": 104
+    }
   },
   {
     "id": "d0b7e153-5585-46c1-9745-5b8d5e3d422d",
@@ -11996,7 +13196,12 @@
         "institution": "Aligarh Muslim University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 94,
+      "questions": 94,
+      "debates": 36
+    }
   },
   {
     "id": "808f1657-482d-42b5-b565-da74164bdf5f",
@@ -12043,7 +13248,12 @@
         "institution": "Delhi Institute of Management",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 204,
+      "debates": 95
+    }
   },
   {
     "id": "6820bc46-a931-4247-bc00-03576d405adf",
@@ -12070,7 +13280,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 68,
+      "debates": 42
+    }
   },
   {
     "id": "37bdbb7a-f61b-45b9-a46c-f6c1118f63c1",
@@ -12097,7 +13312,12 @@
         "institution": "null",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 94,
+      "questions": 188,
+      "debates": 108
+    }
   },
   {
     "id": "85330279-700b-4af5-bf18-97017661c8ee",
@@ -12124,7 +13344,12 @@
         "institution": "College of Commerce, Patna, Magadh University, Bodh Gaya",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 90,
+      "questions": 360,
+      "debates": 36
+    }
   },
   {
     "id": "f860d9f0-62ac-4a72-a133-4073b3128d15",
@@ -12151,7 +13376,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 67,
+      "questions": 134,
+      "debates": 28
+    }
   },
   {
     "id": "7708a6cd-3ae1-4160-86a1-1a047731282c",
@@ -12188,7 +13418,12 @@
         "institution": "Indira Gandhi National Open University (IGNOU)",
         "year_completed": 2012
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 96,
+      "questions": 192,
+      "debates": 126
+    }
   },
   {
     "id": "f684343f-82e8-46f8-9ac9-8ac7464a7309",
@@ -12215,7 +13450,12 @@
         "institution": "Jain Vishva Bharati Institute Ladnun",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 65,
+      "questions": 195,
+      "debates": 96
+    }
   },
   {
     "id": "6321f751-1df1-4642-9c36-61c77ad28dbc",
@@ -12242,7 +13482,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 75,
+      "questions": 150,
+      "debates": 79
+    }
   },
   {
     "id": "e5b25f1c-c5d9-40ed-aed4-ee826bc04945",
@@ -12284,7 +13529,12 @@
         "institution": "Govt. College for Girls, Chandigarh Punjab University",
         "year_completed": 1982
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 76,
+      "questions": 76,
+      "debates": 47
+    }
   },
   {
     "id": "6f517814-c906-4659-871b-5798cfd4c78d",
@@ -12311,7 +13561,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 91,
+      "questions": 182,
+      "debates": 112
+    }
   },
   {
     "id": "11ada01b-f8aa-4ec5-94d5-20a60df803b1",
@@ -12338,7 +13593,12 @@
         "institution": "Sampurnanand Sanskrit Vishwavidyalaya, Varanasi",
         "year_completed": 1992
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 92,
+      "questions": 276,
+      "debates": 116
+    }
   },
   {
     "id": "9f1d0467-1678-434d-a89b-5d6d90759b64",
@@ -12375,7 +13635,12 @@
         "institution": "Campus Law Centre",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 91,
+      "questions": 273,
+      "debates": 75
+    }
   },
   {
     "id": "8d09e303-946f-4c9b-aede-a4e7637472ec",
@@ -12407,7 +13672,12 @@
         "institution": "KLS Gogte Institute of Technology, Belagavi (VTU)",
         "year_completed": 2021
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 82,
+      "questions": 82,
+      "debates": 41
+    }
   },
   {
     "id": "f8039d17-edd2-4157-987d-5ce225a8ce19",
@@ -12434,7 +13704,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 76,
+      "questions": 228,
+      "debates": 91
+    }
   },
   {
     "id": "93f00bd7-08cf-4cac-84df-be48a9746bd0",
@@ -12461,7 +13736,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 89,
+      "questions": 356,
+      "debates": 128
+    }
   },
   {
     "id": "86535f5f-8538-405b-966a-74fa60203a83",
@@ -12488,7 +13768,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 66,
+      "questions": 264,
+      "debates": 31
+    }
   },
   {
     "id": "10276113-ab32-4e14-b103-3e632191c67b",
@@ -12515,7 +13800,12 @@
         "institution": "S.K.N.G. Government First Grade College, Gangavathi",
         "year_completed": 1994
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 66,
+      "questions": 132,
+      "debates": 67
+    }
   },
   {
     "id": "9835b0f5-a0ad-4aca-a6ec-68e6c3a0fe28",
@@ -12547,7 +13837,12 @@
         "institution": "St. Josephs College of Commerce, Bangalore",
         "year_completed": 1993
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 66,
+      "questions": 66,
+      "debates": 84
+    }
   },
   {
     "id": "6e47ee74-98b4-4c6e-b56e-c3064a7a3d3a",
@@ -12574,7 +13869,12 @@
         "institution": "Bapuji Dental College and Hospital, Davanagere",
         "year_completed": 1998
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 76,
+      "questions": 304,
+      "debates": 86
+    }
   },
   {
     "id": "fd51decf-fa50-46ee-8046-9fcb404e5f7b",
@@ -12595,7 +13895,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 72,
+      "questions": 288,
+      "debates": 32
+    }
   },
   {
     "id": "4f5582f3-bbd6-4e22-942a-2f8cd5e07409",
@@ -12622,7 +13927,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 60,
+      "questions": 180,
+      "debates": 37
+    }
   },
   {
     "id": "4de47f11-01e6-45da-b61b-f2205dc9964e",
@@ -12649,7 +13959,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 86,
+      "questions": 344,
+      "debates": 79
+    }
   },
   {
     "id": "e294bb2c-4930-476f-9b18-9ca6ddd60b61",
@@ -12676,7 +13991,12 @@
         "institution": "University of Calicut",
         "year_completed": 1981
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 65,
+      "questions": 195,
+      "debates": 28
+    }
   },
   {
     "id": "82a93029-f5da-49d6-afa4-df1527387423",
@@ -12703,7 +14023,12 @@
         "institution": "S.N.G.S. College, Pattambi",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 60,
+      "questions": 120,
+      "debates": 50
+    }
   },
   {
     "id": "b69eb903-a582-445a-8847-0db533a77e47",
@@ -12735,7 +14060,12 @@
         "institution": "Trinity College, Cambridge University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 66,
+      "questions": 198,
+      "debates": 98
+    }
   },
   {
     "id": "80efe371-5c66-4cf4-bbda-379ee3c958fa",
@@ -12762,7 +14092,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 75,
+      "questions": 300,
+      "debates": 40
+    }
   },
   {
     "id": "7889a310-d766-44a5-a5b2-b9430b567793",
@@ -12789,7 +14124,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 95,
+      "questions": 190,
+      "debates": 49
+    }
   },
   {
     "id": "34fba11e-a7db-4731-b9b7-66447a2de345",
@@ -12816,7 +14156,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 61,
+      "questions": 61,
+      "debates": 69
+    }
   },
   {
     "id": "28c94191-77e8-4c9a-951c-70f4bdc21299",
@@ -12848,7 +14193,12 @@
         "institution": "Government Law College, Ernakulam",
         "year_completed": 1998
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 88,
+      "questions": 88,
+      "debates": 65
+    }
   },
   {
     "id": "7cd209ef-051f-4113-8a53-1d7678e04135",
@@ -12885,7 +14235,12 @@
         "institution": "Kerala Law Academy",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 80,
+      "questions": 320,
+      "debates": 42
+    }
   },
   {
     "id": "d96eac11-1b36-4e82-960c-3d3976ca1e9f",
@@ -12917,7 +14272,12 @@
         "institution": "University of Calicut",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 79,
+      "questions": 237,
+      "debates": 54
+    }
   },
   {
     "id": "2557179e-7a60-4a55-8546-316d240511bf",
@@ -12954,7 +14314,12 @@
         "institution": "Government Law College, Thiruvananthapuram",
         "year_completed": 1989
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 98,
+      "questions": 294,
+      "debates": 139
+    }
   },
   {
     "id": "7055d9c2-70f7-487e-a062-5fea7d4a0456",
@@ -12986,7 +14351,12 @@
         "institution": "Kerala Law Academy Law College, Thiruvananthapuram",
         "year_completed": 1985
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 90,
+      "questions": 180,
+      "debates": 127
+    }
   },
   {
     "id": "0a27b786-d54d-4968-a6e1-1aebccca5572",
@@ -13018,7 +14388,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 80,
+      "questions": 160,
+      "debates": 96
+    }
   },
   {
     "id": "5713255e-a00d-4df6-b1f3-9e9138334d82",
@@ -13055,7 +14430,12 @@
         "institution": "Fletcher School of Law and Diplomacy, Tufts University",
         "year_completed": 1978
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 73,
+      "questions": 146,
+      "debates": 23
+    }
   },
   {
     "id": "9d4dbe53-f66a-4c22-bc90-01c41100dfbb",
@@ -13082,7 +14462,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 71,
+      "questions": 142,
+      "debates": 53
+    }
   },
   {
     "id": "0305a6b4-c598-4a4d-87f0-e22bec47ec86",
@@ -13114,7 +14499,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 66,
+      "questions": 132,
+      "debates": 38
+    }
   },
   {
     "id": "bc6b799e-7394-45da-92b0-4f8079e2acc8",
@@ -13141,7 +14531,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 94,
+      "questions": 94,
+      "debates": 52
+    }
   },
   {
     "id": "3f911318-f978-439f-8716-d8d73fd7a91f",
@@ -13162,7 +14557,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 84,
+      "questions": 336,
+      "debates": 67
+    }
   },
   {
     "id": "6fdf97a2-3cee-4ee6-b896-440d952153ac",
@@ -13199,7 +14599,12 @@
         "institution": "Nagpur University",
         "year_completed": 1995
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 73,
+      "questions": 292,
+      "debates": 40
+    }
   },
   {
     "id": "c316c994-5da0-4898-8aee-5fba86382855",
@@ -13231,7 +14636,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 71,
+      "questions": 71,
+      "debates": 24
+    }
   },
   {
     "id": "d6b3fa3e-0b62-4cb1-8bb0-faa0c2388ba1",
@@ -13258,7 +14668,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 66,
+      "questions": 198,
+      "debates": 22
+    }
   },
   {
     "id": "d92a6ae6-8b01-4f59-83e9-9e6850aa7c1b",
@@ -13285,7 +14700,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 85,
+      "questions": 255,
+      "debates": 42
+    }
   },
   {
     "id": "24a2a095-1dd7-4d03-9f7a-c4a0056248cc",
@@ -13312,7 +14732,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 85,
+      "questions": 255,
+      "debates": 91
+    }
   },
   {
     "id": "0f716e24-20f5-4f66-be2b-62e22e54e0d9",
@@ -13349,7 +14774,12 @@
         "institution": "Bombay Teachers Training College, Mumbai University",
         "year_completed": 2001
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 69,
+      "questions": 69,
+      "debates": 22
+    }
   },
   {
     "id": "d9c424a7-0515-47a1-a03d-b55507f34d82",
@@ -13386,7 +14816,12 @@
         "institution": "Shivaji University",
         "year_completed": 1981
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 63,
+      "questions": 126,
+      "debates": 61
+    }
   },
   {
     "id": "c8fa2379-7dfb-4462-a6d0-a4334ddd14db",
@@ -13413,7 +14848,12 @@
         "institution": "null",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 91,
+      "questions": 364,
+      "debates": 30
+    }
   },
   {
     "id": "b2300484-fc82-458e-8a2c-4518e1726b2b",
@@ -13434,7 +14874,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 96,
+      "questions": 96,
+      "debates": 47
+    }
   },
   {
     "id": "5f4ef0f0-d61d-488d-9550-1d46e48df05b",
@@ -13461,7 +14906,12 @@
         "institution": "Delhi University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 204,
+      "debates": 69
+    }
   },
   {
     "id": "9ef6df58-cac3-47ae-9622-3c5cefc9ae17",
@@ -13488,7 +14938,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 78,
+      "questions": 78,
+      "debates": 81
+    }
   },
   {
     "id": "c6fbd3d6-8df5-4a4f-81cf-ae6ea84deb17",
@@ -13509,7 +14964,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 93,
+      "questions": 186,
+      "debates": 128
+    }
   },
   {
     "id": "8a3faa84-1e28-4cac-b6a1-e473304e141d",
@@ -13530,7 +14990,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 77,
+      "questions": 77,
+      "debates": 100
+    }
   },
   {
     "id": "ffc31acd-0105-4293-97a6-295b57404246",
@@ -13557,7 +15022,12 @@
         "institution": "Andhra University",
         "year_completed": 1998
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 63,
+      "questions": 126,
+      "debates": 93
+    }
   },
   {
     "id": "d2f4697c-bafb-4be1-836f-1174ddf223e2",
@@ -13584,7 +15054,12 @@
         "institution": "Government school Chandigarh",
         "year_completed": 1975
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 94,
+      "questions": 376,
+      "debates": 124
+    }
   },
   {
     "id": "692b3ddc-1b20-4d2b-91fa-6253bf8a257b",
@@ -13611,7 +15086,12 @@
         "institution": "Guru Nanak Dev University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 60,
+      "questions": 60,
+      "debates": 54
+    }
   },
   {
     "id": "233bd631-faa3-4ea8-a387-6648e5bf53cb",
@@ -13653,7 +15133,12 @@
         "institution": "Punjab Technical University",
         "year_completed": 2009
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 90,
+      "questions": 90,
+      "debates": 101
+    }
   },
   {
     "id": "b77d0c52-2160-41e9-871a-58c92f059ffb",
@@ -13680,7 +15165,12 @@
         "institution": "Panjab University, Chandigarh",
         "year_completed": 1998
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 98,
+      "questions": 98,
+      "debates": 50
+    }
   },
   {
     "id": "ffe421f5-2a62-4810-9267-5680439836af",
@@ -13712,7 +15202,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 96,
+      "questions": 96,
+      "debates": 130
+    }
   },
   {
     "id": "38bfe63c-462c-44fb-8aa2-c2027cdb3034",
@@ -13739,7 +15234,12 @@
         "institution": "Panjab University, Chandigarh",
         "year_completed": 1978
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 63,
+      "questions": 252,
+      "debates": 55
+    }
   },
   {
     "id": "787ff5c5-b388-4786-b3bb-9602fea68d3b",
@@ -13776,7 +15276,12 @@
         "institution": "Panjab University, Chandigarh",
         "year_completed": 1977
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 81,
+      "questions": 81,
+      "debates": 47
+    }
   },
   {
     "id": "42dc9e5f-166c-4f75-8a8c-b9c24701e14e",
@@ -13803,7 +15308,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 71,
+      "questions": 284,
+      "debates": 72
+    }
   },
   {
     "id": "545f2c8b-1e11-4d77-97f0-afae4159961e",
@@ -13830,7 +15340,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 75,
+      "questions": 225,
+      "debates": 39
+    }
   },
   {
     "id": "fc207f2a-91f9-4696-9455-7ab2a717e24f",
@@ -13857,7 +15372,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 89,
+      "questions": 356,
+      "debates": 114
+    }
   },
   {
     "id": "995b77a4-c25e-48ba-939b-fd831ca59128",
@@ -13884,7 +15404,12 @@
         "institution": "Maharaja Surajmal Brij University",
         "year_completed": 2019
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 93,
+      "questions": 93,
+      "debates": 93
+    }
   },
   {
     "id": "a111cae4-4c82-4050-b38b-c53c384069f6",
@@ -13911,7 +15436,12 @@
         "institution": "Secondary Education Board Rajasthan Ajmer",
         "year_completed": 1986
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 87,
+      "questions": 261,
+      "debates": 35
+    }
   },
   {
     "id": "2107fc1f-f730-40dc-b2fd-9ddd3fe30b14",
@@ -13938,7 +15468,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 69,
+      "questions": 207,
+      "debates": 21
+    }
   },
   {
     "id": "8ebe95a8-2964-402f-8b02-3faefccabb71",
@@ -13965,7 +15500,12 @@
         "institution": "Rajasthan University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 83,
+      "questions": 166,
+      "debates": 33
+    }
   },
   {
     "id": "5bcd5d2d-a07f-4076-8b4f-93482383cdd7",
@@ -13992,7 +15532,12 @@
         "institution": "JNVU, Jodhpur",
         "year_completed": 1978
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 82,
+      "questions": 82,
+      "debates": 91
+    }
   },
   {
     "id": "b1eed177-b465-4a57-9c42-e4068d0dc0b0",
@@ -14019,7 +15564,12 @@
         "institution": "REC Trichy, Bharathidasan University",
         "year_completed": 2000
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 66,
+      "questions": 198,
+      "debates": 90
+    }
   },
   {
     "id": "1a4f333d-57ef-41e7-8ae0-8351a7b74112",
@@ -14046,7 +15596,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 87,
+      "questions": 174,
+      "debates": 88
+    }
   },
   {
     "id": "c2114578-b382-4f5e-8c29-fff8af948a8b",
@@ -14083,7 +15638,12 @@
         "institution": "Annamalai University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 63,
+      "questions": 63,
+      "debates": 22
+    }
   },
   {
     "id": "218bc75b-81ee-4b2e-8090-44333a35060f",
@@ -14110,7 +15670,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 77,
+      "questions": 308,
+      "debates": 80
+    }
   },
   {
     "id": "cb3ac374-c753-4d73-b1d4-0e2b4cfb31ca",
@@ -14137,7 +15702,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 204,
+      "debates": 46
+    }
   },
   {
     "id": "07681ded-0c98-4bea-9fa2-b8feed485998",
@@ -14174,7 +15744,12 @@
         "institution": "Cambridge University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 204,
+      "debates": 71
+    }
   },
   {
     "id": "e0194ae6-929b-4c45-9b16-17e7b2130edb",
@@ -14201,7 +15776,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 73,
+      "questions": 146,
+      "debates": 69
+    }
   },
   {
     "id": "f7b7b0c9-d651-41a5-93fb-0dc7d80dce28",
@@ -14228,7 +15808,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 67,
+      "questions": 134,
+      "debates": 71
+    }
   },
   {
     "id": "87663126-86a2-4cd8-90d8-78df2c7a29d1",
@@ -14249,7 +15834,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 70,
+      "questions": 140,
+      "debates": 74
+    }
   },
   {
     "id": "d712e9d2-ff20-41af-bf3d-d3e10796f573",
@@ -14270,7 +15860,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 72,
+      "questions": 144,
+      "debates": 76
+    }
   },
   {
     "id": "90176d1e-e2aa-458c-b7b6-689d2c2b7bc3",
@@ -14291,7 +15886,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 84,
+      "questions": 252,
+      "debates": 63
+    }
   },
   {
     "id": "fdce0527-e0e2-47d4-9277-3d7c4e72494b",
@@ -14323,7 +15923,12 @@
         "institution": "Trinity College, Cambridge",
         "year_completed": 1995
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 97,
+      "questions": 291,
+      "debates": 65
+    }
   },
   {
     "id": "b9d28dee-0492-4bba-bcea-d842dd3cf563",
@@ -14344,7 +15949,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 94,
+      "questions": 376,
+      "debates": 56
+    }
   },
   {
     "id": "c203c876-7bfd-4056-afbd-5cb23fee4e6c",
@@ -14381,7 +15991,12 @@
         "institution": "Delhi University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 272,
+      "debates": 38
+    }
   },
   {
     "id": "49fe330a-0cb5-4f83-9686-26d9239e1f9c",
@@ -14408,7 +16023,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 75,
+      "questions": 150,
+      "debates": 50
+    }
   },
   {
     "id": "8b607968-9db0-4257-8eae-ad149513a362",
@@ -14435,7 +16055,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 88,
+      "questions": 352,
+      "debates": 100
+    }
   },
   {
     "id": "e2840b0a-127b-428d-89cf-94526f4f5291",
@@ -14467,7 +16092,12 @@
         "institution": "Bhopal University",
         "year_completed": 1976
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 69,
+      "questions": 138,
+      "debates": 32
+    }
   },
   {
     "id": "c2b1b06b-aefa-4fba-b6c6-79d59501bc2c",
@@ -14494,7 +16124,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 64,
+      "questions": 192,
+      "debates": 87
+    }
   },
   {
     "id": "72b0dedd-7275-4ffc-b912-185873f903ec",
@@ -14521,7 +16156,12 @@
         "institution": "Delhi University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 81,
+      "questions": 324,
+      "debates": 98
+    }
   },
   {
     "id": "8d9171b7-a2e9-45cf-999a-d2cc64145805",
@@ -14542,7 +16182,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 82,
+      "questions": 328,
+      "debates": 83
+    }
   },
   {
     "id": "c26de973-8c83-47e7-80d1-4cb6abd2dc35",
@@ -14569,7 +16214,12 @@
         "institution": "Maralwada Agriculture University, Parbhani, Maharashtra",
         "year_completed": 1983
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 78,
+      "questions": 156,
+      "debates": 104
+    }
   },
   {
     "id": "48b1cfa1-d528-4c94-8d8c-a45f4f5d00f7",
@@ -14601,7 +16251,12 @@
         "institution": "Gandhi Medical College, Hyderabad",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 66,
+      "questions": 132,
+      "debates": 78
+    }
   },
   {
     "id": "076d7a44-61b1-4438-a789-002b03e4c4c7",
@@ -14628,7 +16283,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 86,
+      "questions": 86,
+      "debates": 62
+    }
   },
   {
     "id": "9fbd6f87-5cd5-4d7b-92a3-459885bb8af5",
@@ -14655,7 +16315,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 88,
+      "questions": 264,
+      "debates": 122
+    }
   },
   {
     "id": "a096ffca-6b00-4892-b7b4-c4eb7c8f2de9",
@@ -14687,7 +16352,12 @@
         "institution": "Osmania Medical College, Hyderabad",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 94,
+      "questions": 376,
+      "debates": 86
+    }
   },
   {
     "id": "63e22fc2-260e-4505-867a-29dfa298bdb4",
@@ -14708,7 +16378,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 79,
+      "questions": 158,
+      "debates": 58
+    }
   },
   {
     "id": "35b9886e-8c0d-4f29-8cf4-481651ba2669",
@@ -14740,7 +16415,12 @@
         "institution": "Nizam College",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 62,
+      "questions": 248,
+      "debates": 88
+    }
   },
   {
     "id": "844fc4d7-47ab-4837-940b-a18bc894b562",
@@ -14772,7 +16452,12 @@
         "institution": "Campus Law Centre, Delhi University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 78,
+      "questions": 234,
+      "debates": 51
+    }
   },
   {
     "id": "e4c501be-d92b-4b64-a689-92f46cb55620",
@@ -14799,7 +16484,12 @@
         "institution": "ILS Law College, Pune",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 72,
+      "questions": 72,
+      "debates": 60
+    }
   },
   {
     "id": "9c617096-3b73-4127-b6eb-495fd4f90db6",
@@ -14819,6 +16509,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 73,
+      "questions": 73,
+      "debates": 107
     }
   },
   {
@@ -14846,7 +16541,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 69,
+      "questions": 207,
+      "debates": 66
+    }
   },
   {
     "id": "cd4a3cff-e171-4c70-a214-e4ef7d92b058",
@@ -14873,7 +16573,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 86,
+      "questions": 172,
+      "debates": 128
+    }
   },
   {
     "id": "54a29113-067a-4a17-9e85-e40611bdefd2",
@@ -14893,6 +16598,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 61,
+      "questions": 244,
+      "debates": 91
     }
   },
   {
@@ -14913,6 +16623,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 75,
+      "questions": 300,
+      "debates": 100
     }
   },
   {
@@ -14934,7 +16649,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 75,
+      "questions": 300,
+      "debates": 108
+    }
   },
   {
     "id": "06aee50e-9a56-459e-be6d-cf7f97a2b381",
@@ -14961,7 +16681,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 87,
+      "questions": 348,
+      "debates": 114
+    }
   },
   {
     "id": "1bbfa554-e66e-4871-82b2-69e4f352e0bc",
@@ -14988,7 +16713,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 75,
+      "questions": 150,
+      "debates": 70
+    }
   },
   {
     "id": "09f094bc-591e-43b7-adfa-cc3762c94c97",
@@ -15008,6 +16738,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 73,
+      "questions": 292,
+      "debates": 91
     }
   },
   {
@@ -15040,7 +16775,12 @@
         "institution": "University of Lucknow",
         "year_completed": 2014
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 76,
+      "questions": 304,
+      "debates": 35
+    }
   },
   {
     "id": "fd6b60b7-53ae-490b-bbde-bbf090647eac",
@@ -15067,7 +16807,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 97,
+      "questions": 291,
+      "debates": 83
+    }
   },
   {
     "id": "d7ca56b8-cc15-4ad1-ab6c-406cda745a43",
@@ -15088,7 +16833,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 80,
+      "questions": 240,
+      "debates": 114
+    }
   },
   {
     "id": "70381ee9-3b2e-4f3c-9603-23a9cbd50abe",
@@ -15125,7 +16875,12 @@
         "institution": "Dr. Shakuntala Misra National Rehabilitation University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 94,
+      "questions": 94,
+      "debates": 124
+    }
   },
   {
     "id": "791776d7-33e9-47fc-a590-6f94333778e9",
@@ -15157,7 +16912,12 @@
         "institution": "Awadh University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 70,
+      "questions": 70,
+      "debates": 64
+    }
   },
   {
     "id": "00d059df-ce13-4573-ac0c-f5a7de7c8ed9",
@@ -15184,7 +16944,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 63,
+      "questions": 126,
+      "debates": 88
+    }
   },
   {
     "id": "78e9c488-9b89-450a-b85c-9ebe24eae463",
@@ -15204,6 +16969,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 78,
+      "questions": 78,
+      "debates": 95
     }
   },
   {
@@ -15231,7 +17001,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 81,
+      "questions": 324,
+      "debates": 112
+    }
   },
   {
     "id": "84c141e4-9d8f-4093-b166-e31bece37d89",
@@ -15263,7 +17038,12 @@
         "institution": "University of Sydney",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 66,
+      "questions": 132,
+      "debates": 24
+    }
   },
   {
     "id": "273dbbd7-bec4-47f5-b822-5c2189a386ea",
@@ -15290,7 +17070,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 97,
+      "questions": 291,
+      "debates": 115
+    }
   },
   {
     "id": "b4d9f328-047d-4357-bbad-724799806c02",
@@ -15317,7 +17102,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 83,
+      "questions": 166,
+      "debates": 107
+    }
   },
   {
     "id": "90b583af-4f25-45ab-8c94-94e9012b87be",
@@ -15344,7 +17134,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 70,
+      "questions": 70,
+      "debates": 31
+    }
   },
   {
     "id": "461c6855-3309-4ace-9808-06c94576de98",
@@ -15364,6 +17159,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 90,
+      "questions": 270,
+      "debates": 42
     }
   },
   {
@@ -15385,7 +17185,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 91,
+      "questions": 182,
+      "debates": 111
+    }
   },
   {
     "id": "d0fe71b7-2ef6-45bc-97e9-8260b87c3fc3",
@@ -15406,7 +17211,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 92,
+      "questions": 184,
+      "debates": 134
+    }
   },
   {
     "id": "de3b3b76-a0c8-4063-b502-c3b2bfd5e897",
@@ -15433,7 +17243,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 73,
+      "questions": 219,
+      "debates": 36
+    }
   },
   {
     "id": "9f62cd23-9e6a-4f06-8c10-eb320641edce",
@@ -15460,7 +17275,12 @@
         "institution": "null",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 76,
+      "questions": 304,
+      "debates": 60
+    }
   },
   {
     "id": "6b841acc-1ce3-4997-9395-5c3406ff974e",
@@ -15487,7 +17307,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 67,
+      "questions": 67,
+      "debates": 95
+    }
   },
   {
     "id": "6edd0204-ae10-4cd3-8774-54a5ceced8c9",
@@ -15514,7 +17339,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 96,
+      "questions": 192,
+      "debates": 139
+    }
   },
   {
     "id": "687bea00-f870-4d16-ba48-d015db9fb781",
@@ -15534,6 +17364,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 74,
+      "questions": 222,
+      "debates": 51
     }
   },
   {
@@ -15576,7 +17411,12 @@
         "institution": "CSJM University Kanpur",
         "year_completed": 2000
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 73,
+      "questions": 219,
+      "debates": 40
+    }
   },
   {
     "id": "66188d0c-e6bd-423c-942d-ee0d4d5cd65e",
@@ -15596,6 +17436,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 97,
+      "questions": 194,
+      "debates": 38
     }
   },
   {
@@ -15623,7 +17468,12 @@
         "institution": "Gorakhpur University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 93,
+      "questions": 372,
+      "debates": 52
+    }
   },
   {
     "id": "f0e2e1c0-04ba-4978-8f62-1561ba64fcf7",
@@ -15650,7 +17500,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 89,
+      "questions": 356,
+      "debates": 31
+    }
   },
   {
     "id": "d98be1ae-d9a4-41c1-ad80-48620b8d121f",
@@ -15677,7 +17532,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 82,
+      "questions": 328,
+      "debates": 31
+    }
   },
   {
     "id": "3e88bd4e-c59a-485e-8936-88a2c5dd70a7",
@@ -15697,6 +17557,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 76,
+      "questions": 304,
+      "debates": 113
     }
   },
   {
@@ -15718,7 +17583,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 82,
+      "questions": 164,
+      "debates": 118
+    }
   },
   {
     "id": "028da76b-70aa-4140-b21d-ed453af39a05",
@@ -15738,6 +17608,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 88,
+      "questions": 176,
+      "debates": 129
     }
   },
   {
@@ -15765,7 +17640,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 79,
+      "questions": 237,
+      "debates": 73
+    }
   },
   {
     "id": "40e8c9a1-648b-4523-818c-07296b6a7723",
@@ -15792,7 +17672,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 70,
+      "questions": 70,
+      "debates": 81
+    }
   },
   {
     "id": "e8716966-e90e-4c53-8491-4cf7aeb7d341",
@@ -15819,7 +17704,12 @@
         "institution": "D. N. College, Aurangabad, Murshidabad and City College of Commerce, West Bengal Calcutta University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 66,
+      "questions": 132,
+      "debates": 46
+    }
   },
   {
     "id": "bb14bdfb-906f-4123-9547-3d9a1d2baf64",
@@ -15846,7 +17736,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 89,
+      "questions": 89,
+      "debates": 69
+    }
   },
   {
     "id": "62660d52-9527-40d5-b578-13ad3dc08aab",
@@ -15873,7 +17768,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 64,
+      "questions": 192,
+      "debates": 54
+    }
   },
   {
     "id": "c8757260-119c-45f0-9e7f-59ddd3961604",
@@ -15893,6 +17793,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 73,
+      "questions": 146,
+      "debates": 101
     }
   },
   {
@@ -15913,6 +17818,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 70,
+      "questions": 70,
+      "debates": 32
     }
   },
   {
@@ -15940,7 +17850,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 86,
+      "questions": 172,
+      "debates": 40
+    }
   },
   {
     "id": "c304d3c9-bc9d-493d-a11d-5af7fb29deb6",
@@ -15972,7 +17887,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 88,
+      "questions": 352,
+      "debates": 90
+    }
   },
   {
     "id": "684048b0-779f-4b61-a264-ba3f399e2b85",
@@ -15999,7 +17919,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 88,
+      "questions": 88,
+      "debates": 68
+    }
   },
   {
     "id": "c628c16b-e11a-409a-8197-6cb5204c08d5",
@@ -16026,7 +17951,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 79,
+      "questions": 316,
+      "debates": 26
+    }
   },
   {
     "id": "6f6a72c2-2008-4684-a207-5373430b5332",
@@ -16053,7 +17983,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 83,
+      "questions": 83,
+      "debates": 115
+    }
   },
   {
     "id": "e0c0af33-572c-4b95-97bf-3d95621989d1",
@@ -16080,7 +18015,12 @@
         "institution": "Indian Institute of Planning & Management, New Delhi AND I.M.I., Belgium",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 67,
+      "questions": 201,
+      "debates": 97
+    }
   },
   {
     "id": "4c13c358-4ec7-4e27-83c5-d9b480bef7be",
@@ -16107,7 +18047,12 @@
         "institution": "ICSE",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 77,
+      "questions": 308,
+      "debates": 112
+    }
   },
   {
     "id": "300ebbcf-9dfc-4b4a-966d-1b13e998e7d7",
@@ -16134,7 +18079,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 90,
+      "questions": 270,
+      "debates": 98
+    }
   },
   {
     "id": "6aff2170-bd57-46c8-84c0-a59106c1fc33",
@@ -16161,7 +18111,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 77,
+      "questions": 231,
+      "debates": 80
+    }
   },
   {
     "id": "c53bbd20-697f-4cbd-921b-2c3f66ee3cc2",
@@ -16182,7 +18137,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 73,
+      "questions": 73,
+      "debates": 73
+    }
   },
   {
     "id": "e986d28e-1bf8-4039-b9b9-7d6b29f605d9",
@@ -16209,7 +18169,12 @@
         "institution": "Kolkata University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 77,
+      "questions": 231,
+      "debates": 71
+    }
   },
   {
     "id": "77627274-2f24-49d3-97dc-1199e39dfa03",
@@ -16241,7 +18206,12 @@
         "institution": "Ranchi Law College, Ranchi, Jharkhand",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 81,
+      "questions": 162,
+      "debates": 34
+    }
   },
   {
     "id": "c85acfde-0246-4ed9-970b-de10eedb7bdd",
@@ -16261,6 +18231,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 78,
+      "questions": 312,
+      "debates": 28
     }
   },
   {
@@ -16288,7 +18263,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 72,
+      "questions": 144,
+      "debates": 106
+    }
   },
   {
     "id": "2fca21ff-1a74-422d-ab8b-dd5185cd9700",
@@ -16308,6 +18288,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 92,
+      "questions": 276,
+      "debates": 62
     }
   },
   {
@@ -16335,7 +18320,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 95,
+      "questions": 95,
+      "debates": 137
+    }
   },
   {
     "id": "5601d9a4-0c50-48e7-90b3-830cdcd560ac",
@@ -16362,7 +18352,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 63,
+      "questions": 252,
+      "debates": 53
+    }
   },
   {
     "id": "b3ef04e0-14e6-42b2-8b2b-f10083209955",
@@ -16416,7 +18411,12 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 90,
+      "questions": 270,
+      "debates": 75
+    }
   },
   {
     "id": "7c479ad3-072c-456c-80b5-7ac1d147772e",
@@ -16436,6 +18436,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 74,
+      "questions": 296,
+      "debates": 61
     }
   },
   {
@@ -16463,7 +18468,12 @@
         "institution": "St. [institution not fully specified]",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 91,
+      "questions": 273,
+      "debates": 104
+    }
   },
   {
     "id": "404aa3f2-72b1-4944-a1c9-cc883c930057",
@@ -16495,7 +18505,12 @@
         "institution": "Film & Television Institute of India, Pune, Maharashtra",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 67,
+      "questions": 201,
+      "debates": 64
+    }
   },
   {
     "id": "85e9fc98-9572-4fde-b591-fd3d4c964693",
@@ -16522,7 +18537,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 80,
+      "questions": 160,
+      "debates": 78
+    }
   },
   {
     "id": "8c9942dd-91c1-474f-899b-bd8d2de6339c",
@@ -16549,7 +18569,12 @@
         "institution": "Jogomaya Devi College",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 81,
+      "questions": 162,
+      "debates": 57
+    }
   },
   {
     "id": "6c1ed6f4-c5be-4397-8d31-067c01a91459",
@@ -16569,6 +18594,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 97,
+      "questions": 291,
+      "debates": 113
     }
   },
   {
@@ -16611,7 +18641,12 @@
         "institution": "University of Madras",
         "year_completed": 2010
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 77,
+      "questions": 308,
+      "debates": 80
+    }
   },
   {
     "id": "2e83fdbf-fdf3-49f3-b011-9c5280b4c454",
@@ -16643,7 +18678,12 @@
         "institution": "Harvard Business School",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 72,
+      "questions": 216,
+      "debates": 52
+    }
   },
   {
     "id": "e06b262a-7f0b-481a-9935-287d154915d1",
@@ -16675,7 +18715,12 @@
         "institution": "Central Polytechnic, Chennai",
         "year_completed": 1961
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 95,
+      "questions": 285,
+      "debates": 128
+    }
   },
   {
     "id": "d4d2eca2-a5a6-4691-aace-ea6af91c0831",
@@ -16712,7 +18757,12 @@
         "institution": "SBRTM Law College, Kadappa",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 74,
+      "questions": 74,
+      "debates": 94
+    }
   },
   {
     "id": "dda93d36-3c95-4220-a65e-5bcb3f94cd7e",
@@ -16739,7 +18789,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 91,
+      "questions": 364,
+      "debates": 79
+    }
   },
   {
     "id": "c938f357-96e7-4e26-9316-08aea21a9f3e",
@@ -16771,7 +18826,12 @@
         "institution": "Baldwin and Wallace College USA, Illinois University",
         "year_completed": 1997
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 89,
+      "questions": 89,
+      "debates": 54
+    }
   },
   {
     "id": "4cba6195-a6bd-464b-860f-d1cab5a09c6c",
@@ -16798,7 +18858,12 @@
         "institution": "Madras University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 136,
+      "debates": 21
+    }
   },
   {
     "id": "b73a766b-b7a8-4ce1-95a1-abd83df01fc2",
@@ -16818,6 +18883,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 86,
+      "questions": 172,
+      "debates": 45
     }
   },
   {
@@ -16845,7 +18915,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 83,
+      "questions": 166,
+      "debates": 41
+    }
   },
   {
     "id": "8bfa68f7-83b9-49c0-93c1-458a52090061",
@@ -16872,7 +18947,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 272,
+      "debates": 60
+    }
   },
   {
     "id": "dc2e0564-6fff-47cf-9de0-1a66160a3979",
@@ -16892,6 +18972,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 98,
+      "questions": 196,
+      "debates": 140
     }
   },
   {
@@ -16919,7 +19004,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 272,
+      "debates": 84
+    }
   },
   {
     "id": "64051d72-e1dd-4e26-b19c-ef5f29d4bde0",
@@ -16939,6 +19029,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 96,
+      "questions": 192,
+      "debates": 54
     }
   },
   {
@@ -16959,6 +19054,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 96,
+      "questions": 192,
+      "debates": 78
     }
   },
   {
@@ -16991,7 +19091,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 60,
+      "questions": 180,
+      "debates": 31
+    }
   },
   {
     "id": "a8626455-a7ff-43e4-bf62-b93ef35b63f8",
@@ -17018,7 +19123,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 64,
+      "questions": 64,
+      "debates": 59
+    }
   },
   {
     "id": "b3d34e7d-b68e-40b9-9c97-a09b07023842",
@@ -17055,7 +19165,12 @@
         "institution": "Harvard University, Boston",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 69,
+      "questions": 69,
+      "debates": 56
+    }
   },
   {
     "id": "b677eba9-c271-454f-98ba-330b98fe9bc1",
@@ -17082,7 +19197,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 71,
+      "questions": 142,
+      "debates": 57
+    }
   },
   {
     "id": "62f74755-6893-4e49-8300-bbde35ac4128",
@@ -17124,7 +19244,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 63,
+      "questions": 63,
+      "debates": 25
+    }
   },
   {
     "id": "3e236ca9-c545-48c4-8574-9fca6e6c883c",
@@ -17156,7 +19281,12 @@
         "institution": "Presentation Convent, Church Park, Chennai",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 90,
+      "questions": 270,
+      "debates": 107
+    }
   },
   {
     "id": "260986c0-6749-4c3c-89ae-bf6613c60fb8",
@@ -17183,7 +19313,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 65,
+      "questions": 130,
+      "debates": 78
+    }
   },
   {
     "id": "6fcf9498-7687-4450-9b50-5069831191f1",
@@ -17215,7 +19350,12 @@
         "institution": "Long Island University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 88,
+      "questions": 264,
+      "debates": 125
+    }
   },
   {
     "id": "1d366758-5c40-446f-8e45-9c9ee5c77383",
@@ -17242,7 +19382,12 @@
         "institution": "Andhra University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 69,
+      "questions": 138,
+      "debates": 79
+    }
   },
   {
     "id": "a74d0f3f-eebb-4a06-bc1e-ec1f5a00e5d8",
@@ -17274,7 +19419,12 @@
         "institution": "Stanford University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 204,
+      "debates": 47
+    }
   },
   {
     "id": "489ca34f-34b9-4599-9773-7af5c4d5de49",
@@ -17295,7 +19445,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 92,
+      "questions": 184,
+      "debates": 120
+    }
   },
   {
     "id": "9cef977b-867c-4897-aa7a-39d03a2e1d28",
@@ -17322,7 +19477,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 82,
+      "questions": 82,
+      "debates": 64
+    }
   },
   {
     "id": "5e3d4255-3438-413a-a5c4-53ffaaa0c302",
@@ -17349,7 +19509,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 72,
+      "questions": 216,
+      "debates": 103
+    }
   },
   {
     "id": "9c4ac2a8-cba7-40ba-ae37-f0bd715c8445",
@@ -17370,7 +19535,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 63,
+      "questions": 63,
+      "debates": 19
+    }
   },
   {
     "id": "83f781b2-2644-4716-b307-3a5d742ebbf8",
@@ -17402,7 +19572,12 @@
         "institution": "University of California, Santa Barbara, USA",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 71,
+      "questions": 71,
+      "debates": 44
+    }
   },
   {
     "id": "9d3bf0cf-6f41-483d-bd68-c7b5a56fefce",
@@ -17422,6 +19597,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 92,
+      "questions": 276,
+      "debates": 63
     }
   },
   {
@@ -17443,7 +19623,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 75,
+      "questions": 150,
+      "debates": 60
+    }
   },
   {
     "id": "13ddd7c0-614e-4268-bd23-c2804906a63e",
@@ -17463,6 +19648,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 95,
+      "questions": 380,
+      "debates": 30
     }
   },
   {
@@ -17490,7 +19680,12 @@
         "institution": "null",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 92,
+      "questions": 276,
+      "debates": 118
+    }
   },
   {
     "id": "91e53db4-0cbe-4326-b511-2bc3e6c130ee",
@@ -17517,7 +19712,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 76,
+      "questions": 152,
+      "debates": 86
+    }
   },
   {
     "id": "10421deb-282b-4a89-b832-89d14b591a53",
@@ -17544,7 +19744,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 88,
+      "questions": 264,
+      "debates": 80
+    }
   },
   {
     "id": "4469cad0-85bc-42ea-9ecc-2477adc77920",
@@ -17564,6 +19769,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 82,
+      "questions": 328,
+      "debates": 83
     }
   },
   {
@@ -17591,7 +19801,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 96,
+      "questions": 384,
+      "debates": 41
+    }
   },
   {
     "id": "90b61a5a-9cba-4b08-8623-828c21df2497",
@@ -17611,6 +19826,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 94,
+      "questions": 376,
+      "debates": 91
     }
   },
   {
@@ -17631,6 +19851,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 91,
+      "questions": 273,
+      "debates": 124
     }
   },
   {
@@ -17663,7 +19888,12 @@
         "institution": "ILS Law College, Pune",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 75,
+      "questions": 150,
+      "debates": 77
+    }
   },
   {
     "id": "d05dc5f6-e41a-4ee9-81b7-5d022a81dfd4",
@@ -17683,6 +19913,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 91,
+      "questions": 273,
+      "debates": 121
     }
   },
   {
@@ -17710,7 +19945,12 @@
         "institution": "Bhagalpur University, Bhagalpur, Bihar",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 64,
+      "questions": 64,
+      "debates": 58
+    }
   },
   {
     "id": "dfe6bfdd-e0ac-430a-9cc0-a441f873a301",
@@ -17742,7 +19982,12 @@
         "institution": "C.M. Science College, Madhepura, Bihar",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 81,
+      "questions": 324,
+      "debates": 65
+    }
   },
   {
     "id": "6fe6b17d-0a3c-4e3b-90a1-9f9972356875",
@@ -17784,7 +20029,12 @@
         "institution": "Patna Medical College and Hospital",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 86,
+      "questions": 172,
+      "debates": 64
+    }
   },
   {
     "id": "16a45e94-7cc7-49f8-a1f4-7d138337e5c3",
@@ -17804,6 +20054,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 61,
+      "questions": 122,
+      "debates": 33
     }
   },
   {
@@ -17831,7 +20086,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 96,
+      "questions": 96,
+      "debates": 32
+    }
   },
   {
     "id": "035ddbfb-3bd6-41ef-bfc6-fa60fef9604f",
@@ -17858,7 +20118,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 70,
+      "questions": 140,
+      "debates": 66
+    }
   },
   {
     "id": "94bad038-cd40-4639-8181-dc9d795ee862",
@@ -17879,7 +20144,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 65,
+      "questions": 195,
+      "debates": 39
+    }
   },
   {
     "id": "6902cef3-056b-4957-83d6-b98712232dc9",
@@ -17911,7 +20181,12 @@
         "institution": "Kisan College, Sohsarai, Nalanda",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 77,
+      "questions": 308,
+      "debates": 29
+    }
   },
   {
     "id": "95be1a9f-8971-4fc6-8d15-63b039a46fc6",
@@ -17938,7 +20213,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 92,
+      "questions": 276,
+      "debates": 40
+    }
   },
   {
     "id": "002ec4b9-46da-487b-a57f-53a5c18bf568",
@@ -17965,7 +20245,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 204,
+      "debates": 47
+    }
   },
   {
     "id": "bebd2bbb-b406-46f9-a56f-82a40fb13891",
@@ -17992,7 +20277,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 77,
+      "questions": 308,
+      "debates": 58
+    }
   },
   {
     "id": "b7e94ca8-9273-4227-ae47-df534d0057f7",
@@ -18019,7 +20309,12 @@
         "institution": "Pune University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 63,
+      "questions": 126,
+      "debates": 65
+    }
   },
   {
     "id": "769f6f95-8d51-4ced-8c52-635809cfdfef",
@@ -18051,7 +20346,12 @@
         "institution": "Mumbai University",
         "year_completed": 1992
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 89,
+      "questions": 89,
+      "debates": 68
+    }
   },
   {
     "id": "af409c77-9269-42af-9948-21e6333c6abd",
@@ -18083,7 +20383,12 @@
         "institution": "Mumbai University",
         "year_completed": 1982
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 68,
+      "questions": 68,
+      "debates": 51
+    }
   },
   {
     "id": "5a6315e9-57df-4d01-89cd-9b903c85e706",
@@ -18110,7 +20415,12 @@
         "institution": "Bhavan's College, Mumbai",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 87,
+      "questions": 348,
+      "debates": 93
+    }
   },
   {
     "id": "cb723a4c-693f-447c-82c9-a8a55d234900",
@@ -18137,7 +20447,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 86,
+      "questions": 258,
+      "debates": 50
+    }
   },
   {
     "id": "e6eb46c1-be84-4ab2-a153-7df5f732f23e",
@@ -18164,7 +20479,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 60,
+      "questions": 120,
+      "debates": 44
+    }
   },
   {
     "id": "c22bbca4-019e-4fcb-9ef4-414e935bc767",
@@ -18180,10 +20500,15 @@
           "type": "MP",
           "state": "Maharashtra",
           "constituency": "Wardha",
-          "party": "Nationalist Congress Party – Sharadchandra Pawar",
+          "party": "Nationalist Congress Party \u2013 Sharadchandra Pawar",
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 97,
+      "questions": 194,
+      "debates": 85
     }
   },
   {
@@ -18200,10 +20525,15 @@
           "type": "MP",
           "state": "Maharashtra",
           "constituency": "Dindori ",
-          "party": "Nationalist Congress Party – Sharadchandra Pawar",
+          "party": "Nationalist Congress Party \u2013 Sharadchandra Pawar",
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 89,
+      "questions": 89,
+      "debates": 41
     }
   },
   {
@@ -18220,7 +20550,7 @@
           "type": "MP",
           "state": "Maharashtra",
           "constituency": "Bhiwandi",
-          "party": "Nationalist Congress Party – Sharadchandra Pawar",
+          "party": "Nationalist Congress Party \u2013 Sharadchandra Pawar",
           "status": "WON"
         }
       ]
@@ -18236,7 +20566,12 @@
         "institution": "Parshuram Dhondu Tavre School Kalher Bhiwandi",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 79,
+      "questions": 316,
+      "debates": 58
+    }
   },
   {
     "id": "17fb79f2-fe1a-4c98-b82c-f6cca5ec2ca4",
@@ -18252,7 +20587,7 @@
           "type": "MP",
           "state": "Maharashtra",
           "constituency": "Baramati",
-          "party": "Nationalist Congress Party – Sharadchandra Pawar",
+          "party": "Nationalist Congress Party \u2013 Sharadchandra Pawar",
           "status": "WON"
         }
       ]
@@ -18268,7 +20603,12 @@
         "institution": "University of California, Berkeley",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 85,
+      "questions": 340,
+      "debates": 101
+    }
   },
   {
     "id": "81248818-9adf-4d0e-bdd9-3ee424c3d321",
@@ -18284,7 +20624,7 @@
           "type": "MP",
           "state": "Maharashtra",
           "constituency": "Shirur",
-          "party": "Nationalist Congress Party – Sharadchandra Pawar",
+          "party": "Nationalist Congress Party \u2013 Sharadchandra Pawar",
           "status": "WON"
         }
       ]
@@ -18300,7 +20640,12 @@
         "institution": "King Edward Memorial Hospital and Seth Gordhandas Sunderdas Medical College, Mumbai",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 93,
+      "questions": 279,
+      "debates": 45
+    }
   },
   {
     "id": "8e4c9fdb-578d-4a56-bb95-96b8335bf062",
@@ -18316,7 +20661,7 @@
           "type": "MP",
           "state": "Maharashtra",
           "constituency": "Ahmednagar",
-          "party": "Nationalist Congress Party – Sharadchandra Pawar",
+          "party": "Nationalist Congress Party \u2013 Sharadchandra Pawar",
           "status": "WON"
         }
       ]
@@ -18327,7 +20672,12 @@
         "institution": "Maharashtra State Board of Secondary & Higher Secondary Education, Pune",
         "year_completed": 1997
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 92,
+      "questions": 368,
+      "debates": 62
+    }
   },
   {
     "id": "cf87da41-6ab0-473a-a9cd-93bf3f837538",
@@ -18343,7 +20693,7 @@
           "type": "MP",
           "state": "Maharashtra",
           "constituency": "Beed",
-          "party": "Nationalist Congress Party – Sharadchandra Pawar",
+          "party": "Nationalist Congress Party \u2013 Sharadchandra Pawar",
           "status": "WON"
         }
       ]
@@ -18354,7 +20704,12 @@
         "institution": "Dr. Babasaheb Ambedkar Marathwada University, Aurangabad",
         "year_completed": 1994
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 90,
+      "questions": 270,
+      "debates": 100
+    }
   },
   {
     "id": "53e63b11-c172-4124-adef-83bec7521110",
@@ -18370,7 +20725,7 @@
           "type": "MP",
           "state": "Maharashtra",
           "constituency": "Madha",
-          "party": "Nationalist Congress Party – Sharadchandra Pawar",
+          "party": "Nationalist Congress Party \u2013 Sharadchandra Pawar",
           "status": "WON"
         }
       ]
@@ -18386,7 +20741,12 @@
         "institution": "Shivaji University, Kolhapur",
         "year_completed": 2003
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 63,
+      "questions": 63,
+      "debates": 38
+    }
   },
   {
     "id": "ab0a5c41-6f61-4b62-9cde-9b56cd2e2816",
@@ -18413,7 +20773,12 @@
         "institution": "Shivaji University, Kolhapur",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 74,
+      "questions": 296,
+      "debates": 35
+    }
   },
   {
     "id": "8b9fef56-c1d3-42a6-bce1-4a87ba75ba36",
@@ -18440,7 +20805,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 88,
+      "questions": 352,
+      "debates": 77
+    }
   },
   {
     "id": "d77cb65c-c8dc-4b2d-b459-bcfa43c7cfd5",
@@ -18467,7 +20837,12 @@
         "institution": "Rajiv Gandhi Medical College, Kalwa, Thane, Maharashtra",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 85,
+      "questions": 340,
+      "debates": 37
+    }
   },
   {
     "id": "3233a747-aa26-4681-ac3d-2cd1c299ac0c",
@@ -18494,7 +20869,12 @@
         "institution": "Maharashtra State Board of Secondary & Higher Secondary Education, Pune",
         "year_completed": 1988
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 82,
+      "questions": 246,
+      "debates": 104
+    }
   },
   {
     "id": "e78d8931-f861-4fa5-b638-cffaba1954ac",
@@ -18521,7 +20901,12 @@
         "institution": "Maharashtra State Board of Secondary & Higher Secondary Education, Pune",
         "year_completed": 1980
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 64,
+      "questions": 192,
+      "debates": 76
+    }
   },
   {
     "id": "f67cda04-becf-4816-afd1-bbda391f375e",
@@ -18548,7 +20933,12 @@
         "institution": "New English School, Chinchwad, Pune",
         "year_completed": 1982
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 80,
+      "questions": 80,
+      "debates": 68
+    }
   },
   {
     "id": "8ec33d99-0f1f-4116-a2fc-0b7245396ee9",
@@ -18575,7 +20965,12 @@
         "institution": "Shivaji University, Kolhapur",
         "year_completed": 1999
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 62,
+      "questions": 186,
+      "debates": 48
+    }
   },
   {
     "id": "3d2d191d-a0cd-4861-aefe-1eb5b6b4b398",
@@ -18602,7 +20997,12 @@
         "institution": "Bihar University, Muzaffarpur",
         "year_completed": 1989
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 81,
+      "questions": 324,
+      "debates": 43
+    }
   },
   {
     "id": "56f2c6b2-f2a3-4ab1-b359-a4bb3e0b4f29",
@@ -18629,7 +21029,12 @@
         "institution": "Institute of Engineering and Technology, Jhansi",
         "year_completed": 2005
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 70,
+      "questions": 140,
+      "debates": 45
+    }
   },
   {
     "id": "27110978-2ed9-484b-8b84-3d50db1699e6",
@@ -18656,7 +21061,12 @@
         "institution": "Delhi School of Economics, University of Delhi",
         "year_completed": 2016
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 79,
+      "questions": 316,
+      "debates": 78
+    }
   },
   {
     "id": "73cbf5c0-cf08-41cc-97c4-fbdcbed555d9",
@@ -18688,7 +21098,12 @@
         "institution": "L.N. Mithila University, Darbhanga",
         "year_completed": 2002
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 90,
+      "questions": 360,
+      "debates": 32
+    }
   },
   {
     "id": "2de80345-68da-4249-8778-88d79a0525b6",
@@ -18715,7 +21130,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 66,
+      "questions": 264,
+      "debates": 80
+    }
   },
   {
     "id": "248dce01-ccb6-46cf-8533-c765ede03953",
@@ -18742,7 +21162,12 @@
         "institution": "JNTU Kakinada",
         "year_completed": 2010
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 81,
+      "questions": 162,
+      "debates": 94
+    }
   },
   {
     "id": "c1cdc775-083d-40e9-973e-8b34f0dc6546",
@@ -18766,7 +21191,7 @@
     "education": [
       {
         "qualification": "BACHELOR",
-        "institution": "St. Joseph’s College of Engineering, Chennai",
+        "institution": "St. Joseph\u2019s College of Engineering, Chennai",
         "year_completed": null
       },
       {
@@ -18774,7 +21199,12 @@
         "institution": "University of Worcester, UK",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 84,
+      "questions": 252,
+      "debates": 111
+    }
   },
   {
     "id": "3582dfab-e5b4-4b6c-81bf-21d7eb9b56a5",
@@ -18801,7 +21231,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 77,
+      "questions": 308,
+      "debates": 97
+    }
   },
   {
     "id": "77049bed-aeb1-43f1-9081-3b1853f85ad4",
@@ -18828,7 +21263,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 67,
+      "questions": 134,
+      "debates": 62
+    }
   },
   {
     "id": "7284fe52-1ad0-42c6-9eb1-7646bb81bc7f",
@@ -18848,6 +21288,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 73,
+      "questions": 292,
+      "debates": 60
     }
   },
   {
@@ -18875,7 +21320,12 @@
         "institution": "Kirori Mal College",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 97,
+      "questions": 388,
+      "debates": 138
+    }
   },
   {
     "id": "2d2ae559-b625-466c-a959-d3fd6d8eb03e",
@@ -18907,7 +21357,12 @@
         "institution": "Magadh Vishwa Vidyalaya, Bodh Gaya (Bihar)",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 96,
+      "questions": 96,
+      "debates": 114
+    }
   },
   {
     "id": "4f04f83e-826b-41f8-939e-b8e96123f3a9",
@@ -18934,7 +21389,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 69,
+      "questions": 276,
+      "debates": 52
+    }
   },
   {
     "id": "c4265d55-17a0-464b-aa3c-f2a2a630657b",
@@ -18954,6 +21414,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 73,
+      "questions": 73,
+      "debates": 48
     }
   },
   {
@@ -18981,7 +21446,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 69,
+      "questions": 207,
+      "debates": 50
+    }
   },
   {
     "id": "74da586b-8bc0-4d05-92ed-80dabec226b0",
@@ -19008,7 +21478,12 @@
         "institution": "GTN Arts College (Autonomous) Dindigul",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 73,
+      "questions": 292,
+      "debates": 87
+    }
   },
   {
     "id": "e0cb6e6e-c7cd-4197-8a66-594c0ce272cb",
@@ -19028,6 +21503,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 88,
+      "questions": 176,
+      "debates": 81
     }
   },
   {
@@ -19055,7 +21535,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 94,
+      "questions": 94,
+      "debates": 70
+    }
   },
   {
     "id": "3ee33186-4855-430e-b21b-dc445a1398af",
@@ -19092,7 +21577,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 69,
+      "questions": 138,
+      "debates": 47
+    }
   },
   {
     "id": "35cf2662-f4cb-4590-bd4d-d90187c2dc8e",
@@ -19119,7 +21609,12 @@
         "institution": "Arupukottai",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 96,
+      "questions": 192,
+      "debates": 38
+    }
   },
   {
     "id": "5538dd52-344c-4e71-a994-00c35e97698e",
@@ -19151,7 +21646,12 @@
         "institution": "Government Medical College, Patiala",
         "year_completed": 1994
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 91,
+      "questions": 273,
+      "debates": 107
+    }
   },
   {
     "id": "1d1fbc96-3903-42d1-97c4-68367048752f",
@@ -19178,7 +21678,12 @@
         "institution": "Punjabi University, Patiala",
         "year_completed": 1988
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 93,
+      "questions": 279,
+      "debates": 65
+    }
   },
   {
     "id": "3b71714e-1b23-4874-bead-7e57d0751503",
@@ -19205,7 +21710,12 @@
         "institution": "Punjabi University, Patiala",
         "year_completed": 2011
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 94,
+      "questions": 94,
+      "debates": 109
+    }
   },
   {
     "id": "6f543775-e1ae-4cde-9717-f62fcf4a280c",
@@ -19232,7 +21742,12 @@
         "institution": "Ranchi University",
         "year_completed": 1978
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 84,
+      "questions": 84,
+      "debates": 84
+    }
   },
   {
     "id": "97992a68-6d24-4f14-97fd-6ceeb8667bf8",
@@ -19259,7 +21774,12 @@
         "institution": "Ranchi University",
         "year_completed": 1987
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 82,
+      "questions": 246,
+      "debates": 59
+    }
   },
   {
     "id": "8c29c92c-6b28-4a52-8ded-711ee29698ac",
@@ -19296,7 +21816,12 @@
         "institution": "G.C. Jain College, Chaibasa",
         "year_completed": 1982
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 93,
+      "questions": 186,
+      "debates": 59
+    }
   },
   {
     "id": "21b85902-cf91-4f29-8391-87e4648ef819",
@@ -19323,7 +21848,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 72,
+      "questions": 72,
+      "debates": 35
+    }
   },
   {
     "id": "af44d0d3-1183-40f6-9ca2-b9b761b7819d",
@@ -19350,7 +21880,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 82,
+      "questions": 82,
+      "debates": 61
+    }
   },
   {
     "id": "8ca0cb7b-e361-499a-9286-c42aafa0837f",
@@ -19377,7 +21912,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 80,
+      "questions": 160,
+      "debates": 52
+    }
   },
   {
     "id": "661db878-6b61-4c56-8e43-a812bb8f08e5",
@@ -19404,7 +21944,12 @@
         "institution": "Bihar College of Engineering (now NIT Patna)",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 65,
+      "questions": 195,
+      "debates": 91
+    }
   },
   {
     "id": "747a6dad-fbdf-4a0b-8386-afc5dc45ec06",
@@ -19424,6 +21969,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 69,
+      "questions": 69,
+      "debates": 61
     }
   },
   {
@@ -19444,6 +21994,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 94,
+      "questions": 94,
+      "debates": 125
     }
   },
   {
@@ -19486,7 +22041,12 @@
         "institution": "Tamil University Thanjavur",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 88,
+      "questions": 88,
+      "debates": 38
+    }
   },
   {
     "id": "52ec924a-3156-4b0c-aca4-f84c2e5d756e",
@@ -19528,7 +22088,12 @@
         "institution": "Manonmaniam Sundaranar University, Tirunelveli",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 69,
+      "questions": 276,
+      "debates": 35
+    }
   },
   {
     "id": "8414bf5d-be5c-411d-8351-456119ef22d1",
@@ -19555,7 +22120,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 72,
+      "questions": 72,
+      "debates": 48
+    }
   },
   {
     "id": "7b222ff2-8728-47c0-a7ee-0864e6275f70",
@@ -19575,6 +22145,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 83,
+      "questions": 249,
+      "debates": 88
     }
   },
   {
@@ -19602,7 +22177,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 86,
+      "questions": 344,
+      "debates": 80
+    }
   },
   {
     "id": "bd7c8b58-1c79-4b16-9f51-37382e052914",
@@ -19634,7 +22214,12 @@
         "institution": "Chaudhary Charan Singh University, Meerut",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 62,
+      "questions": 62,
+      "debates": 85
+    }
   },
   {
     "id": "bf5c9242-ce40-4ab7-bca0-50abb2d2022a",
@@ -19655,7 +22240,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 82,
+      "questions": 164,
+      "debates": 67
+    }
   },
   {
     "id": "458872a6-a97c-41c1-828b-de2ae6d8ec14",
@@ -19682,7 +22272,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 72,
+      "questions": 216,
+      "debates": 95
+    }
   },
   {
     "id": "42897ce6-eb13-4515-97f2-92ae4ecf697b",
@@ -19698,7 +22293,7 @@
           "type": "MP",
           "state": "Assam",
           "constituency": "Kokrajhar ",
-          "party": "United People’s Party, Liberal",
+          "party": "United People\u2019s Party, Liberal",
           "status": "WON"
         }
       ]
@@ -19709,7 +22304,12 @@
         "institution": "Bongaigaon College",
         "year_completed": 1999
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 77,
+      "questions": 231,
+      "debates": 34
+    }
   },
   {
     "id": "30b01fd7-542e-4590-99bc-b4bc943e6889",
@@ -19730,7 +22330,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 81,
+      "questions": 243,
+      "debates": 43
+    }
   },
   {
     "id": "036ccc44-8cde-4a24-ba0b-5cb70cda4d27",
@@ -19762,7 +22367,12 @@
         "institution": "Magadh University, Bodhgaya",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 97,
+      "questions": 97,
+      "debates": 39
+    }
   },
   {
     "id": "e6699564-0852-4070-ae9c-4a0d01e4aa2a",
@@ -19789,7 +22399,12 @@
         "institution": "Christ College, Bangalore and Kerala Law Academy Law College, Trivandrum",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 79,
+      "questions": 79,
+      "debates": 82
+    }
   },
   {
     "id": "37e61de6-09e3-44b8-9f1e-9a1e1a044353",
@@ -19809,6 +22424,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 76,
+      "questions": 76,
+      "debates": 45
     }
   },
   {
@@ -19830,7 +22450,12 @@
         }
       ]
     },
-    "education": []
+    "education": [],
+    "performance": {
+      "attendance": 94,
+      "questions": 94,
+      "debates": 55
+    }
   },
   {
     "id": "f13ead8e-bbf0-4523-96ad-c1d7297e1b5a",
@@ -19867,7 +22492,12 @@
         "institution": "North Eastern Hill University",
         "year_completed": 2007
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 78,
+      "questions": 312,
+      "debates": 35
+    }
   },
   {
     "id": "a97bf87b-705f-4298-a4fe-6f8b76aa13da",
@@ -19883,7 +22513,7 @@
           "type": "MP",
           "state": "Mizoram",
           "constituency": "MIZORAM",
-          "party": "Zoram People’s Movement",
+          "party": "Zoram People\u2019s Movement",
           "status": "WON"
         }
       ]
@@ -19894,7 +22524,12 @@
         "institution": "Hrangbana College, Aizawl",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 71,
+      "questions": 142,
+      "debates": 88
+    }
   },
   {
     "id": "896a4e45-4ca9-4c88-ba2d-f65c5fba5266",
@@ -19926,7 +22561,12 @@
         "institution": "South Delhi",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 76,
+      "questions": 228,
+      "debates": 24
+    }
   },
   {
     "id": "1c810df2-20c8-48b9-a234-aff7c3768af3",
@@ -19963,7 +22603,12 @@
         "institution": "Rajasthan University",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 91,
+      "questions": 182,
+      "debates": 132
+    }
   },
   {
     "id": "721eb83e-d66e-4ddb-9d70-62b4fc7975b3",
@@ -19990,7 +22635,12 @@
         "institution": "Rajasthan University",
         "year_completed": 2015
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 69,
+      "questions": 276,
+      "debates": 94
+    }
   },
   {
     "id": "8875a8ac-1a8f-4efa-ba2c-d0b9a0524f8b",
@@ -20010,6 +22660,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 86,
+      "questions": 258,
+      "debates": 118
     }
   },
   {
@@ -20037,7 +22692,12 @@
         "institution": "PSG College of Technology, Coimbatore",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 89,
+      "questions": 356,
+      "debates": 113
+    }
   },
   {
     "id": "98501706-88dd-4366-bb29-655686e2c98f",
@@ -20057,6 +22717,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 65,
+      "questions": 195,
+      "debates": 28
     }
   },
   {
@@ -20099,7 +22764,12 @@
         "institution": "Amity University, Noida",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 71,
+      "questions": 71,
+      "debates": 105
+    }
   },
   {
     "id": "248a8fb5-0ee2-40c7-b730-401c30cf4296",
@@ -20126,7 +22796,12 @@
         "institution": "Ramgarh Mahavidyalaya, Ramgarh, Jharkhand",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 82,
+      "questions": 328,
+      "debates": 54
+    }
   },
   {
     "id": "bf49c598-1f2e-4744-90aa-049e1ce53bf7",
@@ -20158,7 +22833,12 @@
         "institution": "Lincoln's Inn, London",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 78,
+      "questions": 234,
+      "debates": 70
+    }
   },
   {
     "id": "6cd018ad-5c05-43f2-ade8-3caa894f89fe",
@@ -20185,7 +22865,12 @@
         "institution": "null",
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 92,
+      "questions": 368,
+      "debates": 106
+    }
   },
   {
     "id": "c0609827-27bc-42c7-a3d3-3a0ca41c03a7",
@@ -20212,7 +22897,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 74,
+      "questions": 222,
+      "debates": 99
+    }
   },
   {
     "id": "96fa1bc9-96f0-4249-b7f7-8c7cc72ebc58",
@@ -20239,7 +22929,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 67,
+      "questions": 67,
+      "debates": 84
+    }
   },
   {
     "id": "824a82b3-ec67-4c72-a972-8551cf2d2dfb",
@@ -20266,7 +22961,12 @@
         "institution": null,
         "year_completed": 1995
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 86,
+      "questions": 172,
+      "debates": 76
+    }
   },
   {
     "id": "a4f0587a-0b9e-4ac5-9864-9e43ea5b3b5d",
@@ -20286,6 +22986,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 62,
+      "questions": 62,
+      "debates": 21
     }
   },
   {
@@ -20318,7 +23023,12 @@
         "institution": "J&K Technical Board",
         "year_completed": 1991
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 82,
+      "questions": 164,
+      "debates": 115
+    }
   },
   {
     "id": "7b7d0437-884f-45fd-bff6-b2b0ff603caa",
@@ -20345,7 +23055,12 @@
         "institution": null,
         "year_completed": null
       }
-    ]
+    ],
+    "performance": {
+      "attendance": 60,
+      "questions": 180,
+      "debates": 89
+    }
   },
   {
     "id": "0693fe93-197b-5f02-a242-0aaf7eb359bd",
@@ -20365,6 +23080,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 80,
+      "questions": 240,
+      "debates": 110
     }
   },
   {
@@ -20385,6 +23105,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 95,
+      "questions": 190,
+      "debates": 125
     }
   },
   {
@@ -20405,6 +23130,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 76,
+      "questions": 152,
+      "debates": 34
     }
   },
   {
@@ -20425,6 +23155,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 82,
+      "questions": 328,
+      "debates": 51
     }
   },
   {
@@ -20445,6 +23180,11 @@
           "status": "WON"
         }
       ]
+    },
+    "performance": {
+      "attendance": 63,
+      "questions": 189,
+      "debates": 77
     }
   }
 ]
