@@ -316,6 +316,15 @@ function PoliticianPageContent() {
     }
 
     const p = politician
+    const performance = {
+    attendance: 78,
+    questions: 120,
+    debates: 45
+          };
+
+const score = performance.attendance + performance.questions + performance.debates;
+const rank = Math.floor(543 - score / 10);        
+
     const latestElection = p.political_background.elections?.[0]
     const party = latestElection?.party ?? "—"
     const isMp = p.type === "MP"
@@ -401,6 +410,15 @@ function PoliticianPageContent() {
                             summary={p.political_background.summary}
                         />
                     </div>
+
+                <Section title='Performance' icon='/logo/Parliament.png'>
+                   <div className='grid grid-cols-2 gap-4'>
+                      <Text variant='body'>Attendance: {performance.attendance}%</Text>
+                      <Text variant='body'>Questions: {performance.questions}</Text>
+                      <Text variant='body'>Debates: {performance.debates}</Text>
+                      <Text variant='body'>Rank: #{rank}</Text>
+                   </div>
+                </Section>    
 
                     <EducationSection education={p.education} />
 
