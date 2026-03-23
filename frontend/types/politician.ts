@@ -64,6 +64,11 @@ export interface CrimeRecord {
 export interface Politician {
     id: string
     name: string
+    /**
+     * SEO-friendly slug generated in the backend.
+     * When missing (older data), UI will fall back to UUID URLs.
+     */
+    slug?: string | null
     photo?: string | null
     state: string
     constituency: string

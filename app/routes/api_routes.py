@@ -83,6 +83,18 @@ def get_politician(politician_id):
         return jsonify({"success": False, "error": str(e)}), 500
 
 
+@api_bp.route("/politicians/slug/<politician_slug>", methods=["GET"])
+def get_politician_by_slug(politician_slug):
+    """Get a single politician by slug."""
+    try:
+        politician = politician_ctrl.get_by_slug(politician_slug)
+        if not politician:
+            return jsonify({"success": False, "error": "Politician not found"}), 404
+        return jsonify({"success": True, "data": politician})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
 @api_bp.route("/politicians/state/<state>", methods=["GET"])
 def get_politicians_by_state(state):
     """Get all politicians from a state."""

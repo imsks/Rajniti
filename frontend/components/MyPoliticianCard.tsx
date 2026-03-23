@@ -60,6 +60,7 @@ export default function MyPoliticianCard({
     const initial = getPartyInitial(politician)
     const hasPhoto = !!politician.photo
     const isMp = politician.type === "MP"
+    const politicianUrlSlugOrId = politician.slug ?? politician.id
     const designation =
         politician.type === "MP"
             ? `MP of ${politician.constituency}`
@@ -120,7 +121,7 @@ export default function MyPoliticianCard({
             </div>
             <div className='mt-auto pt-3 border-t border-amber-100 dark:border-gray-700 flex flex-wrap items-center justify-between gap-2'>
                 <Button
-                    href={`/politician/${encodeURIComponent(politician.id)}`}
+                    href={`/politician/${encodeURIComponent(politicianUrlSlugOrId)}`}
                     variant='primary'
                     size='sm'
                     className='w-full sm:w-auto'

@@ -48,7 +48,7 @@ def _float_env(name: str, default: float) -> float:
 
 
 # Hard timeout per candidate call so failover cannot stall indefinitely.
-_REQUEST_TIMEOUT_SECS = _float_env("FREE_TIER_LLM_TIMEOUT_SECS", 7.0)
+_REQUEST_TIMEOUT_SECS = _float_env("FREE_TIER_LLM_TIMEOUT_SECS", 15.0)
 
 # ---------------------------------------------------------------------------
 # 1. Provider config schema
@@ -102,6 +102,7 @@ DEFAULT_PROVIDERS: list[dict[str, Any]] = [
         "api_key_env": "GEMINI_API_KEY",
     },
     {"provider": "gemini", "model": "gemini-2.5-pro", "api_key_env": "GEMINI_API_KEY"},
+
     {"provider": "gemini", "model": "gemini-3-flash", "api_key_env": "GEMINI_API_KEY"},
     {
         "provider": "gemini",
@@ -113,6 +114,10 @@ DEFAULT_PROVIDERS: list[dict[str, Any]] = [
         "model": "gemini-2.0-flash",
         "api_key_env": "GEMINI_API_KEY",
     },
+
+    {"provider": "gemini", "model": "gemini-2.5-flash", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-2.0-flash", "api_key_env": "GEMINI_API_KEY"},
+
     # --- Groq (ultra-fast free inference) ---
     {
         "provider": "groq",
@@ -370,11 +375,15 @@ def _is_retryable(exc: Exception) -> bool:
     if class_name in {"AuthenticationError", "PermissionDenied", "Unauthorized"}:
         return False
 
-    # Pure validation errors (but not quota/rate messages)
+    # Model/config errors — failover to the next candidate so that
+    # a single bad model entry (wrong name, invalid deadline, etc.)
+    # does not block the entire chain.
+    if status_code == 404:
+        return True
     if status_code == 400:
         msg = exc_str.lower()
         if "invalid" in msg and "quota" not in msg and "rate" not in msg:
-            return False
+            return True
 
     # Known retryable HTTP status codes (rate-limit, server errors)
     if status_code in {429, 500, 502, 503, 504, 529}:
