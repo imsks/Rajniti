@@ -121,25 +121,56 @@ export function usePoliticians(type?: ElectionType) {
 // usePolitician — fetch a single politician by ID
 // ─────────────────────────────────────────────────────────────────────────────
 
-export function usePolitician(id: string | null) {
+export function usePolitician(idOrSlug: string | null) {
     const [politician, setPolitician] = useState<Politician | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
 
+    const isUuidLike = (v: string) =>
+        /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(
+            v
+        )
+
     useEffect(() => {
-        if (!id) { setLoading(false); return }
+        if (!idOrSlug) {
+            setLoading(false)
+            return
+        }
 
         const run = async () => {
             try {
                 setLoading(true)
-                const res = await fetch(`${API}/politicians/${encodeURIComponent(id)}`)
-                const json = await res.json()
-                if (json.success) {
-                    setPolitician(json.data)
-                    setError(null)
-                } else {
-                    setError(json.error ?? "Politician not found")
+                const key = idOrSlug
+
+                // 1) Try by slug first (SEO-friendly URL)
+                try {
+                    const slugRes = await fetch(
+                        `${API}/politicians/slug/${encodeURIComponent(key)}`
+                    )
+                    const slugJson = await slugRes.json()
+                    if (slugRes.ok && slugJson?.success && slugJson?.data) {
+                        setPolitician(slugJson.data as Politician)
+                        setError(null)
+                        return
+                    }
+                } catch {
+                    // ignore slug errors; we'll fall back below if possible
                 }
+
+                // 2) Fallback to UUID-based URL for backward compatibility
+                if (isUuidLike(key)) {
+                    const res = await fetch(`${API}/politicians/${encodeURIComponent(key)}`)
+                    const json = await res.json()
+                    if (json.success && json.data) {
+                        setPolitician(json.data as Politician)
+                        setError(null)
+                    } else {
+                        setError(json.error ?? "Politician not found")
+                    }
+                    return
+                }
+
+                setError("Politician not found")
             } catch {
                 setError("Cannot connect to API")
             } finally {
@@ -148,7 +179,7 @@ export function usePolitician(id: string | null) {
         }
 
         run()
-    }, [id])
+    }, [idOrSlug])
 
     return { politician, loading, error }
 }
