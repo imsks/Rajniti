@@ -51,6 +51,10 @@ export type AnalyticsEventMap = {
     party: string
     state: string
     constituency: string
+    // Optional because older URLs are UUID-based (no slug), and new URLs can
+    // carry only a slug or slug+short-id disambiguator.
+    route_slug?: string | null
+    route_uuid_short?: string | null
   }
 
   my_politician_set: {
