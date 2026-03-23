@@ -502,13 +502,41 @@ export default function PoliticianPage() {
     )
 }
 
+function isFullUuid(value: string) {
+    return /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(
+        value
+    )
+}
+
+function extractSlugAndOptionalUuid(input: string) {
+    // Supports:
+    // - UUID: /politician/<full-uuid>
+    // - Slug: /politician/<slug>
+    // - Slug + short suffix: /politician/<slug>-8fba2f3f
+    if (isFullUuid(input)) {
+        return { slug: null as string | null, uuid: input, uuidShort: null as string | null }
+    }
+
+    const shortMatch = input.match(/-([0-9a-fA-F]{8})$/)
+    if (shortMatch) {
+        return {
+            slug: input.slice(0, -(shortMatch[0].length)),
+            uuid: null as string | null,
+            uuidShort: shortMatch[1].toLowerCase(),
+        }
+    }
+
+    return { slug: input, uuid: null as string | null, uuidShort: null as string | null }
+}
+
 function PoliticianPageContent() {
     const params = useParams()
     const router = useRouter()
     const { trackEvent } = useAnalytics()
-    const politicianId = params.id as string
+    const slugOrId = params.id as string
+    const { slug: routeSlug, uuidShort: routeUuidShort } = extractSlugAndOptionalUuid(slugOrId)
 
-    const { politician, loading, error } = usePolitician(politicianId)
+    const { politician, loading, error } = usePolitician(slugOrId)
 
     useEffect(() => {
         if (!politician) return
@@ -520,8 +548,10 @@ function PoliticianPageContent() {
             party: latestElection?.party ?? "—",
             state: politician.state,
             constituency: politician.constituency,
+            route_slug: routeSlug,
+            route_uuid_short: routeUuidShort,
         })
-    }, [politician, trackEvent])
+    }, [politician, trackEvent, routeSlug, routeUuidShort])
 
     useEffect(() => {
         if (error)

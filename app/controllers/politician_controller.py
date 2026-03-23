@@ -59,6 +59,9 @@ class PoliticianController:
     def get_by_id(self, politician_id: str) -> Optional[Dict[str, Any]]:
         return self.service.get_by_id(politician_id)
 
+    def get_by_slug(self, politician_slug: str) -> Optional[Dict[str, Any]]:
+        return self.service.get_by_slug(politician_slug)
+
     # ── Filters ───────────────────────────────────────────────────────────
 
     def get_by_state(

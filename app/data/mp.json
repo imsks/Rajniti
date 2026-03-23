@@ -5251,7 +5251,32 @@
       }
     ],
     "criminal_records": [],
-    "family_background": [],
+    "family_background": [
+      {
+        "name": "Shivappa Shettar",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Shilpa Shettar",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Prashant Shettar",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Sankalp Shettar",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      }
+    ],
     "contact": {
       "email": null,
       "phone": null,
@@ -23162,29 +23187,130 @@
       "debates": 51
     }
   },
+
   {
-    "id": "e194eec4-569d-537d-862c-fe0a718ed467",
-    "name": "JITENDRA SINGH",
-    "photo": null,
-    "state": "Jammu and Kashmir",
-    "constituency": "Udhampur",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Jammu and Kashmir",
-          "constituency": "Udhampur",
-          "party": "Bharatiya Janata Party",
-          "status": "WON"
-        }
-      ]
-    },
-    "performance": {
-      "attendance": 63,
-      "questions": 189,
-      "debates": 77
+  "id": "e194eec4-569d-537d-862c-fe0a718ed467",
+  "name": "JITENDRA SINGH",
+  "photo": null,
+  "state": "Jammu and Kashmir",
+  "constituency": "Udhampur",
+  "type": "MP",
+  "political_background": {
+    "elections": [
+      {
+        "year": 2024,
+        "type": "MP",
+        "state": "Jammu and Kashmir",
+        "constituency": "Udhampur",
+        "party": "Bharatiya Janata Party",
+        "status": "WON"
+      }
+    ]
+  },
+  "performance": {
+    "attendance": 63,
+    "questions": 189,
+    "debates": 77
+  },
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": "Jammu, Jammu and Kashmir, India"
+  },
+  "criminal_records": [],
+  "family_background": [
+    {
+      "name": "Savita Sharma",
+      "relation": "WIFE",
+      "photo": null,
+      "social_media": null
     }
+  ],
+  "social_media": {
+    "twitter": "https://twitter.com/jugalkishorebjp",
+    "facebook": "https://www.facebook.com/JugalKishoreSharmaBJP",
+    "instagram": "https://www.instagram.com/jugalkishoresharmabjp",
+    "linkedin": null,
+    "youtube": "https://www.youtube.com/@JugalKishoreSharmaBJP",
+    "website": "http://jugalkishoresharma.in/"
   }
+},
+
+
+  {
+  "id": "e194eec4-569d-537d-862c-fe0a718ed467",
+  "name": "JITENDRA SINGH",
+  "photo": null,
+  "state": "Jammu and Kashmir",
+  "constituency": "Udhampur",
+  "type": "MP",
+  "political_background": {
+    "elections": [
+      {
+        "year": 2024,
+        "type": "MP",
+        "state": "Jammu and Kashmir",
+        "constituency": "Udhampur",
+        "party": "Bharatiya Janata Party",
+        "status": "WON"
+      },
+      {
+        "year": 2019,
+        "type": "MP",
+        "state": "Jammu and Kashmir",
+        "constituency": "Udhampur",
+        "party": "Bharatiya Janata Party",
+        "status": "WON"
+      },
+      {
+        "year": 2014,
+        "type": "MP",
+        "state": "Jammu and Kashmir",
+        "constituency": "Udhampur",
+        "party": "Bharatiya Janata Party",
+        "status": "WON"
+      }
+    ]
+  },
+  "criminal_records": [],
+  "contact": {
+    "email": "jitendra.s@sansad.nic.in",
+    "phone": null,
+    "address": "Room No. 220, North Block, Ministry of Personnel, Public Grievances and Pensions, New Delhi - 110001, India"
+  },
+  "education": [
+    {
+      "qualification": "MBBS",
+      "institution": "Government Medical College, Jammu",
+      "year_completed": null
+    },
+    {
+      "qualification": "MD (Medicine)",
+      "institution": "Government Medical College, Jammu",
+      "year_completed": null
+    }
+  ],
+  "social_media": {
+    "twitter": "https://twitter.com/DrJitendraSingh",
+    "facebook": "https://www.facebook.com/DrJitendraSinghBJP",
+    "instagram": "https://www.instagram.com/drjitendrasinghbjp",
+    "linkedin": null,
+    "youtube": null,
+    "website": "https://drjitendrasingh.in"
+  },
+  "family_background": [
+    {
+      "name": "Rajinder Singh",
+      "relation": "FATHER",
+      "photo": null,
+      "social_media": null
+    },
+    {
+      "name": "Manju Singh",
+      "relation": "WIFE",
+      "photo": null,
+      "social_media": null
+    }
+  ]
+}
 ]

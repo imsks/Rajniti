@@ -10,6 +10,8 @@ import logging
 from pathlib import Path
 from typing import Any, Dict, List, Literal, Optional, Set
 
+from app.core.slugify import slugify, short_id_from_uuid
+
 logger = logging.getLogger(__name__)
 
 ElectionType = Literal["MP", "MLA"]
@@ -27,6 +29,67 @@ class PoliticianService:
     def __init__(self, data_dir: Optional[Path] = None) -> None:
         self._data_dir = Path(data_dir) if data_dir else _DATA_DIR
         self._cache: Dict[str, List[Dict[str, Any]]] = {}
+        self._slugs_ensured: bool = False
+        self._by_id: Dict[str, Dict[str, Any]] = {}
+        self._by_slug: Dict[str, Dict[str, Any]] = {}
+
+    # ── slug handling ─────────────────────────────────────────────────
+
+    def _ensure_slugs(self) -> None:
+        """
+        Ensure each politician record has a `slug` field and build indices.
+
+        Slug rules:
+        - baseSlug = slugify(name)
+        - if multiple records share the same baseSlug, append `-<shortId>`
+        - otherwise baseSlug alone
+        """
+        if self._slugs_ensured:
+            return
+
+        # Load both datasets so duplicates are resolved consistently.
+        mp_records = self._load("MP")
+        mla_records = self._load("MLA")
+        all_records = mp_records + mla_records
+
+        base_counts: Dict[str, int] = {}
+        for p in all_records:
+            name = (p.get("name") or "").strip()
+            base = slugify(name)
+            if not base:
+                base = "politician"
+            base_counts[base] = base_counts.get(base, 0) + 1
+
+        self._by_id = {}
+        self._by_slug = {}
+
+        for p in all_records:
+            pid = str(p.get("id") or "").strip()
+            name = (p.get("name") or "").strip()
+            base = slugify(name) or "politician"
+            short_id = short_id_from_uuid(pid) or "00000000"
+
+            count = base_counts.get(base, 0)
+            expected = base if count <= 1 else f"{base}-{short_id}"
+
+            # If slugify collisions still happen, disambiguate deterministically.
+            candidate = expected
+            if candidate in self._by_slug and str(self._by_slug[candidate].get("id")) != pid:
+                candidate = f"{expected}-{short_id}"
+
+            # Only write slug if missing/empty OR to keep consistency.
+            existing = p.get("slug")
+            if not isinstance(existing, str) or not existing.strip():
+                p["slug"] = candidate
+            else:
+                # Keep API response consistent with current generation rules.
+                p["slug"] = candidate
+
+            if pid:
+                self._by_id[pid] = p
+            self._by_slug[str(p.get("slug"))] = p
+
+        self._slugs_ensured = True
 
     # ── private helpers ───────────────────────────────────────────────────
 
@@ -69,19 +132,23 @@ class PoliticianService:
 
     def get_all(self, election_type: ElectionType) -> List[Dict[str, Any]]:
         """Return all politicians of a given type."""
+        self._ensure_slugs()
         return self._load(election_type)
 
     def get_all_politicians(self) -> List[Dict[str, Any]]:
         """Return all MPs + MLAs."""
+        self._ensure_slugs()
         return self._load("MP") + self._load("MLA")
 
     def get_by_id(self, politician_id: str) -> Optional[Dict[str, Any]]:
         """Lookup a politician by ID across both MP and MLA."""
-        for etype in ("MP", "MLA"):
-            for p in self._load(etype):
-                if p.get("id") == politician_id:
-                    return p
-        return None
+        self._ensure_slugs()
+        return self._by_id.get(politician_id)
+
+    def get_by_slug(self, politician_slug: str) -> Optional[Dict[str, Any]]:
+        """Lookup a politician by slug across both MP and MLA."""
+        self._ensure_slugs()
+        return self._by_slug.get(politician_slug)
 
     def search(
         self,
@@ -97,6 +164,7 @@ class PoliticianService:
 
         All filters are case-insensitive substring matches.
         """
+        self._ensure_slugs()
         q = query.lower().strip()
         types: list[str] = [election_type] if election_type else ["MP", "MLA"]
 
@@ -142,6 +210,7 @@ class PoliticianService:
         self, state: str, election_type: Optional[ElectionType] = None
     ) -> List[Dict[str, Any]]:
         """Get all politicians from a specific state."""
+        self._ensure_slugs()
         types: list[str] = [election_type] if election_type else ["MP", "MLA"]
         results: List[Dict[str, Any]] = []
         for etype in types:
@@ -154,6 +223,7 @@ class PoliticianService:
         self, party: str, election_type: Optional[ElectionType] = None
     ) -> List[Dict[str, Any]]:
         """Get all politicians from a specific party."""
+        self._ensure_slugs()
         types: list[str] = [election_type] if election_type else ["MP", "MLA"]
         results: List[Dict[str, Any]] = []
         for etype in types:
@@ -235,6 +305,8 @@ class PoliticianService:
                     merged = self._merge_nested(p, updates)
                     records[i] = merged
                     self._save(etype, records)  # type: ignore[arg-type]
+                    # Ensure slug indices remain consistent with any potential name changes.
+                    self._slugs_ensured = False
                     return records[i]
         return None
 
