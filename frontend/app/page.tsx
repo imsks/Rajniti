@@ -47,9 +47,9 @@ function HomeContent() {
             <Navbar variant='default' />
 
             {/* Hero Section */}
-            <section className='py-20 sm:py-32 relative z-2 overflow-hidden'>
-                <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-                    <div className='text-center'>
+            <section className='py-20 sm:py-32 relative z-2 max-w-7xl overflow-hidden mx-auto'>
+                <div className='flex flex-col items-start gap-4'>
+                    <div className='flex flex-col items-start'>
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ function HomeContent() {
                             transition={{ duration: 0.6, delay: 0.2 }}>
                             <Text
                                 variant='body'
-                                className='max-w-2xl text-gray-600 dark:text-gray-400 mb-10'>
+                                className='max-w-2xl text-gray-600 dark:text-gray-400 mb-10 text-left'>
                                 Rajniti is an open-source platform to explore Indian
                                 MPs and MLAs — their political history, education,
                                 family background, criminal records, and more. All free
@@ -148,7 +148,7 @@ function HomeContent() {
 
                     {/* Ashoka Chakra - Below content on mobile, right side on desktop */}
                     <motion.svg
-                        className="pointer-events-none mx-auto mt-12 lg:absolute lg:right-[-80px] lg:top-[50%] lg:-translate-y-1/2 lg:mt-0 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[520px] lg:h-[520px] xl:w-[640px] xl:h-[640px] text-blue-800"
+                        className="pointer-events-none mx-auto mt-12 w-[300px] h-[300px] text-blue-800"
                         viewBox="0 0 24 24"
                         fill="none"
                         animate={{ rotate: 360 }}
@@ -183,18 +183,6 @@ function HomeContent() {
                         />
                     </motion.svg>
                 </div>
-
-                {/* Decorative Elements */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 0.2, scale: 1 }}
-                    transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
-                    className='absolute top-0 left-0 w-72 h-72 bg-orange-200 dark:bg-orange-900/30 rounded-full mix-blend-multiply filter blur-3xl z-1 pointer-events-none'></motion.div>
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 0.2, scale: 1 }}
-                    transition={{ duration: 1.5, delay: 0.5, repeat: Infinity, repeatType: "reverse" }}
-                    className='absolute bottom-0 right-0 w-72 h-72 bg-green-200 dark:bg-green-900/30 rounded-full mix-blend-multiply filter blur-3xl z-1 pointer-events-none'></motion.div>
             </section>
 
             {/* What You Can Find */}
