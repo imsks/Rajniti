@@ -4,7 +4,6 @@ Tests target the backward-compatible shim (agent_config) which delegates
 to the new FreeTierLLM wrapper — guaranteeing zero breakage for downstream code.
 """
 
-import time
 from unittest.mock import Mock, patch
 
 import pytest
@@ -12,19 +11,31 @@ import pytest
 from app.config.agent_config import FailoverChatLLM, get_agent_llm
 
 _TEST_CONFIG = [
-    {"provider": "openai", "model": "gpt-4o-mini", "api_key_env": "OPENAI_API_KEY", "base_url": None},
-    {"provider": "perplexity", "model": "sonar", "api_key_env": "PERPLEXITY_API_KEY", "base_url": "https://api.perplexity.ai"},
+    {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "api_key_env": "OPENAI_API_KEY",
+        "base_url": None,
+    },
+    {
+        "provider": "perplexity",
+        "model": "sonar",
+        "api_key_env": "PERPLEXITY_API_KEY",
+        "base_url": "https://api.perplexity.ai",
+    },
 ]
 
 
 class FakeRateLimitError(Exception):
     """Test double to simulate provider 429/insufficient quota."""
+
     status_code = 429
     code = "insufficient_quota"
 
 
 class FakeAuthError(Exception):
     """Test double for non-retryable authentication errors."""
+
     status_code = 401
 
 
@@ -44,8 +55,12 @@ class TestAgentConfigFailover:
         secondary = Mock()
         secondary.model_name = "sonar"
 
-        with patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG), \
-             patch("app.config.free_tier_llm._build_llm", side_effect=[primary, secondary]):
+        with (
+            patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG),
+            patch(
+                "app.config.free_tier_llm._build_llm", side_effect=[primary, secondary]
+            ),
+        ):
             llm = get_agent_llm()
             result = llm.invoke("Who is PM of India?")
 
@@ -68,8 +83,12 @@ class TestAgentConfigFailover:
         response = Mock(content="Narendra Modi")
         secondary.invoke.return_value = response
 
-        with patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG), \
-             patch("app.config.free_tier_llm._build_llm", side_effect=[primary, secondary]):
+        with (
+            patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG),
+            patch(
+                "app.config.free_tier_llm._build_llm", side_effect=[primary, secondary]
+            ),
+        ):
             llm = get_agent_llm()
             result = llm.invoke("Who is PM of India?")
 
@@ -89,8 +108,12 @@ class TestAgentConfigFailover:
         secondary = Mock()
         secondary.model_name = "sonar"
 
-        with patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG), \
-             patch("app.config.free_tier_llm._build_llm", side_effect=[primary, secondary]):
+        with (
+            patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG),
+            patch(
+                "app.config.free_tier_llm._build_llm", side_effect=[primary, secondary]
+            ),
+        ):
             llm = get_agent_llm()
             with pytest.raises(FakeAuthError, match="unauthorized"):
                 llm.invoke("Who is PM of India?")
@@ -103,8 +126,10 @@ class TestAgentConfigFailover:
         monkeypatch.delenv("PERPLEXITY_API_KEY", raising=False)
         monkeypatch.delenv("GEMINI_API_KEY", raising=False)
 
-        with patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG), \
-             patch("app.config.free_tier_llm._build_llm", return_value=None):
+        with (
+            patch("app.config.agent_config.PROVIDER_CONFIGS", _TEST_CONFIG),
+            patch("app.config.free_tier_llm._build_llm", return_value=None),
+        ):
             with pytest.raises(RuntimeError, match="no working providers"):
                 get_agent_llm()
 
