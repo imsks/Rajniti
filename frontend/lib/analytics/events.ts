@@ -70,7 +70,7 @@ export type AnalyticsEventMap = {
   }
 
   onboarding_complete: {
-    political_interest: string
+    political_ideology: string
   }
 
   onboarding_skip: {
