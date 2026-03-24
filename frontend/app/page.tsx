@@ -47,23 +47,23 @@ function HomeContent() {
             <Navbar variant='default' />
 
             {/* Hero Section */}
-            <section className='py-20 sm:py-32 relative z-2 max-w-7xl overflow-hidden mx-auto'>
-                <div className='flex flex-col items-start gap-4'>
-                    <div className='flex flex-col items-start'>
+            <section className='py-14 sm:py-24 lg:py-32 relative z-2 max-w-7xl overflow-hidden mx-auto w-full'>
+                <div className='flex flex-col-reverse lg:flex-row items-center lg:items-start gap-10 lg:gap-20 w-full px-4 sm:px-8'>
+                    <div className='flex flex-col items-start w-full lg:w-1/2'>
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className='mb-8 flex justify-start'>
+                            className='mb-6 flex justify-start w-full'>
                             <div className='rounded-full bg-gradient-to-r from-orange-500 via-white to-green-500 p-[2px] shadow-lg'>
-                                <div className='rounded-full bg-white dark:bg-gray-800 px-6 py-2.5 flex items-center gap-2'>
+                                <div className='rounded-full bg-white dark:bg-gray-800 px-4 sm:px-6 py-2 sm:py-2.5 flex items-center gap-2'>
                                     <svg className='w-5 h-5' viewBox='0 0 24 24' fill='none'>
                                         <circle cx='12' cy='12' r='10' fill='#FF9933' />
                                         <circle cx='12' cy='12' r='6.5' fill='#F5F5F5' />
                                         <circle cx='12' cy='12' r='3' fill='#138808' />
                                         <circle cx='12' cy='12' r='1.5' fill='#000080' />
                                     </svg>
-                                    <span className='text-sm font-semibold bg-gradient-to-r from-orange-600 via-gray-700 to-green-600 bg-clip-text text-transparent'>
+                                    <span className='text-xs sm:text-sm font-semibold bg-gradient-to-r from-orange-600 via-gray-700 to-green-600 bg-clip-text text-transparent'>
                                         Built for the Indian Democracy
                                     </span>
                                 </div>
@@ -74,9 +74,9 @@ function HomeContent() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}>
-                            <h1 className="font-serif text-[44px] sm:text-[56px] lg:text-[80px] font-semibold leading-[1.08] tracking-[-0.02em] text-[#0F1F3D] dark:text-white text-left mb-4">
+                            <h1 className="font-serif text-[2.1rem] sm:text-[2.8rem] lg:text-[4.5rem] font-semibold leading-[1.08] tracking-[-0.02em] text-[#0F1F3D] dark:text-white text-left mb-4">
                                 Know Your
-                                <br />
+                                <br className="hidden sm:block" />
                                 <span className="text-orange-600 italic">Elected</span> Representatives
                             </h1>
                         </motion.div>
@@ -87,11 +87,8 @@ function HomeContent() {
                             transition={{ duration: 0.6, delay: 0.2 }}>
                             <Text
                                 variant='body'
-                                className='max-w-2xl text-gray-600 dark:text-gray-400 mb-10 text-left'>
-                                Rajniti is an open-source platform to explore Indian
-                                MPs and MLAs — their political history, education,
-                                family background, criminal records, and more. All free
-                                and community-driven.
+                                className='max-w-xl text-gray-600 dark:text-gray-400 mb-8 text-left text-base sm:text-lg'>
+                                Rajniti is an open-source platform to explore Indian MPs and MLAs — their political history, education, family background, criminal records, and more. All free and community-driven.
                             </Text>
                         </motion.div>
 
@@ -99,11 +96,12 @@ function HomeContent() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.3 }}
-                            className='flex flex-col sm:flex-row gap-4 justify-start items-start'>
-                            <div className='shadow-[0_8px_30px_rgba(249,115,22,0.25)]'>
+                            className='flex flex-col sm:flex-row gap-4 justify-start items-start w-full'>
+                            <div className='shadow-[0_8px_30px_rgba(249,115,22,0.25)] w-full sm:w-auto'>
                                 <Button
                                     href='/dashboard'
                                     size='lg'
+                                    className="w-full sm:w-auto"
                                     onClick={() => trackEvent('cta_click', { cta_name: 'explore_politicians', cta_url: '/dashboard', page_location: 'home_hero' })}
                                     rightIcon={
                                         <svg
@@ -128,6 +126,7 @@ function HomeContent() {
                                 external
                                 variant='secondary'
                                 size='lg'
+                                className="w-full sm:w-auto"
                                 onClick={() => trackEvent('external_link_click', { link_text: 'View on GitHub', link_url: 'https://github.com/imsks/rajniti', page_location: 'home_hero' })}
                                 leftIcon={
                                     <svg
@@ -146,9 +145,9 @@ function HomeContent() {
                         </motion.div>
                     </div>
 
-                    {/* Ashoka Chakra - Below content on mobile, right side on desktop */}
+                    {/* Ashoka Chakra - On mobile below, on desktop right-aligned */}
                     <motion.svg
-                        className="pointer-events-none mx-auto mt-12 w-[300px] h-[300px] text-blue-800"
+                        className="pointer-events-none w-full max-w-[280px] sm:max-w-[330px] md:max-w-[300px] lg:max-w-[340px] h-auto lg:w-[340px] lg:h-[340px] mx-auto lg:mx-0 mt-8 mb-4 sm:mt-10 sm:mb-0 text-blue-800 flex-shrink-0"
                         viewBox="0 0 24 24"
                         fill="none"
                         animate={{ rotate: 360 }}
