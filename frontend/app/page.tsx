@@ -48,8 +48,8 @@ function HomeContent() {
 
             {/* Hero Section */}
             <section className='py-14 sm:py-24 lg:py-32 relative z-2 max-w-7xl overflow-hidden mx-auto w-full'>
-                <div className='flex flex-col-reverse lg:flex-row items-center lg:items-start gap-10 lg:gap-20 w-full px-4 sm:px-8'>
-                    <div className='flex flex-col items-start w-full lg:w-1/2'>
+                <div className='flex flex-col-reverse lg:flex-row items-center lg:items-start gap-10 lg:gap-20 px-4 sm:px-8'>
+                    <div className='flex flex-col items-start lg:w-2/3'>
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -77,7 +77,7 @@ function HomeContent() {
                             <h1 className="font-serif text-[2.1rem] sm:text-[2.8rem] lg:text-[4.5rem] font-semibold leading-[1.08] tracking-[-0.02em] text-[#0F1F3D] dark:text-white text-left mb-4">
                                 Know Your
                                 <br className="hidden sm:block" />
-                                <span className="text-orange-600 italic">Elected</span> Representatives
+                                <span className="text-orange-600 italic"> Elected</span> Representatives
                             </h1>
                         </motion.div>
 
