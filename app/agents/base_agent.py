@@ -44,15 +44,24 @@ class BaseAgent:
         tools: dict[str, Any] = {}
 
         for label, factory in (
-            ("web_search", lambda: __import__(
-                "app.tools.web_search", fromlist=["WebSearchTool"]
-            ).WebSearchTool()),
-            ("web_scraper", lambda: __import__(
-                "app.tools.web_scraper", fromlist=["WebScraperTool"]
-            ).WebScraperTool()),
-            ("wikipedia", lambda: __import__(
-                "app.tools.wikipedia_tool", fromlist=["WikipediaTool"]
-            ).WikipediaTool()),
+            (
+                "web_search",
+                lambda: __import__(
+                    "app.tools.web_search", fromlist=["WebSearchTool"]
+                ).WebSearchTool(),
+            ),
+            (
+                "web_scraper",
+                lambda: __import__(
+                    "app.tools.web_scraper", fromlist=["WebScraperTool"]
+                ).WebScraperTool(),
+            ),
+            (
+                "wikipedia",
+                lambda: __import__(
+                    "app.tools.wikipedia_tool", fromlist=["WikipediaTool"]
+                ).WikipediaTool(),
+            ),
         ):
             try:
                 tools[label] = factory()
@@ -122,7 +131,9 @@ class BaseAgent:
         try:
             return tool.search_text(query, max_results=max_results)
         except Exception as exc:
-            self._record_error("tool", f"Web search failed: {exc}", context=query, exc=exc)
+            self._record_error(
+                "tool", f"Web search failed: {exc}", context=query, exc=exc
+            )
             return ""
 
     def _fetch_url(self, url: str) -> Optional[str]:
@@ -144,7 +155,9 @@ class BaseAgent:
         try:
             return tool.search_and_summarize(query) or ""
         except Exception as exc:
-            self._record_error("tool", f"Wikipedia failed: {exc}", context=query, exc=exc)
+            self._record_error(
+                "tool", f"Wikipedia failed: {exc}", context=query, exc=exc
+            )
             return ""
 
     def _gather_politician_context(self, politician: Dict[str, Any]) -> str:
