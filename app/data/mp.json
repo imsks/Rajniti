@@ -13355,78 +13355,7 @@
       "website": null
     }
   },
-  {
-    "id": "28fa2d2a-fa69-4385-b537-614fbdcb7036",
-    "name": "DR JITENDRA SINGH",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/U08/DRJIT-2024-60.jpg",
-    "state": "Ladakh",
-    "constituency": "UDHAMPUR",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Ladakh",
-          "constituency": "UDHAMPUR",
-          "party": "Bharatiya Janata Party",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
-      {
-        "qualification": "OTHERS",
-        "institution": "The Scindia School, Gwalior",
-        "year_completed": null
-      },
-      {
-        "qualification": "PROFESSIONAL",
-        "institution": "Stanley Medical College, Chennai",
-        "year_completed": null
-      },
-      {
-        "qualification": "DOCTORATE",
-        "institution": "AIIMS, New Delhi",
-        "year_completed": null
-      },
-      {
-        "qualification": "PROFESSIONAL",
-        "institution": "AIIMS, New Delhi",
-        "year_completed": null
-      },
-      {
-        "qualification": "PROFESSIONAL",
-        "institution": null,
-        "year_completed": null
-      },
-      {
-        "qualification": "DOCTORATE",
-        "institution": "Central University, Jammu",
-        "year_completed": null
-      },
-      {
-        "qualification": "DOCTORATE",
-        "institution": "Amity University",
-        "year_completed": null
-      }
-    ],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "criminal_records": [],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "family_background": []
-  },
+  
   {
     "id": "9204741b-e3d5-4393-a218-e98dd75db6cc",
     "name": "JUGAL KISHORE",
@@ -27244,8 +27173,8 @@
 },
   {
   "id": "e194eec4-569d-537d-862c-fe0a718ed467",
-  "name": "JITENDRA SINGH",
-  "photo": null,
+  "name": " Dr . JITENDRA SINGH",
+  "photo":"https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/U08/DRJIT-2024-60.jpg" ,
   "state": "Jammu and Kashmir",
   "constituency": "Udhampur",
   "type": "MP",
