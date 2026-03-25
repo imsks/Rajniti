@@ -27246,5 +27246,27 @@
       "social_media": null
     }
   ]
+},
+{
+  
+    "id": "d56ee5d2-481e-43b6-9d19-673ea599695b",
+    "name": " Shri. Sunil Dattatray Tatkare",
+    "photo": null,
+    "state": "Maharashtra",
+    "constituency": "Raigad",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Maharashtra",
+          "constituency": "Raigad",
+          "party": "Nationalist Congress Party",
+          "status": "WON"
+        }
+      ]
+    }
+  
 }
 ]

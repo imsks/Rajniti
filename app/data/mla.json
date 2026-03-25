@@ -51491,7 +51491,7 @@
   },
   {
     "id": "50ca232f-1307-5373-8860-b603c3200074",
-    "name": "Anuradha Dhanda",
+    "name": "Ravinder Singh Negi",
     "photo": null,
     "state": "Delhi",
     "constituency": "Patparganj",
@@ -74953,5 +74953,44 @@
       "summary": null
     },
     "notes": null
+  },
+   {
+    "id": "7dd6c3a0-e66b-4cfb-832c-b3141a9b14e0",
+    "name": "Shalimar Bagh",
+    "photo": null,
+    "state": "Delhi",
+    "constituency": "delhi",
+    "party": "Bharatiya Janata Party (BJP)",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "53e67aa2-b59c-4473-8c33-f48956c5662c",
+    "name": "Vinod Agrawal",
+    "photo": null,
+    "state": "Maharashtra",
+    "constituency": "Gondiya",
+    "party": "Bharatiya Janata Party (BJP)",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
   }
+
 ]
