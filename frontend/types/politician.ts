@@ -83,6 +83,13 @@ export interface Politician {
 
     political_background: PoliticalBackground
 
+
+    performance?: {
+     attendance: number;
+     questions: number;
+     debates: number;
+     };
+
     notes?: string | null
 }
 
