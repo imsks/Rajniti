@@ -1,10 +1,15 @@
+import path from "path"
 import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
+    // Pin project root for Turbopack (avoids multi-lockfile workspace confusion)
+    turbopack: {
+        root: path.join(__dirname),
+    },
     // Environment variables
     env: {
         NEXT_PUBLIC_API_URL:
-            process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"
+            process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1"
     },
 
     // Image optimization

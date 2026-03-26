@@ -29,7 +29,9 @@ def init_engine():
     try:
         database_url = get_database_url()
     except ValueError:
-        # Database is optional for most workflows; only required for user persistence.
+        return None
+
+    if not database_url:
         return None
 
     engine = create_engine(

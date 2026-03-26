@@ -197,22 +197,24 @@ describe('userService', () => {
 })
 
 describe('userService API URL', () => {
-  beforeEach(() => {
-    mockFetch.mockReset()
-  })
-
-  it('should use correct API base URL', async () => {
-    mockFetch.mockResolvedValueOnce({
+  it('should use correct API base URL with /api/v1 prefix', async () => {
+    process.env.NEXT_PUBLIC_API_URL = 'http://localhost:8000/api/v1'
+    jest.resetModules()
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const freshService = require('@/lib/api/user').userService
+    const freshFetch = jest.fn().mockResolvedValueOnce({
       ok: true,
       json: () => Promise.resolve({ success: true }),
     })
+    global.fetch = freshFetch
 
-    await userService.checkUsername('test')
+    await freshService.checkUsername('test')
 
-    // Should use the API URL from environment or default
-    expect(mockFetch).toHaveBeenCalledWith(
+    expect(freshFetch).toHaveBeenCalledWith(
       expect.stringMatching(/\/api\/v1\/users\/check-username$/),
-      expect.any(Object)
+      expect.any(Object),
     )
+
+    global.fetch = mockFetch
   })
 })

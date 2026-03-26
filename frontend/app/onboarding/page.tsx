@@ -31,7 +31,7 @@ function OnboardingContent() {
   const [usernameValid, setUsernameValid] = useState(false)
   
   const [formData, setFormData] = useState({
-    political_interest: '',
+    political_ideology: '',
     username: ''
   })
 
@@ -45,7 +45,7 @@ function OnboardingContent() {
   const canProceedToNextStep = () => {
     switch (step) {
       case 1:
-        return formData.political_interest !== ''
+        return formData.political_ideology !== ''
       case 2:
         return formData.username !== '' && usernameValid
       default:
@@ -63,12 +63,12 @@ function OnboardingContent() {
       
       // Call backend API using the generic update endpoint
       await userService.updateUser(session.user.id, {
-        political_interest: formData.political_interest,
+        political_ideology: formData.political_ideology,
         username: formData.username,
         onboarding_completed: true
       })
 
-      trackEvent('onboarding_complete', { political_interest: formData.political_interest })
+      trackEvent('onboarding_complete', { political_ideology: formData.political_ideology })
       await update({ onboardingCompleted: true })
       router.push('/dashboard')
     } catch (error) {
@@ -127,8 +127,8 @@ function OnboardingContent() {
                 transition={{ duration: 0.3 }}
               >
                 <PoliticalInclinationStep
-                  value={formData.political_interest}
-                  onChange={(value) => updateField('political_interest', value)}
+                  value={formData.political_ideology}
+                  onChange={(value) => updateField('political_ideology', value)}
                 />
               </motion.div>
             )}
