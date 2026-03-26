@@ -27086,26 +27086,7 @@
       ]
     }
   },
-  {
-    "id": "483e397c-ec8c-56de-b6ae-78d627680122",
-    "name": "ABDUL RASHID SHEIKH",
-    "photo": null,
-    "state": "Jammu and Kashmir",
-    "constituency": "Baramulla",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Jammu and Kashmir",
-          "constituency": "Baramulla",
-          "party": "Independent",
-          "status": "WON"
-        }
-      ]
-    }
-  },
+
   {
   "id": "e541bf90-0d7f-5c14-a316-e173630c41f0",
   "name": "JUGAL KISHORE SHARMA",
@@ -27173,7 +27154,7 @@
 },
   {
   "id": "e194eec4-569d-537d-862c-fe0a718ed467",
-  "name": " Dr . JITENDRA SINGH",
+  "name": "JITENDRA SINGH",
   "photo":"https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/U08/DRJIT-2024-60.jpg" ,
   "state": "Jammu and Kashmir",
   "constituency": "Udhampur",
@@ -27250,7 +27231,7 @@
 {
   
     "id": "d56ee5d2-481e-43b6-9d19-673ea599695b",
-    "name": " Shri. Sunil Dattatray Tatkare",
+    "name": "Shri. Sunil Dattatray Tatkare",
     "photo": null,
     "state": "Maharashtra",
     "constituency": "Raigad",
