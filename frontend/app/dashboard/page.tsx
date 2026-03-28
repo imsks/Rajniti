@@ -52,15 +52,26 @@ const { all, loading, error, states, parties, stats, filter } =
     }, [filter, searchQuery, stateFilter, partyFilter, activeTab])
 
 
-    const rankedPoliticians = useMemo(() => {
+  const rankedPoliticians = useMemo(() => {
+  if (!displayPoliticians.length) return [];
+
+  // 🔥 find max values for normalization
+  const maxQ = Math.max(...displayPoliticians.map(p => p.performance?.questions || 0), 1);
+  const maxD = Math.max(...displayPoliticians.map(p => p.performance?.debates || 0), 1);
+
   return displayPoliticians
     .map((p) => {
       const perf = p.performance || { attendance: 0, questions: 0, debates: 0 };
 
+      // normalize (0 → 1 scale)
+      const attendanceScore = perf.attendance / 100;
+      const questionsScore = perf.questions / maxQ;
+      const debatesScore = perf.debates / maxD;
+
       const score =
-        perf.attendance * 0.4 +
-        perf.questions * 0.3 +
-        perf.debates * 0.3;
+        attendanceScore * 0.4 +
+        questionsScore * 0.3 +
+        debatesScore * 0.3;
 
       return { ...p, score };
     })

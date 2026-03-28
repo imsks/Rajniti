@@ -420,7 +420,7 @@ function PerformanceSection({
         },
         {
             label: "National Rank",
-            description: "Among all 543 MPs",
+            description: "Among all Politicians",
             value: rank,
             suffix: "",
             icon: Trophy,
