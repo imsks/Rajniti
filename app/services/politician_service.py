@@ -97,8 +97,8 @@ class PoliticianService:
         return self._data_dir / f"{election_type.lower()}.json"
 
     def _load(self, election_type: ElectionType) -> List[Dict[str, Any]]:
-        if election_type in self._cache:
-            return self._cache[election_type]
+        ##if election_type in self._cache:
+         ##   return self._cache[election_type]
 
         fp = self._path(election_type)
         if not fp.exists():
