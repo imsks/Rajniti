@@ -32,7 +32,7 @@ def main():
 
     # Server configuration
     host = os.getenv("FLASK_HOST", "0.0.0.0")
-    port = int(os.getenv("FLASK_PORT", "8000"))
+    port = int(os.getenv("FLASK_PORT", "5000"))
     debug = os.getenv("FLASK_DEBUG", "True").lower() == "true"
 
     logger.info(f"Starting Rajniti development server on {host}:{port}")

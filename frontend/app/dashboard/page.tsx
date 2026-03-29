@@ -10,6 +10,9 @@ import PoliticianCardWrapper from "@/components/PoliticianCardWrapper"
 import MyPoliticiansSection from "@/components/MyPoliticiansSection"
 import { usePoliticians } from "@/hooks/usePoliticians"
 import { useAnalytics } from "@/hooks/useAnalytics"
+import { useSession } from "next-auth/react"
+import { userService } from "@/lib/api/user"
+
 type Tab = "ALL" | "MP" | "MLA"
 
 export default function Dashboard() {
