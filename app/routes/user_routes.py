@@ -4,14 +4,8 @@ User routes for user data management.
 
 from flask import Blueprint, jsonify, request
 
-# Create blueprint
 user_bp = Blueprint("user", __name__, url_prefix="/api/v1/users")
 
-# ❌ REMOVE this (causes freeze)
-# from app.services.user_service import UserService
-# user_service = UserService()
-
-# ✅ LAZY LOAD (FIX)
 user_service = None
 
 def get_user_service():
@@ -26,60 +20,41 @@ def get_user_service():
 
 @user_bp.route("/sync", methods=["POST"])
 def sync_user():
+    """
+    Called by NextAuth on every Google login.
+    MUST return onboarding_completed so JWT token gets it.
+    """
     try:
         data = request.get_json()
 
-        user_id = data.get("id")
-        email = data.get("email")
-        name = data.get("name")
-
-        print("🔥 SAVING USER:", data)
-
-        # ✅ SIMPLE SQLITE SAVE
-        import sqlite3
-
-        conn = sqlite3.connect("users.db")
-        cursor = conn.cursor()
-
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS users (
-                id TEXT PRIMARY KEY,
-                email TEXT,
-                name TEXT
-            )
-        """)
-
-        cursor.execute("""
-            INSERT OR REPLACE INTO users (id, email, name)
-            VALUES (?, ?, ?)
-        """, (user_id, email, name))
-
-        conn.commit()
-        conn.close()
-
-        return {
-            "success": True,
-            "data": {
-                "id": user_id,
-                "email": email,
-                "name": name
-            }
+        user_info = {
+            "id":              data.get("id"),
+            "email":           data.get("email"),
+            "name":            data.get("name"),
+            "profile_picture": data.get("profile_picture"),
         }
 
+        if not user_info["id"] or not user_info["email"]:
+            return jsonify({"success": False, "error": "id and email are required"}), 400
+
+        user = get_user_service().get_or_create_user(user_info)
+
+        return jsonify({
+            "success": True,
+            "data": user  # includes onboarding_completed
+        })
+
     except Exception as e:
-        return {"success": False, "error": str(e)}, 500
+        return jsonify({"success": False, "error": str(e)}), 500
 
 
 @user_bp.route("/<user_id>", methods=["GET"])
 def get_user(user_id):
     try:
         user = get_user_service().get_user_by_id(user_id)
-
         if not user:
             return jsonify({"success": False, "error": "User not found"}), 404
-
         return jsonify({"success": True, "data": user})
-
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
 
@@ -97,16 +72,26 @@ def update_user(user_id):
             if not is_available:
                 return jsonify({"success": False, "error": "Username is already taken"}), 400
 
-        update_data = {}
         allowed_fields = [
-            "name", "state", "city", "age_group", "pincode",
-            "profile_picture", "username", "political_ideology",
+            "name",
+            "phone",                # ← NEW
+            "state",
+            "city",
+            "age_group",
+            "pincode",
+            "profile_picture",
+            "username",
+            "political_ideology",
+            "preferred_parties",    # ← NEW
+            "topics_of_interest",   # ← NEW
             "onboarding_completed",
         ]
 
-        for key, value in data.items():
-            if key in allowed_fields:
-                update_data[key] = value
+        update_data = {
+            key: value
+            for key, value in data.items()
+            if key in allowed_fields
+        }
 
         updated_user = get_user_service().update_user_profile(user_id, **update_data)
 
@@ -128,7 +113,7 @@ def check_username():
     try:
         data = request.get_json()
         username = data.get("username", "").strip()
-        user_id = data.get("user_id")
+        user_id  = data.get("user_id")
 
         if not username:
             return jsonify({"success": False, "error": "Username is required"}), 400
@@ -136,30 +121,10 @@ def check_username():
         is_available = get_user_service().check_username_available(
             username, exclude_user_id=user_id
         )
-
         return jsonify({"success": True, "available": is_available})
 
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
-
-
-
-@user_bp.route("/all", methods=["GET"])
-def get_all_users():
-    import sqlite3
-
-    conn = sqlite3.connect("users.db")
-    cursor = conn.cursor()
-
-    cursor.execute("SELECT * FROM users")
-    users = cursor.fetchall()
-
-    conn.close()
-
-    return {
-        "success": True,
-        "users": users
-    }        
 
 
 # ==================== HEALTH CHECK ====================
