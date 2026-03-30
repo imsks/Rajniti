@@ -3,6 +3,7 @@ User routes for user data management.
 """
 
 from flask import Blueprint, jsonify, request
+import traceback   # ✅ ADDED
 
 user_bp = Blueprint("user", __name__, url_prefix="/api/v1/users")
 
@@ -20,17 +21,18 @@ def get_user_service():
 
 @user_bp.route("/sync", methods=["POST"])
 def sync_user():
-    """
-    Called by NextAuth on every Google login.
-    MUST return onboarding_completed so JWT token gets it.
-    """
     try:
         data = request.get_json()
 
+        print("🔥 SYNC HIT:", data)
+
+        if not data:
+            return jsonify({"success": False, "error": "No JSON received"}), 400
+
         user_info = {
-            "id":              data.get("id"),
-            "email":           data.get("email"),
-            "name":            data.get("name"),
+            "id": data.get("id"),
+            "email": data.get("email"),
+            "name": data.get("name"),
             "profile_picture": data.get("profile_picture"),
         }
 
@@ -41,10 +43,12 @@ def sync_user():
 
         return jsonify({
             "success": True,
-            "data": user  # includes onboarding_completed
+            "data": user
         })
 
     except Exception as e:
+        print("❌ SYNC ERROR:")
+        traceback.print_exc()   # 🔥 FULL ERROR (VERY IMPORTANT)
         return jsonify({"success": False, "error": str(e)}), 500
 
 
@@ -56,6 +60,8 @@ def get_user(user_id):
             return jsonify({"success": False, "error": "User not found"}), 404
         return jsonify({"success": True, "data": user})
     except Exception as e:
+        print("❌ GET USER ERROR:")
+        traceback.print_exc()
         return jsonify({"success": False, "error": str(e)}), 500
 
 
@@ -63,6 +69,9 @@ def get_user(user_id):
 def update_user(user_id):
     try:
         data = request.get_json()
+
+        if not data:
+            return jsonify({"success": False, "error": "No JSON received"}), 400
 
         username = data.get("username")
         if username:
@@ -74,7 +83,7 @@ def update_user(user_id):
 
         allowed_fields = [
             "name",
-            "phone",                # ← NEW
+            "phone",
             "state",
             "city",
             "age_group",
@@ -82,8 +91,8 @@ def update_user(user_id):
             "profile_picture",
             "username",
             "political_ideology",
-            "preferred_parties",    # ← NEW
-            "topics_of_interest",   # ← NEW
+            "preferred_parties",
+            "topics_of_interest",
             "onboarding_completed",
         ]
 
@@ -92,6 +101,8 @@ def update_user(user_id):
             for key, value in data.items()
             if key in allowed_fields
         }
+
+        print("🟡 UPDATE DATA:", update_data)  # ✅ DEBUG
 
         updated_user = get_user_service().update_user_profile(user_id, **update_data)
 
@@ -105,6 +116,8 @@ def update_user(user_id):
         })
 
     except Exception as e:
+        print("❌ UPDATE ERROR:")
+        traceback.print_exc()
         return jsonify({"success": False, "error": str(e)}), 500
 
 
@@ -112,8 +125,14 @@ def update_user(user_id):
 def check_username():
     try:
         data = request.get_json()
+
+        if not data:
+            return jsonify({"success": False, "error": "No JSON received"}), 400
+
         username = data.get("username", "").strip()
         user_id  = data.get("user_id")
+
+        print("🟡 USERNAME CHECK:", username)  # ✅ DEBUG
 
         if not username:
             return jsonify({"success": False, "error": "Username is required"}), 400
@@ -121,9 +140,12 @@ def check_username():
         is_available = get_user_service().check_username_available(
             username, exclude_user_id=user_id
         )
+
         return jsonify({"success": True, "available": is_available})
 
     except Exception as e:
+        print("❌ USERNAME ERROR:")
+        traceback.print_exc()
         return jsonify({"success": False, "error": str(e)}), 500
 
 

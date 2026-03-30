@@ -13,6 +13,7 @@
     "test:ci": "jest --ci --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.101.0",
     "framer-motion": "^12.34.2",
     "lucide-react": "^0.575.0",
     "next": "16.0.10",

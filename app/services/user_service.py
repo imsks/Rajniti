@@ -1,35 +1,19 @@
 """
-User service for managing user data operations.
-No authentication logic - only data operations.
+User service using Supabase (NO SQLite)
 """
 
 from typing import Any, Dict, Optional
-
-from app.database import get_db_session
-from app.database.models import User
+from app.core.supabase_client import supabase
 
 
 class UserService:
-    """Service for handling user data operations."""
 
+    # =========================
+    # CREATE OR GET USER
+    # =========================
     def get_or_create_user(self, user_info: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        Get existing user or create a new one from user info.
-
-        Args:
-            user_info: User information (from NextAuth)
-                - id: User ID (Google user ID)
-                - email: User email
-                - name: User's full name
-                - profile_picture: URL to profile picture
-
-        Returns:
-            User dictionary
-        """
-        with get_db_session() as session:
-            user_id = user_info.get("id") or user_info.get(
-                "sub"
-            )  # Support both formats
+        try:
+            user_id = user_info.get("id") or user_info.get("sub")
             email = user_info.get("email")
             name = user_info.get("name")
             picture = user_info.get("profile_picture") or user_info.get("picture")
@@ -37,84 +21,86 @@ class UserService:
             if not user_id or not email:
                 raise ValueError("User ID and email are required")
 
-            # Check if user exists
-            user = User.get_by_id(session, user_id)
+            # 🔍 check if exists
+            res = supabase.table("users").select("*").eq("id", user_id).execute()
 
-            if not user:
-                # Create new user
-                user = User.create(
-                    session=session,
-                    id=user_id,
-                    email=email,
-                    name=name,
-                    profile_picture=picture,
-                )
-            else:
-                # Update profile picture if changed
-                if picture and user.profile_picture != picture:
-                    user.update(session, profile_picture=picture)
-                # Update name if changed
-                if name and user.name != name:
-                    user.update(session, name=name)
+            if res.data:
+                return res.data[0]
 
-            return user.to_dict()
+            # 🆕 insert user
+            new_user = {
+                "id": str(user_id),
+                "email": email,
+                "name": name,
+                "profile_picture": picture,
+                "onboarding_completed": False,
+            }
+            res = supabase.table("users").insert(new_user).execute()
+            print("🟢 INSERT RESULT:", res)
 
+            return new_user
+
+        except Exception as e:
+            print("❌ ERROR in get_or_create_user:", e)
+            raise e
+
+    # =========================
+    # GET USER
+    # =========================
     def get_user_by_id(self, user_id: str) -> Optional[Dict[str, Any]]:
-        """
-        Get user by ID.
+        try:
+            res = supabase.table("users").select("*").eq("id", user_id).execute()
+            return res.data[0] if res.data else None
+        except Exception as e:
+            print("❌ ERROR get_user:", e)
+            return None
 
-        Args:
-            user_id: User ID
-
-        Returns:
-            User dictionary or None if not found
-        """
-        with get_db_session() as session:
-            user = User.get_by_id(session, user_id)
-            return user.to_dict() if user else None
-
+    # =========================
+    # UPDATE USER
+    # =========================
     def update_user_profile(self, user_id: str, **kwargs) -> Optional[Dict[str, Any]]:
-        """
-        Update user profile information.
-
-        Args:
-            user_id: User ID
-            **kwargs: Fields to update
-
-        Returns:
-            Updated user dictionary or None if user not found
-        """
-        with get_db_session() as session:
-            user = User.get_by_id(session, user_id)
-            if not user:
+        try:
+            if not kwargs:
                 return None
 
-            # Handle username update specially (uniqueness check should be done by controller/route)
-            # But we can double check here if needed or trust the controller.
-            # For simplicity, we assume controller checked availability.
+            #  fix array issue
+            if "preferred_parties" in kwargs and isinstance(kwargs["preferred_parties"], list):
+                kwargs["preferred_parties"] = ", ".join(kwargs["preferred_parties"])
 
-            # Update fields
-            user.update(session, **kwargs)
-            return user.to_dict()
+            if "topics_of_interest" in kwargs and isinstance(kwargs["topics_of_interest"], list):
+                kwargs["topics_of_interest"] = ", ".join(kwargs["topics_of_interest"])
 
-    def check_username_available(
-        self, username: str, exclude_user_id: Optional[str] = None
-    ) -> bool:
-        """
-        Check if username is available.
+            supabase.table("users").update(kwargs).eq("id", user_id).execute()
 
-        Args:
-            username: Username to check
-            exclude_user_id: User ID to exclude from check (for updating own username)
+            return self.get_user_by_id(user_id)
 
-        Returns:
-            True if username is available, False otherwise
-        """
-        with get_db_session() as session:
-            user = User.get_by_username(session, username)
-            if not user:
-                return True
-            # If checking for a specific user, allow them to keep their own username
-            if exclude_user_id and user.id == exclude_user_id:
-                return True
-            return False
+        except Exception as e:
+            print("❌ ERROR update_user:", e)
+            return None
+
+    # =========================
+    # USERNAME CHECK
+    # =========================
+    def check_username_available(self, username, exclude_user_id=None):
+        try:
+            if not username:
+              return False
+
+              res = supabase.table("users").select("id").eq("username", username).execute()
+
+              print("DEBUG USERNAME RES:", res)
+
+              if not hasattr(res, "data") or res.data is None:
+               return True
+
+              if len(res.data) == 0:
+               return True
+
+              if exclude_user_id and res.data[0]["id"] == exclude_user_id:
+               return True
+
+              return False
+
+        except Exception as e:
+              print("❌ USERNAME ERROR:", e)
+        return True
