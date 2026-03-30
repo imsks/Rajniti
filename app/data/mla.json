@@ -74954,7 +74954,7 @@
     },
     "notes": null
   },
-   {
+  {
     "id": "7dd6c3a0-e66b-4cfb-832c-b3141a9b14e0",
     "name": "Shalimar Bagh",
     "photo": null,
@@ -74991,6 +74991,347 @@
       "summary": null
     },
     "notes": null
+  },
+  {
+    "id": "2d96b4ea-8d27-514e-98ff-8e3e53a2bd48",
+    "name": "Adi Srinivas",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Vemulawada",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "acc985c1-cdc7-59bd-9f03-478c40c51fc8",
+    "name": "K. T. Rama Rao",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Sircilla",
+    "party": "BRS",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "3d7e399c-b08e-57c7-bc53-5b4672c863e2",
+    "name": "Kavvampally Satyanarayana",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Manakondur",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "63403dcb-0a55-5d9c-9b80-1b84a8c1f5b2",
+    "name": "K. R. Naga Raju",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Wardhannapet",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "9f601a93-060a-53da-998b-bc8867ba49d8",
+    "name": "Gandra Satyanarayana Rao",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Bhupalpally",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "1160dc68-ff6d-5f6c-9394-aa667e5df596",
+    "name": "Seethakka Danasari Anasuya",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Mulugu",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f6c477dc-c7ff-5d92-be23-44336dbbd3c6",
+    "name": "Kantha Rao Koram",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Yellandu",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "205c6439-3aad-50c7-84ef-594a967c465a",
+    "name": "Vanama Venkateswara Rao",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Kothagudem",
+    "party": "BRS",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f47a6c80-e75e-5c5e-b7e8-88d4a9170946",
+    "name": "Adinarayana Jare Sarveswararao",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Aswaraopeta",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "110f73f2-02c9-53a8-92e7-8229e1b3f2a2",
+    "name": "Podem Veeraiah",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Bhadrachalam",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "b6a4e99a-31d0-5035-880f-4b0365a81719",
+    "name": "Matta Ragamayee",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Sathupalli",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "434ae0b8-8406-5a50-8a51-7432cebc00e5",
+    "name": "Thummala Nageswara Rao",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Khammam",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "af78272d-b1a2-5dbf-ad19-6d448eacbbf5",
+    "name": "Mallu Bhatti Vikramarka",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Madhira",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "9a80bbeb-91f9-5ffd-a71f-35ba4ebdc8c1",
+    "name": "Ramulu Jatoth",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Dornakal",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "2753d109-a979-50ab-b9cf-0c3b6be530e2",
+    "name": "Dr. Murali Naik Porika",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Mahabubabad",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "4df092bd-7d52-5e65-b8b7-0bb8192f8675",
+    "name": "Kothagattu Srinivas Rao",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Nellikudur",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "8cbf5d20-a70f-5b7e-9ae7-4b8ce26ffa77",
+    "name": "Yashaswini Reddy Mamidala",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Thorror",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "2b2c30fb-3c21-55fa-97c9-da5032153e25",
+    "name": "M. Yashaswini Reddy",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Palakurthi",
+    "party": "Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
   }
-
 ]
