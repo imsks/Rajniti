@@ -11,6 +11,7 @@ Provides:
 from __future__ import annotations
 
 import json
+import re
 import logging
 import traceback
 from typing import Any, Dict, Optional, TypeVar
@@ -224,15 +225,60 @@ class BaseAgent:
 
     # ── JSON parsing ─────────────────────────────────────────────────────────
 
+    @staticmethod
+    def _strip_markdown_fences(text: str) -> str:
+        """Remove markdown code fences (```json ... ```) that LLMs often add."""
+        # Match ```json ... ``` or ``` ... ``` (with optional language tag)
+        pattern = r"```(?:json|JSON)?\s*\n?(.*?)\n?\s*```"
+        match = re.search(pattern, text, re.DOTALL)
+        if match:
+            return match.group(1).strip()
+        return text.strip()
+
     @log(logger, "BaseAgent._parse_json_value")
     def _parse_json_value(self, text: str) -> Optional[Any]:
-        """Extract any JSON value (object or array) from raw LLM text."""
+        """Extract any JSON value (object or array) from raw LLM text.
+
+        Handles common LLM quirks:
+        - Markdown code fences (```json ... ```)
+        - Explanatory text before/after the JSON
+        - Nested brackets in surrounding prose
+        """
         text = text.strip()
+
+        # 1. Try the raw text directly
         try:
             return json.loads(text)
         except Exception:
             pass
 
+        # 2. Strip markdown code fences and retry
+        stripped = self._strip_markdown_fences(text)
+        if stripped != text:
+            try:
+                return json.loads(stripped)
+            except Exception:
+                pass
+            # Continue with stripped text for bracket-matching below
+            text = stripped
+
+        # 3. Use regex to find the outermost JSON array
+        array_match = re.search(r"(\[\s*\n?.*?\n?\s*\])", text, re.DOTALL)
+        if array_match:
+            try:
+                return json.loads(array_match.group(1))
+            except Exception:
+                pass
+
+        # 4. Use regex to find the outermost JSON object
+        object_match = re.search(r"(\{\s*\n?.*?\n?\s*\})", text, re.DOTALL)
+        if object_match:
+            try:
+                return json.loads(object_match.group(1))
+            except Exception:
+                pass
+
+        # 5. Fallback: bracket-matching heuristic (first [ or { to last ] or })
         starts = [idx for idx in (text.find("{"), text.find("[")) if idx != -1]
         start = min(starts) if starts else -1
         end_object = text.rfind("}") + 1
@@ -243,7 +289,12 @@ class BaseAgent:
             try:
                 return json.loads(text[start:end])
             except Exception:
-                return None
+                pass
+
+        logger.debug(
+            "_parse_json_value: all strategies failed, text preview: %.200s",
+            text,
+        )
         return None
 
     @log(logger, "BaseAgent._parse_json_object")

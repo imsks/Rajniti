@@ -31,9 +31,13 @@ class ConstituencyFetcher:
             state,
         )
         prompt = (
-            f"Return ONLY a valid JSON array of all current assembly constituency names "
+            f"You are a data API that outputs ONLY raw JSON with NO markdown, NO code fences, "
+            f"and NO explanatory text before or after the JSON.\n\n"
+            f"Return a JSON array of ALL current assembly constituency names "
             f"for the Indian state: {state}.\n"
-            f'Example format: ["Dispur", "Jalukbari", ...]\n'
+            f"Output ONLY the JSON array. Example: [\"Dispur\", \"Jalukbari\"]\n"
+            f"Do NOT include any other text, markdown formatting, or explanation.\n"
+            f"If you do not know the answer, return an empty JSON array [].\n"
         )
         raw = self.agent._run_llm(prompt)
         logger.info("[ConstituencyFetcher] LLM responded (%d chars)", len(raw))
@@ -72,10 +76,14 @@ class MLADetailsFetcher:
 
         constituency_json = json.dumps(batch, ensure_ascii=False)
         prompt = (
+            f"You are a data API that outputs ONLY raw JSON with NO markdown, NO code fences, "
+            f"and NO explanatory text before or after the JSON.\n\n"
             f"For each constituency listed below in {state}, return the current MLA.\n"
-            f"Return ONLY a valid JSON array. Each item must have: "
+            f"Return ONLY a JSON array. Each item must have: "
             f'"name", "constituency", "party".\n'
             f"Constituencies: {constituency_json}\n"
+            f"Do NOT include any other text, markdown formatting, or explanation.\n"
+            f"If you do not know the answer, return an empty JSON array [].\n"
         )
         raw = self.agent._run_llm(prompt)
         logger.info("%s LLM responded (%d chars)", tag, len(raw))
