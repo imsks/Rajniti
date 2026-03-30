@@ -74954,7 +74954,7 @@
     },
     "notes": null
   },
-   {
+  {
     "id": "7dd6c3a0-e66b-4cfb-832c-b3141a9b14e0",
     "name": "Shalimar Bagh",
     "photo": null,
@@ -74991,6 +74991,252 @@
       "summary": null
     },
     "notes": null
+  },
+  {
+    "id": "2ee0bb75-62eb-5298-85bd-6990124e68c4",
+    "name": "Kancheru Nagesh",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Palair",
+    "party": "TRS",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "db0551a3-f499-52dd-b704-cb6b587c53d6",
+    "name": "Dasari Manohar Reddy",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Peddapalle",
+    "party": "TRS",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f0b595fa-97f5-51f6-b9f9-2ec6f7f8c1da",
+    "name": "T Harish Rao",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Siddipet",
+    "party": "TRS",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "5907956d-874a-538a-8cd9-a0030c1311f0",
+    "name": "Chandra Shekar",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Sircilla",
+    "party": "TRS",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "e283f1ef-5583-577c-addf-6c89ed0ff4f0",
+    "name": "T Rajaiah",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Station Ghanpur",
+    "party": "TRS",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "e9220606-5dac-5ee4-b39c-ddcb8f7a1061",
+    "name": "K Manik Rao",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Zahirabad",
+    "party": "TRS",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "433fcb17-bfc0-5328-83f1-b143475deff7",
+    "name": "Voditela Satish Kumar",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Husnabad",
+    "party": "TRS",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "0c532167-ba0e-5bb3-8734-dd951b7fbb72",
+    "name": "Rajasingh Thakur",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Khanapur",
+    "party": "TRS",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "ca4565ea-ce05-5be6-9977-4d413b1f3775",
+    "name": "N Bhagath Varma",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Miryalaguda",
+    "party": "TRS",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "c964668e-9b3c-54b8-93f7-5b781adf5fc2",
+    "name": "Kuntala Kumari",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Munjampalli",
+    "party": "TRS",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "15b22b38-81df-554e-8878-e462e55e2a7c",
+    "name": "Chirumarthi Lingaiah",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Nakrekal",
+    "party": "TRS",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "f5e95449-fe30-5a06-bdba-f31804890855",
+    "name": "M Rajaiah",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Narayankhed",
+    "party": "TRS",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "61a5deec-7f77-5ada-8566-f58e337f2eb8",
+    "name": "Bajireddy Govardhan",
+    "photo": null,
+    "state": "Telangana",
+    "constituency": "Nizamabad Rural",
+    "party": "TRS",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
   }
-
 ]

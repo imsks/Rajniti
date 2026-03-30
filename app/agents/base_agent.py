@@ -258,9 +258,10 @@ class BaseAgent:
             try:
                 return json.loads(stripped)
             except Exception:
+                # If stripped content is not valid JSON, keep using the original
+                # text so later heuristics can still see any JSON outside/after
+                # the fenced region.
                 pass
-            # Continue with stripped text for bracket-matching below
-            text = stripped
 
         # 3. Use regex to find the outermost JSON array
         array_match = re.search(r"(\[\s*\n?.*?\n?\s*\])", text, re.DOTALL)
