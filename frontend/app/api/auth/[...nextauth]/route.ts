@@ -21,7 +21,9 @@ const authOptions: NextAuthOptions = {
                         picture?: string
                         image?: string
                     }
-                    const data = await userService.syncUser({
+
+                    // 🔥 SAFE CALL WITH TIMEOUT (NO HANG)
+                    const syncPromise = userService.syncUser({
                         id: profile.sub,
                         email: profile.email,
                         name: profile.name,
@@ -29,11 +31,24 @@ const authOptions: NextAuthOptions = {
                             profileData.picture || profileData.image
                     })
 
+                    const timeoutPromise = new Promise((_, reject) =>
+                        setTimeout(() => reject(new Error("Timeout")), 3000)
+                    )
+
+                    const data: any = await Promise.race([
+                        syncPromise,
+                        timeoutPromise
+                    ])
+
                     // Store onboarding status in token
                     token.onboardingCompleted =
-                        data.data?.onboarding_completed || false
+                        data?.data?.onboarding_completed || false
+
                 } catch (error) {
-                    console.error("Error syncing user with backend:", error)
+                    console.error("⚠️ Sync skipped (safe fallback):", error)
+
+                    // ✅ fallback so login never blocks
+                    token.onboardingCompleted = false
                 }
             }
 
@@ -47,6 +62,7 @@ const authOptions: NextAuthOptions = {
 
             return token
         },
+
         async session({ session, token }) {
             // Send properties to the client
             if (session.user) {
@@ -58,13 +74,17 @@ const authOptions: NextAuthOptions = {
             return session
         }
     },
+
     pages: {
         signIn: "/auth/signin",
         newUser: "/onboarding"
     },
+
     secret: process.env.NEXTAUTH_SECRET
 }
 
 const handler = NextAuth(authOptions)
 
 export { handler as GET, handler as POST }
+
+
