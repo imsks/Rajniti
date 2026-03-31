@@ -11,6 +11,7 @@ gunicorn>=21.2.0
 sqlalchemy>=2.0.23
 alembic>=1.13.0
 psycopg2-binary>=2.9.9
+supabase>=2.0.0                 # Supabase client (user routes / REST)
 
 # --- Auth ---
 authlib>=1.6.6
