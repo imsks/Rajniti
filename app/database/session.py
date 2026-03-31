@@ -4,10 +4,14 @@ Database session management.
 Creates SQLAlchemy engine and session factory.
 """
 
+import logging
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from .config import get_database_url, get_echo_mode
+from .config import get_database_url, get_echo_mode, get_psycopg2_connect_args
+
+logger = logging.getLogger(__name__)
 
 engine = None
 SessionLocal = None
@@ -34,19 +38,26 @@ def init_engine():
     if not database_url:
         return None
 
-    engine = create_engine(
-        database_url,
-        echo=get_echo_mode(),
-        pool_pre_ping=True,  # Verify connections before using
-        pool_size=5,
-        max_overflow=10,
-    )
-
-    SessionLocal = sessionmaker(
-        autocommit=False,
-        autoflush=False,
-        bind=engine,
-    )
+    try:
+        connect_args = get_psycopg2_connect_args(database_url)
+        engine = create_engine(
+            database_url,
+            echo=get_echo_mode(),
+            pool_pre_ping=True,
+            pool_size=5,
+            max_overflow=10,
+            connect_args=connect_args,
+        )
+        SessionLocal = sessionmaker(
+            autocommit=False,
+            autoflush=False,
+            bind=engine,
+        )
+    except Exception:
+        logger.exception("Failed to create SQLAlchemy engine")
+        engine = None
+        SessionLocal = None
+        return None
 
     return engine
 

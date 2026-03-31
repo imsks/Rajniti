@@ -33,8 +33,10 @@ def get_db_session() -> Generator[Session, None, None]:
 
     if SessionLocal is None:
         raise RuntimeError(
-            "Database session factory not initialized. "
-            "Set DATABASE_URL or avoid DB-backed features."
+            "Database is not configured: DATABASE_URL is missing or the engine failed to start. "
+            "Add DATABASE_URL to the project root .env (for Docker Compose use the same file "
+            "as env_file). For bundled Postgres, use host 'postgres' in the URL, e.g. "
+            "postgresql://USER:PASS@postgres:5432/DBNAME."
         )
 
     session = SessionLocal()

@@ -1,5 +1,5 @@
 """
-Simple Flask application factory for Rajniti Election Data API.
+Flask application factory for Rajniti API.
 """
 
 import logging
@@ -9,73 +9,79 @@ from dotenv import load_dotenv
 from flask import Flask
 from flask_cors import CORS
 
-load_dotenv()
-
 from app.core.exceptions import RajnitiError
 from app.core.response import error_response
+
+load_dotenv()
 
 logger = logging.getLogger(__name__)
 
 
-def create_app():
-    """Create and configure Flask application"""
+def _configure_database() -> None:
+    """Create SQLAlchemy engine when DATABASE_URL is present."""
+    url = (os.getenv("DATABASE_URL") or "").strip()
+    if not url:
+        logger.warning(
+            "DATABASE_URL is not set. Database-backed routes (users, health DB) "
+            "will not work until you add it to the project root .env. "
+            "Docker: ensure compose env_file points at that .env."
+        )
+        return
 
-    app = Flask(__name__)
+    from app.database.session import init_engine
 
-    # Basic config
-    app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "dev-secret-key")
-    app.config["JSON_SORT_KEYS"] = False
+    if init_engine() is None:
+        logger.error(
+            "DATABASE_URL is set but the SQLAlchemy engine did not start. "
+            "Check credentials, sslmode, host name (use 'postgres' for the "
+            "local-db compose profile, not localhost from inside the API container)."
+        )
+        return
 
-    # Enable CORS
-    CORS(app)
+    logger.info("SQLAlchemy engine initialized.")
 
-    # ============================================================
-    # 🚫 TEMP DISABLED: DB INIT + MIGRATIONS (SAFE MODE)
-    # ============================================================
+    if os.getenv("TESTING", "").lower() in ("1", "true", "yes"):
+        logger.debug("TESTING=true: skipping automatic create_all.")
+        return
 
-    logger.info("🚫 Skipping DB init and migrations (SAFE MODE)")
-
-    # ============================================================
-    # ✅ ROOT ROUTE
-    # ============================================================
-
-    @app.route("/")
-    def home():
-        return {"status": "working"}
-
-    # ============================================================
-    # 🚫 TEMP DISABLED: HEAVY ROUTES
-    # ============================================================
-
-    
-    from app.routes.api_routes import api_bp
-    app.register_blueprint(api_bp)
-    
-
-    # ============================================================
-    # ✅ LOAD USER ROUTES (FIXED POSITION + INDENT)
-    # ============================================================
+    if os.getenv("SKIP_DB_AUTO_CREATE", "").lower() in ("1", "true", "yes"):
+        logger.info("SKIP_DB_AUTO_CREATE is set; skipping create_all (use Alembic or SQL manually).")
+        return
 
     try:
-        print("👉 Loading user_routes...")
-        from app.routes.user_routes import user_bp
-        app.register_blueprint(user_bp)
-        print("✅ user_routes loaded")
-    except Exception as e:
-        print("❌ ERROR loading user_routes:", e)
+        from app.database.session import init_db as ensure_db_schema
 
-    # ============================================================
-    # ERROR HANDLERS
-    # ============================================================
+        ensure_db_schema()
+        logger.info("Database tables ensured (SQLAlchemy metadata.create_all).")
+    except Exception:
+        logger.exception(
+            "Failed to apply ORM schema to the database. "
+            "Ensure the DB role can CREATE TABLE or run migrations."
+        )
 
+
+def create_app() -> Flask:
+    app = Flask(__name__)
+    app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "dev-secret-key")
+    app.config["JSON_SORT_KEYS"] = False
+    CORS(app)
+
+    _configure_database()
+
+    _register_blueprints(app)
     _register_error_handlers(app)
-
     return app
 
 
-def _register_error_handlers(app: Flask) -> None:
-    """Register error handlers"""
+def _register_blueprints(app: Flask) -> None:
+    from app.routes.api_routes import api_bp
+    from app.routes.user_routes import user_bp
 
+    app.register_blueprint(api_bp)
+    app.register_blueprint(user_bp)
+
+
+def _register_error_handlers(app: Flask) -> None:
     @app.errorhandler(RajnitiError)
     def handle_rajniti_error(error):
         return error_response(error.message, error.code)
