@@ -9,7 +9,12 @@ import logging
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from .config import get_database_url, get_echo_mode
+from .config import (
+    database_url_looks_like_transaction_pooler,
+    get_database_url,
+    get_echo_mode,
+    get_psycopg2_connect_args,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -45,6 +50,7 @@ def init_engine():
             pool_pre_ping=True,
             pool_size=5,
             max_overflow=10,
+            connect_args=get_psycopg2_connect_args(),
         )
         SessionLocal = sessionmaker(
             autocommit=False,
@@ -78,4 +84,12 @@ def init_db():
     # Import models to register them with SQLAlchemy metadata
     from .models import User  # noqa: F401
 
-    Base.metadata.create_all(bind=db_engine)
+    url = get_database_url()
+    if database_url_looks_like_transaction_pooler(url):
+        logger.warning(
+            "DATABASE_URL looks like a transaction pooler (:6543 / pooler host). "
+            "create_all often fails there—use Supabase direct DB URL (port 5432)."
+        )
+
+    with db_engine.begin() as conn:
+        Base.metadata.create_all(bind=conn)

@@ -80,3 +80,55 @@ def get_echo_mode() -> bool:
         True if SQL queries should be logged, False otherwise
     """
     return os.getenv("DB_ECHO", "false").lower() == "true"
+
+
+def get_psycopg2_connect_args() -> dict:
+    """
+    Prefer IPv4 via hostaddr when the hostname resolves to A records (helps some
+    Docker ↔ cloud Postgres paths). Set DATABASE_SKIP_IPV4_FORCE=1 to disable.
+    Only applied for postgresql/postgres URLs (not SQLite).
+    """
+    if os.getenv("DATABASE_SKIP_IPV4_FORCE", "").lower() in ("1", "true", "yes"):
+        return {}
+
+    database_url = get_database_url()
+    if not database_url:
+        return {}
+
+    try:
+        parsed = urlparse(database_url)
+    except Exception:
+        return {}
+
+    scheme = (parsed.scheme or "").split("+")[0].lower()
+    if scheme not in ("postgresql", "postgres"):
+        return {}
+
+    host = parsed.hostname
+    if not host:
+        return {}
+
+    port = parsed.port or 5432
+    try:
+        infos = socket.getaddrinfo(host, port, type=socket.SOCK_STREAM)
+    except socket.gaierror:
+        return {}
+
+    v4 = [info for info in infos if info[0] == socket.AF_INET]
+    if not v4:
+        return {}
+
+    return {"hostaddr": v4[0][4][0]}
+
+
+def database_url_looks_like_transaction_pooler(database_url: str) -> bool:
+    """Transaction poolers often break DDL (create_all)."""
+    if not database_url:
+        return False
+    try:
+        parsed = urlparse(database_url)
+    except Exception:
+        return False
+    host = (parsed.hostname or "").lower()
+    port = parsed.port
+    return port == 6543 or "pooler" in host

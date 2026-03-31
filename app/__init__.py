@@ -4,6 +4,7 @@ Flask application factory for Rajniti API.
 
 import logging
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
 from flask import Flask
@@ -12,7 +13,7 @@ from flask_cors import CORS
 from app.core.exceptions import RajnitiError
 from app.core.response import error_response
 
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 logger = logging.getLogger(__name__)
 
@@ -53,10 +54,13 @@ def _configure_database() -> None:
 
         ensure_db_schema()
         logger.info("Database tables ensured (SQLAlchemy metadata.create_all).")
-    except Exception:
+    except Exception as exc:
         logger.exception(
-            "Failed to apply ORM schema to the database. "
-            "Ensure the DB role can CREATE TABLE or run migrations."
+            "Failed to apply ORM schema: %s. "
+            "Local: check DATABASE_URL matches Postgres in compose. "
+            "Supabase: use direct connection (port 5432), not pooler (6543); add ?sslmode=require. "
+            "Or set SKIP_DB_AUTO_CREATE=1 and run Alembic.",
+            exc,
         )
 
 
