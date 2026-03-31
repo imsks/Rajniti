@@ -45,12 +45,12 @@ class PoliticianController:
     def get_all(
         self,
         election_type: Optional[str] = None,
-        limit: int = 100,
+        limit: int = 1000,
     ) -> Dict[str, Any]:
         if election_type:
             data = self.service.get_all(election_type)[:limit]  # type: ignore[arg-type]
         else:
-            data = self.service.get_all_politicians()[:limit]
+           data = self.service.get_all_politicians()
         return {
             "total": len(data),
             "politicians": data,

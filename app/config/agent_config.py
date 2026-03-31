@@ -10,7 +10,7 @@ from __future__ import annotations
 import logging
 from typing import Any, Optional
 
-from app.config.free_tier_llm import (
+from app.config.free_tier_llm import (  # noqa: F401 — re-exported for backward compatibility
     DEFAULT_PROVIDERS,
     FreeTierLLM,
     ProviderConfig,

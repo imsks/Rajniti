@@ -106,7 +106,9 @@ class PoliticianPoliticalBackground:
     def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
         if force:
             return True
-        elections = (politician.get("political_background") or {}).get("elections") or []
+        elections = (politician.get("political_background") or {}).get(
+            "elections"
+        ) or []
         return not elections
 
     @log(logger, "PoliticianPoliticalBackground.run")
@@ -561,12 +563,12 @@ class PoliticianAgent(BaseAgent):
         return self.cache.exists(self._process_cache_key(politician_id, process_name))
 
     def _mark_process_cached(self, politician_id: str, process_name: str) -> None:
-        self.cache.set(self._process_cache_key(politician_id, process_name), {"processed": True})
+        self.cache.set(
+            self._process_cache_key(politician_id, process_name), {"processed": True}
+        )
 
     @log(logger, "PoliticianAgent._run_one_by_id")
-    def _run_one_by_id(
-        self, politician_id: str, force: bool = False
-    ) -> Dict[str, Any]:
+    def _run_one_by_id(self, politician_id: str, force: bool = False) -> Dict[str, Any]:
         politician = self.politician_service.get_by_id(politician_id)
         if not politician:
             return {"ok": False, "id": politician_id, "error": "politician_not_found"}

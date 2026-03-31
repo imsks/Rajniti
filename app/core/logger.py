@@ -23,6 +23,7 @@ T = TypeVar("T")
 # ANSI helpers
 # ---------------------------------------------------------------------------
 
+
 class _C:
     """Namespace for ANSI escape codes."""
 
@@ -52,6 +53,7 @@ def _paint(code: str, text: str) -> str:
 # ---------------------------------------------------------------------------
 # GracefulFormatter
 # ---------------------------------------------------------------------------
+
 
 class GracefulFormatter(logging.Formatter):
     """Compact, colour-coded formatter that **condenses tracebacks**.
@@ -103,9 +105,7 @@ class GracefulFormatter(logging.Formatter):
         if len(name) <= max_len:
             return name
         parts = name.split(".")
-        return ".".join(
-            p[0] if i < len(parts) - 1 else p for i, p in enumerate(parts)
-        )
+        return ".".join(p[0] if i < len(parts) - 1 else p for i, p in enumerate(parts))
 
     def _condensed_tb(self, exc_info: tuple[Any, ...]) -> str:
         _, exc_val, exc_tb = exc_info
@@ -118,9 +118,7 @@ class GracefulFormatter(logging.Formatter):
         lines: list[str] = []
         hidden = len(frames) - len(tail)
         if hidden > 0:
-            lines.append(
-                _paint(_C.DIM, f"  ··· {hidden} frame(s) hidden ···")
-            )
+            lines.append(_paint(_C.DIM, f"  ··· {hidden} frame(s) hidden ···"))
 
         for f in tail:
             short_file = f.filename.rsplit("/", 1)[-1]
@@ -142,6 +140,7 @@ class GracefulFormatter(logging.Formatter):
 # setup_logging
 # ---------------------------------------------------------------------------
 
+
 def setup_logging(level: str = "INFO") -> None:
     """Configure console logging with the graceful formatter.
 
@@ -161,6 +160,7 @@ def setup_logging(level: str = "INFO") -> None:
 # ---------------------------------------------------------------------------
 # @log decorator
 # ---------------------------------------------------------------------------
+
 
 def log(
     logger: logging.Logger, name: Optional[str] = None

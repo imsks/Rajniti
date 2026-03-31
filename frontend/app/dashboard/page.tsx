@@ -10,6 +10,9 @@ import PoliticianCardWrapper from "@/components/PoliticianCardWrapper"
 import MyPoliticiansSection from "@/components/MyPoliticiansSection"
 import { usePoliticians } from "@/hooks/usePoliticians"
 import { useAnalytics } from "@/hooks/useAnalytics"
+import { useSession } from "next-auth/react"
+import { userService } from "@/lib/api/user"
+
 type Tab = "ALL" | "MP" | "MLA"
 
 export default function Dashboard() {
@@ -40,6 +43,7 @@ const { all, loading, error, states, parties, stats, filter } =
 
     // Filtered list — pure client-side (type from tab + query, state, party)
     const displayPoliticians = useMemo(() => {
+
         let list = filter({
             query: searchQuery,
             state: stateFilter,
@@ -50,11 +54,39 @@ const { all, loading, error, states, parties, stats, filter } =
         return list
     }, [filter, searchQuery, stateFilter, partyFilter, activeTab])
 
+
+  const rankedPoliticians = useMemo(() => {
+  if (!displayPoliticians.length) return [];
+
+  // 🔥 find max values for normalization
+  const maxQ = Math.max(...displayPoliticians.map(p => p.performance?.questions || 0), 1);
+  const maxD = Math.max(...displayPoliticians.map(p => p.performance?.debates || 0), 1);
+
+  return displayPoliticians
+    .map((p) => {
+      const perf = p.performance || { attendance: 0, questions: 0, debates: 0 };
+
+      // normalize (0 → 1 scale)
+      const attendanceScore = perf.attendance / 100;
+      const questionsScore = perf.questions / maxQ;
+      const debatesScore = perf.debates / maxD;
+
+      const score =
+        attendanceScore * 0.4 +
+        questionsScore * 0.3 +
+        debatesScore * 0.3;
+
+      return { ...p, score };
+    })
+    .sort((a, b) => b.score - a.score)
+    .map((p, i) => ({ ...p, rank: i + 1 }));
+}, [displayPoliticians]);
+
     // Pagination calculations
     const totalPages = Math.ceil(displayPoliticians.length / itemsPerPage)
     const startIndex = (currentPage - 1) * itemsPerPage
     const endIndex = startIndex + itemsPerPage
-    const paginatedPoliticians = displayPoliticians.slice(startIndex, endIndex)
+    const paginatedPoliticians = rankedPoliticians.slice(startIndex, endIndex)
 
     // Reset to page 1 when filters change
     useMemo(() => {
@@ -325,18 +357,53 @@ const { all, loading, error, states, parties, stats, filter } =
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.5 }}
                             className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                            {paginatedPoliticians.map((p, i) => (
-                                <motion.div
-                                    key={p.id}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.4, delay: i * 0.05 }}
-                                >
-                                    <PoliticianCard politician={p} />
-                                </motion.div>
-                            ))}
-                        </motion.div>
 
+                            {paginatedPoliticians.map((p, i) => {
+  const percentile = p.rank / rankedPoliticians.length;
+
+  return (
+    <motion.div
+      key={p.id}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: i * 0.05 }}
+    >
+      <>
+        <div className="flex items-center gap-2 mb-1">
+          <Text className="text-orange-600 font-bold">#{p.rank}</Text>
+
+          {percentile <= 0.1 && (
+            <span className="text-xs bg-green-600 text-white px-2 py-1 rounded">
+              Top Performer
+            </span>
+          )}
+
+          {percentile > 0.1 && percentile <= 0.3 && (
+            <span className="text-xs bg-blue-600 text-white px-2 py-1 rounded">
+              Good
+            </span>
+          )}
+
+          {percentile > 0.3 && percentile <= 0.7 && (
+            <span className="text-xs bg-yellow-500 text-black px-2 py-1 rounded">
+              Average
+            </span>
+          )}
+
+          {percentile > 0.7 && (
+            <span className="text-xs bg-red-600 text-white px-2 py-1 rounded">
+              Low Performer
+            </span>
+          )}
+        </div>
+
+        <PoliticianCard politician={p} />
+      </>
+    </motion.div>
+  );
+})}
+
+</motion.div>
                         {/* Pagination controls */}
                         {totalPages > 1 && (
                             <div className='flex justify-center items-center gap-2 mt-8'>

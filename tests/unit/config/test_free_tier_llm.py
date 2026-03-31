@@ -1,14 +1,13 @@
 """Tests for the portable FreeTierLLM wrapper (session exhaustion, status, reset)."""
 
-import time
 from unittest.mock import Mock, patch
 
 import pytest
 
 from app.config.free_tier_llm import FreeTierLLM, ProviderConfig, _build_llm
 
-
 # -- helpers ----------------------------------------------------------------
+
 
 class FakeRateLimitError(Exception):
     status_code = 429
@@ -17,6 +16,7 @@ class FakeRateLimitError(Exception):
 
 class FakeQuotaExhausted(Exception):
     """Simulates a daily-quota-exceeded error with no retry hint."""
+
     status_code = 429
 
     def __str__(self):
@@ -25,6 +25,7 @@ class FakeQuotaExhausted(Exception):
 
 class FakeGoogleResourceExhausted(Exception):
     """Simulates google.api_core.exceptions.ResourceExhausted which has .code (int), not .status_code."""
+
     code = 429
 
     def __str__(self):
@@ -33,6 +34,7 @@ class FakeGoogleResourceExhausted(Exception):
 
 class FakeQuotaWithLongRetry(Exception):
     """Simulates quota exceeded with a long retry-after (> 5 min)."""
+
     status_code = 429
     retry_after = 600.0
 
@@ -50,6 +52,7 @@ def _make_candidates(*names: str) -> list[tuple[str, str, Mock]]:
 
 
 # -- tests ------------------------------------------------------------------
+
 
 @pytest.mark.unit
 class TestFreeTierLLMFallback:
@@ -211,8 +214,16 @@ class TestFreeTierLLMFactory:
         monkeypatch.setenv("OPENAI_API_KEY", "tk")
 
         test_configs = [
-            {"provider": "gemini", "model": "gemini-2.5-flash", "api_key_env": "GEMINI_API_KEY"},
-            {"provider": "openai", "model": "gpt-4o-mini", "api_key_env": "OPENAI_API_KEY"},
+            {
+                "provider": "gemini",
+                "model": "gemini-2.5-flash",
+                "api_key_env": "GEMINI_API_KEY",
+            },
+            {
+                "provider": "openai",
+                "model": "gpt-4o-mini",
+                "api_key_env": "OPENAI_API_KEY",
+            },
         ]
 
         fake_llm = Mock()
@@ -237,8 +248,18 @@ class TestFreeTierLLMFactory:
         monkeypatch.setenv("OPENAI_API_KEY", "tk")
 
         test_configs = [
-            {"provider": "gemini", "model": "flash", "api_key_env": "GEMINI_API_KEY", "tier": "free"},
-            {"provider": "openai", "model": "gpt-4o", "api_key_env": "OPENAI_API_KEY", "tier": "paid"},
+            {
+                "provider": "gemini",
+                "model": "flash",
+                "api_key_env": "GEMINI_API_KEY",
+                "tier": "free",
+            },
+            {
+                "provider": "openai",
+                "model": "gpt-4o",
+                "api_key_env": "OPENAI_API_KEY",
+                "tier": "paid",
+            },
         ]
 
         fake_llm = Mock()
@@ -253,24 +274,28 @@ class TestFreeTierLLMFactory:
 class TestProviderConfig:
 
     def test_from_dict_minimal(self):
-        cfg = ProviderConfig.from_dict({
-            "provider": "gemini",
-            "model": "gemini-2.5-flash",
-            "api_key_env": "GEMINI_API_KEY",
-        })
+        cfg = ProviderConfig.from_dict(
+            {
+                "provider": "gemini",
+                "model": "gemini-2.5-flash",
+                "api_key_env": "GEMINI_API_KEY",
+            }
+        )
         assert cfg.provider == "gemini"
         assert cfg.tier == "free"
         assert cfg.tags == ()
 
     def test_from_dict_full(self):
-        cfg = ProviderConfig.from_dict({
-            "provider": "openai",
-            "model": "gpt-4o",
-            "api_key_env": "OPENAI_API_KEY",
-            "base_url": "https://custom.api",
-            "tier": "paid",
-            "tags": ["fallback", "expensive"],
-        })
+        cfg = ProviderConfig.from_dict(
+            {
+                "provider": "openai",
+                "model": "gpt-4o",
+                "api_key_env": "OPENAI_API_KEY",
+                "base_url": "https://custom.api",
+                "tier": "paid",
+                "tags": ["fallback", "expensive"],
+            }
+        )
         assert cfg.base_url == "https://custom.api"
         assert cfg.tier == "paid"
         assert cfg.tags == ("fallback", "expensive")
@@ -290,7 +315,9 @@ class TestBuildLLMTimeouts:
             ChatOpenAI = DummyChatOpenAI
 
         with patch("importlib.import_module", return_value=DummyModule()):
-            llm = _build_llm("groq", "llama-3.3-70b-versatile", "k", "https://api.groq.com/openai/v1")
+            llm = _build_llm(
+                "groq", "llama-3.3-70b-versatile", "k", "https://api.groq.com/openai/v1"
+            )
 
         assert llm is not None
         assert "request_timeout" in captured

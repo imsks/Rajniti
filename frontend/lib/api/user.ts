@@ -1,5 +1,5 @@
 const API_BASE_URL =
-    process.env.NEXT_PUBLIC_API_URL
+    process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api/v1"
 
 export interface UserData {
     id?: string
@@ -7,7 +7,7 @@ export interface UserData {
     name?: string
     profile_picture?: string
     username?: string
-    political_interest?: string
+    political_ideology?: string
     onboarding_completed?: boolean
     [key: string]: string | boolean | undefined
 }
@@ -18,13 +18,6 @@ export const userService = {
      * Used during authentication
      */
     async syncUser(userData: UserData) {
-        console.log("userData", `${API_BASE_URL}/users/sync`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(userData)
-        })
         const response = await fetch(`${API_BASE_URL}/users/sync`, {
             method: "POST",
             headers: {
