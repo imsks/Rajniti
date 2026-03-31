@@ -9,7 +9,7 @@ import logging
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from .config import get_database_url, get_echo_mode, get_psycopg2_connect_args
+from .config import get_database_url, get_echo_mode
 
 logger = logging.getLogger(__name__)
 
@@ -39,14 +39,12 @@ def init_engine():
         return None
 
     try:
-        connect_args = get_psycopg2_connect_args(database_url)
         engine = create_engine(
             database_url,
             echo=get_echo_mode(),
             pool_pre_ping=True,
             pool_size=5,
             max_overflow=10,
-            connect_args=connect_args,
         )
         SessionLocal = sessionmaker(
             autocommit=False,
