@@ -10,10 +10,11 @@ from dotenv import load_dotenv
 from flask import Flask
 from flask_cors import CORS
 
-from app.core.exceptions import RajnitiError
-from app.core.response import error_response
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent
+load_dotenv(_PROJECT_ROOT / ".env")
 
-load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+from app.core.exceptions import RajnitiError  # noqa: E402
+from app.core.response import error_response  # noqa: E402
 
 logger = logging.getLogger(__name__)
 

@@ -4,9 +4,11 @@ Development server entry point for the Rajniti application.
 import logging
 import os
 
+from pathlib import Path
+
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parent / ".env")
 
 from app import create_app  # noqa: E402
 from app.core.env_checker import check_environment_variables  # noqa: E402

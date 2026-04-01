@@ -1,7 +1,8 @@
 """
 Database session management.
 
-Creates SQLAlchemy engine and session factory.
+Single source of truth for SQLAlchemy engine and session factory.
+Works with: venv+local, venv+supabase, docker+local, docker+supabase.
 """
 
 import logging
@@ -9,12 +10,7 @@ import logging
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from .config import (
-    database_url_looks_like_transaction_pooler,
-    get_database_url,
-    get_echo_mode,
-    get_psycopg2_connect_args,
-)
+from .config import get_connect_args, get_database_url, get_echo_mode, is_transaction_pooler
 
 logger = logging.getLogger(__name__)
 
@@ -24,11 +20,10 @@ SessionLocal = None
 
 def init_engine():
     """
-    Lazily initialize the SQLAlchemy engine + session factory.
+    Lazily create the SQLAlchemy engine + session factory.
 
-    IMPORTANT:
-    - Do NOT create the engine at import time (keeps CLI/tools/tests usable without DB deps).
-    - If DATABASE_URL is not set, the DB is considered "disabled".
+    Safe to call multiple times; only initializes once.
+    Returns None (without error) when DATABASE_URL is not set.
     """
     global engine, SessionLocal
 
@@ -50,7 +45,7 @@ def init_engine():
             pool_pre_ping=True,
             pool_size=5,
             max_overflow=10,
-            connect_args=get_psycopg2_connect_args(),
+            connect_args=get_connect_args(),
         )
         SessionLocal = sessionmaker(
             autocommit=False,
@@ -67,28 +62,21 @@ def init_engine():
 
 
 def init_db():
-    """
-    Initialize database tables.
-
-    Creates all tables defined in models.
-    """
+    """Create all tables defined in ORM models."""
     from .base import Base
+    from .models import User  # noqa: F401
 
-    # Ensure engine/session exist
     db_engine = init_engine()
     if db_engine is None:
         raise RuntimeError(
             "Database is not configured. Set DATABASE_URL to initialize tables."
         )
 
-    # Import models to register them with SQLAlchemy metadata
-    from .models import User  # noqa: F401
-
     url = get_database_url()
-    if database_url_looks_like_transaction_pooler(url):
+    if is_transaction_pooler(url):
         logger.warning(
             "DATABASE_URL looks like a transaction pooler (:6543 / pooler host). "
-            "create_all often fails there—use Supabase direct DB URL (port 5432)."
+            "DDL may fail — use Supabase direct URL (port 5432) instead."
         )
 
     with db_engine.begin() as conn:
