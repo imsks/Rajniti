@@ -19,6 +19,24 @@ from app.core.response import error_response  # noqa: E402
 logger = logging.getLogger(__name__)
 
 
+def _auto_migrate() -> None:
+    """Run alembic upgrade head via scripts/db.py (loaded dynamically)."""
+    import importlib.util
+    import sys
+
+    root = Path(__file__).resolve().parent.parent
+    if str(root) not in sys.path:
+        sys.path.insert(0, str(root))
+
+    path = root / "scripts" / "db.py"
+    spec = importlib.util.spec_from_file_location("rajniti_scripts_db", path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Cannot load {path}")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    mod.upgrade_head()
+
+
 def _configure_database() -> None:
     """Create SQLAlchemy engine when DATABASE_URL is present."""
     url = (os.getenv("DATABASE_URL") or "").strip()
@@ -43,11 +61,21 @@ def _configure_database() -> None:
     logger.info("SQLAlchemy engine initialized.")
 
     if os.getenv("TESTING", "").lower() in ("1", "true", "yes"):
-        logger.debug("TESTING=true: skipping automatic create_all.")
+        logger.debug("TESTING=true: skipping auto-migrate and create_all.")
         return
 
+    if os.getenv("SKIP_DB_AUTO_MIGRATE", "").lower() not in ("1", "true", "yes"):
+        try:
+            _auto_migrate()
+            logger.info("Database migrations applied (alembic upgrade head).")
+        except Exception as exc:
+            logger.exception(
+                "Auto-migrate failed (set SKIP_DB_AUTO_MIGRATE=1 to disable): %s",
+                exc,
+            )
+
     if os.getenv("SKIP_DB_AUTO_CREATE", "").lower() in ("1", "true", "yes"):
-        logger.info("SKIP_DB_AUTO_CREATE is set; skipping create_all (use Alembic or SQL manually).")
+        logger.info("SKIP_DB_AUTO_CREATE is set; skipping create_all.")
         return
 
     try:
@@ -59,7 +87,7 @@ def _configure_database() -> None:
         logger.exception(
             "Failed to apply ORM schema: %s. "
             "Local: check DATABASE_URL matches Postgres in compose. "
-            "Supabase: use direct connection (port 5432), not pooler (6543); add ?sslmode=require. "
+            "Supabase: use session-mode pooler (port 5432). "
             "Or set SKIP_DB_AUTO_CREATE=1 and run Alembic.",
             exc,
         )

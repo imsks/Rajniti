@@ -45,6 +45,25 @@ def run_migrations_offline() -> None:
         context.run_migrations()
 
 
+_TRACKED_TABLES = set(target_metadata.tables)
+
+
+def _include_name(name, type_, parent_names):
+    """Only track tables that belong to our SQLAlchemy models."""
+    if type_ == "table":
+        return name in _TRACKED_TABLES
+    return True
+
+
+def _include_object(obj, name, type_, reflected, compare_to):
+    """Skip FK constraints that reference tables outside our models."""
+    if type_ == "foreign_key_constraint" and reflected:
+        referred = obj.referred_table.name if obj.referred_table is not None else None
+        if referred and referred not in _TRACKED_TABLES:
+            return False
+    return True
+
+
 def run_migrations_online() -> None:
     url = _require_database_url()
     connectable = create_engine(
@@ -56,6 +75,8 @@ def run_migrations_online() -> None:
         context.configure(
             connection=connection,
             target_metadata=target_metadata,
+            include_name=_include_name,
+            include_object=_include_object,
         )
         with context.begin_transaction():
             context.run_migrations()
