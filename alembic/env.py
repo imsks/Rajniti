@@ -1,84 +1,83 @@
+"""
+Alembic migration environment.
+
+Uses create_engine directly to:
+1. Avoid ConfigParser %-interpolation bugs with URLs containing encoded chars.
+2. Apply get_connect_args() for consistent IPv4 forcing.
+"""
+
 from logging.config import fileConfig
 
-from sqlalchemy import engine_from_config
-from sqlalchemy import pool
+from sqlalchemy import create_engine, pool
 
 from alembic import context
 
-# Import the database configuration and models
-from app.database.config import get_database_url
 from app.database.base import Base
+from app.database.config import get_connect_args, get_database_url
+from app.database.models import User  # noqa: F401
 
-# Import all models to register them with Base
-# Importing from models package ensures all models are registered with Base.metadata
-from app.database.models import User  # noqa: F401 - Only User table in DB
-
-# this is the Alembic Config object, which provides
-# access to the values within the .ini file in use.
 config = context.config
 
-# Set the database URL from environment variables
-config.set_main_option("sqlalchemy.url", get_database_url())
-
-# Interpret the config file for Python logging.
-# This line sets up loggers basically.
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# add your model's MetaData object here
-# for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
 target_metadata = Base.metadata
 
-# other values from the config, defined by the needs of env.py,
-# can be acquired:
-# my_important_option = config.get_main_option("my_important_option")
-# ... etc.
+
+def _require_database_url() -> str:
+    url = get_database_url()
+    if not url:
+        raise RuntimeError(
+            "DATABASE_URL is not set. Export it or add it to .env before running migrations."
+        )
+    return url
 
 
 def run_migrations_offline() -> None:
-    """Run migrations in 'offline' mode.
-
-    This configures the context with just a URL
-    and not an Engine, though an Engine is acceptable
-    here as well.  By skipping the Engine creation
-    we don't even need a DBAPI to be available.
-
-    Calls to context.execute() here emit the given string to the
-    script output.
-
-    """
-    url = config.get_main_option("sqlalchemy.url")
+    url = _require_database_url()
     context.configure(
         url=url,
         target_metadata=target_metadata,
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},
     )
-
     with context.begin_transaction():
         context.run_migrations()
 
 
+_TRACKED_TABLES = set(target_metadata.tables)
+
+
+def _include_name(name, type_, parent_names):
+    """Only track tables that belong to our SQLAlchemy models."""
+    if type_ == "table":
+        return name in _TRACKED_TABLES
+    return True
+
+
+def _include_object(obj, name, type_, reflected, compare_to):
+    """Skip FK constraints that reference tables outside our models."""
+    if type_ == "foreign_key_constraint" and reflected:
+        referred = obj.referred_table.name if obj.referred_table is not None else None
+        if referred and referred not in _TRACKED_TABLES:
+            return False
+    return True
+
+
 def run_migrations_online() -> None:
-    """Run migrations in 'online' mode.
-
-    In this scenario we need to create an Engine
-    and associate a connection with the context.
-
-    """
-    connectable = engine_from_config(
-        config.get_section(config.config_ini_section, {}),
-        prefix="sqlalchemy.",
+    url = _require_database_url()
+    connectable = create_engine(
+        url,
         poolclass=pool.NullPool,
+        connect_args=get_connect_args(),
     )
-
     with connectable.connect() as connection:
         context.configure(
-            connection=connection, target_metadata=target_metadata
+            connection=connection,
+            target_metadata=target_metadata,
+            include_name=_include_name,
+            include_object=_include_object,
         )
-
         with context.begin_transaction():
             context.run_migrations()
 
