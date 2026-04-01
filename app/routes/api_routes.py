@@ -64,7 +64,7 @@ def search_politicians():
             election_type=request.args.get("type"),
             state=request.args.get("state"),
             party=request.args.get("party"),
-            limit=request.args.get("limit", default=50, type=int),
+            limit=min(request.args.get("limit", default=50, type=int), 200)
         )
         return jsonify({"success": True, "data": result})
     except Exception as e:
@@ -218,7 +218,7 @@ def ask_question():
 
         result = qs.answer_question(
             question=data["question"],
-            n_results=data.get("n_results", 5),
+            n_results=min(data.get("n_results", 5), 50), 
         )
         return jsonify(result)
     except Exception as e:
@@ -242,7 +242,7 @@ def answer_predefined_question(question_id):
                 503,
             )
 
-        n_results = request.args.get("n_results", default=5, type=int)
+        n_results = min(request.args.get("n_results", default=5, type=int), 50)
         result = qs.answer_predefined_question(
             question_id=question_id,
             n_results=n_results,
