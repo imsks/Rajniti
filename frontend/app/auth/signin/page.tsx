@@ -7,6 +7,9 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useAnalytics } from '@/hooks/useAnalytics'
 
+const e2eSignInEnabled =
+  process.env.NEXT_PUBLIC_E2E_AUTH === 'true'
+
 function SignInContent() {
   const searchParams = useSearchParams()
   const callbackUrl = searchParams.get('callbackUrl') || '/dashboard'
@@ -81,6 +84,26 @@ function SignInContent() {
             </svg>
             Continue with Google
           </motion.button>
+
+          {e2eSignInEnabled && (
+            <motion.button
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.65 }}
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                trackEvent('login_start', {
+                  method: 'e2e',
+                  trigger_location: 'signin_page',
+                })
+                signIn('e2e-credentials', { callbackUrl })
+              }}
+              className="w-full mt-3 flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg px-6 py-4 text-white font-semibold hover:from-orange-600 hover:to-orange-700 transition-all shadow-sm"
+            >
+              Continue with E2E Test Account
+            </motion.button>
+          )}
 
           {/* Footer */}
           <motion.p 

@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import Text from "@/components/ui/Text"
 import Image from "@/components/ui/Image"
 import Button from "@/components/ui/Button"
-import { getPartyInitial } from "@/lib/politicianUtils"
+import { getPartyInitial, getPoliticianProfileHref } from "@/lib/politicianUtils"
 import type { Politician } from "@/types/politician"
 import type { ElectionType } from "@/types/politician"
 
@@ -60,7 +60,6 @@ export default function MyPoliticianCard({
     const initial = getPartyInitial(politician)
     const hasPhoto = !!politician.photo
     const isMp = politician.type === "MP"
-    const politicianUrlSlugOrId = politician.slug ?? politician.id
     const designation =
         politician.type === "MP"
             ? `MP of ${politician.constituency}`
@@ -121,7 +120,7 @@ export default function MyPoliticianCard({
             </div>
             <div className='mt-auto pt-3 border-t border-amber-100 dark:border-gray-700 flex flex-wrap items-center justify-between gap-2'>
                 <Button
-                    href={`/politician/${encodeURIComponent(politicianUrlSlugOrId)}`}
+                    href={getPoliticianProfileHref(politician)}
                     variant='primary'
                     size='sm'
                     className='w-full sm:w-auto'

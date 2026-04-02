@@ -1,4 +1,22 @@
 import { test, expect } from '@playwright/test'
+import { loginWithE2E, mockPoliticianApi } from './helpers'
+
+test.describe('E2E credentials auth flow', () => {
+    test('signs in and reaches dashboard as an onboarded user', async ({
+        page,
+    }) => {
+        await mockPoliticianApi(page)
+        await loginWithE2E(page)
+
+        await expect(page).toHaveURL(/\/dashboard$/)
+        await expect(
+            page.getByRole('heading', { name: /Indian\s+Politicians/i }),
+        ).toBeVisible()
+        await expect(
+            page.getByRole('button', { name: /continue with google/i }),
+        ).toHaveCount(0)
+    })
+})
 
 test.describe('Sign-in page', () => {
     test('renders the sign-in page with Google button', async ({ page }) => {
@@ -46,8 +64,7 @@ test.describe('Unauthenticated navigation', () => {
     test('dashboard redirects unauthenticated users to sign-in', async ({ page }) => {
         await page.goto('/dashboard')
 
-        // Should either redirect to sign-in or show sign-in prompt
-        await page.waitForURL(/\/(auth\/signin|dashboard)/, { timeout: 5000 })
+        await expect(page).toHaveURL(/\/auth\/signin/)
     })
 })
 
@@ -89,47 +106,10 @@ test.describe('API health (backend connectivity)', () => {
     })
 })
 
-test.describe('Onboarding page (unauthenticated)', () => {
-    test('onboarding page loads and shows step 1', async ({ page }) => {
+test.describe('Onboarding (middleware)', () => {
+    test('onboarding redirects unauthenticated users to sign-in', async ({ page }) => {
         await page.goto('/onboarding')
 
-        await expect(page.getByText(/step 1 of 4/i)).toBeVisible()
-        await expect(page.getByText(/political inclination/i).first()).toBeVisible()
-    })
-
-    test('onboarding shows all political ideology options', async ({ page }) => {
-        await page.goto('/onboarding')
-
-        const ideologies = ['Rightist', 'Leftist', 'Communist', 'Centrist', 'Libertarian', 'Neutral']
-        for (const ideology of ideologies) {
-            await expect(page.getByRole('button', { name: new RegExp(ideology, 'i') })).toBeVisible()
-        }
-    })
-
-    test('continue button is disabled until an option is selected', async ({ page }) => {
-        await page.goto('/onboarding')
-
-        const continueBtn = page.getByRole('button', { name: /continue/i })
-        await expect(continueBtn).toBeDisabled()
-
-        // Select an option
-        await page.getByRole('button', { name: /centrist/i }).click()
-        await expect(continueBtn).toBeEnabled()
-    })
-
-    test('navigating to step 2 shows basic details', async ({ page }) => {
-        await page.goto('/onboarding')
-
-        await page.getByRole('button', { name: /centrist/i }).click()
-        await page.getByRole('button', { name: /continue/i }).click()
-
-        await expect(page.getByText(/step 2 of 4/i)).toBeVisible()
-        await expect(page.getByText(/basic details/i)).toBeVisible()
-    })
-
-    test('onboarding has no skip control', async ({ page }) => {
-        await page.goto('/onboarding')
-
-        await expect(page.getByRole('button', { name: /skip for now/i })).toHaveCount(0)
+        await expect(page).toHaveURL(/\/auth\/signin/)
     })
 })
