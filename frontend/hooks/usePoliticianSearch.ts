@@ -5,7 +5,7 @@ import type { Politician } from "@/types/politician"
 
 const API =
     process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1"
-const DEBOUNCE_MS = 280
+const DEBOUNCE_MS = 1500
 const MIN_QUERY_LENGTH = 2
 
 export function usePoliticianSearch(query: string) {
