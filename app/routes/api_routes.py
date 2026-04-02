@@ -64,7 +64,7 @@ def search_politicians():
             election_type=request.args.get("type"),
             state=request.args.get("state"),
             party=request.args.get("party"),
-            limit=min(request.args.get("limit", default=50, type=int), 200)
+            limit=min(request.args.get("limit", default=50, type=int), 200),
         )
         return jsonify({"success": True, "data": result})
     except Exception as e:
