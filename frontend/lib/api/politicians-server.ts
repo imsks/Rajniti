@@ -12,13 +12,12 @@ function isFullUuid(value: string): boolean {
 }
 
 /**
- * All politicians at build time (same source as the dashboard list).
- * Cached for the duration of the static generation pass.
+ * Full list for sitemap generation. Uses `no-store` so Next does not persist multi‑MB
+ * responses in the Data Cache (avoids build/runtime cache errors on Vercel).
  */
 export async function fetchPoliticiansList(): Promise<Politician[]> {
     const res = await fetch(`${apiBase()}/politicians?limit=1000`, {
-        // Large payload may log a Next.js Data Cache size warning; build still prerenders.
-        next: { revalidate: false },
+        cache: "no-store",
     })
     if (!res.ok) return []
     const json = (await res.json()) as {
@@ -42,7 +41,7 @@ export async function fetchPoliticianBySegment(
     try {
         const slugRes = await fetch(
             `${API}/politicians/slug/${encodeURIComponent(key)}`,
-            { next: { revalidate: false } }
+            { cache: "no-store" }
         )
         const slugJson = (await slugRes.json()) as {
             success?: boolean
@@ -58,7 +57,7 @@ export async function fetchPoliticianBySegment(
     if (isFullUuid(key)) {
         try {
             const res = await fetch(`${API}/politicians/${encodeURIComponent(key)}`, {
-                next: { revalidate: false },
+                cache: "no-store",
             })
             const json = (await res.json()) as { success?: boolean; data?: Politician }
             if (json.success && json.data) return json.data
@@ -71,8 +70,8 @@ export async function fetchPoliticianBySegment(
     return null
 }
 
-/** Route param values for `generateStaticParams` and sitemap (one per politician). */
-export async function getStaticPoliticianParams(): Promise<{ id: string }[]> {
+/** Slug/id segments for sitemap URLs (one per politician). */
+export async function getPoliticianIdsForSitemap(): Promise<{ id: string }[]> {
     const list = await fetchPoliticiansList()
     const seen = new Set<string>()
     const out: { id: string }[] = []

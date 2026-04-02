@@ -2,21 +2,13 @@ import { Suspense } from "react"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import PoliticianPageClient from "./PoliticianPageClient"
-import {
-    fetchPoliticianBySegment,
-    getStaticPoliticianParams,
-} from "@/lib/api/politicians-server"
+import { fetchPoliticianBySegment } from "@/lib/api/politicians-server"
 import { getSiteUrl, SITE_NAME } from "@/lib/seo/site"
 import { getParty } from "@/lib/politicianUtils"
 import type { Politician } from "@/types/politician"
 
-/** Pre-render all profile URLs at build time; data is fixed until the next deploy. */
-export const dynamic = "force-static"
-export const dynamicParams = true
-
-export async function generateStaticParams() {
-    return getStaticPoliticianParams()
-}
+/** Server-render each profile on request (no build-time static generation of all profiles). */
+export const dynamic = "force-dynamic"
 
 function buildPoliticianDescription(p: Politician): string {
     const party = getParty(p)

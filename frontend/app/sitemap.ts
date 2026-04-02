@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next"
-import { getStaticPoliticianParams } from "@/lib/api/politicians-server"
+import { getPoliticianIdsForSitemap } from "@/lib/api/politicians-server"
 import { getSiteUrl } from "@/lib/seo/site"
+
+/** Regenerate sitemap periodically instead of at build time (large API payload). */
+export const revalidate = 3600
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const base = getSiteUrl()
@@ -22,7 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         })
     )
 
-    const politicianParams = await getStaticPoliticianParams()
+    const politicianParams = await getPoliticianIdsForSitemap()
     const politicianEntries: MetadataRoute.Sitemap = politicianParams.map(({ id }) => ({
         url: `${base}/politician/${encodeURIComponent(id)}`,
         lastModified: now,
