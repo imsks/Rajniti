@@ -93,7 +93,7 @@ test.describe('Onboarding page (unauthenticated)', () => {
     test('onboarding page loads and shows step 1', async ({ page }) => {
         await page.goto('/onboarding')
 
-        await expect(page.getByText(/step 1 of 2/i)).toBeVisible()
+        await expect(page.getByText(/step 1 of 4/i)).toBeVisible()
         await expect(page.getByText(/political inclination/i).first()).toBeVisible()
     })
 
@@ -117,20 +117,19 @@ test.describe('Onboarding page (unauthenticated)', () => {
         await expect(continueBtn).toBeEnabled()
     })
 
-    test('navigating to step 2 shows username input', async ({ page }) => {
+    test('navigating to step 2 shows basic details', async ({ page }) => {
         await page.goto('/onboarding')
 
         await page.getByRole('button', { name: /centrist/i }).click()
         await page.getByRole('button', { name: /continue/i }).click()
 
-        await expect(page.getByText(/step 2 of 2/i)).toBeVisible()
-        await expect(page.getByText(/choose your username/i)).toBeVisible()
-        await expect(page.getByPlaceholder(/johndoe/i)).toBeVisible()
+        await expect(page.getByText(/step 2 of 4/i)).toBeVisible()
+        await expect(page.getByText(/basic details/i)).toBeVisible()
     })
 
-    test('skip link is present on onboarding', async ({ page }) => {
+    test('onboarding has no skip control', async ({ page }) => {
         await page.goto('/onboarding')
 
-        await expect(page.getByRole('button', { name: /skip for now/i })).toBeVisible()
+        await expect(page.getByRole('button', { name: /skip for now/i })).toHaveCount(0)
     })
 })
