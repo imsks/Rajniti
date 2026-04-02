@@ -36,6 +36,12 @@ cd frontend && npm run test:e2e
 
 If you see “Unable to acquire lock”, stop other `next dev` processes or remove a stale lock: `rm -rf .next/dev`.
 
+If you already have a dev server running on a different port, skip Playwright's webServer and point to it explicitly:
+
+```bash
+PLAYWRIGHT_BASE_URL=http://127.0.0.1:3001 PLAYWRIGHT_SKIP_WEB_SERVER=true npm run test:e2e
+```
+
 With no dev server running, Playwright starts one for you. To mirror CI (cold start):
 
 ```bash

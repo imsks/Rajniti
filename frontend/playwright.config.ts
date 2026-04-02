@@ -2,11 +2,11 @@ import { defineConfig, devices } from '@playwright/test'
 
 /**
  * Next.js only allows one `next dev` per project (`.next/dev/lock`).
- * Always reuse a server already listening on :3000 so local runs don't spawn a
- * second dev process while you have `npm run dev` open. CI runners start cold,
- * so nothing is listening and a single dev server is started as usual.
+ * Reuse a server already listening on the base URL in local runs.
  */
-const devServerUrl = 'http://127.0.0.1:3000'
+const devServerUrl =
+    process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:3000'
+const skipWebServer = process.env.PLAYWRIGHT_SKIP_WEB_SERVER === 'true'
 
 export default defineConfig({
     testDir: './__tests__/e2e',
@@ -25,10 +25,12 @@ export default defineConfig({
             use: { ...devices['Desktop Chrome'] },
         },
     ],
-    webServer: {
-        command: 'npm run dev',
-        url: devServerUrl,
-        reuseExistingServer: true,
-        timeout: 120_000,
-    },
+    webServer: skipWebServer
+        ? undefined
+        : {
+              command: 'npm run dev',
+              url: devServerUrl,
+              reuseExistingServer: true,
+              timeout: 120_000,
+          },
 })
