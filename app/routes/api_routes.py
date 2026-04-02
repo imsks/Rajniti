@@ -218,7 +218,7 @@ def ask_question():
 
         result = qs.answer_question(
             question=data["question"],
-            n_results=min(data.get("n_results", 5), 50), 
+            n_results=min(data.get("n_results", 5), 50),
         )
         return jsonify(result)
     except Exception as e:
