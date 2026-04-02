@@ -38,9 +38,6 @@ export default function Navbar({
                                 <Link href='/' variant='nav' onClick={() => trackNav('Home', '/')}>
                                     Home
                                 </Link>
-                                <Link href='/dashboard' variant='nav' onClick={() => trackNav('Politicians', '/dashboard')}>
-                                    Politicians
-                                </Link>
                                 <Link
                                     href='https://github.com/imsks/rajniti/issues/new'
                                     variant='nav'
