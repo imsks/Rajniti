@@ -139,11 +139,13 @@ class PoliticianService:
         query: str,
         *,
         election_type: Optional[ElectionType] = None,
+        state: Optional[str] = None,
+        party: Optional[str] = None,
         limit: int = 50,
     ) -> List[Dict[str, Any]]:
 
         self._ensure_slugs()
-        q = query.lower()
+        q = query.lower().strip()
 
         data = (
             self._load(election_type)
@@ -151,11 +153,28 @@ class PoliticianService:
             else self._load("MP") + self._load("MLA")
         )
 
-        results = []
+        state_l = state.strip().lower() if state and state.strip() else None
+        party_l = party.strip().lower() if party and party.strip() else None
+
+        results: List[Dict[str, Any]] = []
 
         for p in data:
-            if q in p.get("name", "").lower():
-                results.append(self._attach_performance(p))
+            if q not in p.get("name", "").lower():
+                continue
+
+            if state_l is not None:
+                if (p.get("state") or "").lower() != state_l:
+                    continue
+
+            if party_l is not None:
+                elections = (p.get("political_background") or {}).get("elections") or []
+                if not any(
+                    (e.get("party") or "").lower() == party_l
+                    for e in elections
+                ):
+                    continue
+
+            results.append(self._attach_performance(p))
 
             if len(results) >= limit:
                 break

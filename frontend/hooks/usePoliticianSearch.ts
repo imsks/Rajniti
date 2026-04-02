@@ -3,7 +3,8 @@
 import { useState, useEffect, useCallback, useRef } from "react"
 import type { Politician } from "@/types/politician"
 
-const API = `${process.env.NEXT_PUBLIC_API_URL}`
+const API =
+    process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1"
 const DEBOUNCE_MS = 280
 const MIN_QUERY_LENGTH = 2
 
