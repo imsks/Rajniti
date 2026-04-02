@@ -1,57 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="25" failures="0" errors="0" time="0.409">
-  <testsuite name="userService.syncUser" errors="0" failures="0" skipped="0" timestamp="2026-04-02T18:16:32" time="0.175" tests="13">
-    <testcase classname="userService.syncUser calls the /api/v1/users/sync endpoint" name="userService.syncUser calls the /api/v1/users/sync endpoint" time="0.001">
+<testsuites name="jest tests" tests="7" failures="0" errors="0" time="0.246">
+  <testsuite name="dashboard data + search integration" errors="0" failures="0" skipped="0" timestamp="2026-04-02T18:19:17" time="0.114" tests="6">
+    <testcase classname="dashboard data + search integration usePoliticians + usePoliticianSearch can run in parallel hooks with separate fetch URLs" name="dashboard data + search integration usePoliticians + usePoliticianSearch can run in parallel hooks with separate fetch URLs" time="0.011">
     </testcase>
-    <testcase classname="userService.syncUser sends POST with JSON content-type and serialized body" name="userService.syncUser sends POST with JSON content-type and serialized body" time="0.001">
+    <testcase classname="dashboard data + search integration usePoliticianSearch does not fetch when query is too short" name="dashboard data + search integration usePoliticianSearch does not fetch when query is too short" time="0.001">
     </testcase>
-    <testcase classname="userService.syncUser returns parsed JSON on success" name="userService.syncUser returns parsed JSON on success" time="0">
+    <testcase classname="dashboard data + search integration usePoliticianSearch clears results when query drops below minimum length" name="dashboard data + search integration usePoliticianSearch clears results when query drops below minimum length" time="0.001">
     </testcase>
-    <testcase classname="userService.syncUser throws when response is not ok" name="userService.syncUser throws when response is not ok" time="0.002">
+    <testcase classname="dashboard data + search integration usePoliticianSearch surfaces error when search fetch throws" name="dashboard data + search integration usePoliticianSearch surfaces error when search fetch throws" time="0.001">
     </testcase>
-    <testcase classname="userService.updateUser calls /users/{userId} with PATCH" name="userService.updateUser calls /users/{userId} with PATCH" time="0.001">
+    <testcase classname="dashboard data + search integration usePoliticians states and parties lists are sorted" name="dashboard data + search integration usePoliticians states and parties lists are sorted" time="0.001">
     </testcase>
-    <testcase classname="userService.updateUser sends political_ideology (not political_interest)" name="userService.updateUser sends political_ideology (not political_interest)" time="0">
-    </testcase>
-    <testcase classname="userService.updateUser returns parsed JSON on success" name="userService.updateUser returns parsed JSON on success" time="0">
-    </testcase>
-    <testcase classname="userService.updateUser throws with backend error message on failure" name="userService.updateUser throws with backend error message on failure" time="0">
-    </testcase>
-    <testcase classname="userService.checkUsername calls /users/check-username with POST" name="userService.checkUsername calls /users/check-username with POST" time="0">
-    </testcase>
-    <testcase classname="userService.checkUsername sends username and optional user_id in body" name="userService.checkUsername sends username and optional user_id in body" time="0.001">
-    </testcase>
-    <testcase classname="userService.checkUsername omits user_id when not provided" name="userService.checkUsername omits user_id when not provided" time="0">
-    </testcase>
-    <testcase classname="userService.checkUsername returns availability result" name="userService.checkUsername returns availability result" time="0">
-    </testcase>
-    <testcase classname="userService.checkUsername throws when response is not ok" name="userService.checkUsername throws when response is not ok" time="0">
+    <testcase classname="dashboard data + search integration usePoliticians filter combines query + state" name="dashboard data + search integration usePoliticians filter combines query + state" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="userService" errors="0" failures="0" skipped="0" timestamp="2026-04-02T18:16:32" time="0.024" tests="12">
-    <testcase classname="userService syncUser should sync user successfully" name="userService syncUser should sync user successfully" time="0">
-    </testcase>
-    <testcase classname="userService syncUser should throw error on sync failure" name="userService syncUser should throw error on sync failure" time="0.002">
-    </testcase>
-    <testcase classname="userService syncUser should handle network error" name="userService syncUser should handle network error" time="0">
-    </testcase>
-    <testcase classname="userService updateUser should update user successfully" name="userService updateUser should update user successfully" time="0">
-    </testcase>
-    <testcase classname="userService updateUser should complete onboarding" name="userService updateUser should complete onboarding" time="0">
-    </testcase>
-    <testcase classname="userService updateUser should throw error with API error message" name="userService updateUser should throw error with API error message" time="0.001">
-    </testcase>
-    <testcase classname="userService updateUser should throw generic error when no message" name="userService updateUser should throw generic error when no message" time="0">
-    </testcase>
-    <testcase classname="userService checkUsername should return available true for free username" name="userService checkUsername should return available true for free username" time="0">
-    </testcase>
-    <testcase classname="userService checkUsername should return available false for taken username" name="userService checkUsername should return available false for taken username" time="0">
-    </testcase>
-    <testcase classname="userService checkUsername should check username excluding current user" name="userService checkUsername should check username excluding current user" time="0">
-    </testcase>
-    <testcase classname="userService checkUsername should throw error on check failure" name="userService checkUsername should throw error on check failure" time="0">
-    </testcase>
-    <testcase classname="userService API URL should use correct API base URL with /api/v1 prefix" name="userService API URL should use correct API base URL with /api/v1 prefix" time="0.001">
+  <testsuite name="integration smoke" errors="0" failures="0" skipped="0" timestamp="2026-04-02T18:19:17" time="0.017" tests="1">
+    <testcase classname="integration smoke runs in jsdom" name="integration smoke runs in jsdom" time="0">
     </testcase>
   </testsuite>
 </testsuites>

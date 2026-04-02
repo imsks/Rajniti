@@ -18,11 +18,13 @@ Next.js 16 (App Router) UI for browsing MPs/MLAs, dashboards, and onboarding. Se
 
 ## Testing layout
 
-- **Unit** — Fast, isolated tests with mocks (e.g. `__tests__/lib/**`).
-- **Integration** — Cross-module Jest suites in `__tests__/integration/`.
-- **E2E** — Playwright specs in `__tests__/e2e/` (sign-in UI, navigation, optional backend health checks). Google OAuth is not automated; dashboard tests that require a real session are not included.
+- **Unit** — Fast, isolated tests with mocks (`__tests__/lib/**`, `__tests__/hooks/**`). Example: `usePoliticians` (load, filters, stats, refetch).
+- **Integration** — Cross-hook checks in `__tests__/integration/` (e.g. `dashboard-search-and-data.test.ts` for list + debounced search).
+- **E2E** — Playwright in `__tests__/e2e/`: `auth.spec.ts` (sign-in UI, optional API health), `dashboard.spec.ts` (protected-route redirects, home hero). Google OAuth is not automated; the full logged-in dashboard UI is not covered in E2E.
 
 ### Local Playwright
+
+Only one `next dev` can run per app (Next.js lock under `.next/dev`). Playwright is configured to **reuse** whatever is already on port 3000, so you can keep `npm run dev` running and run tests in another terminal:
 
 ```bash
 # Terminal 1
@@ -32,7 +34,9 @@ npm run dev
 cd frontend && npm run test:e2e
 ```
 
-In CI, Playwright starts the dev server with `CI=true` (see `playwright.config.ts`). To mirror that locally:
+If you see “Unable to acquire lock”, stop other `next dev` processes or remove a stale lock: `rm -rf .next/dev`.
+
+With no dev server running, Playwright starts one for you. To mirror CI (cold start):
 
 ```bash
 cd frontend && CI=1 npm run test:e2e

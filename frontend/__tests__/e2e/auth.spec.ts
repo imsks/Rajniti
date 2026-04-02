@@ -34,20 +34,6 @@ test.describe('Sign-in page', () => {
     })
 })
 
-test.describe('Unauthenticated navigation', () => {
-    test('navbar shows Sign In button when not logged in', async ({ page }) => {
-        await page.goto('/')
-
-        await expect(page.getByRole('button', { name: /sign in/i })).toBeVisible()
-    })
-
-    test('dashboard redirects unauthenticated users to sign-in', async ({ page }) => {
-        await page.goto('/dashboard')
-
-        await expect(page).toHaveURL(/\/auth\/signin/)
-    })
-})
-
 test.describe('API health (backend connectivity)', () => {
     test('backend health endpoint responds when running', async ({ request }) => {
         const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1'
@@ -83,10 +69,3 @@ test.describe('API health (backend connectivity)', () => {
     })
 })
 
-test.describe('Onboarding (middleware)', () => {
-    test('onboarding redirects unauthenticated users to sign-in', async ({ page }) => {
-        await page.goto('/onboarding')
-
-        await expect(page).toHaveURL(/\/auth\/signin/)
-    })
-})
