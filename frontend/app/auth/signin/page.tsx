@@ -24,7 +24,6 @@ function SignInContent() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="bg-white rounded-2xl shadow-xl p-8 border border-orange-100">
-          {/* Header */}
           <div className="text-center mb-8">
             <motion.div 
               initial={{ scale: 0 }}
@@ -49,7 +48,6 @@ function SignInContent() {
             </motion.p>
           </div>
 
-          {/* Sign in button */}
           <motion.button
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -61,7 +59,7 @@ function SignInContent() {
               signIn('google', { callbackUrl })
             }}
             className="w-full flex items-center justify-center gap-3 bg-white border-2 border-gray-200 rounded-lg px-6 py-4 text-gray-700 font-semibold hover:bg-gray-50 hover:border-orange-300 transition-all shadow-sm hover:shadow-md">
-            <svg className="w-6 h-6" viewBox="0 0 24 24">
+            <svg className="w-6 h-6" viewBox="0 0 24 24" aria-hidden>
               <path
                 fill="#4285F4"
                 d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -82,7 +80,6 @@ function SignInContent() {
             Continue with Google
           </motion.button>
 
-          {/* Footer */}
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -92,7 +89,6 @@ function SignInContent() {
           </motion.p>
         </motion.div>
 
-        {/* Back to home */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

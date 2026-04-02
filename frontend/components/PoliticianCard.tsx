@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import Text from "@/components/ui/Text"
 import Image from "@/components/ui/Image"
 import { useAnalytics } from "@/hooks/useAnalytics"
+import { getPoliticianProfileHref } from "@/lib/politicianUtils"
 import type { Politician } from "@/types/politician"
 
 interface PoliticianCardProps {
@@ -36,11 +37,9 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
     const isMp = politician.type === "MP"
     const hasPhoto = !!politician.photo
     const { trackEvent } = useAnalytics()
-    const politicianUrlSlugOrId = politician.slug ?? politician.id
-
     return (
         <Link
-            href={`/politician/${encodeURIComponent(politicianUrlSlugOrId)}`}
+            href={getPoliticianProfileHref(politician)}
             className='block group'
             onClick={() => trackEvent('politician_card_click', {
                 politician_id: politician.id,

@@ -63,14 +63,6 @@ export default function UserButton() {
                         </Text>
                     </div>
 
-                    <Link
-                        href='/dashboard'
-                        variant='secondary'
-                        onClick={() => trackEvent('nav_click', { link_text: 'Dashboard', link_url: '/dashboard', nav_section: 'user_menu' })}
-                        className='block px-4 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer'>
-                        Dashboard
-                    </Link>
-
                     {/* <Link
                         href='/profile/edit'
                         variant='secondary'

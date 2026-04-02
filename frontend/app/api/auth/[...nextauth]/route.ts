@@ -23,7 +23,6 @@ const authOptions: NextAuthOptions = {
             image?: string
           }
 
-          // 🔥 SINGLE CALL (FIXED)
           const data = await userService.syncUser({
             id: profile.sub,
             email: profile.email,

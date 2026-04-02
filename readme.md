@@ -351,6 +351,8 @@ The next time the server starts, it will apply the migration automatically for a
 
 ## 🧪 Testing
 
+### Backend (Python)
+
 ```bash
 make test              # all tests
 make test-unit         # unit tests only
@@ -359,6 +361,22 @@ make coverage          # tests + coverage report
 make lint              # backend + frontend linting
 make format            # auto-format with Black + isort
 ```
+
+In **GitHub Actions**, backend checks run in one job, **in order**: lint (Black, isort, Flake8, mypy) → unit tests → integration tests → E2E tests. See `.github/workflows/ci.yml`.
+
+### Frontend (Next.js)
+
+```bash
+cd frontend
+npm test               # all Jest tests (unit + integration)
+npm run test:unit      # Jest unit tests only
+npm run test:integration
+npm run test:e2e       # Playwright (needs dev server; see frontend README)
+```
+
+Full frontend testing notes, E2E setup, and CI behavior: **[frontend/README.md](frontend/README.md)**.
+
+In **GitHub Actions**, after ESLint and TypeScript, **unit**, **integration**, and **E2E** jobs run **in parallel**, then a production build runs if all pass.
 
 ---
 
@@ -378,9 +396,11 @@ Rajniti/
 │   ├── schemas/           # Pydantic validation schemas
 │   └── services/          # Business logic layer
 ├── frontend/
+│   ├── README.md          # Frontend scripts, testing, CI notes
 │   ├── app/               # Next.js App Router pages
 │   ├── components/        # React components
 │   ├── data/              # Generated static data (contributors.json)
+│   ├── __tests__/e2e/     # Playwright E2E tests (browser)
 │   ├── hooks/             # Custom React hooks
 │   └── lib/               # Shared utilities
 ├── scripts/               # CLI scripts (agent runner, DB, MLA fetcher)
