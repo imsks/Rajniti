@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useMemo, useState } from 'react'
+import { Suspense, useCallback, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -68,7 +68,19 @@ function LoadingFallback() {
   )
 }
 
-export default function Onboarding() {
+/**
+ * useAnalytics → useSearchParams() requires a Suspense ancestor during static
+ * generation (Next.js CSR bailout). The shell provides the boundary.
+ */
+export default function OnboardingPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <OnboardingContent />
+    </Suspense>
+  )
+}
+
+function OnboardingContent() {
   const router = useRouter()
   const { data: session, status, update } = useSession()
   const { trackEvent } = useAnalytics()
@@ -156,7 +168,7 @@ export default function Onboarding() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 py-12 px-4">
+    <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 py-12 px-4'>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
