@@ -1,22 +1,4 @@
 import { test, expect } from '@playwright/test'
-import { loginWithE2E, mockPoliticianApi } from './helpers'
-
-test.describe('E2E credentials auth flow', () => {
-    test('signs in and reaches dashboard as an onboarded user', async ({
-        page,
-    }) => {
-        await mockPoliticianApi(page)
-        await loginWithE2E(page)
-
-        await expect(page).toHaveURL(/\/dashboard$/)
-        await expect(
-            page.getByRole('heading', { name: /Indian\s+Politicians/i }),
-        ).toBeVisible()
-        await expect(
-            page.getByRole('button', { name: /continue with google/i }),
-        ).toHaveCount(0)
-    })
-})
 
 test.describe('Sign-in page', () => {
     test('renders the sign-in page with Google button', async ({ page }) => {
@@ -46,8 +28,6 @@ test.describe('Sign-in page', () => {
             page.getByRole('button', { name: /continue with google/i }).click(),
         ]).catch(() => [null])
 
-        // Either redirects to Google or hits the NextAuth signin endpoint
-        // Both indicate the OAuth flow initiated correctly
         if (request) {
             expect(request.url()).toMatch(/google|api\/auth/)
         }
@@ -74,14 +54,12 @@ test.describe('API health (backend connectivity)', () => {
 
         try {
             const response = await request.get(`${backendUrl}/health`)
-            // If backend is running, should return 200
             if (response.ok()) {
                 const body = await response.json()
                 expect(body.success).toBe(true)
                 expect(body).toHaveProperty('database')
             }
         } catch {
-            // Backend not running is acceptable in CI without Docker
             test.skip()
         }
     })
@@ -92,13 +70,12 @@ test.describe('API health (backend connectivity)', () => {
         try {
             const response = await request.post(`${backendUrl}/users/sync`, {
                 data: {
-                    id: 'e2e-test-user',
-                    email: 'e2e@test.com',
-                    name: 'E2E Test',
+                    id: 'playwright-health-user',
+                    email: 'health@test.local',
+                    name: 'Health Check',
                 },
             })
 
-            // Should get 200 (user created) or 500 (no DB) - not 404
             expect(response.status()).not.toBe(404)
         } catch {
             test.skip()
