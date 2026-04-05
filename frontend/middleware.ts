@@ -1,27 +1,20 @@
 import { withAuth } from 'next-auth/middleware'
 import { NextResponse } from 'next/server'
+import { ROUTES } from '@/lib/routes'
 
 export default withAuth(
   function middleware(req) {
     const { pathname } = req.nextUrl
     const token = req.nextauth.token
 
-    // ✅ SAFE DEFAULT
     const onboardingCompleted = token?.onboardingCompleted ?? false
 
-    console.log("🔥 Middleware:", {
-      path: pathname,
-      onboardingCompleted
-    })
-
-    // 🚀 Not onboarded → force onboarding
-    if (!onboardingCompleted && pathname.startsWith('/dashboard')) {
-      return NextResponse.redirect(new URL('/onboarding', req.url))
+    if (!onboardingCompleted && pathname.startsWith(ROUTES.dashboard)) {
+      return NextResponse.redirect(new URL(ROUTES.onboarding, req.url))
     }
 
-    // 🚀 Already onboarded → skip onboarding
-    if (onboardingCompleted && pathname === '/onboarding') {
-      return NextResponse.redirect(new URL('/dashboard', req.url))
+    if (onboardingCompleted && pathname === ROUTES.onboarding) {
+      return NextResponse.redirect(new URL(ROUTES.dashboard, req.url))
     }
 
     return NextResponse.next()

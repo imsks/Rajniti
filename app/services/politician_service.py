@@ -96,6 +96,13 @@ class PoliticianService:
 
         self._slugs_ensured = True
 
+    def _attach_slugs_to_records(self, records: List[Dict[str, Any]]) -> None:
+        """Fresh :meth:`_load` dicts omit ``slug``; copy from the slug index."""
+        for p in records:
+            pid = str(p.get("id", ""))
+            if pid and pid in self._by_id:
+                p["slug"] = self._by_id[pid].get("slug")
+
     # ---------- LOAD ----------
     def _path(self, election_type: ElectionType) -> Path:
         return self._data_dir / f"{election_type.lower()}.json"
@@ -113,12 +120,14 @@ class PoliticianService:
     def get_all(self, election_type: ElectionType) -> List[Dict[str, Any]]:
         self._ensure_slugs()
         data = self._load(election_type)
+        self._attach_slugs_to_records(data)
 
         return [self._attach_performance(p) for p in data]
 
     def get_all_politicians(self) -> List[Dict[str, Any]]:
         self._ensure_slugs()
         data = self._load("MP") + self._load("MLA")
+        self._attach_slugs_to_records(data)
 
         return [self._attach_performance(p) for p in data]
 
@@ -139,23 +148,43 @@ class PoliticianService:
         query: str,
         *,
         election_type: Optional[ElectionType] = None,
+        state: Optional[str] = None,
+        party: Optional[str] = None,
         limit: int = 50,
     ) -> List[Dict[str, Any]]:
 
         self._ensure_slugs()
-        q = query.lower()
+        q = query.lower().strip()
 
         data = (
             self._load(election_type)
             if election_type
             else self._load("MP") + self._load("MLA")
         )
+        self._attach_slugs_to_records(data)
 
-        results = []
+        state_l = state.strip().lower() if state and state.strip() else None
+        party_l = party.strip().lower() if party and party.strip() else None
+
+        results: List[Dict[str, Any]] = []
 
         for p in data:
-            if q in p.get("name", "").lower():
-                results.append(self._attach_performance(p))
+            if q not in p.get("name", "").lower():
+                continue
+
+            if state_l is not None:
+                if (p.get("state") or "").lower() != state_l:
+                    continue
+
+            if party_l is not None:
+                elections = (p.get("political_background") or {}).get("elections") or []
+                if not any(
+                    (e.get("party") or "").lower() == party_l
+                    for e in elections
+                ):
+                    continue
+
+            results.append(self._attach_performance(p))
 
             if len(results) >= limit:
                 break

@@ -10,6 +10,7 @@ import PoliticianCardWrapper from "@/components/PoliticianCardWrapper"
 import MyPoliticiansSection from "@/components/MyPoliticiansSection"
 import { usePoliticians } from "@/hooks/usePoliticians"
 import { useAnalytics } from "@/hooks/useAnalytics"
+import { useOnboardingCheck } from "@/hooks/useOnboardingCheck"
 import { useSession } from "next-auth/react"
 import { userService } from "@/lib/api/user"
 
@@ -28,6 +29,7 @@ export default function Dashboard() {
 }
 
 function DashboardContent() {
+    const { sessionLoading, needsOnboarding } = useOnboardingCheck()
     const [activeTab, setActiveTab] = useState<Tab>("ALL")
     const [searchQuery, setSearchQuery] = useState("")
     const [stateFilter, setStateFilter] = useState("")
@@ -39,7 +41,6 @@ function DashboardContent() {
     // One API call for all politicians; filter client-side by tab + search/filters
 const { all, loading, error, states, parties, stats, filter } =
     usePoliticians()
-
 
     // Filtered list — pure client-side (type from tab + query, state, party)
     const displayPoliticians = useMemo(() => {
@@ -110,6 +111,14 @@ const { all, loading, error, states, parties, stats, filter } =
     useEffect(() => {
         if (error) trackEvent('error_view', { error_type: 'connection', error_message: error, page_location: 'dashboard' })
     }, [error, trackEvent])
+
+    if (sessionLoading || needsOnboarding) {
+        return (
+            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 flex items-center justify-center'>
+                <div className='inline-block animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent'></div>
+            </div>
+        )
+    }
 
     if (error) {
         return (

@@ -36,12 +36,8 @@ export default function MyPoliticiansSection({
     const [showPincodeFallback, setShowPincodeFallback] = useState(false)
     const searchContainerRef = useRef<HTMLDivElement>(null)
 
-    const results = allPoliticians.filter((p) =>
-  `${p.name} ${p.constituency} ${p.state} `
-    .toLowerCase()
-    .includes(searchQuery.toLowerCase())
-)
-const loading = false
+    const { results, loading, error: searchError } =
+        usePoliticianSearch(searchQuery)
     const showDropdown = dropdownOpen && searchQuery.trim().length >= 2
 
     useEffect(() => {
@@ -168,6 +164,10 @@ const loading = false
                         {loading ? (
                             <div className='px-4 py-6 text-center text-gray-500 dark:text-gray-400 text-sm'>
                                 Searching...
+                            </div>
+                        ) : searchError ? (
+                            <div className='px-4 py-3 text-sm text-red-600 dark:text-red-400'>
+                                {searchError}
                             </div>
                         ) : results.length === 0 ? (
                             <div className='px-4 py-3'>

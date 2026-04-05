@@ -77,10 +77,6 @@ export type AnalyticsEventMap = {
     political_ideology: string
   }
 
-  onboarding_skip: {
-    at_step: number
-  }
-
   // ── Profile ────────────────────────────────────────────────────────────
   profile_update_submit: Record<string, never>
   profile_update_success: Record<string, never>

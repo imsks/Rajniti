@@ -115,7 +115,7 @@ class TestGetDbSession:
                 with pytest.raises(RuntimeError) as exc_info:
                     with get_db_session():
                         pass
-            assert "session factory not initialized" in str(exc_info.value)
+            assert "Database is not configured" in str(exc_info.value)
         finally:
             session_mod.engine = None
             session_mod.SessionLocal = None

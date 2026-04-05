@@ -275,7 +275,83 @@ The architecture is designed to be extensible — each enrichment field is an in
 
 ---
 
+## 🗄️ Database & Migrations
+
+The backend uses **PostgreSQL** via SQLAlchemy + Alembic. Migrations run automatically on server startup (via `alembic upgrade head`).
+
+### Database Setup
+
+**Option A — Local Docker Postgres** (for development):
+
+```bash
+# .env
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/rajniti
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=rajniti
+```
+
+```bash
+make dev          # starts Postgres + API via Docker Compose
+```
+
+If running the API outside Docker (venv), use `localhost` in the URL. If running inside Docker, use `postgres` (the compose service name).
+
+**Option B — Supabase** (for staging/production):
+
+```bash
+# .env — use the session-mode pooler URL (port 5432), NOT the direct URL
+DATABASE_URL=postgresql://postgres.PROJECT_REF:PASSWORD@aws-0-REGION.pooler.supabase.com:5432/postgres
+```
+
+> The direct Supabase host (`db.*.supabase.co`) is IPv6-only and will fail in Docker. Always use the **session-mode pooler** URL from your Supabase dashboard (Settings > Database > Connection string > Session mode).
+
+### How Migrations Work
+
+1. **On server startup**: `alembic upgrade head` runs automatically, applying any pending migrations.
+2. **`metadata.create_all`** runs as a fallback for brand-new databases with no tables at all.
+
+To disable auto-migration, set `SKIP_DB_AUTO_MIGRATE=1` in `.env`.
+
+### When You Change a Model
+
+After editing a model file (e.g. adding a column to `app/database/models/user.py`):
+
+```bash
+# 1. Generate a migration from the model diff
+python scripts/db.py autogenerate -m "add column_name to users"
+
+# 2. Review the generated file in alembic/versions/ — remove anything unwanted
+#    (Alembic may detect tables in the DB that aren't in your models)
+
+# 3. Apply it
+python scripts/db.py migrate
+```
+
+Or equivalently using Alembic directly:
+
+```bash
+alembic revision --autogenerate -m "add column_name to users"
+alembic upgrade head
+```
+
+The next time the server starts, it will apply the migration automatically for all environments (local, GCP, etc.).
+
+### Migration Commands Reference
+
+| Command | What it does |
+|---------|-------------|
+| `python scripts/db.py migrate` | Run `alembic upgrade head` |
+| `python scripts/db.py autogenerate -m "msg"` | Generate migration from model diff |
+| `python scripts/db.py init` | `metadata.create_all` (no Alembic) |
+| `alembic history` | Show migration chain |
+| `alembic current` | Show current revision in DB |
+
+---
+
 ## 🧪 Testing
+
+### Backend (Python)
 
 ```bash
 make test              # all tests
@@ -285,6 +361,22 @@ make coverage          # tests + coverage report
 make lint              # backend + frontend linting
 make format            # auto-format with Black + isort
 ```
+
+In **GitHub Actions**, backend checks run in one job, **in order**: lint (Black, isort, Flake8, mypy) → unit tests → integration tests → E2E tests. See `.github/workflows/ci.yml`.
+
+### Frontend (Next.js)
+
+```bash
+cd frontend
+npm test               # all Jest tests (unit + integration)
+npm run test:unit      # Jest unit tests only
+npm run test:integration
+npm run test:e2e       # Playwright (needs dev server; see frontend README)
+```
+
+Full frontend testing notes, E2E setup, and CI behavior: **[frontend/README.md](frontend/README.md)**.
+
+In **GitHub Actions**, after ESLint and TypeScript, **unit**, **integration**, and **E2E** jobs run **in parallel**, then a production build runs if all pass.
 
 ---
 
@@ -304,9 +396,11 @@ Rajniti/
 │   ├── schemas/           # Pydantic validation schemas
 │   └── services/          # Business logic layer
 ├── frontend/
+│   ├── README.md          # Frontend scripts, testing, CI notes
 │   ├── app/               # Next.js App Router pages
 │   ├── components/        # React components
 │   ├── data/              # Generated static data (contributors.json)
+│   ├── __tests__/e2e/     # Playwright E2E tests (browser)
 │   ├── hooks/             # Custom React hooks
 │   └── lib/               # Shared utilities
 ├── scripts/               # CLI scripts (agent runner, DB, MLA fetcher)
