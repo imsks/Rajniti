@@ -102,8 +102,7 @@ DEFAULT_PROVIDERS: list[dict[str, Any]] = [
         "api_key_env": "GEMINI_API_KEY",
     },
     {"provider": "gemini", "model": "gemini-2.5-pro", "api_key_env": "GEMINI_API_KEY"},
-
-    {"provider": "gemini", "model": "gemini-3-flash", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-2.0-flash-lite", "api_key_env": "GEMINI_API_KEY"},
     {
         "provider": "gemini",
         "model": "gemini-2.5-flash",
