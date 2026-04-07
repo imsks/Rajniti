@@ -37,7 +37,7 @@
           "type": "MP",
           "state": "Andhra Pradesh",
           "constituency": "Anakapalle",
-          "party": "BJP",
+          "party": "Bahujan Samaj Party",
           "status": "WON"
         }
       ],
@@ -130,7 +130,7 @@
           "type": "MP",
           "state": "Andhra Pradesh",
           "constituency": "Rajahmundry",
-          "party": "BJP",
+          "party": "Bahujan Samaj Party",
           "status": "WON"
         },
         {
@@ -138,7 +138,7 @@
           "type": "MP",
           "state": "Andhra Pradesh",
           "constituency": "Visakhapatnam",
-          "party": "BJP",
+          "party": "Bahujan Samaj Party",
           "status": "LOST"
         },
         {
@@ -25676,161 +25676,106 @@
     }
   },
   {
-    "id": "6c1142a9-febf-4998-b68a-b2b0b52b9472",
-    "name": "RAVIKUMAR. D",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S22/RAVIK-2024-20240325060814.jpg",
-    "state": "Tamil Nadu",
-    "constituency": "VILUPPURAM",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Tamil Nadu",
-          "constituency": "VILUPPURAM",
-          "party": "Viduthalai Chiruthaigal Katchi",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
+  "id": "6c1142a9-febf-4998-b68a-b2b0b52b9472",
+  "name": "RAVIKUMAR. D",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S22/RAVIK-2024-20240325060814.jpg",
+  "state": "Tamil Nadu",
+  "constituency": "VILUPPURAM",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "BACHELOR",
-        "institution": "Annamalai University, Tamil Nadu",
-        "year_completed": null
-      },
-      {
-        "qualification": "MASTER",
-        "institution": "Tamil University Thanjavur",
-        "year_completed": null
-      },
-      {
-        "qualification": "PROFESSIONAL",
-        "institution": "Annamalai University, Tamil Nadu",
-        "year_completed": null
-      },
-      {
-        "qualification": "DOCTORATE",
-        "institution": "Tamil University Thanjavur",
-        "year_completed": null
+        "year": 2024,
+        "type": "MP",
+        "state": "Tamil Nadu",
+        "constituency": "VILUPPURAM",
+        "party": "Viduthalai Chiruthaigal Katchi",
+        "status": "WON"
       }
     ],
-    "family_background": [],
-    "criminal_records": [],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
+    "summary": "D. Ravikumar is a politician, writer, and social activist from Tamil Nadu associated with the Viduthalai Chiruthaigal Katchi (VCK). He has been actively involved in Dalit rights movements, literature, and public discourse on social justice. He has previously served as a Member of the Tamil Nadu Legislative Assembly and was elected as a Member of Parliament from the Viluppuram constituency in the 2024 Lok Sabha elections."
+  },
+  "education": [
+    {
+      "qualification": "BACHELOR",
+      "institution": "Annamalai University, Tamil Nadu",
+      "year_completed": null
     },
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
+    {
+      "qualification": "MASTER",
+      "institution": "Tamil University Thanjavur",
+      "year_completed": null
+    },
+    {
+      "qualification": "PROFESSIONAL",
+      "institution": "Annamalai University, Tamil Nadu",
+      "year_completed": null
+    },
+    {
+      "qualification": "DOCTORATE",
+      "institution": "Tamil University Thanjavur",
+      "year_completed": null
     }
+  ],
+  "family_background": [],
+  "criminal_records": [],
+  "social_media": {
+    "twitter": "https://twitter.com/drravikumar",
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
   },
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  }
+},
   {
-    "id": "52ec924a-3156-4b0c-aca4-f84c2e5d756e",
-    "name": "THIRUMAAVALAVAN THOL",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S22/THIRU-2024-1731.jpg",
-    "state": "Tamil Nadu",
-    "constituency": "CHIDAMBARAM",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Tamil Nadu",
-          "constituency": "CHIDAMBARAM",
-          "party": "Viduthalai Chiruthaigal Katchi",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
+  "id": "8414bf5d-be5c-411d-8351-456119ef22d1",
+  "name": "SUBBARAYAN, K.",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S22/SUBBA-2024-20240331043528.jpg",
+  "state": "Tamil Nadu",
+  "constituency": "TIRUPPUR",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "BACHELOR",
-        "institution": "Presidency College, University of Madras, Chennai",
-        "year_completed": null
-      },
-      {
-        "qualification": "MASTER",
-        "institution": "Madras Law College",
-        "year_completed": null
-      },
-      {
-        "qualification": "PROFESSIONAL",
-        "institution": "Madras Law College",
-        "year_completed": null
-      },
-      {
-        "qualification": "DOCTORATE",
-        "institution": "Manonmaniam Sundaranar University, Tirunelveli",
-        "year_completed": null
+        "year": 2024,
+        "type": "MP",
+        "state": "Tamil Nadu",
+        "constituency": "TIRUPPUR",
+        "party": "Communist Party of India",
+        "status": "WON"
       }
     ],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "family_background": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "criminal_records": []
+    "summary": "K. Subbarayan is a senior leader of the Communist Party of India (CPI) from Tamil Nadu. He has previously served as a Member of Parliament and has been actively involved in farmers' and labor movements. Known for his grassroots political work, he was elected as a Member of Parliament from the Tiruppur constituency in the 2024 Lok Sabha elections."
   },
-  {
-    "id": "8414bf5d-be5c-411d-8351-456119ef22d1",
-    "name": "SUBBARAYAN, K.",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S22/SUBBA-2024-20240331043528.jpg",
-    "state": "Tamil Nadu",
-    "constituency": "TIRUPPUR",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Tamil Nadu",
-          "constituency": "TIRUPPUR",
-          "party": "Communist Party of India",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
-      {
-        "qualification": "HIGH_SCHOOL",
-        "institution": null,
-        "year_completed": null
-      }
-    ],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "criminal_records": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "family_background": []
+  "education": [
+    {
+      "qualification": "HIGH_SCHOOL",
+      "institution": null,
+      "year_completed": null
+    }
+  ],
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
   },
+  "criminal_records": [],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  },
+  "family_background": []
+},
   {
     "id": "7b222ff2-8728-47c0-a7ee-0864e6275f70",
     "name": "SELVARAJ V",
@@ -25867,108 +25812,110 @@
     },
     "criminal_records": []
   },
-  {
-    "id": "c04e86f8-0fb0-47f6-9cec-2683fa619c81",
-    "name": "CHANDAN CHAUHAN",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S24/CHAND-2024-1097.jpg",
-    "state": "Uttar Pradesh",
-    "constituency": "Bijnor",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Uttar Pradesh",
-          "constituency": "Bijnor",
-          "party": "Rashtriya Lok Dal",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
+ {
+  "id": "c04e86f8-0fb0-47f6-9cec-2683fa619c81",
+  "name": "CHANDAN CHAUHAN",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S24/CHAND-2024-1097.jpg",
+  "state": "Uttar Pradesh",
+  "constituency": "Bijnor",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "PROFESSIONAL",
-        "institution": null,
-        "year_completed": null
+        "year": 2024,
+        "type": "MP",
+        "state": "Uttar Pradesh",
+        "constituency": "Bijnor",
+        "party": "Rashtriya Lok Dal",
+        "status": "WON"
       }
     ],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "family_background": [
-      {
-        "name": "Sanjay Singh Chauhan",
-        "relation": "FATHER",
-        "photo": null,
-        "social_media": null
-      },
-      {
-        "name": "Chaudhary Narain Singh",
-        "relation": "OTHERS",
-        "photo": null,
-        "social_media": null
-      }
-    ],
-    "criminal_records": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
+    "summary": "Chandan Chauhan is a politician from Uttar Pradesh and a member of the Rashtriya Lok Dal (RLD). He comes from a political family and has been active in regional politics in western Uttar Pradesh. He was elected as a Member of Parliament from the Bijnor constituency in the 2024 Lok Sabha elections."
+  },
+  "education": [
+    {
+      "qualification": "PROFESSIONAL",
+      "institution": null,
+      "year_completed": null
     }
+  ],
+  "social_media": {
+    "twitter": null,
+    "facebook": "https://www.facebook.com/chandanchauhan",
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
   },
-  {
-    "id": "bd7c8b58-1c79-4b16-9f51-37382e052914",
-    "name": "DR RAJKUMAR SANGWAN",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S24/RAJKU-2024-2686.jpg",
-    "state": "Uttar Pradesh",
-    "constituency": "Baghpat",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Uttar Pradesh",
-          "constituency": "Baghpat",
-          "party": "Rashtriya Lok Dal",
-          "status": "WON"
-        }
-      ]
+  "family_background": [
+    {
+      "name": "Sanjay Singh Chauhan",
+      "relation": "FATHER",
+      "photo": null,
+      "social_media": null
     },
-    "education": [
+    {
+      "name": "Chaudhary Narain Singh",
+      "relation": "OTHERS",
+      "photo": null,
+      "social_media": null
+    }
+  ],
+  "criminal_records": [],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  }
+},
+ {
+  "id": "bd7c8b58-1c79-4b16-9f51-37382e052914",
+  "name": "DR RAJKUMAR SANGWAN",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S24/RAJKU-2024-2686.jpg",
+  "state": "Uttar Pradesh",
+  "constituency": "Baghpat",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "MASTER",
-        "institution": "Chaudhary Charan Singh University, Meerut",
-        "year_completed": null
-      },
-      {
-        "qualification": "DOCTORATE",
-        "institution": "Chaudhary Charan Singh University, Meerut",
-        "year_completed": null
+        "year": 2024,
+        "type": "MP",
+        "state": "Uttar Pradesh",
+        "constituency": "Baghpat",
+        "party": "Rashtriya Lok Dal",
+        "status": "WON"
       }
     ],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "criminal_records": [],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "family_background": []
+    "summary": "Dr. Rajkumar Sangwan is a politician from Uttar Pradesh and a member of the Rashtriya Lok Dal (RLD). He has been associated with regional politics in western Uttar Pradesh and is known for his involvement in social and agricultural issues. In 2024, he was elected as a Member of Parliament from the Baghpat constituency."
   },
+  "education": [
+    {
+      "qualification": "MASTER",
+      "institution": "Chaudhary Charan Singh University, Meerut",
+      "year_completed": null
+    },
+    {
+      "qualification": "DOCTORATE",
+      "institution": "Chaudhary Charan Singh University, Meerut",
+      "year_completed": null
+    }
+  ],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  },
+  "criminal_records": [],
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  },
+  "family_background": []
+},
   {
     "id": "bf5c9242-ce40-4ab7-bca0-50abb2d2022a",
     "name": "AGA SYED RUHULLAH MEHDI",
@@ -26048,584 +25995,672 @@
     "family_background": []
   },
   {
-    "id": "42897ce6-eb13-4515-97f2-92ae4ecf697b",
-    "name": "JOYANTA BASUMATARY",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S03/JOYAN-2024-4961.jpg",
-    "state": "Assam",
-    "constituency": "Kokrajhar ",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Assam",
-          "constituency": "Kokrajhar ",
-          "party": "United People’s Party, Liberal",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
+  "id": "42897ce6-eb13-4515-97f2-92ae4ecf697b",
+  "name": "JOYANTA BASUMATARY",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S03/JOYAN-2024-4961.jpg",
+  "state": "Assam",
+  "constituency": "Kokrajhar ",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "BACHELOR",
-        "institution": "Bongaigaon College",
-        "year_completed": 1999
+        "year": 2024,
+        "type": "MP",
+        "state": "Assam",
+        "constituency": "Kokrajhar ",
+        "party": "United People’s Party, Liberal",
+        "status": "WON"
       }
     ],
-    "criminal_records": [],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "family_background": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
+    "summary": "Joyanta Basumatary is a politician from Assam and a member of the United People’s Party, Liberal (UPPL). He has been actively involved in regional politics, particularly in the Bodoland Territorial Region, focusing on development and community issues. He was elected as a Member of Parliament from the Kokrajhar constituency in the 2024 Lok Sabha elections."
+  },
+  "education": [
+    {
+      "qualification": "BACHELOR",
+      "institution": "Bongaigaon College",
+      "year_completed": 1999
     }
+  ],
+  "criminal_records": [],
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
   },
+  "family_background": [],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  }
+},
   {
-    "id": "30b01fd7-542e-4590-99bc-b4bc943e6889",
-    "name": "PHANI BHUSAN CHOUDHURY",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S03/PHANI-2024-20240422060626.jpg",
-    "state": "Assam",
-    "constituency": "Barpeta",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Assam",
-          "constituency": "Barpeta",
-          "party": "Asom Gana Parishad",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [],
-    "family_background": [],
-    "criminal_records": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
+  "id": "30b01fd7-542e-4590-99bc-b4bc943e6889",
+  "name": "PHANI BHUSAN CHOUDHURY",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S03/PHANI-2024-20240422060626.jpg",
+  "state": "Assam",
+  "constituency": "Barpeta",
+  "type": "MP",
+  "political_background": {
+    "elections": [
+      {
+        "year": 2024,
+        "type": "MP",
+        "state": "Assam",
+        "constituency": "Barpeta",
+        "party": "Asom Gana Parishad",
+        "status": "WON"
+      }
+    ],
+    "summary": "Phani Bhusan Choudhury is a senior leader of the Asom Gana Parishad (AGP) from Assam. He has previously served multiple terms as a Member of the Assam Legislative Assembly from Bongaigaon constituency and has held ministerial positions in the Assam state government. He is a prominent regional political figure and was elected as a Member of Parliament from the Barpeta constituency in the 2024 Lok Sabha elections."
+  },
+  "education": [
+    {
+      "qualification": "BACHELOR",
+      "institution": "Bongaigaon College, Assam",
+      "year_completed": null
     }
+  ],
+  "family_background": [],
+  "criminal_records": [],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
   },
-  {
-    "id": "036ccc44-8cde-4a24-ba0b-5cb70cda4d27",
-    "name": "JITAN RAM MANJHI",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S04/JITAN-2024-2429.jpg",
-    "state": "Bihar",
-    "constituency": "Gaya",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Bihar",
-          "constituency": "Gaya",
-          "party": "Hindustani Awam Morcha (Secular)",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  }
+},
+{
+  "id": "036ccc44-8cde-4a24-ba0b-5cb70cda4d27",
+  "name": "JITAN RAM MANJHI",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S04/JITAN-2024-2429.jpg",
+  "state": "Bihar",
+  "constituency": "Gaya",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "BACHELOR",
-        "institution": "Gaya College, Magadh University",
-        "year_completed": 1966
-      },
-      {
-        "qualification": "BACHELOR",
-        "institution": "Magadh University, Bodhgaya",
-        "year_completed": null
+        "year": 2024,
+        "type": "MP",
+        "state": "Bihar",
+        "constituency": "Gaya",
+        "party": "Hindustani Awam Morcha (Secular)",
+        "status": "WON"
       }
     ],
-    "family_background": [],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
+    "summary": "Jitan Ram Manjhi is a veteran politician from Bihar and the founder of the Hindustani Awam Morcha (Secular). He served as the Chief Minister of Bihar from 2014 to 2015 and has held multiple ministerial positions in the state government. A prominent Dalit leader, he has been active in Bihar politics for several decades and was elected as a Member of Parliament from the Gaya constituency in the 2024 Lok Sabha elections."
+  },
+  "education": [
+    {
+      "qualification": "BACHELOR",
+      "institution": "Gaya College, Magadh University",
+      "year_completed": 1966
     },
-    "criminal_records": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
+    {
+      "qualification": "BACHELOR",
+      "institution": "Magadh University, Bodhgaya",
+      "year_completed": null
     }
-  },
-  {
-    "id": "e6699564-0852-4070-ae9c-4a0d01e4aa2a",
-    "name": "ADV K FRANCIS GEORGE",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S11/KFRAN-2024-3809.jpg",
-    "state": "Kerala",
-    "constituency": "Kottayam",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Kerala",
-          "constituency": "Kottayam",
-          "party": "Kerala Congress",
-          "status": "WON"
-        }
-      ]
+  ],
+  "family_background": [
+    {
+      "name": "Ramjeet Manjhi",
+      "relation": "FATHER",
+      "photo": null,
+      "social_media": null
     },
-    "education": [
-      {
-        "qualification": "PROFESSIONAL",
-        "institution": "Christ College, Bangalore and Kerala Law Academy Law College, Trivandrum",
-        "year_completed": null
-      }
-    ],
-    "criminal_records": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
+    {
+      "name": "Shanti Devi",
+      "relation": "WIFE",
+      "photo": null,
+      "social_media": null
     },
-    "family_background": [],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
+    {
+      "name": "Santosh Kumar Suman",
+      "relation": "SON",
+      "photo": null,
+      "social_media": null
     }
+  ],
+  "social_media": {
+    "twitter": "https://twitter.com/jitanrmanjhi",
+    "facebook": "https://www.facebook.com/jitanrammanjhi",
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
   },
-  {
-    "id": "37e61de6-09e3-44b8-9f1e-9a1e1a044353",
-    "name": "N K PREMACHANDRAN",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S11/NKPRE-2024-3529.jpg",
-    "state": "Kerala",
-    "constituency": "Kollam",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Kerala",
-          "constituency": "Kollam",
-          "party": "Revolutionary Socialist Party",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [],
-    "family_background": [],
-    "criminal_records": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "social_media": {
-      "twitter": null,
-      "facebook": "https://www.facebook.com/nkpremachandran/",
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
+  "criminal_records": [],
+  "contact": {
+    "email": "jitanram.manjhi@sansad.nic.in",
+    "phone": null,
+    "address": "New Delhi, India"
+  }
+},
+ {
+  "id": "e6699564-0852-4070-ae9c-4a0d01e4aa2a",
+  "name": "ADV K FRANCIS GEORGE",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S11/KFRAN-2024-3809.jpg",
+  "state": "Kerala",
+  "constituency": "Kottayam",
+  "type": "MP",
+  "political_background": {
+    "elections": [
+      {
+        "year": 2024,
+        "type": "MP",
+        "state": "Kerala",
+        "constituency": "Kottayam",
+        "party": "Kerala Congress",
+        "status": "WON"
+      }
+    ],
+    "summary": "Adv. K. Francis George is a senior politician from Kerala associated with the Kerala Congress. He has previously served as a Member of Parliament representing the Idukki constituency and has been active in Kerala politics for several decades. In 2024, he was elected as a Member of Parliament from the Kottayam constituency."
+  },
+  "education": [
+    {
+      "qualification": "PROFESSIONAL",
+      "institution": "Christ College, Bangalore and Kerala Law Academy Law College, Trivandrum",
+      "year_completed": null
     }
+  ],
+  "criminal_records": [],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
   },
-  {
-    "id": "34d3b50c-937b-46c1-a5d8-02a03a3b8a9b",
-    "name": "TATKARE SUNIL DATTATREY",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S13/TATKA-2024-20240423123740.jpg",
-    "state": "Maharashtra",
-    "constituency": "Raigad",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Maharashtra",
-          "constituency": "Raigad",
-          "party": "Nationalist Congress Party",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [],
-    "family_background": [],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "criminal_records": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
+  "family_background": [
+    {
+      "name": "K. M. George",
+      "relation": "FATHER",
+      "photo": null,
+      "social_media": null
     }
-  },
-  {
-    "id": "f13ead8e-bbf0-4523-96ad-c1d7297e1b5a",
-    "name": "DR. RICKY ANDREW J. SYNGKON",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S15/DRRI-2024-969.jpg",
-    "state": "Meghalaya",
-    "constituency": "Shillong",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Meghalaya",
-          "constituency": "Shillong",
-          "party": "Voice of the People Party",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
+  ],
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  }
+},
+{
+  "id": "37e61de6-09e3-44b8-9f1e-9a1e1a044353",
+  "name": "N K PREMACHANDRAN",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S11/NKPRE-2024-3529.jpg",
+  "state": "Kerala",
+  "constituency": "Kollam",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "MASTER",
-        "institution": "North Eastern Hill University",
-        "year_completed": 2007
-      },
-      {
-        "qualification": "MASTER",
-        "institution": "North Eastern Hill University",
-        "year_completed": 2007
-      },
-      {
-        "qualification": "DOCTORATE",
-        "institution": "North Eastern Hill University",
-        "year_completed": 2007
+        "year": 2024,
+        "type": "MP",
+        "state": "Kerala",
+        "constituency": "Kollam",
+        "party": "Revolutionary Socialist Party",
+        "status": "WON"
       }
     ],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "criminal_records": [],
-    "family_background": []
+    "summary": "N. K. Premachandran is a senior leader of the Revolutionary Socialist Party from Kerala. He has been elected multiple times as a Member of Parliament from the Kollam constituency and is known for his active participation in parliamentary debates. He also served as the Minister for Water Resources in the Kerala state government. He was re-elected as an MP from Kollam in the 2024 Lok Sabha elections."
   },
-  {
-    "id": "a97bf87b-705f-4298-a4fe-6f8b76aa13da",
-    "name": "RICHARD VANLALHMANGAIHA",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S16/RICHA-2024-154.jpg",
-    "state": "Mizoram",
-    "constituency": "MIZORAM",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Mizoram",
-          "constituency": "MIZORAM",
-          "party": "Zoram People’s Movement",
-          "status": "WON"
-        }
-      ]
+  "education": [
+    {
+      "qualification": "BACHELOR",
+      "institution": "Fatima Mata National College, Kollam",
+      "year_completed": null
     },
-    "education": [
-      {
-        "qualification": "BACHELOR",
-        "institution": "Hrangbana College, Aizawl",
-        "year_completed": null
-      }
-    ],
-    "family_background": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "criminal_records": [],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
+    {
+      "qualification": "BACHELOR OF LAW",
+      "institution": "Government Law College, Thiruvananthapuram",
+      "year_completed": null
     }
-  },
-  {
-    "id": "896a4e45-4ca9-4c88-ba2d-f65c5fba5266",
-    "name": "HARSIMRAT KAUR BADAL",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S19/HARSI-2024-20240517035826.jpg",
-    "state": "Punjab",
-    "constituency": "Bathinda",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Punjab",
-          "constituency": "Bathinda",
-          "party": "Shiromani Akali Dal",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
-      {
-        "qualification": "HIGH_SCHOOL",
-        "institution": "Loreto Convent School, New Delhi",
-        "year_completed": 1980
-      },
-      {
-        "qualification": "DIPLOMA",
-        "institution": "South Delhi",
-        "year_completed": null
-      }
-    ],
-    "family_background": [
-      {
-        "name": "Sukhbir Singh Badal",
-        "relation": "HUSBAND",
-        "photo": null,
-        "social_media": null
-      }
-    ],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "criminal_records": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
+  ],
+  "family_background": [
+    {
+      "name": "N. K. Kunjikrishnan",
+      "relation": "FATHER",
+      "photo": null,
+      "social_media": null
     }
+  ],
+  "criminal_records": [],
+  "contact": {
+    "email": "nkpremachandran@sansad.nic.in",
+    "phone": null,
+    "address": "MP Quarters, New Delhi"
   },
-  {
-    "id": "1c810df2-20c8-48b9-a234-aff7c3768af3",
-    "name": "HANUMAN BENIWAL",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S20/HANUM-2024-20240330062506.jpg",
-    "state": "Rajasthan",
-    "constituency": "NAGAUR",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Rajasthan",
-          "constituency": "NAGAUR",
-          "party": "Rashtriya Loktantrik Party",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
+  "social_media": {
+    "twitter": "https://twitter.com/nkpremachandran",
+    "facebook": "https://www.facebook.com/nkpremachandran/",
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  }
+},
+{
+  "id": "34d3b50c-937b-46c1-a5d8-02a03a3b8a9b",
+  "name": "TATKARE SUNIL DATTATREY",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S13/TATKA-2024-20240423123740.jpg",
+  "state": "Maharashtra",
+  "constituency": "Raigad",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "BACHELOR",
-        "institution": "Rajasthan University",
-        "year_completed": 1993
-      },
-      {
-        "qualification": "PROFESSIONAL",
-        "institution": "Rajasthan University",
-        "year_completed": 1998
-      },
-      {
-        "qualification": "OTHERS",
-        "institution": "Rajasthan University",
-        "year_completed": null
+        "year": 2024,
+        "type": "MP",
+        "state": "Maharashtra",
+        "constituency": "Raigad",
+        "party": "Nationalist Congress Party",
+        "status": "WON"
       }
     ],
-    "criminal_records": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "family_background": [
-      {
-        "name": "Ramdev Beniwal",
-        "relation": "FATHER",
-        "photo": null,
-        "social_media": null
-      }
-    ],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": "https://www.youtube.com/watch?v=KSQpXFsPmSo",
-      "website": null
+    "summary": "Sunil Dattatrey Tatkare is a senior leader of the Nationalist Congress Party from Maharashtra. He has previously served as a Member of the Maharashtra Legislative Assembly and held key ministerial portfolios including Finance and Water Resources in the state government. He is also a prominent political figure in the Raigad region and was elected as a Member of Parliament from the Raigad constituency in the 2024 Lok Sabha elections."
+  },
+  "education": [
+    {
+      "qualification": "GRADUATE",
+      "institution": null,
+      "year_completed": null
     }
-  },
-  {
-    "id": "721eb83e-d66e-4ddb-9d70-62b4fc7975b3",
-    "name": "RAJ KUMAR ROAT",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S20/RAJKU-2024-20240405050047.jpg",
-    "state": "Rajasthan",
-    "constituency": "BANSWARA ",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Rajasthan",
-          "constituency": "BANSWARA ",
-          "party": "Bharat Adivasi Party",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
-      {
-        "qualification": "PROFESSIONAL",
-        "institution": "Rajasthan University",
-        "year_completed": 2015
-      }
-    ],
-    "criminal_records": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "family_background": []
-  },
-  {
-    "id": "8875a8ac-1a8f-4efa-ba2c-d0b9a0524f8b",
-    "name": "INDRA HANG SUBBA",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S21/INDRA-2024-1238.jpg",
-    "state": "Sikkim",
-    "constituency": "Sikkim",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Sikkim",
-          "constituency": "Sikkim",
-          "party": "Sikkim Krantikari Morcha",
-          "status": "WON"
-        }
-      ]
-    },
-    "family_background": [],
-    "criminal_records": [],
-    "education": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
+  ],
+  "family_background": [
+    {
+      "name": "Aditi Tatkare",
+      "relation": "DAUGHTER",
+      "photo": null,
+      "social_media": null
     }
+  ],
+  "social_media": {
+    "twitter": "https://twitter.com/SunilTatkare",
+    "facebook": "https://www.facebook.com/suniltatkare",
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
   },
-  {
-    "id": "4a4535a6-cfd4-4758-abe1-cbd6df84775c",
-    "name": "DURAI VAIKO",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S22/DURAI-2024-214.jpg",
-    "state": "Tamil Nadu",
-    "constituency": "TIRUCHIRAPPALLI",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Tamil Nadu",
-          "constituency": "TIRUCHIRAPPALLI",
-          "party": "Marumalarchi Dravida Munnetra Kazhagam",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
+  "criminal_records": [],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  }
+},
+{
+  "id": "f13ead8e-bbf0-4523-96ad-c1d7297e1b5a",
+  "name": "DR. RICKY ANDREW J. SYNGKON",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S15/DRRI-2024-969.jpg",
+  "state": "Meghalaya",
+  "constituency": "Shillong",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "MASTER",
-        "institution": "PSG College of Technology, Coimbatore",
-        "year_completed": null
+        "year": 2024,
+        "type": "MP",
+        "state": "Meghalaya",
+        "constituency": "Shillong",
+        "party": "Voice of the People Party",
+        "status": "WON"
       }
     ],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "social_media": {
-      "twitter": null,
-      "facebook": "https://www.facebook.com/duraivaikooffl/",
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "criminal_records": [],
-    "family_background": [
-      {
-        "name": "Vaiko (V. Gopalsamy)",
-        "relation": "FATHER",
-        "photo": null,
-        "social_media": null
-      },
-      {
-        "name": "Geetha Durai",
-        "relation": "WIFE",
-        "photo": null,
-        "social_media": null
-      }
-    ]
+    "summary": "Dr. Ricky Andrew J. Syngkon is a politician from Meghalaya and a member of the Voice of the People Party (VPP). He is an academic and public figure who has been actively involved in regional issues and governance. In 2024, he was elected as a Member of Parliament from the Shillong constituency."
   },
+  "education": [
+    {
+      "qualification": "MASTER",
+      "institution": "North Eastern Hill University",
+      "year_completed": 2007
+    },
+    {
+      "qualification": "MASTER",
+      "institution": "North Eastern Hill University",
+      "year_completed": 2007
+    },
+    {
+      "qualification": "DOCTORATE",
+      "institution": "North Eastern Hill University",
+      "year_completed": 2007
+    }
+  ],
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  },
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  },
+  "criminal_records": [],
+  "family_background": []
+},
+ {
+  "id": "a97bf87b-705f-4298-a4fe-6f8b76aa13da",
+  "name": "RICHARD VANLALHMANGAIHA",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S16/RICHA-2024-154.jpg",
+  "state": "Mizoram",
+  "constituency": "MIZORAM",
+  "type": "MP",
+  "political_background": {
+    "elections": [
+      {
+        "year": 2024,
+        "type": "MP",
+        "state": "Mizoram",
+        "constituency": "MIZORAM",
+        "party": "Zoram People’s Movement",
+        "status": "WON"
+      }
+    ],
+    "summary": "Richard Vanlalhmangaiha is a politician from Mizoram and a member of the Zoram People’s Movement (ZPM). He has been actively involved in regional politics and public affairs in Mizoram. In 2024, he was elected as a Member of Parliament from the Mizoram constituency representing ZPM."
+  },
+  "education": [
+    {
+      "qualification": "BACHELOR",
+      "institution": "Hrangbana College, Aizawl",
+      "year_completed": null
+    }
+  ],
+  "family_background": [],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  },
+  "criminal_records": [],
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  }
+},
+  {
+  "id": "896a4e45-4ca9-4c88-ba2d-f65c5fba5266",
+  "name": "HARSIMRAT KAUR BADAL",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S19/HARSI-2024-20240517035826.jpg",
+  "state": "Punjab",
+  "constituency": "Bathinda",
+  "type": "MP",
+  "political_background": {
+    "elections": [
+      {
+        "year": 2024,
+        "type": "MP",
+        "state": "Punjab",
+        "constituency": "Bathinda",
+        "party": "Shiromani Akali Dal",
+        "status": "WON"
+      }
+    ],
+    "summary": "Harsimrat Kaur Badal is a senior leader of the Shiromani Akali Dal and a prominent politician from Punjab. She has been elected multiple times as a Member of Parliament from the Bathinda constituency and served as the Union Minister of Food Processing Industries from 2014 to 2020. She is known for her role in national politics and representation of Punjab at the central level."
+  },
+  "education": [
+    {
+      "qualification": "HIGH_SCHOOL",
+      "institution": "Loreto Convent School, New Delhi",
+      "year_completed": 1980
+    },
+    {
+      "qualification": "DIPLOMA",
+      "institution": "South Delhi",
+      "year_completed": null
+    }
+  ],
+  "family_background": [
+    {
+      "name": "Sukhbir Singh Badal",
+      "relation": "HUSBAND",
+      "photo": null,
+      "social_media": null
+    },
+    {
+      "name": "Parkash Singh Badal",
+      "relation": "FATHER-IN-LAW",
+      "photo": null,
+      "social_media": null
+    }
+  ],
+  "social_media": {
+    "twitter": "https://twitter.com/HarsimratBadal_",
+    "facebook": "https://www.facebook.com/harsimratkaur",
+    "instagram": "https://www.instagram.com/harsimratkaur_badalsad",
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  },
+  "criminal_records": [],
+  "contact": {
+    "email": "harsimrat.badal@sansad.nic.in",
+    "phone": "011-23014011",
+    "address": "6, Safdarjung Lane, New Delhi - 110003"
+  }
+},
+{
+  "id": "1c810df2-20c8-48b9-a234-aff7c3768af3",
+  "name": "HANUMAN BENIWAL",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S20/HANUM-2024-20240330062506.jpg",
+  "state": "Rajasthan",
+  "constituency": "NAGAUR",
+  "type": "MP",
+  "political_background": {
+    "elections": [
+      {
+        "year": 2024,
+        "type": "MP",
+        "state": "Rajasthan",
+        "constituency": "NAGAUR",
+        "party": "Rashtriya Loktantrik Party",
+        "status": "WON"
+      }
+    ],
+    "summary": "Hanuman Beniwal is an Indian politician from Rajasthan and the founder of the Rashtriya Loktantrik Party (RLP). He has previously served as a Member of the Rajasthan Legislative Assembly from Khinvsar constituency and is known for his strong regional influence in Nagaur and surrounding areas. He was elected as a Member of Parliament from the Nagaur constituency in the 2024 Lok Sabha elections."
+  },
+  "education": [
+    {
+      "qualification": "BACHELOR",
+      "institution": "Rajasthan University",
+      "year_completed": 1993
+    },
+    {
+      "qualification": "PROFESSIONAL",
+      "institution": "Rajasthan University",
+      "year_completed": 1998
+    },
+    {
+      "qualification": "OTHERS",
+      "institution": "Rajasthan University",
+      "year_completed": null
+    }
+  ],
+  "criminal_records": [],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  },
+  "family_background": [
+    {
+      "name": "Ramdev Beniwal",
+      "relation": "FATHER",
+      "photo": null,
+      "social_media": null
+    }
+  ],
+  "social_media": {
+    "twitter": "https://twitter.com/hanumanbeniwal",
+    "facebook": "https://www.facebook.com/hanumanbeniwalofficial",
+    "instagram": "https://www.instagram.com/hanumanbeniwal",
+    "linkedin": null,
+    "youtube": "https://www.youtube.com/watch?v=KSQpXFsPmSo",
+    "website": null
+  }
+},
+  {
+  "id": "721eb83e-d66e-4ddb-9d70-62b4fc7975b3",
+  "name": "RAJ KUMAR ROAT",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S20/RAJKU-2024-20240405050047.jpg",
+  "state": "Rajasthan",
+  "constituency": "BANSWARA ",
+  "type": "MP",
+  "political_background": {
+    "elections": [
+      {
+        "year": 2024,
+        "type": "MP",
+        "state": "Rajasthan",
+        "constituency": "BANSWARA ",
+        "party": "Bharat Adivasi Party",
+        "status": "WON"
+      }
+    ],
+    "summary": "Raj Kumar Roat is a politician from Rajasthan and a leader of the Bharat Adivasi Party. He represents tribal communities and has been active in regional politics advocating for Adivasi rights and development. He was elected as a Member of Parliament from the Banswara constituency in the 2024 Lok Sabha elections."
+  },
+  "education": [
+    {
+      "qualification": "PROFESSIONAL",
+      "institution": "Rajasthan University",
+      "year_completed": 2015
+    }
+  ],
+  "criminal_records": [],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  },
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": "https://www.instagram.com/rajkumarroat",
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  },
+  "family_background": []
+},
+{
+  "id": "8875a8ac-1a8f-4efa-ba2c-d0b9a0524f8b",
+  "name": "INDRA HANG SUBBA",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S21/INDRA-2024-1238.jpg",
+  "state": "Sikkim",
+  "constituency": "Sikkim",
+  "type": "MP",
+  "political_background": {
+    "elections": [
+      {
+        "year": 2024,
+        "type": "MP",
+        "state": "Sikkim",
+        "constituency": "Sikkim",
+        "party": "Sikkim Krantikari Morcha",
+        "status": "WON"
+      }
+    ],
+    "summary": "Indra Hang Subba is a politician from Sikkim and a member of the Sikkim Krantikari Morcha (SKM). He has previously served as a Member of Parliament representing Sikkim and is known for his involvement in regional political issues. He was re-elected as a Member of Parliament from the Sikkim constituency in the 2024 Lok Sabha elections."
+  },
+  "family_background": [],
+  "criminal_records": [],
+  "education": [
+    {
+      "qualification": "GRADUATE",
+      "institution": "Sikkim Government College",
+      "year_completed": null
+    }
+  ],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  },
+  "social_media": {
+    "twitter": "https://twitter.com/indrahangsubba",
+    "facebook": "https://www.facebook.com/indrahangsubba",
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  }
+},
+ {
+  "id": "4a4535a6-cfd4-4758-abe1-cbd6df84775c",
+  "name": "DURAI VAIKO",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S22/DURAI-2024-214.jpg",
+  "state": "Tamil Nadu",
+  "constituency": "TIRUCHIRAPPALLI",
+  "type": "MP",
+  "political_background": {
+    "elections": [
+      {
+        "year": 2024,
+        "type": "MP",
+        "state": "Tamil Nadu",
+        "constituency": "TIRUCHIRAPPALLI",
+        "party": "Marumalarchi Dravida Munnetra Kazhagam",
+        "status": "WON"
+      }
+    ],
+    "summary": "Durai Vaiko is a politician from Tamil Nadu and a member of the Marumalarchi Dravida Munnetra Kazhagam (MDMK). He is the son of senior politician Vaiko (V. Gopalsamy), the founder of MDMK. Active in state politics and party organization, he was elected as a Member of Parliament from the Tiruchirappalli constituency in the 2024 Lok Sabha elections."
+  },
+  "education": [
+    {
+      "qualification": "MASTER",
+      "institution": "PSG College of Technology, Coimbatore",
+      "year_completed": null
+    }
+  ],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  },
+  "social_media": {
+    "twitter": "https://twitter.com/duraivaiko",
+    "facebook": "https://www.facebook.com/duraivaikooffl/",
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  },
+  "criminal_records": [],
+  "family_background": [
+    {
+      "name": "Vaiko (V. Gopalsamy)",
+      "relation": "FATHER",
+      "photo": null,
+      "social_media": null
+    },
+    {
+      "name": "Geetha Durai",
+      "relation": "WIFE",
+      "photo": null,
+      "social_media": null
+    }
+  ]
+},
   {
     "id": "98501706-88dd-4366-bb29-655686e2c98f",
     "name": "CHANDRASHEKHAR",
@@ -26738,445 +26773,625 @@
       "website": "https://www.anupriyapatel.in/"
     }
   },
-  {
-    "id": "248a8fb5-0ee2-40c7-b730-401c30cf4296",
-    "name": "CHANDRA PRAKASH CHOUDHARY",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S27/CHAND-2024-11230.jpg",
-    "state": "Jharkhand",
-    "constituency": "Giridih",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Jharkhand",
-          "constituency": "Giridih",
-          "party": "AJSU Party",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
+{
+  "id": "248a8fb5-0ee2-40c7-b730-401c30cf4296",
+  "name": "CHANDRA PRAKASH CHOUDHARY",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S27/CHAND-2024-11230.jpg",
+  "state": "Jharkhand",
+  "constituency": "Giridih",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "BACHELOR",
-        "institution": "Ramgarh Mahavidyalaya, Ramgarh, Jharkhand",
-        "year_completed": null
+        "year": 2024,
+        "type": "MP",
+        "state": "Jharkhand",
+        "constituency": "Giridih",
+        "party": "AJSU Party",
+        "status": "WON"
       }
     ],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "family_background": [],
-    "criminal_records": []
+    "summary": "Chandra Prakash Choudhary is a senior leader of the AJSU Party from Jharkhand. He has previously served as a Member of the Jharkhand Legislative Assembly from Ramgarh constituency and held ministerial positions in the state government, including Cabinet Minister roles. He has been active in regional politics for several years and was elected as a Member of Parliament from the Giridih constituency in the 2024 Lok Sabha elections."
   },
-  {
-    "id": "bf49c598-1f2e-4744-90aa-049e1ce53bf7",
-    "name": "ASADUDDIN OWAISI",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S29/ASADU-2024-20240427125821.jpg",
-    "state": "Telangana",
-    "constituency": "Hyderabad",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Telangana",
-          "constituency": "Hyderabad",
-          "party": "All India Majlis-E-Ittehadul Muslimeen",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
-      {
-        "qualification": "BACHELOR",
-        "institution": "Nizam College, Hyderabad",
-        "year_completed": null
-      },
-      {
-        "qualification": "PROFESSIONAL",
-        "institution": "Lincoln's Inn, London",
-        "year_completed": null
-      }
-    ],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "criminal_records": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
+  "education": [
+    {
+      "qualification": "BACHELOR",
+      "institution": "Ramgarh Mahavidyalaya, Ramgarh, Jharkhand",
+      "year_completed": null
     }
+  ],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
   },
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  },
+  "family_background": [],
+  "criminal_records": []
+},
   {
-    "id": "6cd018ad-5c05-43f2-ade8-3caa894f89fe",
-    "name": "RAJESH RANJAN ALIAS PAPPU YADAV",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S04/RAJES-2024-20240405033312.jpg",
-    "state": "Bihar",
-    "constituency": "Purnia",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Bihar",
-          "constituency": "Purnia",
-          "party": "Independent",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
+  "id": "6cd018ad-5c05-43f2-ade8-3caa894f89fe",
+  "name": "RAJESH RANJAN ALIAS PAPPU YADAV",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S04/RAJES-2024-20240405033312.jpg",
+  "state": "Bihar",
+  "constituency": "Purnia",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "BACHELOR",
-        "institution": "null",
-        "year_completed": null
+        "year": 2024,
+        "type": "MP",
+        "state": "Bihar",
+        "constituency": "Purnia",
+        "party": "Independent",
+        "status": "WON"
       }
     ],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "family_background": [
+    "summary": "Rajesh Ranjan, popularly known as Pappu Yadav, is a prominent politician from Bihar. He has been elected multiple times as a Member of Parliament from constituencies including Purnia, Madhepura, and Saharsa, representing different parties over his political career. Known for his strong regional influence, he contested and won the 2024 Lok Sabha election from Purnia as an independent candidate."
+  },
+  "education": [
+    {
+      "qualification": "BACHELOR",
+      "institution": null,
+      "year_completed": null
+    }
+  ],
+  "social_media": {
+    "twitter": "https://twitter.com/pappuyadavjapl",
+    "facebook": "https://www.facebook.com/PappuYadavJAPL",
+    "instagram": "https://www.instagram.com/pappuyadavjapl",
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  },
+  "family_background": [
+    {
+      "name": "Ranjeet Ranjan",
+      "relation": "WIFE",
+      "photo": null,
+      "social_media": null
+    }
+  ],
+  "criminal_records": [
+    {
+      "name": "Convicted of murder in the Ajit Sarkar case and sentenced to life imprisonment (later acquitted by the Patna High Court)",
+      "type": "MURDER",
+      "year": 2008
+    }
+  ],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  }
+},
+ {
+  "id": "6cd018ad-5c05-43f2-ade8-3caa894f89fe",
+  "name": "RAJESH RANJAN ALIAS PAPPU YADAV",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S04/RAJES-2024-20240405033312.jpg",
+  "state": "Bihar",
+  "constituency": "Purnia",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "name": "Ranjeet Ranjan",
-        "relation": "WIFE",
-        "photo": null,
-        "social_media": null
+        "year": 2024,
+        "type": "MP",
+        "state": "Bihar",
+        "constituency": "Purnia",
+        "party": "Independent",
+        "status": "WON"
       }
     ],
-    "criminal_records": [
+    "summary": "Rajesh Ranjan, popularly known as Pappu Yadav, is a prominent politician from Bihar. He has been elected multiple times as a Member of Parliament from constituencies including Purnia, Madhepura, and Saharsa, representing different parties over his political career. Known for his strong regional influence, he contested and won the 2024 Lok Sabha election from Purnia as an independent candidate."
+  },
+  "education": [
+    {
+      "qualification": "BACHELOR",
+      "institution": null,
+      "year_completed": null
+    }
+  ],
+  "social_media": {
+    "twitter": "https://twitter.com/pappuyadavjapl",
+    "facebook": "https://www.facebook.com/PappuYadavJAPL",
+    "instagram": "https://www.instagram.com/pappuyadavjapl",
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  },
+  "family_background": [
+    {
+      "name": "Ranjeet Ranjan",
+      "relation": "WIFE",
+      "photo": null,
+      "social_media": null
+    }
+  ],
+  "criminal_records": [
+    {
+      "name": "Convicted of murder in the Ajit Sarkar case and sentenced to life imprisonment (later acquitted by the Patna High Court)",
+      "type": "MURDER",
+      "year": 2008
+    }
+  ],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  }
+},
+{
+  "id": "c0609827-27bc-42c7-a3d3-3a0ca41c03a7",
+  "name": "VISHAL (DADA) PRAKASHBAPU PATIL",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S13/VISHA-2024-4497.jpg",
+  "state": "Maharashtra",
+  "constituency": "Sangli",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "name": "Convicted of murder and sentenced to life imprisonment",
-        "type": "MURDER",
-        "year": 2008
+        "year": 2024,
+        "type": "MP",
+        "state": "Maharashtra",
+        "constituency": "Sangli",
+        "party": "Independent",
+        "status": "WON"
       }
     ],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    }
+    "summary": "Vishal (Dada) Prakashbapu Patil is an independent politician from Maharashtra. He belongs to a prominent political family in the Sangli region and is the grandson of former Chief Minister Vasantdada Patil. He has been active in local and regional politics and won the 2024 Lok Sabha election from the Sangli constituency as an independent candidate."
   },
-  {
-    "id": "c0609827-27bc-42c7-a3d3-3a0ca41c03a7",
-    "name": "VISHAL (DADA) PRAKASHBAPU PATIL",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S13/VISHA-2024-4497.jpg",
-    "state": "Maharashtra",
-    "constituency": "Sangli",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Maharashtra",
-          "constituency": "Sangli",
-          "party": "Independent",
-          "status": "WON"
-        }
-      ]
+  "education": [
+    {
+      "qualification": "BACHELOR",
+      "institution": null,
+      "year_completed": null
+    }
+  ],
+  "family_background": [
+    {
+      "name": "Prakashbapu Patil",
+      "relation": "FATHER",
+      "photo": null,
+      "social_media": null
     },
-    "education": [
+    {
+      "name": "Vasantdada Patil",
+      "relation": "GRANDFATHER",
+      "photo": null,
+      "social_media": null
+    }
+  ],
+  "criminal_records": [],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  },
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  }
+},
+{
+  "id": "96fa1bc9-96f0-4249-b7f7-8c7cc72ebc58",
+  "name": "AMRITPAL SINGH",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S19/AMRIT-2024-20240510034720.jpg",
+  "state": "Punjab",
+  "constituency": "Khadoor Sahib",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "BACHELOR",
-        "institution": null,
-        "year_completed": null
+        "year": 2024,
+        "type": "MP",
+        "state": "Punjab",
+        "constituency": "Khadoor Sahib",
+        "party": "Independent",
+        "status": "WON"
       }
     ],
-    "family_background": [],
-    "criminal_records": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    }
+    "summary": "Amritpal Singh is an independent politician and Sikh preacher from Punjab, associated with the organization 'Waris Punjab De'. He gained prominence for his religious activism and socio-political influence in Punjab. In 2024, he was elected as a Member of Parliament from the Khadoor Sahib constituency while contesting as an independent candidate."
   },
-  {
-    "id": "96fa1bc9-96f0-4249-b7f7-8c7cc72ebc58",
-    "name": "AMRITPAL SINGH",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S19/AMRIT-2024-20240510034720.jpg",
-    "state": "Punjab",
-    "constituency": "Khadoor Sahib",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Punjab",
-          "constituency": "Khadoor Sahib",
-          "party": "Independent",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
+  "education": [
+    {
+      "qualification": "HIGH_SCHOOL",
+      "institution": null,
+      "year_completed": null
+    }
+  ],
+  "family_background": [
+    {
+      "name": "Tarsem Singh",
+      "relation": "FATHER",
+      "photo": null,
+      "social_media": null
+    }
+  ],
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  },
+  "criminal_records": [
+    {
+      "name": "Multiple criminal cases registered including charges under the National Security Act (NSA) and other sections related to public order and security",
+      "type": "SECURITY",
+      "year": 2023
+    }
+  ],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  }
+},
+ {
+  "id": "824a82b3-ec67-4c72-a972-8551cf2d2dfb",
+  "name": "SARABJEET SINGH KHALSA",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S19/SARAB-2024-20240510011513.jpg",
+  "state": "Punjab",
+  "constituency": "Faridkot",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "HIGH_SCHOOL",
-        "institution": null,
-        "year_completed": null
+        "year": 2024,
+        "type": "MP",
+        "state": "Punjab",
+        "constituency": "Faridkot",
+        "party": "Independent",
+        "status": "WON"
       }
     ],
-    "family_background": [],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "criminal_records": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    }
+    "summary": "Sarabjeet Singh Khalsa is an independent politician from Punjab. He is known for being the son of Beant Singh, one of the assassins of former Prime Minister Indira Gandhi. In 2024, he was elected as a Member of Parliament from the Faridkot constituency as an independent candidate."
   },
+  "education": [
+    {
+      "qualification": "HIGH_SCHOOL",
+      "institution": null,
+      "year_completed": 1995
+    }
+  ],
+  "family_background": [
+    {
+      "name": "Beant Singh",
+      "relation": "FATHER",
+      "photo": null,
+      "social_media": null
+    }
+  ],
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  },
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  },
+  "criminal_records": []
+},
   {
-    "id": "824a82b3-ec67-4c72-a972-8551cf2d2dfb",
-    "name": "SARABJEET SINGH KHALSA",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S19/SARAB-2024-20240510011513.jpg",
-    "state": "Punjab",
-    "constituency": "Faridkot",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Punjab",
-          "constituency": "Faridkot",
-          "party": "Independent",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
+  "id": "a4f0587a-0b9e-4ac5-9864-9e43ea5b3b5d",
+  "name": "PATEL UMESHBHAI BABUBHAI",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/U03/PATEL-2024-20240422075948.jpg",
+  "state": "Dadra and Nagar Haveli and Daman and Diu",
+  "constituency": "Daman & Diu ",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "HIGH_SCHOOL",
-        "institution": null,
-        "year_completed": 1995
+        "year": 2024,
+        "type": "MP",
+        "state": "Dadra and Nagar Haveli and Daman and Diu",
+        "constituency": "Daman & Diu ",
+        "party": "Independent",
+        "status": "WON"
       }
     ],
-    "family_background": [],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "criminal_records": []
+    "summary": "Patel Umeshbhai Babubhai is an independent politician from the Union Territory of Dadra and Nagar Haveli and Daman and Diu. He was elected as a Member of Parliament from the Daman & Diu constituency in the 2024 Lok Sabha elections."
   },
-  {
-    "id": "a4f0587a-0b9e-4ac5-9864-9e43ea5b3b5d",
-    "name": "PATEL UMESHBHAI BABUBHAI",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/U03/PATEL-2024-20240422075948.jpg",
-    "state": "Dadra and Nagar Haveli and Daman and Diu",
-    "constituency": "Daman & Diu ",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Dadra and Nagar Haveli and Daman and Diu",
-          "constituency": "Daman & Diu ",
-          "party": "Independent",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "family_background": [],
-    "criminal_records": [],
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    }
+  "education": [],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
   },
+  "family_background": [],
+  "criminal_records": [],
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  }
+},
   {
-    "id": "75ba1bb1-089f-410b-896b-6039992a5204",
-    "name": "ABDUL RASHID SHEIKH",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/U08/ABDUL-2024-9272.jpg",
-    "state": "Ladakh",
-    "constituency": "BARAMULLA",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Ladakh",
-          "constituency": "BARAMULLA",
-          "party": "Independent",
-          "status": "WON"
-        }
-      ]
-    },
-    "education": [
+  "id": "75ba1bb1-089f-410b-896b-6039992a5204",
+  "name": "ABDUL RASHID SHEIKH",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/U08/ABDUL-2024-9272.jpg",
+  "state": "Ladakh",
+  "constituency": "BARAMULLA",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "BACHELOR",
-        "institution": "University of Kashmir",
-        "year_completed": 1988
-      },
-      {
-        "qualification": "DIPLOMA",
-        "institution": "J&K Technical Board",
-        "year_completed": 1991
+        "year": 2024,
+        "type": "MP",
+        "state": "Ladakh",
+        "constituency": "BARAMULLA",
+        "party": "Independent",
+        "status": "WON"
       }
     ],
-    "family_background": [],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    },
-    "social_media": {
-      "twitter": null,
-      "facebook": null,
-      "instagram": null,
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "criminal_records": []
+    "summary": "Abdul Rashid Sheikh, also known as Engineer Rashid, is an independent politician from Jammu and Kashmir. He previously served as a Member of the Legislative Assembly from Langate constituency (2008–2018) and is known for his outspoken political positions on regional issues. In 2024, he was elected as a Member of Parliament from the Baramulla constituency."
   },
-  {
-    "id": "7b7d0437-884f-45fd-bff6-b2b0ff603caa",
-    "name": "MOHMAD HANEEFA",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/U09/MOHMA-2024-10634.jpg",
-    "state": "Ladakh",
-    "constituency": "Ladakh",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Ladakh",
-          "constituency": "Ladakh",
-          "party": "Independent",
-          "status": "WON"
-        }
-      ]
+  "education": [
+    {
+      "qualification": "BACHELOR",
+      "institution": "University of Kashmir",
+      "year_completed": 1988
     },
-    "education": [
+    {
+      "qualification": "DIPLOMA",
+      "institution": "J&K Technical Board",
+      "year_completed": 1991
+    }
+  ],
+  "family_background": [],
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  },
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  },
+  "criminal_records": [
+    {
+      "name": "Arrested under Unlawful Activities (Prevention) Act (UAPA) in connection with a terror funding case investigated by NIA",
+      "type": "SECURITY",
+      "year": 2019
+    }
+  ]
+},
+ {
+  "id": "7b7d0437-884f-45fd-bff6-b2b0ff603caa",
+  "name": "MOHMAD HANEEFA",
+  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/U09/MOHMA-2024-10634.jpg",
+  "state": "Ladakh",
+  "constituency": "Ladakh",
+  "type": "MP",
+  "political_background": {
+    "elections": [
       {
-        "qualification": "HIGH_SCHOOL",
-        "institution": null,
-        "year_completed": null
+        "year": 2024,
+        "type": "MP",
+        "state": "Ladakh",
+        "constituency": "Ladakh",
+        "party": "Independent",
+        "status": "WON"
       }
-    ]
+    ],
+    "summary": "Mohmad Haneefa is an independent politician from Ladakh and a former councillor of the Ladakh Autonomous Hill Development Council (LAHDC), Kargil, representing the Taisuru constituency. He has been actively involved in regional governance and grassroots issues in Ladakh. In 2024, he was elected as a Member of Parliament from the Ladakh constituency as an independent candidate."
   },
-  {
-    "id": "0693fe93-197b-5f02-a242-0aaf7eb359bd",
-    "name": "AGA SYED RUHULLAH MEHDI",
-    "photo": null,
-    "state": "Jammu and Kashmir",
-    "constituency": "Srinagar",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Jammu and Kashmir",
-          "constituency": "Srinagar",
-          "party": "Jammu & Kashmir National Conference",
-          "status": "WON"
-        }
-      ]
+  "education": [
+    {
+      "qualification": "HIGH_SCHOOL",
+      "institution": null,
+      "year_completed": null
     }
+  ],
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
   },
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  },
+  "family_background": [],
+  "criminal_records": []
+},
   {
-    "id": "6c564319-bd44-5de3-b383-bb4cf47a3163",
-    "name": "MIAN ALTAF AHMAD",
-    "photo": null,
-    "state": "Jammu and Kashmir",
-    "constituency": "Anantnag-Rajouri",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Jammu and Kashmir",
-          "constituency": "Anantnag-Rajouri",
-          "party": "Jammu & Kashmir National Conference",
-          "status": "WON"
-        }
-      ]
-    }
+  "id": "0693fe93-197b-5f02-a242-0aaf7eb359bd",
+  "name": "AGA SYED RUHULLAH MEHDI",
+  "photo": null,
+  "state": "Jammu and Kashmir",
+  "constituency": "Srinagar",
+  "type": "MP",
+  "political_background": {
+    "elections": [
+      {
+        "year": 2024,
+        "type": "MP",
+        "state": "Jammu and Kashmir",
+        "constituency": "Srinagar",
+        "party": "Jammu & Kashmir National Conference",
+        "status": "WON"
+      }
+    ],
+    "summary": "Aga Syed Ruhullah Mehdi is a prominent leader of the Jammu & Kashmir National Conference and a religious and political figure from Jammu and Kashmir. He previously served as a Member of the Jammu and Kashmir Legislative Assembly from the Budgam constituency and held the position of Minister for Animal and Sheep Husbandry in the erstwhile state government. In 2024, he was elected as a Member of Parliament from the Srinagar constituency."
   },
-  {
-    "id": "483e397c-ec8c-56de-b6ae-78d627680122",
-    "name": "ABDUL RASHID SHEIKH",
-    "photo": null,
-    "state": "Jammu and Kashmir",
-    "constituency": "Baramulla",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Jammu and Kashmir",
-          "constituency": "Baramulla",
-          "party": "Independent",
-          "status": "WON"
-        }
-      ]
+  "education": [
+    {
+      "qualification": "POST GRADUATE",
+      "institution": "University of Kashmir",
+      "year_completed": null
     }
+  ],
+  "social_media": {
+    "twitter": "https://twitter.com/RuhullahMehdi",
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
   },
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  },
+  "family_background": [
+    {
+      "name": "Aga Syed Mehdi",
+      "relation": "FATHER",
+      "photo": null,
+      "social_media": null
+    },
+    {
+      "name": "Aga Syed Hadi",
+      "relation": "SIBLING",
+      "photo": null,
+      "social_media": null
+    }
+  ],
+  "criminal_records": []
+},
+ {
+  "id": "6c564319-bd44-5de3-b383-bb4cf47a3163",
+  "name": "MIAN ALTAF AHMAD",
+  "photo": null,
+  "state": "Jammu and Kashmir",
+  "constituency": "Anantnag-Rajouri",
+  "type": "MP",
+  "political_background": {
+    "elections": [
+      {
+        "year": 2024,
+        "type": "MP",
+        "state": "Jammu and Kashmir",
+        "constituency": "Anantnag-Rajouri",
+        "party": "Jammu & Kashmir National Conference",
+        "status": "WON"
+      }
+    ],
+    "summary": "Mian Altaf Ahmad is a senior leader of the Jammu & Kashmir National Conference and a prominent religious and political figure from Jammu and Kashmir. He has served multiple terms as a Member of the Jammu and Kashmir Legislative Assembly from the Kangan constituency and has held ministerial positions in the state government. In 2024, he was elected as a Member of Parliament from the Anantnag-Rajouri constituency."
+  },
+  "education": [
+    {
+      "qualification": "GRADUATE",
+      "institution": "University of Kashmir",
+      "year_completed": null
+    }
+  ],
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  },
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  },
+  "family_background": [
+    {
+      "name": "Mian Nizam-ud-Din",
+      "relation": "FATHER",
+      "photo": null,
+      "social_media": null
+    },
+    {
+      "name": "Mian Farooq Ahmad",
+      "relation": "SON",
+      "photo": null,
+      "social_media": null
+    }
+  ],
+  "criminal_records": []
+},
+ {
+  "id": "483e397c-ec8c-56de-b6ae-78d627680122",
+  "name": "ABDUL RASHID SHEIKH",
+  "photo": null,
+  "state": "Jammu and Kashmir",
+  "constituency": "Baramulla",
+  "type": "MP",
+  "political_background": {
+    "elections": [
+      {
+        "year": 2024,
+        "type": "MP",
+        "state": "Jammu and Kashmir",
+        "constituency": "Baramulla",
+        "party": "Independent",
+        "status": "WON"
+      }
+    ],
+    "summary": "Abdul Rashid Sheikh, popularly known as Engineer Rashid, is a politician from Jammu and Kashmir. He previously served as a Member of the Jammu and Kashmir Legislative Assembly from Langate constituency (2008–2018) as an independent candidate. Known for his outspoken political views, he gained prominence in regional politics and later won the 2024 Lok Sabha election from Baramulla constituency as an independent candidate."
+  },
+  "education": [
+    {
+      "qualification": "BACHELOR OF ENGINEERING",
+      "institution": "Regional Engineering College, Srinagar (now NIT Srinagar)",
+      "year_completed": null
+    }
+  ],
+  "social_media": {
+    "twitter": null,
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null,
+    "website": null
+  },
+  "contact": {
+    "email": null,
+    "phone": null,
+    "address": null
+  },
+  "family_background": [
+    {
+      "name": "Sheikh Ghulam Rasool",
+      "relation": "FATHER",
+      "photo": null,
+      "social_media": null
+    }
+  ],
+  "criminal_records": [
+    {
+      "name": "Arrested under Unlawful Activities (Prevention) Act (UAPA) in connection with a terror funding case investigated by NIA",
+      "type": "SECURITY",
+      "year": 2019
+    }
+  ]
+},
   {
   "id": "e541bf90-0d7f-5c14-a316-e173630c41f0",
   "name": "JUGAL KISHORE SHARMA",

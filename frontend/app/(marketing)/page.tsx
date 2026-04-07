@@ -1,6 +1,4 @@
 "use client"
-
-import { Suspense } from "react"
 import PreambleSection from "@/components/PreambleSection"
 import { Navbar, Footer } from "@/components/layout"
 import Text from "@/components/ui/Text"
@@ -8,7 +6,7 @@ import Link from "@/components/ui/Link"
 import Button from "@/components/ui/Button"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
+import { useEffect, useState, Suspense } from "react"
 import { useAnalytics } from "@/hooks/useAnalytics"
 import contributors from "@/data/contributors.json"
 
@@ -43,27 +41,31 @@ function HomeContent() {
     }
 
     return (
-        <div className='min-h-screen bg-linear-to-b from-orange-50 via-white to-green-70 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900'>
+        <div className='min-h-screen overflow-x-hidden bg-linear-to-b from-orange-50 via-white to-green-70 dark:from-[#070b16] dark:via-[#0b1324] dark:to-[#101a32]'>
             <Navbar variant='default' />
 
             {/* Hero Section */}
-            <section className='py-14 sm:py-24 lg:py-32 relative z-2 max-w-7xl overflow-hidden mx-auto w-full'>
-                <div className='flex flex-col-reverse lg:flex-row items-center lg:items-start gap-10 lg:gap-20 px-4 sm:px-8'>
-                    <div className='flex flex-col items-start lg:w-2/3'>
+            <section className='relative z-2 overflow-hidden py-20 sm:py-32'>
+                <div className='pointer-events-none absolute inset-0 -z-10 overflow-hidden'>
+                    <div className='absolute -left-20 -top-16 h-64 w-64 rounded-full bg-orange-300/20 blur-3xl dark:bg-orange-500/20'></div>
+                    <div className='absolute -right-28 top-8 h-96 w-96 rounded-full bg-green-300/20 blur-3xl dark:bg-blue-500/20'></div>
+                </div>
+                <div className='relative mx-auto max-w-7xl px-4 sm:px-6 lg:grid lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-8 lg:px-8 xl:gap-12'>
+                    <div className='text-center'>
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className='mb-6 flex justify-start w-full'>
-                            <div className='rounded-full bg-gradient-to-r from-orange-500 via-white to-green-500 p-[2px] shadow-lg'>
-                                <div className='rounded-full bg-white dark:bg-gray-800 px-4 sm:px-6 py-2 sm:py-2.5 flex items-center gap-2'>
+                            className='mb-8 flex justify-start'>
+                            <div className='rounded-full bg-linear-to-r from-orange-500 via-white to-green-500 p-0.5 shadow-lg'>
+                                <div className='flex items-center gap-2 rounded-full bg-white px-6 py-2.5 dark:bg-slate-900/90'>
                                     <svg className='w-5 h-5' viewBox='0 0 24 24' fill='none'>
                                         <circle cx='12' cy='12' r='10' fill='#FF9933' />
                                         <circle cx='12' cy='12' r='6.5' fill='#F5F5F5' />
                                         <circle cx='12' cy='12' r='3' fill='#138808' />
                                         <circle cx='12' cy='12' r='1.5' fill='#000080' />
                                     </svg>
-                                    <span className='text-xs sm:text-sm font-semibold bg-gradient-to-r from-orange-600 via-gray-700 to-green-600 bg-clip-text text-transparent'>
+                                    <span className='text-sm font-semibold bg-linear-to-r from-orange-600 via-gray-700 to-green-600 bg-clip-text text-transparent dark:from-orange-300 dark:via-slate-100 dark:to-emerald-300'>
                                         Built for the Indian Democracy
                                     </span>
                                 </div>
@@ -74,10 +76,10 @@ function HomeContent() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}>
-                            <h1 className="font-serif text-[2.1rem] sm:text-[2.8rem] lg:text-[4.5rem] font-semibold leading-[1.08] tracking-[-0.02em] text-[#0F1F3D] dark:text-white text-left mb-4">
-                                Know Your
-                                <br className="hidden sm:block" />
-                                <span className="text-orange-600 italic"> Elected</span> Representatives
+                            <h1 className="font-serif text-[44px] sm:text-[56px] lg:text-[80px] font-semibold leading-[1.08] tracking-[-0.02em] text-[#0F1F3D] text-left mb-4 dark:text-slate-100">
+                                Know Your <span className="text-orange-600 italic dark:text-orange-400">Elected</span>
+                                <br />
+                                Representatives
                             </h1>
                         </motion.div>
 
@@ -87,7 +89,7 @@ function HomeContent() {
                             transition={{ duration: 0.6, delay: 0.2 }}>
                             <Text
                                 variant='body'
-                                className='max-w-xl text-gray-600 dark:text-gray-400 mb-8 text-left text-base sm:text-lg'>
+                                className='max-w-xl text-gray-600 dark:text-slate-300 mb-8 text-left text-base sm:text-lg'>
                                 Rajniti is an open-source platform to explore Indian MPs and MLAs — their political history, education, family background, criminal records, and more. All free and community-driven.
                             </Text>
                         </motion.div>
@@ -147,7 +149,7 @@ function HomeContent() {
 
                     {/* Ashoka Chakra - On mobile below, on desktop right-aligned */}
                     <motion.svg
-                        className="pointer-events-none w-full max-w-[280px] sm:max-w-[330px] md:max-w-[300px] lg:max-w-[340px] h-auto lg:w-[340px] lg:h-[340px] mx-auto lg:mx-0 mt-8 mb-4 sm:mt-10 sm:mb-0 text-blue-800 flex-shrink-0"
+                        className="pointer-events-none mx-auto mt-12 h-75 w-75 origin-center text-blue-800 sm:h-100 sm:w-100 lg:mt-0 lg:h-104 lg:w-104 xl:h-120 xl:w-120 dark:text-blue-400 dark:drop-shadow-[0_0_24px_rgba(96,165,250,0.32)]"
                         viewBox="0 0 24 24"
                         fill="none"
                         animate={{ rotate: 360 }}
@@ -216,8 +218,16 @@ function HomeContent() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.1 }}
                             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                            className=' rounded-2xl p-8 border border-black/10 dark:border-gray-700 dark:bg-gray-800'>
-                            <div className='text-4xl mb-4'><img src="./logo/parliament.png" alt="Parliament Logo" className="w-10 h-10" />  </div>
+                            className=' rounded-2xl p-8 border border-black/10'>
+                            <div className='text-4xl mb-4'>
+                                <Image
+                                    src='/logo/parliament.png'
+                                    alt='Parliament Logo'
+                                    width={40}
+                                    height={40}
+                                    className='h-10 w-10'
+                                />
+                            </div>
                             <Text
                                 variant='h4'
                                 weight='bold'
@@ -236,8 +246,16 @@ function HomeContent() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                            className=' rounded-2xl p-8 border border-black/10 dark:border-gray-700 dark:bg-gray-800'>
-                            <div className='text-4xl mb-4'><img src="./logo/Assembly.png" alt="State Assembly Logo" className="w-10 h-10" />  </div>
+                            className=' rounded-2xl p-8 border border-black/10'>
+                            <div className='text-4xl mb-4'>
+                                <Image
+                                    src='/logo/Assembly.png'
+                                    alt='State Assembly Logo'
+                                    width={40}
+                                    height={40}
+                                    className='h-10 w-10'
+                                />
+                            </div>
                             <Text
                                 variant='h4'
                                 weight='bold'
@@ -256,8 +274,16 @@ function HomeContent() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.3 }}
                             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                            className=' rounded-2xl p-8 border border-black/10 dark:border-gray-700 dark:bg-gray-800'>
-                            <div className='text-4xl mb-4'><img src="./logo/Profile.png" alt="Rich Profile Logo" className="w-9 h-9" />  </div>
+                            className=' rounded-2xl p-8 border border-black/10'>
+                            <div className='text-4xl mb-4'>
+                                <Image
+                                    src='/logo/Profile.png'
+                                    alt='Rich Profile Logo'
+                                    width={36}
+                                    height={36}
+                                    className='h-9 w-9'
+                                />
+                            </div>
                             <Text
                                 variant='h4'
                                 weight='bold'
@@ -307,7 +333,15 @@ function HomeContent() {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                             className='bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20'>
-                            <div className='text-3xl mb-3'><img src="./logo/ContributeData.png" alt="Contribute Logo" className="w-10 h-10" />  </div>
+                            <div className='text-3xl mb-3'>
+                                <Image
+                                    src='/logo/ContributeData.png'
+                                    alt='Contribute Logo'
+                                    width={40}
+                                    height={40}
+                                    className='h-10 w-10'
+                                />
+                            </div>
                             <Text
                                 variant='h4'
                                 weight='bold'
@@ -349,7 +383,15 @@ function HomeContent() {
                             transition={{ duration: 0.5, delay: 0.3 }}
                             whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                             className='bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20'>
-                            <div className='text-3xl mb-3'><img src="./logo/Contribute.png" alt="Contribute Logo" className="w-10 h-10" />  </div>
+                            <div className='text-3xl mb-3'>
+                                <Image
+                                    src='/logo/Contribute.png'
+                                    alt='Contribute Logo'
+                                    width={40}
+                                    height={40}
+                                    className='h-10 w-10'
+                                />
+                            </div>
                             <Text
                                 variant='h4'
                                 weight='bold'
