@@ -4,14 +4,9 @@ Unit tests for User database model.
 Tests cover CRUD operations, validation, and model methods.
 """
 
-import sys
 from unittest.mock import MagicMock, Mock, patch
 
 import pytest
-
-# Mock chromadb before imports
-sys.modules["chromadb"] = MagicMock()
-sys.modules["chromadb.config"] = MagicMock()
 
 from app.database.models import User
 

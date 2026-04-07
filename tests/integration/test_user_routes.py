@@ -4,14 +4,9 @@ Integration tests for user-related routes.
 Tests verify user endpoints work correctly including auth sync and profile updates.
 """
 
-import sys
 from unittest.mock import MagicMock, Mock, patch
 
 import pytest
-
-# Mock chromadb before imports
-sys.modules["chromadb"] = MagicMock()
-sys.modules["chromadb.config"] = MagicMock()
 
 
 @pytest.mark.integration

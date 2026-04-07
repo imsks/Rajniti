@@ -32,7 +32,7 @@ Enrich politician profiles automatically using LLM-based agents.
 | 🤖 | **AI Enrichment** | Automatically fill education, family, criminal records, and more using LLMs |
 | 🔄 | **Multi-Model Failover** | Gemini → OpenAI → Perplexity with per-model cooldown on rate limits |
 | 🗃️ | **JSON-First Data** | Source of truth lives in version-controlled JSON files |
-| 🧠 | **Vector Search** | Ask natural-language questions about politicians (ChromaDB) |
+| 🧠 | **Vector Search** | Semantic Q&A — **in progress** ([learning doc](docs/VECTOR_DBS.md)) |
 | 🔐 | **Google OAuth** | User accounts via NextAuth with backend sync |
 | 📊 | **Stats Dashboard** | Party breakdown, state coverage, and enrichment progress |
 
@@ -364,7 +364,7 @@ After any change to the wrapper script path or repo location, update the schedul
 | `GET` | `/api/v1/stats` | Summary statistics |
 | `GET` | `/api/v1/states` | List all states |
 | `GET` | `/api/v1/parties` | List all parties |
-| `POST` | `/api/v1/questions/ask` | Ask a question (vector search) |
+| `POST` | `/api/v1/questions/ask` | Ask a question (`501` until vector store is reimplemented; see [docs/VECTOR_DBS.md](docs/VECTOR_DBS.md)) |
 | `GET` | `/api/v1/health` | Health check |
 
 ---

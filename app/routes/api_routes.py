@@ -157,24 +157,12 @@ def get_parties():
         return jsonify({"success": False, "error": str(e)}), 500
 
 
-# ==================== QUESTIONS ROUTES (Vector DB) ====================
+# ==================== QUESTIONS ROUTES (Vector DB — reimplementation pending) ====================
 
-
-_questions_service = None
-
-
-def _get_questions_service():
-    """Lazy init to avoid import errors when ChromaDB is not installed."""
-    global _questions_service
-    if _questions_service is None:
-        try:
-            from app.services.questions_service import QuestionsService
-
-            _questions_service = QuestionsService()
-        except Exception as e:
-            logger.warning("QuestionsService unavailable: %s", e)
-            return None
-    return _questions_service
+_VECTOR_QA_UNAVAILABLE = (
+    "Semantic Q&A over the vector store is not implemented yet. "
+    "Follow docs/VECTOR_DBS.md to reintroduce Chroma and wire these endpoints."
+)
 
 
 @api_bp.route("/questions", methods=["GET"])
@@ -198,29 +186,22 @@ def get_predefined_questions():
 
 @api_bp.route("/questions/ask", methods=["POST"])
 def ask_question():
-    """Ask a question — semantic search over politician data."""
+    """Ask a question — semantic search over politician data (not yet wired)."""
     try:
         data = request.get_json()
         if not data or not data.get("question"):
             return jsonify({"success": False, "error": "Question is required"}), 400
 
-        qs = _get_questions_service()
-        if not qs:
-            return (
-                jsonify(
-                    {
-                        "success": False,
-                        "error": "Questions service unavailable. Vector DB may not be configured.",
-                    }
-                ),
-                503,
-            )
-
-        result = qs.answer_question(
-            question=data["question"],
-            n_results=data.get("n_results", 5),
+        return (
+            jsonify(
+                {
+                    "success": False,
+                    "error": _VECTOR_QA_UNAVAILABLE,
+                    "code": "VECTOR_QA_NOT_IMPLEMENTED",
+                }
+            ),
+            501,
         )
-        return jsonify(result)
     except Exception as e:
         logger.error("ask_question error: %s", e)
         return jsonify({"success": False, "error": str(e)}), 500
@@ -228,28 +209,19 @@ def ask_question():
 
 @api_bp.route("/questions/<question_id>/answer", methods=["GET"])
 def answer_predefined_question(question_id):
-    """Answer a predefined question by ID."""
+    """Answer a predefined question by ID (not yet wired)."""
     try:
-        qs = _get_questions_service()
-        if not qs:
-            return (
-                jsonify(
-                    {
-                        "success": False,
-                        "error": "Questions service unavailable.",
-                    }
-                ),
-                503,
-            )
-
-        n_results = request.args.get("n_results", default=5, type=int)
-        result = qs.answer_predefined_question(
-            question_id=question_id,
-            n_results=n_results,
+        return (
+            jsonify(
+                {
+                    "success": False,
+                    "error": _VECTOR_QA_UNAVAILABLE,
+                    "code": "VECTOR_QA_NOT_IMPLEMENTED",
+                    "question_id": question_id,
+                }
+            ),
+            501,
         )
-        if not result.get("success"):
-            return jsonify(result), 404
-        return jsonify(result)
     except Exception as e:
         logger.error("answer_predefined_question error: %s", e)
         return jsonify({"success": False, "error": str(e)}), 500
@@ -275,7 +247,7 @@ def api_root():
                 "states": "/api/v1/states",
                 "parties": "/api/v1/parties",
                 "questions": "/api/v1/questions",
-                "ask": "/api/v1/questions/ask (POST)",
+                "ask": "/api/v1/questions/ask (POST, 501 until vector store is wired)",
                 "health": "/api/v1/health",
             },
         }

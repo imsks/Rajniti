@@ -22,9 +22,6 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-sys.modules.setdefault("chromadb", MagicMock())
-sys.modules.setdefault("chromadb.config", MagicMock())
-
 LOCAL_DOCKER_URL = "postgresql://rajniti:rajniti@postgres:5432/rajniti"
 LOCAL_LOCALHOST_URL = "postgresql://rajniti:rajniti@localhost:5432/rajniti"
 SUPABASE_URL = (

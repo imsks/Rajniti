@@ -13,10 +13,6 @@ from unittest.mock import MagicMock, Mock, patch
 
 import pytest
 
-# Mock chromadb before imports
-sys.modules["chromadb"] = MagicMock()
-sys.modules["chromadb.config"] = MagicMock()
-
 # Skip all E2E tests by default - they need database
 pytestmark = pytest.mark.skip(
     reason="E2E tests require database setup. Run unit tests instead."
