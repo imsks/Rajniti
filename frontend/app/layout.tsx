@@ -4,6 +4,13 @@ import "./globals.css";
 import AuthProvider from "@/components/auth/AuthProvider";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import ThemeProvider from "@/components/providers/ThemeProvider";
+import {
+    buildDefaultOg,
+    buildDefaultTwitter,
+    defaultDescription,
+    getSiteUrl,
+    SITE_NAME,
+} from "@/lib/seo/site";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -21,8 +28,35 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Rajniti - Indian Election Data API",
-  description: "A clean, open-source REST API serving comprehensive Indian Election Commission data. Access 50,000+ records across Lok Sabha & Assembly elections.",
+    metadataBase: new URL(getSiteUrl()),
+    title: {
+        default: `${SITE_NAME} — Indian MPs & MLAs`,
+        template: `%s | ${SITE_NAME}`,
+    },
+    description: defaultDescription,
+    applicationName: SITE_NAME,
+    authors: [{ name: "Rajniti contributors", url: "https://github.com/imsks/rajniti" }],
+    creator: "Rajniti",
+    publisher: "Rajniti",
+    formatDetection: {
+        email: false,
+        address: false,
+        telephone: false,
+    },
+    openGraph: {
+        ...buildDefaultOg(),
+        title: `${SITE_NAME} — Know Your Elected Representatives`,
+        description: defaultDescription,
+    },
+    twitter: buildDefaultTwitter(),
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+        },
+    },
 };
 
 export default function RootLayout({

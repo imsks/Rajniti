@@ -77,7 +77,12 @@ def main() -> None:
 
     try:
         added = scrape_election(args.url, election_type)  # type: ignore[arg-type]
-        logger.info("✅ %d new %ss saved to app/data/%s.json", added, election_type, election_type.lower())
+        logger.info(
+            "✅ %d new %ss saved to app/data/%s.json",
+            added,
+            election_type,
+            election_type.lower(),
+        )
     except KeyboardInterrupt:
         logger.warning("Interrupted — partial data has been saved.")
         sys.exit(130)

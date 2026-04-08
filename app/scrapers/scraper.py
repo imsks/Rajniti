@@ -208,17 +208,17 @@ def scrape_election(
                 logger.error("  ✗ Validation failed for %s: %s", constituency.name, exc)
                 continue
 
-          # Persist immediately (one-by-one, dedup by id)
+            # Persist immediately (one-by-one, dedup by id)
             pol_dict = politician.model_dump(mode="json", exclude_none=True)
 
-          # 🔥 ADD PERFORMANCE DATA
+            # 🔥 ADD PERFORMANCE DATA
             import random
 
             pol_dict["performance"] = {
-                  "attendance": random.randint(50, 100),
-                  "questions": random.randint(10, 300),
-                  "debates": random.randint(5, 100)
-                    }
+                "attendance": random.randint(50, 100),
+                "questions": random.randint(10, 300),
+                "debates": random.randint(5, 100),
+            }
 
             was_added = append_politician(pol_dict, output_path, existing_ids)
 

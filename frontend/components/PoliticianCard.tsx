@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import Text from "@/components/ui/Text"
 import Image from "@/components/ui/Image"
 import { useAnalytics } from "@/hooks/useAnalytics"
+import { getPoliticianProfileHref } from "@/lib/politicianUtils"
 import type { Politician } from "@/types/politician"
 
 interface PoliticianCardProps {
@@ -36,11 +37,9 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
     const isMp = politician.type === "MP"
     const hasPhoto = !!politician.photo
     const { trackEvent } = useAnalytics()
-    const politicianUrlSlugOrId = politician.slug ?? politician.id
-
     return (
         <Link
-            href={`/politician/${encodeURIComponent(politicianUrlSlugOrId)}`}
+            href={getPoliticianProfileHref(politician)}
             className='block group'
             onClick={() => trackEvent('politician_card_click', {
                 politician_id: politician.id,
@@ -49,7 +48,7 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
                 party,
                 state: politician.state,
             })}>
-            <motion.div 
+            <motion.div
                 whileHover={{ y: -4, scale: 1.02 }}
                 transition={{ duration: 0.2 }}
                 className='bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 hover:border-orange-400 dark:hover:border-orange-500 hover:shadow-lg transition-all h-full flex flex-col'>

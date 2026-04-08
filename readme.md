@@ -15,10 +15,10 @@
 
 <br />
 
-Browse, search, and explore data on Indian MPs and MLAs.  
+Browse, search, and explore data on Indian MPs and MLAs.
 Enrich politician profiles automatically using LLM-based agents.
 
-[Getting Started](#-getting-started) · [Contributing with AI](#-contributing-with-ai) · [API Reference](#-api-endpoints) · [Project Structure](#-project-structure)
+[Getting Started](#-getting-started) · [Contributing with AI](#-contributing-with-ai) · [Daily agent schedule](#optional-daily-agent-schedule-macos-linux-windows) · [API Reference](#-api-endpoints) · [Project Structure](#-project-structure)
 
 </div>
 
@@ -32,7 +32,7 @@ Enrich politician profiles automatically using LLM-based agents.
 | 🤖 | **AI Enrichment** | Automatically fill education, family, criminal records, and more using LLMs |
 | 🔄 | **Multi-Model Failover** | Gemini → OpenAI → Perplexity with per-model cooldown on rate limits |
 | 🗃️ | **JSON-First Data** | Source of truth lives in version-controlled JSON files |
-| 🧠 | **Vector Search** | Ask natural-language questions about politicians (ChromaDB) |
+| 🧠 | **Vector Search** | Semantic Q&A — **in progress** ([learning doc](docs/VECTOR_DBS.md)) |
 | 🔐 | **Google OAuth** | User accounts via NextAuth with backend sync |
 | 📊 | **Stats Dashboard** | Party breakdown, state coverage, and enrichment progress |
 
@@ -104,7 +104,7 @@ git clone https://github.com/<your-username>/Rajniti.git
 cd Rajniti
 
 # Backend (runs via Python venv)
-make install            # creates venv + installs deps
+make install            # creates venv + pip install -r requirements.txt
 cp .env.example .env    # configure your environment
 . venv/bin/activate     # activate the virtual environment
 
@@ -230,6 +230,112 @@ git push -u origin enrich/<scope>
 
 Then open a Pull Request. Include: the state/scope, number of records, and how you tested.
 
+### Optional: Daily agent schedule (macOS, Linux, Windows)
+
+If you keep the repo on your laptop and prefer not to start the enrichment agent by hand every day, you can run it on a **daily schedule** (example: **8:00** in your local time). The same command updates **`app/data/mp.json`** and **`app/data/mla.json`** when you omit `--type` — it processes every politician who still needs enrichment (respecting the local cache).
+
+**Important:** Scheduled jobs must run with the **project root as the working directory** so `python-dotenv` can load the repo’s `.env` (API keys). Use **absolute paths** in scripts and in cron/Task Scheduler.
+
+**1. One wrapper script (Unix — macOS and Linux)**
+
+Save as something like `~/bin/rajniti-daily-enrich.sh`, edit `REPO_ROOT`, then make it executable (`chmod +x ~/bin/rajniti-daily-enrich.sh`):
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPO_ROOT="/absolute/path/to/Rajniti"   # <-- change this
+LOG_DIR="${HOME}/logs"
+mkdir -p "${LOG_DIR}"
+
+cd "${REPO_ROOT}"
+# Assumes you use the project venv from `make install`
+# shellcheck source=/dev/null
+. "${REPO_ROOT}/venv/bin/activate"
+
+# One run: all MPs and MLAs that still need work (omit --type)
+python scripts/run_politician_agent.py --log-level INFO \
+  >> "${LOG_DIR}/rajniti-agent.log" 2>&1
+```
+
+**Run immediately (any OS):** open a terminal, `cd` to the repo, activate the venv, and run the same `python scripts/run_politician_agent.py --log-level INFO` line (or use the commands in **3. Run the agent** above). No need to wait for the next 8:00 run.
+
+---
+
+**2. macOS — `crontab`**
+
+Edit your user crontab:
+
+```bash
+crontab -e
+```
+
+Add one line to run **every day at 08:00** local time (adjust the script path if needed):
+
+```cron
+0 8 * * * /Users/YOUR_USER/bin/rajniti-daily-enrich.sh
+```
+
+- **List** your crontab: `crontab -l`
+- **Remove all** cron entries: `crontab -r` (use with care)
+- **Change time:** edit the five time fields; `0 8 * * *` = minute `0`, hour `8`, every day. See `man 5 crontab` on your system.
+- **Sleep / closed lid:** `cron` only runs while the Mac is awake at the scheduled time. If you often miss the window, run the script manually when you’re back, or consider **`launchd`** (`~/Library/LaunchAgents/`) with `StartCalendarInterval` for a user agent that behaves similarly (still requires the machine to be awake, unless you use a always-on machine or a remote runner).
+
+---
+
+**3. Linux — `crontab`**
+
+Same idea as macOS:
+
+```bash
+crontab -e
+```
+
+Example (8:00 daily):
+
+```cron
+0 8 * * * /home/YOUR_USER/bin/rajniti-daily-enrich.sh
+```
+
+Ensure the shebang script is executable and that `cron` has access to your environment if you rely on anything outside the script (the wrapper above avoids that by using absolute paths and `cd`).
+
+---
+
+**4. Windows — Task Scheduler**
+
+**a)** Create `C:\Users\YOUR_USER\bin\rajniti-daily-enrich.bat` (adjust paths):
+
+```bat
+@echo off
+setlocal
+cd /d C:\absolute\path\to\Rajniti
+call venv\Scripts\activate.bat
+python scripts\run_politician_agent.py --log-level INFO >> "%USERPROFILE%\logs\rajniti-agent.log" 2>&1
+```
+
+Create the log folder once: `mkdir %USERPROFILE%\logs`
+
+**b)** Open **Task Scheduler** → **Create Task…** (not “Create Basic Task” if you want full control).
+
+- **General:** Run only when user is logged on (typical for a laptop), or “Run whether user is logged on or not” if you need headless runs (may require stored password).
+- **Triggers:** New… → **Daily** → start time **8:00:00 AM** (local time).
+- **Actions:** New… → **Start a program** → Program/script: `C:\Users\YOUR_USER\bin\rajniti-daily-enrich.bat` (or `cmd.exe` with arguments `/c "C:\…\rajniti-daily-enrich.bat"` if you prefer).
+
+**Run immediately:** In Task Scheduler, right-click the task → **Run**. Or from **cmd.exe**: `schtasks /Run /TN "YourTaskName"` (use the exact task name you created).
+
+**Change or remove:** Task Scheduler Library → select the task → **Properties** (edit triggers/times) or **Delete**.
+
+---
+
+**5. Updating the schedule later**
+
+| Platform | View | Edit | Remove |
+|----------|------|------|--------|
+| **macOS / Linux** | `crontab -l` | `crontab -e` | Delete the line in the editor, or `crontab -r` to clear everything |
+| **Windows** | Task Scheduler → your task | Properties → Triggers / Actions | Delete the task |
+
+After any change to the wrapper script path or repo location, update the scheduled command to match.
+
 ---
 
 ## 🛡️ Contribution Rules
@@ -258,7 +364,7 @@ Then open a Pull Request. Include: the state/scope, number of records, and how y
 | `GET` | `/api/v1/stats` | Summary statistics |
 | `GET` | `/api/v1/states` | List all states |
 | `GET` | `/api/v1/parties` | List all parties |
-| `POST` | `/api/v1/questions/ask` | Ask a question (vector search) |
+| `POST` | `/api/v1/questions/ask` | Ask a question (`501` until vector store is reimplemented; see [docs/VECTOR_DBS.md](docs/VECTOR_DBS.md)) |
 | `GET` | `/api/v1/health` | Health check |
 
 ---
@@ -275,7 +381,83 @@ The architecture is designed to be extensible — each enrichment field is an in
 
 ---
 
+## 🗄️ Database & Migrations
+
+The backend uses **PostgreSQL** via SQLAlchemy + Alembic. Migrations run automatically on server startup (via `alembic upgrade head`).
+
+### Database Setup
+
+**Option A — Local Docker Postgres** (for development):
+
+```bash
+# .env
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/rajniti
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=rajniti
+```
+
+```bash
+make dev          # starts Postgres + API via Docker Compose
+```
+
+If running the API outside Docker (venv), use `localhost` in the URL. If running inside Docker, use `postgres` (the compose service name).
+
+**Option B — Supabase** (for staging/production):
+
+```bash
+# .env — use the session-mode pooler URL (port 5432), NOT the direct URL
+DATABASE_URL=postgresql://postgres.PROJECT_REF:PASSWORD@aws-0-REGION.pooler.supabase.com:5432/postgres
+```
+
+> The direct Supabase host (`db.*.supabase.co`) is IPv6-only and will fail in Docker. Always use the **session-mode pooler** URL from your Supabase dashboard (Settings > Database > Connection string > Session mode).
+
+### How Migrations Work
+
+1. **On server startup**: `alembic upgrade head` runs automatically, applying any pending migrations.
+2. **`metadata.create_all`** runs as a fallback for brand-new databases with no tables at all.
+
+To disable auto-migration, set `SKIP_DB_AUTO_MIGRATE=1` in `.env`.
+
+### When You Change a Model
+
+After editing a model file (e.g. adding a column to `app/database/models/user.py`):
+
+```bash
+# 1. Generate a migration from the model diff
+python scripts/db.py autogenerate -m "add column_name to users"
+
+# 2. Review the generated file in alembic/versions/ — remove anything unwanted
+#    (Alembic may detect tables in the DB that aren't in your models)
+
+# 3. Apply it
+python scripts/db.py migrate
+```
+
+Or equivalently using Alembic directly:
+
+```bash
+alembic revision --autogenerate -m "add column_name to users"
+alembic upgrade head
+```
+
+The next time the server starts, it will apply the migration automatically for all environments (local, GCP, etc.).
+
+### Migration Commands Reference
+
+| Command | What it does |
+|---------|-------------|
+| `python scripts/db.py migrate` | Run `alembic upgrade head` |
+| `python scripts/db.py autogenerate -m "msg"` | Generate migration from model diff |
+| `python scripts/db.py init` | `metadata.create_all` (no Alembic) |
+| `alembic history` | Show migration chain |
+| `alembic current` | Show current revision in DB |
+
+---
+
 ## 🧪 Testing
+
+### Backend (Python)
 
 ```bash
 make test              # all tests
@@ -285,6 +467,22 @@ make coverage          # tests + coverage report
 make lint              # backend + frontend linting
 make format            # auto-format with Black + isort
 ```
+
+In **GitHub Actions**, backend checks run in one job, **in order**: lint (Black, isort, Flake8, mypy) → unit tests → integration tests → E2E tests. See `.github/workflows/ci.yml`.
+
+### Frontend (Next.js)
+
+```bash
+cd frontend
+npm test               # all Jest tests (unit + integration)
+npm run test:unit      # Jest unit tests only
+npm run test:integration
+npm run test:e2e       # Playwright (needs dev server; see frontend README)
+```
+
+Full frontend testing notes, E2E setup, and CI behavior: **[frontend/README.md](frontend/README.md)**.
+
+In **GitHub Actions**, after ESLint and TypeScript, **unit**, **integration**, and **E2E** jobs run **in parallel**, then a production build runs if all pass.
 
 ---
 
@@ -304,9 +502,11 @@ Rajniti/
 │   ├── schemas/           # Pydantic validation schemas
 │   └── services/          # Business logic layer
 ├── frontend/
+│   ├── README.md          # Frontend scripts, testing, CI notes
 │   ├── app/               # Next.js App Router pages
 │   ├── components/        # React components
 │   ├── data/              # Generated static data (contributors.json)
+│   ├── __tests__/e2e/     # Playwright E2E tests (browser)
 │   ├── hooks/             # Custom React hooks
 │   └── lib/               # Shared utilities
 ├── scripts/               # CLI scripts (agent runner, DB, MLA fetcher)

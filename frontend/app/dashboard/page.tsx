@@ -10,6 +10,7 @@ import PoliticianCardWrapper from "@/components/PoliticianCardWrapper"
 import MyPoliticiansSection from "@/components/MyPoliticiansSection"
 import { usePoliticians } from "@/hooks/usePoliticians"
 import { useAnalytics } from "@/hooks/useAnalytics"
+import { useOnboardingCheck } from "@/hooks/useOnboardingCheck"
 import { useSession } from "next-auth/react"
 import { userService } from "@/lib/api/user"
 
@@ -28,6 +29,7 @@ export default function Dashboard() {
 }
 
 function DashboardContent() {
+    const { sessionLoading, needsOnboarding } = useOnboardingCheck()
     const [activeTab, setActiveTab] = useState<Tab>("ALL")
     const [searchQuery, setSearchQuery] = useState("")
     const [stateFilter, setStateFilter] = useState("")
@@ -39,7 +41,6 @@ function DashboardContent() {
     // One API call for all politicians; filter client-side by tab + search/filters
 const { all, loading, error, states, parties, stats, filter } =
     usePoliticians()
-
 
     // Filtered list — pure client-side (type from tab + query, state, party)
     const displayPoliticians = useMemo(() => {
@@ -111,6 +112,14 @@ const { all, loading, error, states, parties, stats, filter } =
         if (error) trackEvent('error_view', { error_type: 'connection', error_message: error, page_location: 'dashboard' })
     }, [error, trackEvent])
 
+    if (sessionLoading || needsOnboarding) {
+        return (
+            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 flex items-center justify-center'>
+                <div className='inline-block animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent'></div>
+            </div>
+        )
+    }
+
     if (error) {
         return (
             <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 flex items-center justify-center p-4'>
@@ -141,7 +150,7 @@ const { all, loading, error, states, parties, stats, filter } =
                 <MyPoliticiansSection allPoliticians={all} />
 
                 {/* Header + Stats */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
@@ -154,7 +163,7 @@ const { all, loading, error, states, parties, stats, filter } =
                     </Text>
 
                     {!loading && (
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
@@ -184,7 +193,7 @@ const { all, loading, error, states, parties, stats, filter } =
                 </motion.div>
 
                 {/* Tabs */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
@@ -219,7 +228,7 @@ const { all, loading, error, states, parties, stats, filter } =
                 </motion.div>
 
                 {/* Search + Filters */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
@@ -352,7 +361,7 @@ const { all, loading, error, states, parties, stats, filter } =
                             </div>
                         </div>
 
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.5 }}
@@ -434,7 +443,7 @@ const { all, loading, error, states, parties, stats, filter } =
                 )}
 
                 {/* Contribute CTA */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -481,7 +490,7 @@ function StatCard({
     color: string
 }) {
     return (
-        <motion.div 
+        <motion.div
             whileHover={{ y: -4, transition: { duration: 0.2 } }}
             className='bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm'>
             <Text variant='h3' weight='bold' className={color}>

@@ -11,10 +11,6 @@ from unittest.mock import MagicMock, Mock, patch
 
 import pytest
 
-# Mock chromadb before app imports
-sys.modules["chromadb"] = MagicMock()
-sys.modules["chromadb.config"] = MagicMock()
-
 
 @pytest.mark.unit
 class TestInitEngine:
@@ -43,7 +39,8 @@ class TestInitEngine:
         session_mod.SessionLocal = None
         try:
             with patch(
-                "app.database.session.get_database_url", side_effect=ValueError("no url")
+                "app.database.session.get_database_url",
+                side_effect=ValueError("no url"),
             ):
                 result = session_mod.init_engine()
             assert result is None
@@ -61,15 +58,19 @@ class TestInitEngine:
         mock_engine = MagicMock()
         mock_session_factory = MagicMock()
         try:
-            with patch(
-                "app.database.session.get_database_url",
-                return_value="sqlite:///:memory:",
-            ), patch(
-                "app.database.session.create_engine",
-                return_value=mock_engine,
-            ), patch(
-                "app.database.session.sessionmaker",
-                return_value=mock_session_factory,
+            with (
+                patch(
+                    "app.database.session.get_database_url",
+                    return_value="sqlite:///:memory:",
+                ),
+                patch(
+                    "app.database.session.create_engine",
+                    return_value=mock_engine,
+                ),
+                patch(
+                    "app.database.session.sessionmaker",
+                    return_value=mock_session_factory,
+                ),
             ):
                 result = session_mod.init_engine()
             assert result is mock_engine
@@ -88,9 +89,7 @@ class TestInitEngine:
         session_mod.engine = mock_engine
         session_mod.SessionLocal = mock_session_factory
         try:
-            with patch(
-                "app.database.session.get_database_url"
-            ) as mock_get_url:
+            with patch("app.database.session.get_database_url") as mock_get_url:
                 result = session_mod.init_engine()
             assert result is mock_engine
             mock_get_url.assert_not_called()
@@ -181,14 +180,18 @@ class TestCoreDatabaseInitDb:
         mock_conn.__exit__ = Mock(return_value=False)
         mock_engine.connect.return_value = mock_conn
 
-        with patch(
-            "app.core.database.get_database_url",
-            return_value="postgresql://user:pass@localhost/db",
-        ), patch(
-            "app.database.session.init_engine",
-            return_value=mock_engine,
-        ), patch(
-            "app.database.session.init_db",
+        with (
+            patch(
+                "app.core.database.get_database_url",
+                return_value="postgresql://user:pass@localhost/db",
+            ),
+            patch(
+                "app.database.session.init_engine",
+                return_value=mock_engine,
+            ),
+            patch(
+                "app.database.session.init_db",
+            ),
         ):
             result = core_db.init_db()
         assert result is True
@@ -202,12 +205,15 @@ class TestCoreDatabaseInitDb:
         mock_engine = MagicMock()
         mock_engine.connect.side_effect = SQLAlchemyError("connection failed")
 
-        with patch(
-            "app.core.database.get_database_url",
-            return_value="postgresql://user:pass@localhost/db",
-        ), patch(
-            "app.database.session.init_engine",
-            return_value=mock_engine,
+        with (
+            patch(
+                "app.core.database.get_database_url",
+                return_value="postgresql://user:pass@localhost/db",
+            ),
+            patch(
+                "app.database.session.init_engine",
+                return_value=mock_engine,
+            ),
         ):
             result = core_db.init_db()
         assert result is False

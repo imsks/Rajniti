@@ -127,7 +127,6 @@ exclude = [
 [[tool.mypy.overrides]]
 module = [
     "app.scrapers.*",
-    "app.core.vector_db",
     "app.agents.*",
     "app.database.models.*",
 ]
