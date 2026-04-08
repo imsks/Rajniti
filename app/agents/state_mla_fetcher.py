@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import logging
 import threading
+import time
 import uuid
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -16,6 +17,38 @@ logger = logging.getLogger(__name__)
 BATCH_SIZE = 30
 MAX_WORKERS = 3
 
+# Vidhan Sabha sizes ~150+ — a single JSON array of all AC names exceeds typical
+# model output limits and the default HTTP deadline; fetch in letter-bucket prompts.
+STATES_REQUIRING_BUCKETED_CONSTITUENCY_FETCH = frozenset(
+    {
+        "Andhra Pradesh",
+        "Assam",
+        "Bihar",
+        "Gujarat",
+        "Karnataka",
+        "Kerala",
+        "Madhya Pradesh",
+        "Maharashtra",
+        "Odisha",
+        "Punjab",
+        "Rajasthan",
+        "Tamil Nadu",
+        "Telangana",
+        "Uttar Pradesh",
+        "West Bengal",
+    }
+)
+
+# Split the alphabet so each response stays small enough to parse within timeouts.
+_CONSTITUENCY_LETTER_BUCKETS: List[tuple[str, str]] = [
+    ("A", "D"),
+    ("E", "H"),
+    ("I", "L"),
+    ("M", "P"),
+    ("Q", "S"),
+    ("T", "Z"),
+]
+
 
 class ConstituencyFetcher:
     """Subprocess: fetch assembly constituency names for a state."""
@@ -25,28 +58,100 @@ class ConstituencyFetcher:
     def __init__(self, agent: BaseAgent):
         self.agent = agent
 
-    def run(self, state: str) -> List[str]:
-        logger.info(
-            "[ConstituencyFetcher] calling LLM for %s constituencies (this may take ~30s)",
-            state,
-        )
+    def _normalize_list(self, parsed: Any) -> List[str]:
+        items = self.agent._coerce_to_list(parsed) or []
+        return [c.strip() for c in items if isinstance(c, str) and c.strip()]
+
+    def _fetch_single(self, state: str) -> List[str]:
         prompt = (
             f"Return ONLY a valid JSON array of all current assembly constituency names "
             f"for the Indian state: {state}.\n"
             f'Example format: ["Dispur", "Jalukbari", ...]\n'
         )
         raw = self.agent._run_llm(prompt)
-        logger.info("[ConstituencyFetcher] LLM responded (%d chars)", len(raw))
-
+        logger.info(
+            "[ConstituencyFetcher] single-shot LLM responded (%d chars)", len(raw)
+        )
         parsed = self.agent._parse_json_value(raw)
         if parsed is None:
             logger.warning("[ConstituencyFetcher] failed to parse LLM response as JSON")
             return []
-
-        items = self.agent._coerce_to_list(parsed) or []
-        result = [c.strip() for c in items if isinstance(c, str) and c.strip()]
-        logger.info("[ConstituencyFetcher] parsed %d constituencies", len(result))
+        result = self._normalize_list(parsed)
+        logger.info(
+            "[ConstituencyFetcher] single-shot parsed %d constituencies", len(result)
+        )
         return result
+
+    def _fetch_one_bucket(
+        self, state: str, letter_lo: str, letter_hi: str
+    ) -> List[str]:
+        prompt = (
+            f'Return ONLY a valid JSON array of assembly constituency names in the Indian state "{state}" '
+            f"whose names (English spelling as used by ECI) start with letters "
+            f"{letter_lo!r} through {letter_hi!r} inclusive. "
+            f"Include every such constituency in this letter range; omit names outside it. "
+            f'Format: ["Name1", "Name2", ...]\n'
+        )
+        raw = self.agent._run_llm(prompt)
+        logger.info(
+            "[ConstituencyFetcher] bucket %s-%s LLM responded (%d chars)",
+            letter_lo,
+            letter_hi,
+            len(raw),
+        )
+        parsed = self.agent._parse_json_value(raw)
+        if parsed is None:
+            logger.warning(
+                "[ConstituencyFetcher] bucket %s-%s: failed to parse JSON",
+                letter_lo,
+                letter_hi,
+            )
+            return []
+        return self._normalize_list(parsed)
+
+    def _fetch_bucketed(self, state: str) -> List[str]:
+        """Fetch constituencies in several small LLM calls (for 150+ seat states)."""
+        logger.info(
+            "[ConstituencyFetcher] using letter-bucketed fetch for large assembly: %s (%d buckets)",
+            state,
+            len(_CONSTITUENCY_LETTER_BUCKETS),
+        )
+        seen: set[str] = set()
+        merged: List[str] = []
+        for i, (lo, hi) in enumerate(_CONSTITUENCY_LETTER_BUCKETS):
+            if i:
+                time.sleep(0.4)
+            part = self._fetch_one_bucket(state, lo, hi)
+            logger.info(
+                "[ConstituencyFetcher] bucket %s-%s → %d names", lo, hi, len(part)
+            )
+            for c in part:
+                key = c.lower()
+                if key not in seen:
+                    seen.add(key)
+                    merged.append(c)
+        logger.info(
+            "[ConstituencyFetcher] bucketed merge → %d unique constituencies",
+            len(merged),
+        )
+        return merged
+
+    def run(self, state: str) -> List[str]:
+        canonical = state.strip()
+        if canonical in STATES_REQUIRING_BUCKETED_CONSTITUENCY_FETCH:
+            return self._fetch_bucketed(canonical)
+
+        logger.info(
+            "[ConstituencyFetcher] calling LLM for %s constituencies (single list)",
+            canonical,
+        )
+        single = self._fetch_single(canonical)
+        if not single:
+            logger.warning(
+                "[ConstituencyFetcher] single-shot empty; retrying with letter buckets"
+            )
+            return self._fetch_bucketed(canonical)
+        return single
 
 
 class MLADetailsFetcher:
@@ -95,21 +200,30 @@ class MLADetailsFetcher:
         return result
 
     def run(self, state: str, constituencies: List[str]) -> List[Dict[str, Any]]:
-        batches = [
-            constituencies[i : i + self.batch_size]
-            for i in range(0, len(constituencies), self.batch_size)
-        ]
+        n = len(constituencies)
+        # Large states: smaller batches → shorter prompts/responses, fewer timeouts.
+        batch_size = self.batch_size
+        if n > 200:
+            batch_size = min(batch_size, 12)
+        elif n > 120:
+            batch_size = min(batch_size, 18)
+
+        batches = [constituencies[i : i + batch_size] for i in range(0, n, batch_size)]
         total = len(batches)
 
         if total == 1:
             return self._fetch_batch(state, batches[0], 1, 1)
 
+        workers = self.max_workers
+        if n > 250:
+            workers = min(workers, 2)
+
         logger.info(
             "[MLADetailsFetcher] %d constituencies → %d batches of ~%d (workers=%d)",
             len(constituencies),
             total,
-            self.batch_size,
-            self.max_workers,
+            batch_size,
+            workers,
         )
 
         all_results: List[Dict[str, Any]] = []
@@ -128,7 +242,7 @@ class MLADetailsFetcher:
                 )
             return result
 
-        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+        with ThreadPoolExecutor(max_workers=workers) as executor:
             futures = {
                 executor.submit(_run_batch, i, b): i for i, b in enumerate(batches)
             }
