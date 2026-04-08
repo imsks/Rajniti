@@ -207,6 +207,7 @@ def ask_question():
         result = qs.answer_question(
             question=data["question"],
             n_results=min(data.get("n_results", 5), 50),
+        )
         return (
             jsonify(
                 {
@@ -242,6 +243,7 @@ def answer_predefined_question(question_id):
         result = qs.answer_predefined_question(
             question_id=question_id,
             n_results=n_results,
+        )
         return (
             jsonify(
                 {
