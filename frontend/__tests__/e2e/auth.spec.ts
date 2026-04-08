@@ -68,4 +68,3 @@ test.describe('API health (backend connectivity)', () => {
         }
     })
 })
-

@@ -18,6 +18,9 @@ responses>=0.24.0  # HTTP request mocking
 freezegun>=1.2.0  # Time mocking
 factory-boy>=3.3.0  # Test fixtures
 
+# Git hooks (optional: run `make git-hooks` after install-dev)
+pre-commit>=3.7.0
+
 # Code quality
 flake8>=6.1.0
 black>=23.11.0

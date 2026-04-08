@@ -66,8 +66,8 @@ describe('userService', () => {
     it('should update user successfully', async () => {
       const userId = 'user-123'
       const updateData = { name: 'Updated Name', state: 'DL' }
-      const expectedResponse = { 
-        success: true, 
+      const expectedResponse = {
+        success: true,
         data: { ...updateData, id: userId },
         message: 'User updated successfully'
       }

@@ -74954,7 +74954,7 @@
     },
     "notes": null
   },
-   {
+  {
     "id": "7dd6c3a0-e66b-4cfb-832c-b3141a9b14e0",
     "name": "Shalimar Bagh",
     "photo": null,
@@ -74991,6 +74991,442 @@
       "summary": null
     },
     "notes": null
+  },
+  {
+    "id": "eef9dae5-09a3-56f4-b7f7-b0d8651c4b6b",
+    "name": "Tsering Lhamu",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Lumla",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "78cf9f5b-e478-50a1-b587-98663663e9c7",
+    "name": "Dorjee Chokpa",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Mukto",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "3051a590-bb78-501f-a47c-d850cb216bfc",
+    "name": "Dorjee Wangdi Kharma",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Kalaktang",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "fde1ffaf-5ca6-5fdd-a95a-9aba307e65e7",
+    "name": "Kumsi Sidisow",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Thrizino-Buragaon",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "e4cd47e0-c065-522f-9a9a-8f6f69cbcbf9",
+    "name": "Dongru Siongju",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Bomdila",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "bb80a5b0-f1b7-5df5-a17e-48f6c3bf0536",
+    "name": "Hayeng Mangfi",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Chayangtajo",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "c05c92bb-7b01-5cdd-987a-2b612bdf12e8",
+    "name": "Ering Taggu",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Seppa East",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "a7e255d1-05c0-5e07-9959-c5e6217656ef",
+    "name": "Mama Natung",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Seppa West",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "a56cd489-c0af-5413-9687-49e747ebf23e",
+    "name": "Biyuram Wahge",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Pakke-Kessang",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "61480bb5-9a66-5a92-bf51-7d0e483c95ae",
+    "name": "Nabam Tuki",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Sagalee",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "6ff12838-929f-5667-be0d-1d2146c20114",
+    "name": "Likha Saaya",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Yachuli",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "6bba8c17-ed40-5442-8178-858f8a1bea48",
+    "name": "Tage Taki",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Ziro-Hapoli",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "77d447db-e669-537f-acd4-192b6e988e37",
+    "name": "Balo Raja",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Palin",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "86db4a78-736a-54fc-a088-657fed6e10f4",
+    "name": "Bamang Felix",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Nyapin",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "72444462-f0e6-5153-8a76-7a0186462ddd",
+    "name": "Jikke Tako",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Tali",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "ab69dc5c-8c6e-557b-9713-8debc6cd8247",
+    "name": "Lokam Tasar",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Koloriang",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "6c900d53-bcd3-517b-bd24-d64914e01e33",
+    "name": "Nyato Dukam",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Taliha",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "76c0a8c6-8ca8-5036-9974-c11c2a2e57ed",
+    "name": "Tanya Soki",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Daporijo",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "84b2ac16-23a2-5958-8822-a8a75555ea15",
+    "name": "Tarin Dakpe",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Raga",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "ebd8b532-1bcb-5a3c-89e4-40e82e1cd5bc",
+    "name": "Rode Bui",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Dumporijo",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "aaa7bc63-7bd3-513b-a069-6e1f0f9d8e3f",
+    "name": "Nyamar Karbak",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Liromoba",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "c222b998-4fbe-5d05-a74e-333b8e3123ec",
+    "name": "Topin Ete",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Along West",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
+  },
+  {
+    "id": "854761ad-ef03-5883-bfdf-44d0f0d54efb",
+    "name": "Kento Jini",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Along East",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    },
+    "notes": null
   }
-
 ]

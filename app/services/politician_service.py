@@ -2,9 +2,9 @@ import json
 import logging
 import re
 from pathlib import Path
-from typing import Any, Dict, List, Literal, Optional, Set
+from typing import Any, Dict, List, Literal, Optional
 
-from app.core.slugify import slugify, short_id_from_uuid
+from app.core.slugify import short_id_from_uuid, slugify
 
 logger = logging.getLogger(__name__)
 
@@ -16,7 +16,7 @@ _DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 # ---------- NORMALIZE ----------
 def normalize(name: str) -> str:
     name = name.lower()
-    name = re.sub(r'[^a-z ]', '', name)
+    name = re.sub(r"[^a-z ]", "", name)
     return name.strip()
 
 
@@ -43,10 +43,7 @@ class PoliticianService:
             with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
-            return {
-                normalize(p["name"]): p["performance"]
-                for p in data
-            }
+            return {normalize(p["name"]): p["performance"] for p in data}
 
         except Exception as e:
             logger.error("Performance load error: %s", e)
@@ -56,11 +53,9 @@ class PoliticianService:
     def _attach_performance(self, p: Dict[str, Any]) -> Dict[str, Any]:
         name = normalize(p.get("name", ""))
 
-        p["performance"] = self._perf_map.get(name, {
-            "attendance": 0,
-            "questions": 0,
-            "debates": 0
-        })
+        p["performance"] = self._perf_map.get(
+            name, {"attendance": 0, "questions": 0, "debates": 0}
+        )
 
         return p
 
@@ -179,8 +174,7 @@ class PoliticianService:
             if party_l is not None:
                 elections = (p.get("political_background") or {}).get("elections") or []
                 if not any(
-                    (e.get("party") or "").lower() == party_l
-                    for e in elections
+                    (e.get("party") or "").lower() == party_l for e in elections
                 ):
                     continue
 
@@ -190,3 +184,44 @@ class PoliticianService:
                 break
 
         return results
+
+    def update_politician(self, politician_id: str, updates: Dict[str, Any]) -> bool:
+        """Merge ``updates`` into the politician record and persist ``mp.json`` / ``mla.json``.
+
+        Returns True if a record was found and written. Keeps :meth:`_by_id` in sync when
+        slug indexing has already been built.
+        """
+        if not politician_id or not updates:
+            return False
+
+        pid = str(politician_id)
+
+        for election_type in ("MP", "MLA"):
+            path = self._path(election_type)
+            if not path.exists():
+                continue
+
+            records = self._load(election_type)
+            for rec in records:
+                if str(rec.get("id")) != pid:
+                    continue
+
+                for key, value in updates.items():
+                    rec[key] = value
+
+                try:
+                    with open(path, "w", encoding="utf-8") as f:
+                        json.dump(records, f, indent=2, ensure_ascii=False)
+                        f.write("\n")
+                except OSError as exc:
+                    logger.error("Failed to write politician data %s: %s", path, exc)
+                    return False
+
+                if self._slugs_ensured and pid in self._by_id:
+                    for key, value in updates.items():
+                        self._by_id[pid][key] = value
+
+                return True
+
+        logger.warning("Politician not found for update: %s", pid)
+        return False

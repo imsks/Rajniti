@@ -71,7 +71,8 @@ def resolve_ipv4(host: str, port: int) -> str:
     """Resolve host to an IPv4 address. Returns empty string on failure."""
     try:
         infos = socket.getaddrinfo(
-            host, port,
+            host,
+            port,
             family=socket.AF_INET,
             type=socket.SOCK_STREAM,
         )

@@ -15,7 +15,7 @@
 
 <br />
 
-Browse, search, and explore data on Indian MPs and MLAs.  
+Browse, search, and explore data on Indian MPs and MLAs.
 Enrich politician profiles automatically using LLM-based agents.
 
 [Getting Started](#-getting-started) · [Contributing with AI](#-contributing-with-ai) · [Daily agent schedule](#optional-daily-agent-schedule-macos-linux-windows) · [API Reference](#-api-endpoints) · [Project Structure](#-project-structure)
@@ -104,7 +104,7 @@ git clone https://github.com/<your-username>/Rajniti.git
 cd Rajniti
 
 # Backend (runs via Python venv)
-make install            # creates venv + installs deps
+make install            # creates venv + pip install -r requirements.txt
 cp .env.example .env    # configure your environment
 . venv/bin/activate     # activate the virtual environment
 

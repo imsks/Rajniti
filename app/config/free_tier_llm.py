@@ -101,8 +101,6 @@ DEFAULT_PROVIDERS: list[dict[str, Any]] = [
         "model": "gemini-3-flash-preview",
         "api_key_env": "GEMINI_API_KEY",
     },
-    {"provider": "gemini", "model": "gemini-2.5-pro", "api_key_env": "GEMINI_API_KEY"},
-    {"provider": "gemini", "model": "gemini-2.0-flash-lite", "api_key_env": "GEMINI_API_KEY"},
     {
         "provider": "gemini",
         "model": "gemini-2.5-flash",
@@ -113,10 +111,17 @@ DEFAULT_PROVIDERS: list[dict[str, Any]] = [
         "model": "gemini-2.0-flash",
         "api_key_env": "GEMINI_API_KEY",
     },
-
-    {"provider": "gemini", "model": "gemini-2.5-flash", "api_key_env": "GEMINI_API_KEY"},
-    {"provider": "gemini", "model": "gemini-2.0-flash", "api_key_env": "GEMINI_API_KEY"},
-
+    {"provider": "gemini", "model": "gemini-2.5-pro", "api_key_env": "GEMINI_API_KEY"},
+    {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash",
+        "api_key_env": "GEMINI_API_KEY",
+    },
+    {
+        "provider": "gemini",
+        "model": "gemini-2.0-flash",
+        "api_key_env": "GEMINI_API_KEY",
+    },
     # --- Groq (ultra-fast free inference) ---
     {
         "provider": "groq",

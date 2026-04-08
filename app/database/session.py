@@ -10,7 +10,12 @@ import logging
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from .config import get_connect_args, get_database_url, get_echo_mode, is_transaction_pooler
+from .config import (
+    get_connect_args,
+    get_database_url,
+    get_echo_mode,
+    is_transaction_pooler,
+)
 
 logger = logging.getLogger(__name__)
 

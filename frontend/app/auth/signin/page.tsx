@@ -14,32 +14,32 @@ function SignInContent() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center p-4">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="max-w-md w-full">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="bg-white rounded-2xl shadow-xl p-8 border border-orange-100">
           <div className="text-center mb-8">
-            <motion.div 
+            <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3, type: "spring", stiffness: 200 }}
               className="flex justify-center mb-4">
               <div className="text-5xl"><img src="/logo/voting-box.png" alt="Rajniti Logo" className='w-9 h-9' /></div>
             </motion.div>
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-3xl font-bold text-gray-900 mb-2">
               Welcome to Rajniti
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
@@ -80,7 +80,7 @@ function SignInContent() {
             Continue with Google
           </motion.button>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.7 }}
@@ -89,12 +89,12 @@ function SignInContent() {
           </motion.p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
           className="text-center mt-6">
-          <Link 
+          <Link
             href="/"
             className="text-orange-600 hover:text-orange-700 font-medium"
           >

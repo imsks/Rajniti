@@ -1,0 +1,31 @@
+# Install hooks: `make git-hooks` (after `make install-dev`)
+# https://pre-commit.com
+default_language_version:
+  python: python3
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        types: [python]
+        files: ^(app|tests)/
+      - id: end-of-file-fixer
+        types: [python]
+        files: ^(app|tests)/
+
+  - repo: https://github.com/psf/black
+    rev: 24.10.0
+    hooks:
+      - id: black
+        language_version: python3
+        files: ^(app|tests)/
+
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        files: ^(app|tests)/
+
+  # Flake8 + mypy run in CI (`make lint-backend`). Omit here so local commits are not
+  # blocked by legacy test imports; run `make lint-backend` before pushing.
