@@ -26,7 +26,7 @@ export default function Navbar({
             <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                 <div className='flex h-16 items-center justify-between'>
                     <Link href='/' onClick={() => trackNav('Logo', '/')} className='flex items-center gap-2 no-underline'>
-                        <div className='w-7 h-7'><img src='/logo/voting-box.png' alt='Rajniti Logo' /></div>
+                        <div className='w-7 h-7'><img src='/logo/voting-box.png' alt='Rajniti Logo' className='dark:invert' /></div>
                         <Text variant='h3' className='text-[#0F1F3D] dark:text-white font-bold tracking-tight font-poppins mt-2'>
                             Raj<span><span className='text-orange-600'>niti</span></span>
                         </Text>
