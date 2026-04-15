@@ -1,14 +1,15 @@
-import requests
-from bs4 import BeautifulSoup
 import json
 import re
 import time
+
+import requests
+from bs4 import BeautifulSoup
 
 BASE_URL = "https://prsindia.org"
 
 
 def extract_number(text):
-    nums = re.findall(r'\d+', text)
+    nums = re.findall(r"\d+", text)
     return int(nums[0]) if nums else 0
 
 
@@ -23,26 +24,22 @@ def extract_stats(soup):
     # attendance
     if "attendance" in all_text:
         idx = all_text.find("attendance")
-        snippet = all_text[idx:idx+100]
+        snippet = all_text[idx : idx + 100]
         attendance = extract_number(snippet)
 
     # questions
     if "questions" in all_text:
         idx = all_text.find("questions")
-        snippet = all_text[idx:idx+100]
+        snippet = all_text[idx : idx + 100]
         questions = extract_number(snippet)
 
     # debates
     if "debates" in all_text:
         idx = all_text.find("debates")
-        snippet = all_text[idx:idx+100]
+        snippet = all_text[idx : idx + 100]
         debates = extract_number(snippet)
 
-    return {
-        "attendance": attendance,
-        "questions": questions,
-        "debates": debates
-    }
+    return {"attendance": attendance, "questions": questions, "debates": debates}
 
 
 def scrape_mp(link):
@@ -54,10 +51,7 @@ def scrape_mp(link):
 
     perf = extract_stats(soup)
 
-    return {
-        "name": name,
-        "performance": perf
-    }
+    return {"name": name, "performance": perf}
 
 
 all_mps = []

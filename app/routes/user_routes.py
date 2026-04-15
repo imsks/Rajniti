@@ -2,22 +2,26 @@
 User routes for user data management.
 """
 
+import traceback  # ✅ ADDED
+
 from flask import Blueprint, jsonify, request
-import traceback   # ✅ ADDED
 
 user_bp = Blueprint("user", __name__, url_prefix="/api/v1/users")
 
 user_service = None
 
+
 def get_user_service():
     global user_service
     if user_service is None:
         from app.services.user_service import UserService
+
         user_service = UserService()
     return user_service
 
 
 # ==================== USER ROUTES ====================
+
 
 @user_bp.route("/sync", methods=["POST"])
 def sync_user():
@@ -37,18 +41,18 @@ def sync_user():
         }
 
         if not user_info["id"] or not user_info["email"]:
-            return jsonify({"success": False, "error": "id and email are required"}), 400
+            return (
+                jsonify({"success": False, "error": "id and email are required"}),
+                400,
+            )
 
         user = get_user_service().get_or_create_user(user_info)
 
-        return jsonify({
-            "success": True,
-            "data": user
-        })
+        return jsonify({"success": True, "data": user})
 
     except Exception as e:
         print("❌ SYNC ERROR:")
-        traceback.print_exc()   # 🔥 FULL ERROR (VERY IMPORTANT)
+        traceback.print_exc()  # 🔥 FULL ERROR (VERY IMPORTANT)
         return jsonify({"success": False, "error": str(e)}), 500
 
 
@@ -79,7 +83,10 @@ def update_user(user_id):
                 username, exclude_user_id=user_id
             )
             if not is_available:
-                return jsonify({"success": False, "error": "Username is already taken"}), 400
+                return (
+                    jsonify({"success": False, "error": "Username is already taken"}),
+                    400,
+                )
 
         allowed_fields = [
             "name",
@@ -97,9 +104,7 @@ def update_user(user_id):
         ]
 
         update_data = {
-            key: value
-            for key, value in data.items()
-            if key in allowed_fields
+            key: value for key, value in data.items() if key in allowed_fields
         }
 
         print("🟡 UPDATE DATA:", update_data)  # ✅ DEBUG
@@ -109,11 +114,13 @@ def update_user(user_id):
         if not updated_user:
             return jsonify({"success": False, "error": "User not found"}), 404
 
-        return jsonify({
-            "success": True,
-            "data": updated_user,
-            "message": "User updated successfully",
-        })
+        return jsonify(
+            {
+                "success": True,
+                "data": updated_user,
+                "message": "User updated successfully",
+            }
+        )
 
     except Exception as e:
         print("❌ UPDATE ERROR:")
@@ -130,7 +137,7 @@ def check_username():
             return jsonify({"success": False, "error": "No JSON received"}), 400
 
         username = data.get("username", "").strip()
-        user_id  = data.get("user_id")
+        user_id = data.get("user_id")
 
         print("🟡 USERNAME CHECK:", username)  # ✅ DEBUG
 
@@ -150,6 +157,7 @@ def check_username():
 
 
 # ==================== HEALTH CHECK ====================
+
 
 @user_bp.route("/health", methods=["GET"])
 def user_health():

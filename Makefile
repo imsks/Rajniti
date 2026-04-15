@@ -1,5 +1,5 @@
 # Rajniti Makefile
-.PHONY: help dev prod run venv stop logs clean reset test test-unit test-e2e coverage lint format db-init db-migrate db-reset db-shell frontend frontend-test frontend-lint install install-dev
+.PHONY: help dev prod run venv stop logs clean reset test test-unit test-e2e coverage lint format db-init db-migrate db-reset db-shell frontend frontend-test frontend-lint install install-dev git-hooks
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # DEVELOPMENT (backend targets use project venv: venv/)
@@ -101,3 +101,6 @@ install: ## Install dependencies
 install-dev: ## Install with dev dependencies
 	python3 -m venv venv
 	. venv/bin/activate && pip install -r requirements.txt -r requirements-test.txt
+
+git-hooks: ## Install pre-commit git hooks (uses project venv; run after install-dev)
+	. venv/bin/activate && python -m pip install -q pre-commit && pre-commit install

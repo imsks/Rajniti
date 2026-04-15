@@ -1,9 +1,9 @@
 """
 Development server entry point for the Rajniti application.
 """
+
 import logging
 import os
-
 from pathlib import Path
 
 from dotenv import load_dotenv

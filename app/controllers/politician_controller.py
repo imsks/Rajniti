@@ -50,7 +50,7 @@ class PoliticianController:
         if election_type:
             data = self.service.get_all(election_type)[:limit]  # type: ignore[arg-type]
         else:
-           data = self.service.get_all_politicians()
+            data = self.service.get_all_politicians()
         return {
             "total": len(data),
             "politicians": data,

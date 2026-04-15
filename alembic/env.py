@@ -11,7 +11,6 @@ from logging.config import fileConfig
 from sqlalchemy import create_engine, pool
 
 from alembic import context
-
 from app.database.base import Base
 from app.database.config import get_connect_args, get_database_url
 from app.database.models import User  # noqa: F401

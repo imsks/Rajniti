@@ -5,7 +5,7 @@ User database model with authentication and onboarding support.
 from datetime import datetime
 from typing import List, Optional
 
-from sqlalchemy import Boolean, Column, DateTime, JSON, String
+from sqlalchemy import JSON, Boolean, Column, DateTime, String
 from sqlalchemy.orm import Session
 
 from ..base import Base
@@ -26,7 +26,7 @@ class User(Base):
     profile_picture = Column(String, nullable=True)
 
     # Onboarding information
-    phone = Column(String, nullable=True)           # ← NEW
+    phone = Column(String, nullable=True)  # ← NEW
     state = Column(String, nullable=True)
     city = Column(String, nullable=True)
     pincode = Column(String, nullable=True)
@@ -38,8 +38,8 @@ class User(Base):
 
     # Political preferences
     political_ideology = Column(String, nullable=True)
-    preferred_parties = Column(JSON, nullable=True)     # ← NEW (stores string[])
-    topics_of_interest = Column(JSON, nullable=True)    # ← NEW (stores string[])
+    preferred_parties = Column(JSON, nullable=True)  # ← NEW (stores string[])
+    topics_of_interest = Column(JSON, nullable=True)  # ← NEW (stores string[])
 
     # Onboarding status
     onboarding_completed = Column(Boolean, default=False, nullable=False)
