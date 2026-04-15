@@ -158,3 +158,74 @@ def user_health():
         "service": "User Service",
         "message": "User service is operational",
     })
+
+
+    # ==================== Local POLITICIANS ====================
+
+@user_bp.route("/<user_id>/politicians", methods=["POST"])
+def add_user_politician(user_id):
+    try:
+        data = request.get_json()
+
+        if not data:
+            return jsonify({"success": False, "error": "No JSON received"}), 400
+
+        politician_id = data.get("politician_id")
+        role = data.get("role")  # MLA or MP
+
+        if not politician_id or not role:
+            return jsonify({
+                "success": False,
+                "error": "politician_id and role required"
+            }), 400
+
+        result = get_user_service().add_user_politician(
+            user_id=user_id,
+            politician_id=politician_id,
+            role=role
+        )
+
+        return jsonify({
+            "success": True,
+            "data": result,
+            "message": "Politician added successfully"
+        })
+
+    except Exception as e:
+        print("❌ ADD POLITICIAN ERROR:")
+        traceback.print_exc()
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@user_bp.route("/<user_id>/politicians", methods=["GET"])
+def get_user_politicians(user_id):
+    try:
+        data = get_user_service().get_user_politicians(user_id)
+
+        return jsonify({
+            "success": True,
+            "data": data
+        })
+
+    except Exception as e:
+        print("❌ GET POLITICIANS ERROR:")
+        traceback.print_exc()
+        return jsonify({"success": False, "error": str(e)}), 500
+    
+@user_bp.route("/<user_id>/politicians/<politician_id>", methods=["DELETE"])
+def delete_user_politician(user_id, politician_id):
+    try:
+        result = get_user_service().remove_user_politician(
+            user_id=user_id,
+            politician_id=politician_id
+        )
+
+        return jsonify({
+            "success": True,
+            "message": "Politician removed successfully"
+        })
+
+    except Exception as e:
+        print("❌ DELETE ERROR:")
+        traceback.print_exc()
+        return jsonify({"success": False, "error": str(e)}), 500    
