@@ -1,5 +1,5 @@
 const API_BASE_URL =
-    process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api/v1"
+    process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000/api/v1"
 
 export interface UserData {
     id?: string
@@ -68,5 +68,79 @@ export const userService = {
         }
 
         return response.json()
+    },
+
+
+/**
+ * Add politician to user
+ */
+addUserPolitician: async (userId: string, politicianId: string, role: string) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/users/${userId}/politicians`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                politician_id: politicianId,
+                role: role
+            })
+        })
+
+        // 🔥 handle empty response safely
+        let data: any = {}
+        try {
+            data = await response.json()
+        } catch {
+            data = {}
+        }
+
+        console.log("ADD RESPONSE:", response.status, data)
+
+        // ❗ don't break UI even if backend sends {}
+        if (!response.ok) {
+            console.error("❌ BACKEND ERROR:", data)
+            return { success: false }
+        }
+
+        return data || { success: true }
+
+    } catch (err) {
+        console.error("❌ FETCH ERROR:", err)
+        return { success: false }
     }
+},
+
+/**
+ * Remove politician from user
+ */
+removeUserPolitician: async (userId: string, politicianId: string) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/users/${userId}/politicians/${politicianId}`, {
+            method: "DELETE"
+        })
+
+        // 🔥 handle empty response safely
+        let data: any = {}
+        try {
+            data = await response.json()
+        } catch {
+            data = {}
+        }
+
+        console.log("DELETE RESPONSE:", response.status, data)
+
+        // ❗ don't crash UI
+        if (!response.ok) {
+            console.error("❌ BACKEND ERROR:", data)
+            return { success: false }
+        }
+
+        return data || { success: true }
+
+    } catch (err) {
+        console.error("❌ FETCH ERROR:", err)
+        return { success: false }
+    }
+}
 }
