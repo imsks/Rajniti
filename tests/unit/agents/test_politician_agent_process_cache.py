@@ -16,6 +16,13 @@ class _DummyService:
     def __init__(self) -> None:
         self.update_calls: list[tuple[str, dict]] = []
 
+    def get_by_id(self, politician_id: str) -> dict:
+        out: dict = {"id": politician_id, "name": "Test", "criminal_records": []}
+        for pid, upd in self.update_calls:
+            if pid == politician_id:
+                out = {**out, **upd}
+        return out
+
     def update_politician(self, politician_id: str, updates: dict):
         self.update_calls.append((politician_id, updates))
         return {"id": politician_id, **updates}

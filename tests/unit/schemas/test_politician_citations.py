@@ -74,6 +74,21 @@ def test_merge_citation_audit_fills_education() -> None:
     assert updates["education"][0]["citation"]["source"] == "ECI"
 
 
+def test_citation_audit_llm_accepts_null_social_dict_entries() -> None:
+    """Gemini often emits null for unused social keys; schema must accept it."""
+    audit = CitationAuditLLMResult.model_validate(
+        {
+            "social_media_citations": {
+                "twitter": {"link": "https://x.com/a", "source": "NEWS"},
+                "linkedin": None,
+            }
+        }
+    )
+    assert audit.social_media_citations is not None
+    assert audit.social_media_citations["twitter"] is not None
+    assert audit.social_media_citations["linkedin"] is None
+
+
 def test_is_llm_quota_exc_matches_freetier_message() -> None:
     assert _is_llm_quota_exc(RuntimeError("FreeTierLLM: all candidates skipped or failed"))
     assert _is_llm_quota_exc(RuntimeError("RAJNITI_LLM_MAX_CALLS (5) exhausted for this run"))

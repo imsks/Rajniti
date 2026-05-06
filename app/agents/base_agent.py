@@ -13,6 +13,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import time
 import traceback
 from typing import Any, Dict, Optional, TypeVar
 
@@ -24,6 +25,22 @@ from app.core import log
 T = TypeVar("T")
 
 logger = logging.getLogger(__name__)
+
+
+def _llm_response_logging_enabled() -> bool:
+    v = (os.getenv("RAJNITI_LOG_LLM_RESPONSES") or "1").strip().lower()
+    return v not in ("0", "false", "no", "off")
+
+
+def _llm_response_log_max_chars() -> int:
+    raw = (os.getenv("RAJNITI_LLM_RESPONSE_LOG_MAX_CHARS") or "").strip()
+    if not raw:
+        return 1_048_576
+    try:
+        n = int(raw)
+        return n
+    except ValueError:
+        return 1_048_576
 
 
 class BaseAgent:
@@ -191,6 +208,29 @@ class BaseAgent:
 
         return "\n\n".join(parts)
 
+    def _log_llm_response_body(self, call_n: int, text: str) -> None:
+        """Log full LLM output at INFO (on by default; disable with RAJNITI_LOG_LLM_RESPONSES=0)."""
+        if not _llm_response_logging_enabled():
+            return
+        max_show = _llm_response_log_max_chars()
+        n = len(text)
+        if max_show <= 0 or n <= max_show:
+            logger.info(
+                "BaseAgent._run_llm call #%d RESPONSE (%d chars):\n%s",
+                call_n,
+                n,
+                text,
+            )
+            return
+        logger.info(
+            "BaseAgent._run_llm call #%d RESPONSE (first %d of %d chars; "
+            "raise RAJNITI_LLM_RESPONSE_LOG_MAX_CHARS to see more):\n%s\n... [truncated]",
+            call_n,
+            max_show,
+            n,
+            text[:max_show],
+        )
+
     # ── LLM helpers ──────────────────────────────────────────────────────────
 
     @log(logger, "BaseAgent._run_llm")
@@ -203,6 +243,13 @@ class BaseAgent:
                 f"RAJNITI_LLM_MAX_CALLS ({max_calls}) exhausted for this run"
             )
         self._llm_call_count += 1
+        call_n = self._llm_call_count
+        logger.info(
+            "BaseAgent._run_llm call #%d START prompt_chars=%d",
+            call_n,
+            len(prompt),
+        )
+        t0 = time.monotonic()
         try:
             response = self.llm.invoke(prompt)
             content = (
@@ -221,8 +268,24 @@ class BaseAgent:
                     )
                     for part in content
                 )
-            return str(content) if not isinstance(content, str) else content
+            text = str(content) if not isinstance(content, str) else content
+            elapsed = time.monotonic() - t0
+            logger.info(
+                "BaseAgent._run_llm call #%d DONE elapsed_s=%.2f response_chars=%d",
+                call_n,
+                elapsed,
+                len(text),
+            )
+            self._log_llm_response_body(call_n, text)
+            return text
         except Exception as exc:
+            elapsed = time.monotonic() - t0
+            logger.warning(
+                "BaseAgent._run_llm call #%d FAILED after %.2fs: %s",
+                call_n,
+                elapsed,
+                exc,
+            )
             self._record_error("llm", str(exc), exc=exc)
             raise
 
@@ -240,6 +303,12 @@ class BaseAgent:
             "up-to-date information. Cross-reference with your own knowledge "
             "and prefer the context when it conflicts.\n\n"
             f"{context}\n\n---\n\n{prompt}"
+        )
+        logger.info(
+            "BaseAgent._run_llm_with_context context_chars=%d prompt_chars=%d enriched_chars=%d",
+            len(context),
+            len(prompt),
+            len(enriched),
         )
         return self._run_llm(enriched)
 

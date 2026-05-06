@@ -259,10 +259,13 @@ python scripts/run_politician_agent.py --log-level INFO \
 
 # Optional: checkpointed run; exits 0 when LLM quota is exhausted (cron-friendly)
 # export RAJNITI_LLM_MAX_CALLS=200
+# Log full LLM reply text at INFO (default on). Quiet: export RAJNITI_LOG_LLM_RESPONSES=0
+# Optional cap (chars): export RAJNITI_LLM_RESPONSE_LOG_MAX_CHARS=50000
 # python3 scripts/run_politician_agent_scheduled.py --log-level INFO \
 #   --sleep-seconds 2 --max-politicians 50 \
 #   >> "${LOG_DIR}/rajniti-agent-scheduled.log" 2>&1
 # Citation coverage: python3 scripts/report_citation_coverage.py
+# Citation backfill (URLs only, after enrichment): python3 scripts/run_citation_agent.py --log-level INFO
 ```
 
 **Run immediately (any OS):** open a terminal, `cd` to the repo, activate the venv, and run the same `python scripts/run_politician_agent.py --log-level INFO` line (or use the commands in **3. Run the agent** above). No need to wait for the next 8:00 run.

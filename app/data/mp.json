@@ -41,7 +41,11 @@
           "status": "WON"
         }
       ],
-      "summary": "C.M. Ramesh served two terms as a Rajya Sabha MP from Andhra Pradesh (2012-2018, 2018-2024) representing the TDP. He later joined the BJP and successfully won the 2024 Lok Sabha election from the Anakapalle constituency."
+      "summary": "C.M. Ramesh served two terms as a Rajya Sabha MP from Andhra Pradesh (2012-2018, 2018-2024) representing the TDP. He later joined the BJP and successfully won the 2024 Lok Sabha election from the Anakapalle constituency.",
+      "summary_citation": {
+        "link": "https://en.wikipedia.org/wiki/Chintakunta_Munuswamy_Ramesh",
+        "source": "OTHERS"
+      }
     },
     "education": [
       {
@@ -106,7 +110,50 @@
         "type": "CORRUPTION",
         "year": 2019
       }
-    ]
+    ],
+    "contact_citations": {
+      "email": {
+        "link": "https://sansad.nic.in/",
+        "source": "GOV_WEBSITE"
+      },
+      "phone": {
+        "link": "https://sansad.nic.in/",
+        "source": "GOV_WEBSITE"
+      },
+      "address": {
+        "link": "https://sansad.nic.in/",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "social_media_citations": {
+      "twitter": {
+        "link": "https://twitter.com/cm_ramesh",
+        "source": "OTHERS"
+      },
+      "facebook": {
+        "link": "https://www.facebook.com/CMRameshMP",
+        "source": "OTHERS"
+      },
+      "instagram": {
+        "link": "https://www.instagram.com/cmrameshmp",
+        "source": "OTHERS"
+      },
+      "youtube": {
+        "link": "https://www.youtube.com/@CMRameshMP",
+        "source": "OTHERS"
+      },
+      "website": {
+        "link": "http://cmramesh.com/",
+        "source": "OTHERS"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-06T07:34:08.390858+00:00",
+      "issues": [
+        "The input JSON contains conflicting 2024 Lok Sabha election entries for Anakapalle (one for Bharatiya Janata Party and one for Bahujan Samaj Party, both marked 'WON'). The provided Wikipedia context and the politician's summary within the input JSON indicate he won for the Bharatiya Janata Party. No source was found in the provided context to support the Bahujan Samaj Party entry.",
+        "Specific sources for education, family background, criminal records, and detailed election results (beyond general party affiliation) were not available in the provided context."
+      ]
+    }
   },
   {
     "id": "11b8288b-ea24-45f7-af67-c8cc7990cff3",
@@ -266,7 +313,11 @@
           "state": "Andhra Pradesh",
           "constituency": "Narsapuram",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://elections-v4.news18.com/elections/lok-sabha/andhra-pradesh/bhupathi-raju-srinivasa-varma-candidate-s01led2008p009e2024c002/",
+            "source": "NEWS"
+          }
         }
       ]
     },
@@ -337,6 +388,9 @@
       "email": null,
       "phone": null,
       "address": "H.No. 1-10-10, Near Sivalayam, Palakol, West Godavari District, Andhra Pradesh"
+    },
+    "citation_audit": {
+      "last_run": "2026-05-06T07:35:11.804856+00:00"
     }
   },
   {
@@ -25032,48 +25086,48 @@
     "family_background": []
   },
   {
-  "id": "6f1e2616-ea87-401a-942d-e8692ad241e6",
-  "name": "E.T.  MOHAMMED BASHEER",
-  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S11/ETMOH-2024-3251.jpg",
-  "state": "Kerala",
-  "constituency": "Malappuram",
-  "type": "MP",
-  "political_background": {
-    "elections": [
+    "id": "6f1e2616-ea87-401a-942d-e8692ad241e6",
+    "name": "E.T.  MOHAMMED BASHEER",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S11/ETMOH-2024-3251.jpg",
+    "state": "Kerala",
+    "constituency": "Malappuram",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Kerala",
+          "constituency": "Malappuram",
+          "party": "Indian Union Muslim League",
+          "status": "WON"
+        }
+      ],
+      "summary": "E.T. Mohammed Basheer is a senior leader of the Indian Union Muslim League (IUML) from Kerala. He has been elected multiple times as a Member of Parliament from the Malappuram constituency and has also served as a minister in the Kerala state government. He is known for his long-standing role in Kerala politics and was re-elected in the 2024 Lok Sabha elections."
+    },
+    "education": [
       {
-        "year": 2024,
-        "type": "MP",
-        "state": "Kerala",
-        "constituency": "Malappuram",
-        "party": "Indian Union Muslim League",
-        "status": "WON"
+        "qualification": "HIGH_SCHOOL",
+        "institution": null,
+        "year_completed": null
       }
     ],
-    "summary": "E.T. Mohammed Basheer is a senior leader of the Indian Union Muslim League (IUML) from Kerala. He has been elected multiple times as a Member of Parliament from the Malappuram constituency and has also served as a minister in the Kerala state government. He is known for his long-standing role in Kerala politics and was re-elected in the 2024 Lok Sabha elections."
-  },
-  "education": [
-    {
-      "qualification": "HIGH_SCHOOL",
-      "institution": null,
-      "year_completed": null
+    "criminal_records": [],
+    "social_media": {
+      "twitter": "https://twitter.com/etmbasheer",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "family_background": [],
+    "contact": {
+      "email": "etmbasheer@sansad.nic.in",
+      "phone": null,
+      "address": "New Delhi, India"
     }
-  ],
-  "criminal_records": [],
-  "social_media": {
-    "twitter": "https://twitter.com/etmbasheer",
-    "facebook": null,
-    "instagram": null,
-    "linkedin": null,
-    "youtube": null,
-    "website": null
   },
-  "family_background": [],
-  "contact": {
-    "email": "etmbasheer@sansad.nic.in",
-    "phone": null,
-    "address": "New Delhi, India"
-  }
-},
   {
     "id": "3ee33186-4855-430e-b21b-dc445a1398af",
     "name": "DR. M.P ABDUSSAMAD SAMADANI",
@@ -25126,159 +25180,159 @@
       "address": null
     }
   },
-{
-  "id": "35cf2662-f4cb-4590-bd4d-d90187c2dc8e",
-  "name": "NAVASKANI K",
-  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S22/NAVAS-2024-20240331080706.jpg",
-  "state": "Tamil Nadu",
-  "constituency": "RAMANATHAPURAM",
-  "type": "MP",
-  "political_background": {
-    "elections": [
-      {
-        "year": 2024,
-        "type": "MP",
-        "state": "Tamil Nadu",
-        "constituency": "RAMANATHAPURAM",
-        "party": "Indian Union Muslim League",
-        "status": "WON"
-      }
-    ],
-    "summary": "Navaskani K is a politician from Tamil Nadu and a member of the Indian Union Muslim League (IUML). He has been actively involved in regional politics and public service in the Ramanathapuram region. He has previously served as a Member of Parliament and was re-elected from the Ramanathapuram constituency in the 2024 Lok Sabha elections."
-  },
-  "education": [
-    {
-      "qualification": "HIGH_SCHOOL",
-      "institution": "Arupukottai",
-      "year_completed": null
-    }
-  ],
-  "criminal_records": [],
-  "contact": {
-    "email": null,
-    "phone": "09840169944, 9551151586",
-    "address": "1/2061-B, 9th Street, Nehru Nagar, Ramanathapuram, Tamil Nadu 623120"
-  },
-  "family_background": [
-    {
-      "name": "Shri Khadarmeera Gani",
-      "relation": "FATHER",
-      "photo": null,
-      "social_media": null
-    },
-    {
-      "name": "Smt. Ramjan Beevi",
-      "relation": "MOTHER",
-      "photo": null,
-      "social_media": null
-    },
-    {
-      "name": "Smt. Hamsathparveen",
-      "relation": "WIFE",
-      "photo": null,
-      "social_media": null
-    }
-  ],
-  "social_media": {
-    "twitter": null,
-    "facebook": null,
-    "instagram": null,
-    "linkedin": null,
-    "youtube": null,
-    "website": null
-  }
-},
-{
-  "id": "5538dd52-344c-4e71-a994-00c35e97698e",
-  "name": "DR. RAJ KUMAR CHABBEWAL",
-  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S19/RAJKU-2024-12065.jpg",
-  "state": "Punjab",
-  "constituency": "Hoshiarpur",
-  "type": "MP",
-  "political_background": {
-    "elections": [
-      {
-        "year": 2024,
-        "type": "MP",
-        "state": "Punjab",
-        "constituency": "Hoshiarpur",
-        "party": "Aam Aadmi Party",
-        "status": "WON"
-      }
-    ],
-    "summary": "Dr. Raj Kumar Chabbewal is a politician from Punjab and a member of the Aam Aadmi Party (AAP). A medical professional by background, he has been active in public service and politics in Punjab. He previously served as a Member of the Punjab Legislative Assembly and was elected as a Member of Parliament from the Hoshiarpur constituency in the 2024 Lok Sabha elections."
-  },
-  "education": [
-    {
-      "qualification": "BACHELOR",
-      "institution": "Government Medical College, Patiala",
-      "year_completed": 1989
-    },
-    {
-      "qualification": "MASTER",
-      "institution": "Government Medical College, Patiala",
-      "year_completed": 1994
-    }
-  ],
-  "family_background": [],
-  "criminal_records": [],
-  "contact": {
-    "email": null,
-    "phone": null,
-    "address": null
-  },
-  "social_media": {
-    "twitter": "https://twitter.com/DrRajChabbewal",
-    "facebook": null,
-    "instagram": null,
-    "linkedin": null,
-    "youtube": null,
-    "website": null
-  }
-},
   {
-  "id": "1d1fbc96-3903-42d1-97c4-68367048752f",
-  "name": "MALVINDER SINGH KANG",
-  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S19/MALVI-2024-20240517062449.jpg",
-  "state": "Punjab",
-  "constituency": "Anandpur Sahib",
-  "type": "MP",
-  "political_background": {
-    "elections": [
+    "id": "35cf2662-f4cb-4590-bd4d-d90187c2dc8e",
+    "name": "NAVASKANI K",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S22/NAVAS-2024-20240331080706.jpg",
+    "state": "Tamil Nadu",
+    "constituency": "RAMANATHAPURAM",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Tamil Nadu",
+          "constituency": "RAMANATHAPURAM",
+          "party": "Indian Union Muslim League",
+          "status": "WON"
+        }
+      ],
+      "summary": "Navaskani K is a politician from Tamil Nadu and a member of the Indian Union Muslim League (IUML). He has been actively involved in regional politics and public service in the Ramanathapuram region. He has previously served as a Member of Parliament and was re-elected from the Ramanathapuram constituency in the 2024 Lok Sabha elections."
+    },
+    "education": [
       {
-        "year": 2024,
-        "type": "MP",
-        "state": "Punjab",
-        "constituency": "Anandpur Sahib",
-        "party": "Aam Aadmi Party",
-        "status": "WON"
+        "qualification": "HIGH_SCHOOL",
+        "institution": "Arupukottai",
+        "year_completed": null
       }
     ],
-    "summary": "Malvinder Singh Kang is a politician from Punjab and a member of the Aam Aadmi Party (AAP). He has served as the state president of AAP Punjab and has been actively involved in state politics and party organization. In 2024, he was elected as a Member of Parliament from the Anandpur Sahib constituency."
-  },
-  "education": [
-    {
-      "qualification": "BACHELOR",
-      "institution": "Punjabi University, Patiala",
-      "year_completed": 1988
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": "09840169944, 9551151586",
+      "address": "1/2061-B, 9th Street, Nehru Nagar, Ramanathapuram, Tamil Nadu 623120"
+    },
+    "family_background": [
+      {
+        "name": "Shri Khadarmeera Gani",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Ramjan Beevi",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Smt. Hamsathparveen",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
     }
-  ],
-  "contact": {
-    "email": null,
-    "phone": null,
-    "address": null
   },
-  "family_background": [],
-  "criminal_records": [],
-  "social_media": {
-    "twitter": "https://twitter.com/KangMalvinder",
-    "facebook": "https://www.facebook.com/KangMalvinder/",
-    "instagram": null,
-    "linkedin": null,
-    "youtube": null,
-    "website": null
-  }
-},
+  {
+    "id": "5538dd52-344c-4e71-a994-00c35e97698e",
+    "name": "DR. RAJ KUMAR CHABBEWAL",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S19/RAJKU-2024-12065.jpg",
+    "state": "Punjab",
+    "constituency": "Hoshiarpur",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Punjab",
+          "constituency": "Hoshiarpur",
+          "party": "Aam Aadmi Party",
+          "status": "WON"
+        }
+      ],
+      "summary": "Dr. Raj Kumar Chabbewal is a politician from Punjab and a member of the Aam Aadmi Party (AAP). A medical professional by background, he has been active in public service and politics in Punjab. He previously served as a Member of the Punjab Legislative Assembly and was elected as a Member of Parliament from the Hoshiarpur constituency in the 2024 Lok Sabha elections."
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Government Medical College, Patiala",
+        "year_completed": 1989
+      },
+      {
+        "qualification": "MASTER",
+        "institution": "Government Medical College, Patiala",
+        "year_completed": 1994
+      }
+    ],
+    "family_background": [],
+    "criminal_records": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/DrRajChabbewal",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
+  },
+  {
+    "id": "1d1fbc96-3903-42d1-97c4-68367048752f",
+    "name": "MALVINDER SINGH KANG",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S19/MALVI-2024-20240517062449.jpg",
+    "state": "Punjab",
+    "constituency": "Anandpur Sahib",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Punjab",
+          "constituency": "Anandpur Sahib",
+          "party": "Aam Aadmi Party",
+          "status": "WON"
+        }
+      ],
+      "summary": "Malvinder Singh Kang is a politician from Punjab and a member of the Aam Aadmi Party (AAP). He has served as the state president of AAP Punjab and has been actively involved in state politics and party organization. In 2024, he was elected as a Member of Parliament from the Anandpur Sahib constituency."
+    },
+    "education": [
+      {
+        "qualification": "BACHELOR",
+        "institution": "Punjabi University, Patiala",
+        "year_completed": 1988
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": "https://twitter.com/KangMalvinder",
+      "facebook": "https://www.facebook.com/KangMalvinder/",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    }
+  },
   {
     "id": "3b71714e-1b23-4874-bead-7e57d0751503",
     "name": "GURMEET SINGH MEET HAYER",
@@ -25506,92 +25560,92 @@
       "website": null
     }
   },
- {
-  "id": "af44d0d3-1183-40f6-9ca2-b9b761b7819d",
-  "name": "BALASHOWRY VALLABHANENI",
-  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S01/BALAS-2024-7952.jpg",
-  "state": "Andhra Pradesh",
-  "constituency": "Machilipatnam",
-  "type": "MP",
-  "political_background": {
-    "elections": [
+  {
+    "id": "af44d0d3-1183-40f6-9ca2-b9b761b7819d",
+    "name": "BALASHOWRY VALLABHANENI",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S01/BALAS-2024-7952.jpg",
+    "state": "Andhra Pradesh",
+    "constituency": "Machilipatnam",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Andhra Pradesh",
+          "constituency": "Machilipatnam",
+          "party": "Janasena Party",
+          "status": "WON"
+        }
+      ],
+      "summary": "Balashowry Vallabhaneni is a politician from Andhra Pradesh and a member of the Janasena Party. He has previously served as a Member of Parliament and has been active in regional politics in coastal Andhra Pradesh. He was elected as a Member of Parliament from the Machilipatnam constituency in the 2024 Lok Sabha elections."
+    },
+    "education": [
       {
-        "year": 2024,
-        "type": "MP",
-        "state": "Andhra Pradesh",
-        "constituency": "Machilipatnam",
-        "party": "Janasena Party",
-        "status": "WON"
+        "qualification": "MASTER",
+        "institution": null,
+        "year_completed": null
       }
     ],
-    "summary": "Balashowry Vallabhaneni is a politician from Andhra Pradesh and a member of the Janasena Party. He has previously served as a Member of Parliament and has been active in regional politics in coastal Andhra Pradesh. He was elected as a Member of Parliament from the Machilipatnam constituency in the 2024 Lok Sabha elections."
-  },
-  "education": [
-    {
-      "qualification": "MASTER",
-      "institution": null,
-      "year_completed": null
+    "family_background": [],
+    "criminal_records": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
     }
-  ],
-  "family_background": [],
-  "criminal_records": [],
-  "social_media": {
-    "twitter": null,
-    "facebook": null,
-    "instagram": null,
-    "linkedin": null,
-    "youtube": null,
-    "website": null
   },
-  "contact": {
-    "email": null,
-    "phone": null,
-    "address": null
-  }
-},
- {
-  "id": "8ca0cb7b-e361-499a-9286-c42aafa0837f",
-  "name": "SUDAMA PRASAD",
-  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S04/SUDAM-2024-12064.jpg",
-  "state": "Bihar",
-  "constituency": "Arrah",
-  "type": "MP",
-  "political_background": {
-    "elections": [
+  {
+    "id": "8ca0cb7b-e361-499a-9286-c42aafa0837f",
+    "name": "SUDAMA PRASAD",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S04/SUDAM-2024-12064.jpg",
+    "state": "Bihar",
+    "constituency": "Arrah",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Bihar",
+          "constituency": "Arrah",
+          "party": "Communist Party of India  (Marxist-Leninist)  (Liberation)",
+          "status": "WON"
+        }
+      ],
+      "summary": "Sudama Prasad is a politician from Bihar and a member of the Communist Party of India (Marxist-Leninist) (Liberation). He has been actively involved in grassroots politics and social movements, particularly focusing on farmers' and workers' rights. He was elected as a Member of Parliament from the Arrah constituency in the 2024 Lok Sabha elections."
+    },
+    "education": [
       {
-        "year": 2024,
-        "type": "MP",
-        "state": "Bihar",
-        "constituency": "Arrah",
-        "party": "Communist Party of India  (Marxist-Leninist)  (Liberation)",
-        "status": "WON"
+        "qualification": "BACHELOR",
+        "institution": null,
+        "year_completed": null
       }
     ],
-    "summary": "Sudama Prasad is a politician from Bihar and a member of the Communist Party of India (Marxist-Leninist) (Liberation). He has been actively involved in grassroots politics and social movements, particularly focusing on farmers' and workers' rights. He was elected as a Member of Parliament from the Arrah constituency in the 2024 Lok Sabha elections."
-  },
-  "education": [
-    {
-      "qualification": "BACHELOR",
-      "institution": null,
-      "year_completed": null
+    "criminal_records": [],
+    "family_background": [],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
     }
-  ],
-  "criminal_records": [],
-  "family_background": [],
-  "contact": {
-    "email": null,
-    "phone": null,
-    "address": null
   },
-  "social_media": {
-    "twitter": null,
-    "facebook": null,
-    "instagram": null,
-    "linkedin": null,
-    "youtube": null,
-    "website": null
-  }
-},
   {
     "id": "661db878-6b61-4c56-8e43-a812bb8f08e5",
     "name": "RAJA RAM SINGH",
@@ -25634,111 +25688,111 @@
     "family_background": [],
     "criminal_records": []
   },
- {
-  "id": "747a6dad-fbdf-4a0b-8386-afc5dc45ec06",
-  "name": "H.D. KUMARASWAMY",
-  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S10/HDK-2024-20240408044241.jpg",
-  "state": "Karnataka",
-  "constituency": "Mandya",
-  "type": "MP",
-  "political_background": {
-    "elections": [
-      {
-        "year": 2024,
-        "type": "MP",
-        "state": "Karnataka",
-        "constituency": "Mandya",
-        "party": "Janata Dal  (Secular)",
-        "status": "WON"
-      }
-    ],
-    "summary": "H. D. Kumaraswamy is a senior politician from Karnataka and a leader of the Janata Dal (Secular). He has served twice as the Chief Minister of Karnataka (2006–2007 and 2018–2019) and has been a prominent figure in state and national politics. He was elected as a Member of Parliament from the Mandya constituency in the 2024 Lok Sabha elections."
-  },
-  "education": [
-    {
-      "qualification": "PUC",
-      "institution": null,
-      "year_completed": null
-    }
-  ],
-  "family_background": [
-    {
-      "name": "H. D. Deve Gowda",
-      "relation": "FATHER",
-      "photo": null,
-      "social_media": null
-    },
-    {
-      "name": "Anita Kumaraswamy",
-      "relation": "WIFE",
-      "photo": null,
-      "social_media": null
-    },
-    {
-      "name": "Nikhil Kumaraswamy",
-      "relation": "SON",
-      "photo": null,
-      "social_media": null
-    }
-  ],
-  "social_media": {
-    "twitter": "https://twitter.com/kumaraswamyhd",
-    "facebook": "https://www.facebook.com/kumaraswamyhd",
-    "instagram": null,
-    "linkedin": null,
-    "youtube": null,
-    "website": null
-  },
-  "contact": {
-    "email": null,
-    "phone": null,
-    "address": null
-  },
-  "criminal_records": []
-},
   {
-  "id": "42819619-b599-4abc-bc1e-4c47f3eea718",
-  "name": "M. MALLESH BABU",
-  "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S10/MMAL-2024-2697.jpg",
-  "state": "Karnataka",
-  "constituency": "Kolar",
-  "type": "MP",
-  "political_background": {
-    "elections": [
+    "id": "747a6dad-fbdf-4a0b-8386-afc5dc45ec06",
+    "name": "H.D. KUMARASWAMY",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S10/HDK-2024-20240408044241.jpg",
+    "state": "Karnataka",
+    "constituency": "Mandya",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Karnataka",
+          "constituency": "Mandya",
+          "party": "Janata Dal  (Secular)",
+          "status": "WON"
+        }
+      ],
+      "summary": "H. D. Kumaraswamy is a senior politician from Karnataka and a leader of the Janata Dal (Secular). He has served twice as the Chief Minister of Karnataka (2006–2007 and 2018–2019) and has been a prominent figure in state and national politics. He was elected as a Member of Parliament from the Mandya constituency in the 2024 Lok Sabha elections."
+    },
+    "education": [
       {
-        "year": 2024,
-        "type": "MP",
-        "state": "Karnataka",
-        "constituency": "Kolar",
-        "party": "Janata Dal  (Secular)",
-        "status": "WON"
+        "qualification": "PUC",
+        "institution": null,
+        "year_completed": null
       }
     ],
-    "summary": "M. Mallesh Babu is a politician from Karnataka and a member of the Janata Dal (Secular). He has been active in regional politics and public service in the Kolar region. In 2024, he was elected as a Member of Parliament from the Kolar constituency."
+    "family_background": [
+      {
+        "name": "H. D. Deve Gowda",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Anita Kumaraswamy",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null
+      },
+      {
+        "name": "Nikhil Kumaraswamy",
+        "relation": "SON",
+        "photo": null,
+        "social_media": null
+      }
+    ],
+    "social_media": {
+      "twitter": "https://twitter.com/kumaraswamyhd",
+      "facebook": "https://www.facebook.com/kumaraswamyhd",
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "criminal_records": []
   },
-  "family_background": [],
-  "social_media": {
-    "twitter": null,
-    "facebook": null,
-    "instagram": null,
-    "linkedin": null,
-    "youtube": null,
-    "website": null
-  },
-  "criminal_records": [],
-  "education": [
-    {
-      "qualification": "GRADUATE",
-      "institution": null,
-      "year_completed": null
+  {
+    "id": "42819619-b599-4abc-bc1e-4c47f3eea718",
+    "name": "M. MALLESH BABU",
+    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S10/MMAL-2024-2697.jpg",
+    "state": "Karnataka",
+    "constituency": "Kolar",
+    "type": "MP",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2024,
+          "type": "MP",
+          "state": "Karnataka",
+          "constituency": "Kolar",
+          "party": "Janata Dal  (Secular)",
+          "status": "WON"
+        }
+      ],
+      "summary": "M. Mallesh Babu is a politician from Karnataka and a member of the Janata Dal (Secular). He has been active in regional politics and public service in the Kolar region. In 2024, he was elected as a Member of Parliament from the Kolar constituency."
+    },
+    "family_background": [],
+    "social_media": {
+      "twitter": null,
+      "facebook": null,
+      "instagram": null,
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "criminal_records": [],
+    "education": [
+      {
+        "qualification": "GRADUATE",
+        "institution": null,
+        "year_completed": null
+      }
+    ],
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
     }
-  ],
-  "contact": {
-    "email": null,
-    "phone": null,
-    "address": null
-  }
-},
+  },
   {
     "id": "6c1142a9-febf-4998-b68a-b2b0b52b9472",
     "name": "RAVIKUMAR. D",

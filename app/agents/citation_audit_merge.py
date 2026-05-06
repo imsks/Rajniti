@@ -132,6 +132,8 @@ def merge_citation_audit_updates(
         contact = politician.get("contact") or {}
         cc = dict(politician.get("contact_citations") or {})
         for k, cit in audit.contact_citations.items():
+            if cit is None:
+                continue
             if k not in _CONTACT_KEYS:
                 issues.append(f"ignored contact_citations key: {k}")
                 continue
@@ -144,6 +146,8 @@ def merge_citation_audit_updates(
         sm = politician.get("social_media") or {}
         smc = dict(politician.get("social_media_citations") or {})
         for k, cit in audit.social_media_citations.items():
+            if cit is None:
+                continue
             if k not in _SOCIAL_KEYS:
                 issues.append(f"ignored social_media_citations key: {k}")
                 continue
@@ -156,6 +160,8 @@ def merge_citation_audit_updates(
         perf = politician.get("performance") or {}
         pc = dict(politician.get("performance_citations") or {})
         for k, cit in audit.performance_citations.items():
+            if cit is None:
+                continue
             if k not in _PERF_KEYS:
                 issues.append(f"ignored performance_citations key: {k}")
                 continue

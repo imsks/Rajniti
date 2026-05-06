@@ -181,14 +181,14 @@ class Politician(BaseModel):
 
 
 class CitationAuditLLMResult(BaseModel):
-    """LLM output shape for PoliticianCitationAudit — citations only, aligned by index."""
+    """LLM output shape for citation backfill (CitationAgent) — citations only, aligned by index."""
 
     education_citations: Optional[List[Optional[Citation]]] = None
     elections_citations: Optional[List[Optional[Citation]]] = None
     family_citations: Optional[List[Optional[Citation]]] = None
     criminal_citations: Optional[List[Optional[Citation]]] = None
     summary_citation: Optional[Citation] = None
-    contact_citations: Optional[Dict[str, Citation]] = None
-    social_media_citations: Optional[Dict[str, Citation]] = None
-    performance_citations: Optional[Dict[str, Citation]] = None
+    contact_citations: Optional[Dict[str, Optional[Citation]]] = None
+    social_media_citations: Optional[Dict[str, Optional[Citation]]] = None
+    performance_citations: Optional[Dict[str, Optional[Citation]]] = None
     issues: Optional[List[str]] = None
