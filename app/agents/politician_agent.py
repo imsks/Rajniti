@@ -8,9 +8,15 @@ from typing import Any, Dict, Literal, Optional
 from pydantic import TypeAdapter
 
 from app.agents.base_agent import BaseAgent
+from app.agents.citation_audit_merge import (
+    merge_citation_audit_updates,
+    politician_needs_citation_audit,
+)
 from app.core import CacheManager, log
 from app.prompts import PoliticianPrompts
 from app.schemas.politician import (
+    Citation,
+    CitationAuditLLMResult,
     Contact,
     CrimeRecord,
     Education,
@@ -22,6 +28,23 @@ from app.schemas.politician import (
 from app.services import PoliticianService
 
 logger = logging.getLogger(__name__)
+
+
+def _is_llm_quota_exc(exc: BaseException) -> bool:
+    msg = str(exc).lower()
+    if "freetierllm" in msg and (
+        "all candidates" in msg or "skipped or failed" in msg
+    ):
+        return True
+    if "resource exhausted" in msg:
+        return True
+    if "insufficient_quota" in msg or " rate limit" in msg:
+        return True
+    if "429" in msg:
+        return True
+    if "rajniti_llm_max_calls" in msg:
+        return True
+    return False
 
 
 # ---------------------------------------------------------------------------
@@ -38,7 +61,16 @@ class PoliticianEducation:
         self.base = base_agent
 
     def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
-        return force or not politician.get("education")
+        if force:
+            return True
+        edu = politician.get("education")
+        if edu is None:
+            return True
+        if not edu:
+            return False
+        return any(
+            not (isinstance(x, dict) and x.get("citation")) for x in edu
+        )
 
     @log(logger, "PoliticianEducation.run")
     def run(
@@ -91,6 +123,13 @@ class PoliticianEducation:
                 "details": errors,
             }
 
+        if validated and any(item.citation is None for item in validated):
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "missing_citations",
+            }
+
         updates = {"education": [item.model_dump(mode="json") for item in validated]}
         return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
 
@@ -106,10 +145,17 @@ class PoliticianPoliticalBackground:
     def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
         if force:
             return True
-        elections = (politician.get("political_background") or {}).get(
-            "elections"
-        ) or []
-        return not elections
+        pb = politician.get("political_background") or {}
+        elections = pb.get("elections") or []
+        if not elections:
+            return True
+        if any(
+            not (isinstance(e, dict) and e.get("citation")) for e in elections
+        ):
+            return True
+        if (pb.get("summary") or "").strip() and not pb.get("summary_citation"):
+            return True
+        return False
 
     @log(logger, "PoliticianPoliticalBackground.run")
     def run(
@@ -142,6 +188,20 @@ class PoliticianPoliticalBackground:
         updates: Dict[str, Any] = {}
 
         if not errors and validated is not None:
+            if any(e.citation is None for e in validated.elections):
+                return {
+                    "process": self.name,
+                    "ok": False,
+                    "error": "missing_citations",
+                    "details": "election record without citation",
+                }
+            if (validated.summary or "").strip() and validated.summary_citation is None:
+                return {
+                    "process": self.name,
+                    "ok": False,
+                    "error": "missing_citations",
+                    "details": "summary without summary_citation",
+                }
             updates["political_background"] = validated.model_dump(mode="json")
             logger.info(
                 "political_background: full validation succeeded (id=%s)",
@@ -166,9 +226,14 @@ class PoliticianPoliticalBackground:
                 parsed.get("elections"), elections_adapter
             )
             if ev_validated is not None and not ev_errors:
-                partial_updates["elections"] = [
-                    e.model_dump(mode="json") for e in ev_validated
-                ]
+                if any(e.citation is None for e in ev_validated):
+                    logger.debug(
+                        "political_background: elections missing citations (partial)"
+                    )
+                else:
+                    partial_updates["elections"] = [
+                        e.model_dump(mode="json") for e in ev_validated
+                    ]
             else:
                 logger.debug(
                     "political_background: elections validation failed: %s",
@@ -178,6 +243,15 @@ class PoliticianPoliticalBackground:
         summary_val = parsed.get("summary")
         if isinstance(summary_val, str) and summary_val.strip():
             partial_updates["summary"] = summary_val.strip()
+
+        sc_raw = parsed.get("summary_citation")
+        if isinstance(sc_raw, dict) and partial_updates.get("summary"):
+            sc_ad = TypeAdapter(Citation | None)
+            sc_val, sc_err = self.base._validate_with_adapter(sc_raw, sc_ad)
+            if not sc_err and sc_val is not None:
+                partial_updates["summary_citation"] = sc_val.model_dump(
+                    mode="json"
+                )
 
         if partial_updates["elections"] or partial_updates["summary"] is not None:
             updates["political_background"] = partial_updates
@@ -245,6 +319,13 @@ class PoliticianPoliticalBackground:
             )
             return
 
+        if any(e.citation is None for e in ev_validated):
+            logger.warning(
+                "political_background: elections-only missing citations (id=%s)",
+                politician.get("id"),
+            )
+            return
+
         pb["elections"] = [e.model_dump(mode="json") for e in ev_validated]
         updates["political_background"] = pb
         logger.info(
@@ -252,6 +333,17 @@ class PoliticianPoliticalBackground:
             len(pb["elections"]),
             politician.get("id"),
         )
+
+
+_SOCIAL_FIELDS = (
+    "twitter",
+    "facebook",
+    "instagram",
+    "linkedin",
+    "youtube",
+    "website",
+)
+_CONTACT_FIELDS = ("email", "phone", "address")
 
 
 class PoliticianSocialMedia:
@@ -265,8 +357,14 @@ class PoliticianSocialMedia:
     def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
         if force:
             return True
-        existing = politician.get("social_media") or {}
-        return not any(v for v in existing.values() if v)
+        sm = politician.get("social_media") or {}
+        smc = politician.get("social_media_citations") or {}
+        if not any(v for v in sm.values() if v):
+            return True
+        for key in _SOCIAL_FIELDS:
+            if sm.get(key) and key not in smc:
+                return True
+        return False
 
     @log(logger, "PoliticianSocialMedia.run")
     def run(
@@ -300,8 +398,11 @@ class PoliticianSocialMedia:
                 "raw": raw,
             }
 
+        data = {k: v for k, v in parsed.items() if k != "social_media_citations"}
+        smc_raw = parsed.get("social_media_citations") or {}
+
         adapter = TypeAdapter(SocialMedia)
-        validated, errors = self.base._validate_with_adapter(parsed, adapter)
+        validated, errors = self.base._validate_with_adapter(data, adapter)
         if errors:
             return {
                 "process": self.name,
@@ -309,8 +410,39 @@ class PoliticianSocialMedia:
                 "error": "validation_failed",
                 "details": errors,
             }
+        if validated is None:
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "validation_failed",
+            }
 
-        updates = {"social_media": validated.model_dump(mode="json")}
+        dumped = validated.model_dump(mode="json")
+        for key in _SOCIAL_FIELDS:
+            if dumped.get(key) and key not in smc_raw:
+                return {
+                    "process": self.name,
+                    "ok": False,
+                    "error": "missing_citations",
+                    "details": f"social field {key!r} lacks citation",
+                }
+
+        updates: Dict[str, Any] = {"social_media": dumped}
+        if smc_raw:
+            cit_adapter = TypeAdapter(dict[str, Citation])
+            smc_val, smc_err = self.base._validate_with_adapter(smc_raw, cit_adapter)
+            if smc_err:
+                return {
+                    "process": self.name,
+                    "ok": False,
+                    "error": "citation_validation_failed",
+                    "details": smc_err,
+                }
+            if smc_val:
+                updates["social_media_citations"] = {
+                    k: v.model_dump(mode="json") for k, v in smc_val.items()
+                }
+
         return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
 
 
@@ -323,7 +455,16 @@ class PoliticianFamilyBackground:
         self.base = base_agent
 
     def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
-        return force or not politician.get("family_background")
+        if force:
+            return True
+        fam = politician.get("family_background")
+        if fam is None:
+            return True
+        if not fam:
+            return False
+        return any(
+            not (isinstance(x, dict) and x.get("citation")) for x in fam
+        )
 
     @log(logger, "PoliticianFamilyBackground.run")
     def run(
@@ -376,6 +517,13 @@ class PoliticianFamilyBackground:
                 "details": errors,
             }
 
+        if validated and any(item.citation is None for item in validated):
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "missing_citations",
+            }
+
         updates = {
             "family_background": [item.model_dump(mode="json") for item in validated]
         }
@@ -391,7 +539,16 @@ class PoliticianCriminalRecords:
         self.base = base_agent
 
     def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
-        return force or not politician.get("criminal_records")
+        if force:
+            return True
+        cr = politician.get("criminal_records")
+        if cr is None:
+            return True
+        if not cr:
+            return False
+        return any(
+            not (isinstance(x, dict) and x.get("citation")) for x in cr
+        )
 
     @log(logger, "PoliticianCriminalRecords.run")
     def run(
@@ -444,6 +601,13 @@ class PoliticianCriminalRecords:
                 "details": errors,
             }
 
+        if validated and any(item.citation is None for item in validated):
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "missing_citations",
+            }
+
         updates = {
             "criminal_records": [item.model_dump(mode="json") for item in validated]
         }
@@ -461,8 +625,14 @@ class PoliticianContact:
     def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
         if force:
             return True
-        existing = politician.get("contact") or {}
-        return not any(v for v in existing.values() if v)
+        c = politician.get("contact") or {}
+        cc = politician.get("contact_citations") or {}
+        if not any(v for v in c.values() if v):
+            return True
+        for key in _CONTACT_FIELDS:
+            if c.get(key) and key not in cc:
+                return True
+        return False
 
     @log(logger, "PoliticianContact.run")
     def run(
@@ -496,7 +666,97 @@ class PoliticianContact:
                 "raw": raw,
             }
 
+        data = {k: v for k, v in parsed.items() if k != "contact_citations"}
+        cc_raw = parsed.get("contact_citations") or {}
+
         adapter = TypeAdapter(Contact)
+        validated, errors = self.base._validate_with_adapter(data, adapter)
+        if errors:
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "validation_failed",
+                "details": errors,
+            }
+        if validated is None:
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "validation_failed",
+            }
+
+        dumped = validated.model_dump(mode="json")
+        for key in _CONTACT_FIELDS:
+            if dumped.get(key) and key not in cc_raw:
+                return {
+                    "process": self.name,
+                    "ok": False,
+                    "error": "missing_citations",
+                    "details": f"contact field {key!r} lacks citation",
+                }
+
+        updates: Dict[str, Any] = {"contact": dumped}
+        if cc_raw:
+            cit_adapter = TypeAdapter(dict[str, Citation])
+            cc_val, cc_err = self.base._validate_with_adapter(cc_raw, cit_adapter)
+            if cc_err:
+                return {
+                    "process": self.name,
+                    "ok": False,
+                    "error": "citation_validation_failed",
+                    "details": cc_err,
+                }
+            if cc_val:
+                updates["contact_citations"] = {
+                    k: v.model_dump(mode="json") for k, v in cc_val.items()
+                }
+
+        return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
+
+
+class PoliticianCitationAudit:
+    """Backfill citations on existing detail fields without rewriting facts."""
+
+    name = "citation_audit"
+
+    def __init__(self, base_agent: BaseAgent):
+        self.base = base_agent
+
+    def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
+        return bool(force or politician_needs_citation_audit(politician))
+
+    @log(logger, "PoliticianCitationAudit.run")
+    def run(
+        self,
+        politician: Dict[str, Any],
+        force: bool = False,
+        context: str = "",
+    ) -> Dict[str, Any]:
+        if not self.should_run(politician, force):
+            return {
+                "process": self.name,
+                "ok": True,
+                "skipped": True,
+                "reason": "already_present",
+            }
+
+        prompt = PoliticianPrompts.citation_audit(politician)
+        logger.info(
+            "citation_audit: calling LLM (id=%s name=%s)",
+            politician.get("id"),
+            politician.get("name"),
+        )
+        raw = self.base._run_llm_with_context(prompt, context)
+        parsed = self.base._parse_json_object(raw)
+        if parsed is None:
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "invalid_llm_json",
+                "raw": raw,
+            }
+
+        adapter = TypeAdapter(CitationAuditLLMResult)
         validated, errors = self.base._validate_with_adapter(parsed, adapter)
         if errors:
             return {
@@ -505,8 +765,22 @@ class PoliticianContact:
                 "error": "validation_failed",
                 "details": errors,
             }
+        if validated is None:
+            return {
+                "process": self.name,
+                "ok": False,
+                "error": "validation_failed",
+            }
 
-        updates = {"contact": validated.model_dump(mode="json")}
+        updates, _issues = merge_citation_audit_updates(politician, validated)
+        if not updates:
+            return {
+                "process": self.name,
+                "ok": True,
+                "skipped": True,
+                "reason": "audit_no_updates",
+            }
+
         return {"process": self.name, "ok": True, "skipped": False, "updates": updates}
 
 
@@ -529,6 +803,7 @@ class PoliticianAgent(BaseAgent):
             PoliticianFamilyBackground(self),
             PoliticianCriminalRecords(self),
             PoliticianContact(self),
+            PoliticianCitationAudit(self),
         ]
 
     @log(logger, "PoliticianAgent.run")
@@ -653,10 +928,14 @@ class PoliticianAgent(BaseAgent):
             return {"ok": False, "error": "missing_politician_id"}
 
         # ── 1. Pre-check: which processes actually need to run? ──────────
-        active_processes: list = []
+        active_parallel: list = []
         skipped_results: list[Dict[str, Any]] = []
+        citation_proc: Optional[PoliticianCitationAudit] = None
 
         for process in self.processes:
+            if process.name == "citation_audit":
+                citation_proc = process
+                continue
             if not force and self._is_process_cached(politician_id, process.name):
                 skipped_results.append(
                     {
@@ -668,7 +947,7 @@ class PoliticianAgent(BaseAgent):
                 )
                 continue
             if process.should_run(politician, force):
-                active_processes.append(process)
+                active_parallel.append(process)
             else:
                 skipped_results.append(
                     {
@@ -679,7 +958,32 @@ class PoliticianAgent(BaseAgent):
                     }
                 )
 
-        if not active_processes:
+        citation_pending: Optional[PoliticianCitationAudit] = None
+        if citation_proc is not None:
+            if not force and self._is_process_cached(
+                politician_id, citation_proc.name
+            ):
+                skipped_results.append(
+                    {
+                        "process": citation_proc.name,
+                        "ok": True,
+                        "skipped": True,
+                        "reason": "cached_processed",
+                    }
+                )
+            elif not citation_proc.should_run(politician, force):
+                skipped_results.append(
+                    {
+                        "process": citation_proc.name,
+                        "ok": True,
+                        "skipped": True,
+                        "reason": "already_present",
+                    }
+                )
+            else:
+                citation_pending = citation_proc
+
+        if not active_parallel and not citation_pending:
             logger.info(
                 "All data present for %s (%s) — nothing to enrich",
                 politician.get("name"),
@@ -694,15 +998,17 @@ class PoliticianAgent(BaseAgent):
             }
 
         logger.info(
-            "%d/%d processes need data for %s: %s",
-            len(active_processes),
-            len(self.processes),
+            "%d parallel + citation=%s for %s: %s",
+            len(active_parallel),
+            bool(citation_pending),
             politician.get("name"),
-            [p.name for p in active_processes],
+            [p.name for p in active_parallel],
         )
 
-        # ── 2. Gather real-world context ONLY when there is work to do ───
-        context = self._gather_politician_context(politician)
+        # ── 2. Gather real-world context ───────────────────────────────────
+        context = ""
+        if active_parallel or citation_pending:
+            context = self._gather_politician_context(politician)
         if context:
             logger.info(
                 "Context gathered (%d chars) for %s",
@@ -715,75 +1021,135 @@ class PoliticianAgent(BaseAgent):
                 politician.get("name"),
             )
 
-        # ── 3. Run only active processes in parallel ─────────────────────
         process_results: list[Dict[str, Any]] = list(skipped_results)
         updated_fields: set[str] = set()
         write_lock = threading.Lock()
 
-        with ThreadPoolExecutor(max_workers=max(1, len(active_processes))) as executor:
-            future_to_process = {
-                executor.submit(process.run, politician, force, context): process
-                for process in active_processes
-            }
-            for future in as_completed(future_to_process):
-                process = future_to_process[future]
-                try:
-                    result = future.result()
-                except Exception as exc:
-                    pname = getattr(process, "name", str(process))
-                    logger.error(
-                        "Process %s crashed for %s: %s",
-                        pname,
-                        politician_id,
-                        exc,
-                    )
-                    self._record_error(
-                        "agent",
-                        f"Process {pname} crashed: {exc}",
-                        context=politician_id,
-                        exc=exc,
-                    )
-                    process_results.append(
-                        {"process": pname, "ok": False, "error": str(exc)}
-                    )
-                    continue
-
-                process_results.append(result)
-
-                # ── 4. Persist updates immediately (serialised) ──────────
-                if result.get("ok") and not result.get("skipped"):
-                    self._mark_process_cached(politician_id, process.name)
-                if (
-                    result.get("ok")
-                    and not result.get("skipped")
-                    and result.get("updates")
-                ):
-                    with write_lock:
-                        updated = self.politician_service.update_politician(
-                            politician_id, result["updates"]
-                        )
-                        if not updated:
+        # ── 3. Parallel enrichment (excludes citation_audit) ───────────────
+        if active_parallel:
+            with ThreadPoolExecutor(
+                max_workers=max(1, len(active_parallel))
+            ) as executor:
+                future_to_process = {
+                    executor.submit(
+                        process.run, politician, force, context
+                    ): process
+                    for process in active_parallel
+                }
+                for future in as_completed(future_to_process):
+                    process = future_to_process[future]
+                    try:
+                        result = future.result()
+                    except Exception as exc:
+                        pname = getattr(process, "name", str(process))
+                        if _is_llm_quota_exc(exc):
                             logger.error(
-                                "Failed to persist updates for %s from process %s",
+                                "Process %s hit LLM quota for %s: %s",
+                                pname,
                                 politician_id,
-                                getattr(process, "name", "unknown"),
+                                exc,
                             )
-                            process_results.append(
-                                {
-                                    "process": getattr(process, "name", "unknown"),
-                                    "ok": False,
-                                    "error": "update_failed",
-                                }
+                            raise
+                        logger.error(
+                            "Process %s crashed for %s: %s",
+                            pname,
+                            politician_id,
+                            exc,
+                        )
+                        self._record_error(
+                            "agent",
+                            f"Process {pname} crashed: {exc}",
+                            context=politician_id,
+                            exc=exc,
+                        )
+                        process_results.append(
+                            {"process": pname, "ok": False, "error": str(exc)}
+                        )
+                        continue
+
+                    process_results.append(result)
+
+                    if result.get("ok") and not result.get("skipped"):
+                        self._mark_process_cached(politician_id, process.name)
+                    if (
+                        result.get("ok")
+                        and not result.get("skipped")
+                        and result.get("updates")
+                    ):
+                        with write_lock:
+                            updated = self.politician_service.update_politician(
+                                politician_id, result["updates"]
                             )
-                        else:
-                            for k in result["updates"]:
-                                updated_fields.add(k)
-                            logger.info(
-                                "Persisted %s for %s from %s",
-                                list(result["updates"].keys()),
-                                politician_id,
-                                getattr(process, "name", "unknown"),
-                            )
+                            if not updated:
+                                logger.error(
+                                    "Failed to persist updates for %s from process %s",
+                                    politician_id,
+                                    getattr(process, "name", "unknown"),
+                                )
+                                process_results.append(
+                                    {
+                                        "process": getattr(
+                                            process, "name", "unknown"
+                                        ),
+                                        "ok": False,
+                                        "error": "update_failed",
+                                    }
+                                )
+                            else:
+                                for k in result["updates"]:
+                                    updated_fields.add(k)
+                                logger.info(
+                                    "Persisted %s for %s from %s",
+                                    list(result["updates"].keys()),
+                                    politician_id,
+                                    getattr(process, "name", "unknown"),
+                                )
+
+        # ── 4. Citation audit on fresh row (sequential) ────────────────────
+        if citation_pending:
+            fresh = self.politician_service.get_by_id(politician_id) or politician
+            try:
+                result = citation_pending.run(fresh, force, context)
+            except Exception as exc:
+                if _is_llm_quota_exc(exc):
+                    raise
+                logger.error(
+                    "Process citation_audit crashed for %s: %s",
+                    politician_id,
+                    exc,
+                )
+                self._record_error(
+                    "agent",
+                    f"Process citation_audit crashed: {exc}",
+                    context=politician_id,
+                    exc=exc,
+                )
+                process_results.append(
+                    {"process": "citation_audit", "ok": False, "error": str(exc)}
+                )
+            else:
+                process_results.append(result)
+                if result.get("ok") and not result.get("skipped") and result.get(
+                    "updates"
+                ):
+                    updated = self.politician_service.update_politician(
+                        politician_id, result["updates"]
+                    )
+                    if not updated:
+                        process_results.append(
+                            {
+                                "process": "citation_audit",
+                                "ok": False,
+                                "error": "update_failed",
+                            }
+                        )
+                    else:
+                        for k in result["updates"]:
+                            updated_fields.add(k)
+                if result.get("ok"):
+                    recheck = self.politician_service.get_by_id(politician_id)
+                    if recheck and not politician_needs_citation_audit(recheck):
+                        self._mark_process_cached(politician_id, "citation_audit")
 
         # ── 5. Mark cached and return ────────────────────────────────────
         self._mark_cached(politician_id)

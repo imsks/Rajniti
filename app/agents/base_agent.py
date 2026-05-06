@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import traceback
 from typing import Any, Dict, Optional, TypeVar
 
@@ -32,6 +33,7 @@ class BaseAgent:
         self.llm = get_agent_llm()
         self._tools = self._init_tools()
         self._errors: list[dict[str, Any]] = []
+        self._llm_call_count = 0
 
     # ── Tool initialisation (never raises) ──────────────────────────────────
 
@@ -123,6 +125,10 @@ class BaseAgent:
 
     # ── Tool helpers ─────────────────────────────────────────────────────────
 
+    def search_web(self, query: str, max_results: int = 5) -> str:
+        """Public alias for DuckDuckGo search (tools facade)."""
+        return self._search_web(query, max_results=max_results)
+
     def _search_web(self, query: str, max_results: int = 5) -> str:
         """Run a DuckDuckGo search; returns formatted text or ``""``."""
         tool = self._tools.get("web_search")
@@ -190,6 +196,13 @@ class BaseAgent:
     @log(logger, "BaseAgent._run_llm")
     def _run_llm(self, prompt: str) -> str:
         """Send a prompt to the LLM and return plain text."""
+        max_raw = (os.getenv("RAJNITI_LLM_MAX_CALLS") or "").strip()
+        max_calls = int(max_raw) if max_raw else 0
+        if max_calls > 0 and self._llm_call_count >= max_calls:
+            raise RuntimeError(
+                f"RAJNITI_LLM_MAX_CALLS ({max_calls}) exhausted for this run"
+            )
+        self._llm_call_count += 1
         try:
             response = self.llm.invoke(prompt)
             content = (

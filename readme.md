@@ -256,9 +256,18 @@ cd "${REPO_ROOT}"
 # One run: all MPs and MLAs that still need work (omit --type)
 python scripts/run_politician_agent.py --log-level INFO \
   >> "${LOG_DIR}/rajniti-agent.log" 2>&1
+
+# Optional: checkpointed run; exits 0 when LLM quota is exhausted (cron-friendly)
+# export RAJNITI_LLM_MAX_CALLS=200
+# python3 scripts/run_politician_agent_scheduled.py --log-level INFO \
+#   --sleep-seconds 2 --max-politicians 50 \
+#   >> "${LOG_DIR}/rajniti-agent-scheduled.log" 2>&1
+# Citation coverage: python3 scripts/report_citation_coverage.py
 ```
 
 **Run immediately (any OS):** open a terminal, `cd` to the repo, activate the venv, and run the same `python scripts/run_politician_agent.py --log-level INFO` line (or use the commands in **3. Run the agent** above). No need to wait for the next 8:00 run.
+
+Scheduled **`run_politician_agent_scheduled.py`** writes `.cache/agent_schedule_checkpoint.json` (gitignored) so the next run can resume. Pass `--reset-checkpoint` to start from the first row.
 
 ---
 
