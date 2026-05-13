@@ -87,7 +87,7 @@ python3 scripts/run_citation_agent.py [--id ID] [--type MP|MLA] [--limit N] [--f
 ### 3.7 Tests
 
 - [`tests/unit/schemas/test_politician_citations.py`](../tests/unit/schemas/test_politician_citations.py): merge + predicates + pydantic quirks for citations.
-- **`WikipediaTool`**: add **`tests/unit/tools/test_wikipedia_tool.py`** when implementing the bundle API described in §6 (Gaps and risks)—today the repo has **no** dedicated Wikipedia tests; regression risk until those land.
+- [`tests/unit/tools/test_wikipedia_tool.py`](../tests/unit/tools/test_wikipedia_tool.py): **`politician_wikipedia_bundle`** (mocked **httpx**), encoding, **`summary_matches_wikipedia_extract`**, Wikipedia **`summary_citation`** pruning.
 
 ### 3.8 Frontend surfacing
 
@@ -205,8 +205,8 @@ flowchart LR
 
 | Gap | Detail | Mitigation (backlog) |
 |-----|--------|---------------------|
-| **Wikipedia surface vs backlog** | Design calls for **`politician_wikipedia_bundle`** (+ **`article_url`**, **`externallinks`**); [`wikipedia_tool.py`](../app/tools/wikipedia_tool.py) today only **`search/summary/search_and_summarize/politician_context`**. Tests not yet checked in—add **`tests/unit/tools/test_wikipedia_tool.py`** alongside the richer API. | Implement bundle + encode-title helpers + mocked HTTP tests |
-| **Context structure** | [`_search_wikipedia`](../app/agents/base_agent.py) returns plaintext only—no deterministic **article URL** bundle in prompts. | Pass structured Markdown/JSON-ish block listing candidate URLs |
+| **Wikipedia tool + coverage** | Rich bundle in [`wikipedia_tool.py`](../app/tools/wikipedia_tool.py); tests in [`tests/unit/tools/test_wikipedia_tool.py`](../tests/unit/tools/test_wikipedia_tool.py); still not primary for affidavit/ECI facts. | **Mitigated (P0).** Tune thresholds if mismatches recur. |
+| **LLM context shape** | [`_gather_politician_context`](../app/agents/base_agent.py): structured **`Wikipedia (structured)`** block ( **`Article URL`**, extract, outbound links ) + DuckDuckGo; plaintext Wikipedia fallback when no extract. | **Mitigated (P0).** |
 | **Hallucinated URLs** | Models can cite non-existent HTTPS paths | Optional HEAD→GET verifier; domain allow/block lists; retry citation agent |
 | **Single search backend** | Only DuckDuckGo in [`WebSearchTool`](../app/tools/web_search.py) today | Brave/Google backends + env-selected strategy |
 | **Primary-source depth** | ECI/MyNeta not first-class deterministic tools—only prompts | Narrow link resolvers or templates per election year |
@@ -236,9 +236,9 @@ Ordered for execution. Check items off as you ship PRs.
 
 ### P0 — Foundation
 
-- [ ] **Resolve Wikipedia drift:** implement **`politician_wikipedia_bundle`** (REST summary incl. **`content_urls`**, **`action=parse`** externallinks, title encoding compatible with `%2F`/dots) **and** add **`tests/unit/tools/test_wikipedia_tool.py`** (mocked **`httpx`**) **or** keep minimal API deliberately and document—it must match **whatever** tests exist so **CI stays green**.
-- [ ] Extend [`BaseAgent._gather_politician_context`](../app/agents/base_agent.py) with a **structured** block listing **article URL**, **filtered external_links**, plus existing DDG text (clear delimiters reduce LLM misuse).
-- [ ] Add **`summary_matches_wikipedia_extract`** usage (or equivalent fuzzy check) anywhere `summary_citation` would point at Wikipedia to avoid wrong-article merges.
+- [x] **Resolve Wikipedia drift:** implement **`politician_wikipedia_bundle`** (REST summary incl. **`content_urls`**, **`action=parse`** externallinks, title encoding compatible with `%2F`/dots) **and** add **`tests/unit/tools/test_wikipedia_tool.py`** (mocked **`httpx`**) — **Shipped**.
+- [x] Extend [`BaseAgent._gather_politician_context`](../app/agents/base_agent.py) with a **structured** block listing **article URL**, **filtered external_links**, plus existing DDG text (clear delimiters reduce LLM misuse) — **Shipped** (fallback to plain Wikipedia extract still works when bundle has no extract).
+- [x] Add **`summary_matches_wikipedia_extract`** usage (or equivalent fuzzy check) anywhere `summary_citation` would point at Wikipedia to avoid wrong-article merges — **`CitationAgent`** calls **`prune_misaligned_wikipedia_summary_citation`** on **`WikipediaTool`** before persistence — **Shipped**.
 
 ### P1 — Search breadth + reliability
 
@@ -275,6 +275,7 @@ Ordered for execution. Check items off as you ship PRs.
 | Schema | `app/schemas/politician.py` |
 | Merge / audit predicates | `app/agents/citation_audit_merge.py` |
 | Agents | `app/agents/base_agent.py`, `citation_agent.py`, `politician_agent.py` |
+| Tests (citation/wiki) | `tests/unit/schemas/test_politician_citations.py`, `tests/unit/tools/test_wikipedia_tool.py`, `tests/unit/agents/test_base_agent_politician_context.py` |
 | Prompts | `app/prompts/politician_prompts.py` |
 | Tools | `app/tools/wikipedia_tool.py`, `web_search.py`, `web_scraper.py` |
 | Performance merge | `app/services/politician_service.py`, `app/data/performance.json` |

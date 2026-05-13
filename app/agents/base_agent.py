@@ -183,6 +183,29 @@ class BaseAgent:
             )
             return ""
 
+    def _format_wikipedia_bundle_context(self, bundle: Dict[str, Any]) -> str:
+        lines = ["=== Wikipedia (structured) ==="]
+        if bundle.get("article_url"):
+            lines.append(f"Article URL: {bundle['article_url']}")
+        if bundle.get("title"):
+            lines.append(f"Page title: {bundle['title']}")
+        if bundle.get("extract"):
+            lines.append("Extract:")
+            lines.append(str(bundle["extract"]))
+        ext = bundle.get("external_links") or []
+        if ext:
+            lines.append(
+                "Outbound links (use for primary-source citations where possible "
+                "instead of citing Wikipedia alone):"
+            )
+            for i, url in enumerate(ext, start=1):
+                lines.append(f"  {i}. {url}")
+        lines.append(
+            "Citation rule: use Article URL only for summary citations when Extract "
+            "clearly refers to this politician."
+        )
+        return "\n".join(lines)
+
     def _gather_politician_context(self, politician: Dict[str, Any]) -> str:
         """Collect web + Wikipedia context for a politician (best-effort).
 
@@ -198,9 +221,26 @@ class BaseAgent:
 
         parts: list[str] = []
 
-        wiki = self._search_wikipedia(f"{name} Indian politician {state}")
-        if wiki:
-            parts.append(f"=== Wikipedia ===\n{wiki}")
+        wiki_tool = self._tools.get("wikipedia")
+        bundle: Optional[Dict[str, Any]] = None
+        if wiki_tool is not None:
+            try:
+                bundle = wiki_tool.politician_wikipedia_bundle(str(name), str(state))
+            except Exception as exc:
+                self._record_error(
+                    "tool",
+                    f"Wikipedia bundle failed: {exc}",
+                    context=str(name),
+                    exc=exc,
+                )
+                bundle = None
+
+        if bundle and bundle.get("extract"):
+            parts.append(self._format_wikipedia_bundle_context(bundle))
+        elif wiki_tool is not None:
+            wiki = self._search_wikipedia(f"{name} Indian politician {state}")
+            if wiki:
+                parts.append(f"=== Wikipedia ===\n{wiki}")
 
         web = self._search_web(query, max_results=3)
         if web:
