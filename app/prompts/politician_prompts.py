@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 _CITATION_SHAPE = (
     '"citation": {"link": "https://...", "source": "ECI|MYNETA|GOV_WEBSITE|NEWS|OTHERS"}'
@@ -162,8 +162,15 @@ class PoliticianPrompts:
         )
 
     @staticmethod
-    def citation_audit(politician: Dict[str, Any]) -> str:
-        """Ask LLM for citation-only patches aligned with existing detail rows."""
+    def citation_audit(
+        politician: Dict[str, Any],
+        citation_backlog: Optional[Dict[str, Any]] = None,
+    ) -> str:
+        """Ask LLM for citation-only patches aligned with existing detail rows.
+
+        ``citation_backlog`` narrows scope to indices/keys that still lack citations
+        (merge never overwrites existing citation objects).
+        """
         payload = {
             "education": politician.get("education"),
             "political_background": politician.get("political_background"),
@@ -175,10 +182,28 @@ class PoliticianPrompts:
             "type": politician.get("type"),
         }
         raw = json.dumps(payload, ensure_ascii=False, indent=2)
+        backlog_block = ""
+        if citation_backlog:
+            backlog_json = json.dumps(citation_backlog, ensure_ascii=False, indent=2)
+            backlog_block = (
+                "CITATION_BACKLOG_JSON (YOU MUST ADDRESS ONLY THESE SLOTS; anything already "
+                "carrying a citation object in INPUT is OUT OF SCOPE — use null everywhere else):\n"
+                "- education_citations / family_citations / criminal_citations: output arrays "
+                "with the SAME length as INPUT; ONLY indices listed "
+                "(e.g. education_indices) may be citation objects.\n"
+                "- elections_indices: same rule for elections_citations vs political_background.elections.\n"
+                "- summary_needs_citation true: populate summary_citation only if INPUT has summary text.\n"
+                "- contact_keys / social_media_keys / performance_keys: only those keys "
+                "in *_citations objects.\n\n"
+                f"{backlog_json}\n\n"
+            )
+
         return (
             "You are a fact-checking assistant. Given the following JSON details for ONE "
             "Indian politician, propose **ONLY** source citations. Do NOT change factual text, "
-            "party names, dates, or counts — only fill missing citation URLs.\n"
+            "party names, dates, or counts — only fill missing citation URLs in backlog slots.\n"
+            "The server merges into JSON **only empty citation slots**; it will IGNORE proposals "
+            "that would overwrite an existing citation object.\n"
             "Return ONLY valid JSON with this exact shape (use null for array positions "
             "where no citation is needed or unknown):\n"
             "{\n"
@@ -200,5 +225,6 @@ class PoliticianPrompts:
             "- source must be one of: ECI, MYNETA, GOV_WEBSITE, NEWS, OTHERS.\n"
             "- performance_citations only if type is MP and performance numbers exist; "
             "prefer Lok Sabha / PRS sources.\n\n"
-            f"INPUT:\n{raw}\n"
+            + backlog_block
+            + f"INPUT:\n{raw}\n"
         )

@@ -264,9 +264,10 @@ python scripts/run_politician_agent.py --log-level INFO \
 # python3 scripts/run_politician_agent_scheduled.py --log-level INFO \
 #   --sleep-seconds 2 --max-politicians 50 \
 #   >> "${LOG_DIR}/rajniti-agent-scheduled.log" 2>&1
-# Wikipedia + web context preview (live HTTP): python scripts/run_wikipedia_context.py --name "Name" --state "State"
-# Full agent-style blob (Wiki + DuckDuckGo): python scripts/run_wikipedia_context.py --full-context --id POLITICIAN_UUID
-# Citation backfill (URLs via LLM, after enrichment): python scripts/run_citation_agent.py --log-level INFO
+# Citation backfill (URLs on existing fields; gathers Wikipedia + web context inside the agent):
+#   python scripts/run_citation_agent.py --log-level INFO
+#   python scripts/run_citation_agent.py --id POLITICIAN_UUID
+#   python scripts/run_citation_agent.py --force --id POLITICIAN_UUID
 ```
 
 **Run immediately (any OS):** open a terminal, `cd` to the repo, activate the venv, and run the same `python scripts/run_politician_agent.py --log-level INFO` line (or use the commands in **3. Run the agent** above). No need to wait for the next 8:00 run.

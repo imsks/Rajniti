@@ -490,7 +490,21 @@
       "address": "H.No. 1-10-10, Near Sivalayam, Palakol, West Godavari District, Andhra Pradesh"
     },
     "citation_audit": {
-      "last_run": "2026-05-06T07:35:11.804856+00:00"
+      "last_run": "2026-05-13T18:04:12.058953+00:00"
+    },
+    "social_media_citations": {
+      "facebook": {
+        "link": "https://www.facebook.com/bjpvarma.mp/",
+        "source": "OTHERS"
+      },
+      "twitter": {
+        "link": "https://twitter.com/bjpvarma_mp",
+        "source": "OTHERS"
+      },
+      "youtube": {
+        "link": "https://www.youtube.com/@bjpvarma",
+        "source": "OTHERS"
+      }
     }
   },
   {
@@ -508,7 +522,11 @@
           "state": "Arunachal Pradesh",
           "constituency": "Arunachal West",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://www.dhammabharat.com/buddhist-mps-in-18th-loksabha/",
+            "source": "OTHERS"
+          }
         }
       ]
     },
@@ -516,12 +534,20 @@
       {
         "qualification": "BACHELOR",
         "institution": "Hansraj College, University of Delhi",
-        "year_completed": null
+        "year_completed": null,
+        "citation": {
+          "link": "https://www.newindianexpress.com/thesundaystandard/2017/Sep/24/wall-of-fame-to-inspire-students-in-delhis-hansraj-college-1661736.html",
+          "source": "NEWS"
+        }
       },
       {
         "qualification": "PROFESSIONAL",
         "institution": "Campus Law Centre, Faculty of Law, University of Delhi",
-        "year_completed": 1998
+        "year_completed": 1998,
+        "citation": {
+          "link": "https://indianexpress.com/article/india/amid-appointments-impasse-virtual-courts-new-law-minister-kiren-rijiju-signs-in-7395908/",
+          "source": "NEWS"
+        }
       }
     ],
     "social_media": {
@@ -563,7 +589,10 @@
         "type": "CORRUPTION",
         "year": 2020
       }
-    ]
+    ],
+    "citation_audit": {
+      "last_run": "2026-05-13T18:04:46.133147+00:00"
+    }
   },
   {
     "id": "8c8b42a8-4cc8-4ade-b669-2af36e8ef27b",
@@ -580,7 +609,11 @@
           "state": "Arunachal Pradesh",
           "constituency": "Arunachal East",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://www.thehindu.com/elections/candidates/LokSabha2024/tapir-gao-257/",
+            "source": "NEWS"
+          }
         }
       ]
     },
@@ -623,7 +656,34 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "contact_citations": {
+      "email": {
+        "link": "http://164.100.24.208/ls/lsmember/biodata.asp?mpsno=3973",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "social_media_citations": {
+      "facebook": {
+        "link": "https://www.facebook.com/tapirgaoBJP/",
+        "source": "OTHERS"
+      },
+      "instagram": {
+        "link": "https://www.instagram.com/tapirgao/",
+        "source": "OTHERS"
+      },
+      "twitter": {
+        "link": "https://twitter.com/TapirGao",
+        "source": "OTHERS"
+      },
+      "youtube": {
+        "link": "https://www.youtube.com/@TapirGaoOfficial",
+        "source": "OTHERS"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:05:01.705670+00:00"
+    }
   },
   {
     "id": "882359dd-660f-4e77-af16-741306863ad0",
@@ -640,7 +700,11 @@
           "state": "Assam",
           "constituency": "Darrang-Udalguri",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://assam.bjp.org/en/state-presidents/dilip-saikia",
+            "source": "GOV_WEBSITE"
+          }
         }
       ]
     },
@@ -712,7 +776,10 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "citation_audit": {
+      "last_run": "2026-05-13T18:05:27.111639+00:00"
+    }
   },
   {
     "id": "f79fe244-f19a-4dfe-830d-de227b7c9e25",

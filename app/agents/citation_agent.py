@@ -10,7 +10,10 @@ from pydantic import TypeAdapter
 
 from app.agents.base_agent import BaseAgent
 from app.agents.citation_audit_merge import (
+    CITATION_COVERAGE_SKIP_THRESHOLD_PCT,
     merge_citation_audit_updates,
+    politician_citation_coverage_pct,
+    politician_citation_gaps,
     politician_needs_citation_audit,
 )
 from app.core import CacheManager, log
@@ -88,9 +91,14 @@ class CitationAgent(BaseAgent):
                 summary["failed"] += 1
                 continue
 
-            if not politician_needs_citation_audit(politician):
-                summary["skipped"] += 1
-                continue
+            if not force:
+                cov = politician_citation_coverage_pct(politician)
+                if cov is None or cov >= CITATION_COVERAGE_SKIP_THRESHOLD_PCT:
+                    summary["skipped"] += 1
+                    continue
+                if politician_citation_gaps(politician) is None:
+                    summary["skipped"] += 1
+                    continue
 
             logger.info(
                 "CitationAgent [%d/%d] id=%s name=%s",
@@ -101,10 +109,12 @@ class CitationAgent(BaseAgent):
             )
 
             result = self._run_for_politician(politician, force=force)
-            if result.get("ok"):
-                summary["processed"] += 1
-            else:
+            if not result.get("ok"):
                 summary["failed"] += 1
+            elif result.get("skipped"):
+                summary["skipped"] += 1
+            else:
+                summary["processed"] += 1
 
         logger.info(
             "CitationAgent done: total=%d processed=%d skipped=%d failed=%d",
@@ -125,22 +135,43 @@ class CitationAgent(BaseAgent):
 
         pid = str(politician_id)
 
-        if not force and not politician_needs_citation_audit(politician):
-            logger.info(
-                "CitationAgent: skip %s — all detail fields already cited",
-                politician.get("name"),
-            )
-            return {
-                "ok": True,
-                "id": pid,
-                "skipped": True,
-                "reason": "already_cited",
-            }
+        cov_pct = politician_citation_coverage_pct(politician)
+        backlog = politician_citation_gaps(politician)
+
+        if not force:
+            if cov_pct is None:
+                return {
+                    "ok": True,
+                    "id": pid,
+                    "skipped": True,
+                    "reason": "no_citation_slots",
+                }
+            if cov_pct >= CITATION_COVERAGE_SKIP_THRESHOLD_PCT:
+                return {
+                    "ok": True,
+                    "id": pid,
+                    "skipped": True,
+                    "reason": "citation_coverage_at_or_above_threshold",
+                    "coverage_pct": cov_pct,
+                }
+            if backlog is None:
+                return {
+                    "ok": True,
+                    "id": pid,
+                    "skipped": True,
+                    "reason": "citations_complete",
+                    "coverage_pct": cov_pct,
+                }
 
         logger.info(
             "CitationAgent: gathering context for %s (%s)",
             politician.get("name"),
             pid,
+        )
+        logger.info(
+            "CitationAgent: backlog keys=%s coverage_pct=%s",
+            sorted(backlog.keys()) if backlog else "(force / none)",
+            cov_pct if cov_pct is not None else "n/a",
         )
         context = self._gather_politician_context(politician)
         logger.info(
@@ -149,7 +180,9 @@ class CitationAgent(BaseAgent):
             politician.get("name"),
         )
 
-        prompt = PoliticianPrompts.citation_audit(politician)
+        prompt = PoliticianPrompts.citation_audit(
+            politician, citation_backlog=backlog
+        )
         logger.info(
             "CitationAgent: LLM backfill START id=%s name=%s",
             pid,
@@ -216,10 +249,13 @@ class CitationAgent(BaseAgent):
                 updates["citation_audit"] = cam
 
         if not updates:
+            mb = politician_citation_gaps(politician)
             logger.info(
-                "CitationAgent: no citation patches produced id=%s issues=%s",
+                "CitationAgent: no citation patches produced id=%s issues=%s backlog=%s — "
+                "merge only fills EMPTY slots (null LLM proposals or already-cited indices).",
                 pid,
                 issues,
+                mb,
             )
             return {
                 "ok": True,

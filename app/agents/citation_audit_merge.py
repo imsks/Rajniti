@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 from app.schemas.politician import CitationAuditLLMResult
 
@@ -13,49 +13,155 @@ _SOCIAL_KEYS = frozenset(
 )
 _PERF_KEYS = frozenset({"attendance", "questions", "debates"})
 
+# Skip LLM when this fraction (percent) or more of citation slots already have URLs.
+CITATION_COVERAGE_SKIP_THRESHOLD_PCT = 40
 
-def politician_needs_citation_audit(politician: Dict[str, Any]) -> bool:
-    """True if any present detail field lacks a citation."""
+
+def politician_citation_coverage_pct(politician: Dict[str, Any]) -> Optional[float]:
+    """Percentage of citation slots that already have a citation (0–100).
+
+    Mirrors the inventory used by ``politician_needs_citation_audit``. Returns
+    ``None`` when there are no slots (nothing to cite).
+    """
+    total = 0
+    filled = 0
+
     for row in politician.get("education") or []:
-        if isinstance(row, dict) and not row.get("citation"):
-            return True
+        if isinstance(row, dict):
+            total += 1
+            if row.get("citation"):
+                filled += 1
 
     pb = politician.get("political_background") or {}
-    if (pb.get("summary") or "").strip() and not pb.get("summary_citation"):
-        return True
+    if (pb.get("summary") or "").strip():
+        total += 1
+        if pb.get("summary_citation"):
+            filled += 1
+
     for ev in pb.get("elections") or []:
-        if isinstance(ev, dict) and not ev.get("citation"):
-            return True
+        if isinstance(ev, dict):
+            total += 1
+            if ev.get("citation"):
+                filled += 1
 
     for row in politician.get("family_background") or []:
-        if isinstance(row, dict) and not row.get("citation"):
-            return True
+        if isinstance(row, dict):
+            total += 1
+            if row.get("citation"):
+                filled += 1
 
     for row in politician.get("criminal_records") or []:
-        if isinstance(row, dict) and not row.get("citation"):
-            return True
+        if isinstance(row, dict):
+            total += 1
+            if row.get("citation"):
+                filled += 1
 
     contact = politician.get("contact") or {}
     cc = politician.get("contact_citations") or {}
     for k in _CONTACT_KEYS:
-        if contact.get(k) and k not in cc:
-            return True
+        if contact.get(k):
+            total += 1
+            if k in cc:
+                filled += 1
 
     sm = politician.get("social_media") or {}
     smc = politician.get("social_media_citations") or {}
     for k in _SOCIAL_KEYS:
-        if sm.get(k) and k not in smc:
-            return True
+        if sm.get(k):
+            total += 1
+            if k in smc:
+                filled += 1
+
+    if politician.get("type") == "MP":
+        perf = politician.get("performance") or {}
+        pc = politician.get("performance_citations") or {}
+        for k in _PERF_KEYS:
+            if perf.get(k) is not None:
+                total += 1
+                if k in pc:
+                    filled += 1
+
+    if total == 0:
+        return None
+    return round(100.0 * filled / total, 6)
+
+
+def _collect_politician_citation_gaps(politician: Dict[str, Any]) -> Dict[str, Any]:
+    """Citation slots lacking URLs (canonical inventory = coverage / needs_audit)."""
+    gaps: Dict[str, Any] = {}
+
+    edu_idx = [
+        i
+        for i, row in enumerate(politician.get("education") or [])
+        if isinstance(row, dict) and not row.get("citation")
+    ]
+    if edu_idx:
+        gaps["education_indices"] = edu_idx
+
+    pb = politician.get("political_background") or {}
+    if (pb.get("summary") or "").strip() and not pb.get("summary_citation"):
+        gaps["summary_needs_citation"] = True
+
+    el_idx = [
+        i
+        for i, ev in enumerate(pb.get("elections") or [])
+        if isinstance(ev, dict) and not ev.get("citation")
+    ]
+    if el_idx:
+        gaps["elections_indices"] = el_idx
+
+    fam_idx = [
+        i
+        for i, row in enumerate(politician.get("family_background") or [])
+        if isinstance(row, dict) and not row.get("citation")
+    ]
+    if fam_idx:
+        gaps["family_indices"] = fam_idx
+
+    cr_idx = [
+        i
+        for i, row in enumerate(politician.get("criminal_records") or [])
+        if isinstance(row, dict) and not row.get("citation")
+    ]
+    if cr_idx:
+        gaps["criminal_indices"] = cr_idx
+
+    contact = politician.get("contact") or {}
+    cc = politician.get("contact_citations") or {}
+    ck = sorted(k for k in _CONTACT_KEYS if contact.get(k) and k not in cc)
+    if ck:
+        gaps["contact_keys"] = ck
+
+    sm = politician.get("social_media") or {}
+    smc = politician.get("social_media_citations") or {}
+    sk = sorted(k for k in _SOCIAL_KEYS if sm.get(k) and k not in smc)
+    if sk:
+        gaps["social_media_keys"] = sk
 
     if politician.get("type") == "MP":
         perf = politician.get("performance") or {}
         pc = politician.get("performance_citations") or {}
         if any(perf.get(k) not in (None, 0, "") for k in _PERF_KEYS):
-            for k in _PERF_KEYS:
-                if perf.get(k) is not None and k not in pc:
-                    return True
+            pk = sorted(
+                k
+                for k in _PERF_KEYS
+                if perf.get(k) is not None and k not in pc
+            )
+            if pk:
+                gaps["performance_keys"] = pk
 
-    return False
+    return gaps
+
+
+def politician_citation_gaps(politician: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """Structured backlog: indices/keys lacking citations. ``None`` if fully cited on this inventory."""
+    raw = _collect_politician_citation_gaps(politician)
+    return raw if raw else None
+
+
+def politician_needs_citation_audit(politician: Dict[str, Any]) -> bool:
+    """True if any present detail field lacks a citation."""
+    return bool(_collect_politician_citation_gaps(politician))
 
 
 def merge_citation_audit_updates(
