@@ -1001,7 +1001,11 @@
           "state": "Assam",
           "constituency": "Karimganj",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://timesofindia.indiatimes.com/elections/lok-sabha-elections/assam/karimganj/candidateshow/kripanath-mallah-4270",
+            "source": "NEWS"
+          }
         }
       ]
     },
@@ -1009,19 +1013,31 @@
       {
         "qualification": "BACHELOR",
         "institution": null,
-        "year_completed": null
+        "year_completed": null,
+        "citation": {
+          "link": "http://myneta.info/LokSabha2019/candidate.php?candidate_id=5897",
+          "source": "MYNETA"
+        }
       }
     ],
     "criminal_records": [
       {
         "name": "Assault case",
         "type": "OTHERS",
-        "year": 2019
+        "year": 2019,
+        "citation": {
+          "link": "http://myneta.info/LokSabha2019/candidate.php?candidate_id=5897",
+          "source": "MYNETA"
+        }
       },
       {
         "name": "FIR for allegedly assaulting a person",
         "type": "OTHERS",
-        "year": 2020
+        "year": 2020,
+        "citation": {
+          "link": "http://myneta.info/LokSabha2019/candidate.php?candidate_id=5897",
+          "source": "MYNETA"
+        }
       }
     ],
     "contact": {
@@ -1042,15 +1058,48 @@
         "name": "Manoranjan Mallah",
         "relation": "FATHER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "http://loksabhaph.nic.in/Members/MemberBioprofile.aspx?mpsno=5106",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "name": "Manju Mallah",
         "relation": "WIFE",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "http://loksabhaph.nic.in/Members/MemberBioprofile.aspx?mpsno=5106",
+          "source": "GOV_WEBSITE"
+        }
       }
-    ]
+    ],
+    "contact_citations": {
+      "address": {
+        "link": "http://loksabhaph.nic.in/Members/MemberBioprofile.aspx?mpsno=5106",
+        "source": "GOV_WEBSITE"
+      },
+      "phone": {
+        "link": "http://loksabhaph.nic.in/Members/MemberBioprofile.aspx?mpsno=5106",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "social_media_citations": {
+      "website": {
+        "link": "http://loksabhaph.nic.in/Members/MemberBioprofile.aspx?mpsno=5106",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "performance_citations": {
+      "attendance": {
+        "link": "https://www.oneindia.com/politicians/kripanath-mallah-51829.html",
+        "source": "NEWS"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:14:45.223695+00:00"
+    }
   },
   {
     "id": "83c47999-efee-443c-891a-5be34fca83dc",
@@ -1067,7 +1116,11 @@
           "state": "Assam",
           "constituency": "Silchar ",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://www.facebook.com/ParimalSuklabaidyaBJP/",
+            "source": "OTHERS"
+          }
         }
       ]
     },
@@ -1143,7 +1196,16 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "social_media_citations": {
+      "facebook": {
+        "link": "https://www.facebook.com/ParimalSuklabaidyaBJP/",
+        "source": "OTHERS"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:15:04.801789+00:00"
+    }
   },
   {
     "id": "4ce76917-1421-4390-add4-5dc1c93540cb",
@@ -1231,7 +1293,24 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "performance_citations": {
+      "attendance": {
+        "link": "https://prsindia.org/mptrack/16-lok-sabha/kamakhya-prasad-tasa",
+        "source": "OTHERS"
+      },
+      "questions": {
+        "link": "https://prsindia.org/mptrack/16-lok-sabha/kamakhya-prasad-tasa",
+        "source": "OTHERS"
+      },
+      "debates": {
+        "link": "https://prsindia.org/mptrack/16-lok-sabha/kamakhya-prasad-tasa",
+        "source": "OTHERS"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:15:39.589333+00:00"
+    }
   },
   {
     "id": "58944d18-1c1e-460b-bf4c-a8f3a3578787",
@@ -1248,7 +1327,11 @@
           "state": "Assam",
           "constituency": "Sonitpur",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://www.news18.com/elections/lok-sabha/assam/ranjit-dutta-s03led2023p011e2024c006/",
+            "source": "NEWS"
+          }
         }
       ]
     },
@@ -1303,6 +1386,23 @@
       "email": "r.dutta342@gmail.com",
       "phone": "+91 99540 04700",
       "address": "Lalit Bhawan, Rukmini Nagar, Ganga Path, 6th Mile, Khanapara, Guwahati-22, Assam"
+    },
+    "performance_citations": {
+      "attendance": {
+        "link": "https://www.stocklens.co.in/mp/ranjit-dutta-sonitpur",
+        "source": "OTHERS"
+      },
+      "questions": {
+        "link": "https://www.stocklens.co.in/mp/ranjit-dutta-sonitpur",
+        "source": "OTHERS"
+      },
+      "debates": {
+        "link": "https://www.stocklens.co.in/mp/ranjit-dutta-sonitpur",
+        "source": "OTHERS"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:15:53.401571+00:00"
     }
   },
   {
@@ -1320,7 +1420,11 @@
           "state": "Assam",
           "constituency": "Lakhimpur",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://results.eci.gov.in/",
+            "source": "ECI"
+          }
         }
       ]
     },
@@ -1328,7 +1432,11 @@
       {
         "qualification": "DIPLOMA",
         "institution": "Dibrugarh Polytechnic, Assam",
-        "year_completed": 1985
+        "year_completed": 1985,
+        "citation": {
+          "link": "http://164.100.47.194/Loksabha/Members/MemberBioprofile.aspx?mpsno=4937",
+          "source": "GOV_WEBSITE"
+        }
       }
     ],
     "social_media": {
@@ -1343,12 +1451,20 @@
       {
         "name": "Assault case",
         "type": "OTHERS",
-        "year": 2015
+        "year": 2015,
+        "citation": {
+          "link": "https://timesofindia.indiatimes.com/elections/candidates/pradan-baruah",
+          "source": "NEWS"
+        }
       },
       {
         "name": "FIR for allegedly assaulting a woman",
         "type": "OTHERS",
-        "year": 2019
+        "year": 2019,
+        "citation": {
+          "link": "https://timesofindia.indiatimes.com/elections/candidates/pradan-baruah",
+          "source": "NEWS"
+        }
       }
     ],
     "contact": {
@@ -1361,15 +1477,72 @@
         "name": "Bhupen Baruah",
         "relation": "FATHER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "http://164.100.47.194/Loksabha/Members/MemberBioprofile.aspx?mpsno=4937",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "name": "Bhogeswari Baruah",
         "relation": "MOTHER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "http://164.100.47.194/Loksabha/Members/MemberBioprofile.aspx?mpsno=4937",
+          "source": "GOV_WEBSITE"
+        }
       }
-    ]
+    ],
+    "contact_citations": {
+      "address": {
+        "link": "http://164.100.47.194/Loksabha/Members/MemberBioprofile.aspx?mpsno=4937",
+        "source": "GOV_WEBSITE"
+      },
+      "email": {
+        "link": "http://164.100.47.194/Loksabha/Members/MemberBioprofile.aspx?mpsno=4937",
+        "source": "GOV_WEBSITE"
+      },
+      "phone": {
+        "link": "http://164.100.47.194/Loksabha/Members/MemberBioprofile.aspx?mpsno=4937",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "social_media_citations": {
+      "facebook": {
+        "link": "https://www.facebook.com/PradanBaruahOfficial/",
+        "source": "OTHERS"
+      },
+      "instagram": {
+        "link": "https://www.instagram.com/pradanbaruah_official/",
+        "source": "OTHERS"
+      },
+      "twitter": {
+        "link": "https://twitter.com/PradanBaruahBJP",
+        "source": "OTHERS"
+      },
+      "youtube": {
+        "link": "https://www.youtube.com/@pradanbaruah9999",
+        "source": "OTHERS"
+      }
+    },
+    "performance_citations": {
+      "attendance": {
+        "link": "http://164.100.47.194/Loksabha/Members/MemberBioprofile.aspx?mpsno=4937",
+        "source": "GOV_WEBSITE"
+      },
+      "questions": {
+        "link": "http://164.100.47.194/Loksabha/Members/MemberBioprofile.aspx?mpsno=4937",
+        "source": "GOV_WEBSITE"
+      },
+      "debates": {
+        "link": "http://164.100.47.194/Loksabha/Members/MemberBioprofile.aspx?mpsno=4937",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:16:15.879987+00:00"
+    }
   },
   {
     "id": "e7a343bc-bd83-4dae-a575-6ac459f35681",
@@ -1479,7 +1652,23 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "social_media_citations": {
+      "facebook": {
+        "link": "https://www.facebook.com/SarbanandaSonowal",
+        "source": "OTHERS"
+      },
+      "twitter": {
+        "link": "https://x.com/sarbanandsonwal",
+        "source": "OTHERS"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:16:53.330834+00:00",
+      "issues": [
+        "The provided context, specifically the Wikipedia extract, states Sarbananda Sonowal has been a Member of the Rajya Sabha representing Assam since 2021. This conflicts with the input data indicating a Lok Sabha win from Dibrugarh in 2024. No source in the provided context confirms the 2024 Lok Sabha election win."
+      ]
+    }
   },
   {
     "id": "a38bd518-f555-4359-86f7-c89fe5460c80",
@@ -1496,7 +1685,11 @@
           "state": "Bihar",
           "constituency": "Paschim Champaran",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "http://loksabhaph.nic.in/Members/MemberBioprofileBrief.aspx?mpsno=4455",
+            "source": "GOV_WEBSITE"
+          }
         }
       ]
     },
@@ -1504,12 +1697,20 @@
       {
         "qualification": "PROFESSIONAL",
         "institution": "Patna Medical College",
-        "year_completed": 1991
+        "year_completed": 1991,
+        "citation": {
+          "link": "http://loksabhaph.nic.in/Members/MemberBioprofileBrief.aspx?mpsno=4455",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "qualification": "DOCTORATE",
         "institution": "Darbhanga Medical College, Lalit Narayan Mithila University",
-        "year_completed": null
+        "year_completed": null,
+        "citation": {
+          "link": "http://loksabhaph.nic.in/Members/MemberBioprofileBrief.aspx?mpsno=4455",
+          "source": "GOV_WEBSITE"
+        }
       }
     ],
     "social_media": {
@@ -1525,19 +1726,31 @@
         "name": "Dr. Sunita Jaiswal",
         "relation": "WIFE",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "http://loksabhaph.nic.in/Members/MemberBioprofileBrief.aspx?mpsno=4455",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "name": "Rajesh Jaiswal",
         "relation": "SON",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "http://loksabhaph.nic.in/Members/MemberBioprofileBrief.aspx?mpsno=4455",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "name": "Rajni Jaiswal",
         "relation": "MOTHER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "http://loksabhaph.nic.in/Members/MemberBioprofileBrief.aspx?mpsno=4455",
+          "source": "GOV_WEBSITE"
+        }
       }
     ],
     "contact": {
@@ -1566,7 +1779,38 @@
         "type": "ECONOMIC",
         "year": 2022
       }
-    ]
+    ],
+    "contact_citations": {
+      "phone": {
+        "link": "http://loksabhaph.nic.in/Members/MemberBioprofileBrief.aspx?mpsno=4455",
+        "source": "GOV_WEBSITE"
+      },
+      "address": {
+        "link": "http://loksabhaph.nic.in/Members/MemberBioprofileBrief.aspx?mpsno=4455",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "social_media_citations": {
+      "facebook": {
+        "link": "https://www.facebook.com/DrSanjayJaiswalBJP/",
+        "source": "OTHERS"
+      },
+      "instagram": {
+        "link": "https://www.instagram.com/drsanjayjaiswal_official/",
+        "source": "OTHERS"
+      },
+      "twitter": {
+        "link": "https://twitter.com/DrSanjayJaiswal",
+        "source": "OTHERS"
+      },
+      "youtube": {
+        "link": "https://www.youtube.com/@DrSanjayJaiswalOfficial",
+        "source": "OTHERS"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:17:11.759373+00:00"
+    }
   },
   {
     "id": "f2f41468-b487-410a-887c-d8ffbef7af07",
@@ -1583,7 +1827,11 @@
           "state": "Bihar",
           "constituency": "Purvi Champaran",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://en.wikipedia.org/wiki/Radha_Mohan_Singh",
+            "source": "OTHERS"
+          }
         }
       ]
     },
@@ -1644,7 +1892,38 @@
         "type": "OTHERS",
         "year": 2008
       }
-    ]
+    ],
+    "contact_citations": {
+      "address": {
+        "link": "http://www.radhamohansingh.in/",
+        "source": "OTHERS"
+      },
+      "phone": {
+        "link": "http://www.radhamohansingh.in/",
+        "source": "OTHERS"
+      }
+    },
+    "social_media_citations": {
+      "facebook": {
+        "link": "http://www.radhamohansingh.in/",
+        "source": "OTHERS"
+      },
+      "instagram": {
+        "link": "http://www.radhamohansingh.in/",
+        "source": "OTHERS"
+      },
+      "twitter": {
+        "link": "http://www.radhamohansingh.in/",
+        "source": "OTHERS"
+      },
+      "youtube": {
+        "link": "http://www.radhamohansingh.in/",
+        "source": "OTHERS"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:17:27.563040+00:00"
+    }
   },
   {
     "id": "078a054c-7b6e-4036-94b4-ddffdebcb611",
@@ -1727,7 +2006,34 @@
         "type": "ECONOMIC",
         "year": 2015
       }
-    ]
+    ],
+    "contact_citations": {
+      "address": {
+        "link": "http://loksabhaph.nic.in/Members/MemberBioprofile.aspx?mpsno=5217",
+        "source": "GOV_WEBSITE"
+      },
+      "phone": {
+        "link": "http://loksabhaph.nic.in/Members/MemberBioprofile.aspx?mpsno=5217",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "performance_citations": {
+      "attendance": {
+        "link": "http://loksabhaph.nic.in/Members/MemberBioprofile.aspx?mpsno=5217",
+        "source": "GOV_WEBSITE"
+      },
+      "questions": {
+        "link": "http://loksabhaph.nic.in/Members/MemberBioprofile.aspx?mpsno=5217",
+        "source": "GOV_WEBSITE"
+      },
+      "debates": {
+        "link": "http://loksabhaph.nic.in/Members/MemberBioprofile.aspx?mpsno=5217",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:17:53.761777+00:00"
+    }
   },
   {
     "id": "4f3253b1-4ccc-431f-a5ae-ffa13f63b072",
@@ -1744,7 +2050,11 @@
           "state": "Bihar",
           "constituency": "Araria",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://www.aajtak.in/elections/lok-sabha-election-2024/bihar",
+            "source": "NEWS"
+          }
         }
       ]
     },
@@ -1773,25 +2083,41 @@
         "name": "Rajendra Singh",
         "relation": "FATHER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://sansad.in/ls/members/biographyM/4459?from=members",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "name": "Smt. Sunita Devi",
         "relation": "WIFE",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://sansad.in/ls/members/biographyM/4459?from=members",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "name": "Rajkumar Singh",
         "relation": "SON",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://sansad.in/ls/members/biographyM/4459?from=members",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "name": "Rajni Singh",
         "relation": "DAUGHTER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://sansad.in/ls/members/biographyM/4459?from=members",
+          "source": "GOV_WEBSITE"
+        }
       }
     ],
     "criminal_records": [
@@ -1805,7 +2131,48 @@
         "type": "OTHERS",
         "year": 2003
       }
-    ]
+    ],
+    "contact_citations": {
+      "address": {
+        "link": "https://sansad.in/ls/members/biographyM/4459?from=members",
+        "source": "GOV_WEBSITE"
+      },
+      "phone": {
+        "link": "https://sansad.in/ls/members/biographyM/4459?from=members",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "social_media_citations": {
+      "facebook": {
+        "link": "https://www.pradeepkumarsingh.in/",
+        "source": "OTHERS"
+      },
+      "instagram": {
+        "link": "https://www.pradeepkumarsingh.in/",
+        "source": "OTHERS"
+      },
+      "twitter": {
+        "link": "https://www.pradeepkumarsingh.in/",
+        "source": "OTHERS"
+      }
+    },
+    "performance_citations": {
+      "attendance": {
+        "link": "https://prsindia.org/mptrack/17-lok-sabha/pradeep-kumar-singh",
+        "source": "OTHERS"
+      },
+      "questions": {
+        "link": "https://prsindia.org/mptrack/17-lok-sabha/pradeep-kumar-singh",
+        "source": "OTHERS"
+      },
+      "debates": {
+        "link": "https://prsindia.org/mptrack/17-lok-sabha/pradeep-kumar-singh",
+        "source": "OTHERS"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:18:14.626697+00:00"
+    }
   },
   {
     "id": "8f91acae-e10f-438f-aa1a-ff9adec45f72",
@@ -1822,7 +2189,11 @@
           "state": "Bihar",
           "constituency": "Darbhanga",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://results.eci.gov.in/PcResultGenJune2024/candidateswise-S0414.htm",
+            "source": "ECI"
+          }
         }
       ]
     },
@@ -1830,12 +2201,20 @@
       {
         "qualification": "MASTER",
         "institution": "Lalit Narayan Mithila University",
-        "year_completed": null
+        "year_completed": null,
+        "citation": {
+          "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "qualification": "DOCTORATE",
         "institution": "Lalit Narayan Mithila University",
-        "year_completed": null
+        "year_completed": null,
+        "citation": {
+          "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+          "source": "GOV_WEBSITE"
+        }
       }
     ],
     "social_media": {
@@ -1851,25 +2230,41 @@
         "name": "Gopal Jee Thakur",
         "relation": "FATHER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "name": "Smt. Radha Devi Thakur",
         "relation": "MOTHER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "name": "Shri. Ram Chandra Thakur",
         "relation": "SON",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "name": "Smt. Shanti Devi Thakur",
         "relation": "DAUGHTER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+          "source": "GOV_WEBSITE"
+        }
       }
     ],
     "contact": {
@@ -1888,7 +2283,56 @@
         "type": "OTHERS",
         "year": 2018
       }
-    ]
+    ],
+    "contact_citations": {
+      "address": {
+        "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+        "source": "GOV_WEBSITE"
+      },
+      "email": {
+        "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+        "source": "GOV_WEBSITE"
+      },
+      "phone": {
+        "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "social_media_citations": {
+      "facebook": {
+        "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+        "source": "GOV_WEBSITE"
+      },
+      "instagram": {
+        "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+        "source": "GOV_WEBSITE"
+      },
+      "twitter": {
+        "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+        "source": "GOV_WEBSITE"
+      },
+      "youtube": {
+        "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "performance_citations": {
+      "attendance": {
+        "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+        "source": "GOV_WEBSITE"
+      },
+      "debates": {
+        "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+        "source": "GOV_WEBSITE"
+      },
+      "questions": {
+        "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5176",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:18:35.142079+00:00"
+    }
   },
   {
     "id": "f5fd285a-0813-4607-b605-371bcf5d554b",
@@ -1905,7 +2349,11 @@
           "state": "Bihar",
           "constituency": "Muzaffarpur",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://results.eci.gov.in/PcResultGenJune2024/candidateswise-S0415.htm",
+            "source": "ECI"
+          }
         }
       ]
     },
@@ -1987,7 +2435,17 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "citation_audit": {
+      "last_run": "2026-05-13T18:19:06.697148+00:00",
+      "issues": [
+        "No sources found for education details (specific institutions).",
+        "No sources found for family member names, and a conflict exists for the father's name.",
+        "No sources found for criminal records.",
+        "The provided social media URLs in the INPUT could not be verified with the given context; the official website (rajbhushanchoudhary.com) lists different URLs for social media.",
+        "No sources found for parliamentary performance data (attendance, questions, debates)."
+      ]
+    }
   },
   {
     "id": "ffca5a49-9833-401f-9f3d-f7f546b31710",
