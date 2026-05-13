@@ -14,7 +14,11 @@
           "state": "Andhra Pradesh",
           "constituency": "Anakapalle",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://www.indiatoday.in/magazine/cover-story/18th-lok-sabha-the-debutants/story/20240722-businessmen-in-august-company-2565840-2024-07-13",
+            "source": "NEWS"
+          }
         },
         {
           "year": 2012,
@@ -22,7 +26,11 @@
           "state": "Andhra Pradesh",
           "constituency": "",
           "party": "TDP",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "http://myneta.info/rajsab09aff/candidate.php?candidate_id=370",
+            "source": "MYNETA"
+          }
         },
         {
           "year": 2018,
@@ -30,7 +38,11 @@
           "state": "Andhra Pradesh",
           "constituency": "",
           "party": "TDP",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "http://myneta.info/rajsab09aff/candidate.php?candidate_id=370",
+            "source": "MYNETA"
+          }
         },
         {
           "year": 2024,
@@ -41,17 +53,17 @@
           "status": "WON"
         }
       ],
-      "summary": "C.M. Ramesh served two terms as a Rajya Sabha MP from Andhra Pradesh (2012-2018, 2018-2024) representing the TDP. He later joined the BJP and successfully won the 2024 Lok Sabha election from the Anakapalle constituency.",
-      "summary_citation": {
-        "link": "https://en.wikipedia.org/wiki/Chintakunta_Munuswamy_Ramesh",
-        "source": "OTHERS"
-      }
+      "summary": "C.M. Ramesh served two terms as a Rajya Sabha MP from Andhra Pradesh (2012-2018, 2018-2024) representing the TDP. He later joined the BJP and successfully won the 2024 Lok Sabha election from the Anakapalle constituency."
     },
     "education": [
       {
         "qualification": "BACHELOR",
         "institution": "Andhra University, Visakhapatnam",
-        "year_completed": 1983
+        "year_completed": 1983,
+        "citation": {
+          "link": "http://myneta.info/rajsab09aff/candidate.php?candidate_id=370",
+          "source": "MYNETA"
+        }
       }
     ],
     "social_media": {
@@ -72,19 +84,31 @@
         "name": "C. Munuswamy",
         "relation": "FATHER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "http://myneta.info/rajsab09aff/candidate.php?candidate_id=370",
+          "source": "MYNETA"
+        }
       },
       {
         "name": "C. Rathnamma",
         "relation": "MOTHER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "http://myneta.info/rajsab09aff/candidate.php?candidate_id=370",
+          "source": "MYNETA"
+        }
       },
       {
         "name": "C. Sridevi",
         "relation": "WIFE",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "http://myneta.info/rajsab09aff/candidate.php?candidate_id=370",
+          "source": "MYNETA"
+        }
       },
       {
         "name": "Rithwik Ramesh",
@@ -103,12 +127,20 @@
       {
         "name": "Allegations of cheating, forgery, and criminal conspiracy (FIR 114/2023, Banjara Hills PS)",
         "type": "ECONOMIC",
-        "year": 2023
+        "year": 2023,
+        "citation": {
+          "link": "http://myneta.info/rajsab09aff/candidate.php?candidate_id=370",
+          "source": "MYNETA"
+        }
       },
       {
         "name": "Case registered by ACB Telangana under the Prevention of Corruption Act (FIR 24/2019)",
         "type": "CORRUPTION",
-        "year": 2019
+        "year": 2019,
+        "citation": {
+          "link": "http://myneta.info/rajsab09aff/candidate.php?candidate_id=370",
+          "source": "MYNETA"
+        }
       }
     ],
     "contact_citations": {
@@ -148,10 +180,10 @@
       }
     },
     "citation_audit": {
-      "last_run": "2026-05-06T07:34:08.390858+00:00",
+      "last_run": "2026-05-13T17:38:15.033321+00:00",
       "issues": [
-        "The input JSON contains conflicting 2024 Lok Sabha election entries for Anakapalle (one for Bharatiya Janata Party and one for Bahujan Samaj Party, both marked 'WON'). The provided Wikipedia context and the politician's summary within the input JSON indicate he won for the Bharatiya Janata Party. No source was found in the provided context to support the Bahujan Samaj Party entry.",
-        "Specific sources for education, family background, criminal records, and detailed election results (beyond general party affiliation) were not available in the provided context."
+        "Conflicting information for 2024 Lok Sabha election party affiliation (BJP vs. Bahujan Samaj Party). The summary and other sources indicate BJP.",
+        "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     }
   },
@@ -170,7 +202,11 @@
           "state": "Andhra Pradesh",
           "constituency": "Rajahmundry",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://www.indiatoday.in/elections/lok-sabha/story/rajahmundry-andhra-pradesh-lok-sabha-election-results-2024-live-updates-clse-2547594-2024-06-04",
+            "source": "NEWS"
+          }
         },
         {
           "year": 2024,
@@ -194,7 +230,11 @@
           "state": "Andhra Pradesh",
           "constituency": "Rajampet",
           "party": "INC",
-          "status": "LOST"
+          "status": "LOST",
+          "citation": {
+            "link": "https://indianexpress.com/elections/rajampet-lok-sabha-election-results/",
+            "source": "NEWS"
+          }
         },
         {
           "year": 2009,
@@ -202,7 +242,11 @@
           "state": "Andhra Pradesh",
           "constituency": "Visakhapatnam",
           "party": "INC",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://sansad.in/ls/members/biographyM/4022?from=members",
+            "source": "GOV_WEBSITE"
+          }
         },
         {
           "year": 2004,
@@ -210,7 +254,11 @@
           "state": "Andhra Pradesh",
           "constituency": "Bapatla",
           "party": "INC",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://sansad.in/ls/members/biographyM/4022?from=members",
+            "source": "GOV_WEBSITE"
+          }
         }
       ],
       "summary": "Daggubati Purandheshwari has a notable political career, having been elected as an MP three times. She won from Bapatla in 2004 and Visakhapatnam in 2009 as an Indian National Congress candidate. After joining the BJP, she contested and lost from Rajampet in 2014 and Visakhapatnam in 2019. In 2024, she successfully won the Lok Sabha election from Rajahmundry as a BJP candidate."
@@ -219,12 +267,20 @@
       {
         "qualification": "BACHELOR",
         "institution": "SIET Women's College, Chennai",
-        "year_completed": 1979
+        "year_completed": 1979,
+        "citation": {
+          "link": "https://www.india.com/webstories/education/daggubati-purandeswari-educational-qualifications-6877641/",
+          "source": "NEWS"
+        }
       },
       {
         "qualification": "DIPLOMA",
         "institution": "Gemological Institute of India, Mumbai",
-        "year_completed": 1996
+        "year_completed": 1996,
+        "citation": {
+          "link": "https://www.india.com/webstories/education/daggubati-purandeswari-educational-qualifications-6877641/",
+          "source": "NEWS"
+        }
       }
     ],
     "social_media": {
@@ -252,7 +308,11 @@
         "name": "N. T. Rama Rao",
         "relation": "FATHER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "http://www.ndtv.com/elections/article/election-2014/ntr-s-daughter-d-purandeswari-joins-bjp-492958",
+          "source": "NEWS"
+        }
       },
       {
         "name": "Basavatarakam",
@@ -270,7 +330,11 @@
         "name": "Hitesh Chenchuram",
         "relation": "SON",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://www.business-standard.com/article/news-ani/ntr-s-grandson-hitesh-chenchuram-joins-ysr-congress-119022701230_1.html",
+          "source": "NEWS"
+        }
       },
       {
         "name": "Nivedita",
@@ -296,7 +360,43 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "contact_citations": {
+      "email": {
+        "link": "https://sansad.in/ls/members/biographyM/4022?from=members",
+        "source": "GOV_WEBSITE"
+      },
+      "phone": {
+        "link": "https://sansad.in/ls/members/biographyM/4022?from=members",
+        "source": "GOV_WEBSITE"
+      },
+      "address": {
+        "link": "https://sansad.in/ls/members/biographyM/4022?from=members",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "performance_citations": {
+      "attendance": {
+        "link": "https://prsindia.org/mptrack/18th-lok-sabha/daggubati-purandheshwari",
+        "source": "OTHERS"
+      },
+      "questions": {
+        "link": "https://prsindia.org/mptrack/18th-lok-sabha/daggubati-purandheshwari",
+        "source": "OTHERS"
+      },
+      "debates": {
+        "link": "https://prsindia.org/mptrack/18th-lok-sabha/daggubati-purandheshwari",
+        "source": "OTHERS"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T17:38:47.581496+00:00",
+      "issues": [
+        "The input contains two conflicting entries for the 2024 MP election from Rajahmundry (one for BJP, one for Bahujan Samaj Party). Only the BJP entry could be sourced from the provided context.",
+        "The 2019 MP election entry for Visakhapatnam under Bahujan Samaj Party could not be sourced from the provided context and conflicts with information about her BJP affiliation around that time.",
+        "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
+      ]
+    }
   },
   {
     "id": "63876a12-ed18-40e3-a92e-4e5307555029",
