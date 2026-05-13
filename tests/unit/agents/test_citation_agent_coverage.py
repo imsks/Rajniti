@@ -54,6 +54,22 @@ def test_below_threshold_invokes_llm() -> None:
     llm.assert_called_once()
 
 
+def test_reraise_llm_quota_when_flag_true() -> None:
+    """Schedule mode relies on quota exceptions bubbling to resume after sleep."""
+    pol = _edu_politician(9, 25)
+    agent = CitationAgent()
+
+    exc = RuntimeError("429 insufficient_quota")
+    with patch.object(agent, "_gather_politician_context", return_value=""):
+        with patch.object(agent, "_run_llm_with_context", side_effect=exc):
+            try:
+                agent._run_for_politician(pol, force=False, reraise_llm_quota=True)
+            except RuntimeError as e:
+                assert e is exc
+                return
+    raise AssertionError("expected reraised quota exception")
+
+
 def test_batch_passes_force_through_to_fully_cited() -> None:
     cite = {"link": "https://example.com/x", "source": "NEWS"}
     fully = {

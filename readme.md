@@ -224,6 +224,9 @@ python3 scripts/run_citation_agent.py --log-level INFO
 python3 scripts/run_citation_agent.py --type MP --limit 10
 python3 scripts/run_citation_agent.py --id "<POLITICIAN_ID>"
 python3 scripts/run_citation_agent.py --force --id "<POLITICIAN_ID>"
+
+# Long run: checkpoints on quota, sleeps (default 1h), then resumes until done
+python3 scripts/run_citation_agent.py --schedule --log-level INFO
 ```
 
 **5. Add MLAs for a new state**

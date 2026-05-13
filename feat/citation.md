@@ -81,6 +81,7 @@ If the team decides labels matter for analytics (“how much is wiki-sourced”)
 ```text
 python3 scripts/run_politician_agent.py --id POLITICIAN_UUID   # facts + citations from enrichment prompts
 python3 scripts/run_citation_agent.py [--id ID] [--type MP|MLA] [--limit N] [--force] [--log-level INFO]
+python3 scripts/run_citation_agent.py --schedule [--schedule-sleep-seconds 3600] [--checkpoint-file PATH] [--reset-checkpoint]
 ```
 
 ### 3.7 Tests

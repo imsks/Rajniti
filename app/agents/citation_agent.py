@@ -16,6 +16,7 @@ from app.agents.citation_audit_merge import (
     politician_citation_gaps,
     politician_needs_citation_audit,
 )
+from app.agents.politician_agent import _is_llm_quota_exc
 from app.core import CacheManager, log
 from app.prompts import PoliticianPrompts
 from app.schemas.politician import CitationAuditLLMResult
@@ -127,7 +128,10 @@ class CitationAgent(BaseAgent):
 
     @log(logger, "CitationAgent._run_for_politician")
     def _run_for_politician(
-        self, politician: Dict[str, Any], force: bool = False
+        self,
+        politician: Dict[str, Any],
+        force: bool = False,
+        reraise_llm_quota: bool = False,
     ) -> Dict[str, Any]:
         politician_id = politician.get("id")
         if not politician_id:
@@ -191,6 +195,11 @@ class CitationAgent(BaseAgent):
         try:
             raw = self._run_llm_with_context(prompt, context)
         except Exception as exc:
+            if reraise_llm_quota and _is_llm_quota_exc(exc):
+                logger.warning(
+                    "CitationAgent: LLM quota/limit id=%s err=%s", pid, exc
+                )
+                raise
             logger.exception("CitationAgent: LLM failed id=%s err=%s", pid, exc)
             return {"ok": False, "id": pid, "error": str(exc)}
 

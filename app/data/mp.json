@@ -778,7 +778,19 @@
       }
     ],
     "citation_audit": {
-      "last_run": "2026-05-13T18:05:27.111639+00:00"
+      "last_run": "2026-05-13T18:13:59.839419+00:00"
+    },
+    "contact_citations": {
+      "address": {
+        "link": "https://loksabha.nic.in/Members/MemberBioprofile.aspx?mpsno=5107&lastls=17",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "social_media_citations": {
+      "facebook": {
+        "link": "https://www.facebook.com/DilipSaikia4BJPAssam",
+        "source": "OTHERS"
+      }
     }
   },
   {
@@ -906,7 +918,11 @@
           "state": "Assam",
           "constituency": "Diphu",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://results.eci.gov.in/PcResultGenJune2024/candidateswise-S036.htm",
+            "source": "ECI"
+          }
         }
       ]
     },
@@ -955,6 +971,19 @@
       "email": null,
       "phone": "+91 94350 44444",
       "address": "Diphu, Assam"
+    },
+    "social_media_citations": {
+      "facebook": {
+        "link": "https://www.facebook.com/amarsingtissoofficial/",
+        "source": "OTHERS"
+      },
+      "twitter": {
+        "link": "https://twitter.com/amarsingtisso",
+        "source": "OTHERS"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:14:15.517434+00:00"
     }
   },
   {
