@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Scheduled-friendly politician agent runner with checkpointing and soft LLM caps.
+"""Politician agent runner with checkpointing and optional LLM invocation caps.
 
-Exits with code 0 when stopping due to API quota exhaustion so cron does not
-treat the job as a hard failure.
+For long batches: resumes from `.cache/agent_schedule_checkpoint.json`.
+Exits with code 0 when stopping due to API quota exhaustion so schedulers treat
+quota stops as success (not hard failure).
 
 Environment:
     RAJNITI_LLM_MAX_CALLS — optional cap on LLM invocations per process (BaseAgent).

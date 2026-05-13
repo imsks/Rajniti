@@ -79,8 +79,7 @@ If the team decides labels matter for analytics (“how much is wiki-sourced”)
 ### 3.6 CLIs ([`readme.md`](../readme.md) references)
 
 ```text
-python3 scripts/run_wikipedia_context.py --name "…" [--state …] [--json | --full-context]
-python3 scripts/run_wikipedia_context.py --id POLITICIAN_UUID [--full-context]
+python3 scripts/run_politician_agent.py --id POLITICIAN_UUID   # facts + citations from enrichment prompts
 python3 scripts/run_citation_agent.py [--id ID] [--type MP|MLA] [--limit N] [--force] [--log-level INFO]
 ```
 
@@ -223,7 +222,7 @@ flowchart LR
 
 ### Coverage checklist
 
-After batch citation runs, spot-check `citation_audit.issues` in JSON when merge leaves uncertainty notes. Optionally re-run enrichment with **`run_wikipedia_context.py --full-context --id …`** before LLM citation passes to sanity-check evidence.
+After batch citation runs, spot-check `citation_audit.issues` in JSON when merge leaves uncertainty notes. Optionally re-run **`python3 scripts/run_politician_agent.py --id …`** before another citation pass to refresh facts and context-backed evidence.
 
 ---
 
@@ -277,7 +276,7 @@ Ordered for execution. Check items off as you ship PRs.
 | Tools | `app/tools/wikipedia_tool.py`, `web_search.py`, `web_scraper.py` |
 | Performance merge | `app/services/politician_service.py`, `app/data/performance.json` |
 | Data | `app/data/mp.json`, `app/data/mla.json` |
-| CLIs | `scripts/run_wikipedia_context.py`, `scripts/run_citation_agent.py` |
+| CLIs | `scripts/run_politician_agent.py`, `scripts/run_citation_agent.py` |
 | Frontend citations | `frontend/components/CitationLink.tsx`, `frontend/app/politician/[id]/PoliticianPageClient.tsx` |
 
 ---
