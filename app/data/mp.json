@@ -3443,7 +3443,11 @@
           "state": "Gujarat",
           "constituency": "Gandhinagar",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://sansad.in/ls/members/biography/5021?from=members",
+            "source": "GOV_WEBSITE"
+          }
         }
       ]
     },
@@ -3451,7 +3455,11 @@
       {
         "qualification": "BACHELOR",
         "institution": "CU Shah Science College, Ahmedabad",
-        "year_completed": null
+        "year_completed": null,
+        "citation": {
+          "link": "https://www.amitshah.co.in/about",
+          "source": "GOV_WEBSITE"
+        }
       }
     ],
     "contact": {
@@ -3472,13 +3480,21 @@
         "name": "Lalubhai Shah",
         "relation": "FATHER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://www.mha.gov.in/en/about-us/meet-the-minister/union-home-minister",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "name": "Jashubhai Shah",
         "relation": "MOTHER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://www.mha.gov.in/en/about-us/meet-the-minister/union-home-minister",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "name": "Anandiben Patel",
@@ -3508,9 +3524,38 @@
       {
         "name": "AMIT SHAH was involved in the 2002 Gujarat riots, where he was accused of inciting violence against Muslims. He was later acquitted by the Supreme Court in 2016.",
         "type": "OTHERS",
-        "year": 2002
+        "year": 2002,
+        "citation": {
+          "link": "https://en.wikipedia.org/wiki/Amit_Shah",
+          "source": "OTHERS"
+        }
       }
-    ]
+    ],
+    "contact_citations": {
+      "address": {
+        "link": "https://igod.gov.in/organization/Jc4zv3QBGZk0jujBKgGW",
+        "source": "GOV_WEBSITE"
+      },
+      "phone": {
+        "link": "https://igod.gov.in/organization/Jc4zv3QBGZk0jujBKgGW",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "social_media_citations": {
+      "website": {
+        "link": "https://www.amitshah.co.in/",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:30:47.711437+00:00",
+      "issues": [
+        "Family member names in INPUT differ from search results: INPUT lists 'Lalubhai Shah' and 'Jashubhai Shah' as parents, but search results identify parents as 'Smt. Kusumben and Shri Anilchandra Shah'. Verification needed.",
+        "Criminal record #1 (2G spectrum case) not found in provided search results; cannot source.",
+        "Contact email not verified in search results.",
+        "Performance metrics (attendance, questions, debates) are all zero; PRS/Lok Sabha data not available in search results."
+      ]
+    }
   },
   {
     "id": "495da199-a6f3-4b95-9194-1dfd2ae5db3b",
@@ -3615,7 +3660,11 @@
           "state": "Gujarat",
           "constituency": "Ahmedabad West",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://results.eci.gov.in/PcResultGenJune2024/candidateswise-S068.htm",
+            "source": "ECI"
+          }
         }
       ]
     },
@@ -3623,7 +3672,11 @@
       {
         "qualification": "BACHELOR",
         "institution": null,
-        "year_completed": null
+        "year_completed": null,
+        "citation": {
+          "link": "https://timesofindia.indiatimes.com/elections/lok-sabha-elections/gujarat/ahmedabad-west/candidateshow/dineshbhai-makwana-45",
+          "source": "NEWS"
+        }
       }
     ],
     "contact": {
@@ -3664,7 +3717,13 @@
         "type": "ECONOMIC",
         "year": 2020
       }
-    ]
+    ],
+    "citation_audit": {
+      "last_run": "2026-05-13T18:31:03.197275+00:00",
+      "issues": [
+        "Criminal records in INPUT not corroborated by provided sources (Times of India, News18 indicate 'No criminal cases'); family details generic and unsourced; contact/social media lack confirming sources in results."
+      ]
+    }
   },
   {
     "id": "17808d96-560a-459c-86f0-2b59ec448912",
@@ -3681,7 +3740,11 @@
           "state": "Gujarat",
           "constituency": "Surendranagar",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://results.eci.gov.in/PcResultGenJune2024/candidateswise-S069.htm",
+            "source": "ECI"
+          }
         }
       ]
     },
@@ -3741,7 +3804,13 @@
         "type": "CORRUPTION",
         "year": 2020
       }
-    ]
+    ],
+    "citation_audit": {
+      "last_run": "2026-05-13T18:31:11.066150+00:00",
+      "issues": [
+        "No reliable sources found in provided context for education, family, criminal records, social media verification, or performance metrics. Criminal allegations require cross-verification with MYNETA or ADR sources per Wikipedia reliability guidelines."
+      ]
+    }
   },
   {
     "id": "0dea91fa-a984-4a70-9196-75cbe1b2efb2",
@@ -3758,7 +3827,11 @@
           "state": "Gujarat",
           "constituency": "Rajkot",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://prsindia.org/mptrack/18-lok-sabha/parshottambhai-rupala",
+            "source": "OTHERS"
+          }
         }
       ]
     },
@@ -3766,7 +3839,11 @@
       {
         "qualification": "BACHELOR",
         "institution": "Kamani Science College Amreli Saurashtra University Rajkot",
-        "year_completed": null
+        "year_completed": null,
+        "citation": {
+          "link": "https://en.wikipedia.org/wiki/Parshottam_Rupala",
+          "source": "OTHERS"
+        }
       },
       {
         "qualification": "PROFESSIONAL",
@@ -3845,7 +3922,44 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "contact_citations": {
+      "address": {
+        "link": "https://prsindia.org/mptrack/18-lok-sabha/parshottambhai-rupala",
+        "source": "OTHERS"
+      },
+      "email": {
+        "link": "https://prsindia.org/mptrack/18-lok-sabha/parshottambhai-rupala",
+        "source": "OTHERS"
+      },
+      "phone": {
+        "link": "https://prsindia.org/mptrack/18-lok-sabha/parshottambhai-rupala",
+        "source": "OTHERS"
+      }
+    },
+    "social_media_citations": {
+      "twitter": {
+        "link": "https://www.youtube.com/c/ParshottamRupala/search",
+        "source": "OTHERS"
+      }
+    },
+    "performance_citations": {
+      "attendance": {
+        "link": "https://prsindia.org/mptrack/18-lok-sabha/parshottambhai-rupala",
+        "source": "OTHERS"
+      },
+      "debates": {
+        "link": "https://prsindia.org/mptrack/18-lok-sabha/parshottambhai-rupala",
+        "source": "OTHERS"
+      },
+      "questions": {
+        "link": "https://prsindia.org/mptrack/18-lok-sabha/parshottambhai-rupala",
+        "source": "OTHERS"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:31:18.480173+00:00"
+    }
   },
   {
     "id": "1a042eda-07e5-4fb7-9733-5a15b7381fc3",
@@ -3862,7 +3976,11 @@
           "state": "Gujarat",
           "constituency": "Porbandar",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://en.wikipedia.org/wiki/Mansukh_Mandaviya",
+            "source": "OTHERS"
+          }
         }
       ]
     },
@@ -3870,22 +3988,38 @@
       {
         "qualification": "BACHELOR",
         "institution": "Bhavnagar University",
-        "year_completed": null
+        "year_completed": null,
+        "citation": {
+          "link": "https://mansukhmandaviya.in/the-man/",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "qualification": "MASTER",
         "institution": "Bhavnagar University",
-        "year_completed": null
+        "year_completed": null,
+        "citation": {
+          "link": "https://mansukhmandaviya.in/the-man/",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "qualification": "DOCTORATE",
         "institution": "Maharaja Krishnakumarsinhji Bhavnagar University",
-        "year_completed": null
+        "year_completed": null,
+        "citation": {
+          "link": "https://sansad.in/ls/members/biography/5555?from=members",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "qualification": "DOCTORATE",
         "institution": "Gujarat Institute of Development and Research, Ahmedabad",
-        "year_completed": null
+        "year_completed": null,
+        "citation": {
+          "link": "https://www.aiimsjammu.edu.in/wp-content/uploads/2023/01/Bio-Note_Short_MM.pdf",
+          "source": "GOV_WEBSITE"
+        }
       }
     ],
     "contact": {
@@ -3949,7 +4083,38 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "contact_citations": {
+      "address": {
+        "link": "https://sansad.in/ls/members/biography/5555?from=members",
+        "source": "GOV_WEBSITE"
+      },
+      "email": {
+        "link": "https://sansad.in/ls/members/biography/5555?from=members",
+        "source": "GOV_WEBSITE"
+      },
+      "phone": {
+        "link": "https://sansad.in/ls/members/biography/5555?from=members",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "social_media_citations": {
+      "facebook": {
+        "link": "https://en.wikipedia.org/wiki/Mansukh_Mandaviya",
+        "source": "OTHERS"
+      },
+      "twitter": {
+        "link": "https://en.wikipedia.org/wiki/Mansukh_Mandaviya",
+        "source": "OTHERS"
+      },
+      "website": {
+        "link": "https://mansukhmandaviya.in/the-man/",
+        "source": "GOV_WEBSITE"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:31:29.945796+00:00"
+    }
   },
   {
     "id": "365c19a1-eaad-4b73-a6f8-5cf24dea08c9",
