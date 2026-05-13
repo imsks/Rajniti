@@ -1,10 +1,16 @@
 """Politician schema and citation merge helpers."""
 
+import pytest
+
 from app.agents.citation_audit_merge import (
+    CITATION_COVERAGE_SKIP_THRESHOLD_PCT,
     merge_citation_audit_updates,
+    politician_citation_coverage_pct,
+    politician_citation_gaps,
     politician_needs_citation_audit,
 )
 from app.agents.politician_agent import _is_llm_quota_exc
+from app.prompts.politician_prompts import PoliticianPrompts
 from app.schemas.politician import CitationAuditLLMResult, Politician
 
 
@@ -57,6 +63,137 @@ def test_politician_needs_citation_audit_missing() -> None:
         "political_background": {"elections": [], "summary": None},
     }
     assert politician_needs_citation_audit(p) is True
+    g = politician_citation_gaps(p)
+    assert g is not None
+    assert g.get("education_indices") == [0]
+
+
+def test_politician_needs_iff_gaps_nonempty() -> None:
+    cite = {"link": "https://example.com/", "source": "NEWS"}
+    complete = {
+        "education": [{"q": "B", "citation": cite}],
+        "political_background": {"elections": [], "summary": None},
+        "social_media": {"twitter": "https://twitter.com/a"},
+        "social_media_citations": {"twitter": cite},
+        "family_background": [],
+        "criminal_records": [],
+        "contact": {},
+    }
+    assert politician_needs_citation_audit(complete) is False
+    assert politician_citation_gaps(complete) is None
+
+
+def test_politician_citation_gaps_election_already_cited_others_remain() -> None:
+    cite = {"link": "https://eci.example/", "source": "ECI"}
+    pol = {
+        "type": "MP",
+        "political_background": {
+            "elections": [
+                {
+                    "year": 2024,
+                    "type": "MP",
+                    "citation": cite,
+                }
+            ]
+        },
+        "education": [
+            {"qualification": "MASTER", "institution": "null"},
+            {"qualification": "PROFESSIONAL", "institution": "null"},
+        ],
+        "social_media": {
+            "twitter": "https://twitter.com/z",
+            "facebook": "",
+            "instagram": None,
+            "linkedin": None,
+            "youtube": "",
+            "website": "",
+        },
+        "contact": {"email": None, "phone": None, "address": "Street 1"},
+        "family_background": [{"name": "A", "relation": "FATHER"}],
+        "criminal_records": [{"name": "case", "type": "OTHERS"}],
+        "performance": {"attendance": 77, "questions": None, "debates": None},
+    }
+    gaps = politician_citation_gaps(pol)
+    assert gaps is not None
+    assert "elections_indices" not in gaps
+    assert gaps["education_indices"] == [0, 1]
+    assert gaps["family_indices"] == [0]
+    assert gaps["criminal_indices"] == [0]
+    assert gaps["social_media_keys"] == ["twitter"]
+    assert gaps["contact_keys"] == ["address"]
+    assert gaps["performance_keys"] == ["attendance"]
+
+
+def test_citation_audit_prompt_includes_targeted_backlog_when_provided() -> None:
+    pol = {
+        "education": [{}],
+        "political_background": {"elections": [], "summary": None},
+        "social_media": {},
+        "family_background": [],
+        "criminal_records": [],
+        "contact": {},
+    }
+    g = politician_citation_gaps(pol)
+    txt = PoliticianPrompts.citation_audit(pol, citation_backlog=g)
+    assert "CITATION_BACKLOG_JSON" in txt
+    assert "education_indices" in txt
+    txt_no_bg = PoliticianPrompts.citation_audit(pol, citation_backlog=None)
+    assert "CITATION_BACKLOG_JSON" not in txt_no_bg
+
+
+def test_politician_citation_coverage_pct_no_slots_returns_none() -> None:
+    assert politician_citation_coverage_pct({}) is None
+    assert (
+        politician_citation_coverage_pct(
+            {"education": [], "political_background": {"elections": [], "summary": None}}
+        )
+        is None
+    )
+
+
+def _edu_fixture(n_cited: int, n_slots: int) -> dict:
+    cite = {"link": "https://example.com/x", "source": "NEWS"}
+    rows = [{"citation": cite} if i < n_cited else {} for i in range(n_slots)]
+    return {
+        "education": rows,
+        "political_background": {"elections": [], "summary": None},
+    }
+
+
+def test_politician_citation_coverage_pct_below_threshold_is_strictly_below_40() -> None:
+    pct = politician_citation_coverage_pct(_edu_fixture(9, 25))
+    assert pct is not None
+    assert pct < CITATION_COVERAGE_SKIP_THRESHOLD_PCT
+
+
+def test_politician_citation_coverage_pct_at_threshold_is_exactly_40() -> None:
+    pct = politician_citation_coverage_pct(_edu_fixture(10, 25))
+    assert pct == pytest.approx(CITATION_COVERAGE_SKIP_THRESHOLD_PCT)
+
+
+def test_politician_citation_coverage_pct_contact_slots() -> None:
+    pct = politician_citation_coverage_pct(
+        {
+            "education": [],
+            "political_background": {"elections": [], "summary": None},
+            "contact": {"email": "a@b.c"},
+            "contact_citations": {},
+        }
+    )
+    assert pct == pytest.approx(0.0)
+
+
+def test_politician_citation_coverage_pct_performance_mp_slots() -> None:
+    pct = politician_citation_coverage_pct(
+        {
+            "type": "MP",
+            "education": [],
+            "political_background": {"elections": [], "summary": None},
+            "performance": {"attendance": 80, "questions": None, "debates": None},
+            "performance_citations": {},
+        }
+    )
+    assert pct == pytest.approx(0.0)
 
 
 def test_merge_citation_audit_fills_education() -> None:
