@@ -796,7 +796,11 @@
           "state": "Assam",
           "constituency": "Guwahati",
           "party": "Bharatiya Janata Party",
-          "status": "WON"
+          "status": "WON",
+          "citation": {
+            "link": "https://results.eci.gov.in/PcResultGenJune2024/ConstituencywiseS035.htm",
+            "source": "ECI"
+          }
         }
       ]
     },
@@ -804,7 +808,11 @@
       {
         "qualification": "MASTER",
         "institution": "Gauhati University",
-        "year_completed": null
+        "year_completed": null,
+        "citation": {
+          "link": "https://www.myneta.info/LokSabha2024/candidate.php?candidate_id=4548",
+          "source": "MYNETA"
+        }
       }
     ],
     "social_media": {
@@ -832,13 +840,21 @@
         "name": "Bhupen Kalita Medhi",
         "relation": "FATHER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://www.myneta.info/LokSabha2024/candidate.php?candidate_id=4548",
+          "source": "MYNETA"
+        }
       },
       {
         "name": "Sarojini Kalita Medhi",
         "relation": "MOTHER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://www.myneta.info/LokSabha2024/candidate.php?candidate_id=4548",
+          "source": "MYNETA"
+        }
       },
       {
         "name": "Sanjib Kalita Medhi",
@@ -852,7 +868,28 @@
         "photo": null,
         "social_media": null
       }
-    ]
+    ],
+    "social_media_citations": {
+      "facebook": {
+        "link": "https://www.myneta.info/LokSabha2024/candidate.php?candidate_id=4548",
+        "source": "MYNETA"
+      },
+      "instagram": {
+        "link": "https://www.myneta.info/LokSabha2024/candidate.php?candidate_id=4548",
+        "source": "MYNETA"
+      },
+      "twitter": {
+        "link": "https://www.myneta.info/LokSabha2024/candidate.php?candidate_id=4548",
+        "source": "MYNETA"
+      },
+      "youtube": {
+        "link": "https://www.myneta.info/LokSabha2024/candidate.php?candidate_id=4548",
+        "source": "MYNETA"
+      }
+    },
+    "citation_audit": {
+      "last_run": "2026-05-13T18:06:03.054293+00:00"
+    }
   },
   {
     "id": "82789c94-c8f8-4451-b36d-03c1f3c19084",
