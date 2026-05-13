@@ -52,12 +52,11 @@ If the team decides labels matter for analytics (“how much is wiki-sourced”)
 
 [`PoliticianService`](../app/services/politician_service.py) loads [`app/data/performance.json`](../app/data/performance.json) and merges **`performance`** onto each politician dict by normalized name (**not** declared on [`Politician`](../app/schemas/politician.py) model). [`politician_needs_citation_audit`](../app/agents/citation_audit_merge.py) still expects **`performance_citations`** when MP performance fields are present.
 
-### 3.3 Merge and coverage helpers
+### 3.3 Merge helpers
 
-| Module / script | Role |
-|-----------------|------|
-| [`app/agents/citation_audit_merge.py`](../app/agents/citation_audit_merge.py) | `politician_needs_citation_audit`; `merge_citation_audit_updates` |
-| [`scripts/report_citation_coverage.py`](../scripts/report_citation_coverage.py) | Counts MPs+MLAs missing any citation per same rules |
+| Module | Role |
+|--------|------|
+| [`app/agents/citation_audit_merge.py`](../app/agents/citation_audit_merge.py) | `merge_citation_audit_updates`; `politician_needs_citation_audit` (used by **`CitationAgent`**, no standalone coverage CLI) |
 
 ### 3.4 Prompting
 
@@ -70,7 +69,7 @@ If the team decides labels matter for analytics (“how much is wiki-sourced”)
 [`BaseAgent`](../app/agents/base_agent.py):
 
 - Initializes **web_search** (DuckDuckGo [`WebSearchTool`](../app/tools/web_search.py)), **web_scraper** ([`WebScraperTool`](../app/tools/web_scraper.py)), **wikipedia** ([`WikipediaTool`](../app/tools/wikipedia_tool.py)).
-- **`_gather_politician_context`**: Wikipedia extract + formatted DDG snippets (plaintext blocks only today).
+- **`_gather_politician_context`**: structured Wikipedia block (**`Article URL`**, extract, outbound links) plus DuckDuckGo; plaintext Wikipedia fallback when no extract.
 - **`_run_llm_with_context`**: prepends context above the prompt.
 
 [`CitationAgent`](../app/agents/citation_agent.py): skips rows that pass `politician_needs_citation_audit` unless `--force`; uses context + citation audit prompt; persists via `PoliticianService.update_politician`.
@@ -80,7 +79,8 @@ If the team decides labels matter for analytics (“how much is wiki-sourced”)
 ### 3.6 CLIs ([`readme.md`](../readme.md) references)
 
 ```text
-python3 scripts/report_citation_coverage.py [--json]
+python3 scripts/run_wikipedia_context.py --name "…" [--state …] [--json | --full-context]
+python3 scripts/run_wikipedia_context.py --id POLITICIAN_UUID [--full-context]
 python3 scripts/run_citation_agent.py [--id ID] [--type MP|MLA] [--limit N] [--force] [--log-level INFO]
 ```
 
@@ -223,10 +223,7 @@ flowchart LR
 
 ### Coverage checklist
 
-After batch citation runs:
-
-1. Run `scripts/report_citation_coverage.py —json`; track `missing_citations` trending down.
-2. Spot-check `citation_audit.issues` in JSON when merge leaves uncertainty notes.
+After batch citation runs, spot-check `citation_audit.issues` in JSON when merge leaves uncertainty notes. Optionally re-run enrichment with **`run_wikipedia_context.py --full-context --id …`** before LLM citation passes to sanity-check evidence.
 
 ---
 
@@ -280,7 +277,7 @@ Ordered for execution. Check items off as you ship PRs.
 | Tools | `app/tools/wikipedia_tool.py`, `web_search.py`, `web_scraper.py` |
 | Performance merge | `app/services/politician_service.py`, `app/data/performance.json` |
 | Data | `app/data/mp.json`, `app/data/mla.json` |
-| CLIs | `scripts/run_citation_agent.py`, `scripts/report_citation_coverage.py` |
+| CLIs | `scripts/run_wikipedia_context.py`, `scripts/run_citation_agent.py` |
 | Frontend citations | `frontend/components/CitationLink.tsx`, `frontend/app/politician/[id]/PoliticianPageClient.tsx` |
 
 ---
