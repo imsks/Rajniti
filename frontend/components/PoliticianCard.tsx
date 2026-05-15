@@ -48,7 +48,7 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
                 party,
                 state: politician.state,
             })}>
-            <motion.div 
+            <motion.div
                 whileHover={{ y: -4, scale: 1.02 }}
                 transition={{ duration: 0.2 }}
                 className='bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 hover:border-orange-400 dark:hover:border-orange-500 hover:shadow-lg transition-all h-full flex flex-col'>

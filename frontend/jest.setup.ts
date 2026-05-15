@@ -1,6 +1,6 @@
 /**
  * Jest Setup File
- * 
+ *
  * Runs before each test file. Configures global test utilities and mocks.
  */
 

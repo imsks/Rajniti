@@ -4,8 +4,11 @@ Validate politician JSON files against the app.schemas.politician.Politician mod
 
 Usage:
   python scripts/validate_json.py                     # validates app/data/ by default
-  python scripts/validate_json.py app/data            # validate all .json files under app/data
+  python scripts/validate_json.py app/data            # mp.json and mla.json only
   python scripts/validate_json.py app/data/mp.json app/data/mla.json
+
+Only ``mp.json`` and ``mla.json`` are validated when a directory is given;
+``performance.json`` and ``states.json`` are ignored.
 
 Exits with code 0 on success, 1 on validation errors.
 """
@@ -45,14 +48,16 @@ def validate_file(path: Path) -> Tuple[bool, List[str]]:
     elif isinstance(data, list):
         items = data
     else:
-        errors.append(f"Top-level JSON must be an array or object, got {type(data).__name__}")
+        errors.append(
+            f"Top-level JSON must be an array or object, got {type(data).__name__}"
+        )
         return False, errors
 
     seen_ids = set()
     for idx, item in enumerate(items):
         location = f"{path}:{idx}"
         try:
-            p = Politician.parse_obj(item)
+            p = Politician.model_validate(item)
         except ValidationError as ve:
             errors.append(f"{location} - validation error:\n{ve}")
             continue
@@ -66,29 +71,44 @@ def validate_file(path: Path) -> Tuple[bool, List[str]]:
         # Basic file-level sanity: ensure file name matches politician type when obvious
         name_lower = path.name.lower()
         if "mp" in name_lower and p.type != "MP":
-            errors.append(f"{location} - expected type 'MP' (file '{path.name}') but got '{p.type}'")
+            errors.append(
+                f"{location} - expected type 'MP' (file '{path.name}') but got '{p.type}'"
+            )
         if "mla" in name_lower and p.type != "MLA":
-            errors.append(f"{location} - expected type 'MLA' (file '{path.name}') but got '{p.type}'")
+            errors.append(
+                f"{location} - expected type 'MLA' (file '{path.name}') but got '{p.type}'"
+            )
 
     ok = len(errors) == 0
     return ok, errors
 
 
+# Only these files hold Politician[] records. Other JSON under app/data
+# (e.g. performance.json, states.json) uses different schemas.
+POLITICIAN_LIST_FILES = frozenset({"mp.json", "mla.json"})
+
+
 def collect_json_files(path: Path) -> List[Path]:
     if path.is_dir():
-        return sorted([p for p in path.rglob("*.json") if p.is_file()])
+        return sorted(
+            p
+            for p in path.rglob("*.json")
+            if p.is_file() and p.name in POLITICIAN_LIST_FILES
+        )
     if path.is_file():
         return [path]
     return []
 
 
 def main(argv: List[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Validate politician JSON files or directories containing JSON files.")
+    parser = argparse.ArgumentParser(
+        description="Validate politician JSON files or directories containing JSON files."
+    )
     parser.add_argument(
         "paths",
         nargs="*",
         default=["app/data"],
-        help="Files or directories to validate (if directory, all .json files are checked). Defaults to 'app/data' when omitted.",
+        help="Files or directories to validate (directories: only mp.json & mla.json). Defaults to 'app/data' when omitted.",
     )
     args = parser.parse_args(argv)
 
@@ -128,4 +148,3 @@ def main(argv: List[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

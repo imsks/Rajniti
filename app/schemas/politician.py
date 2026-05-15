@@ -5,7 +5,7 @@ Unified schema for storing MP and MLA data in a simplified structure.
 """
 
 from enum import Enum
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 
 from pydantic import BaseModel, Field, HttpUrl, validator
 
@@ -17,6 +17,23 @@ from .types import (
     State,
     StatusEnum,
 )
+
+
+class CitationSource(str, Enum):
+    """Provenance category for a cited URL."""
+
+    ECI = "ECI"
+    MYNETA = "MYNETA"
+    GOV_WEBSITE = "GOV_WEBSITE"
+    NEWS = "NEWS"
+    OTHERS = "OTHERS"
+
+
+class Citation(BaseModel):
+    """A single source backing a detail field."""
+
+    link: HttpUrl
+    source: CitationSource
 
 
 class Contact(BaseModel):
@@ -39,12 +56,14 @@ class FamilyMember(BaseModel):
     relation: RelationEnum
     photo: Optional[HttpUrl] = None
     social_media: Optional[SocialMedia] = None
+    citation: Optional[Citation] = None
 
 
 class Education(BaseModel):
     qualification: QualificationEnum
     institution: Optional[str] = None
     year_completed: Optional[int] = None
+    citation: Optional[Citation] = None
 
 
 class ElectionRecord(BaseModel):
@@ -54,6 +73,7 @@ class ElectionRecord(BaseModel):
     constituency: str
     party: str
     status: StatusEnum
+    citation: Optional[Citation] = None
 
     @validator("state", pre=True)
     def validate_state(cls, v):
@@ -70,6 +90,7 @@ class ElectionRecord(BaseModel):
 class PoliticalBackground(BaseModel):
     elections: List[ElectionRecord]
     summary: Optional[str] = None
+    summary_citation: Optional[Citation] = None
 
 
 class CrimeType(Enum):
@@ -90,6 +111,7 @@ class CrimeRecord(BaseModel):
     name: str
     type: Optional[CrimeType] = None
     year: Optional[int] = None
+    citation: Optional[Citation] = None
 
 
 class Politician(BaseModel):
@@ -112,7 +134,24 @@ class Politician(BaseModel):
 
     political_background: PoliticalBackground
 
-    notes: Optional[str] = Field(None, description="Optional human notes or comments")
+    contact_citations: Optional[Dict[str, Citation]] = Field(
+        None,
+        description="Keys: email, phone, address — citations for contact fields",
+    )
+    social_media_citations: Optional[Dict[str, Citation]] = Field(
+        None,
+        description=(
+            "Keys: twitter, facebook, instagram, linkedin, youtube, website"
+        ),
+    )
+    performance_citations: Optional[Dict[str, Citation]] = Field(
+        None,
+        description="Keys: attendance, questions, debates — Lok Sabha / official stats",
+    )
+    citation_audit: Optional[Dict[str, Any]] = Field(
+        None,
+        description="Optional audit metadata: issues, mismatches, last_run",
+    )
 
     class Config:
         json_schema_extra = {
@@ -139,3 +178,17 @@ class Politician(BaseModel):
                 "criminal_records": [{"name": "", "type": "", "year": ""}],
             }
         }
+
+
+class CitationAuditLLMResult(BaseModel):
+    """LLM output shape for citation backfill (CitationAgent) — citations only, aligned by index."""
+
+    education_citations: Optional[List[Optional[Citation]]] = None
+    elections_citations: Optional[List[Optional[Citation]]] = None
+    family_citations: Optional[List[Optional[Citation]]] = None
+    criminal_citations: Optional[List[Optional[Citation]]] = None
+    summary_citation: Optional[Citation] = None
+    contact_citations: Optional[Dict[str, Optional[Citation]]] = None
+    social_media_citations: Optional[Dict[str, Optional[Citation]]] = None
+    performance_citations: Optional[Dict[str, Optional[Citation]]] = None
+    issues: Optional[List[str]] = None

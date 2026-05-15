@@ -20,7 +20,7 @@ export default function UsernameStep({ value, onChange, onValidation }: Username
     try {
       setChecking(true)
       setError(null)
-      
+
       // Call backend API to check username availability
       const data = await userService.checkUsername(username, session?.user?.id)
 
@@ -39,7 +39,7 @@ export default function UsernameStep({ value, onChange, onValidation }: Username
     // Reset states when value changes
     setAvailable(null)
     setError(null)
-    
+
     if (!value || value.length < 3) {
       onValidation(false)
       if (value && value.length < 3) {
@@ -85,7 +85,7 @@ export default function UsernameStep({ value, onChange, onValidation }: Username
             value={value}
             onChange={(e) => onChange(e.target.value.toLowerCase())}
             placeholder="johndoe"
-            className={`w-full px-4 py-3 pr-12 border-2 rounded-lg focus:outline-none focus:ring-2 transition-all ${
+            className={`w-full px-4 py-3 pr-12 border-2 rounded-lg bg-white text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 transition-all ${
               error
                 ? 'border-red-300 focus:border-red-500 focus:ring-red-200'
                 : available === true
@@ -93,7 +93,7 @@ export default function UsernameStep({ value, onChange, onValidation }: Username
                 : 'border-gray-300 focus:border-orange-500 focus:ring-orange-200'
             }`}
           />
-          
+
           {/* Status icon */}
           <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
             {checking && (

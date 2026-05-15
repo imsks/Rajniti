@@ -82,7 +82,9 @@ def main() -> None:
         print("OK: tables ensured via create_all")
     elif args.cmd == "autogenerate":
         autogenerate(args.message)
-        print("OK: migration generated — review alembic/versions/ before running migrate")
+        print(
+            "OK: migration generated — review alembic/versions/ before running migrate"
+        )
 
 
 if __name__ == "__main__":

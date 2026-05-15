@@ -15,6 +15,7 @@ import {
 } from "@/lib/locationPincode"
 import { getPartyInitial } from "@/lib/politicianUtils"
 import type { Politician } from "@/types/politician"
+import { userService } from "@/lib/api/user"
 
 const GITHUB_ISSUE_URL =
     "https://github.com/imsks/rajniti/issues/new?title=Add+MLA+MP+for+my+area&body=Request+to+add+MLA+%2F+MP+for+my+constituency.%0A%0APlease+share+constituency+name+or+pincode+if+known%3A+"
@@ -59,13 +60,31 @@ export default function MyPoliticiansSection({
         return () => document.removeEventListener("mousedown", handleClickOutside)
     }, [])
 
-    const handleSelectResult = (p: Politician) => {
-        if (p.type === "MP") setMyMP(p)
-        else setMyMLA(p)
-        trackEvent('my_politician_set', { politician_id: p.id, politician_name: p.name, slot_type: p.type as "MP" | "MLA" })
-        setSearchQuery("")
-        setDropdownOpen(false)
-    }
+
+
+     const handleSelectResult = async (p: Politician) => {
+         try {
+            const userId = localStorage.getItem("user_id")
+             if (!userId) return
+
+            await userService.addUserPolitician(userId, p.id, p.type)
+
+         if (p.type === "MP") setMyMP(p)
+         else setMyMLA(p)
+
+        trackEvent('my_politician_set', {
+            politician_id: p.id,
+            politician_name: p.name,
+            slot_type: p.type as "MP" | "MLA"
+        })
+
+           setSearchQuery("")
+          setDropdownOpen(false)
+
+       } catch (err) {
+            console.error("❌ API ERROR:", err)
+       }
+   }
 
     const handleLocationClick = async () => {
         setLocationLoading(true)
@@ -196,8 +215,8 @@ export default function MyPoliticiansSection({
                             </div>
                         ) : (
                             <ul className='divide-y divide-gray-100 dark:divide-gray-700'>
-                                {results.map((p) => (
-                                    <li key={p.id}>
+                                {Array.from(new Map(results.map(p => [`${p.id}-${p.type}`, p])).values()).map((p) => (
+                                    <li key={`${p.id}-${p.type}`}>
                                         <button
                                             type='button'
                                             onClick={() => handleSelectResult(p)}
@@ -247,13 +266,28 @@ export default function MyPoliticiansSection({
                     politician={myMP}
                     slotType='MP'
                     onAddClick={focusSearch}
-                    onRemove={myMP ? () => { setMyMP(null); trackEvent('my_politician_remove', { slot_type: 'MP' }) } : undefined}
+                    onRemove={myMP ? async () => {
+                             const userId = localStorage.getItem("user_id")
+                              if (!userId) return
+                             await userService.removeUserPolitician(userId, myMP.id)
+
+                            setMyMP(null)
+                            trackEvent('my_politician_remove', { slot_type: 'MP' })
+                          } : undefined}
                 />
                 <MyPoliticianCard
                     politician={myMLA}
                     slotType='MLA'
                     onAddClick={focusSearch}
-                    onRemove={myMLA ? () => { setMyMLA(null); trackEvent('my_politician_remove', { slot_type: 'MLA' }) } : undefined}
+                    onRemove={myMLA ? async () => {
+                            const userId = localStorage.getItem("user_id")
+                             if (!userId) return
+
+                            await userService.removeUserPolitician(userId, myMLA.id)
+
+                           setMyMLA(null)
+                           trackEvent('my_politician_remove', { slot_type: 'MLA' })
+                          } : undefined}
                 />
             </div>
 

@@ -45,4 +45,3 @@ def short_id_from_uuid(uuid_or_id: str, *, short_len: int = 8) -> str:
         return first[:short_len]
     # Fallback when input isn't hyphenated.
     return u[:short_len]
-

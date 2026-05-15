@@ -1,15 +1,20 @@
 import argparse
 import logging
-from pathlib import Path
+import os
 import sys
+from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(_ROOT))
+
+# Many LLM calls for large states; default 15s per request is too low (504 / truncation).
+os.environ.setdefault("FREE_TIER_LLM_TIMEOUT_SECS", "120")
 
 from app.agents.state_mla_fetcher import StateMLAFetcher
 from app.core import setup_logging
 
 
-def main(state: "str" = None, force: bool = False, log_level: str = "DEBUG"):
+def main(state: str | None = None, force: bool = False, log_level: str = "DEBUG"):
     setup_logging(log_level)
     logger = logging.getLogger(__name__)
 
@@ -28,7 +33,11 @@ def main(state: "str" = None, force: bool = False, log_level: str = "DEBUG"):
 if __name__ == "__main__":
     p = argparse.ArgumentParser(description="Fetch MLAs and append to mla.json")
     p.add_argument("--state", default=None, help="State name (omit to run all states)")
-    p.add_argument("--force", action="store_true", help="Ignore cache/duplicates and overwrite")
-    p.add_argument("--log-level", default="DEBUG", choices=["DEBUG", "INFO", "WARNING", "ERROR"])
+    p.add_argument(
+        "--force", action="store_true", help="Ignore cache/duplicates and overwrite"
+    )
+    p.add_argument(
+        "--log-level", default="DEBUG", choices=["DEBUG", "INFO", "WARNING", "ERROR"]
+    )
     args = p.parse_args()
     main(state=args.state, force=args.force, log_level=args.log_level)

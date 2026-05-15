@@ -15,10 +15,10 @@
 
 <br />
 
-Browse, search, and explore data on Indian MPs and MLAs.  
+Browse, search, and explore data on Indian MPs and MLAs.
 Enrich politician profiles automatically using LLM-based agents.
 
-[Getting Started](#-getting-started) · [Contributing with AI](#-contributing-with-ai) · [Daily agent schedule](#optional-daily-agent-schedule-macos-linux-windows) · [API Reference](#-api-endpoints) · [Project Structure](#-project-structure)
+[Getting Started](#-getting-started) · [Contributing with AI](#-contributing-with-ai) · [API Reference](#-api-endpoints) · [Project Structure](#-project-structure)
 
 </div>
 
@@ -30,9 +30,10 @@ Enrich politician profiles automatically using LLM-based agents.
 |---|---|---|
 | 🔍 | **Search & Browse** | Look up MPs and MLAs by name, state, constituency, or party |
 | 🤖 | **AI Enrichment** | Automatically fill education, family, criminal records, and more using LLMs |
+| 📎 | **Citations** | Backfill HTTPS source links via `CitationAgent` after enrichment |
 | 🔄 | **Multi-Model Failover** | Gemini → OpenAI → Perplexity with per-model cooldown on rate limits |
 | 🗃️ | **JSON-First Data** | Source of truth lives in version-controlled JSON files |
-| 🧠 | **Vector Search** | Ask natural-language questions about politicians (ChromaDB) |
+| 🧠 | **Vector Search** | Semantic Q&A — **in progress** ([learning doc](docs/VECTOR_DBS.md)) |
 | 🔐 | **Google OAuth** | User accounts via NextAuth with backend sync |
 | 📊 | **Stats Dashboard** | Party breakdown, state coverage, and enrichment progress |
 
@@ -104,7 +105,7 @@ git clone https://github.com/<your-username>/Rajniti.git
 cd Rajniti
 
 # Backend (runs via Python venv)
-make install            # creates venv + installs deps
+make install            # creates venv + pip install -r requirements.txt
 cp .env.example .env    # configure your environment
 . venv/bin/activate     # activate the virtual environment
 
@@ -214,13 +215,27 @@ python3 scripts/run_politician_agent.py --id "<POLITICIAN_ID>"
 python3 scripts/run_politician_agent.py --type MP --force
 ```
 
-**4. Add MLAs for a new state**
+**4. Citation URLs (optional)**
+
+Adds source links on enriched fields — run after facts look good (`scripts/run_citation_agent.py`).
+
+```bash
+python3 scripts/run_citation_agent.py --log-level INFO
+python3 scripts/run_citation_agent.py --type MP --limit 10
+python3 scripts/run_citation_agent.py --id "<POLITICIAN_ID>"
+python3 scripts/run_citation_agent.py --force --id "<POLITICIAN_ID>"
+
+# Long run: checkpoints on quota, sleeps (default 1h), then resumes until done
+python3 scripts/run_citation_agent.py --schedule --log-level INFO
+```
+
+**5. Add MLAs for a new state**
 
 ```bash
 python3 scripts/fetch_mlas.py --state "Andhra Pradesh" --log-level INFO
 ```
 
-**5. Open a PR**
+**6. Open a PR**
 
 ```bash
 git add app/data/mp.json app/data/mla.json
@@ -230,111 +245,7 @@ git push -u origin enrich/<scope>
 
 Then open a Pull Request. Include: the state/scope, number of records, and how you tested.
 
-### Optional: Daily agent schedule (macOS, Linux, Windows)
-
-If you keep the repo on your laptop and prefer not to start the enrichment agent by hand every day, you can run it on a **daily schedule** (example: **8:00** in your local time). The same command updates **`app/data/mp.json`** and **`app/data/mla.json`** when you omit `--type` — it processes every politician who still needs enrichment (respecting the local cache).
-
-**Important:** Scheduled jobs must run with the **project root as the working directory** so `python-dotenv` can load the repo’s `.env` (API keys). Use **absolute paths** in scripts and in cron/Task Scheduler.
-
-**1. One wrapper script (Unix — macOS and Linux)**
-
-Save as something like `~/bin/rajniti-daily-enrich.sh`, edit `REPO_ROOT`, then make it executable (`chmod +x ~/bin/rajniti-daily-enrich.sh`):
-
-```bash
-#!/usr/bin/env bash
-set -euo pipefail
-
-REPO_ROOT="/absolute/path/to/Rajniti"   # <-- change this
-LOG_DIR="${HOME}/logs"
-mkdir -p "${LOG_DIR}"
-
-cd "${REPO_ROOT}"
-# Assumes you use the project venv from `make install`
-# shellcheck source=/dev/null
-. "${REPO_ROOT}/venv/bin/activate"
-
-# One run: all MPs and MLAs that still need work (omit --type)
-python scripts/run_politician_agent.py --log-level INFO \
-  >> "${LOG_DIR}/rajniti-agent.log" 2>&1
-```
-
-**Run immediately (any OS):** open a terminal, `cd` to the repo, activate the venv, and run the same `python scripts/run_politician_agent.py --log-level INFO` line (or use the commands in **3. Run the agent** above). No need to wait for the next 8:00 run.
-
----
-
-**2. macOS — `crontab`**
-
-Edit your user crontab:
-
-```bash
-crontab -e
-```
-
-Add one line to run **every day at 08:00** local time (adjust the script path if needed):
-
-```cron
-0 8 * * * /Users/YOUR_USER/bin/rajniti-daily-enrich.sh
-```
-
-- **List** your crontab: `crontab -l`
-- **Remove all** cron entries: `crontab -r` (use with care)
-- **Change time:** edit the five time fields; `0 8 * * *` = minute `0`, hour `8`, every day. See `man 5 crontab` on your system.
-- **Sleep / closed lid:** `cron` only runs while the Mac is awake at the scheduled time. If you often miss the window, run the script manually when you’re back, or consider **`launchd`** (`~/Library/LaunchAgents/`) with `StartCalendarInterval` for a user agent that behaves similarly (still requires the machine to be awake, unless you use a always-on machine or a remote runner).
-
----
-
-**3. Linux — `crontab`**
-
-Same idea as macOS:
-
-```bash
-crontab -e
-```
-
-Example (8:00 daily):
-
-```cron
-0 8 * * * /home/YOUR_USER/bin/rajniti-daily-enrich.sh
-```
-
-Ensure the shebang script is executable and that `cron` has access to your environment if you rely on anything outside the script (the wrapper above avoids that by using absolute paths and `cd`).
-
----
-
-**4. Windows — Task Scheduler**
-
-**a)** Create `C:\Users\YOUR_USER\bin\rajniti-daily-enrich.bat` (adjust paths):
-
-```bat
-@echo off
-setlocal
-cd /d C:\absolute\path\to\Rajniti
-call venv\Scripts\activate.bat
-python scripts\run_politician_agent.py --log-level INFO >> "%USERPROFILE%\logs\rajniti-agent.log" 2>&1
-```
-
-Create the log folder once: `mkdir %USERPROFILE%\logs`
-
-**b)** Open **Task Scheduler** → **Create Task…** (not “Create Basic Task” if you want full control).
-
-- **General:** Run only when user is logged on (typical for a laptop), or “Run whether user is logged on or not” if you need headless runs (may require stored password).
-- **Triggers:** New… → **Daily** → start time **8:00:00 AM** (local time).
-- **Actions:** New… → **Start a program** → Program/script: `C:\Users\YOUR_USER\bin\rajniti-daily-enrich.bat` (or `cmd.exe` with arguments `/c "C:\…\rajniti-daily-enrich.bat"` if you prefer).
-
-**Run immediately:** In Task Scheduler, right-click the task → **Run**. Or from **cmd.exe**: `schtasks /Run /TN "YourTaskName"` (use the exact task name you created).
-
-**Change or remove:** Task Scheduler Library → select the task → **Properties** (edit triggers/times) or **Delete**.
-
----
-
-**5. Updating the schedule later**
-
-| Platform | View | Edit | Remove |
-|----------|------|------|--------|
-| **macOS / Linux** | `crontab -l` | `crontab -e` | Delete the line in the editor, or `crontab -r` to clear everything |
-| **Windows** | Task Scheduler → your task | Properties → Triggers / Actions | Delete the task |
-
-After any change to the wrapper script path or repo location, update the scheduled command to match.
+For long-running batches you can resume with **`scripts/run_politician_agent_scheduled.py`** (writes `.cache/agent_schedule_checkpoint.json`, gitignored). See `--help`.
 
 ---
 
@@ -364,7 +275,7 @@ After any change to the wrapper script path or repo location, update the schedul
 | `GET` | `/api/v1/stats` | Summary statistics |
 | `GET` | `/api/v1/states` | List all states |
 | `GET` | `/api/v1/parties` | List all parties |
-| `POST` | `/api/v1/questions/ask` | Ask a question (vector search) |
+| `POST` | `/api/v1/questions/ask` | Ask a question (`501` until vector store is reimplemented; see [docs/VECTOR_DBS.md](docs/VECTOR_DBS.md)) |
 | `GET` | `/api/v1/health` | Health check |
 
 ---

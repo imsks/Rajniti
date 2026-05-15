@@ -15,13 +15,15 @@ import argparse
 import json
 import os
 import sys
-import urllib.request
 import urllib.error
+import urllib.request
 from pathlib import Path
 
 REPO = "imsks/rajniti"
 API_URL = f"https://api.github.com/repos/{REPO}/contributors"
-DEFAULT_OUT = Path(__file__).resolve().parent.parent / "frontend" / "data" / "contributors.json"
+DEFAULT_OUT = (
+    Path(__file__).resolve().parent.parent / "frontend" / "data" / "contributors.json"
+)
 
 
 def fetch_contributors(token: str | None = None) -> list[dict]:
@@ -49,12 +51,14 @@ def fetch_contributors(token: str | None = None) -> list[dict]:
         for entry in data:
             if entry.get("type") != "User":
                 continue
-            contributors.append({
-                "login": entry["login"],
-                "avatar_url": entry["avatar_url"],
-                "html_url": entry["html_url"],
-                "contributions": entry["contributions"],
-            })
+            contributors.append(
+                {
+                    "login": entry["login"],
+                    "avatar_url": entry["avatar_url"],
+                    "html_url": entry["html_url"],
+                    "contributions": entry["contributions"],
+                }
+            )
 
         page += 1
 

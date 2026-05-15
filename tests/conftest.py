@@ -13,10 +13,6 @@ from unittest.mock import MagicMock, Mock, patch
 
 import pytest
 
-# Mock chromadb before any imports to avoid numpy compatibility issues
-sys.modules["chromadb"] = MagicMock()
-sys.modules["chromadb.config"] = MagicMock()
-
 # Set test environment
 os.environ["FLASK_ENV"] = "testing"
 os.environ["TESTING"] = "true"
@@ -268,19 +264,6 @@ def mock_llm_service():
                 "error": None,
             }
         )
-        yield service
-
-
-@pytest.fixture
-def mock_vector_db_service():
-    """Mock VectorDBService for testing."""
-    with patch("app.services.questions_service.VectorDBService") as mock:
-        service = Mock()
-        mock.return_value = service
-        service.query_similar = Mock(return_value=[])
-        service.upsert_candidate_data = Mock()
-        service.delete_candidate = Mock()
-        service.count_candidates = Mock(return_value=100)
         yield service
 
 

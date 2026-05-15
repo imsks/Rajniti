@@ -14,10 +14,6 @@ from unittest.mock import MagicMock, Mock, patch
 
 import pytest
 
-# Mock chromadb before imports
-sys.modules["chromadb"] = MagicMock()
-sys.modules["chromadb.config"] = MagicMock()
-
 # Skip all integration tests by default - they need database or better mocking setup
 pytestmark = pytest.mark.skip(
     reason="Integration tests require database setup. Run unit tests instead."

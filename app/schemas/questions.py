@@ -1,8 +1,8 @@
 """
-Predefined Questions for Candidate Data
+Predefined questions for the Q&A UI.
 
-These questions are based on the Candidate Model fields and allow users
-to quickly explore candidate information from the vector database.
+When semantic search is wired (Chroma or another vector store), these map to
+natural-language queries over politician records. See docs/VECTOR_DBS.md.
 """
 
 from typing import Any, Dict, List

@@ -4,14 +4,9 @@ Unit tests for UserService.
 Tests cover user operations, onboarding, and username validation.
 """
 
-import sys
 from unittest.mock import MagicMock, Mock, patch
 
 import pytest
-
-# Mock chromadb before imports
-sys.modules["chromadb"] = MagicMock()
-sys.modules["chromadb.config"] = MagicMock()
 
 from app.services.user_service import UserService
 
