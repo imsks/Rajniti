@@ -51,7 +51,7 @@ function HomeContent() {
                     <div className='absolute -right-28 top-8 h-96 w-96 rounded-full bg-green-300/20 blur-3xl dark:bg-blue-500/20'></div>
                 </div>
                 <div className='relative mx-auto max-w-7xl px-4 sm:px-6 lg:grid lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-8 lg:px-8 xl:gap-12'>
-                    <div className='text-center'>
+                    <div className='text-left'>
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -149,7 +149,7 @@ function HomeContent() {
 
                     {/* Ashoka Chakra - On mobile below, on desktop right-aligned */}
                     <motion.svg
-                        className="pointer-events-none mx-auto mt-12 h-75 w-75 origin-center text-blue-800 sm:h-100 sm:w-100 lg:mt-0 lg:h-104 lg:w-104 xl:h-120 xl:w-120 dark:text-blue-400 dark:drop-shadow-[0_0_24px_rgba(96,165,250,0.32)]"
+                        className="pointer-events-none mx-auto mt-12 h-75 w-75 origin-center text-blue-800 sm:h-100 sm:w-100 lg:mt-0 lg:h-104 lg:w-104 xl:h-120 xl:w-120 dark:text-blue-400 dark:drop-shadow-[0_0_24px_rgba(96,165,250,0.32)] relative -z-10"
                         viewBox="0 0 24 24"
                         fill="none"
                         animate={{ rotate: 360 }}
