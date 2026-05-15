@@ -93,12 +93,14 @@ export default function UserDetailsStep({ formData, onChange }: UserDetailsStepP
         <select
           value={formData.state}
           onChange={(e) => onChange('state', e.target.value)}
-          className={`${baseFieldClasses} ${formData.state ? 'text-gray-900' : 'text-gray-500'}`}
+          className={`w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-orange-500 focus:border-transparent ${
+            formData.state ? 'text-gray-900' : 'text-gray-400'
+          }`}
           required
         >
-          <option value="" className="text-gray-500">Select your state</option>
+          <option value="" className="text-gray-400 bg-white">Select your state</option>
           {INDIAN_STATES.map((state) => (
-            <option key={state} value={state} className="text-gray-900">
+            <option key={state} value={state} className="text-gray-900 bg-white">
               {state}
             </option>
           ))}
