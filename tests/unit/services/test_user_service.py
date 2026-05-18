@@ -366,3 +366,31 @@ class TestUserServiceEdgeCases:
                 )
 
                 assert result["onboarding_completed"] is True
+
+
+@pytest.mark.unit
+class TestUserPoliticianService:
+    """Tests for user politician persistence helpers."""
+
+    def test_add_user_politician_commits(self, user_service):
+        with patch("app.services.user_service.get_db_session") as mock_session_ctx:
+            mock_session = Mock()
+            mock_session_ctx.return_value.__enter__ = Mock(return_value=mock_session)
+            mock_session_ctx.return_value.__exit__ = Mock(return_value=False)
+
+            result = user_service.add_user_politician("user-1", "pol-1", "MP")
+
+            assert result == {"success": True}
+            assert mock_session.execute.call_count == 2
+            mock_session.commit.assert_called_once()
+
+    def test_add_user_politician_returns_none_on_error(self, user_service):
+        with patch("app.services.user_service.get_db_session") as mock_session_ctx:
+            mock_session = Mock()
+            mock_session.execute.side_effect = Exception("db error")
+            mock_session_ctx.return_value.__enter__ = Mock(return_value=mock_session)
+            mock_session_ctx.return_value.__exit__ = Mock(return_value=False)
+
+            result = user_service.add_user_politician("user-1", "pol-1", "MP")
+
+            assert result is None

@@ -7,6 +7,7 @@ import {
     setMyPoliticianIds,
     type MyPoliticianIds,
 } from "@/lib/myPoliticiansStorage"
+import { userService } from "@/lib/api/user"
 
 const API = `${process.env.NEXT_PUBLIC_API_URL}`
 
@@ -31,7 +32,7 @@ async function fetchPoliticianById(id: string): Promise<Politician | null> {
     return null
 }
 
-export function useMyPoliticians(allPoliticians: Politician[]) {
+export function useMyPoliticians(allPoliticians: Politician[], userId?: string) {
     const [ids, setIds] = useState<MyPoliticianIds>(() =>
         typeof window === "undefined" ? { mpId: null, mlaId: null } : getMyPoliticianIds()
     )
@@ -42,6 +43,31 @@ export function useMyPoliticians(allPoliticians: Politician[]) {
     useEffect(() => {
         setIds(getMyPoliticianIds())
     }, [])
+
+    useEffect(() => {
+        if (!userId) return
+
+        let cancelled = false
+        userService.getUserPoliticians(userId).then((records) => {
+            if (cancelled || records == null) return
+
+            const next = records.reduce<MyPoliticianIds>(
+                (acc, record) => {
+                    if (record.role === "MP") acc.mpId = record.politician_id
+                    if (record.role === "MLA") acc.mlaId = record.politician_id
+                    return acc
+                },
+                { mpId: null, mlaId: null }
+            )
+
+            setMyPoliticianIds(next)
+            setIds(next)
+        })
+
+        return () => {
+            cancelled = true
+        }
+    }, [userId])
 
     const resolveMP = useCallback((): Politician | null => {
         const fromList = findPoliticianById(allPoliticians, ids.mpId)
