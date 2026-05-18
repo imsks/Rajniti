@@ -49,7 +49,7 @@ export function useMyPoliticians(allPoliticians: Politician[], userId?: string) 
 
         let cancelled = false
         userService.getUserPoliticians(userId).then((records) => {
-            if (cancelled || records == null) return
+            if (cancelled || records === null) return
 
             const next = records.reduce<MyPoliticianIds>(
                 (acc, record) => {

@@ -381,7 +381,7 @@ class TestUserPoliticianService:
             result = user_service.add_user_politician("user-1", "pol-1", "MP")
 
             assert result == {"success": True}
-            assert mock_session.execute.call_count == 2
+            assert mock_session.execute.call_count == 1
             mock_session.commit.assert_called_once()
 
     def test_add_user_politician_returns_none_on_error(self, user_service):
