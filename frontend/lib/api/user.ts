@@ -12,6 +12,11 @@ export interface UserData {
     [key: string]: string | boolean | undefined
 }
 
+interface UserPoliticianRecord {
+    politician_id: string
+    role: "MP" | "MLA" | string
+}
+
 export const userService = {
     /**
      * Sync user with backend (Get or Create)
@@ -68,6 +73,24 @@ export const userService = {
         }
 
         return response.json()
+    },
+
+    async getUserPoliticians(userId: string): Promise<UserPoliticianRecord[] | null> {
+        try {
+            const response = await fetch(`${API_BASE_URL}/users/${userId}/politicians`)
+            if (!response.ok) {
+                return null
+            }
+
+            const data = await response.json()
+            if (!data?.success || !Array.isArray(data.data)) {
+                return null
+            }
+
+            return data.data as UserPoliticianRecord[]
+        } catch {
+            return null
+        }
     },
 
 

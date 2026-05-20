@@ -170,3 +170,36 @@ describe('userService.checkUsername', () => {
         )
     })
 })
+
+// ---------------------------------------------------------------------------
+// getUserPoliticians
+// ---------------------------------------------------------------------------
+describe('userService.getUserPoliticians', () => {
+    it('calls /users/{userId}/politicians with GET', async () => {
+        mockFetch.mockResolvedValueOnce(okResponse({ success: true, data: [] }))
+
+        await userService.getUserPoliticians('user-1')
+
+        const [url, opts] = mockFetch.mock.calls[0]
+        expect(url).toBe(`${API_BASE}/users/user-1/politicians`)
+        expect(opts).toBeUndefined()
+    })
+
+    it('returns user politicians on success', async () => {
+        const payload = {
+            success: true,
+            data: [{ politician_id: 'p-1', role: 'MP' }],
+        }
+        mockFetch.mockResolvedValueOnce(okResponse(payload))
+
+        const result = await userService.getUserPoliticians('user-1')
+        expect(result).toEqual(payload.data)
+    })
+
+    it('returns null when response is not ok', async () => {
+        mockFetch.mockResolvedValueOnce(errorResponse({}, 500))
+
+        const result = await userService.getUserPoliticians('user-1')
+        expect(result).toBeNull()
+    })
+})

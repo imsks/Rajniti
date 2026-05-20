@@ -193,6 +193,12 @@ def add_user_politician(user_id):
             role=role
         )
 
+        if not result:
+            return jsonify({
+                "success": False,
+                "error": "Failed to add politician"
+            }), 500
+
         return jsonify({
             "success": True,
             "data": result,
