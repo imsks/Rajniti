@@ -16,6 +16,7 @@ import {
 import { getPartyInitial } from "@/lib/politicianUtils"
 import type { Politician } from "@/types/politician"
 import { userService } from "@/lib/api/user"
+import { useSession } from "next-auth/react"
 
 const GITHUB_ISSUE_URL =
     "https://github.com/imsks/rajniti/issues/new?title=Add+MLA+MP+for+my+area&body=Request+to+add+MLA+%2F+MP+for+my+constituency.%0A%0APlease+share+constituency+name+or+pincode+if+known%3A+"
@@ -27,8 +28,10 @@ interface MyPoliticiansSectionProps {
 export default function MyPoliticiansSection({
     allPoliticians,
 }: MyPoliticiansSectionProps) {
+    const { data: session } = useSession()
+    const userId = session?.user?.id
     const { myMP, myMLA, setMyMP, setMyMLA } =
-        useMyPoliticians(allPoliticians)
+        useMyPoliticians(allPoliticians, userId)
     const { trackEvent, trackSearch } = useAnalytics()
     const [searchQuery, setSearchQuery] = useState("")
     const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -64,10 +67,9 @@ export default function MyPoliticiansSection({
 
      const handleSelectResult = async (p: Politician) => {
          try {
-            const userId = localStorage.getItem("user_id")
-             if (!userId) return
+              if (!userId) return
 
-            await userService.addUserPolitician(userId, p.id, p.type)
+             await userService.addUserPolitician(userId, p.id, p.type)
 
          if (p.type === "MP") setMyMP(p)
          else setMyMLA(p)
@@ -267,7 +269,6 @@ export default function MyPoliticiansSection({
                     slotType='MP'
                     onAddClick={focusSearch}
                     onRemove={myMP ? async () => {
-                             const userId = localStorage.getItem("user_id")
                               if (!userId) return
                              await userService.removeUserPolitician(userId, myMP.id)
 
@@ -280,8 +281,7 @@ export default function MyPoliticiansSection({
                     slotType='MLA'
                     onAddClick={focusSearch}
                     onRemove={myMLA ? async () => {
-                            const userId = localStorage.getItem("user_id")
-                             if (!userId) return
+                              if (!userId) return
 
                             await userService.removeUserPolitician(userId, myMLA.id)
 

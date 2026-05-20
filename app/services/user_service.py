@@ -77,7 +77,14 @@ class UserService:
         try:
             with get_db_session() as session:
                 session.execute(
-                    text("INSERT INTO user_politicians (user_id, politician_id, role) VALUES (:user_id, :politician_id, :role)"),
+                    text(
+                        """
+                        INSERT INTO user_politicians (user_id, politician_id, role)
+                        VALUES (:user_id, :politician_id, :role)
+                        ON CONFLICT (user_id, role)
+                        DO UPDATE SET politician_id = EXCLUDED.politician_id
+                        """
+                    ),
                     {
                         "user_id": user_id,
                         "politician_id": politician_id,
