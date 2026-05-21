@@ -12,9 +12,11 @@ export interface UserData {
     [key: string]: string | boolean | undefined
 }
 
+type Role = "MP" | "MLA"
+
 interface UserPoliticianRecord {
     politician_id: string
-    role: "MP" | "MLA" | string
+    role: Role
 }
 
 export const userService = {
