@@ -684,7 +684,7 @@ export default function PoliticianPageClient({
                     <ContactSection politician={p} />
 
                     {/* Know More About Cards */}
-                    <div className="lg:col-span-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 mb-8 shadow-sm transition hover:shadow-md">
+                    <div className="lg:col-span-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 mb-4 shadow-sm transition hover:shadow-md">
                         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                             <div>
                                 <Text variant="h4" weight="bold" className="text-gray-900 dark:text-white">
@@ -696,8 +696,8 @@ export default function PoliticianPageClient({
                             </div>
                         </div>
 
-                        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                            <div className="group flex flex-col rounded-2xl border border-orange-200 bg-orange-50/80 p-3 shadow-sm transition duration-300 hover:border-orange-300 hover:bg-orange-50 dark:border-orange-700 dark:bg-orange-950/20 dark:hover:bg-orange-900/20">
+                        <div className=" grid gap-4 sm:grid-cols-2">
+                            <div className="group flex flex-col rounded-2xl border mt-6 border-orange-200 bg-orange-50/80 p-3 shadow-sm transition duration-300 hover:border-orange-300 hover:bg-orange-50 dark:border-orange-700 dark:bg-orange-950/20 dark:hover:bg-orange-900/20">
                                 <div className="flex items-center gap-2">
                                     <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300">
                                         <AlertTriangle size={16} />
@@ -720,7 +720,7 @@ export default function PoliticianPageClient({
                                 </div>
                             </div>
 
-                            <div className="group flex flex-col rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 p-3 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(249,115,22,0.28)]">
+                            <div className="group flex flex-col rounded-2xl mt-6 bg-gradient-to-r from-orange-500 to-orange-600 p-3 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(249,115,22,0.28)]">
                                 <div className="flex items-center gap-2">
                                     <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-white/20 text-white">
                                         <UserPlus size={16} />
