@@ -1,14 +1,11 @@
 "use client"
 
-import Link from "next/link"
 import { motion } from "framer-motion"
 import Text from "@/components/ui/Text"
 import Image from "@/components/ui/Image"
 import Button from "@/components/ui/Button"
 import { getPartyInitial, getPoliticianProfileHref } from "@/lib/politicianUtils"
-import type { Politician } from "@/types/politician"
-import type { ElectionType } from "@/types/politician"
-
+import type { Politician, ElectionType } from "@/types/politician"
 interface MyPoliticianCardProps {
     politician: Politician | null
     slotType: ElectionType
@@ -28,7 +25,7 @@ export default function MyPoliticianCard({
     onRemove,
 }: MyPoliticianCardProps) {
     const label = SLOT_LABELS[slotType]
-    const isPlaceholder = politician == null
+    const isPlaceholder = politician === null
 
     if (isPlaceholder) {
         return (

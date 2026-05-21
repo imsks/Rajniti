@@ -5,7 +5,6 @@ import { useState, useRef, useEffect } from "react"
 import Image from "@/components/ui/Image"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
-import Link from "@/components/ui/Link"
 import { useAnalytics } from "@/hooks/useAnalytics"
 
 export default function UserButton() {

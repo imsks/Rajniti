@@ -11,15 +11,13 @@ import MyPoliticiansSection from "@/components/MyPoliticiansSection"
 import { usePoliticians } from "@/hooks/usePoliticians"
 import { useAnalytics } from "@/hooks/useAnalytics"
 import { useOnboardingCheck } from "@/hooks/useOnboardingCheck"
-import { useSession } from "next-auth/react"
-import { userService } from "@/lib/api/user"
 
 type Tab = "ALL" | "MP" | "MLA"
 
 export default function Dashboard() {
     return (
         <Suspense fallback={
-            <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 flex items-center justify-center'>
+            <div className='min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 flex items-center justify-center'>
                 <div className='inline-block animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent'></div>
             </div>
         }>
