@@ -29,14 +29,12 @@ def index_exists(index_name: str) -> bool:
     """Check if an index exists."""
     connection = op.get_bind()
     result = connection.execute(
-        text(
-            """
+        text("""
             SELECT EXISTS (
                 SELECT 1 FROM pg_indexes
                 WHERE indexname = :index_name
             )
-        """
-        ),
+        """),
         {"index_name": index_name},
     ).scalar()
     return bool(result)
@@ -46,13 +44,11 @@ def enum_exists(enum_name: str) -> bool:
     """Check if a PostgreSQL enum type exists."""
     connection = op.get_bind()
     result = connection.execute(
-        text(
-            """
+        text("""
             SELECT EXISTS (
                 SELECT 1 FROM pg_type WHERE typname = :enum_name
             )
-        """
-        ),
+        """),
         {"enum_name": enum_name},
     ).scalar()
     return bool(result)
