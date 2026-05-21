@@ -2,8 +2,9 @@
 User service backed by PostgreSQL (DATABASE_URL), including Supabase Postgres.
 """
 
-from sqlalchemy import text
 from typing import Any, Dict, Optional
+
+from sqlalchemy import text
 
 from app.database.base import get_db_session
 from app.database.models.user import User
