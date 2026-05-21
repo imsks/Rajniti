@@ -18,7 +18,7 @@ export default function ContributorsPage() {
 
 function ContributorsContent() {
     return (
-        <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-70">
+        <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-70  dark:from-[#070b16] dark:via-[#0b1324] dark:to-[#101a32]">
             <Navbar variant="default" />
 
             <section className="py-20 sm:py-28">
@@ -33,16 +33,16 @@ function ContributorsContent() {
                             <div className="w-8 h-0.5 border-t-2 border-orange-600" />
                             Open Source
                         </div>
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#0F1F3D] mb-6">
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#0F1F3D] mb-6 dark:text-slate-100">
                             Our <span className="text-orange-600 italic">Contributors</span>
                         </h1>
-                        <Text variant="body" className="text-gray-600 max-w-3xl mx-auto">
+                        <Text variant="body" className="text-gray-600 dark:text-slate-300 max-w-3xl mx-auto">
                             Rajniti is built by a passionate community. Every contribution
                             — code, data, or ideas — makes Indian democracy more transparent.
                         </Text>
                     </motion.div>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 ">
                         {contributors.map((c, i) => (
                             <motion.a
                                 key={c.login}
@@ -53,7 +53,7 @@ function ContributorsContent() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.4, delay: i * 0.05 }}
                                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                                className="flex flex-col items-center gap-3 rounded-2xl border border-black/10 bg-white p-6 text-center hover:shadow-lg transition-shadow"
+                                className="flex flex-col items-center gap-3 rounded-2xl border border-black/10 bg-white dark:border-gray-700 dark:bg-gray-800 p-6 text-center hover:shadow-lg transition-shadow"
                             >
                                 <Image
                                     src={c.avatar_url}
