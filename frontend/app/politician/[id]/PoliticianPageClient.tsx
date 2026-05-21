@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { BarChart2, CalendarCheck, HelpCircle, MessageSquare, Trophy } from "lucide-react"
+import { AlertTriangle, BarChart2, CalendarCheck, HelpCircle, MessageSquare, Trophy, UserPlus } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { CitationLink } from "@/components/CitationLink"
 import { Footer, Navbar } from "@/components/layout"
@@ -628,6 +628,18 @@ export default function PoliticianPageClient({
     const party = latestElection?.party ?? "—"
     const isMp = p.type === "MP"
 
+    const buildReportIssueUrl = () => {
+        const pageUrl = typeof window !== "undefined" ? window.location.href : ""
+        const title = `Report Inaccuracy: ${p.name}`
+        const body = `## Politician Information\n\nName: ${p.name}\nPolitician ID: ${p.id}\nProfile URL: ${pageUrl}\n\n## What is incorrect?\n\nDescribe the incorrect or missing information here.\n\n## Suggested correction\n\nAdd the correct information here.\n\n## Additional Notes\n\nOptional notes/screenshots.`
+        const params = new URLSearchParams({ title, body })
+        return `https://github.com/imsks/rajniti/issues/new?${params.toString()}`
+    }
+
+    const handleReportClick = () => {
+        window.open(buildReportIssueUrl(), "_blank", "noopener,noreferrer")
+    }
+
     return (
         <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
             <style>{`
@@ -752,30 +764,72 @@ export default function PoliticianPageClient({
                     <CriminalRecordsSection records={p.criminal_records} />
                     <ContactSection politician={p} />
 
-                    {/* Contribute CTA */}
-                    <div className="contribute-cta lg:col-span-2 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-6 text-center text-white mb-8">
-                        <Text variant="h4" weight="bold" className="text-white mb-2">
-                            Know more about {p.name}?
-                        </Text>
-                        <Text variant="body" className="text-orange-100 mb-4">
-                            Help us enrich this profile with accurate education, family,
-                            criminal records, and contact information.
-                        </Text>
-                        <Button
-                            href={`https://github.com/imsks/rajniti/issues/new?title=Enrich+${encodeURIComponent(p.name)}&body=Politician+ID:+${encodeURIComponent(p.id)}%0A%0APlease+add+details+below:`}
-                            external
-                            onClick={() =>
-                                trackEvent("contribute_click", {
-                                    contribute_type: "info",
-                                    politician_id: p.id,
-                                    page_location: "politician_detail",
-                                })
-                            }
-                            className="bg-white text-orange-600 py-2 px-4 rounded-lg hover:bg-gray-50 border-none shadow-lg"
-                            size="md"
-                        >
-                            Contribute Info →
-                        </Button>
+                    {/* Know More About Cards */}
+                    <div className="lg:col-span-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 mb-4 shadow-sm transition hover:shadow-md">
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                            <div>
+                                <Text variant="h4" weight="bold" className="text-gray-900 dark:text-white">
+                                    Know more about {p.name}?
+                                </Text>
+                                <Text variant="body" className="text-gray-600 dark:text-gray-400">
+                                    Help us enrich this profile with accurate education, family, criminal records, and contact information.
+                                </Text>
+                            </div>
+                        </div>
+
+                        <div className=" grid gap-4 sm:grid-cols-2">
+                            <div className="group flex flex-col rounded-2xl border mt-6 border-orange-200 bg-orange-50/80 p-3 shadow-sm transition duration-300 hover:border-orange-300 hover:bg-orange-50 dark:border-orange-700 dark:bg-orange-950/20 dark:hover:bg-orange-900/20">
+                                <div className="flex items-center gap-2">
+                                    <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300">
+                                        <AlertTriangle size={16} />
+                                    </div>
+                                    <Button
+                                        type="button"
+                                        onClick={handleReportClick}
+                                        size="sm"
+                                        variant="ghost"
+                                        className="rounded-xl border border-orange-200 bg-white px-4 py-1.5 text-orange-700 shadow-sm transition hover:bg-orange-50 dark:border-orange-700 dark:bg-gray-900/90 dark:text-orange-300 dark:hover:bg-orange-950/20"
+                                    >
+                                        Report Inaccuracy
+                                    </Button>
+                                </div>
+                                <div className="mt-2">
+                                   
+                                    <Text variant="body" className="text-gray-600 dark:text-gray-400 mt-2 leading-6">
+                                        Flag incorrect or missing profile details and help us keep this page accurate.
+                                    </Text>
+                                </div>
+                            </div>
+
+                            <div className="group flex flex-col rounded-2xl mt-6 bg-gradient-to-r from-orange-500 to-orange-600 p-3 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(249,115,22,0.28)]">
+                                <div className="flex items-center gap-2">
+                                    <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-white/20 text-white">
+                                        <UserPlus size={16} />
+                                    </div>
+                                    <Button
+                                        href={`https://github.com/imsks/rajniti/issues/new?title=Enrich+${encodeURIComponent(p.name)}&body=Politician+ID:+${encodeURIComponent(p.id)}%0A%0APlease+add+details+below:`}
+                                        external
+                                        onClick={() =>
+                                            trackEvent("contribute_click", {
+                                                contribute_type: "info",
+                                                politician_id: p.id,
+                                                page_location: "politician_detail",
+                                            })
+                                        }
+                                        size="sm"
+                                        className="rounded-xl bg-white px-4 py-1.5 text-orange-600 shadow transition hover:bg-orange-50 sm:w-auto w-full"
+                                    >
+                                        Contribute Info →
+                                    </Button>
+                                </div>
+                                <div className="mt-2">
+
+                                    <Text variant="body" className="text-orange-100 mt-2 leading-6">
+                                        Add verified education, family, criminal, or contact details for this politician.
+                                    </Text>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
