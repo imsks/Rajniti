@@ -218,7 +218,7 @@ function HomeContent() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.1 }}
                             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                            className=' rounded-2xl p-8 border border-black/10'>
+                            className=' rounded-2xl p-8 border border-black/10 dark:border-gray-700'>
                             <div className='text-4xl mb-4'>
                                 <Image
                                     src='/logo/parliament.png'
@@ -246,7 +246,7 @@ function HomeContent() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                            className=' rounded-2xl p-8 border border-black/10'>
+                            className=' rounded-2xl p-8 border border-black/10 dark:border-gray-700'>
                             <div className='text-4xl mb-4'>
                                 <Image
                                     src='/logo/Assembly.png'
@@ -274,7 +274,7 @@ function HomeContent() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: 0.3 }}
                             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                            className=' rounded-2xl p-8 border border-black/10'>
+                            className=' rounded-2xl p-8 border border-black/10 dark:border-gray-700'>
                             <div className='text-4xl mb-4'>
                                 <Image
                                     src='/logo/Profile.png'
@@ -287,7 +287,7 @@ function HomeContent() {
                             <Text
                                 variant='h4'
                                 weight='bold'
-                                className='text-[#0F1F3D] dark:text-white mb-3'>
+                                className='text-[#0F1F3D] dark:text-white mb-3 '>
                                 Rich Profiles
                             </Text>
                             <Text variant='body' color='muted'>
