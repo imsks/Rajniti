@@ -427,7 +427,6 @@ class StateMLAFetcher(BaseAgent):
                 "social_media": None,
                 "contact": None,
                 "political_background": {"elections": [], "summary": None},
-                "notes": None,
             }
 
             existing.append(record)

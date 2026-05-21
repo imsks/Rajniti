@@ -13,6 +13,18 @@ export type CrimeType =
     | "ECONOMIC"
     | "OTHERS"
 
+export type CitationSource =
+    | "ECI"
+    | "MYNETA"
+    | "GOV_WEBSITE"
+    | "NEWS"
+    | "OTHERS"
+
+export interface Citation {
+    link: string
+    source: CitationSource
+}
+
 export interface Contact {
     email?: string | null
     phone?: string | null
@@ -33,12 +45,14 @@ export interface FamilyMember {
     relation: string
     photo?: string | null
     social_media?: SocialMedia | null
+    citation?: Citation | null
 }
 
 export interface Education {
     qualification: string
     institution?: string | null
     year_completed?: number | null
+    citation?: Citation | null
 }
 
 export interface ElectionRecord {
@@ -48,17 +62,20 @@ export interface ElectionRecord {
     constituency: string
     party: string
     status: string
+    citation?: Citation | null
 }
 
 export interface PoliticalBackground {
     elections: ElectionRecord[]
     summary?: string | null
+    summary_citation?: Citation | null
 }
 
 export interface CrimeRecord {
     name: string
     type?: CrimeType | null
     year?: number | null
+    citation?: Citation | null
 }
 
 export interface Politician {
@@ -83,14 +100,17 @@ export interface Politician {
 
     political_background: PoliticalBackground
 
-
     performance?: {
-     attendance: number;
-     questions: number;
-     debates: number;
-     };
-
-    notes?: string | null
+        attendance: number
+        questions: number
+        debates: number
+    }
+    contact_citations?: Partial<Record<keyof Contact, Citation>> | null
+    social_media_citations?: Partial<Record<keyof SocialMedia, Citation>> | null
+    performance_citations?: Partial<
+        Record<"attendance" | "questions" | "debates", Citation>
+    > | null
+    citation_audit?: Record<string, unknown> | null
 }
 
 /** Client-side computed stats */

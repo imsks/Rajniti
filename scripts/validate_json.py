@@ -4,8 +4,11 @@ Validate politician JSON files against the app.schemas.politician.Politician mod
 
 Usage:
   python scripts/validate_json.py                     # validates app/data/ by default
-  python scripts/validate_json.py app/data            # validate all .json files under app/data
+  python scripts/validate_json.py app/data            # mp.json and mla.json only
   python scripts/validate_json.py app/data/mp.json app/data/mla.json
+
+Only ``mp.json`` and ``mla.json`` are validated when a directory is given;
+``performance.json`` and ``states.json`` are ignored.
 
 Exits with code 0 on success, 1 on validation errors.
 """
@@ -54,7 +57,7 @@ def validate_file(path: Path) -> Tuple[bool, List[str]]:
     for idx, item in enumerate(items):
         location = f"{path}:{idx}"
         try:
-            p = Politician.parse_obj(item)
+            p = Politician.model_validate(item)
         except ValidationError as ve:
             errors.append(f"{location} - validation error:\n{ve}")
             continue
@@ -80,9 +83,18 @@ def validate_file(path: Path) -> Tuple[bool, List[str]]:
     return ok, errors
 
 
+# Only these files hold Politician[] records. Other JSON under app/data
+# (e.g. performance.json, states.json) uses different schemas.
+POLITICIAN_LIST_FILES = frozenset({"mp.json", "mla.json"})
+
+
 def collect_json_files(path: Path) -> List[Path]:
     if path.is_dir():
-        return sorted([p for p in path.rglob("*.json") if p.is_file()])
+        return sorted(
+            p
+            for p in path.rglob("*.json")
+            if p.is_file() and p.name in POLITICIAN_LIST_FILES
+        )
     if path.is_file():
         return [path]
     return []
@@ -96,7 +108,7 @@ def main(argv: List[str] | None = None) -> int:
         "paths",
         nargs="*",
         default=["app/data"],
-        help="Files or directories to validate (if directory, all .json files are checked). Defaults to 'app/data' when omitted.",
+        help="Files or directories to validate (directories: only mp.json & mla.json). Defaults to 'app/data' when omitted.",
     )
     args = parser.parse_args(argv)
 
