@@ -553,7 +553,7 @@ export default function PoliticianPageClient({
     }
 
     const handleReportClick = () => {
-        window.open(buildReportIssueUrl(), "_blank")
+        window.open(buildReportIssueUrl(), "_blank", "noopener,noreferrer")
     }
 
     return (
