@@ -68,7 +68,9 @@ def test_summary_payload_404(mock_get) -> None:
 @patch("app.tools.wikipedia_tool.httpx.get")
 def test_politician_wikipedia_bundle(mock_get) -> None:
     mock_get.side_effect = [
-        _json_response({"query": {"search": [{"title": "C. M. Ramesh", "snippet": ""}]}}),
+        _json_response(
+            {"query": {"search": [{"title": "C. M. Ramesh", "snippet": ""}]}}
+        ),
         _json_response(
             {
                 "extract": "Chintakunta Munuswamy Ramesh is an Indian politician.",
@@ -119,13 +121,22 @@ def test_prune_keeps_matching_wikipedia_summary_citation() -> None:
     updates = {
         "political_background": {
             **(politician["political_background"]),
-            "summary_citation": {"link": "https://EN.WIKIPEDIA.org/wiki/Test", "source": "OTHERS"},
+            "summary_citation": {
+                "link": "https://EN.WIKIPEDIA.org/wiki/Test",
+                "source": "OTHERS",
+            },
         },
     }
-    bundle = {"extract": "Chintakunta Munuswamy Ramesh is an Indian politician from BJP."}
+    bundle = {
+        "extract": "Chintakunta Munuswamy Ramesh is an Indian politician from BJP."
+    }
 
-    with patch.object(WikipediaTool, "politician_wikipedia_bundle", return_value=bundle):
-        out, extra = tool.prune_misaligned_wikipedia_summary_citation(politician, updates)
+    with patch.object(
+        WikipediaTool, "politician_wikipedia_bundle", return_value=bundle
+    ):
+        out, extra = tool.prune_misaligned_wikipedia_summary_citation(
+            politician, updates
+        )
 
     assert not extra
     assert out["political_background"].get("summary_citation")
@@ -144,13 +155,20 @@ def test_prune_drops_misaligned_wikipedia_summary_citation() -> None:
     updates = {
         "political_background": {
             **(politician["political_background"]),
-            "summary_citation": {"link": "https://en.wikipedia.org/wiki/Jane_Q_Public", "source": "OTHERS"},
+            "summary_citation": {
+                "link": "https://en.wikipedia.org/wiki/Jane_Q_Public",
+                "source": "OTHERS",
+            },
         },
     }
     bundle = {"extract": "Jane Q Public is a noted Indian politician from Kerala."}
 
-    with patch.object(WikipediaTool, "politician_wikipedia_bundle", return_value=bundle):
-        out, extra = tool.prune_misaligned_wikipedia_summary_citation(politician, updates)
+    with patch.object(
+        WikipediaTool, "politician_wikipedia_bundle", return_value=bundle
+    ):
+        out, extra = tool.prune_misaligned_wikipedia_summary_citation(
+            politician, updates
+        )
 
     assert extra
     assert out["political_background"].get("summary_citation") is None

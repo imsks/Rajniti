@@ -206,7 +206,9 @@ class WikipediaTool:
             logger.warning("Wikipedia externallinks failed for %r: %s", title, exc)
             return []
 
-    def politician_wikipedia_bundle(self, name: str, state: str = "") -> Optional[Dict[str, Any]]:
+    def politician_wikipedia_bundle(
+        self, name: str, state: str = ""
+    ) -> Optional[Dict[str, Any]]:
         """Search + summary + outbound links suitable for citation context."""
         query = f"{name} Indian politician"
         if state:
@@ -262,8 +264,10 @@ class WikipediaTool:
             str(politician.get("state") or ""),
         )
         extract = (bundle or {}).get("extract") or ""
-        if stored_summary and extract and summary_matches_wikipedia_extract(
-            stored_summary, extract
+        if (
+            stored_summary
+            and extract
+            and summary_matches_wikipedia_extract(stored_summary, extract)
         ):
             return updates, extra
 

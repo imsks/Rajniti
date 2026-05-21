@@ -1,71 +1,72 @@
-'use client'
+"use client";
 
-import { Suspense, useCallback, useMemo, useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { useSession } from 'next-auth/react'
-import { motion, AnimatePresence } from 'framer-motion'
-import PoliticalInclinationStep from '@/components/onboarding/PoliticalInclinationStep'
-import UsernameStep from '@/components/onboarding/UsernameStep'
-import UserDetailsStep from '@/components/onboarding/UserDetailsStep'
-import PreferencesStep from '@/components/onboarding/PreferencesStep'
-import { userService } from '@/lib/api/user'
-import { useAnalytics } from '@/hooks/useAnalytics'
-import { ROUTES } from '@/lib/routes'
+import { Suspense, useCallback, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { motion, AnimatePresence } from "framer-motion";
+import PoliticalInclinationStep from "@/components/onboarding/PoliticalInclinationStep";
+import UsernameStep from "@/components/onboarding/UsernameStep";
+import UserDetailsStep from "@/components/onboarding/UserDetailsStep";
+import PreferencesStep from "@/components/onboarding/PreferencesStep";
+import { userService } from "@/lib/api/user";
+import { useAnalytics } from "@/hooks/useAnalytics";
+import { ROUTES } from "@/lib/routes";
 
 const COPY = {
-  signInRequired: 'Please sign in to complete onboarding',
-  onboardingFailed: 'Failed to complete onboarding. Please try again.',
-  stepProgress: (current: number, total: number) => `Step ${current} of ${total}`,
-  completeCta: 'Complete Onboarding 🚀',
-  saving: 'Saving...',
-  continue: 'Continue',
-  back: 'Back',
-} as const
+  signInRequired: "Please sign in to complete onboarding",
+  onboardingFailed: "Failed to complete onboarding. Please try again.",
+  stepProgress: (current: number, total: number) =>
+    `Step ${current} of ${total}`,
+  completeCta: "Complete Onboarding 🚀",
+  saving: "Saving...",
+  continue: "Continue",
+  back: "Back",
+} as const;
 
 interface OnboardingData {
-  political_ideology: string
-  phone: string
-  state: string
-  city: string
-  age_group: string
-  preferred_parties: string[]
-  topics_of_interest: string[]
-  username: string
+  political_ideology: string;
+  phone: string;
+  state: string;
+  city: string;
+  age_group: string;
+  preferred_parties: string[];
+  topics_of_interest: string[];
+  username: string;
 }
 
 const INITIAL_DATA: OnboardingData = {
-  political_ideology: '',
-  phone: '',
-  state: '',
-  city: '',
-  age_group: '',
+  political_ideology: "",
+  phone: "",
+  state: "",
+  city: "",
+  age_group: "",
   preferred_parties: [],
   topics_of_interest: [],
-  username: '',
-}
+  username: "",
+};
 
 const STEP_LABELS = [
-  'Political Inclination',
-  'Basic Details',
-  'Preferences',
-  'Username',
-] as const
+  "Political Inclination",
+  "Basic Details",
+  "Preferences",
+  "Username",
+] as const;
 
-const STEP_COUNT = STEP_LABELS.length
+const STEP_COUNT = STEP_LABELS.length;
 
 const stepMotionProps = {
   initial: { opacity: 0, x: -20 },
   animate: { opacity: 1, x: 0 },
   exit: { opacity: 0, x: 20 },
   transition: { duration: 0.3 },
-} as const
+} as const;
 
 function LoadingFallback() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center">
+    <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 flex items-center justify-center">
       <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent" />
     </div>
-  )
+  );
 }
 
 /**
@@ -77,56 +78,56 @@ export default function OnboardingPage() {
     <Suspense fallback={<LoadingFallback />}>
       <OnboardingContent />
     </Suspense>
-  )
+  );
 }
 
 function OnboardingContent() {
-  const router = useRouter()
-  const { data: session, status, update } = useSession()
-  const { trackEvent } = useAnalytics()
+  const router = useRouter();
+  const { data: session, status, update } = useSession();
+  const { trackEvent } = useAnalytics();
 
-  const [step, setStep] = useState(1)
-  const [submitting, setSubmitting] = useState(false)
-  const [usernameValid, setUsernameValid] = useState(false)
-  const [formData, setFormData] = useState<OnboardingData>(INITIAL_DATA)
+  const [step, setStep] = useState(1);
+  const [submitting, setSubmitting] = useState(false);
+  const [usernameValid, setUsernameValid] = useState(false);
+  const [formData, setFormData] = useState<OnboardingData>(INITIAL_DATA);
 
-  const sessionReady = status !== 'loading'
-  const userId = session?.user?.id
+  const sessionReady = status !== "loading";
+  const userId = session?.user?.id;
 
   const updateField = useCallback(
     (field: keyof OnboardingData, value: string | string[]) => {
-      setFormData(prev => ({ ...prev, [field]: value }))
+      setFormData((prev) => ({ ...prev, [field]: value }));
     },
-    []
-  )
+    [],
+  );
 
   const canProceed = useMemo(() => {
     switch (step) {
       case 1:
-        return formData.political_ideology !== ''
+        return formData.political_ideology !== "";
       case 2:
-        return formData.state !== '' && formData.age_group !== ''
+        return formData.state !== "" && formData.age_group !== "";
       case 3:
-        return true
+        return true;
       case 4:
-        return formData.username !== '' && usernameValid
+        return formData.username !== "" && usernameValid;
       default:
-        return false
+        return false;
     }
-  }, [step, formData, usernameValid])
+  }, [step, formData, usernameValid]);
 
   const completeSessionAndRedirect = useCallback(async () => {
-    await update({ onboardingCompleted: true })
-    router.push(ROUTES.dashboard)
-  }, [router, update])
+    await update({ onboardingCompleted: true });
+    router.push(ROUTES.dashboard);
+  }, [router, update]);
 
   const handleSubmit = useCallback(async () => {
     if (!userId) {
-      alert(COPY.signInRequired)
-      return
+      alert(COPY.signInRequired);
+      return;
     }
 
-    setSubmitting(true)
+    setSubmitting(true);
     try {
       await userService.updateUser(userId, {
         political_ideology: formData.political_ideology,
@@ -135,40 +136,38 @@ function OnboardingContent() {
         state: formData.state,
         city: formData.city,
         age_group: formData.age_group,
-        preferred_parties: formData.preferred_parties.join(', '),
-        topics_of_interest: formData.topics_of_interest.join(', '),
+        preferred_parties: formData.preferred_parties.join(", "),
+        topics_of_interest: formData.topics_of_interest.join(", "),
         onboarding_completed: true,
-      })
+      });
 
-      trackEvent('onboarding_complete', {
+      trackEvent("onboarding_complete", {
         political_ideology: formData.political_ideology,
-      })
+      });
 
-      await completeSessionAndRedirect()
+      await completeSessionAndRedirect();
     } catch (error) {
-      console.error('Onboarding failed:', error)
-      alert(
-        error instanceof Error ? error.message : COPY.onboardingFailed
-      )
+      console.error("Onboarding failed:", error);
+      alert(error instanceof Error ? error.message : COPY.onboardingFailed);
     } finally {
-      setSubmitting(false)
+      setSubmitting(false);
     }
-  }, [userId, formData, trackEvent, completeSessionAndRedirect])
+  }, [userId, formData, trackEvent, completeSessionAndRedirect]);
 
   const handleNext = useCallback(() => {
-    trackEvent('onboarding_step_complete', {
+    trackEvent("onboarding_step_complete", {
       step,
       step_name: STEP_LABELS[step - 1],
-    })
-    setStep(s => s + 1)
-  }, [step, trackEvent])
+    });
+    setStep((s) => s + 1);
+  }, [step, trackEvent]);
 
   if (!sessionReady) {
-    return <LoadingFallback />
+    return <LoadingFallback />;
   }
 
   return (
-    <div className='min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 py-12 px-4'>
+    <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 py-12 px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -196,8 +195,8 @@ function OnboardingContent() {
                 key={i}
                 className={`h-2 flex-1 rounded-full transition-all duration-500 ${
                   i < step
-                    ? 'bg-gradient-to-r from-orange-500 to-green-500'
-                    : 'bg-gray-200'
+                    ? "bg-gradient-to-r from-orange-500 to-green-500"
+                    : "bg-gray-200"
                 }`}
               />
             ))}
@@ -215,7 +214,7 @@ function OnboardingContent() {
               <motion.div key="step1" {...stepMotionProps}>
                 <PoliticalInclinationStep
                   value={formData.political_ideology}
-                  onChange={val => updateField('political_ideology', val)}
+                  onChange={(val) => updateField("political_ideology", val)}
                 />
               </motion.div>
             )}
@@ -254,7 +253,7 @@ function OnboardingContent() {
               <motion.div key="step4" {...stepMotionProps}>
                 <UsernameStep
                   value={formData.username}
-                  onChange={val => updateField('username', val)}
+                  onChange={(val) => updateField("username", val)}
                   onValidation={setUsernameValid}
                 />
               </motion.div>
@@ -268,7 +267,7 @@ function OnboardingContent() {
                 animate={{ opacity: 1, x: 0 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => setStep(s => s - 1)}
+                onClick={() => setStep((s) => s - 1)}
                 disabled={submitting}
                 className="flex-1 px-6 py-3 border-2 border-gray-300 rounded-lg text-gray-700 font-semibold hover:bg-gray-50 transition-all disabled:opacity-50"
               >
@@ -301,5 +300,5 @@ function OnboardingContent() {
         </motion.div>
       </motion.div>
     </div>
-  )
+  );
 }

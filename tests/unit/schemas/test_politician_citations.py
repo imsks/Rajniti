@@ -45,7 +45,10 @@ def test_politician_accepts_citations() -> None:
         "education": [
             {
                 "qualification": "BACHELOR",
-                "citation": {"link": "https://example.com/edu", "source": "GOV_WEBSITE"},
+                "citation": {
+                    "link": "https://example.com/edu",
+                    "source": "GOV_WEBSITE",
+                },
             }
         ],
         "contact_citations": {
@@ -145,7 +148,10 @@ def test_politician_citation_coverage_pct_no_slots_returns_none() -> None:
     assert politician_citation_coverage_pct({}) is None
     assert (
         politician_citation_coverage_pct(
-            {"education": [], "political_background": {"elections": [], "summary": None}}
+            {
+                "education": [],
+                "political_background": {"elections": [], "summary": None},
+            }
         )
         is None
     )
@@ -160,7 +166,9 @@ def _edu_fixture(n_cited: int, n_slots: int) -> dict:
     }
 
 
-def test_politician_citation_coverage_pct_below_threshold_is_strictly_below_40() -> None:
+def test_politician_citation_coverage_pct_below_threshold_is_strictly_below_40() -> (
+    None
+):
     pct = politician_citation_coverage_pct(_edu_fixture(9, 25))
     assert pct is not None
     assert pct < CITATION_COVERAGE_SKIP_THRESHOLD_PCT
@@ -227,7 +235,10 @@ def test_citation_audit_llm_accepts_null_social_dict_entries() -> None:
 
 
 def test_is_llm_quota_exc_matches_freetier_message() -> None:
-    assert _is_llm_quota_exc(RuntimeError("FreeTierLLM: all candidates skipped or failed"))
-    assert _is_llm_quota_exc(RuntimeError("RAJNITI_LLM_MAX_CALLS (5) exhausted for this run"))
+    assert _is_llm_quota_exc(
+        RuntimeError("FreeTierLLM: all candidates skipped or failed")
+    )
+    assert _is_llm_quota_exc(
+        RuntimeError("RAJNITI_LLM_MAX_CALLS (5) exhausted for this run")
+    )
     assert not _is_llm_quota_exc(ValueError("something else"))
-

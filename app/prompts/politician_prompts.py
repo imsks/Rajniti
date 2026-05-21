@@ -3,9 +3,7 @@ from __future__ import annotations
 import json
 from typing import Any, Dict, Optional
 
-_CITATION_SHAPE = (
-    '"citation": {"link": "https://...", "source": "ECI|MYNETA|GOV_WEBSITE|NEWS|OTHERS"}'
-)
+_CITATION_SHAPE = '"citation": {"link": "https://...", "source": "ECI|MYNETA|GOV_WEBSITE|NEWS|OTHERS"}'
 
 _CITATION_RULES = (
     "Every non-empty fact MUST include a real HTTPS citation object "
@@ -35,8 +33,7 @@ class PoliticianPrompts:
             + _CITATION_SHAPE
             + "}]\n"
             f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
-            "If unknown, return [].\n"
-            + _CITATION_RULES
+            "If unknown, return [].\n" + _CITATION_RULES
         )
 
     @staticmethod
@@ -77,8 +74,7 @@ class PoliticianPrompts:
             + _CITATION_SHAPE
             + "}]\n"
             f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
-            "If unknown, return []\n"
-            + _CITATION_RULES
+            "If unknown, return []\n" + _CITATION_RULES
         )
 
     @staticmethod
@@ -98,8 +94,7 @@ class PoliticianPrompts:
             "or the platform profile URL itself with source GOV_WEBSITE or OTHERS as appropriate).\n"
             f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
             "Only include verified/official links. If all unknown, use all null URLs and {} for "
-            "social_media_citations.\n"
-            + _CITATION_RULES
+            "social_media_citations.\n" + _CITATION_RULES
         )
 
     @staticmethod
@@ -113,13 +108,10 @@ class PoliticianPrompts:
             "Return ONLY a valid JSON array. Each item format:\n"
             '[{"name": "string", '
             '"relation": "FATHER|MOTHER|SIBLING|SON|DAUGHTER|WIFE|HUSBAND|OTHERS", '
-            '"photo": "url|null", "social_media": null, '
-            + _CITATION_SHAPE
-            + "}]\n"
+            '"photo": "url|null", "social_media": null, ' + _CITATION_SHAPE + "}]\n"
             f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
             "Only include publicly known family members. "
-            "If unknown, return []\n"
-            + _CITATION_RULES
+            "If unknown, return []\n" + _CITATION_RULES
         )
 
     @staticmethod
@@ -133,9 +125,7 @@ class PoliticianPrompts:
             "Return ONLY a valid JSON array. Each item format:\n"
             '[{"name": "brief case description", '
             '"type": "MURDER|RAPE|KIDNAPPING|THEFT|CORRUPTION|ECONOMIC|OTHERS|null", '
-            '"year": number|null, '
-            + _CITATION_SHAPE
-            + "}]\n"
+            '"year": number|null, ' + _CITATION_SHAPE + "}]\n"
             f"Politician: {name}\nType: {ptype}\nState: {state}\nConstituency: {constituency}\n"
             "Only include publicly reported and documented cases (e.g. election affidavits, "
             "court reporting). Do not speculate. If unknown or none, return []\n"
@@ -224,7 +214,5 @@ class PoliticianPrompts:
             "- Omit keys you cannot populate, or use null / {} as appropriate.\n"
             "- source must be one of: ECI, MYNETA, GOV_WEBSITE, NEWS, OTHERS.\n"
             "- performance_citations only if type is MP and performance numbers exist; "
-            "prefer Lok Sabha / PRS sources.\n\n"
-            + backlog_block
-            + f"INPUT:\n{raw}\n"
+            "prefer Lok Sabha / PRS sources.\n\n" + backlog_block + f"INPUT:\n{raw}\n"
         )

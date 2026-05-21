@@ -641,7 +641,7 @@ export default function PoliticianPageClient({
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+        <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
             <style>{`
                 @keyframes fadeSlideUp {
                     0%  { opacity: 0; transform: translateY(24px); }
@@ -704,7 +704,7 @@ export default function PoliticianPageClient({
                                     className="w-32 h-32 rounded-2xl object-cover border-4 border-orange-200 dark:border-orange-800"
                                 />
                             ) : (
-                                <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/40 dark:to-orange-800/40 flex items-center justify-center flex-shrink-0 border-4 border-orange-200 dark:border-orange-800">
+                                <div className="w-32 h-32 rounded-2xl bg-linear-to-br from-orange-100 to-orange-200 dark:from-orange-900/40 dark:to-orange-800/40 flex items-center justify-center flex-shrink-0 border-4 border-orange-200 dark:border-orange-800">
                                     <img src="/logo/Parliament.png" alt="Politician" className="w-16 h-16 object-contain" />
                                 </div>
                             )}

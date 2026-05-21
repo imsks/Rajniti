@@ -184,9 +184,7 @@ class CitationAgent(BaseAgent):
             politician.get("name"),
         )
 
-        prompt = PoliticianPrompts.citation_audit(
-            politician, citation_backlog=backlog
-        )
+        prompt = PoliticianPrompts.citation_audit(politician, citation_backlog=backlog)
         logger.info(
             "CitationAgent: LLM backfill START id=%s name=%s",
             pid,
@@ -196,9 +194,7 @@ class CitationAgent(BaseAgent):
             raw = self._run_llm_with_context(prompt, context)
         except Exception as exc:
             if reraise_llm_quota and _is_llm_quota_exc(exc):
-                logger.warning(
-                    "CitationAgent: LLM quota/limit id=%s err=%s", pid, exc
-                )
+                logger.warning("CitationAgent: LLM quota/limit id=%s err=%s", pid, exc)
                 raise
             logger.exception("CitationAgent: LLM failed id=%s err=%s", pid, exc)
             return {"ok": False, "id": pid, "error": str(exc)}
@@ -217,7 +213,9 @@ class CitationAgent(BaseAgent):
         validated, errors = self._validate_with_adapter(parsed, adapter)
         if errors or validated is None:
             try:
-                parsed_sample = json.dumps(parsed, indent=2, ensure_ascii=False, default=str)
+                parsed_sample = json.dumps(
+                    parsed, indent=2, ensure_ascii=False, default=str
+                )
             except Exception:
                 parsed_sample = repr(parsed)
             logger.error(
@@ -231,7 +229,12 @@ class CitationAgent(BaseAgent):
                 len(raw),
                 raw,
             )
-            return {"ok": False, "id": pid, "error": "validation_failed", "details": errors}
+            return {
+                "ok": False,
+                "id": pid,
+                "error": "validation_failed",
+                "details": errors,
+            }
 
         updates, issues = merge_citation_audit_updates(politician, validated)
 
@@ -240,8 +243,10 @@ class CitationAgent(BaseAgent):
             wiki_tool, "prune_misaligned_wikipedia_summary_citation"
         ):
             try:
-                updates, wiki_issues = wiki_tool.prune_misaligned_wikipedia_summary_citation(
-                    politician, updates
+                updates, wiki_issues = (
+                    wiki_tool.prune_misaligned_wikipedia_summary_citation(
+                        politician, updates
+                    )
                 )
             except Exception as exc:
                 logger.warning(
