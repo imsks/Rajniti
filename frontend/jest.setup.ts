@@ -86,7 +86,7 @@ beforeEach(() => {
 // Console error suppression for expected errors in tests
 const originalConsoleError = console.error
 beforeAll(() => {
-    console.error = (...args: any[]) => {
+    console.error = (...args: unknown[]) => {
         // Suppress React act warnings and known test errors
         if (
             typeof args[0] === 'string' &&
@@ -105,7 +105,7 @@ afterAll(() => {
 })
 
 // Helper to create mock API responses
-export const createMockResponse = (data: any, ok = true, status = 200) => ({
+export const createMockResponse = (data: unknown, ok = true, status = 200) => ({
     ok,
     status,
     json: () => Promise.resolve(data),
@@ -113,7 +113,7 @@ export const createMockResponse = (data: any, ok = true, status = 200) => ({
 })
 
 // Helper to mock successful fetch
-export const mockFetchSuccess = (data: any) => {
+export const mockFetchSuccess = (data: unknown) => {
     ; (global.fetch as jest.Mock).mockResolvedValueOnce(createMockResponse(data))
 }
 

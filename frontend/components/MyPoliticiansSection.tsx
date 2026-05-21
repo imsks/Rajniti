@@ -48,7 +48,6 @@ export default function MyPoliticiansSection({
         trackSearch(searchQuery, "my_politicians", results.length)
     }, [searchQuery, results.length, trackSearch])
     const isEmpty = !myMP && !myMLA
-    const hasAny = !!myMP || !!myMLA
 
     useEffect(() => {
         function handleClickOutside(e: MouseEvent) {
