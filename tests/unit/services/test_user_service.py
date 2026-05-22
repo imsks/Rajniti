@@ -4,7 +4,7 @@ Unit tests for UserService.
 Tests cover user operations, onboarding, and username validation.
 """
 
-from unittest.mock import MagicMock, Mock, patch
+from unittest.mock import Mock, patch
 
 import pytest
 

@@ -103,7 +103,6 @@ def _filter_external_links(raw: Optional[List[str]], limit: int) -> List[str]:
         if not link or not isinstance(link, str):
             continue
         link = link.strip()
-        lower = link.lower()
         parsed = urlparse(link)
         if parsed.scheme not in ("http", "https"):
             continue

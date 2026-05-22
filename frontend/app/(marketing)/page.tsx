@@ -10,6 +10,20 @@ import { useEffect, Suspense } from "react";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import contributors from "@/data/contributors.json";
 
+// Pre-computed at module scope so SSR and client produce identical values.
+// Raw Math.sin/cos floats differ by ~1e-15 between Node.js and browser V8,
+// causing hydration mismatches. Rounding to 4 d.p. eliminates the divergence.
+const round = (n: number) => Math.round(n * 10000) / 10000;
+const CHAKRA_LINES = Array.from({ length: 24 }, (_, i) => {
+  const rad = (((i * 360) / 24) * Math.PI) / 180;
+  return {
+    x1: round(12 + Math.cos(rad) * 3),
+    y1: round(12 + Math.sin(rad) * 3),
+    x2: round(12 + Math.cos(rad) * 10),
+    y2: round(12 + Math.sin(rad) * 10),
+  };
+});
+
 export default function Home() {
   return (
     <Suspense>
@@ -182,25 +196,17 @@ function HomeContent() {
             style={{ willChange: "transform" }}
           >
             <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-            {Array.from({ length: 24 }).map((_, i) => {
-              const angle = (i * 360) / 24;
-              const rad = (angle * Math.PI) / 180;
-              const x1 = 12 + Math.cos(rad) * 3;
-              const y1 = 12 + Math.sin(rad) * 3;
-              const x2 = 12 + Math.cos(rad) * 10;
-              const y2 = 12 + Math.sin(rad) * 10;
-              return (
-                <line
-                  key={i}
-                  x1={x1}
-                  y1={y1}
-                  x2={x2}
-                  y2={y2}
-                  stroke="currentColor"
-                  strokeWidth="0.5"
-                />
-              );
-            })}
+            {CHAKRA_LINES.map((line, i) => (
+              <line
+                key={i}
+                x1={line.x1}
+                y1={line.y1}
+                x2={line.x2}
+                y2={line.y2}
+                stroke="currentColor"
+                strokeWidth="0.5"
+              />
+            ))}
             <circle
               cx="12"
               cy="12"

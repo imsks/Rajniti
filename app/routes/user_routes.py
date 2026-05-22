@@ -226,7 +226,7 @@ def get_user_politicians(user_id):
 @user_bp.route("/<user_id>/politicians/<politician_id>", methods=["DELETE"])
 def delete_user_politician(user_id, politician_id):
     try:
-        result = get_user_service().remove_user_politician(
+        get_user_service().remove_user_politician(
             user_id=user_id, politician_id=politician_id
         )
 

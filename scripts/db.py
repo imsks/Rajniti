@@ -14,12 +14,13 @@ import argparse
 import os
 import sys
 from pathlib import Path
+from dotenv import load_dotenv
+from alembic import command
+from alembic.config import Config
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
-
-from dotenv import load_dotenv
 
 load_dotenv(REPO_ROOT / ".env")
 
@@ -28,9 +29,6 @@ def upgrade_head() -> None:
     """Run alembic upgrade head."""
     if not (os.getenv("DATABASE_URL") or "").strip():
         raise RuntimeError("DATABASE_URL is not set.")
-
-    from alembic import command
-    from alembic.config import Config
 
     prev = os.getcwd()
     try:
@@ -52,9 +50,6 @@ def autogenerate(message: str) -> None:
     """Run alembic revision --autogenerate."""
     if not (os.getenv("DATABASE_URL") or "").strip():
         raise RuntimeError("DATABASE_URL is not set.")
-
-    from alembic import command
-    from alembic.config import Config
 
     prev = os.getcwd()
     try:

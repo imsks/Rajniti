@@ -4,7 +4,7 @@ Unit tests for User database model.
 Tests cover CRUD operations, validation, and model methods.
 """
 
-from unittest.mock import MagicMock, Mock, patch
+from unittest.mock import Mock, patch
 
 import pytest
 

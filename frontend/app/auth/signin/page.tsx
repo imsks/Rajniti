@@ -44,6 +44,8 @@ function SignInContent() {
                   src="/logo/voting-box.png"
                   alt="Rajniti Logo"
                   className="w-9 h-9"
+                  width={36}
+                  height={36}
                 />
               </div>
             </motion.div>
