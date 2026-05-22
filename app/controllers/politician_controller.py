@@ -8,8 +8,8 @@ All data flows through PoliticianService (reads mp.json / mla.json).
 from typing import Any, Dict, List, Optional
 
 from app.services.politician_service import (
-    PoliticianService,
     ElectionType,
+    PoliticianService,
 )
 
 # Singleton service instance

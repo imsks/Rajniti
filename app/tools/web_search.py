@@ -40,8 +40,8 @@ def _import_ddgs() -> Any:
 
     try:
         from duckduckgo_search import (
-            DDGS as DuckDuckGoDDGS,
-        )  # type: ignore[import-untyped]
+            DDGS as DuckDuckGoDDGS,  # type: ignore[import-untyped]
+        )
 
         return DuckDuckGoDDGS
 
