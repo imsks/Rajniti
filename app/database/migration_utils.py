@@ -7,7 +7,7 @@ Provides helper functions to make migrations safe to run multiple times.
 import sqlalchemy as sa
 from sqlalchemy import inspect, text
 
-from alembic import op
+from alembic import op  # type: ignore[attr-defined]
 
 
 def column_exists(table_name: str, column_name: str) -> bool:

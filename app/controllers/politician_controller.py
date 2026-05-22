@@ -7,7 +7,10 @@ All data flows through PoliticianService (reads mp.json / mla.json).
 
 from typing import Any, Dict, List, Optional
 
-from app.services.politician_service import PoliticianService
+from app.services.politician_service import (
+    PoliticianService,
+    ElectionType,
+)
 
 # Singleton service instance
 _service = PoliticianService()
@@ -24,14 +27,14 @@ class PoliticianController:
     def search(
         self,
         query: str,
-        election_type: Optional[str] = None,
+        election_type: Optional[ElectionType] = None,
         state: Optional[str] = None,
         party: Optional[str] = None,
         limit: int = 50,
     ) -> Dict[str, Any]:
         results = self.service.search(
             query,
-            election_type=election_type,  # type: ignore[arg-type]
+            election_type=election_type,
             state=state,
             party=party,
             limit=limit,
@@ -44,11 +47,11 @@ class PoliticianController:
 
     def get_all(
         self,
-        election_type: Optional[str] = None,
+        election_type: Optional[ElectionType] = None,
         limit: int = 1000,
     ) -> Dict[str, Any]:
         if election_type:
-            data = self.service.get_all(election_type)[:limit]  # type: ignore[arg-type]
+            data = self.service.get_all(election_type)[:limit]
         else:
             data = self.service.get_all_politicians()
         return {
@@ -65,9 +68,9 @@ class PoliticianController:
     # ── Filters ───────────────────────────────────────────────────────────
 
     def get_by_state(
-        self, state: str, election_type: Optional[str] = None
+        self, state: str, election_type: Optional[ElectionType] = None
     ) -> Dict[str, Any]:
-        results = self.service.get_by_state(state, election_type=election_type)  # type: ignore[arg-type]
+        results = self.service.get_by_state(state, election_type=election_type)
         return {
             "state": state,
             "total": len(results),
@@ -75,9 +78,9 @@ class PoliticianController:
         }
 
     def get_by_party(
-        self, party: str, election_type: Optional[str] = None
+        self, party: str, election_type: Optional[ElectionType] = None
     ) -> Dict[str, Any]:
-        results = self.service.get_by_party(party, election_type=election_type)  # type: ignore[arg-type]
+        results = self.service.get_by_party(party, election_type=election_type)
         return {
             "party": party,
             "total": len(results),
@@ -86,11 +89,11 @@ class PoliticianController:
 
     # ── Aggregations ──────────────────────────────────────────────────────
 
-    def get_states(self, election_type: Optional[str] = None) -> List[str]:
-        return self.service.get_states(election_type=election_type)  # type: ignore[arg-type]
+    def get_states(self, election_type: Optional[ElectionType] = None) -> List[str]:
+        return self.service.get_states(election_type=election_type)
 
-    def get_parties(self, election_type: Optional[str] = None) -> List[str]:
-        return self.service.get_parties(election_type=election_type)  # type: ignore[arg-type]
+    def get_parties(self, election_type: Optional[ElectionType] = None) -> List[str]:
+        return self.service.get_parties(election_type=election_type)
 
-    def get_stats(self, election_type: Optional[str] = None) -> Dict[str, Any]:
-        return self.service.stats(election_type=election_type)  # type: ignore[arg-type]
+    def get_stats(self, election_type: Optional[ElectionType] = None) -> Dict[str, Any]:
+        return self.service.stats(election_type=election_type)
