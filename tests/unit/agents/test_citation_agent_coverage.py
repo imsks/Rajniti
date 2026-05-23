@@ -19,9 +19,7 @@ def _edu_politician(n_cited: int, n_slots: int, pid: str = "p1") -> dict:
     rows = []
 
     for i in range(n_slots):
-        rows.append(
-            {"citation": cite} if i < n_cited else {}
-        )
+        rows.append({"citation": cite} if i < n_cited else {})
 
     return {
         "id": pid,
@@ -52,10 +50,7 @@ def test_skip_llm_when_coverage_at_threshold() -> None:
     assert result["ok"] is True
     assert result.get("skipped") is True
 
-    assert (
-        result.get("reason")
-        == "citation_coverage_at_or_above_threshold"
-    )
+    assert result.get("reason") == "citation_coverage_at_or_above_threshold"
 
     assert "coverage_pct" in result
 
@@ -69,9 +64,7 @@ def test_force_bypasses_coverage_gate() -> None:
 
     agent = CitationAgent()
 
-    agent.politician_service = MagicMock(
-        update_politician=MagicMock(return_value=True)
-    )
+    agent.politician_service = MagicMock(update_politician=MagicMock(return_value=True))
 
     with patch.object(
         agent,
@@ -90,10 +83,7 @@ def test_force_bypasses_coverage_gate() -> None:
                 force=True,
             )
 
-    assert (
-        result.get("reason")
-        != "citation_coverage_at_or_above_threshold"
-    )
+    assert result.get("reason") != "citation_coverage_at_or_above_threshold"
 
     agent.politician_service.update_politician.assert_not_called()
 
@@ -104,9 +94,7 @@ def test_below_threshold_invokes_llm() -> None:
 
     agent = CitationAgent()
 
-    agent.politician_service = MagicMock(
-        update_politician=MagicMock(return_value=True)
-    )
+    agent.politician_service = MagicMock(update_politician=MagicMock(return_value=True))
 
     with patch.object(
         agent,
@@ -165,9 +153,7 @@ def test_reraise_llm_quota_when_flag_true() -> None:
 
                 return
 
-    raise AssertionError(
-        "expected reraised quota exception"
-    )
+    raise AssertionError("expected reraised quota exception")
 
 
 def test_batch_passes_force_through_to_fully_cited() -> None:
