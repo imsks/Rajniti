@@ -50,13 +50,20 @@ cd frontend && CI=1 npm run test:e2e
 
 ## GitHub Actions (frontend)
 
-On push/PR to `development` and `production`, CI runs:
+On push/PR to `development` and `production`, [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) runs two stages:
 
-1. **Lint** — ESLint + TypeScript (`tsc --noEmit`).
-2. In **parallel** (after lint): **unit** (Jest), **integration** (Jest), **E2E** (Playwright + Chromium).
-3. **Build** — `npm run build` after all three test jobs succeed.
+**Stage 1 — Tests** (`Frontend — tests`, one job with sequential steps):
 
-Backend jobs run in a separate workflow job (sequential Python steps). See `.github/workflows/ci.yml` at the repo root.
+1. **Unit** — Jest (`npm run test:unit`)
+2. **Integration** — Jest (`npm run test:integration`)
+3. **E2E** — Playwright + Chromium (`npm run test:e2e`)
+
+**Stage 2 — Lint and others** (after tests pass):
+
+1. **Lint & typecheck** — ESLint + `tsc --noEmit`
+2. **Production build** — `npm run build`
+
+Backend follows the same pattern: pytest unit → integration → e2e, then Black/isort/Flake8/mypy.
 
 ## Environment
 

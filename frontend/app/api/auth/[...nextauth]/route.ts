@@ -1,5 +1,4 @@
 import NextAuth, { NextAuthOptions } from "next-auth"
-import type { Provider } from "next-auth/providers"
 import GoogleProvider from "next-auth/providers/google"
 import CredentialsProvider from "next-auth/providers/credentials"
 import { userService } from "@/lib/api/user"
@@ -8,8 +7,8 @@ import {
   onboardingCompletedFromUserResponse,
 } from "@/lib/auth/onboarding-token"
 
-function buildProviders(): Provider[] {
-  const providers: Provider[] = [
+function buildProviders(): NextAuthOptions["providers"] {
+  const providers: NextAuthOptions["providers"] = [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID || "",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",

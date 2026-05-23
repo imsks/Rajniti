@@ -89,6 +89,8 @@ make help          # Show all commands
 | `make db-migrate` | Run Alembic migrations |
 | `make db-reset` | Reset database (deletes data) |
 
+PR CI is defined in [`.github/workflows/ci.yml`](.github/workflows/ci.yml): tests first (unit → integration → e2e), then lint and frontend build. If branch protection lists required checks, use these job names: `Backend — tests`, `Frontend — tests`, `Backend — lint`, `Frontend — lint & typecheck`, `Frontend — production build` (remove legacy names like `Lint Passed` or `CI success`).
+
 ---
 
 ## Project Structure
