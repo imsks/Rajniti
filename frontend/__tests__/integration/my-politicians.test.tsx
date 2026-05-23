@@ -225,4 +225,44 @@ describe('my politicians integration', () => {
       expect(screen.getByText('Search failed')).toBeInTheDocument()
     })
   })
+
+  it('hydrates MP from backend on mount', async () => {
+    ;(global.fetch as jest.Mock).mockImplementation(
+      createFetchRouter([{ politician_id: 'mp-1', role: 'MP' }]),
+    )
+
+    render(<MyPoliticiansSection allPoliticians={mockPoliticianList} />)
+
+    await waitFor(() => {
+      expect(screen.getByText('Narendra Modi')).toBeInTheDocument()
+      expect(
+        screen.getByRole('heading', { name: 'Your Politicians' }),
+      ).toBeInTheDocument()
+    })
+  })
+
+  it('shows empty state when backend fetch fails on mount', async () => {
+    ;(global.fetch as jest.Mock).mockImplementation((url: string) => {
+      if (String(url).includes('/users/user-1/politicians')) {
+        return Promise.resolve({
+          ok: false,
+          status: 500,
+          json: () =>
+            Promise.resolve({
+              success: false,
+              error: 'Failed to fetch politicians',
+            }),
+        })
+      }
+      return Promise.reject(new Error(`unexpected url: ${url}`))
+    })
+
+    render(<MyPoliticiansSection allPoliticians={mockPoliticianList} />)
+
+    await waitFor(() => {
+      expect(
+        screen.getByRole('heading', { name: 'Add Your Local Politicians' }),
+      ).toBeInTheDocument()
+    })
+  })
 })

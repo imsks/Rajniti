@@ -353,6 +353,22 @@ class TestUserPoliticians:
         data = response.get_json()
         assert data["success"] is False
 
+    def test_add_user_politician_returns_400_when_body_empty(self, client):
+        response = client.post(
+            "/api/v1/users/user-1/politicians",
+            json={},
+        )
+        assert response.status_code == 400
+        assert response.get_json()["success"] is False
+
+    def test_add_user_politician_returns_400_when_fields_missing(self, client):
+        response = client.post(
+            "/api/v1/users/user-1/politicians",
+            json={"politician_id": "pol-1"},
+        )
+        assert response.status_code == 400
+        assert "politician_id and role required" in response.get_json()["error"]
+
     def test_get_user_politicians_success(self, client):
         mock_service = MagicMock()
         mock_service.get_user_politicians.return_value = [

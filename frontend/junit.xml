@@ -1,39 +1,239 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="14" failures="0" errors="0" time="0.52">
-  <testsuite name="my politicians integration" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:52:38" time="0.205" tests="3">
-    <testcase classname="my politicians integration adds MP via search and updates section heading" name="my politicians integration adds MP via search and updates section heading" time="0.066">
+<testsuites name="jest tests" tests="104" failures="0" errors="0" time="1.796">
+  <testsuite name="usePoliticians" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:55:29" time="0.554" tests="8">
+    <testcase classname="usePoliticians loads politicians and clears loading state" name="usePoliticians loads politicians and clears loading state" time="0.059">
     </testcase>
-    <testcase classname="my politicians integration removes MP and restores placeholder" name="my politicians integration removes MP and restores placeholder" time="0.014">
+    <testcase classname="usePoliticians sets error when API returns success: false" name="usePoliticians sets error when API returns success: false" time="0.053">
     </testcase>
-    <testcase classname="my politicians integration shows search error when fetch rejects" name="my politicians integration shows search error when fetch rejects" time="0.006">
+    <testcase classname="usePoliticians sets error on network failure" name="usePoliticians sets error on network failure" time="0.054">
     </testcase>
-  </testsuite>
-  <testsuite name="onboarding gating integration" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:52:39" time="0.138" tests="4">
-    <testcase classname="onboarding gating integration incomplete user on dashboard redirects to onboarding" name="onboarding gating integration incomplete user on dashboard redirects to onboarding" time="0.055">
+    <testcase classname="usePoliticians filter() narrows by search query (name)" name="usePoliticians filter() narrows by search query (name)" time="0.055">
     </testcase>
-    <testcase classname="onboarding gating integration complete user on dashboard stays on dashboard" name="onboarding gating integration complete user on dashboard stays on dashboard" time="0.004">
+    <testcase classname="usePoliticians filter() narrows by state" name="usePoliticians filter() narrows by state" time="0.056">
     </testcase>
-    <testcase classname="onboarding gating integration incomplete user on onboarding stays on onboarding" name="onboarding gating integration incomplete user on onboarding stays on onboarding" time="0.003">
+    <testcase classname="usePoliticians filter() narrows by party" name="usePoliticians filter() narrows by party" time="0.055">
     </testcase>
-    <testcase classname="onboarding gating integration complete user on onboarding redirects to dashboard" name="onboarding gating integration complete user on onboarding redirects to dashboard" time="0.053">
+    <testcase classname="usePoliticians stats reflect list totals and top party" name="usePoliticians stats reflect list totals and top party" time="0.056">
     </testcase>
-  </testsuite>
-  <testsuite name="dashboard data + search integration" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:52:39" time="0.036" tests="6">
-    <testcase classname="dashboard data + search integration usePoliticians + usePoliticianSearch can run in parallel hooks with separate fetch URLs" name="dashboard data + search integration usePoliticians + usePoliticianSearch can run in parallel hooks with separate fetch URLs" time="0.006">
-    </testcase>
-    <testcase classname="dashboard data + search integration usePoliticianSearch does not fetch when query is too short" name="dashboard data + search integration usePoliticianSearch does not fetch when query is too short" time="0.001">
-    </testcase>
-    <testcase classname="dashboard data + search integration usePoliticianSearch clears results when query drops below minimum length" name="dashboard data + search integration usePoliticianSearch clears results when query drops below minimum length" time="0">
-    </testcase>
-    <testcase classname="dashboard data + search integration usePoliticianSearch surfaces error when search fetch throws" name="dashboard data + search integration usePoliticianSearch surfaces error when search fetch throws" time="0.001">
-    </testcase>
-    <testcase classname="dashboard data + search integration usePoliticians states and parties lists are sorted" name="dashboard data + search integration usePoliticians states and parties lists are sorted" time="0">
-    </testcase>
-    <testcase classname="dashboard data + search integration usePoliticians filter combines query + state" name="dashboard data + search integration usePoliticians filter combines query + state" time="0.001">
+    <testcase classname="usePoliticians refetch() triggers another fetch" name="usePoliticians refetch() triggers another fetch" time="0.058">
     </testcase>
   </testsuite>
-  <testsuite name="integration smoke" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:52:39" time="0.016" tests="1">
-    <testcase classname="integration smoke runs in jsdom" name="integration smoke runs in jsdom" time="0">
+  <testsuite name="useOnboardingCheck" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:55:30" time="0.364" tests="8">
+    <testcase classname="useOnboardingCheck does not fetch or redirect when unauthenticated" name="useOnboardingCheck does not fetch or redirect when unauthenticated" time="0.003">
+    </testcase>
+    <testcase classname="useOnboardingCheck shows loading while backend check is in progress" name="useOnboardingCheck shows loading while backend check is in progress" time="0">
+    </testcase>
+    <testcase classname="useOnboardingCheck redirects to onboarding when backend reports incomplete profile" name="useOnboardingCheck redirects to onboarding when backend reports incomplete profile" time="0.052">
+    </testcase>
+    <testcase classname="useOnboardingCheck does not redirect when backend reports onboarding complete" name="useOnboardingCheck does not redirect when backend reports onboarding complete" time="0.053">
+    </testcase>
+    <testcase classname="useOnboardingCheck syncs session when backend is ahead of JWT" name="useOnboardingCheck syncs session when backend is ahead of JWT" time="0.055">
+    </testcase>
+    <testcase classname="useOnboardingCheck redirects completed users away from onboarding" name="useOnboardingCheck redirects completed users away from onboarding" time="0.055">
+    </testcase>
+    <testcase classname="useOnboardingCheck does not redirect incomplete users already on onboarding" name="useOnboardingCheck does not redirect incomplete users already on onboarding" time="0.057">
+    </testcase>
+    <testcase classname="useOnboardingCheck falls back to JWT when backend fetch fails" name="useOnboardingCheck falls back to JWT when backend fetch fails" time="0.054">
+    </testcase>
+  </testsuite>
+  <testsuite name="useMyPoliticians" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:55:30" time="0.205" tests="7">
+    <testcase classname="useMyPoliticians hydrates MP/MLA from backend user data" name="useMyPoliticians hydrates MP/MLA from backend user data" time="0.054">
+    </testcase>
+    <testcase classname="useMyPoliticians does not call backend when user is unavailable" name="useMyPoliticians does not call backend when user is unavailable" time="0">
+    </testcase>
+    <testcase classname="useMyPoliticians keeps local state when getUserPoliticians returns null" name="useMyPoliticians keeps local state when getUserPoliticians returns null" time="0.002">
+    </testcase>
+    <testcase classname="useMyPoliticians persists setMyMP to localStorage" name="useMyPoliticians persists setMyMP to localStorage" time="0.002">
+    </testcase>
+    <testcase classname="useMyPoliticians persists setMyMLA to localStorage" name="useMyPoliticians persists setMyMLA to localStorage" time="0.002">
+    </testcase>
+    <testcase classname="useMyPoliticians clearSlot removes the correct politician slot" name="useMyPoliticians clearSlot removes the correct politician slot" time="0.053">
+    </testcase>
+    <testcase classname="useMyPoliticians fetches politician by id when not in allPoliticians list" name="useMyPoliticians fetches politician by id when not in allPoliticians list" time="0.054">
+    </testcase>
+  </testsuite>
+  <testsuite name="MyPoliticiansSection" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:55:31" time="0.16" tests="10">
+    <testcase classname="MyPoliticiansSection shows empty state with Add Your Local Politicians heading" name="MyPoliticiansSection shows empty state with Add Your Local Politicians heading" time="0.021">
+    </testcase>
+    <testcase classname="MyPoliticiansSection shows populated state with Your Politicians heading" name="MyPoliticiansSection shows populated state with Your Politicians heading" time="0.006">
+    </testcase>
+    <testcase classname="MyPoliticiansSection shows search dropdown with results when query is long enough" name="MyPoliticiansSection shows search dropdown with results when query is long enough" time="0.005">
+    </testcase>
+    <testcase classname="MyPoliticiansSection selects a search result and calls addUserPolitician" name="MyPoliticiansSection selects a search result and calls addUserPolitician" time="0.017">
+    </testcase>
+    <testcase classname="MyPoliticiansSection shows not found message when search returns no results" name="MyPoliticiansSection shows not found message when search returns no results" time="0.006">
+    </testcase>
+    <testcase classname="MyPoliticiansSection shows search error in dropdown" name="MyPoliticiansSection shows search error in dropdown" time="0.003">
+    </testcase>
+    <testcase classname="MyPoliticiansSection removes MP when remove button is clicked" name="MyPoliticiansSection removes MP when remove button is clicked" time="0.007">
+    </testcase>
+    <testcase classname="MyPoliticiansSection focuses search when placeholder Add button is clicked" name="MyPoliticiansSection focuses search when placeholder Add button is clicked" time="0.007">
+    </testcase>
+    <testcase classname="MyPoliticiansSection shows pincode fallback when location lookup fails" name="MyPoliticiansSection shows pincode fallback when location lookup fails" time="0.018">
+    </testcase>
+    <testcase classname="MyPoliticiansSection shows pincode fallback when geolocation succeeds but reverse geocode fails" name="MyPoliticiansSection shows pincode fallback when geolocation succeeds but reverse geocode fails" time="0.008">
+    </testcase>
+  </testsuite>
+  <testsuite name="UserDetailsStep" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:55:31" time="0.047" tests="3">
+    <testcase classname="UserDetailsStep shows placeholder style when no state is selected" name="UserDetailsStep shows placeholder style when no state is selected" time="0.008">
+    </testcase>
+    <testcase classname="UserDetailsStep shows readable selected text and option styles" name="UserDetailsStep shows readable selected text and option styles" time="0.015">
+    </testcase>
+    <testcase classname="UserDetailsStep calls onChange with selected state" name="UserDetailsStep calls onChange with selected state" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="OnboardingPage" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:55:31" time="0.055" tests="1">
+    <testcase classname="OnboardingPage submits onboarding with onboarding_completed true and updates session" name="OnboardingPage submits onboarding with onboarding_completed true and updates session" time="0.029">
+    </testcase>
+  </testsuite>
+  <testsuite name="UserButton" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:55:31" time="0.043" tests="4">
+    <testcase classname="UserButton shows Sign In when unauthenticated" name="UserButton shows Sign In when unauthenticated" time="0.004">
+    </testcase>
+    <testcase classname="UserButton calls signIn when Sign In is clicked" name="UserButton calls signIn when Sign In is clicked" time="0.001">
+    </testcase>
+    <testcase classname="UserButton opens menu and navigates to dashboard from Dashboard link" name="UserButton opens menu and navigates to dashboard from Dashboard link" time="0.007">
+    </testcase>
+    <testcase classname="UserButton calls signOut when Sign Out is clicked" name="UserButton calls signOut when Sign Out is clicked" time="0.006">
+    </testcase>
+  </testsuite>
+  <testsuite name="MyPoliticianCard" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:55:31" time="0.031" tests="3">
+    <testcase classname="MyPoliticianCard shows placeholder with label and Add button" name="MyPoliticianCard shows placeholder with label and Add button" time="0.004">
+    </testcase>
+    <testcase classname="MyPoliticianCard shows politician details when filled" name="MyPoliticianCard shows politician details when filled" time="0.003">
+    </testcase>
+    <testcase classname="MyPoliticianCard calls onRemove when remove button is clicked" name="MyPoliticianCard calls onRemove when remove button is clicked" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="userService.syncUser" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:55:31" time="0.031" tests="36">
+    <testcase classname="userService.syncUser calls the /api/v1/users/sync endpoint" name="userService.syncUser calls the /api/v1/users/sync endpoint" time="0">
+    </testcase>
+    <testcase classname="userService.syncUser sends POST with JSON content-type and serialized body" name="userService.syncUser sends POST with JSON content-type and serialized body" time="0">
+    </testcase>
+    <testcase classname="userService.syncUser returns parsed JSON on success" name="userService.syncUser returns parsed JSON on success" time="0">
+    </testcase>
+    <testcase classname="userService.syncUser throws when response is not ok" name="userService.syncUser throws when response is not ok" time="0.003">
+    </testcase>
+    <testcase classname="userService.updateUser calls /users/{userId} with PATCH" name="userService.updateUser calls /users/{userId} with PATCH" time="0">
+    </testcase>
+    <testcase classname="userService.updateUser sends political_ideology (not political_interest)" name="userService.updateUser sends political_ideology (not political_interest)" time="0">
+    </testcase>
+    <testcase classname="userService.updateUser returns parsed JSON on success" name="userService.updateUser returns parsed JSON on success" time="0">
+    </testcase>
+    <testcase classname="userService.updateUser throws with backend error message on failure" name="userService.updateUser throws with backend error message on failure" time="0.001">
+    </testcase>
+    <testcase classname="userService.updateUser throws generic error when backend omits message" name="userService.updateUser throws generic error when backend omits message" time="0">
+    </testcase>
+    <testcase classname="userService.getUser calls /users/{userId} with GET" name="userService.getUser calls /users/{userId} with GET" time="0">
+    </testcase>
+    <testcase classname="userService.getUser returns parsed JSON on success" name="userService.getUser returns parsed JSON on success" time="0">
+    </testcase>
+    <testcase classname="userService.getUser throws when response is not ok" name="userService.getUser throws when response is not ok" time="0">
+    </testcase>
+    <testcase classname="userService.checkUsername calls /users/check-username with POST" name="userService.checkUsername calls /users/check-username with POST" time="0">
+    </testcase>
+    <testcase classname="userService.checkUsername sends username and optional user_id in body" name="userService.checkUsername sends username and optional user_id in body" time="0">
+    </testcase>
+    <testcase classname="userService.checkUsername omits user_id when not provided" name="userService.checkUsername omits user_id when not provided" time="0">
+    </testcase>
+    <testcase classname="userService.checkUsername returns availability result" name="userService.checkUsername returns availability result" time="0">
+    </testcase>
+    <testcase classname="userService.checkUsername throws when response is not ok" name="userService.checkUsername throws when response is not ok" time="0">
+    </testcase>
+    <testcase classname="userService.getUserPoliticians calls /users/{userId}/politicians with GET" name="userService.getUserPoliticians calls /users/{userId}/politicians with GET" time="0.001">
+    </testcase>
+    <testcase classname="userService.getUserPoliticians returns user politicians on success" name="userService.getUserPoliticians returns user politicians on success" time="0">
+    </testcase>
+    <testcase classname="userService.getUserPoliticians returns null when backend reports fetch failure (500)" name="userService.getUserPoliticians returns null when backend reports fetch failure (500)" time="0">
+    </testcase>
+    <testcase classname="userService.getUserPoliticians returns null when response is not ok" name="userService.getUserPoliticians returns null when response is not ok" time="0">
+    </testcase>
+    <testcase classname=" returns null when payload shape is invalid" name=" returns null when payload shape is invalid" time="0">
+    </testcase>
+    <testcase classname=" returns null on fetch exception" name=" returns null on fetch exception" time="0">
+    </testcase>
+    <testcase classname="userService.addUserPolitician calls correct endpoint with POST" name="userService.addUserPolitician calls correct endpoint with POST" time="0.002">
+    </testcase>
+    <testcase classname="userService.addUserPolitician sends politician payload" name="userService.addUserPolitician sends politician payload" time="0">
+    </testcase>
+    <testcase classname="userService.addUserPolitician returns backend response on success" name="userService.addUserPolitician returns backend response on success" time="0">
+    </testcase>
+    <testcase classname="userService.addUserPolitician returns empty object when json parsing fails" name="userService.addUserPolitician returns empty object when json parsing fails" time="0.001">
+    </testcase>
+    <testcase classname="userService.addUserPolitician returns success fallback when backend returns empty body" name="userService.addUserPolitician returns success fallback when backend returns empty body" time="0">
+    </testcase>
+    <testcase classname="userService.addUserPolitician returns failure on backend error" name="userService.addUserPolitician returns failure on backend error" time="0">
+    </testcase>
+    <testcase classname="userService.addUserPolitician returns failure on fetch exception" name="userService.addUserPolitician returns failure on fetch exception" time="0.001">
+    </testcase>
+    <testcase classname="userService.removeUserPolitician calls correct DELETE endpoint" name="userService.removeUserPolitician calls correct DELETE endpoint" time="0">
+    </testcase>
+    <testcase classname="userService.removeUserPolitician returns backend response on success" name="userService.removeUserPolitician returns backend response on success" time="0">
+    </testcase>
+    <testcase classname="userService.removeUserPolitician returns empty object when json parsing fails" name="userService.removeUserPolitician returns empty object when json parsing fails" time="0.001">
+    </testcase>
+    <testcase classname="userService.removeUserPolitician returns success fallback when backend returns empty body" name="userService.removeUserPolitician returns success fallback when backend returns empty body" time="0">
+    </testcase>
+    <testcase classname="userService.removeUserPolitician returns failure on backend error" name="userService.removeUserPolitician returns failure on backend error" time="0">
+    </testcase>
+    <testcase classname="userService.removeUserPolitician returns failure on fetch exception" name="userService.removeUserPolitician returns failure on fetch exception" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="onboarding field contrast styles" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:55:31" time="0.028" tests="2">
+    <testcase classname="onboarding field contrast styles applies high-contrast classes to basic detail inputs and state select" name="onboarding field contrast styles applies high-contrast classes to basic detail inputs and state select" time="0.006">
+    </testcase>
+    <testcase classname="onboarding field contrast styles applies high-contrast classes to username input" name="onboarding field contrast styles applies high-contrast classes to username input" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="Navbar" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:55:31" time="0.028" tests="2">
+    <testcase classname="Navbar renders header above page content with z-50 stacking" name="Navbar renders header above page content with z-50 stacking" time="0.004">
+    </testcase>
+    <testcase classname="Navbar applies sticky positioning when sticky prop is true" name="Navbar applies sticky positioning when sticky prop is true" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="OnboardingGate" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:55:31" time="0.023" tests="5">
+    <testcase classname="OnboardingGate shows fallback while session is loading" name="OnboardingGate shows fallback while session is loading" time="0.001">
+    </testcase>
+    <testcase classname="OnboardingGate blocks children when user needs onboarding" name="OnboardingGate blocks children when user needs onboarding" time="0.001">
+    </testcase>
+    <testcase classname="OnboardingGate renders children when onboarded" name="OnboardingGate renders children when onboarded" time="0">
+    </testcase>
+    <testcase classname="OnboardingGate allows incomplete users through when blockUntilReady is false" name="OnboardingGate allows incomplete users through when blockUntilReady is false" time="0.001">
+    </testcase>
+    <testcase classname="OnboardingGate passes redirect options to useOnboardingCheck" name="OnboardingGate passes redirect options to useOnboardingCheck" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="onboardingCompletedFromApi" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:55:31" time="0.017" tests="12">
+    <testcase classname="onboardingCompletedFromApi returns true when onboarding_completed is true" name="onboardingCompletedFromApi returns true when onboarding_completed is true" time="0">
+    </testcase>
+    <testcase classname="onboardingCompletedFromApi returns false when missing or false" name="onboardingCompletedFromApi returns false when missing or false" time="0">
+    </testcase>
+    <testcase classname="resolveOnboardingStatus prefers API value when defined" name="resolveOnboardingStatus prefers API value when defined" time="0">
+    </testcase>
+    <testcase classname="resolveOnboardingStatus falls back to JWT when API is undefined" name="resolveOnboardingStatus falls back to JWT when API is undefined" time="0.001">
+    </testcase>
+    <testcase classname="isOnboardingPath matches onboarding routes" name="isOnboardingPath matches onboarding routes" time="0">
+    </testcase>
+    <testcase classname="shouldRedirectToOnboarding redirects incomplete users off protected routes" name="shouldRedirectToOnboarding redirects incomplete users off protected routes" time="0">
+    </testcase>
+    <testcase classname="shouldRedirectToOnboarding does not redirect when already on onboarding" name="shouldRedirectToOnboarding does not redirect when already on onboarding" time="0">
+    </testcase>
+    <testcase classname="shouldRedirectToOnboarding does not redirect when complete or flag disabled" name="shouldRedirectToOnboarding does not redirect when complete or flag disabled" time="0">
+    </testcase>
+    <testcase classname="shouldRedirectToDashboard redirects complete users away from onboarding" name="shouldRedirectToDashboard redirects complete users away from onboarding" time="0">
+    </testcase>
+    <testcase classname="shouldRedirectToDashboard does not redirect incomplete users or when flag disabled" name="shouldRedirectToDashboard does not redirect incomplete users or when flag disabled" time="0">
+    </testcase>
+    <testcase classname="shouldSyncJwtOnboardingCompleted syncs when backend is ahead of JWT" name="shouldSyncJwtOnboardingCompleted syncs when backend is ahead of JWT" time="0">
+    </testcase>
+    <testcase classname="shouldSyncJwtOnboardingCompleted does not sync when JWT already matches or backend incomplete" name="shouldSyncJwtOnboardingCompleted does not sync when JWT already matches or backend incomplete" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="onboardingCompletedFromUserResponse" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:55:31" time="0.017" tests="3">
+    <testcase classname="onboardingCompletedFromUserResponse reads onboarding_completed from API payload" name="onboardingCompletedFromUserResponse reads onboarding_completed from API payload" time="0">
+    </testcase>
+    <testcase classname="onboardingCompletedFromUserResponse returns false when onboarding_completed is missing or false" name="onboardingCompletedFromUserResponse returns false when onboarding_completed is missing or false" time="0">
+    </testcase>
+    <testcase classname="applyOnboardingCompleted updates onboardingCompleted on the token" name="applyOnboardingCompleted updates onboardingCompleted on the token" time="0.001">
     </testcase>
   </testsuite>
 </testsuites>

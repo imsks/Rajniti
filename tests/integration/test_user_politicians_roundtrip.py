@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
+from unittest.mock import patch
 
 import pytest
 from sqlalchemy import create_engine, text
@@ -97,3 +98,55 @@ class TestUserPoliticiansRoundtrip:
         roles = {row["role"]: row["politician_id"] for row in saved}
 
         assert roles == {"MP": "mp-1", "MLA": "mla-1"}
+
+
+@pytest.mark.integration
+class TestUserPoliticiansHttpRoundtrip:
+    def test_http_add_get_delete_roundtrip(self, client, user_politician_service):
+        with patch(
+            "app.routes.user_routes.get_user_service",
+            return_value=user_politician_service,
+        ):
+            empty = client.get("/api/v1/users/user-1/politicians")
+            assert empty.status_code == 200
+            assert empty.get_json()["data"] == []
+
+            added = client.post(
+                "/api/v1/users/user-1/politicians",
+                json={"politician_id": "pol-1", "role": "MP"},
+            )
+            assert added.status_code == 200
+            assert added.get_json()["success"] is True
+
+            fetched = client.get("/api/v1/users/user-1/politicians")
+            assert fetched.status_code == 200
+            data = fetched.get_json()["data"]
+            assert len(data) == 1
+            assert data[0]["politician_id"] == "pol-1"
+            assert data[0]["role"] == "MP"
+
+            deleted = client.delete("/api/v1/users/user-1/politicians/pol-1")
+            assert deleted.status_code == 200
+            assert deleted.get_json()["success"] is True
+
+            after_delete = client.get("/api/v1/users/user-1/politicians")
+            assert after_delete.get_json()["data"] == []
+
+    def test_http_upsert_replaces_existing_mp(self, client, user_politician_service):
+        with patch(
+            "app.routes.user_routes.get_user_service",
+            return_value=user_politician_service,
+        ):
+            client.post(
+                "/api/v1/users/user-1/politicians",
+                json={"politician_id": "pol-1", "role": "MP"},
+            )
+            client.post(
+                "/api/v1/users/user-1/politicians",
+                json={"politician_id": "pol-2", "role": "MP"},
+            )
+
+            fetched = client.get("/api/v1/users/user-1/politicians")
+            data = fetched.get_json()["data"]
+            assert len(data) == 1
+            assert data[0]["politician_id"] == "pol-2"
