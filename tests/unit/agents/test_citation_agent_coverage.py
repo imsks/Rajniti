@@ -26,6 +26,7 @@ def _edu_politician(
         "source": "NEWS",
     }
 
+
 def _edu_politician(n_cited: int, n_slots: int, pid: str = "p1") -> dict:
     cite = {"link": "https://example.com/x", "source": "NEWS"}
 
@@ -208,5 +209,4 @@ def test_batch_classifies_internal_skips_separately() -> None:
     summary = agent._run_all(force=False)
 
     assert summary["skipped"] == 1
-
     assert summary["processed"] == 0
