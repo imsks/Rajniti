@@ -30,7 +30,16 @@ export default defineConfig({
         : {
               command: 'npm run dev',
               url: devServerUrl,
-              reuseExistingServer: true,
+              reuseExistingServer: process.env.PLAYWRIGHT_REUSE_SERVER === 'true',
               timeout: 120_000,
+              env: {
+                  ...process.env,
+                  ENABLE_TEST_AUTH: 'true',
+                  NEXT_PUBLIC_ENABLE_TEST_AUTH: 'true',
+                  NEXTAUTH_URL: devServerUrl,
+                  NEXTAUTH_SECRET:
+                      process.env.NEXTAUTH_SECRET ||
+                      'local-playwright-e2e-secret-min-32-chars',
+              },
           },
 })

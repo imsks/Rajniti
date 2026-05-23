@@ -140,9 +140,7 @@ class Politician(BaseModel):
     )
     social_media_citations: Optional[Dict[str, Citation]] = Field(
         None,
-        description=(
-            "Keys: twitter, facebook, instagram, linkedin, youtube, website"
-        ),
+        description=("Keys: twitter, facebook, instagram, linkedin, youtube, website"),
     )
     performance_citations: Optional[Dict[str, Citation]] = Field(
         None,

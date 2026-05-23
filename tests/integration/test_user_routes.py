@@ -99,6 +99,7 @@ class TestGetUser:
                 assert response.status_code == 200
                 data = response.get_json()
                 assert data["success"] is True
+                assert data["data"]["onboarding_completed"] is False
 
     def test_get_user_not_found(self, client):
         """Test getting non-existent user."""
@@ -314,6 +315,114 @@ class TestCheckUsername:
                 data = response.get_json()
                 # Should be available since it's their own username
                 assert data["available"] is True
+
+
+@pytest.mark.integration
+class TestUserPoliticians:
+    """Tests for user politician add/get/delete endpoints."""
+
+    def test_add_user_politician_success(self, client):
+        mock_service = MagicMock()
+        mock_service.add_user_politician.return_value = {"success": True}
+
+        with patch(
+            "app.routes.user_routes.get_user_service", return_value=mock_service
+        ):
+            response = client.post(
+                "/api/v1/users/user-1/politicians",
+                json={"politician_id": "pol-1", "role": "MP"},
+            )
+
+        assert response.status_code == 200
+        data = response.get_json()
+        assert data["success"] is True
+
+    def test_add_user_politician_returns_500_when_service_fails(self, client):
+        mock_service = MagicMock()
+        mock_service.add_user_politician.return_value = None
+
+        with patch(
+            "app.routes.user_routes.get_user_service", return_value=mock_service
+        ):
+            response = client.post(
+                "/api/v1/users/user-1/politicians",
+                json={"politician_id": "pol-1", "role": "MP"},
+            )
+
+        assert response.status_code == 500
+        data = response.get_json()
+        assert data["success"] is False
+
+    def test_add_user_politician_returns_400_when_body_empty(self, client):
+        response = client.post(
+            "/api/v1/users/user-1/politicians",
+            json={},
+        )
+        assert response.status_code == 400
+        assert response.get_json()["success"] is False
+
+    def test_add_user_politician_returns_400_when_fields_missing(self, client):
+        response = client.post(
+            "/api/v1/users/user-1/politicians",
+            json={"politician_id": "pol-1"},
+        )
+        assert response.status_code == 400
+        assert "politician_id and role required" in response.get_json()["error"]
+
+    def test_get_user_politicians_success(self, client):
+        mock_service = MagicMock()
+        mock_service.get_user_politicians.return_value = [
+            {"user_id": "user-1", "politician_id": "pol-1", "role": "MP"}
+        ]
+
+        with patch(
+            "app.routes.user_routes.get_user_service", return_value=mock_service
+        ):
+            response = client.get("/api/v1/users/user-1/politicians")
+
+        assert response.status_code == 200
+        data = response.get_json()
+        assert data["success"] is True
+        assert data["data"][0]["politician_id"] == "pol-1"
+
+    def test_get_user_politicians_returns_500_when_service_fails(self, client):
+        mock_service = MagicMock()
+        mock_service.get_user_politicians.return_value = None
+
+        with patch(
+            "app.routes.user_routes.get_user_service", return_value=mock_service
+        ):
+            response = client.get("/api/v1/users/user-1/politicians")
+
+        assert response.status_code == 500
+        data = response.get_json()
+        assert data["success"] is False
+
+    def test_delete_user_politician_success(self, client):
+        mock_service = MagicMock()
+        mock_service.remove_user_politician.return_value = {"deleted": True}
+
+        with patch(
+            "app.routes.user_routes.get_user_service", return_value=mock_service
+        ):
+            response = client.delete("/api/v1/users/user-1/politicians/pol-1")
+
+        assert response.status_code == 200
+        data = response.get_json()
+        assert data["success"] is True
+
+    def test_delete_user_politician_returns_500_when_service_fails(self, client):
+        mock_service = MagicMock()
+        mock_service.remove_user_politician.return_value = None
+
+        with patch(
+            "app.routes.user_routes.get_user_service", return_value=mock_service
+        ):
+            response = client.delete("/api/v1/users/user-1/politicians/pol-1")
+
+        assert response.status_code == 500
+        data = response.get_json()
+        assert data["success"] is False
 
 
 @pytest.mark.integration

@@ -1,8 +1,10 @@
 """
 User service backed by PostgreSQL (DATABASE_URL), including Supabase Postgres.
 """
-from sqlalchemy import text
+
 from typing import Any, Dict, Optional
+
+from sqlalchemy import text
 
 from app.database.base import get_db_session
 from app.database.models.user import User
@@ -77,45 +79,48 @@ class UserService:
         try:
             with get_db_session() as session:
                 session.execute(
-                    text("INSERT INTO user_politicians (user_id, politician_id, role) VALUES (:user_id, :politician_id, :role)"),
+                    text("""
+                        INSERT INTO user_politicians (user_id, politician_id, role)
+                        VALUES (:user_id, :politician_id, :role)
+                        ON CONFLICT (user_id, role)
+                        DO UPDATE SET politician_id = EXCLUDED.politician_id
+                        """),
                     {
                         "user_id": user_id,
                         "politician_id": politician_id,
                         "role": role,
-                    }
+                    },
                 )
-                session.commit()
                 return {"success": True}
         except Exception as e:
             print("❌ ERROR add_user_politician:", e)
             return None
-
 
     def get_user_politicians(self, user_id: str):
         try:
             with get_db_session() as session:
                 result = session.execute(
                     text("SELECT * FROM user_politicians WHERE user_id = :user_id"),
-                    {"user_id": user_id}
+                    {"user_id": user_id},
                 )
                 return [dict(row._mapping) for row in result]
         except Exception as e:
             print("❌ ERROR get_user_politicians:", e)
-            return []
-
+            return None
 
     def remove_user_politician(self, user_id: str, politician_id: str):
         try:
             with get_db_session() as session:
                 session.execute(
-                    text("DELETE FROM user_politicians WHERE user_id = :user_id AND politician_id = :politician_id"),
+                    text(
+                        "DELETE FROM user_politicians WHERE user_id = :user_id AND politician_id = :politician_id"
+                    ),
                     {
                         "user_id": user_id,
                         "politician_id": politician_id,
-                    }
+                    },
                 )
-                session.commit()
                 return {"deleted": True}
         except Exception as e:
             print("❌ ERROR remove_user_politician:", e)
-            return False
+            return None

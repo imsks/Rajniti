@@ -9,8 +9,7 @@ singleton to be properly mocked before Flask app initialization.
 Run with `pytest --run-integration` to enable.
 """
 
-import sys
-from unittest.mock import MagicMock, Mock, patch
+from unittest.mock import Mock, patch
 
 import pytest
 

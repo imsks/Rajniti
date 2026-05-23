@@ -16,13 +16,13 @@ export default function Navbar({
     sticky = false
 }: NavbarProps) {
     const isDashboard = variant === "dashboard"
-    const stickyClasses = sticky ? "sticky top-0 z-10" : ""
+    const stickyClasses = sticky ? "sticky top-0" : ""
     const { trackEvent } = useAnalytics()
     const trackNav = (text: string, url: string) => trackEvent('nav_click', { link_text: text, link_url: url, nav_section: 'navbar' })
 
     return (
         <header
-            className={`border-b border-orange-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm ${stickyClasses}`}>
+            className={`relative z-50 border-b border-orange-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm ${stickyClasses}`}>
             <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                 <div className='flex h-16 items-center justify-between'>
                     <Link href='/' onClick={() => trackNav('Logo', '/')} className='flex items-center gap-2 no-underline'>

@@ -2,11 +2,10 @@
 Unit tests for database initialization and session management.
 Tests verify the fixes for:
 - Empty DATABASE_URL handling in init_engine()
-- Consolidated DB init in app.core.database
+- DB init and health checks in app.database.session
 - get_db_session() error handling
 """
 
-import sys
 from unittest.mock import MagicMock, Mock, patch
 
 import pytest
@@ -148,7 +147,7 @@ class TestGetDbSession:
         session_mod.SessionLocal = mock_session_factory
         try:
             with pytest.raises(ValueError):
-                with get_db_session() as session:
+                with get_db_session():
                     raise ValueError("test error")
             mock_session.rollback.assert_called_once()
             mock_session.commit.assert_not_called()
@@ -159,81 +158,94 @@ class TestGetDbSession:
 
 
 @pytest.mark.unit
-class TestCoreDatabaseInitDb:
-    """Tests for app.core.database.init_db()."""
+class TestInitDb:
+    """Tests for app.database.session.init_db()."""
 
-    def test_returns_false_when_no_database_url(self):
-        """init_db returns False when DATABASE_URL is empty."""
-        import app.core.database as core_db
+    def _reset_session(self):
+        import app.database.session as session_mod
 
-        with patch("app.core.database.get_database_url", return_value=""):
-            result = core_db.init_db()
-        assert result is False
+        session_mod.engine = None
+        session_mod.SessionLocal = None
 
-    def test_returns_true_on_success(self):
-        """init_db returns True when connection and table creation succeed."""
-        import app.core.database as core_db
+    def test_raises_when_no_database_url(self):
+        """init_db raises RuntimeError when DATABASE_URL is empty."""
+        import app.database.session as session_mod
+
+        self._reset_session()
+        try:
+            with patch("app.database.session.get_database_url", return_value=""):
+                with pytest.raises(RuntimeError, match="not configured"):
+                    session_mod.init_db()
+        finally:
+            self._reset_session()
+
+    def test_completes_on_success(self):
+        """init_db creates tables when connection succeeds."""
+        import app.database.session as session_mod
 
         mock_engine = MagicMock()
         mock_conn = MagicMock()
-        mock_conn.__enter__ = Mock(return_value=mock_conn)
-        mock_conn.__exit__ = Mock(return_value=False)
-        mock_engine.connect.return_value = mock_conn
+        mock_engine.begin.return_value.__enter__ = Mock(return_value=mock_conn)
+        mock_engine.begin.return_value.__exit__ = Mock(return_value=False)
+        session_mod.engine = mock_engine
+        session_mod.SessionLocal = MagicMock()
+        try:
+            with (
+                patch(
+                    "app.database.session.get_database_url",
+                    return_value="postgresql://user:pass@localhost/db",
+                ),
+                patch("app.database.session.is_transaction_pooler", return_value=False),
+                patch("app.database.base.Base.metadata") as mock_meta,
+            ):
+                session_mod.init_db()
+            mock_meta.create_all.assert_called_once()
+        finally:
+            self._reset_session()
 
-        with (
-            patch(
-                "app.core.database.get_database_url",
-                return_value="postgresql://user:pass@localhost/db",
-            ),
-            patch(
-                "app.database.session.init_engine",
-                return_value=mock_engine,
-            ),
-            patch(
-                "app.database.session.init_db",
-            ),
-        ):
-            result = core_db.init_db()
-        assert result is True
-
-    def test_returns_false_on_connection_error(self):
-        """init_db returns False when engine.connect raises."""
+    def test_propagates_error_on_begin_failure(self):
+        """init_db propagates when engine.begin raises."""
         from sqlalchemy.exc import SQLAlchemyError
 
-        import app.core.database as core_db
+        import app.database.session as session_mod
 
         mock_engine = MagicMock()
-        mock_engine.connect.side_effect = SQLAlchemyError("connection failed")
-
-        with (
-            patch(
-                "app.core.database.get_database_url",
-                return_value="postgresql://user:pass@localhost/db",
-            ),
-            patch(
-                "app.database.session.init_engine",
-                return_value=mock_engine,
-            ),
-        ):
-            result = core_db.init_db()
-        assert result is False
+        mock_engine.begin.side_effect = SQLAlchemyError("connection failed")
+        session_mod.engine = mock_engine
+        session_mod.SessionLocal = MagicMock()
+        try:
+            with (
+                patch(
+                    "app.database.session.get_database_url",
+                    return_value="postgresql://user:pass@localhost/db",
+                ),
+                patch("app.database.session.is_transaction_pooler", return_value=False),
+            ):
+                with pytest.raises(SQLAlchemyError):
+                    session_mod.init_db()
+        finally:
+            self._reset_session()
 
 
 @pytest.mark.unit
 class TestCheckDbHealth:
-    """Tests for app.core.database.check_db_health()."""
+    """Tests for app.database.session.check_db_health()."""
 
     def test_returns_false_when_engine_none(self):
         """check_db_health returns False when engine is None."""
-        import app.core.database as core_db
+        import app.database.session as session_mod
 
-        with patch("app.database.session.engine", None):
-            result = core_db.check_db_health()
-        assert result is False
+        original = session_mod.engine
+        session_mod.engine = None
+        try:
+            result = session_mod.check_db_health()
+            assert result is False
+        finally:
+            session_mod.engine = original
 
     def test_returns_true_when_healthy(self):
         """check_db_health returns True when connection succeeds."""
-        import app.core.database as core_db
+        import app.database.session as session_mod
 
         mock_engine = MagicMock()
         mock_conn = MagicMock()
@@ -241,19 +253,27 @@ class TestCheckDbHealth:
         mock_conn.__exit__ = Mock(return_value=False)
         mock_engine.connect.return_value = mock_conn
 
-        with patch("app.database.session.engine", mock_engine):
-            result = core_db.check_db_health()
-        assert result is True
+        original = session_mod.engine
+        session_mod.engine = mock_engine
+        try:
+            result = session_mod.check_db_health()
+            assert result is True
+        finally:
+            session_mod.engine = original
 
     def test_returns_false_on_error(self):
         """check_db_health returns False when connect raises SQLAlchemyError."""
         from sqlalchemy.exc import SQLAlchemyError
 
-        import app.core.database as core_db
+        import app.database.session as session_mod
 
         mock_engine = MagicMock()
         mock_engine.connect.side_effect = SQLAlchemyError("connection failed")
 
-        with patch("app.database.session.engine", mock_engine):
-            result = core_db.check_db_health()
-        assert result is False
+        original = session_mod.engine
+        session_mod.engine = mock_engine
+        try:
+            result = session_mod.check_db_health()
+            assert result is False
+        finally:
+            session_mod.engine = original

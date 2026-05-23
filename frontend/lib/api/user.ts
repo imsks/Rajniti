@@ -12,6 +12,11 @@ export interface UserData {
     [key: string]: string | boolean | undefined
 }
 
+interface UserPoliticianRecord {
+    politician_id: string
+    role: "MP" | "MLA" | string
+}
+
 export const userService = {
     /**
      * Sync user with backend (Get or Create)
@@ -28,6 +33,20 @@ export const userService = {
 
         if (!response.ok) {
             throw new Error(`Failed to sync user: ${response.statusText}`)
+        }
+
+        return response.json()
+    },
+
+    /**
+     * Fetch user profile from backend.
+     * Used to refresh onboarding status when the JWT is stale.
+     */
+    async getUser(userId: string) {
+        const response = await fetch(`${API_BASE_URL}/users/${userId}`)
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch user: ${response.statusText}`)
         }
 
         return response.json()
@@ -70,6 +89,24 @@ export const userService = {
         return response.json()
     },
 
+    async getUserPoliticians(userId: string): Promise<UserPoliticianRecord[] | null> {
+        try {
+            const response = await fetch(`${API_BASE_URL}/users/${userId}/politicians`)
+            if (!response.ok) {
+                return null
+            }
+
+            const data = await response.json()
+            if (!data?.success || !Array.isArray(data.data)) {
+                return null
+            }
+
+            return data.data as UserPoliticianRecord[]
+        } catch {
+            return null
+        }
+    },
+
 
 /**
  * Add politician to user
@@ -88,6 +125,7 @@ addUserPolitician: async (userId: string, politicianId: string, role: string) =>
         })
 
         // 🔥 handle empty response safely
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let data: any = {}
         try {
             data = await response.json()
@@ -95,7 +133,7 @@ addUserPolitician: async (userId: string, politicianId: string, role: string) =>
             data = {}
         }
 
-        console.log("ADD RESPONSE:", response.status, data)
+        console.warn("ADD RESPONSE:", response.status, data)
 
         // ❗ don't break UI even if backend sends {}
         if (!response.ok) {
@@ -121,6 +159,7 @@ removeUserPolitician: async (userId: string, politicianId: string) => {
         })
 
         // 🔥 handle empty response safely
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let data: any = {}
         try {
             data = await response.json()
@@ -128,7 +167,7 @@ removeUserPolitician: async (userId: string, politicianId: string) => {
             data = {}
         }
 
-        console.log("DELETE RESPONSE:", response.status, data)
+        console.warn("DELETE RESPONSE:", response.status, data)
 
         // ❗ don't crash UI
         if (!response.ok) {

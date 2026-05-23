@@ -161,14 +161,16 @@ def check_username():
 
 @user_bp.route("/health", methods=["GET"])
 def user_health():
-    return jsonify({
-        "success": True,
-        "service": "User Service",
-        "message": "User service is operational",
-    })
-
+    return jsonify(
+        {
+            "success": True,
+            "service": "User Service",
+            "message": "User service is operational",
+        }
+    )
 
     # ==================== Local POLITICIANS ====================
+
 
 @user_bp.route("/<user_id>/politicians", methods=["POST"])
 def add_user_politician(user_id):
@@ -182,22 +184,25 @@ def add_user_politician(user_id):
         role = data.get("role")  # MLA or MP
 
         if not politician_id or not role:
-            return jsonify({
-                "success": False,
-                "error": "politician_id and role required"
-            }), 400
+            return (
+                jsonify({"success": False, "error": "politician_id and role required"}),
+                400,
+            )
 
         result = get_user_service().add_user_politician(
-            user_id=user_id,
-            politician_id=politician_id,
-            role=role
+            user_id=user_id, politician_id=politician_id, role=role
         )
 
-        return jsonify({
-            "success": True,
-            "data": result,
-            "message": "Politician added successfully"
-        })
+        if not result:
+            return jsonify({"success": False, "error": "Failed to add politician"}), 500
+
+        return jsonify(
+            {
+                "success": True,
+                "data": result,
+                "message": "Politician added successfully",
+            }
+        )
 
     except Exception as e:
         print("❌ ADD POLITICIAN ERROR:")
@@ -210,30 +215,36 @@ def get_user_politicians(user_id):
     try:
         data = get_user_service().get_user_politicians(user_id)
 
-        return jsonify({
-            "success": True,
-            "data": data
-        })
+        if data is None:
+            return (
+                jsonify({"success": False, "error": "Failed to fetch politicians"}),
+                500,
+            )
+
+        return jsonify({"success": True, "data": data})
 
     except Exception as e:
         print("❌ GET POLITICIANS ERROR:")
         traceback.print_exc()
         return jsonify({"success": False, "error": str(e)}), 500
-    
+
+
 @user_bp.route("/<user_id>/politicians/<politician_id>", methods=["DELETE"])
 def delete_user_politician(user_id, politician_id):
     try:
         result = get_user_service().remove_user_politician(
-            user_id=user_id,
-            politician_id=politician_id
+            user_id=user_id, politician_id=politician_id
         )
 
-        return jsonify({
-            "success": True,
-            "message": "Politician removed successfully"
-        })
+        if not result:
+            return (
+                jsonify({"success": False, "error": "Failed to remove politician"}),
+                500,
+            )
+
+        return jsonify({"success": True, "message": "Politician removed successfully"})
 
     except Exception as e:
         print("❌ DELETE ERROR:")
         traceback.print_exc()
-        return jsonify({"success": False, "error": str(e)}), 500    
+        return jsonify({"success": False, "error": str(e)}), 500

@@ -28,6 +28,7 @@ class PoliticianService:
         self._slugs_ensured: bool = False
         self._by_id: Dict[str, Dict[str, Any]] = {}
         self._by_slug: Dict[str, Dict[str, Any]] = {}
+        self._by_short_id: Dict[str, Dict[str, Any]] = {}
 
         # 🔥 LOAD PERFORMANCE HERE (SAFE)
         self._perf_map = self._load_performance()
@@ -76,6 +77,7 @@ class PoliticianService:
 
         self._by_id = {}
         self._by_slug = {}
+        self._by_short_id = {}
 
         for p in all_records:
             pid = str(p.get("id", ""))
@@ -87,6 +89,7 @@ class PoliticianService:
 
             if pid:
                 self._by_id[pid] = p
+                self._by_short_id[short_id] = p
             self._by_slug[slug] = p
 
         self._slugs_ensured = True
@@ -128,13 +131,20 @@ class PoliticianService:
 
     def get_by_id(self, politician_id: str) -> Optional[Dict[str, Any]]:
         self._ensure_slugs()
-        p = self._by_id.get(politician_id)
+        pid = str(politician_id).strip()
+        p = self._by_id.get(pid) or self._by_id.get(pid.lower())
 
         return self._attach_performance(p) if p else None
 
     def get_by_slug(self, politician_slug: str) -> Optional[Dict[str, Any]]:
         self._ensure_slugs()
-        p = self._by_slug.get(politician_slug)
+        slug = str(politician_slug).strip()
+        p = self._by_slug.get(slug)
+
+        if not p:
+            short_match = re.search(r"-([0-9a-fA-F]{8})$", slug)
+            if short_match:
+                p = self._by_short_id.get(short_match.group(1).lower())
 
         return self._attach_performance(p) if p else None
 
@@ -225,3 +235,115 @@ class PoliticianService:
 
         logger.warning("Politician not found for update: %s", pid)
         return False
+
+        # ---------- FILTERS ----------
+
+    def get_by_state(
+        self,
+        state: str,
+        election_type: Optional[ElectionType] = None,
+    ) -> List[Dict[str, Any]]:
+
+        self._ensure_slugs()
+
+        data = (
+            self._load(election_type)
+            if election_type
+            else self._load("MP") + self._load("MLA")
+        )
+
+        self._attach_slugs_to_records(data)
+
+        state_l = state.strip().lower()
+
+        return [
+            self._attach_performance(p)
+            for p in data
+            if (p.get("state") or "").lower() == state_l
+        ]
+
+    def get_by_party(
+        self,
+        party: str,
+        election_type: Optional[ElectionType] = None,
+    ) -> List[Dict[str, Any]]:
+
+        self._ensure_slugs()
+
+        data = (
+            self._load(election_type)
+            if election_type
+            else self._load("MP") + self._load("MLA")
+        )
+
+        self._attach_slugs_to_records(data)
+
+        party_l = party.strip().lower()
+
+        results: List[Dict[str, Any]] = []
+
+        for p in data:
+            elections = (p.get("political_background") or {}).get("elections") or []
+
+            if any((e.get("party") or "").lower() == party_l for e in elections):
+                results.append(self._attach_performance(p))
+
+        return results
+
+    # ---------- AGGREGATIONS ----------
+
+    def get_states(
+        self,
+        election_type: Optional[ElectionType] = None,
+    ) -> List[str]:
+
+        data = (
+            self._load(election_type)
+            if election_type
+            else self._load("MP") + self._load("MLA")
+        )
+
+        states = {(p.get("state") or "").strip() for p in data if p.get("state")}
+
+        return sorted(states)
+
+    def get_parties(
+        self,
+        election_type: Optional[ElectionType] = None,
+    ) -> List[str]:
+
+        data = (
+            self._load(election_type)
+            if election_type
+            else self._load("MP") + self._load("MLA")
+        )
+
+        parties = set()
+
+        for p in data:
+            elections = (p.get("political_background") or {}).get("elections") or []
+
+            for e in elections:
+                party = (e.get("party") or "").strip()
+
+                if party:
+                    parties.add(party)
+
+        return sorted(parties)
+
+    def stats(
+        self,
+        election_type: Optional[ElectionType] = None,
+    ) -> Dict[str, Any]:
+
+        data = (
+            self._load(election_type)
+            if election_type
+            else self._load("MP") + self._load("MLA")
+        )
+
+        return {
+            "total_politicians": len(data),
+            "states": len(self.get_states(election_type)),
+            "parties": len(self.get_parties(election_type)),
+        }

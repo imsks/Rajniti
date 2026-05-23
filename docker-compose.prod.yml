@@ -1,5 +1,3 @@
-version: "3.8"
-
 # Production: Just DATABASE_URL pointing to Supabase
 
 services:
