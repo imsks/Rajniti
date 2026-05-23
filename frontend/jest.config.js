@@ -65,6 +65,7 @@ const customJestConfig = {
     "<rootDir>/node_modules/",
     "<rootDir>/.next/",
     "<rootDir>/__tests__/e2e/",
+    "<rootDir>/__tests__/helpers/",
   ],
 
   // Module file extensions

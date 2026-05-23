@@ -1,68 +1,26 @@
-import { expect, type Page } from '@playwright/test'
+import type { Page } from '@playwright/test'
 
-type LoginAsOptions = {
-  userId: string
-  onboardingCompleted: boolean
-  callbackUrl?: string
-}
+export const TEST_USER_ID = 'test-user-1'
+export const TEST_USER_EMAIL = 'test-user@rajniti.test'
+export const TEST_USER_NAME = 'Test User'
 
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1'
-
-export async function mockUserOnboardingStatus(
+/**
+ * Signs in via the test-credentials provider (/auth/test-signin).
+ * Requires ENABLE_TEST_AUTH=true on the Next.js server (set in playwright webServer).
+ */
+export async function signInAsTestUser(
   page: Page,
-  userId: string,
-  onboardingCompleted: boolean
-) {
-  await page.route(`**${API_BASE}/users/${userId}`, async (route) => {
-    if (route.request().method() !== 'GET') {
-      await route.continue()
-      return
-    }
+  options: { callbackUrl?: string; onboardingCompleted?: boolean } = {},
+): Promise<void> {
+  const callbackUrl = options.callbackUrl ?? '/dashboard'
+  const onboardingCompleted = options.onboardingCompleted ?? true
 
-    await route.fulfill({
-      status: 200,
-      contentType: 'application/json',
-      body: JSON.stringify({
-        success: true,
-        data: {
-          id: userId,
-          onboarding_completed: onboardingCompleted,
-        },
-      }),
-    })
-  })
-}
-
-export async function loginAs(
-  page: Page,
-  { userId, onboardingCompleted, callbackUrl = '/dashboard' }: LoginAsOptions
-) {
-  await mockUserOnboardingStatus(page, userId, onboardingCompleted)
-
-  const csrfResponse = await page.request.get('/api/auth/csrf')
-  const { csrfToken } = (await csrfResponse.json()) as { csrfToken: string }
-
-  await page.request.post('/api/auth/callback/test-credentials', {
-    form: {
-      csrfToken,
-      userId,
-      onboardingCompleted: String(onboardingCompleted),
-      callbackUrl,
-      json: 'true',
-    },
+  const params = new URLSearchParams({
+    userId: TEST_USER_ID,
+    onboardingCompleted: String(onboardingCompleted),
+    callbackUrl,
   })
 
-  await expect
-    .poll(
-      async () => {
-        const sessionResponse = await page.request.get('/api/auth/session')
-        const session = (await sessionResponse.json()) as {
-          user?: { id?: string }
-        }
-        return session.user?.id ?? null
-      },
-      { timeout: 15_000 }
-    )
-    .toBe(userId)
+  await page.goto(`/auth/test-signin?${params.toString()}`)
+  await page.waitForURL(`**${callbackUrl}`, { timeout: 15_000 })
 }

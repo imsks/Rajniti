@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="11" failures="0" errors="0" time="0.732">
-  <testsuite name="integration smoke" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:43:19" time="0.185" tests="1">
-    <testcase classname="integration smoke runs in jsdom" name="integration smoke runs in jsdom" time="0.001">
+<testsuites name="jest tests" tests="14" failures="0" errors="0" time="0.534">
+  <testsuite name="my politicians integration" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:50:21" time="0.21" tests="3">
+    <testcase classname="my politicians integration adds MP via search and updates section heading" name="my politicians integration adds MP via search and updates section heading" time="0.066">
+    </testcase>
+    <testcase classname="my politicians integration removes MP and restores placeholder" name="my politicians integration removes MP and restores placeholder" time="0.016">
+    </testcase>
+    <testcase classname="my politicians integration shows search error when fetch rejects" name="my politicians integration shows search error when fetch rejects" time="0.009">
     </testcase>
   </testsuite>
-  <testsuite name="dashboard data + search integration" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:43:19" time="0.247" tests="6">
-    <testcase classname="dashboard data + search integration usePoliticians + usePoliticianSearch can run in parallel hooks with separate fetch URLs" name="dashboard data + search integration usePoliticians + usePoliticianSearch can run in parallel hooks with separate fetch URLs" time="0.013">
+  <testsuite name="onboarding gating integration" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:50:21" time="0.141" tests="4">
+    <testcase classname="onboarding gating integration incomplete user on dashboard redirects to onboarding" name="onboarding gating integration incomplete user on dashboard redirects to onboarding" time="0.055">
     </testcase>
-    <testcase classname="dashboard data + search integration usePoliticianSearch does not fetch when query is too short" name="dashboard data + search integration usePoliticianSearch does not fetch when query is too short" time="0.002">
+    <testcase classname="onboarding gating integration complete user on dashboard stays on dashboard" name="onboarding gating integration complete user on dashboard stays on dashboard" time="0.004">
     </testcase>
-    <testcase classname="dashboard data + search integration usePoliticianSearch clears results when query drops below minimum length" name="dashboard data + search integration usePoliticianSearch clears results when query drops below minimum length" time="0.002">
+    <testcase classname="onboarding gating integration incomplete user on onboarding stays on onboarding" name="onboarding gating integration incomplete user on onboarding stays on onboarding" time="0.003">
+    </testcase>
+    <testcase classname="onboarding gating integration complete user on onboarding redirects to dashboard" name="onboarding gating integration complete user on onboarding redirects to dashboard" time="0.054">
+    </testcase>
+  </testsuite>
+  <testsuite name="dashboard data + search integration" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:50:21" time="0.033" tests="6">
+    <testcase classname="dashboard data + search integration usePoliticians + usePoliticianSearch can run in parallel hooks with separate fetch URLs" name="dashboard data + search integration usePoliticians + usePoliticianSearch can run in parallel hooks with separate fetch URLs" time="0.002">
+    </testcase>
+    <testcase classname="dashboard data + search integration usePoliticianSearch does not fetch when query is too short" name="dashboard data + search integration usePoliticianSearch does not fetch when query is too short" time="0.001">
+    </testcase>
+    <testcase classname="dashboard data + search integration usePoliticianSearch clears results when query drops below minimum length" name="dashboard data + search integration usePoliticianSearch clears results when query drops below minimum length" time="0.001">
     </testcase>
     <testcase classname="dashboard data + search integration usePoliticianSearch surfaces error when search fetch throws" name="dashboard data + search integration usePoliticianSearch surfaces error when search fetch throws" time="0.001">
     </testcase>
-    <testcase classname="dashboard data + search integration usePoliticians states and parties lists are sorted" name="dashboard data + search integration usePoliticians states and parties lists are sorted" time="0.002">
+    <testcase classname="dashboard data + search integration usePoliticians states and parties lists are sorted" name="dashboard data + search integration usePoliticians states and parties lists are sorted" time="0">
     </testcase>
-    <testcase classname="dashboard data + search integration usePoliticians filter combines query + state" name="dashboard data + search integration usePoliticians filter combines query + state" time="0.002">
+    <testcase classname="dashboard data + search integration usePoliticians filter combines query + state" name="dashboard data + search integration usePoliticians filter combines query + state" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="onboarding gating integration" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:43:19" time="0.356" tests="4">
-    <testcase classname="onboarding gating integration incomplete user on dashboard redirects to onboarding" name="onboarding gating integration incomplete user on dashboard redirects to onboarding" time="0.066">
-    </testcase>
-    <testcase classname="onboarding gating integration complete user on dashboard stays on dashboard" name="onboarding gating integration complete user on dashboard stays on dashboard" time="0.006">
-    </testcase>
-    <testcase classname="onboarding gating integration incomplete user on onboarding stays on onboarding" name="onboarding gating integration incomplete user on onboarding stays on onboarding" time="0.005">
-    </testcase>
-    <testcase classname="onboarding gating integration complete user on onboarding redirects to dashboard" name="onboarding gating integration complete user on onboarding redirects to dashboard" time="0.052">
+  <testsuite name="integration smoke" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:50:21" time="0.018" tests="1">
+    <testcase classname="integration smoke runs in jsdom" name="integration smoke runs in jsdom" time="0.001">
     </testcase>
   </testsuite>
 </testsuites>

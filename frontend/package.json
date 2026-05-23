@@ -11,7 +11,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:ci": "npm run test:unit",
-    "test:unit": "jest --ci --coverage --testPathIgnorePatterns=__tests__/e2e --testPathIgnorePatterns=__tests__/integration --reporters=default --reporters=jest-junit",
+    "test:unit": "jest --ci --coverage --testPathIgnorePatterns=__tests__/e2e --testPathIgnorePatterns=__tests__/integration --testPathIgnorePatterns=__tests__/helpers --reporters=default --reporters=jest-junit",
     "test:integration": "jest __tests__/integration --ci --reporters=default --reporters=jest-junit",
     "test:e2e": "playwright test"
   },
