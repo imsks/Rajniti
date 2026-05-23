@@ -86,3 +86,19 @@ def init_db():
 
     with db_engine.begin() as conn:
         Base.metadata.create_all(bind=conn)
+
+
+def check_db_health() -> bool:
+    """Return True if the database connection is healthy."""
+    from sqlalchemy import text
+    from sqlalchemy.exc import SQLAlchemyError
+
+    if engine is None:
+        return False
+    try:
+        with engine.connect() as conn:
+            conn.execute(text("SELECT 1"))
+        return True
+    except (SQLAlchemyError, Exception) as e:
+        logger.error("Database health check failed: %s", e)
+        return False

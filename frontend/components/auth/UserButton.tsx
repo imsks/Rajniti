@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from "react"
 import Image from "@/components/ui/Image"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
+import Link from "@/components/ui/Link"
 import { useAnalytics } from "@/hooks/useAnalytics"
 
 export default function UserButton() {
@@ -37,8 +38,9 @@ export default function UserButton() {
     }
 
     return (
-        <div className='relative z-50'>
+        <div ref={menuRef} className='relative'>
             <button
+                type="button"
                 onClick={() => setShowMenu(!showMenu)}
                 className='flex items-center gap-2 p-1 pr-3 border-2 border-orange-200 dark:border-gray-600 rounded-full hover:border-orange-300 dark:hover:border-gray-500 transition-all cursor-pointer'>
                 <Image
@@ -62,14 +64,23 @@ export default function UserButton() {
                         </Text>
                     </div>
 
-                    {/* <Link
-                        href='/profile/edit'
+                    <Link
+                        href='/dashboard'
                         variant='secondary'
-                        className='block px-4 py-2 text-sm hover:bg-gray-50 transition-colors cursor-pointer'>
-                        Edit Profile
-                    </Link> */}
+                        className='block px-4 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer'
+                        onClick={() => {
+                            trackEvent('nav_click', {
+                                link_text: 'Dashboard',
+                                link_url: '/dashboard',
+                                nav_section: 'user_menu',
+                            })
+                            setShowMenu(false)
+                        }}>
+                        Dashboard
+                    </Link>
 
                     <button
+                        type="button"
                         onClick={() => {
                             trackEvent('logout', {})
                             signOut({ callbackUrl: "/" })
