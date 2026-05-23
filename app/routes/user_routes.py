@@ -215,6 +215,9 @@ def get_user_politicians(user_id):
     try:
         data = get_user_service().get_user_politicians(user_id)
 
+        if data is None:
+            return jsonify({"success": False, "error": "Failed to fetch politicians"}), 500
+
         return jsonify({"success": True, "data": data})
 
     except Exception as e:
@@ -226,9 +229,12 @@ def get_user_politicians(user_id):
 @user_bp.route("/<user_id>/politicians/<politician_id>", methods=["DELETE"])
 def delete_user_politician(user_id, politician_id):
     try:
-        get_user_service().remove_user_politician(
+        result = get_user_service().remove_user_politician(
             user_id=user_id, politician_id=politician_id
         )
+
+        if not result:
+            return jsonify({"success": False, "error": "Failed to remove politician"}), 500
 
         return jsonify({"success": True, "message": "Politician removed successfully"})
 

@@ -91,7 +91,6 @@ class UserService:
                         "role": role,
                     },
                 )
-                session.commit()
                 return {"success": True}
         except Exception as e:
             print("❌ ERROR add_user_politician:", e)
@@ -107,7 +106,7 @@ class UserService:
                 return [dict(row._mapping) for row in result]
         except Exception as e:
             print("❌ ERROR get_user_politicians:", e)
-            return []
+            return None
 
     def remove_user_politician(self, user_id: str, politician_id: str):
         try:
@@ -121,8 +120,7 @@ class UserService:
                         "politician_id": politician_id,
                     },
                 )
-                session.commit()
                 return {"deleted": True}
         except Exception as e:
             print("❌ ERROR remove_user_politician:", e)
-            return False
+            return None

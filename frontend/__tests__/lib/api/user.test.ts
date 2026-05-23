@@ -245,6 +245,15 @@ describe("userService.getUserPoliticians", () => {
     expect(result).toEqual(payload.data);
   });
 
+  it("returns null when backend reports fetch failure (500)", async () => {
+    mockFetch.mockResolvedValueOnce(
+      errorResponse({ error: "Failed to fetch politicians" }, 500),
+    );
+
+    const result = await userService.getUserPoliticians("user-1");
+    expect(result).toBeNull();
+  });
+
   it("returns null when response is not ok", async () => {
     mockFetch.mockResolvedValueOnce(errorResponse({}, 500));
 

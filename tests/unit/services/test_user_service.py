@@ -372,7 +372,7 @@ class TestUserServiceEdgeCases:
 class TestUserPoliticianService:
     """Tests for user politician persistence helpers."""
 
-    def test_add_user_politician_commits(self, user_service):
+    def test_add_user_politician_executes_upsert(self, user_service):
         with patch("app.services.user_service.get_db_session") as mock_session_ctx:
             mock_session = Mock()
             mock_session_ctx.return_value.__enter__ = Mock(return_value=mock_session)
@@ -382,7 +382,7 @@ class TestUserPoliticianService:
 
             assert result == {"success": True}
             assert mock_session.execute.call_count == 1
-            mock_session.commit.assert_called_once()
+            mock_session.commit.assert_not_called()
 
     def test_add_user_politician_returns_none_on_error(self, user_service):
         with patch("app.services.user_service.get_db_session") as mock_session_ctx:
@@ -392,5 +392,58 @@ class TestUserPoliticianService:
             mock_session_ctx.return_value.__exit__ = Mock(return_value=False)
 
             result = user_service.add_user_politician("user-1", "pol-1", "MP")
+
+            assert result is None
+
+    def test_get_user_politicians_returns_rows(self, user_service):
+        row = Mock()
+        row._mapping = {
+            "user_id": "user-1",
+            "politician_id": "pol-1",
+            "role": "MP",
+        }
+
+        with patch("app.services.user_service.get_db_session") as mock_session_ctx:
+            mock_session = Mock()
+            mock_session.execute.return_value = [row]
+            mock_session_ctx.return_value.__enter__ = Mock(return_value=mock_session)
+            mock_session_ctx.return_value.__exit__ = Mock(return_value=False)
+
+            result = user_service.get_user_politicians("user-1")
+
+            assert result == [
+                {"user_id": "user-1", "politician_id": "pol-1", "role": "MP"}
+            ]
+
+    def test_get_user_politicians_returns_none_on_error(self, user_service):
+        with patch("app.services.user_service.get_db_session") as mock_session_ctx:
+            mock_session = Mock()
+            mock_session.execute.side_effect = Exception("db error")
+            mock_session_ctx.return_value.__enter__ = Mock(return_value=mock_session)
+            mock_session_ctx.return_value.__exit__ = Mock(return_value=False)
+
+            result = user_service.get_user_politicians("user-1")
+
+            assert result is None
+
+    def test_remove_user_politician_executes_delete(self, user_service):
+        with patch("app.services.user_service.get_db_session") as mock_session_ctx:
+            mock_session = Mock()
+            mock_session_ctx.return_value.__enter__ = Mock(return_value=mock_session)
+            mock_session_ctx.return_value.__exit__ = Mock(return_value=False)
+
+            result = user_service.remove_user_politician("user-1", "pol-1")
+
+            assert result == {"deleted": True}
+            assert mock_session.execute.call_count == 1
+
+    def test_remove_user_politician_returns_none_on_error(self, user_service):
+        with patch("app.services.user_service.get_db_session") as mock_session_ctx:
+            mock_session = Mock()
+            mock_session.execute.side_effect = Exception("db error")
+            mock_session_ctx.return_value.__enter__ = Mock(return_value=mock_session)
+            mock_session_ctx.return_value.__exit__ = Mock(return_value=False)
+
+            result = user_service.remove_user_politician("user-1", "pol-1")
 
             assert result is None

@@ -59,6 +59,21 @@ describe("useMyPoliticians", () => {
     expect(mockedUserService.getUserPoliticians).not.toHaveBeenCalled();
   });
 
+  it("keeps local state when getUserPoliticians returns null", async () => {
+    mockedUserService.getUserPoliticians.mockResolvedValueOnce(null);
+
+    const { result } = renderHook(() =>
+      useMyPoliticians([mockMp], "user-1"),
+    );
+
+    await waitFor(() => {
+      expect(mockedUserService.getUserPoliticians).toHaveBeenCalled();
+    });
+
+    expect(result.current.myMP).toBeNull();
+    expect(result.current.myMLA).toBeNull();
+  });
+
   it("persists setMyMP to localStorage", async () => {
     mockedUserService.getUserPoliticians.mockResolvedValueOnce([]);
 

@@ -369,6 +369,19 @@ class TestUserPoliticians:
         assert data["success"] is True
         assert data["data"][0]["politician_id"] == "pol-1"
 
+    def test_get_user_politicians_returns_500_when_service_fails(self, client):
+        mock_service = MagicMock()
+        mock_service.get_user_politicians.return_value = None
+
+        with patch(
+            "app.routes.user_routes.get_user_service", return_value=mock_service
+        ):
+            response = client.get("/api/v1/users/user-1/politicians")
+
+        assert response.status_code == 500
+        data = response.get_json()
+        assert data["success"] is False
+
     def test_delete_user_politician_success(self, client):
         mock_service = MagicMock()
         mock_service.remove_user_politician.return_value = {"deleted": True}
@@ -381,6 +394,19 @@ class TestUserPoliticians:
         assert response.status_code == 200
         data = response.get_json()
         assert data["success"] is True
+
+    def test_delete_user_politician_returns_500_when_service_fails(self, client):
+        mock_service = MagicMock()
+        mock_service.remove_user_politician.return_value = None
+
+        with patch(
+            "app.routes.user_routes.get_user_service", return_value=mock_service
+        ):
+            response = client.delete("/api/v1/users/user-1/politicians/pol-1")
+
+        assert response.status_code == 500
+        data = response.get_json()
+        assert data["success"] is False
 
 
 @pytest.mark.integration
