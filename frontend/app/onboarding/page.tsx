@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useCallback, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 import OnboardingGate from "@/components/auth/OnboardingGate";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,6 +10,7 @@ import UserDetailsStep from "@/components/onboarding/UserDetailsStep";
 import PreferencesStep from "@/components/onboarding/PreferencesStep";
 import { userService } from "@/lib/api/user";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import { beaconEvent } from "@/lib/analytics";
 import { ROUTES } from "@/lib/routes";
 
 const COPY = {
@@ -97,6 +98,51 @@ function OnboardingContent() {
   const [usernameValid, setUsernameValid] = useState(false);
   const [formData, setFormData] = useState<OnboardingData>(INITIAL_DATA);
 
+  // ── Drop-off tracking refs ──────────────────────────────────────────────
+  // Refs keep cleanup closures in sync without triggering re-renders.
+  const stepRef = useRef(step);
+  const completedRef = useRef(false);
+  // Set to true by the pagehide handler so the React cleanup doesn't
+  // double-fire onboarding_abandoned on the same exit event.
+  const pageHidingRef = useRef(false);
+  useEffect(() => { stepRef.current = step; }, [step]);
+
+  // ── Tab / window close tracking ─────────────────────────────────────────
+  // `pagehide` fires for: tab close, browser close, page refresh, hard navigation.
+  // It does NOT fire for SPA link clicks (those unmount the component instead).
+  // Uses beaconEvent so the hit is delivered even as the browser tears down.
+  useEffect(() => {
+    const handlePageHide = () => {
+      if (completedRef.current) return; // finished normally — nothing to track
+      pageHidingRef.current = true;
+      beaconEvent("onboarding_tab_close", {
+        last_step: stepRef.current,
+        last_step_name: STEP_LABELS[stepRef.current - 1],
+      });
+    };
+    window.addEventListener("pagehide", handlePageHide);
+    return () => window.removeEventListener("pagehide", handlePageHide);
+  // beaconEvent is a module-level function — safe to omit from deps.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // ── SPA navigation drop-off tracking ───────────────────────────────────
+  // Fires on React unmount caused by client-side navigation (link click,
+  // programmatic router.push, etc.). Guarded by pageHidingRef so it does
+  // not double-fire when pagehide already handled the exit.
+  useEffect(() => {
+    return () => {
+      if (!completedRef.current && !pageHidingRef.current) {
+        trackEvent("onboarding_abandoned", {
+          last_step: stepRef.current,
+          last_step_name: STEP_LABELS[stepRef.current - 1],
+        });
+      }
+    };
+    // trackEvent is stable; intentionally omitted from deps.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const sessionReady = status !== "loading";
   const userId = session?.user?.id;
 
@@ -128,6 +174,9 @@ function OnboardingContent() {
   }, [update]);
 
   const handleSubmit = useCallback(async () => {
+    // Track the button click before any async work — fires even if the API fails.
+    trackEvent("onboarding_submit_click", {});
+
     if (!userId) {
       alert(COPY.signInRequired);
       return;
@@ -147,6 +196,7 @@ function OnboardingContent() {
         onboarding_completed: true,
       });
 
+      completedRef.current = true; // prevent onboarding_abandoned from firing
       trackEvent("onboarding_complete", {
         political_ideology: formData.political_ideology,
       });
@@ -273,7 +323,13 @@ function OnboardingContent() {
                 animate={{ opacity: 1, x: 0 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => setStep((s) => s - 1)}
+                onClick={() => {
+                  trackEvent("onboarding_back_click", {
+                    step,
+                    step_name: STEP_LABELS[step - 1],
+                  });
+                  setStep((s) => s - 1);
+                }}
                 disabled={submitting}
                 className="flex-1 px-6 py-3 border-2 border-gray-300 rounded-lg text-gray-700 font-semibold hover:bg-gray-50 transition-all disabled:opacity-50"
               >

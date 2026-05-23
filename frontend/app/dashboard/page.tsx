@@ -10,6 +10,7 @@ import PoliticianCardWrapper from "@/components/PoliticianCardWrapper";
 import MyPoliticiansSection from "@/components/MyPoliticiansSection";
 import { usePoliticians } from "@/hooks/usePoliticians";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import { useScrollDepth } from "@/hooks/useScrollDepth";
 import OnboardingGate from "@/components/auth/OnboardingGate";
 import Image from "next/image";
 
@@ -39,6 +40,7 @@ function DashboardContent() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(12);
   const { trackEvent, trackSearch } = useAnalytics();
+  useScrollDepth("dashboard");
 
   // One API call for all politicians; filter client-side by tab + search/filters
   const { all, loading, error, states, parties, stats, filter } =
@@ -523,7 +525,7 @@ function DashboardContent() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-center text-white"
+          className="mt-12 bg-linear-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-center text-white"
         >
           <Text variant="h3" weight="bold" className="text-white mb-2">
             Help us build the most comprehensive politician database

@@ -18,7 +18,7 @@ const SEARCH_DEBOUNCE_MS = 800
 export function useAnalytics() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const searchTimer = useRef<ReturnType<typeof setTimeout>>(null)
+  const searchTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     if (!isGAEnabled()) return

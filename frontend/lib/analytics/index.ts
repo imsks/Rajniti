@@ -1,2 +1,2 @@
-export { GA_MEASUREMENT_ID, isGAEnabled, pageview, event } from "./gtag"
+export { GA_MEASUREMENT_ID, isGAEnabled, pageview, event, beaconEvent } from "./gtag"
 export type { AnalyticsEvent, AnalyticsEventMap } from "./events"

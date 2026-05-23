@@ -7,6 +7,7 @@ import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import Link from "@/components/ui/Link"
 import { useAnalytics } from "@/hooks/useAnalytics"
+import { LOGIN_INTENT_KEY } from "@/components/auth/AuthProvider"
 
 export default function UserButton() {
     const { data: session } = useSession()
@@ -33,6 +34,7 @@ export default function UserButton() {
     if (!session) {
         return <Button onClick={() => {
             trackEvent('login_start', { method: 'google', trigger_location: 'navbar_button' })
+            sessionStorage.setItem(LOGIN_INTENT_KEY, 'navbar_button')
             signIn()
         }}>Sign In</Button>
     }

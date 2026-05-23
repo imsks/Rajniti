@@ -131,9 +131,9 @@ describe("userService.updateUser", () => {
   it("throws generic error when backend omits message", async () => {
     mockFetch.mockResolvedValueOnce(errorResponse({}, 500));
 
-    await expect(userService.updateUser("u1", { name: "Test" })).rejects.toThrow(
-      "Failed to update user",
-    );
+    await expect(
+      userService.updateUser("u1", { name: "Test" }),
+    ).rejects.toThrow("Failed to update user");
   });
 });
 
@@ -287,180 +287,148 @@ it("returns null on fetch exception", async () => {
 // ---------------------------------------------------------------------------
 // addUserPolitician
 // ---------------------------------------------------------------------------
-describe('userService.addUserPolitician', () => {
-    it('calls correct endpoint with POST', async () => {
-        mockFetch.mockResolvedValueOnce(okResponse({ success: true }))
+describe("userService.addUserPolitician", () => {
+  it("calls correct endpoint with POST", async () => {
+    mockFetch.mockResolvedValueOnce(okResponse({ success: true }));
 
-        await userService.addUserPolitician('u1', 'p1', 'MP')
+    await userService.addUserPolitician("u1", "p1", "MP");
 
-        const [url, opts] = mockFetch.mock.calls[0]
+    const [url, opts] = mockFetch.mock.calls[0];
 
-        expect(url).toBe(`${API_BASE}/users/u1/politicians`)
-        expect(opts.method).toBe('POST')
-    })
+    expect(url).toBe(`${API_BASE}/users/u1/politicians`);
+    expect(opts.method).toBe("POST");
+  });
 
-    it('sends politician payload', async () => {
-        mockFetch.mockResolvedValueOnce(okResponse({ success: true }))
+  it("sends politician payload", async () => {
+    mockFetch.mockResolvedValueOnce(okResponse({ success: true }));
 
-        await userService.addUserPolitician('u1', 'p1', 'MLA')
+    await userService.addUserPolitician("u1", "p1", "MLA");
 
-        const body = JSON.parse(mockFetch.mock.calls[0][1].body)
+    const body = JSON.parse(mockFetch.mock.calls[0][1].body);
 
-        expect(body).toEqual({
-            politician_id: 'p1',
-            role: 'MLA',
-        })
-    })
+    expect(body).toEqual({
+      politician_id: "p1",
+      role: "MLA",
+    });
+  });
 
-    it('returns backend response on success', async () => {
-        mockFetch.mockResolvedValueOnce(
-            okResponse({
-                success: true,
-            }),
-        )
+  it("returns backend response on success", async () => {
+    mockFetch.mockResolvedValueOnce(
+      okResponse({
+        success: true,
+      }),
+    );
 
-        const result = await userService.addUserPolitician(
-            'u1',
-            'p1',
-            'MP',
-        )
+    const result = await userService.addUserPolitician("u1", "p1", "MP");
 
-        expect(result).toEqual({ success: true })
-    })
+    expect(result).toEqual({ success: true });
+  });
 
-    it('returns empty object when json parsing fails', async () => {
-        mockFetch.mockResolvedValueOnce({
-            ok: true,
-            status: 200,
-            json: () => Promise.reject(new Error('invalid json')),
-        })
+  it("returns empty object when json parsing fails", async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      json: () => Promise.reject(new Error("invalid json")),
+    });
 
-        const result = await userService.addUserPolitician(
-            'u1',
-            'p1',
-            'MP',
-        )
+    const result = await userService.addUserPolitician("u1", "p1", "MP");
 
-        expect(result).toEqual({})
-    })
+    expect(result).toEqual({});
+  });
 
-    it('returns success fallback when backend returns empty body', async () => {
-        mockFetch.mockResolvedValueOnce({
-            ok: true,
-            status: 200,
-            json: () => Promise.resolve(null),
-        })
+  it("returns success fallback when backend returns empty body", async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      json: () => Promise.resolve(null),
+    });
 
-        const result = await userService.addUserPolitician('u1', 'p1', 'MP')
+    const result = await userService.addUserPolitician("u1", "p1", "MP");
 
-        expect(result).toEqual({ success: true })
-    })
+    expect(result).toEqual({ success: true });
+  });
 
-    it('returns failure on backend error', async () => {
-        mockFetch.mockResolvedValueOnce(
-            errorResponse({ error: 'failed' }, 500),
-        )
+  it("returns failure on backend error", async () => {
+    mockFetch.mockResolvedValueOnce(errorResponse({ error: "failed" }, 500));
 
-        const result = await userService.addUserPolitician(
-            'u1',
-            'p1',
-            'MP',
-        )
+    const result = await userService.addUserPolitician("u1", "p1", "MP");
 
-        expect(result).toEqual({ success: false })
-    })
+    expect(result).toEqual({ success: false });
+  });
 
-    it('returns failure on fetch exception', async () => {
-        mockFetch.mockRejectedValueOnce(new Error('network'))
+  it("returns failure on fetch exception", async () => {
+    mockFetch.mockRejectedValueOnce(new Error("network"));
 
-        const result = await userService.addUserPolitician(
-            'u1',
-            'p1',
-            'MP',
-        )
+    const result = await userService.addUserPolitician("u1", "p1", "MP");
 
-        expect(result).toEqual({ success: false })
-    })
-})
+    expect(result).toEqual({ success: false });
+  });
+});
 
 // ---------------------------------------------------------------------------
 // removeUserPolitician
 // ---------------------------------------------------------------------------
-describe('userService.removeUserPolitician', () => {
-    it('calls correct DELETE endpoint', async () => {
-        mockFetch.mockResolvedValueOnce(okResponse({ success: true }))
+describe("userService.removeUserPolitician", () => {
+  it("calls correct DELETE endpoint", async () => {
+    mockFetch.mockResolvedValueOnce(okResponse({ success: true }));
 
-        await userService.removeUserPolitician('u1', 'p1')
+    await userService.removeUserPolitician("u1", "p1");
 
-        const [url, opts] = mockFetch.mock.calls[0]
+    const [url, opts] = mockFetch.mock.calls[0];
 
-        expect(url).toBe(`${API_BASE}/users/u1/politicians/p1`)
-        expect(opts.method).toBe('DELETE')
-    })
+    expect(url).toBe(`${API_BASE}/users/u1/politicians/p1`);
+    expect(opts.method).toBe("DELETE");
+  });
 
-    it('returns backend response on success', async () => {
-        mockFetch.mockResolvedValueOnce(
-            okResponse({
-                success: true,
-            }),
-        )
+  it("returns backend response on success", async () => {
+    mockFetch.mockResolvedValueOnce(
+      okResponse({
+        success: true,
+      }),
+    );
 
-        const result = await userService.removeUserPolitician(
-            'u1',
-            'p1',
-        )
+    const result = await userService.removeUserPolitician("u1", "p1");
 
-        expect(result).toEqual({ success: true })
-    })
+    expect(result).toEqual({ success: true });
+  });
 
-    it('returns empty object when json parsing fails', async () => {
-        mockFetch.mockResolvedValueOnce({
-            ok: true,
-            status: 200,
-            json: () => Promise.reject(new Error('invalid json')),
-        })
+  it("returns empty object when json parsing fails", async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      json: () => Promise.reject(new Error("invalid json")),
+    });
 
-        const result = await userService.removeUserPolitician(
-            'u1',
-            'p1',
-        )
+    const result = await userService.removeUserPolitician("u1", "p1");
 
-        expect(result).toEqual({})
-    })
+    expect(result).toEqual({});
+  });
 
-    it('returns success fallback when backend returns empty body', async () => {
-        mockFetch.mockResolvedValueOnce({
-            ok: true,
-            status: 200,
-            json: () => Promise.resolve(null),
-        })
+  it("returns success fallback when backend returns empty body", async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      json: () => Promise.resolve(null),
+    });
 
-        const result = await userService.removeUserPolitician('u1', 'p1')
+    const result = await userService.removeUserPolitician("u1", "p1");
 
-        expect(result).toEqual({ success: true })
-    })
+    expect(result).toEqual({ success: true });
+  });
 
-    it('returns failure on backend error', async () => {
-        mockFetch.mockResolvedValueOnce(
-            errorResponse({ error: 'failed' }, 500),
-        )
+  it("returns failure on backend error", async () => {
+    mockFetch.mockResolvedValueOnce(errorResponse({ error: "failed" }, 500));
 
-        const result = await userService.removeUserPolitician(
-            'u1',
-            'p1',
-        )
+    const result = await userService.removeUserPolitician("u1", "p1");
 
-        expect(result).toEqual({ success: false })
-    })
+    expect(result).toEqual({ success: false });
+  });
 
-    it('returns failure on fetch exception', async () => {
-        mockFetch.mockRejectedValueOnce(new Error('network'))
+  it("returns failure on fetch exception", async () => {
+    mockFetch.mockRejectedValueOnce(new Error("network"));
 
-        const result = await userService.removeUserPolitician(
-            'u1',
-            'p1',
-        )
+    const result = await userService.removeUserPolitician("u1", "p1");
 
-        expect(result).toEqual({ success: false })
-    })
-})
+    expect(result).toEqual({ success: false });
+  });
+});

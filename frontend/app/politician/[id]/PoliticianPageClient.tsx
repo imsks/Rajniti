@@ -9,6 +9,9 @@ import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import Image from "@/components/ui/Image"
 import { useAnalytics } from "@/hooks/useAnalytics"
+import { useScrollDepth } from "@/hooks/useScrollDepth"
+import { useSectionTracking } from "@/hooks/useSectionTracking"
+import { useTimeOnPage } from "@/hooks/useTimeOnPage"
 import type { Politician, ElectionRecord, CrimeRecord, FamilyMember, Citation } from "@/types/politician"
 
 // ── Animation Hooks ────────────────────────────────────────────────────────
@@ -149,7 +152,7 @@ function PoliticalHistorySection({
                 {elections.map((e, i) => (
                     <div
                         key={i}
-                        className="election-card flex items-center justify-between bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-700"
+                        className="election-card flex items-center justify-between bg-linear-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-700"
                         style={{ animationDelay: `${i * 80}ms` }}
                     >
                         <div className="flex items-start gap-2 min-w-0">
@@ -164,7 +167,7 @@ function PoliticalHistorySection({
                             <CitationLink
                                 citation={e.citation}
                                 label={`Election ${e.year} ${e.constituency}`}
-                                className="flex-shrink-0 mt-0.5"
+                                className="shrink-0 mt-0.5"
                             />
                         </div>
                         <Badge color={e.status === "WON" ? "green" : "red"}>{e.status}</Badge>
@@ -429,7 +432,7 @@ function ScoreRow({
         >
             {/* Left: icon + label + description */}
             <div className="flex items-center gap-3 min-w-0">
-                <div className={`flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center ${iconBg}`}>
+                <div className={`shrink-0 w-9 h-9 rounded-xl flex items-center justify-center ${iconBg}`}>
                     <Icon size={17} className={iconColor} strokeWidth={2.2} />
                 </div>
                 <div className="min-w-0">
@@ -444,7 +447,7 @@ function ScoreRow({
             </div>
 
             {/* Right: animated flip number */}
-            <span className="ml-6 flex-shrink-0 tabular-nums font-black text-2xl text-gray-900 dark:text-white tracking-tight">
+            <span className="ml-6 shrink-0 tabular-nums font-black text-2xl text-gray-900 dark:text-white tracking-tight">
                 {counted}{suffix}
             </span>
         </div>
@@ -608,6 +611,12 @@ export default function PoliticianPageClient({
     const { slug: routeSlug, uuidShort: routeUuidShort } =
         extractSlugAndOptionalUuid(routeSegment)
 
+    // ── Analytics ──────────────────────────────────────────────────────────
+    const sectionsContainerRef = useRef<HTMLDivElement>(null)
+    useScrollDepth("politician_profile", { politician_id: p.id })
+    useSectionTracking(sectionsContainerRef, { id: p.id, name: p.name })
+    useTimeOnPage("politician_profile", { politician_id: p.id })
+
     useEffect(() => {
         const latestElection = p.political_background?.elections?.[0]
         trackEvent("politician_profile_view", {
@@ -638,6 +647,10 @@ export default function PoliticianPageClient({
     }
 
     const handleReportClick = () => {
+        trackEvent("report_inaccuracy_click", {
+            politician_id: p.id,
+            politician_name: p.name,
+        })
         window.open(buildReportIssueUrl(), "_blank", "noopener,noreferrer")
     }
 
@@ -695,7 +708,7 @@ export default function PoliticianPageClient({
                 <div className="hero-card bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700 mb-6">
                     <div className="flex flex-col md:flex-row gap-6 items-start">
                         {/* Photo */}
-                        <div className="hero-photo flex-shrink-0">
+                        <div className="hero-photo shrink-0">
                             {p.photo ? (
                                 <Image
                                     src={p.photo}
@@ -743,9 +756,9 @@ export default function PoliticianPageClient({
                     </div>
                 </div>
 
-                {/* Sections Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div className="lg:col-span-2">
+                {/* Sections Grid — ref used for IntersectionObserver section tracking */}
+                <div ref={sectionsContainerRef} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div className="lg:col-span-2" data-analytics-section="political_history">
                         <PoliticalHistorySection
                             elections={elections}
                             summary={p.political_background?.summary}
@@ -754,19 +767,21 @@ export default function PoliticianPageClient({
                     </div>
 
                     {/* ── Performance Scorecard ── */}
-                    <PerformanceSection
-                        performance={performance}
-                        rank={rank}
-                        performanceCitations={p.performance_citations}
-                    />
+                    <div data-analytics-section="performance">
+                        <PerformanceSection
+                            performance={performance}
+                            rank={rank}
+                            performanceCitations={p.performance_citations}
+                        />
+                    </div>
 
-                    <EducationSection education={p.education} />
-                    <FamilySection members={p.family_background} />
-                    <CriminalRecordsSection records={p.criminal_records} />
-                    <ContactSection politician={p} />
+                    <div data-analytics-section="education"><EducationSection education={p.education} /></div>
+                    <div data-analytics-section="family"><FamilySection members={p.family_background} /></div>
+                    <div data-analytics-section="criminal_records"><CriminalRecordsSection records={p.criminal_records} /></div>
+                    <div data-analytics-section="contact"><ContactSection politician={p} /></div>
 
                     {/* Know More About Cards */}
-                    <div className="lg:col-span-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 mb-4 shadow-sm transition hover:shadow-md">
+                    <div data-analytics-section="contribute_cta" className="lg:col-span-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 mb-4 shadow-sm transition hover:shadow-md">
                         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                             <div>
                                 <Text variant="h4" weight="bold" className="text-gray-900 dark:text-white">
@@ -802,7 +817,7 @@ export default function PoliticianPageClient({
                                 </div>
                             </div>
 
-                            <div className="group flex flex-col rounded-2xl mt-6 bg-gradient-to-r from-orange-500 to-orange-600 p-3 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(249,115,22,0.28)]">
+                            <div className="group flex flex-col rounded-2xl mt-6 bg-linear-to-r from-orange-500 to-orange-600 p-3 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(249,115,22,0.28)]">
                                 <div className="flex items-center gap-2">
                                     <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-white/20 text-white">
                                         <UserPlus size={16} />

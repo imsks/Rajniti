@@ -27,3 +27,17 @@ export function event<E extends AnalyticsEvent>(
   if (!isGAEnabled()) return
   window.gtag("event", name, params)
 }
+
+/**
+ * Same as `event()` but forces beacon transport.
+ * Use this inside `pagehide` / `beforeunload` handlers where the browser may
+ * kill regular fetch-based requests before they complete.
+ * GA4 internally calls `navigator.sendBeacon()` when transport_type is 'beacon'.
+ */
+export function beaconEvent<E extends AnalyticsEvent>(
+  name: E,
+  params: AnalyticsEventMap[E]
+) {
+  if (!isGAEnabled()) return
+  window.gtag("event", name, { ...params, transport_type: "beacon" })
+}
