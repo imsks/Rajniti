@@ -163,7 +163,7 @@ class TestCoreDatabaseInitDb:
 
     def test_returns_false_when_no_database_url(self):
         """init_db returns False when DATABASE_URL is empty."""
-        import app.core.database as core_db
+        import app.database as core_db
 
         with patch("app.core.database.get_database_url", return_value=""):
             result = core_db.init_db()
@@ -171,7 +171,7 @@ class TestCoreDatabaseInitDb:
 
     def test_returns_true_on_success(self):
         """init_db returns True when connection and table creation succeed."""
-        import app.core.database as core_db
+        import app.database as core_db
 
         mock_engine = MagicMock()
         mock_conn = MagicMock()
@@ -199,7 +199,7 @@ class TestCoreDatabaseInitDb:
         """init_db returns False when engine.connect raises."""
         from sqlalchemy.exc import SQLAlchemyError
 
-        import app.core.database as core_db
+        import app.database as core_db
 
         mock_engine = MagicMock()
         mock_engine.connect.side_effect = SQLAlchemyError("connection failed")
@@ -224,7 +224,7 @@ class TestCheckDbHealth:
 
     def test_returns_false_when_engine_none(self):
         """check_db_health returns False when engine is None."""
-        import app.core.database as core_db
+        import app.database as core_db
 
         with patch("app.database.session.engine", None):
             result = core_db.check_db_health()
@@ -232,7 +232,7 @@ class TestCheckDbHealth:
 
     def test_returns_true_when_healthy(self):
         """check_db_health returns True when connection succeeds."""
-        import app.core.database as core_db
+        import app.database as core_db
 
         mock_engine = MagicMock()
         mock_conn = MagicMock()
@@ -248,7 +248,7 @@ class TestCheckDbHealth:
         """check_db_health returns False when connect raises SQLAlchemyError."""
         from sqlalchemy.exc import SQLAlchemyError
 
-        import app.core.database as core_db
+        import app.database as core_db
 
         mock_engine = MagicMock()
         mock_engine.connect.side_effect = SQLAlchemyError("connection failed")
