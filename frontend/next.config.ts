@@ -34,22 +34,47 @@ const nextConfig: NextConfig = {
         ]
     },
 
-    // Image optimization
+    // Image optimization — allowlist known politician photo hosts (ECI)
     images: {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "*",
-                pathname: "/**"
+                hostname: "results.eci.gov.in",
+                pathname: "/**",
             },
-        ]
-        // Vercel handles image optimization automatically
+            {
+                protocol: "https",
+                hostname: "eci.gov.in",
+                pathname: "/**",
+            },
+            {
+                protocol: "https",
+                hostname: "avatars.githubusercontent.com",
+                pathname: "/**",
+            },
+        ],
+        // Limit generated srcset sizes to reduce unused variants
+        deviceSizes: [640, 750, 828, 1080, 1200],
+        imageSizes: [16, 32, 48, 64, 96, 128, 256],
+        formats: ["image/avif", "image/webp"],
     },
 
     // Disable scroll restoration
     experimental: {
-        scrollRestoration: false
-    }
+        scrollRestoration: false,
+        optimizePackageImports: ["lucide-react", "framer-motion"],
+    },
 }
 
-export default nextConfig
+// Wrap with bundle analyzer when ANALYZE=true (npm run analyze)
+let config: NextConfig = nextConfig
+try {
+    if (process.env.ANALYZE === "true") {
+        const withBundleAnalyzer = require("@next/bundle-analyzer")({ enabled: true })
+        config = withBundleAnalyzer(config)
+    }
+} catch {
+    // @next/bundle-analyzer not installed — skip
+}
+
+export default config

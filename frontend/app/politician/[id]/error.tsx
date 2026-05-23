@@ -18,7 +18,7 @@ export default function PoliticianProfileError({
 
     return (
         <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
-            <Navbar variant="dashboard" sticky />
+            <Navbar sticky />
             <div className="mx-auto max-w-lg px-4 py-24 text-center">
                 <Text variant="h2" weight="bold" className="text-gray-900 dark:text-white mb-3">
                     Could not load this profile

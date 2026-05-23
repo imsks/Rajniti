@@ -26,7 +26,7 @@ describe('UserButton', () => {
     expect(signIn).toHaveBeenCalled()
   })
 
-  it('opens menu and navigates to dashboard from Dashboard link', () => {
+  it('opens menu with profile links and navigates to dashboard', () => {
     mockUseSession.mockReturnValue({
       data: { user: { name: 'Sachin Shukla', image: '/avatar.png' } },
       status: 'authenticated',
@@ -35,11 +35,19 @@ describe('UserButton', () => {
     render(<UserButton />)
     fireEvent.click(screen.getByRole('button', { name: /Sachin/i }))
 
-    const dashboardLink = screen.getByRole('link', { name: 'Dashboard' })
+    expect(screen.getByRole('menuitem', { name: 'Politicians' })).toHaveAttribute(
+      'href',
+      '/politicians',
+    )
+    const dashboardLink = screen.getByRole('menuitem', { name: 'Dashboard' })
     expect(dashboardLink).toHaveAttribute('href', '/dashboard')
+    expect(screen.getByRole('menuitem', { name: 'Join Community' })).toHaveAttribute(
+      'href',
+      'https://chat.whatsapp.com/IceA98FSHHuDmXOwv8WH7v',
+    )
 
     fireEvent.click(dashboardLink)
-    expect(screen.queryByRole('link', { name: 'Dashboard' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('menuitem', { name: 'Dashboard' })).not.toBeInTheDocument()
   })
 
   it('calls signOut when Sign Out is clicked', () => {
@@ -50,7 +58,7 @@ describe('UserButton', () => {
 
     render(<UserButton />)
     fireEvent.click(screen.getByRole('button', { name: /Sachin/i }))
-    fireEvent.click(screen.getByRole('button', { name: 'Sign Out' }))
+    fireEvent.click(screen.getByRole('menuitem', { name: 'Sign Out' }))
 
     expect(signOut).toHaveBeenCalledWith({ callbackUrl: '/' })
   })

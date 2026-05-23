@@ -2,6 +2,7 @@
 
 import NextImage, { ImageProps as NextImageProps } from "next/image"
 import { useState } from "react"
+import { shouldUseUnoptimizedImage } from "@/lib/images/optimize-external"
 
 interface ImageProps extends NextImageProps {
     fallbackSrc?: string
@@ -15,6 +16,8 @@ export default function Image({
     fallbackSrc = "/default-avatar.png",
     rounded = "none",
     unoptimized,
+    loading,
+    priority,
     ...props
 }: ImageProps) {
     const [error, setError] = useState(false)
@@ -27,15 +30,19 @@ export default function Image({
         full: "rounded-full"
     }
 
-    const isExternal =
-        typeof src === "string" && src.startsWith("http")
+    const resolvedSrc = error ? fallbackSrc : src
+    const resolvedUnoptimized =
+        typeof resolvedSrc === "string"
+            ? shouldUseUnoptimizedImage(resolvedSrc, unoptimized)
+            : (unoptimized ?? false)
 
     return (
         <NextImage
-            src={error ? fallbackSrc : src}
+            src={resolvedSrc}
             alt={alt}
-            loading='lazy'
-            unoptimized={unoptimized ?? isExternal}
+            priority={priority}
+            loading={priority ? undefined : (loading ?? "lazy")}
+            unoptimized={resolvedUnoptimized}
             className={`${roundedStyles[rounded]} ${className}`}
             onError={() => setError(true)}
             {...props}

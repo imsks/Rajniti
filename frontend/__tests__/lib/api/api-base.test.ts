@@ -14,14 +14,23 @@ describe('getApiBaseUrl', () => {
         process.env = originalEnv
     })
 
-    it('prefers API_URL on the server', async () => {
+    it('uses Next proxy on server when NEXT_PUBLIC is localhost (Docker)', async () => {
         process.env.API_URL = 'http://rajniti-api:8000/api/v1'
         process.env.NEXT_PUBLIC_API_URL = 'http://localhost:8000/api/v1'
+        process.env.PORT = '3000'
+        const { getApiBaseUrl } = await import('@/lib/api/api-base')
+        expect(getApiBaseUrl({ forServer: true })).toBe('http://127.0.0.1:3000/api/v1')
+    })
+
+    it('prefers API_URL on server when NEXT_PUBLIC is a production host', async () => {
+        process.env.API_URL = 'http://rajniti-api:8000/api/v1'
+        process.env.NEXT_PUBLIC_API_URL = 'https://api.rajniti.example.com/api/v1'
         const { getApiBaseUrl } = await import('@/lib/api/api-base')
         expect(getApiBaseUrl({ forServer: true })).toBe('http://rajniti-api:8000/api/v1')
     })
 
     it('strips trailing slash from server URL', async () => {
+        delete process.env.NEXT_PUBLIC_API_URL
         process.env.API_URL = 'http://rajniti-api:8000/api/v1/'
         const { getApiBaseUrl } = await import('@/lib/api/api-base')
         expect(getApiBaseUrl({ forServer: true })).toBe('http://rajniti-api:8000/api/v1')

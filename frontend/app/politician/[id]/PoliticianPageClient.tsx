@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import NextImage from "next/image"
 import { AlertTriangle, BarChart2, CalendarCheck, HelpCircle, MessageSquare, Trophy, UserPlus } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { CitationLink } from "@/components/CitationLink"
@@ -9,9 +10,8 @@ import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import Image from "@/components/ui/Image"
 import { useAnalytics } from "@/hooks/useAnalytics"
-import { useScrollDepth } from "@/hooks/useScrollDepth"
-import { useSectionTracking } from "@/hooks/useSectionTracking"
-import { useTimeOnPage } from "@/hooks/useTimeOnPage"
+import { useDeferredMount } from "@/hooks/useDeferredMount"
+import PoliticianPageAnalytics from "./PoliticianPageAnalytics"
 import type { Politician, ElectionRecord, CrimeRecord, FamilyMember, Citation } from "@/types/politician"
 
 // ── Animation Hooks ────────────────────────────────────────────────────────
@@ -77,7 +77,7 @@ function Section({
             }}
         >
             <div className="flex items-center gap-3 mb-4">
-                <img src={icon} alt={title} className="w-6 h-6 object-contain" />
+                <NextImage src={icon} alt={title} width={24} height={24} className="w-6 h-6 object-contain" />
                 <Text variant="h4" weight="bold" className="text-gray-900 dark:text-white">
                     {title}
                 </Text>
@@ -311,21 +311,21 @@ function ContactSection({ politician }: { politician: Politician }) {
             <div className="grid gap-3">
                 {contact?.email && (
                     <div className="flex items-center gap-2">
-                        <img src="/logo/location.png" alt="Email" className="w-4 h-4" />
+                        <NextImage src="/logo/location.png" alt="Email" width={16} height={16} className="w-4 h-4" />
                         <Text variant="body" className="text-gray-700 dark:text-gray-300">{contact.email}</Text>
                         <CitationLink citation={contact_citations?.email} label="Email" />
                     </div>
                 )}
                 {contact?.phone && (
                     <div className="flex items-center gap-2">
-                        <img src="/logo/location.png" alt="Phone" className="w-4 h-4" />
+                        <NextImage src="/logo/location.png" alt="Phone" width={16} height={16} className="w-4 h-4" />
                         <Text variant="body" className="text-gray-700 dark:text-gray-300">{contact.phone}</Text>
                         <CitationLink citation={contact_citations?.phone} label="Phone" />
                     </div>
                 )}
                 {contact?.address && (
                     <div className="flex items-center gap-2">
-                        <img src="/logo/location.png" alt="Address" className="w-4 h-4" />
+                        <NextImage src="/logo/location.png" alt="Address" width={16} height={16} className="w-4 h-4" />
                         <Text variant="body" className="text-gray-700 dark:text-gray-300">{contact.address}</Text>
                         <CitationLink citation={contact_citations?.address} label="Address" />
                     </div>
@@ -381,7 +381,7 @@ function ContactSection({ politician }: { politician: Politician }) {
                             <span className="inline-flex items-center gap-1">
                                 <a href={social_media.website} target="_blank" rel="noopener noreferrer"
                                     className="text-green-600 dark:text-green-400 hover:underline text-sm flex items-center gap-1">
-                                    <img src="/logo/location.png" alt="Website" className="w-3 h-3" />
+                                    <NextImage src="/logo/location.png" alt="Website" width={12} height={12} className="w-3 h-3" />
                                     Website
                                 </a>
                                 <CitationLink citation={social_media_citations?.website} label="Website" />
@@ -608,28 +608,11 @@ export default function PoliticianPageClient({
 }: PoliticianPageClientProps) {
     const router = useRouter()
     const { trackEvent } = useAnalytics()
+    const analyticsReady = useDeferredMount()
     const { slug: routeSlug, uuidShort: routeUuidShort } =
         extractSlugAndOptionalUuid(routeSegment)
 
-    // ── Analytics ──────────────────────────────────────────────────────────
     const sectionsContainerRef = useRef<HTMLDivElement>(null)
-    useScrollDepth("politician_profile", { politician_id: p.id })
-    useSectionTracking(sectionsContainerRef, { id: p.id, name: p.name })
-    useTimeOnPage("politician_profile", { politician_id: p.id })
-
-    useEffect(() => {
-        const latestElection = p.political_background?.elections?.[0]
-        trackEvent("politician_profile_view", {
-            politician_id: p.id,
-            politician_name: p.name,
-            politician_type: p.type as "MP" | "MLA",
-            party: latestElection?.party ?? "—",
-            state: p.state,
-            constituency: p.constituency,
-            route_slug: routeSlug,
-            route_uuid_short: routeUuidShort,
-        })
-    }, [p, trackEvent, routeSlug, routeUuidShort])
     const performance = p.performance || { attendance: 0, questions: 0, debates: 0 }
     const score = performance.attendance + performance.questions + performance.debates
     const rank = Math.floor(543 - score / 10)
@@ -656,6 +639,14 @@ export default function PoliticianPageClient({
 
     return (
         <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+            {analyticsReady && (
+                <PoliticianPageAnalytics
+                    politician={p}
+                    sectionsContainerRef={sectionsContainerRef}
+                    routeSlug={routeSlug}
+                    routeUuidShort={routeUuidShort}
+                />
+            )}
             <style>{`
                 @keyframes fadeSlideUp {
                     0%  { opacity: 0; transform: translateY(24px); }
@@ -694,7 +685,7 @@ export default function PoliticianPageClient({
                 }
             `}</style>
 
-            <Navbar variant="dashboard" sticky={true} />
+            <Navbar sticky />
 
             <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
                 {/* Back */}
@@ -715,11 +706,14 @@ export default function PoliticianPageClient({
                                     alt={p.name}
                                     width={128}
                                     height={128}
+                                    priority
+                                    quality={75}
+                                    sizes="128px"
                                     className="w-32 h-32 rounded-2xl object-cover border-4 border-orange-200 dark:border-orange-800"
                                 />
                             ) : (
                                 <div className="w-32 h-32 rounded-2xl bg-linear-to-br from-orange-100 to-orange-200 dark:from-orange-900/40 dark:to-orange-800/40 flex items-center justify-center flex-shrink-0 border-4 border-orange-200 dark:border-orange-800">
-                                    <img src="/logo/Parliament.png" alt="Politician" className="w-16 h-16 object-contain" />
+                                    <NextImage src="/logo/Parliament.png" alt="Politician" width={64} height={64} className="w-16 h-16 object-contain" />
                                 </div>
                             )}
                         </div>
@@ -734,19 +728,19 @@ export default function PoliticianPageClient({
 
                             <div className="space-y-1.5">
                                 <div className="flex items-center gap-2 hero-info-1">
-                                    <img src="/logo/Parliament.png" alt="Party" className="w-4 h-4 object-contain opacity-60" />
+                                    <NextImage src="/logo/Parliament.png" alt="Party" width={16} height={16} className="w-4 h-4 object-contain opacity-60" />
                                     <Text variant="body" className="text-gray-700 dark:text-gray-300">
                                         <span className="font-semibold">Party:</span> {party}
                                     </Text>
                                 </div>
                                 <div className="flex items-center gap-2 hero-info-2">
-                                    <img src="/logo/Assembly.png" alt="Constituency" className="w-4 h-4 object-contain opacity-60" />
+                                    <NextImage src="/logo/Assembly.png" alt="Constituency" width={16} height={16} className="w-4 h-4 object-contain opacity-60" />
                                     <Text variant="body" className="text-gray-700 dark:text-gray-300">
                                         <span className="font-semibold">Constituency:</span> {p.constituency}
                                     </Text>
                                 </div>
                                 <div className="flex items-center gap-2 hero-info-3">
-                                    <img src="/logo/location.png" alt="State" className="w-4 h-4 object-contain opacity-60" />
+                                    <NextImage src="/logo/location.png" alt="State" width={16} height={16} className="w-4 h-4 object-contain opacity-60" />
                                     <Text variant="body" className="text-gray-700 dark:text-gray-300">
                                         <span className="font-semibold">State:</span> {p.state}
                                     </Text>
