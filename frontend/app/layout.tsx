@@ -3,6 +3,7 @@ import { Lora, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import AuthProvider from "@/components/auth/AuthProvider";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import AnalyticsPageViewTracker from "@/components/analytics/AnalyticsPageViewTracker";
 import ThemeProvider from "@/components/providers/ThemeProvider";
 import {
     buildDefaultOg,
@@ -84,6 +85,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <GoogleAnalytics />
+        <AnalyticsPageViewTracker />
         <AuthProvider>
           <ThemeProvider>
             {children}
