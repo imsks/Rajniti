@@ -30,25 +30,18 @@ def _edu_politician(n_cited: int, n_slots: int, pid: str = "p1") -> dict:
     cite = {"link": "https://example.com/x", "source": "NEWS"}
 
     rows = []
-
     for i in range(n_slots):
         rows.append({"citation": cite} if i < n_cited else {})
-
     return {
         "id": pid,
         "name": "Test Person",
         "education": rows,
-        "political_background": {
-            "elections": [],
-            "summary": None,
-        },
+        "political_background": {"elections": [], "summary": None},
     }
 
 
 def test_skip_llm_when_coverage_at_threshold() -> None:
-
     pol = _edu_politician(10, 25)
-
     agent = CitationAgent()
 
     with patch.object(agent, "_gather_politician_context") as g:
@@ -61,22 +54,17 @@ def test_skip_llm_when_coverage_at_threshold() -> None:
             )
 
     assert result["ok"] is True
-
     assert result.get("skipped") is True
 
     assert result.get("reason") == "citation_coverage_at_or_above_threshold"
 
     assert "coverage_pct" in result
-
     g.assert_not_called()
-
     llm.assert_not_called()
 
 
 def test_force_bypasses_coverage_gate() -> None:
-
     pol = _edu_politician(10, 25)
-
     agent = CitationAgent()
 
     agent.politician_service = MagicMock(update_politician=MagicMock(return_value=True))
@@ -104,9 +92,7 @@ def test_force_bypasses_coverage_gate() -> None:
 
 
 def test_below_threshold_invokes_llm() -> None:
-
     pol = _edu_politician(9, 25)
-
     agent = CitationAgent()
 
     agent.politician_service = MagicMock(update_politician=MagicMock(return_value=True))
@@ -129,15 +115,12 @@ def test_below_threshold_invokes_llm() -> None:
             )
 
     assert result.get("ok") is True
-
     llm.assert_called_once()
 
 
 def test_reraise_llm_quota_when_flag_true() -> None:
     """Schedule mode relies on quota exceptions bubbling to resume after sleep."""
-
     pol = _edu_politician(9, 25)
-
     agent = CitationAgent()
 
     exc = RuntimeError("429 insufficient_quota")
@@ -155,50 +138,25 @@ def test_reraise_llm_quota_when_flag_true() -> None:
         ):
 
             try:
-
-                agent._run_for_politician(
-                    pol,
-                    force=False,
-                    reraise_llm_quota=True,
-                )
-
+                agent._run_for_politician(pol, force=False, reraise_llm_quota=True)
             except RuntimeError as e:
-
                 assert e is exc
-
                 return
-
     raise AssertionError("expected reraised quota exception")
 
 
 def test_batch_passes_force_through_to_fully_cited() -> None:
-
-    cite = {
-        "link": "https://example.com/x",
-        "source": "NEWS",
-    }
-
+    cite = {"link": "https://example.com/x", "source": "NEWS"}
     fully = {
         "id": "done1",
         "name": "Fully Cited",
-        "education": [
-            {
-                "qualification": "B",
-                "citation": cite,
-            }
-        ],
-        "political_background": {
-            "elections": [],
-            "summary": None,
-        },
+        "education": [{"qualification": "B", "citation": cite}],
+        "political_background": {"elections": [], "summary": None},
     }
-
     svc = MagicMock()
-
     svc.get_all_politicians.return_value = [fully]
 
     agent = CitationAgent()
-
     agent.politician_service = svc
 
     with patch.object(
@@ -216,9 +174,7 @@ def test_batch_passes_force_through_to_fully_cited() -> None:
             summary = agent._run_all(force=False)
 
     assert summary["skipped"] == 1
-
     assert summary["processed"] == 0
-
     llm.assert_not_called()
 
     with patch.object(
@@ -236,26 +192,17 @@ def test_batch_passes_force_through_to_fully_cited() -> None:
             summary = agent._run_all(force=True)
 
     assert summary["processed"] == 0
-
-    assert summary["skipped"] == 1
-
+    assert summary["skipped"] == 1  # no_updates_from_llm or similar
     llm.assert_called_once()
 
 
 def test_batch_classifies_internal_skips_separately() -> None:
-
-    pol = _edu_politician(
-        10,
-        25,
-        pid="gap1",
-    )
-
+    pol = _edu_politician(10, 25, pid="gap1")
     svc = MagicMock()
 
     svc.get_all_politicians.return_value = [pol]
 
     agent = CitationAgent()
-
     agent.politician_service = svc
 
     summary = agent._run_all(force=False)
