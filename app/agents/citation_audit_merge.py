@@ -143,9 +143,7 @@ def _collect_politician_citation_gaps(politician: Dict[str, Any]) -> Dict[str, A
         pc = politician.get("performance_citations") or {}
         if any(perf.get(k) not in (None, 0, "") for k in _PERF_KEYS):
             pk = sorted(
-                k
-                for k in _PERF_KEYS
-                if perf.get(k) is not None and k not in pc
+                k for k in _PERF_KEYS if perf.get(k) is not None and k not in pc
             )
             if pk:
                 gaps["performance_keys"] = pk

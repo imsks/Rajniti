@@ -111,6 +111,7 @@ addUserPolitician: async (userId: string, politicianId: string, role: string) =>
         })
 
         // 🔥 handle empty response safely
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let data: any = {}
         try {
             data = await response.json()
@@ -118,7 +119,7 @@ addUserPolitician: async (userId: string, politicianId: string, role: string) =>
             data = {}
         }
 
-        console.log("ADD RESPONSE:", response.status, data)
+        console.warn("ADD RESPONSE:", response.status, data)
 
         // ❗ don't break UI even if backend sends {}
         if (!response.ok) {
@@ -144,6 +145,7 @@ removeUserPolitician: async (userId: string, politicianId: string) => {
         })
 
         // 🔥 handle empty response safely
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let data: any = {}
         try {
             data = await response.json()
@@ -151,7 +153,7 @@ removeUserPolitician: async (userId: string, politicianId: string) => {
             data = {}
         }
 
-        console.log("DELETE RESPONSE:", response.status, data)
+        console.warn("DELETE RESPONSE:", response.status, data)
 
         // ❗ don't crash UI
         if (!response.ok) {

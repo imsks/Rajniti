@@ -324,7 +324,9 @@ class TestUserPoliticians:
         mock_service = MagicMock()
         mock_service.add_user_politician.return_value = {"success": True}
 
-        with patch("app.routes.user_routes.get_user_service", return_value=mock_service):
+        with patch(
+            "app.routes.user_routes.get_user_service", return_value=mock_service
+        ):
             response = client.post(
                 "/api/v1/users/user-1/politicians",
                 json={"politician_id": "pol-1", "role": "MP"},
@@ -338,7 +340,9 @@ class TestUserPoliticians:
         mock_service = MagicMock()
         mock_service.add_user_politician.return_value = None
 
-        with patch("app.routes.user_routes.get_user_service", return_value=mock_service):
+        with patch(
+            "app.routes.user_routes.get_user_service", return_value=mock_service
+        ):
             response = client.post(
                 "/api/v1/users/user-1/politicians",
                 json={"politician_id": "pol-1", "role": "MP"},
@@ -354,7 +358,9 @@ class TestUserPoliticians:
             {"user_id": "user-1", "politician_id": "pol-1", "role": "MP"}
         ]
 
-        with patch("app.routes.user_routes.get_user_service", return_value=mock_service):
+        with patch(
+            "app.routes.user_routes.get_user_service", return_value=mock_service
+        ):
             response = client.get("/api/v1/users/user-1/politicians")
 
         assert response.status_code == 200
@@ -366,7 +372,9 @@ class TestUserPoliticians:
         mock_service = MagicMock()
         mock_service.remove_user_politician.return_value = {"deleted": True}
 
-        with patch("app.routes.user_routes.get_user_service", return_value=mock_service):
+        with patch(
+            "app.routes.user_routes.get_user_service", return_value=mock_service
+        ):
             response = client.delete("/api/v1/users/user-1/politicians/pol-1")
 
         assert response.status_code == 200

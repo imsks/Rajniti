@@ -25,9 +25,7 @@ logger = logging.getLogger(__name__)
 
 def _is_llm_quota_exc(exc: BaseException) -> bool:
     msg = str(exc).lower()
-    if "freetierllm" in msg and (
-        "all candidates" in msg or "skipped or failed" in msg
-    ):
+    if "freetierllm" in msg and ("all candidates" in msg or "skipped or failed" in msg):
         return True
     if "resource exhausted" in msg:
         return True
@@ -61,9 +59,7 @@ class PoliticianEducation:
             return True
         if not edu:
             return False
-        return any(
-            not (isinstance(x, dict) and x.get("citation")) for x in edu
-        )
+        return any(not (isinstance(x, dict) and x.get("citation")) for x in edu)
 
     @log(logger, "PoliticianEducation.run")
     def run(
@@ -142,9 +138,7 @@ class PoliticianPoliticalBackground:
         elections = pb.get("elections") or []
         if not elections:
             return True
-        if any(
-            not (isinstance(e, dict) and e.get("citation")) for e in elections
-        ):
+        if any(not (isinstance(e, dict) and e.get("citation")) for e in elections):
             return True
         if (pb.get("summary") or "").strip() and not pb.get("summary_citation"):
             return True
@@ -242,9 +236,7 @@ class PoliticianPoliticalBackground:
             sc_ad = TypeAdapter(Citation | None)
             sc_val, sc_err = self.base._validate_with_adapter(sc_raw, sc_ad)
             if not sc_err and sc_val is not None:
-                partial_updates["summary_citation"] = sc_val.model_dump(
-                    mode="json"
-                )
+                partial_updates["summary_citation"] = sc_val.model_dump(mode="json")
 
         if partial_updates["elections"] or partial_updates["summary"] is not None:
             updates["political_background"] = partial_updates
@@ -455,9 +447,7 @@ class PoliticianFamilyBackground:
             return True
         if not fam:
             return False
-        return any(
-            not (isinstance(x, dict) and x.get("citation")) for x in fam
-        )
+        return any(not (isinstance(x, dict) and x.get("citation")) for x in fam)
 
     @log(logger, "PoliticianFamilyBackground.run")
     def run(
@@ -539,9 +529,7 @@ class PoliticianCriminalRecords:
             return True
         if not cr:
             return False
-        return any(
-            not (isinstance(x, dict) and x.get("citation")) for x in cr
-        )
+        return any(not (isinstance(x, dict) and x.get("citation")) for x in cr)
 
     @log(logger, "PoliticianCriminalRecords.run")
     def run(
@@ -953,7 +941,9 @@ class PoliticianAgent(BaseAgent):
                     context=politician_id,
                     exc=exc,
                 )
-                process_results.append({"process": pname, "ok": False, "error": str(exc)})
+                process_results.append(
+                    {"process": pname, "ok": False, "error": str(exc)}
+                )
                 logger.info(
                     "PoliticianAgent DONE process=%s id=%s ok=False error=%s",
                     pname,

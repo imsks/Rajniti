@@ -2,11 +2,15 @@
 
 from unittest.mock import MagicMock, patch
 
+# IMPORTANT:
+# Mock hardcoded LLM init before CitationAgent gets instantiated.
 _llm_patcher = patch(
     "app.agents.base_agent.get_agent_llm",
     return_value=MagicMock(),
 )
 _llm_patcher.start()
+
+from app.agents.citation_agent import CitationAgent
 
 from app.agents.citation_agent import CitationAgent  # noqa: E402
 
@@ -22,15 +26,13 @@ def _edu_politician(
         "source": "NEWS",
     }
 
+def _edu_politician(n_cited: int, n_slots: int, pid: str = "p1") -> dict:
+    cite = {"link": "https://example.com/x", "source": "NEWS"}
+
     rows = []
 
     for i in range(n_slots):
-
-        rows.append(
-            {"citation": cite}
-            if i < n_cited
-            else {}
-        )
+        rows.append({"citation": cite} if i < n_cited else {})
 
     return {
         "id": pid,
@@ -49,15 +51,9 @@ def test_skip_llm_when_coverage_at_threshold() -> None:
 
     agent = CitationAgent()
 
-    with patch.object(
-        agent,
-        "_gather_politician_context",
-    ) as g:
+    with patch.object(agent, "_gather_politician_context") as g:
 
-        with patch.object(
-            agent,
-            "_run_llm_with_context",
-        ) as llm:
+        with patch.object(agent, "_run_llm_with_context") as llm:
 
             result = agent._run_for_politician(
                 pol,
@@ -68,10 +64,7 @@ def test_skip_llm_when_coverage_at_threshold() -> None:
 
     assert result.get("skipped") is True
 
-    assert (
-        result.get("reason")
-        == "citation_coverage_at_or_above_threshold"
-    )
+    assert result.get("reason") == "citation_coverage_at_or_above_threshold"
 
     assert "coverage_pct" in result
 
@@ -86,11 +79,7 @@ def test_force_bypasses_coverage_gate() -> None:
 
     agent = CitationAgent()
 
-    agent.politician_service = MagicMock(
-        update_politician=MagicMock(
-            return_value=True
-        )
-    )
+    agent.politician_service = MagicMock(update_politician=MagicMock(return_value=True))
 
     with patch.object(
         agent,
@@ -109,16 +98,9 @@ def test_force_bypasses_coverage_gate() -> None:
                 force=True,
             )
 
-    assert (
-        result.get("reason")
-        != "citation_coverage_at_or_above_threshold"
-    )
+    assert result.get("reason") != "citation_coverage_at_or_above_threshold"
 
-    (
-        agent.politician_service
-        .update_politician
-        .assert_not_called()
-    )
+    agent.politician_service.update_politician.assert_not_called()
 
 
 def test_below_threshold_invokes_llm() -> None:
@@ -127,11 +109,7 @@ def test_below_threshold_invokes_llm() -> None:
 
     agent = CitationAgent()
 
-    agent.politician_service = MagicMock(
-        update_politician=MagicMock(
-            return_value=True
-        )
-    )
+    agent.politician_service = MagicMock(update_politician=MagicMock(return_value=True))
 
     with patch.object(
         agent,
@@ -162,9 +140,7 @@ def test_reraise_llm_quota_when_flag_true() -> None:
 
     agent = CitationAgent()
 
-    exc = RuntimeError(
-        "429 insufficient_quota"
-    )
+    exc = RuntimeError("429 insufficient_quota")
 
     with patch.object(
         agent,
@@ -192,9 +168,7 @@ def test_reraise_llm_quota_when_flag_true() -> None:
 
                 return
 
-    raise AssertionError(
-        "expected reraised quota exception"
-    )
+    raise AssertionError("expected reraised quota exception")
 
 
 def test_batch_passes_force_through_to_fully_cited() -> None:
@@ -221,9 +195,7 @@ def test_batch_passes_force_through_to_fully_cited() -> None:
 
     svc = MagicMock()
 
-    svc.get_all_politicians.return_value = [
-        fully
-    ]
+    svc.get_all_politicians.return_value = [fully]
 
     agent = CitationAgent()
 
@@ -241,9 +213,7 @@ def test_batch_passes_force_through_to_fully_cited() -> None:
             return_value="{}",
         ) as llm:
 
-            summary = agent._run_all(
-                force=False
-            )
+            summary = agent._run_all(force=False)
 
     assert summary["skipped"] == 1
 
@@ -263,9 +233,7 @@ def test_batch_passes_force_through_to_fully_cited() -> None:
             return_value="{}",
         ) as llm:
 
-            summary = agent._run_all(
-                force=True
-            )
+            summary = agent._run_all(force=True)
 
     assert summary["processed"] == 0
 
@@ -284,17 +252,13 @@ def test_batch_classifies_internal_skips_separately() -> None:
 
     svc = MagicMock()
 
-    svc.get_all_politicians.return_value = [
-        pol
-    ]
+    svc.get_all_politicians.return_value = [pol]
 
     agent = CitationAgent()
 
     agent.politician_service = svc
 
-    summary = agent._run_all(
-        force=False
-    )
+    summary = agent._run_all(force=False)
 
     assert summary["skipped"] == 1
 

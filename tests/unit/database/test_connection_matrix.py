@@ -17,7 +17,6 @@ Each row is tested for:
 """
 
 import importlib
-import sys
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -701,7 +700,6 @@ class TestAlembicEnv:
 
     def test_alembic_env_uses_create_engine_not_engine_from_config(self):
         """alembic/env.py must use create_engine directly."""
-        import ast
         from pathlib import Path
 
         env_path = Path(__file__).resolve().parents[3] / "alembic" / "env.py"

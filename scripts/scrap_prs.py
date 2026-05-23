@@ -83,7 +83,8 @@ for page in range(1, 60):
             print("Scraping:", link)
             mp = scrape_mp(link)
             all_mps.append(mp)
-        except:
+        except Exception as e:
+            print(f"Error scraping {link}: {e}")
             continue
 
         time.sleep(0.5)

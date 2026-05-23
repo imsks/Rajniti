@@ -1,49 +1,68 @@
-'use client'
+"use client";
 
-import { signIn } from 'next-auth/react'
-import { useSearchParams } from 'next/navigation'
-import { Suspense } from 'react'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import { useAnalytics } from '@/hooks/useAnalytics'
+import { signIn } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { useAnalytics } from "@/hooks/useAnalytics";
+import Image from "next/image";
 
 function SignInContent() {
-  const searchParams = useSearchParams()
-  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard'
-  const { trackEvent } = useAnalytics()
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
+  const { trackEvent } = useAnalytics();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 flex items-center justify-center p-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="max-w-md w-full">
+        className="max-w-md w-full"
+      >
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-white rounded-2xl shadow-xl p-8 border border-orange-100">
+          className="bg-white rounded-2xl shadow-xl p-8 border border-orange-100"
+        >
           <div className="text-center mb-8">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.3, type: "spring", stiffness: 200 }}
-              className="flex justify-center mb-4">
-              <div className="text-5xl"><img src="/logo/voting-box.png" alt="Rajniti Logo" className='w-9 h-9' /></div>
+              transition={{
+                duration: 0.5,
+                delay: 0.3,
+                type: "spring",
+                stiffness: 200,
+              }}
+              className="flex justify-center mb-4"
+            >
+              <div className="text-5xl">
+                <Image
+                  src="/logo/voting-box.png"
+                  alt="Rajniti Logo"
+                  className="w-9 h-9"
+                  width={36}
+                  height={36}
+                />
+              </div>
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-3xl font-bold text-gray-900 mb-2">
+              className="text-3xl font-bold text-gray-900 mb-2"
+            >
               Welcome to Rajniti
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-gray-600">
+              className="text-gray-600"
+            >
               Sign in to access your personalized election insights
             </motion.p>
           </div>
@@ -55,10 +74,14 @@ function SignInContent() {
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => {
-              trackEvent('login_start', { method: 'google', trigger_location: 'signin_page' })
-              signIn('google', { callbackUrl })
+              trackEvent("login_start", {
+                method: "google",
+                trigger_location: "signin_page",
+              });
+              signIn("google", { callbackUrl });
             }}
-            className="w-full flex items-center justify-center gap-3 bg-white border-2 border-gray-200 rounded-lg px-6 py-4 text-gray-700 font-semibold hover:bg-gray-50 hover:border-orange-300 transition-all shadow-sm hover:shadow-md">
+            className="w-full flex items-center justify-center gap-3 bg-white border-2 border-gray-200 rounded-lg px-6 py-4 text-gray-700 font-semibold hover:bg-gray-50 hover:border-orange-300 transition-all shadow-sm hover:shadow-md"
+          >
             <svg className="w-6 h-6" viewBox="0 0 24 24" aria-hidden>
               <path
                 fill="#4285F4"
@@ -84,7 +107,8 @@ function SignInContent() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.7 }}
-            className="text-center text-sm text-gray-500 mt-6">
+            className="text-center text-sm text-gray-500 mt-6"
+          >
             By signing in, you agree to our Terms of Service and Privacy Policy
           </motion.p>
         </motion.div>
@@ -93,7 +117,8 @@ function SignInContent() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="text-center mt-6">
+          className="text-center mt-6"
+        >
           <Link
             href="/"
             className="text-orange-600 hover:text-orange-700 font-medium"
@@ -103,13 +128,19 @@ function SignInContent() {
         </motion.div>
       </motion.div>
     </div>
-  )
+  );
 }
 
 export default function SignIn() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center">
+          Loading...
+        </div>
+      }
+    >
       <SignInContent />
     </Suspense>
-  )
+  );
 }

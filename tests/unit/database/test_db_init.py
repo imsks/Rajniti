@@ -6,7 +6,6 @@ Tests verify the fixes for:
 - get_db_session() error handling
 """
 
-import sys
 from unittest.mock import MagicMock, Mock, patch
 
 import pytest
@@ -148,7 +147,7 @@ class TestGetDbSession:
         session_mod.SessionLocal = mock_session_factory
         try:
             with pytest.raises(ValueError):
-                with get_db_session() as session:
+                with get_db_session():
                     raise ValueError("test error")
             mock_session.rollback.assert_called_once()
             mock_session.commit.assert_not_called()

@@ -2,8 +2,7 @@
 
 import { useCallback, useEffect, useRef } from "react"
 import { usePathname, useSearchParams } from "next/navigation"
-import { event, pageview, isGAEnabled } from "@/lib/analytics"
-import type { AnalyticsEvent, AnalyticsEventMap } from "@/lib/analytics"
+import { event, pageview, isGAEnabled, type AnalyticsEvent, type AnalyticsEventMap} from "@/lib/analytics"
 
 const IS_DEV = process.env.NODE_ENV === "development"
 const SEARCH_DEBOUNCE_MS = 800
