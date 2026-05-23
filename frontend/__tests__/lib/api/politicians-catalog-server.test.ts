@@ -49,6 +49,14 @@ describe("fetchPoliticianCatalog", () => {
         const result = await fetchPoliticianCatalog()
         expect(result.politicians).toEqual([])
     })
+
+    it("returns empty catalog on network error", async () => {
+        ;(global.fetch as jest.Mock).mockRejectedValueOnce(new Error("fetch failed"))
+        const { fetchPoliticianCatalog } = await import("@/lib/api/politicians-catalog-server")
+        const result = await fetchPoliticianCatalog()
+        expect(result.politicians).toEqual([])
+        expect(result.total).toBe(0)
+    })
 })
 
 describe("fetchSitemapEntries", () => {

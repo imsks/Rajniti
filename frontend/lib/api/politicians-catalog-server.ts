@@ -39,9 +39,19 @@ async function safeJson<T>(res: Response): Promise<T | null> {
     }
 }
 
+async function safeFetch(url: string): Promise<Response | null> {
+    try {
+        return await fetch(url, { cache: "no-store" })
+    } catch {
+        return null
+    }
+}
+
 export async function fetchPoliticianCatalog(
     params: CatalogParams = {}
 ): Promise<CatalogResponse> {
+    const empty: CatalogResponse = { total: 0, page: 1, per_page: 48, politicians: [] }
+
     const search = new URLSearchParams()
     if (params.page) search.set("page", String(params.page))
     if (params.perPage) search.set("per_page", String(params.perPage))
@@ -52,24 +62,18 @@ export async function fetchPoliticianCatalog(
     const qs = search.toString()
     const url = `${getApiBaseUrl({ forServer: true })}/politicians/catalog${qs ? `?${qs}` : ""}`
 
-    const res = await fetch(url, { cache: "no-store" })
-    if (!res.ok) {
-        return { total: 0, page: 1, per_page: 48, politicians: [] }
-    }
+    const res = await safeFetch(url)
+    if (!res?.ok) return empty
 
     const json = await safeJson<{ success?: boolean; data?: CatalogResponse }>(res)
-    if (!json?.success || !json.data) {
-        return { total: 0, page: 1, per_page: 48, politicians: [] }
-    }
+    if (!json?.success || !json.data) return empty
     return json.data
 }
 
 export async function fetchSitemapEntries(): Promise<SitemapEntry[]> {
-    const res = await fetch(
-        `${getApiBaseUrl({ forServer: true })}/politicians/sitemap-entries`,
-        { cache: "no-store" }
-    )
-    if (!res.ok) return []
+    const url = `${getApiBaseUrl({ forServer: true })}/politicians/sitemap-entries`
+    const res = await safeFetch(url)
+    if (!res?.ok) return []
 
     const json = await safeJson<{
         success?: boolean
@@ -80,10 +84,9 @@ export async function fetchSitemapEntries(): Promise<SitemapEntry[]> {
 }
 
 export async function fetchStates(): Promise<string[]> {
-    const res = await fetch(`${getApiBaseUrl({ forServer: true })}/states`, {
-        cache: "no-store",
-    })
-    if (!res.ok) return []
+    const url = `${getApiBaseUrl({ forServer: true })}/states`
+    const res = await safeFetch(url)
+    if (!res?.ok) return []
 
     const json = await safeJson<{ success?: boolean; data?: { states?: string[] } }>(res)
     if (!json?.success || !json.data?.states) return []
