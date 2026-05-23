@@ -164,7 +164,7 @@ function DashboardContent() {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900">
-      <Navbar variant="dashboard" sticky={true} />
+            <Navbar sticky />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
         {/* Your Politicians (MP + MLA slots) */}

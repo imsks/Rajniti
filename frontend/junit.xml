@@ -1,29 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="11" failures="0" errors="0" time="0.447">
-  <testsuite name="fetchPoliticianCatalog" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:09:33" time="0.205" tests="4">
-    <testcase classname="fetchPoliticianCatalog returns catalog data on success" name="fetchPoliticianCatalog returns catalog data on success" time="0.085">
+<testsuites name="jest tests" tests="3" failures="0" errors="0" time="0.501">
+  <testsuite name="Navbar" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:12:36" time="0.285" tests="3">
+    <testcase classname="Navbar renders header above page content with z-50 stacking" name="Navbar renders header above page content with z-50 stacking" time="0.023">
     </testcase>
-    <testcase classname="fetchPoliticianCatalog returns empty catalog on API failure" name="fetchPoliticianCatalog returns empty catalog on API failure" time="0.001">
+    <testcase classname="Navbar renders primary nav links on every page" name="Navbar renders primary nav links on every page" time="0.017">
     </testcase>
-    <testcase classname="fetchPoliticianCatalog returns empty catalog on network error" name="fetchPoliticianCatalog returns empty catalog on network error" time="0">
-    </testcase>
-    <testcase classname="fetchSitemapEntries returns sitemap entries on success" name="fetchSitemapEntries returns sitemap entries on success" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="getApiBaseUrl" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:09:34" time="0.023" tests="7">
-    <testcase classname="getApiBaseUrl uses Next proxy on server when NEXT_PUBLIC is localhost (Docker)" name="getApiBaseUrl uses Next proxy on server when NEXT_PUBLIC is localhost (Docker)" time="0.001">
-    </testcase>
-    <testcase classname="getApiBaseUrl prefers API_URL on server when NEXT_PUBLIC is a production host" name="getApiBaseUrl prefers API_URL on server when NEXT_PUBLIC is a production host" time="0">
-    </testcase>
-    <testcase classname="getApiBaseUrl strips trailing slash from server URL" name="getApiBaseUrl strips trailing slash from server URL" time="0.001">
-    </testcase>
-    <testcase classname="getApiBaseUrl uses Next proxy when only localhost NEXT_PUBLIC is set on server" name="getApiBaseUrl uses Next proxy when only localhost NEXT_PUBLIC is set on server" time="0">
-    </testcase>
-    <testcase classname="getApiBaseUrl uses non-localhost NEXT_PUBLIC on server (e.g. production API)" name="getApiBaseUrl uses non-localhost NEXT_PUBLIC on server (e.g. production API)" time="0.001">
-    </testcase>
-    <testcase classname="getApiBaseUrl uses NEXT_PUBLIC_API_URL in the browser" name="getApiBaseUrl uses NEXT_PUBLIC_API_URL in the browser" time="0">
-    </testcase>
-    <testcase classname="getApiBaseUrl falls back to localhost for browser when env vars are unset" name="getApiBaseUrl falls back to localhost for browser when env vars are unset" time="0.001">
+    <testcase classname="Navbar applies sticky positioning when sticky prop is true" name="Navbar applies sticky positioning when sticky prop is true" time="0.003">
     </testcase>
   </testsuite>
 </testsuites>

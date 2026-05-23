@@ -19,7 +19,7 @@ export default function ContributorsPage() {
 function ContributorsContent() {
     return (
         <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-70  dark:from-[#070b16] dark:via-[#0b1324] dark:to-[#101a32]">
-            <Navbar variant="default" />
+            <Navbar />
 
             <section className="py-20 sm:py-28">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

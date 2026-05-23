@@ -54,7 +54,7 @@ function HomeContent() {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-linear-to-b from-orange-50 via-white to-green-50 dark:from-[#070b16] dark:via-[#0b1324] dark:to-[#101a32]">
-      <Navbar variant="default" />
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative z-2 overflow-hidden py-20 sm:py-32">

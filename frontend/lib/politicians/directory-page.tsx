@@ -72,7 +72,7 @@ async function renderPoliticiansDirectory({ page = 1, filters = {} }: PageProps)
                     buildItemListJsonLd(itemList, title),
                 ]}
             />
-            <Navbar />
+            <Navbar sticky />
             <main className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
                     <header className="mb-8">
