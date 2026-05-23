@@ -71,6 +71,46 @@ def search_politicians():
         return jsonify({"success": False, "error": str(e)}), 500
 
 
+@api_bp.route("/politicians/catalog", methods=["GET"])
+def politician_catalog():
+    """
+    Paginated lightweight politician list for public SEO directory.
+
+    Query params:
+        page: int (default 1)
+        per_page: int (default 48, max 100)
+        type: MP | MLA (optional)
+        state: state name filter (optional)
+        q: name search (optional)
+    """
+    try:
+        election_type = request.args.get("type")
+        page = request.args.get("page", default=1, type=int)
+        per_page = min(request.args.get("per_page", default=48, type=int), 100)
+        state = request.args.get("state")
+        q = request.args.get("q")
+        result = politician_ctrl.list_catalog(
+            page=page,
+            per_page=per_page,
+            election_type=election_type,
+            state=state,
+            q=q,
+        )
+        return jsonify({"success": True, "data": result})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@api_bp.route("/politicians/sitemap-entries", methods=["GET"])
+def politician_sitemap_entries():
+    """Lightweight slug entries for sitemap generation."""
+    try:
+        result = politician_ctrl.sitemap_entries()
+        return jsonify({"success": True, "data": result})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
 @api_bp.route("/politicians/<politician_id>", methods=["GET"])
 def get_politician(politician_id):
     """Get a single politician by ID."""

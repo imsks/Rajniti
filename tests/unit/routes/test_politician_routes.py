@@ -73,3 +73,26 @@ class TestPoliticianRoutes:
             "/api/v1/politicians/00000000-0000-0000-0000-000000000000"
         )
         assert response.status_code == 404
+
+    def test_catalog_pagination_200(self, client) -> None:
+        response = client.get("/api/v1/politicians/catalog?page=1&per_page=10")
+        assert response.status_code == 200
+        data = response.get_json()
+        assert data["success"] is True
+        assert "politicians" in data["data"]
+        assert data["data"]["page"] == 1
+
+    def test_catalog_type_filter_mp(self, client) -> None:
+        response = client.get("/api/v1/politicians/catalog?type=MP")
+        assert response.status_code == 200
+        data = response.get_json()
+        assert data["success"] is True
+        assert all(p["type"] == "MP" for p in data["data"]["politicians"])
+
+    def test_sitemap_entries_200(self, client) -> None:
+        response = client.get("/api/v1/politicians/sitemap-entries")
+        assert response.status_code == 200
+        data = response.get_json()
+        assert data["success"] is True
+        assert len(data["data"]["entries"]) >= 1
+        assert "slug" in data["data"]["entries"][0]

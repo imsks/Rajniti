@@ -1,37 +1,28 @@
 import type { MetadataRoute } from "next"
-import { getPoliticianIdsForSitemap } from "@/lib/api/politicians-server"
-import { getSiteUrl } from "@/lib/seo/site"
+import { fetchSitemapEntries } from "@/lib/api/politicians-catalog-server"
+import {
+    buildPoliticianSitemapChunk,
+    buildStaticSitemapEntries,
+    generatePoliticianSitemapIds,
+} from "@/lib/seo/sitemap-builders"
 
 /** Regenerate sitemap periodically instead of at build time (large API payload). */
 export const revalidate = 3600
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const base = getSiteUrl()
-    const now = new Date()
+export async function generateSitemaps() {
+    const entries = await fetchSitemapEntries()
+    return [{ id: 0 }, ...generatePoliticianSitemapIds(entries.length)]
+}
 
-    const staticPaths: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[0]["changeFrequency"] }[] =
-        [
-            { path: "", priority: 1, changeFrequency: "weekly" },
-            { path: "/contributors", priority: 0.8, changeFrequency: "monthly" },
-            { path: "/dashboard", priority: 0.9, changeFrequency: "weekly" },
-        ]
+export default async function sitemap({
+    id,
+}: {
+    id: number
+}): Promise<MetadataRoute.Sitemap> {
+    if (id === 0) {
+        return buildStaticSitemapEntries()
+    }
 
-    const staticEntries: MetadataRoute.Sitemap = staticPaths.map(
-        ({ path, priority, changeFrequency }) => ({
-            url: `${base}${path}`,
-            lastModified: now,
-            changeFrequency,
-            priority,
-        })
-    )
-
-    const politicianParams = await getPoliticianIdsForSitemap()
-    const politicianEntries: MetadataRoute.Sitemap = politicianParams.map(({ id }) => ({
-        url: `${base}/politician/${encodeURIComponent(id)}`,
-        lastModified: now,
-        changeFrequency: "monthly",
-        priority: 0.7,
-    }))
-
-    return [...staticEntries, ...politicianEntries]
+    const entries = await fetchSitemapEntries()
+    return buildPoliticianSitemapChunk(entries, id - 1)
 }

@@ -51,8 +51,11 @@ export default function Navbar({
                             </nav>
                         ) : (
                             <nav className='hidden md:flex gap-6 items-center'>
-                                <Link href='/dashboard' variant='nav' onClick={() => trackNav('Explore Politicians', '/dashboard')}>
-                                    Explore Politicians
+                                <Link href='/politicians' variant='nav' onClick={() => trackNav('Politicians', '/politicians')}>
+                                    Politicians
+                                </Link>
+                                <Link href='/dashboard' variant='nav' onClick={() => trackNav('Dashboard', '/dashboard')}>
+                                    Dashboard
                                 </Link>
                                 <Link href='#about' variant='nav' onClick={() => trackNav('About', '#about')}>
                                     About

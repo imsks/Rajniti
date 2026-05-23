@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { buildOgImages, buildTwitterImages } from "@/lib/seo/images"
 
 /** Canonical site origin for Open Graph, canonical URLs, and sitemap. */
 export function getSiteUrl(): string {
@@ -22,11 +23,13 @@ export function buildDefaultOg(): Metadata["openGraph"] {
         locale: "en_IN",
         siteName: SITE_NAME,
         url,
+        images: buildOgImages(),
     }
 }
 
 export function buildDefaultTwitter(): Metadata["twitter"] {
     return {
         card: "summary_large_image",
+        images: buildTwitterImages(),
     }
 }

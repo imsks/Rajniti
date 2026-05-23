@@ -123,13 +123,13 @@ function HomeContent() {
             >
               <div className="shadow-[0_8px_30px_rgba(249,115,22,0.25)] w-full sm:w-auto">
                 <Button
-                  href="/dashboard"
+                  href="/politicians"
                   size="lg"
                   className="w-full sm:w-auto"
                   onClick={() =>
                     trackEvent("cta_click", {
                       cta_name: "explore_politicians",
-                      cta_url: "/dashboard",
+                      cta_url: "/politicians",
                       page_location: "home_hero",
                     })
                   }
@@ -483,12 +483,12 @@ function HomeContent() {
             className="text-center mt-12"
           >
             <Button
-              href="/dashboard"
+              href="/politicians"
               size="lg"
               onClick={() =>
                 trackEvent("cta_click", {
                   cta_name: "explore_politicians",
-                  cta_url: "/dashboard",
+                  cta_url: "/politicians",
                   page_location: "home_contribute",
                 })
               }

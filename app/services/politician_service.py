@@ -347,3 +347,74 @@ class PoliticianService:
             "states": len(self.get_states(election_type)),
             "parties": len(self.get_parties(election_type)),
         }
+
+    # ---------- CATALOG (SEO) ----------
+
+    _CATALOG_FIELDS = ("id", "slug", "name", "type", "state", "constituency", "photo")
+
+    def _to_catalog_record(self, p: Dict[str, Any]) -> Dict[str, Any]:
+        return {k: p.get(k) for k in self._CATALOG_FIELDS}
+
+    def list_catalog(
+        self,
+        *,
+        page: int = 1,
+        per_page: int = 48,
+        election_type: Optional[ElectionType] = None,
+        state: Optional[str] = None,
+        q: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        """Paginated lightweight politician list for public SEO directory."""
+        self._ensure_slugs()
+
+        data = (
+            self._load(election_type)
+            if election_type
+            else self._load("MP") + self._load("MLA")
+        )
+        self._attach_slugs_to_records(data)
+
+        state_l = state.strip().lower() if state and state.strip() else None
+        q_l = q.strip().lower() if q and q.strip() else None
+
+        filtered: List[Dict[str, Any]] = []
+        for p in data:
+            if state_l is not None and (p.get("state") or "").lower() != state_l:
+                continue
+            if q_l is not None and q_l not in (p.get("name") or "").lower():
+                continue
+            filtered.append(p)
+
+        total = len(filtered)
+        page = max(1, page)
+        per_page = max(1, min(per_page, 100))
+        start = (page - 1) * per_page
+        page_items = filtered[start : start + per_page]
+
+        return {
+            "total": total,
+            "page": page,
+            "per_page": per_page,
+            "politicians": [self._to_catalog_record(p) for p in page_items],
+        }
+
+    def sitemap_entries(self) -> List[Dict[str, str]]:
+        """Lightweight slug entries for sitemap generation."""
+        self._ensure_slugs()
+        data = self._load("MP") + self._load("MLA")
+        self._attach_slugs_to_records(data)
+
+        entries: List[Dict[str, str]] = []
+        seen: set[str] = set()
+        for p in data:
+            slug = (p.get("slug") or p.get("id") or "").strip()
+            if not slug or slug in seen:
+                continue
+            seen.add(slug)
+            entries.append(
+                {
+                    "slug": slug,
+                    "type": str(p.get("type") or ""),
+                }
+            )
+        return entries
