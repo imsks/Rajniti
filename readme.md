@@ -56,7 +56,16 @@ See [`.env.example`](.env.example) for the full list. Key variables:
 
 **Docker vs Local DATABASE_URL:**
 - Docker (`make dev`): use `postgresql://postgres:postgres@postgres:5432/rajniti` (container hostname)
-- Local (`make run`): use `postgresql://postgres:postgres@localhost:5433/rajniti` (mapped port)
+- Beekeeper / host tools: `localhost:5432`, user `postgres`, database `rajniti`
+
+**Beekeeper fails with `role "postgres" does not exist`?**  
+Two Postgres instances are fighting for port 5432. Homebrew Postgres (`postgresql@17`) binds `localhost:5432` and wins over Docker when you connect to `localhost`. Stop it:
+
+```bash
+brew services stop postgresql@17
+```
+
+Then reconnect in Beekeeper. Only one Postgres can own `localhost:5432`.
 
 ---
 
