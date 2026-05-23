@@ -2,7 +2,10 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import PoliticianPageClient from "./PoliticianPageClient";
-import { fetchPoliticianBySegment } from "@/lib/api/politicians-server";
+import {
+  fetchPoliticianBySegment,
+  PoliticianApiUnreachableError,
+} from "@/lib/api/politicians-server";
 import { getSiteUrl, SITE_NAME } from "@/lib/seo/site";
 import { getParty } from "@/lib/politicianUtils";
 import type { Politician } from "@/types/politician";
@@ -57,7 +60,15 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const politician = await fetchPoliticianBySegment(id);
+  let politician: Politician | null = null;
+  try {
+    politician = await fetchPoliticianBySegment(id);
+  } catch (e) {
+    if (e instanceof PoliticianApiUnreachableError) {
+      return { title: "Profile temporarily unavailable" };
+    }
+    throw e;
+  }
   if (!politician) {
     return {
       title: "Politician not found",

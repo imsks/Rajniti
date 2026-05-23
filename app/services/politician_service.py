@@ -28,6 +28,7 @@ class PoliticianService:
         self._slugs_ensured: bool = False
         self._by_id: Dict[str, Dict[str, Any]] = {}
         self._by_slug: Dict[str, Dict[str, Any]] = {}
+        self._by_short_id: Dict[str, Dict[str, Any]] = {}
 
         # 🔥 LOAD PERFORMANCE HERE (SAFE)
         self._perf_map = self._load_performance()
@@ -76,6 +77,7 @@ class PoliticianService:
 
         self._by_id = {}
         self._by_slug = {}
+        self._by_short_id = {}
 
         for p in all_records:
             pid = str(p.get("id", ""))
@@ -87,6 +89,7 @@ class PoliticianService:
 
             if pid:
                 self._by_id[pid] = p
+                self._by_short_id[short_id] = p
             self._by_slug[slug] = p
 
         self._slugs_ensured = True
@@ -128,13 +131,20 @@ class PoliticianService:
 
     def get_by_id(self, politician_id: str) -> Optional[Dict[str, Any]]:
         self._ensure_slugs()
-        p = self._by_id.get(politician_id)
+        pid = str(politician_id).strip()
+        p = self._by_id.get(pid) or self._by_id.get(pid.lower())
 
         return self._attach_performance(p) if p else None
 
     def get_by_slug(self, politician_slug: str) -> Optional[Dict[str, Any]]:
         self._ensure_slugs()
-        p = self._by_slug.get(politician_slug)
+        slug = str(politician_slug).strip()
+        p = self._by_slug.get(slug)
+
+        if not p:
+            short_match = re.search(r"-([0-9a-fA-F]{8})$", slug)
+            if short_match:
+                p = self._by_short_id.get(short_match.group(1).lower())
 
         return self._attach_performance(p) if p else None
 

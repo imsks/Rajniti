@@ -609,7 +609,7 @@ export default function PoliticianPageClient({
         extractSlugAndOptionalUuid(routeSegment)
 
     useEffect(() => {
-        const latestElection = p.political_background.elections?.[0]
+        const latestElection = p.political_background?.elections?.[0]
         trackEvent("politician_profile_view", {
             politician_id: p.id,
             politician_name: p.name,
@@ -624,7 +624,8 @@ export default function PoliticianPageClient({
     const performance = p.performance || { attendance: 0, questions: 0, debates: 0 }
     const score = performance.attendance + performance.questions + performance.debates
     const rank = Math.floor(543 - score / 10)
-    const latestElection = p.political_background.elections?.[0]
+    const elections = p.political_background?.elections ?? []
+    const latestElection = elections[0]
     const party = latestElection?.party ?? "—"
     const isMp = p.type === "MP"
 
@@ -746,9 +747,9 @@ export default function PoliticianPageClient({
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div className="lg:col-span-2">
                         <PoliticalHistorySection
-                            elections={p.political_background.elections}
-                            summary={p.political_background.summary}
-                            summaryCitation={p.political_background.summary_citation}
+                            elections={elections}
+                            summary={p.political_background?.summary}
+                            summaryCitation={p.political_background?.summary_citation}
                         />
                     </div>
 
