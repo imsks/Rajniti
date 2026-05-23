@@ -10,6 +10,8 @@ _llm_patcher = patch(
 )
 _llm_patcher.start()
 
+from app.agents.citation_agent import CitationAgent  # noqa: E402
+
 
 def _edu_politician(n_cited: int, n_slots: int, pid: str = "p1") -> dict:
     cite = {"link": "https://example.com/x", "source": "NEWS"}
