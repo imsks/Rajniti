@@ -233,6 +233,7 @@ class TestCheckDbHealth:
     def test_returns_true_when_healthy(self):
         """check_db_health returns True when connection succeeds."""
         import app.core.database as core_db
+
         mock_engine = MagicMock()
         mock_conn = MagicMock()
         mock_conn.__enter__ = Mock(return_value=mock_conn)
