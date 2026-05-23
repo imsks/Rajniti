@@ -216,7 +216,10 @@ def get_user_politicians(user_id):
         data = get_user_service().get_user_politicians(user_id)
 
         if data is None:
-            return jsonify({"success": False, "error": "Failed to fetch politicians"}), 500
+            return (
+                jsonify({"success": False, "error": "Failed to fetch politicians"}),
+                500,
+            )
 
         return jsonify({"success": True, "data": data})
 
@@ -234,7 +237,10 @@ def delete_user_politician(user_id, politician_id):
         )
 
         if not result:
-            return jsonify({"success": False, "error": "Failed to remove politician"}), 500
+            return (
+                jsonify({"success": False, "error": "Failed to remove politician"}),
+                500,
+            )
 
         return jsonify({"success": True, "message": "Politician removed successfully"})
 

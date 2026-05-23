@@ -77,9 +77,7 @@ class TestUserOnboardingFlow:
             mock_user.update = Mock()
 
             with patch("app.database.models.User.get_by_id", return_value=None):
-                with patch(
-                    "app.database.models.User.create", return_value=mock_user
-                ):
+                with patch("app.database.models.User.create", return_value=mock_user):
                     sync_response = client.post(
                         "/api/v1/users/sync",
                         json={
