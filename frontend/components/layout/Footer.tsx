@@ -25,9 +25,23 @@ export default function Footer() {
 
                     {/* Links */}
                     <nav
-                        className='flex flex-wrap justify-center gap-6 pt-2 border-t border-white/10 w-full max-w-xs'
+                        className='flex flex-wrap justify-center gap-6 pt-2 border-t border-white/10 w-full max-w-md'
                         aria-label='Footer links'
                     >
+                        <Link
+                            href='/politicians'
+                            onClick={() => trackEvent('nav_click', { link_text: 'Politicians', link_url: '/politicians', nav_section: 'footer' })}
+                            className='text-gray-400 hover:text-white transition-colors text-sm'
+                        >
+                            Politicians
+                        </Link>
+                        <Link
+                            href='/dashboard'
+                            onClick={() => trackEvent('nav_click', { link_text: 'Dashboard', link_url: '/dashboard', nav_section: 'footer' })}
+                            className='text-gray-400 hover:text-white transition-colors text-sm'
+                        >
+                            Dashboard
+                        </Link>
                         <Link
                             href='https://github.com/imsks/rajniti'
                             external

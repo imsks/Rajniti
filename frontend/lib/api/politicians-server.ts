@@ -1,6 +1,10 @@
 import type { Politician } from "@/types/politician"
 import { getPoliticianProfileSegment } from "@/lib/politicianUtils"
 import { getApiBaseUrl } from "@/lib/api/api-base"
+import {
+    getPoliticianRevalidateSeconds,
+    politicianRevalidationTag,
+} from "@/lib/revalidation/politician"
 
 /** Thrown when the API cannot be reached during SSR (distinct from politician not found). */
 export class PoliticianApiUnreachableError extends Error {
@@ -32,7 +36,12 @@ async function fetchPoliticianFromSlug(
 ): Promise<Politician | null> {
     const slugRes = await fetch(
         `${api}/politicians/slug/${encodeURIComponent(segment)}`,
-        { cache: "no-store" }
+        {
+            next: {
+                revalidate: getPoliticianRevalidateSeconds(),
+                tags: [politicianRevalidationTag(segment)],
+            },
+        }
     )
     const slugJson = await safeJson<{ success?: boolean; data?: Politician }>(slugRes)
     if (slugRes.ok && slugJson?.success && slugJson?.data) {
@@ -46,7 +55,10 @@ async function fetchPoliticianFromId(
     id: string
 ): Promise<Politician | null> {
     const res = await fetch(`${api}/politicians/${encodeURIComponent(id)}`, {
-        cache: "no-store",
+        next: {
+            revalidate: getPoliticianRevalidateSeconds(),
+            tags: [politicianRevalidationTag(id)],
+        },
     })
     const json = await safeJson<{ success?: boolean; data?: Politician }>(res)
     if (json?.success && json?.data) return json.data

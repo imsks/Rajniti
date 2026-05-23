@@ -97,3 +97,26 @@ class PoliticianController:
 
     def get_stats(self, election_type: Optional[ElectionType] = None) -> Dict[str, Any]:
         return self.service.stats(election_type=election_type)
+
+    # ── Catalog (SEO) ─────────────────────────────────────────────────────
+
+    def list_catalog(
+        self,
+        *,
+        page: int = 1,
+        per_page: int = 48,
+        election_type: Optional[ElectionType] = None,
+        state: Optional[str] = None,
+        q: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        return self.service.list_catalog(
+            page=page,
+            per_page=per_page,
+            election_type=election_type,
+            state=state,
+            q=q,
+        )
+
+    def sitemap_entries(self) -> Dict[str, Any]:
+        entries = self.service.sitemap_entries()
+        return {"entries": entries, "total": len(entries)}

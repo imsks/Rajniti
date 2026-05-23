@@ -2,16 +2,25 @@
 
 import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import { LOGIN_INTENT_KEY } from "@/components/auth/AuthProvider";
 import Image from "next/image";
 
 function SignInContent() {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/onboarding";
   const { trackEvent } = useAnalytics();
+
+  // Track every time a user lands on this page (may not click anything)
+  useEffect(() => {
+    trackEvent("signin_page_view", {
+      referrer: document.referrer || "direct",
+    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 flex items-center justify-center p-4">
@@ -78,6 +87,9 @@ function SignInContent() {
                 method: "google",
                 trigger_location: "signin_page",
               });
+              // Handshake flag — AuthAnalyticsObserver reads this after OAuth
+              // to fire login_success without re-firing for existing sessions.
+              sessionStorage.setItem(LOGIN_INTENT_KEY, "signin_page");
               signIn("google", { callbackUrl });
             }}
             className="w-full flex items-center justify-center gap-3 bg-white border-2 border-gray-200 rounded-lg px-6 py-4 text-gray-700 font-semibold hover:bg-gray-50 hover:border-orange-300 transition-all shadow-sm hover:shadow-md"

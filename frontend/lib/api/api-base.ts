@@ -31,8 +31,9 @@ function getProxiedApiBaseUrl(): string {
 
 /**
  * Base URL for Rajniti API requests.
- * Server components prefer API_URL / INTERNAL_API_URL (Docker service hostname).
- * When only browser-local NEXT_PUBLIC_API_URL is set, SSR uses the Next /api/v1 proxy.
+ * SSR uses the Next /api/v1 rewrite when NEXT_PUBLIC_API_URL is browser-localhost
+ * (Docker: web container → self → API via API_REWRITE_TARGET). Direct API_URL is used
+ * only when the public URL is a shared production host.
  * Client code uses NEXT_PUBLIC_API_URL (browser-reachable host).
  */
 export function getApiBaseUrl(options?: { forServer?: boolean }): string {
@@ -41,14 +42,20 @@ export function getApiBaseUrl(options?: { forServer?: boolean }): string {
         (options?.forServer !== false && typeof window === "undefined")
 
     if (useServerUrl) {
+        const publicUrl = process.env.NEXT_PUBLIC_API_URL
+
+        // Browser-local public URL → SSR must loop back through Next rewrites (Docker-safe).
+        if (publicUrl && isBrowserOnlyApiUrl(publicUrl)) {
+            return getProxiedApiBaseUrl()
+        }
+
         const explicit =
             process.env.API_URL || process.env.INTERNAL_API_URL
         if (explicit) {
             return trimTrailingSlash(explicit)
         }
 
-        const publicUrl = process.env.NEXT_PUBLIC_API_URL
-        if (publicUrl && !isBrowserOnlyApiUrl(publicUrl)) {
+        if (publicUrl) {
             return trimTrailingSlash(publicUrl)
         }
 

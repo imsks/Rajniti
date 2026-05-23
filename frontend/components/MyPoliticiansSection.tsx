@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import NextImage from "next/image";
 import { motion } from "framer-motion";
 import Text from "@/components/ui/Text";
 import Button from "@/components/ui/Button";
@@ -158,7 +159,7 @@ export default function MyPoliticiansSection({
         <div ref={searchContainerRef} className="relative mb-6">
           <div className="relative">
             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-              <img src="/logo/search.png" alt="Search" className="w-5 h-5" />
+              <NextImage src="/logo/search.png" alt="Search" width={20} height={20} className="w-5 h-5" />
             </span>
             <input
               id="my-politicians-search"

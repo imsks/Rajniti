@@ -1,17 +1,24 @@
 "use client";
 
 import { Suspense, useState, useMemo, useEffect } from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Footer, Navbar } from "@/components/layout";
 import Button from "@/components/ui/Button";
 import Text from "@/components/ui/Text";
 import PoliticianCard from "@/components/PoliticianCard";
 import PoliticianCardWrapper from "@/components/PoliticianCardWrapper";
-import MyPoliticiansSection from "@/components/MyPoliticiansSection";
 import { usePoliticians } from "@/hooks/usePoliticians";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import { useScrollDepth } from "@/hooks/useScrollDepth";
 import OnboardingGate from "@/components/auth/OnboardingGate";
 import Image from "next/image";
+
+// Lazy-load heavy sub-component (has its own framer-motion + search logic)
+const MyPoliticiansSection = dynamic(
+  () => import("@/components/MyPoliticiansSection"),
+  { ssr: false }
+);
 
 type Tab = "ALL" | "MP" | "MLA";
 
@@ -39,6 +46,7 @@ function DashboardContent() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(12);
   const { trackEvent, trackSearch } = useAnalytics();
+  useScrollDepth("dashboard");
 
   // One API call for all politicians; filter client-side by tab + search/filters
   const { all, loading, error, states, parties, stats, filter } =
@@ -162,7 +170,7 @@ function DashboardContent() {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900">
-      <Navbar variant="dashboard" sticky={true} />
+            <Navbar sticky />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
         {/* Your Politicians (MP + MLA slots) */}
@@ -523,7 +531,7 @@ function DashboardContent() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-center text-white"
+          className="mt-12 bg-linear-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-center text-white"
         >
           <Text variant="h3" weight="bold" className="text-white mb-2">
             Help us build the most comprehensive politician database

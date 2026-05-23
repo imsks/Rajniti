@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "@/components/providers/ThemeProvider";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
+  const { trackEvent } = useAnalytics();
   const [mounted, setMounted] = useState(false);
 
   // Only render theme-aware UI after hydration is complete
@@ -14,9 +16,15 @@ export default function ThemeToggle() {
 
   const isDark = mounted && theme === "dark";
 
+  const handleToggle = () => {
+    // The theme hasn't flipped yet when the click fires, so new_theme is the opposite
+    trackEvent("theme_toggle", { new_theme: isDark ? "light" : "dark" });
+    toggleTheme();
+  };
+
   return (
     <button
-      onClick={toggleTheme}
+      onClick={handleToggle}
       className="relative p-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}

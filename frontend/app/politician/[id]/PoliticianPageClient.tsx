@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import NextImage from "next/image"
 import { AlertTriangle, BarChart2, CalendarCheck, HelpCircle, MessageSquare, Trophy, UserPlus } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { CitationLink } from "@/components/CitationLink"
@@ -9,6 +10,8 @@ import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import Image from "@/components/ui/Image"
 import { useAnalytics } from "@/hooks/useAnalytics"
+import { useDeferredMount } from "@/hooks/useDeferredMount"
+import PoliticianPageAnalytics from "./PoliticianPageAnalytics"
 import type { Politician, ElectionRecord, CrimeRecord, FamilyMember, Citation } from "@/types/politician"
 
 // ── Animation Hooks ────────────────────────────────────────────────────────
@@ -74,7 +77,7 @@ function Section({
             }}
         >
             <div className="flex items-center gap-3 mb-4">
-                <img src={icon} alt={title} className="w-6 h-6 object-contain" />
+                <NextImage src={icon} alt={title} width={24} height={24} className="w-6 h-6 object-contain" />
                 <Text variant="h4" weight="bold" className="text-gray-900 dark:text-white">
                     {title}
                 </Text>
@@ -149,7 +152,7 @@ function PoliticalHistorySection({
                 {elections.map((e, i) => (
                     <div
                         key={i}
-                        className="election-card flex items-center justify-between bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-700"
+                        className="election-card flex items-center justify-between bg-linear-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-700"
                         style={{ animationDelay: `${i * 80}ms` }}
                     >
                         <div className="flex items-start gap-2 min-w-0">
@@ -164,7 +167,7 @@ function PoliticalHistorySection({
                             <CitationLink
                                 citation={e.citation}
                                 label={`Election ${e.year} ${e.constituency}`}
-                                className="flex-shrink-0 mt-0.5"
+                                className="shrink-0 mt-0.5"
                             />
                         </div>
                         <Badge color={e.status === "WON" ? "green" : "red"}>{e.status}</Badge>
@@ -308,21 +311,21 @@ function ContactSection({ politician }: { politician: Politician }) {
             <div className="grid gap-3">
                 {contact?.email && (
                     <div className="flex items-center gap-2">
-                        <img src="/logo/location.png" alt="Email" className="w-4 h-4" />
+                        <NextImage src="/logo/location.png" alt="Email" width={16} height={16} className="w-4 h-4" />
                         <Text variant="body" className="text-gray-700 dark:text-gray-300">{contact.email}</Text>
                         <CitationLink citation={contact_citations?.email} label="Email" />
                     </div>
                 )}
                 {contact?.phone && (
                     <div className="flex items-center gap-2">
-                        <img src="/logo/location.png" alt="Phone" className="w-4 h-4" />
+                        <NextImage src="/logo/location.png" alt="Phone" width={16} height={16} className="w-4 h-4" />
                         <Text variant="body" className="text-gray-700 dark:text-gray-300">{contact.phone}</Text>
                         <CitationLink citation={contact_citations?.phone} label="Phone" />
                     </div>
                 )}
                 {contact?.address && (
                     <div className="flex items-center gap-2">
-                        <img src="/logo/location.png" alt="Address" className="w-4 h-4" />
+                        <NextImage src="/logo/location.png" alt="Address" width={16} height={16} className="w-4 h-4" />
                         <Text variant="body" className="text-gray-700 dark:text-gray-300">{contact.address}</Text>
                         <CitationLink citation={contact_citations?.address} label="Address" />
                     </div>
@@ -378,7 +381,7 @@ function ContactSection({ politician }: { politician: Politician }) {
                             <span className="inline-flex items-center gap-1">
                                 <a href={social_media.website} target="_blank" rel="noopener noreferrer"
                                     className="text-green-600 dark:text-green-400 hover:underline text-sm flex items-center gap-1">
-                                    <img src="/logo/location.png" alt="Website" className="w-3 h-3" />
+                                    <NextImage src="/logo/location.png" alt="Website" width={12} height={12} className="w-3 h-3" />
                                     Website
                                 </a>
                                 <CitationLink citation={social_media_citations?.website} label="Website" />
@@ -429,7 +432,7 @@ function ScoreRow({
         >
             {/* Left: icon + label + description */}
             <div className="flex items-center gap-3 min-w-0">
-                <div className={`flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center ${iconBg}`}>
+                <div className={`shrink-0 w-9 h-9 rounded-xl flex items-center justify-center ${iconBg}`}>
                     <Icon size={17} className={iconColor} strokeWidth={2.2} />
                 </div>
                 <div className="min-w-0">
@@ -444,7 +447,7 @@ function ScoreRow({
             </div>
 
             {/* Right: animated flip number */}
-            <span className="ml-6 flex-shrink-0 tabular-nums font-black text-2xl text-gray-900 dark:text-white tracking-tight">
+            <span className="ml-6 shrink-0 tabular-nums font-black text-2xl text-gray-900 dark:text-white tracking-tight">
                 {counted}{suffix}
             </span>
         </div>
@@ -605,22 +608,11 @@ export default function PoliticianPageClient({
 }: PoliticianPageClientProps) {
     const router = useRouter()
     const { trackEvent } = useAnalytics()
+    const analyticsReady = useDeferredMount()
     const { slug: routeSlug, uuidShort: routeUuidShort } =
         extractSlugAndOptionalUuid(routeSegment)
 
-    useEffect(() => {
-        const latestElection = p.political_background?.elections?.[0]
-        trackEvent("politician_profile_view", {
-            politician_id: p.id,
-            politician_name: p.name,
-            politician_type: p.type as "MP" | "MLA",
-            party: latestElection?.party ?? "—",
-            state: p.state,
-            constituency: p.constituency,
-            route_slug: routeSlug,
-            route_uuid_short: routeUuidShort,
-        })
-    }, [p, trackEvent, routeSlug, routeUuidShort])
+    const sectionsContainerRef = useRef<HTMLDivElement>(null)
     const performance = p.performance || { attendance: 0, questions: 0, debates: 0 }
     const score = performance.attendance + performance.questions + performance.debates
     const rank = Math.floor(543 - score / 10)
@@ -638,11 +630,23 @@ export default function PoliticianPageClient({
     }
 
     const handleReportClick = () => {
+        trackEvent("report_inaccuracy_click", {
+            politician_id: p.id,
+            politician_name: p.name,
+        })
         window.open(buildReportIssueUrl(), "_blank", "noopener,noreferrer")
     }
 
     return (
         <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+            {analyticsReady && (
+                <PoliticianPageAnalytics
+                    politician={p}
+                    sectionsContainerRef={sectionsContainerRef}
+                    routeSlug={routeSlug}
+                    routeUuidShort={routeUuidShort}
+                />
+            )}
             <style>{`
                 @keyframes fadeSlideUp {
                     0%  { opacity: 0; transform: translateY(24px); }
@@ -681,7 +685,7 @@ export default function PoliticianPageClient({
                 }
             `}</style>
 
-            <Navbar variant="dashboard" sticky={true} />
+            <Navbar sticky />
 
             <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
                 {/* Back */}
@@ -695,18 +699,21 @@ export default function PoliticianPageClient({
                 <div className="hero-card bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700 mb-6">
                     <div className="flex flex-col md:flex-row gap-6 items-start">
                         {/* Photo */}
-                        <div className="hero-photo flex-shrink-0">
+                        <div className="hero-photo shrink-0">
                             {p.photo ? (
                                 <Image
                                     src={p.photo}
                                     alt={p.name}
                                     width={128}
                                     height={128}
+                                    priority
+                                    quality={75}
+                                    sizes="128px"
                                     className="w-32 h-32 rounded-2xl object-cover border-4 border-orange-200 dark:border-orange-800"
                                 />
                             ) : (
                                 <div className="w-32 h-32 rounded-2xl bg-linear-to-br from-orange-100 to-orange-200 dark:from-orange-900/40 dark:to-orange-800/40 flex items-center justify-center flex-shrink-0 border-4 border-orange-200 dark:border-orange-800">
-                                    <img src="/logo/Parliament.png" alt="Politician" className="w-16 h-16 object-contain" />
+                                    <NextImage src="/logo/Parliament.png" alt="Politician" width={64} height={64} className="w-16 h-16 object-contain" />
                                 </div>
                             )}
                         </div>
@@ -721,19 +728,19 @@ export default function PoliticianPageClient({
 
                             <div className="space-y-1.5">
                                 <div className="flex items-center gap-2 hero-info-1">
-                                    <img src="/logo/Parliament.png" alt="Party" className="w-4 h-4 object-contain opacity-60" />
+                                    <NextImage src="/logo/Parliament.png" alt="Party" width={16} height={16} className="w-4 h-4 object-contain opacity-60" />
                                     <Text variant="body" className="text-gray-700 dark:text-gray-300">
                                         <span className="font-semibold">Party:</span> {party}
                                     </Text>
                                 </div>
                                 <div className="flex items-center gap-2 hero-info-2">
-                                    <img src="/logo/Assembly.png" alt="Constituency" className="w-4 h-4 object-contain opacity-60" />
+                                    <NextImage src="/logo/Assembly.png" alt="Constituency" width={16} height={16} className="w-4 h-4 object-contain opacity-60" />
                                     <Text variant="body" className="text-gray-700 dark:text-gray-300">
                                         <span className="font-semibold">Constituency:</span> {p.constituency}
                                     </Text>
                                 </div>
                                 <div className="flex items-center gap-2 hero-info-3">
-                                    <img src="/logo/location.png" alt="State" className="w-4 h-4 object-contain opacity-60" />
+                                    <NextImage src="/logo/location.png" alt="State" width={16} height={16} className="w-4 h-4 object-contain opacity-60" />
                                     <Text variant="body" className="text-gray-700 dark:text-gray-300">
                                         <span className="font-semibold">State:</span> {p.state}
                                     </Text>
@@ -743,9 +750,9 @@ export default function PoliticianPageClient({
                     </div>
                 </div>
 
-                {/* Sections Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div className="lg:col-span-2">
+                {/* Sections Grid — ref used for IntersectionObserver section tracking */}
+                <div ref={sectionsContainerRef} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div className="lg:col-span-2" data-analytics-section="political_history">
                         <PoliticalHistorySection
                             elections={elections}
                             summary={p.political_background?.summary}
@@ -754,19 +761,21 @@ export default function PoliticianPageClient({
                     </div>
 
                     {/* ── Performance Scorecard ── */}
-                    <PerformanceSection
-                        performance={performance}
-                        rank={rank}
-                        performanceCitations={p.performance_citations}
-                    />
+                    <div data-analytics-section="performance">
+                        <PerformanceSection
+                            performance={performance}
+                            rank={rank}
+                            performanceCitations={p.performance_citations}
+                        />
+                    </div>
 
-                    <EducationSection education={p.education} />
-                    <FamilySection members={p.family_background} />
-                    <CriminalRecordsSection records={p.criminal_records} />
-                    <ContactSection politician={p} />
+                    <div data-analytics-section="education"><EducationSection education={p.education} /></div>
+                    <div data-analytics-section="family"><FamilySection members={p.family_background} /></div>
+                    <div data-analytics-section="criminal_records"><CriminalRecordsSection records={p.criminal_records} /></div>
+                    <div data-analytics-section="contact"><ContactSection politician={p} /></div>
 
                     {/* Know More About Cards */}
-                    <div className="lg:col-span-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 mb-4 shadow-sm transition hover:shadow-md">
+                    <div data-analytics-section="contribute_cta" className="lg:col-span-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 mb-4 shadow-sm transition hover:shadow-md">
                         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                             <div>
                                 <Text variant="h4" weight="bold" className="text-gray-900 dark:text-white">
@@ -802,7 +811,7 @@ export default function PoliticianPageClient({
                                 </div>
                             </div>
 
-                            <div className="group flex flex-col rounded-2xl mt-6 bg-gradient-to-r from-orange-500 to-orange-600 p-3 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(249,115,22,0.28)]">
+                            <div className="group flex flex-col rounded-2xl mt-6 bg-linear-to-r from-orange-500 to-orange-600 p-3 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(249,115,22,0.28)]">
                                 <div className="flex items-center gap-2">
                                     <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-white/20 text-white">
                                         <UserPlus size={16} />

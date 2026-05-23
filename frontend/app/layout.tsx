@@ -3,7 +3,10 @@ import { Lora, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import AuthProvider from "@/components/auth/AuthProvider";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import AnalyticsPageViewTracker from "@/components/analytics/AnalyticsPageViewTracker";
 import ThemeProvider from "@/components/providers/ThemeProvider";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildWebSiteJsonLd } from "@/lib/seo/json-ld";
 import {
     buildDefaultOg,
     buildDefaultTwitter,
@@ -83,7 +86,9 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <JsonLd data={buildWebSiteJsonLd()} />
         <GoogleAnalytics />
+        <AnalyticsPageViewTracker />
         <AuthProvider>
           <ThemeProvider>
             {children}

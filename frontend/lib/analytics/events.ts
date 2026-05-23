@@ -15,10 +15,30 @@ export type AnalyticsEventMap = {
   }
 
   // ── Authentication ─────────────────────────────────────────────────────
+  /** User views the /auth/signin page (may not click anything). */
+  signin_page_view: {
+    /** How they arrived — direct URL, redirect from a protected page, etc. */
+    referrer: string
+  }
+
+  /** User clicks a "Sign In" button anywhere on the site. */
   login_start: {
     method: "google"
     trigger_location: string
   }
+
+  /**
+   * Google OAuth completed and NextAuth created a session.
+   * Fired once per sign-in flow using a sessionStorage flag set by login_start.
+   * This event lets you calculate the true sign-in conversion rate:
+   *   login_success / login_start
+   */
+  login_success: {
+    method: "google"
+    /** Where the sign-in was originally triggered */
+    trigger_location: string
+  }
+
   logout: Record<string, never>
 
   // ── Search & Discovery ─────────────────────────────────────────────────
@@ -73,6 +93,43 @@ export type AnalyticsEventMap = {
     step_name: string
   }
 
+  /**
+   * User clicked "Back" inside onboarding — a soft drop-off signal.
+   * Repeated back-clicks on the same step may indicate confusion.
+   */
+  onboarding_back_click: {
+    step: number
+    step_name: string
+  }
+
+  /**
+   * User left the onboarding page before completing it via SPA navigation
+   * (clicking a link, browser back within the app, etc.).
+   * Fired on React component unmount. Does NOT fire when the tab/window closes —
+   * that is captured by onboarding_tab_close instead.
+   */
+  onboarding_abandoned: {
+    last_step: number
+    last_step_name: string
+  }
+
+  /**
+   * User closed the tab, closed the browser window, refreshed the page, or
+   * typed a new URL while onboarding was incomplete.
+   * Fired via the `pagehide` event with beacon transport so the hit is
+   * delivered even as the browser tears down the page.
+   */
+  onboarding_tab_close: {
+    last_step: number
+    last_step_name: string
+  }
+
+  /**
+   * User clicks "Complete Onboarding 🚀" — fires before the API call.
+   * Compare with onboarding_complete to spot API-failure drop-off.
+   */
+  onboarding_submit_click: Record<string, never>
+
   onboarding_complete: {
     political_ideology: string
   }
@@ -114,6 +171,76 @@ export type AnalyticsEventMap = {
     direction: "next" | "previous"
     page_number: number
     total_pages: number
+  }
+
+  // ── Scroll Depth ───────────────────────────────────────────────────────
+  /**
+   * Fired when the user scrolls to a milestone (25 / 50 / 75 / 90 %).
+   * Each milestone fires at most once per page load.
+   */
+  scroll_depth: {
+    depth_percent: 25 | 50 | 75 | 90
+    page_location: string
+    /** Politician ID when on a profile page */
+    politician_id?: string
+  }
+
+  // ── Section Visibility ─────────────────────────────────────────────────
+  /**
+   * Fired (once) the first time a politician-profile section enters the viewport.
+   * Tells us which sections users actually read vs. scroll past.
+   */
+  section_view: {
+    section_name:
+      | "political_history"
+      | "performance"
+      | "education"
+      | "family"
+      | "criminal_records"
+      | "contact"
+      | "contribute_cta"
+    politician_id: string
+    politician_name: string
+  }
+
+  // ── Engagement Time ────────────────────────────────────────────────────
+  /**
+   * Fired on component unmount — tells us how long users spent on a page.
+   * Useful for measuring depth of engagement with politician profiles.
+   */
+  time_on_page: {
+    duration_seconds: number
+    page_location: string
+    politician_id?: string
+  }
+
+  // ── UI Preferences ─────────────────────────────────────────────────────
+  /** Fired when the user clicks the light/dark mode toggle. */
+  theme_toggle: {
+    new_theme: "light" | "dark"
+  }
+
+  // ── Citation & Data Quality ────────────────────────────────────────────
+  /**
+   * Fired when a user clicks a citation source link on a politician profile.
+   * Tells us which sections have the most trusted/checked data.
+   */
+  citation_link_click: {
+    /** Section label passed to <CitationLink label="…"> */
+    citation_label: string
+    /** Source name from the citation object */
+    source: string
+    /** The destination URL */
+    url: string
+  }
+
+  /**
+   * Fired when a user clicks "Report Inaccuracy" on a politician profile.
+   * A leading indicator of data quality issues.
+   */
+  report_inaccuracy_click: {
+    politician_id: string
+    politician_name: string
   }
 
   // ── Errors ─────────────────────────────────────────────────────────────
