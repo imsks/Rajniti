@@ -6,10 +6,9 @@ Fixtures are organized by scope and purpose for optimal test isolation and perfo
 """
 
 import os
-import sys
 from datetime import datetime
 from typing import Any, Dict
-from unittest.mock import MagicMock, Mock, patch
+from unittest.mock import Mock, patch
 
 import pytest
 

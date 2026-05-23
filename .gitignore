@@ -142,9 +142,10 @@ logs/
 *.log
 *.sqlite3
 *.db
-
-# Exception: Allow chroma_db for documentation and development
-!chroma_db/chroma.sqlite3
+chroma_db/
+htmlcov/
+coverage.xml
+.cache/
 
 # Database migrations - DO NOT IGNORE
 # Migration files in alembic/versions/ should ALWAYS be committed to git

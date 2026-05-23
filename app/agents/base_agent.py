@@ -12,6 +12,8 @@ from __future__ import annotations
 
 import json
 import logging
+import os
+import time
 import traceback
 from typing import Any, Dict, Optional, TypeVar
 
@@ -25,6 +27,22 @@ T = TypeVar("T")
 logger = logging.getLogger(__name__)
 
 
+def _llm_response_logging_enabled() -> bool:
+    v = (os.getenv("RAJNITI_LOG_LLM_RESPONSES") or "1").strip().lower()
+    return v not in ("0", "false", "no", "off")
+
+
+def _llm_response_log_max_chars() -> int:
+    raw = (os.getenv("RAJNITI_LLM_RESPONSE_LOG_MAX_CHARS") or "").strip()
+    if not raw:
+        return 1_048_576
+    try:
+        n = int(raw)
+        return n
+    except ValueError:
+        return 1_048_576
+
+
 class BaseAgent:
     """Base class inherited by all Rajniti agents."""
 
@@ -32,6 +50,7 @@ class BaseAgent:
         self.llm = get_agent_llm()
         self._tools = self._init_tools()
         self._errors: list[dict[str, Any]] = []
+        self._llm_call_count = 0
 
     # ── Tool initialisation (never raises) ──────────────────────────────────
 
@@ -123,6 +142,10 @@ class BaseAgent:
 
     # ── Tool helpers ─────────────────────────────────────────────────────────
 
+    def search_web(self, query: str, max_results: int = 5) -> str:
+        """Public alias for DuckDuckGo search (tools facade)."""
+        return self._search_web(query, max_results=max_results)
+
     def _search_web(self, query: str, max_results: int = 5) -> str:
         """Run a DuckDuckGo search; returns formatted text or ``""``."""
         tool = self._tools.get("web_search")
@@ -160,6 +183,29 @@ class BaseAgent:
             )
             return ""
 
+    def _format_wikipedia_bundle_context(self, bundle: Dict[str, Any]) -> str:
+        lines = ["=== Wikipedia (structured) ==="]
+        if bundle.get("article_url"):
+            lines.append(f"Article URL: {bundle['article_url']}")
+        if bundle.get("title"):
+            lines.append(f"Page title: {bundle['title']}")
+        if bundle.get("extract"):
+            lines.append("Extract:")
+            lines.append(str(bundle["extract"]))
+        ext = bundle.get("external_links") or []
+        if ext:
+            lines.append(
+                "Outbound links (use for primary-source citations where possible "
+                "instead of citing Wikipedia alone):"
+            )
+            for i, url in enumerate(ext, start=1):
+                lines.append(f"  {i}. {url}")
+        lines.append(
+            "Citation rule: use Article URL only for summary citations when Extract "
+            "clearly refers to this politician."
+        )
+        return "\n".join(lines)
+
     def _gather_politician_context(self, politician: Dict[str, Any]) -> str:
         """Collect web + Wikipedia context for a politician (best-effort).
 
@@ -175,9 +221,26 @@ class BaseAgent:
 
         parts: list[str] = []
 
-        wiki = self._search_wikipedia(f"{name} Indian politician {state}")
-        if wiki:
-            parts.append(f"=== Wikipedia ===\n{wiki}")
+        wiki_tool = self._tools.get("wikipedia")
+        bundle: Optional[Dict[str, Any]] = None
+        if wiki_tool is not None:
+            try:
+                bundle = wiki_tool.politician_wikipedia_bundle(str(name), str(state))
+            except Exception as exc:
+                self._record_error(
+                    "tool",
+                    f"Wikipedia bundle failed: {exc}",
+                    context=str(name),
+                    exc=exc,
+                )
+                bundle = None
+
+        if bundle and bundle.get("extract"):
+            parts.append(self._format_wikipedia_bundle_context(bundle))
+        elif wiki_tool is not None:
+            wiki = self._search_wikipedia(f"{name} Indian politician {state}")
+            if wiki:
+                parts.append(f"=== Wikipedia ===\n{wiki}")
 
         web = self._search_web(query, max_results=3)
         if web:
@@ -185,11 +248,48 @@ class BaseAgent:
 
         return "\n\n".join(parts)
 
+    def _log_llm_response_body(self, call_n: int, text: str) -> None:
+        """Log full LLM output at INFO (on by default; disable with RAJNITI_LOG_LLM_RESPONSES=0)."""
+        if not _llm_response_logging_enabled():
+            return
+        max_show = _llm_response_log_max_chars()
+        n = len(text)
+        if max_show <= 0 or n <= max_show:
+            logger.info(
+                "BaseAgent._run_llm call #%d RESPONSE (%d chars):\n%s",
+                call_n,
+                n,
+                text,
+            )
+            return
+        logger.info(
+            "BaseAgent._run_llm call #%d RESPONSE (first %d of %d chars; "
+            "raise RAJNITI_LLM_RESPONSE_LOG_MAX_CHARS to see more):\n%s\n... [truncated]",
+            call_n,
+            max_show,
+            n,
+            text[:max_show],
+        )
+
     # ── LLM helpers ──────────────────────────────────────────────────────────
 
     @log(logger, "BaseAgent._run_llm")
     def _run_llm(self, prompt: str) -> str:
         """Send a prompt to the LLM and return plain text."""
+        max_raw = (os.getenv("RAJNITI_LLM_MAX_CALLS") or "").strip()
+        max_calls = int(max_raw) if max_raw else 0
+        if max_calls > 0 and self._llm_call_count >= max_calls:
+            raise RuntimeError(
+                f"RAJNITI_LLM_MAX_CALLS ({max_calls}) exhausted for this run"
+            )
+        self._llm_call_count += 1
+        call_n = self._llm_call_count
+        logger.info(
+            "BaseAgent._run_llm call #%d START prompt_chars=%d",
+            call_n,
+            len(prompt),
+        )
+        t0 = time.monotonic()
         try:
             response = self.llm.invoke(prompt)
             content = (
@@ -208,8 +308,24 @@ class BaseAgent:
                     )
                     for part in content
                 )
-            return str(content) if not isinstance(content, str) else content
+            text = str(content) if not isinstance(content, str) else content
+            elapsed = time.monotonic() - t0
+            logger.info(
+                "BaseAgent._run_llm call #%d DONE elapsed_s=%.2f response_chars=%d",
+                call_n,
+                elapsed,
+                len(text),
+            )
+            self._log_llm_response_body(call_n, text)
+            return text
         except Exception as exc:
+            elapsed = time.monotonic() - t0
+            logger.warning(
+                "BaseAgent._run_llm call #%d FAILED after %.2fs: %s",
+                call_n,
+                elapsed,
+                exc,
+            )
             self._record_error("llm", str(exc), exc=exc)
             raise
 
@@ -227,6 +343,12 @@ class BaseAgent:
             "up-to-date information. Cross-reference with your own knowledge "
             "and prefer the context when it conflicts.\n\n"
             f"{context}\n\n---\n\n{prompt}"
+        )
+        logger.info(
+            "BaseAgent._run_llm_with_context context_chars=%d prompt_chars=%d enriched_chars=%d",
+            len(context),
+            len(prompt),
+            len(enriched),
         )
         return self._run_llm(enriched)
 

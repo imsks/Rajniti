@@ -14,7 +14,7 @@ const DEFAULT_IDS: MyPoliticianIds = { mpId: null, mlaId: null }
 
 /** Pure: parse JSON string to MyPoliticianIds; returns default on invalid/legacy. */
 export function parseMyPoliticianIds(raw: string | null): MyPoliticianIds {
-    if (raw == null || raw === "") return DEFAULT_IDS
+    if (raw === null || raw === "") return DEFAULT_IDS
     try {
         const parsed = JSON.parse(raw) as Record<string, unknown> | null
         if (parsed && typeof parsed === "object") {

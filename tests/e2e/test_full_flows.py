@@ -8,8 +8,7 @@ NOTE: These tests are skipped by default as they require database setup.
 Run with `pytest --run-e2e` to enable.
 """
 
-import sys
-from unittest.mock import MagicMock, Mock, patch
+from unittest.mock import Mock, patch
 
 import pytest
 

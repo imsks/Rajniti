@@ -257,7 +257,7 @@ def api_root():
 @api_bp.route("/health", methods=["GET"])
 def health_check():
     """Health check."""
-    from app.core.database import check_db_health
+    from app.database.session import check_db_health
 
     db_ok = check_db_health()
     return jsonify(

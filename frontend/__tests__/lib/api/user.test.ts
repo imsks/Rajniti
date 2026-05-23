@@ -5,168 +5,387 @@
  * The env var must be set before the module is required (imports are hoisted).
  */
 
-const API_BASE = 'http://localhost:8000/api/v1'
+const API_BASE = "http://localhost:8000/api/v1";
 
-let userService: typeof import('@/lib/api/user')['userService']
-let mockFetch: jest.Mock
+let userService: (typeof import("@/lib/api/user"))["userService"];
+let mockFetch: jest.Mock;
 
 beforeAll(() => {
-    process.env.NEXT_PUBLIC_API_URL = API_BASE
-    jest.resetModules()
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    userService = require('@/lib/api/user').userService
-    mockFetch = global.fetch as jest.Mock
-})
+  process.env.NEXT_PUBLIC_API_URL = API_BASE;
+  jest.resetModules();
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  userService = require("@/lib/api/user").userService;
+  mockFetch = global.fetch as jest.Mock;
+});
 
 beforeEach(() => {
-    mockFetch.mockReset()
-})
+  mockFetch.mockReset();
+});
 
 function okResponse(data: unknown) {
-    return { ok: true, status: 200, json: () => Promise.resolve(data) }
+  return { ok: true, status: 200, json: () => Promise.resolve(data) };
 }
 
 function errorResponse(body: unknown, status = 500) {
-    return { ok: false, status, statusText: 'Error', json: () => Promise.resolve(body) }
+  return {
+    ok: false,
+    status,
+    statusText: "Error",
+    json: () => Promise.resolve(body),
+  };
 }
 
 // ---------------------------------------------------------------------------
 // syncUser
 // ---------------------------------------------------------------------------
-describe('userService.syncUser', () => {
-    it('calls the /api/v1/users/sync endpoint', async () => {
-        mockFetch.mockResolvedValueOnce(okResponse({ success: true }))
+describe("userService.syncUser", () => {
+  it("calls the /api/v1/users/sync endpoint", async () => {
+    mockFetch.mockResolvedValueOnce(okResponse({ success: true }));
 
-        await userService.syncUser({ id: 'u1', email: 'a@b.com' })
+    await userService.syncUser({ id: "u1", email: "a@b.com" });
 
-        expect(mockFetch).toHaveBeenCalledWith(
-            `${API_BASE}/users/sync`,
-            expect.any(Object),
-        )
-    })
+    expect(mockFetch).toHaveBeenCalledWith(
+      `${API_BASE}/users/sync`,
+      expect.any(Object),
+    );
+  });
 
-    it('sends POST with JSON content-type and serialized body', async () => {
-        const userData = { id: 'u1', email: 'a@b.com', name: 'Test' }
-        mockFetch.mockResolvedValueOnce(okResponse({ success: true, data: userData }))
+  it("sends POST with JSON content-type and serialized body", async () => {
+    const userData = { id: "u1", email: "a@b.com", name: "Test" };
+    mockFetch.mockResolvedValueOnce(
+      okResponse({ success: true, data: userData }),
+    );
 
-        await userService.syncUser(userData)
+    await userService.syncUser(userData);
 
-        const [, opts] = mockFetch.mock.calls[0]
-        expect(opts.method).toBe('POST')
-        expect(opts.headers['Content-Type']).toBe('application/json')
-        expect(JSON.parse(opts.body)).toEqual(userData)
-    })
+    const [, opts] = mockFetch.mock.calls[0];
+    expect(opts.method).toBe("POST");
+    expect(opts.headers["Content-Type"]).toBe("application/json");
+    expect(JSON.parse(opts.body)).toEqual(userData);
+  });
 
-    it('returns parsed JSON on success', async () => {
-        const payload = { success: true, data: { id: 'u1' } }
-        mockFetch.mockResolvedValueOnce(okResponse(payload))
+  it("returns parsed JSON on success", async () => {
+    const payload = { success: true, data: { id: "u1" } };
+    mockFetch.mockResolvedValueOnce(okResponse(payload));
 
-        const result = await userService.syncUser({ id: 'u1', email: 'a@b.com' })
-        expect(result).toEqual(payload)
-    })
+    const result = await userService.syncUser({ id: "u1", email: "a@b.com" });
+    expect(result).toEqual(payload);
+  });
 
-    it('throws when response is not ok', async () => {
-        mockFetch.mockResolvedValueOnce(errorResponse({}, 500))
+  it("throws when response is not ok", async () => {
+    mockFetch.mockResolvedValueOnce(errorResponse({}, 500));
 
-        await expect(
-            userService.syncUser({ id: 'u1', email: 'a@b.com' }),
-        ).rejects.toThrow(/Failed to sync user/)
-    })
-})
+    await expect(
+      userService.syncUser({ id: "u1", email: "a@b.com" }),
+    ).rejects.toThrow(/Failed to sync user/);
+  });
+});
 
 // ---------------------------------------------------------------------------
 // updateUser
 // ---------------------------------------------------------------------------
-describe('userService.updateUser', () => {
-    it('calls /users/{userId} with PATCH', async () => {
-        mockFetch.mockResolvedValueOnce(okResponse({ success: true }))
+describe("userService.updateUser", () => {
+  it("calls /users/{userId} with PATCH", async () => {
+    mockFetch.mockResolvedValueOnce(okResponse({ success: true }));
 
-        await userService.updateUser('user-42', { name: 'Updated' })
+    await userService.updateUser("user-42", { name: "Updated" });
 
-        const [url, opts] = mockFetch.mock.calls[0]
-        expect(url).toBe(`${API_BASE}/users/user-42`)
-        expect(opts.method).toBe('PATCH')
-    })
+    const [url, opts] = mockFetch.mock.calls[0];
+    expect(url).toBe(`${API_BASE}/users/user-42`);
+    expect(opts.method).toBe("PATCH");
+  });
 
-    it('sends political_ideology (not political_interest)', async () => {
-        const data = {
-            username: 'raj',
-            political_ideology: 'Centrist',
-            onboarding_completed: true as const,
-        }
-        mockFetch.mockResolvedValueOnce(okResponse({ success: true, data }))
+  it("sends political_ideology (not political_interest)", async () => {
+    const data = {
+      username: "raj",
+      political_ideology: "Centrist",
+      onboarding_completed: true as const,
+    };
+    mockFetch.mockResolvedValueOnce(okResponse({ success: true, data }));
 
-        await userService.updateUser('u1', data)
+    await userService.updateUser("u1", data);
 
-        const body = JSON.parse(mockFetch.mock.calls[0][1].body)
-        expect(body).toHaveProperty('political_ideology', 'Centrist')
-        expect(body).not.toHaveProperty('political_interest')
-    })
+    const body = JSON.parse(mockFetch.mock.calls[0][1].body);
+    expect(body).toHaveProperty("political_ideology", "Centrist");
+    expect(body).not.toHaveProperty("political_interest");
+  });
 
-    it('returns parsed JSON on success', async () => {
-        const payload = { success: true, data: { id: 'u1', name: 'New' } }
-        mockFetch.mockResolvedValueOnce(okResponse(payload))
+  it("returns parsed JSON on success", async () => {
+    const payload = { success: true, data: { id: "u1", name: "New" } };
+    mockFetch.mockResolvedValueOnce(okResponse(payload));
 
-        const result = await userService.updateUser('u1', { name: 'New' })
-        expect(result).toEqual(payload)
-    })
+    const result = await userService.updateUser("u1", { name: "New" });
+    expect(result).toEqual(payload);
+  });
 
-    it('throws with backend error message on failure', async () => {
-        mockFetch.mockResolvedValueOnce(
-            errorResponse({ error: 'Username is already taken' }, 400),
-        )
+  it("throws with backend error message on failure", async () => {
+    mockFetch.mockResolvedValueOnce(
+      errorResponse({ error: "Username is already taken" }, 400),
+    );
 
-        await expect(
-            userService.updateUser('u1', { username: 'taken' }),
-        ).rejects.toThrow('Username is already taken')
-    })
-})
+    await expect(
+      userService.updateUser("u1", { username: "taken" }),
+    ).rejects.toThrow("Username is already taken");
+  });
+});
 
 // ---------------------------------------------------------------------------
 // checkUsername
 // ---------------------------------------------------------------------------
-describe('userService.checkUsername', () => {
-    it('calls /users/check-username with POST', async () => {
-        mockFetch.mockResolvedValueOnce(okResponse({ available: true }))
+describe("userService.checkUsername", () => {
+  it("calls /users/check-username with POST", async () => {
+    mockFetch.mockResolvedValueOnce(okResponse({ available: true }));
 
-        await userService.checkUsername('testuser')
+    await userService.checkUsername("testuser");
+
+    const [url, opts] = mockFetch.mock.calls[0];
+    expect(url).toBe(`${API_BASE}/users/check-username`);
+    expect(opts.method).toBe("POST");
+  });
+
+  it("sends username and optional user_id in body", async () => {
+    mockFetch.mockResolvedValueOnce(okResponse({ available: true }));
+
+    await userService.checkUsername("raj", "user-99");
+
+    const body = JSON.parse(mockFetch.mock.calls[0][1].body);
+    expect(body).toEqual({ username: "raj", user_id: "user-99" });
+  });
+
+  it("omits user_id when not provided", async () => {
+    mockFetch.mockResolvedValueOnce(okResponse({ available: true }));
+
+    await userService.checkUsername("raj");
+
+    const body = JSON.parse(mockFetch.mock.calls[0][1].body);
+    expect(body.username).toBe("raj");
+    expect(body.user_id).toBeUndefined();
+  });
+
+  it("returns availability result", async () => {
+    mockFetch.mockResolvedValueOnce(okResponse({ available: false }));
+
+    const result = await userService.checkUsername("taken");
+    expect(result).toEqual({ available: false });
+  });
+
+  it("throws when response is not ok", async () => {
+    mockFetch.mockResolvedValueOnce(errorResponse({}, 500));
+
+    await expect(userService.checkUsername("test")).rejects.toThrow(
+      "Failed to check username",
+    );
+  });
+});
+
+// ---------------------------------------------------------------------------
+// getUserPoliticians
+// ---------------------------------------------------------------------------
+describe("userService.getUserPoliticians", () => {
+  it("calls /users/{userId}/politicians with GET", async () => {
+    mockFetch.mockResolvedValueOnce(okResponse({ success: true, data: [] }));
+
+    await userService.getUserPoliticians("user-1");
+
+    const [url, opts] = mockFetch.mock.calls[0];
+    expect(url).toBe(`${API_BASE}/users/user-1/politicians`);
+    expect(opts).toBeUndefined();
+  });
+
+  it("returns user politicians on success", async () => {
+    const payload = {
+      success: true,
+      data: [{ politician_id: "p-1", role: "MP" }],
+    };
+    mockFetch.mockResolvedValueOnce(okResponse(payload));
+
+    const result = await userService.getUserPoliticians("user-1");
+    expect(result).toEqual(payload.data);
+  });
+
+  it("returns null when response is not ok", async () => {
+    mockFetch.mockResolvedValueOnce(errorResponse({}, 500));
+
+    const result = await userService.getUserPoliticians("user-1");
+    expect(result).toBeNull();
+  });
+});
+
+// malformed payload
+it("returns null when payload shape is invalid", async () => {
+  mockFetch.mockResolvedValueOnce(
+    okResponse({
+      success: true,
+      data: null,
+    }),
+  );
+
+  const result = await userService.getUserPoliticians("user-1");
+
+  expect(result).toBeNull();
+});
+
+it("returns null on fetch exception", async () => {
+  mockFetch.mockRejectedValueOnce(new Error("network"));
+
+  const result = await userService.getUserPoliticians("user-1");
+
+  expect(result).toBeNull();
+});
+
+// ---------------------------------------------------------------------------
+// addUserPolitician
+// ---------------------------------------------------------------------------
+describe('userService.addUserPolitician', () => {
+    it('calls correct endpoint with POST', async () => {
+        mockFetch.mockResolvedValueOnce(okResponse({ success: true }))
+
+        await userService.addUserPolitician('u1', 'p1', 'MP')
 
         const [url, opts] = mockFetch.mock.calls[0]
-        expect(url).toBe(`${API_BASE}/users/check-username`)
+
+        expect(url).toBe(`${API_BASE}/users/u1/politicians`)
         expect(opts.method).toBe('POST')
     })
 
-    it('sends username and optional user_id in body', async () => {
-        mockFetch.mockResolvedValueOnce(okResponse({ available: true }))
+    it('sends politician payload', async () => {
+        mockFetch.mockResolvedValueOnce(okResponse({ success: true }))
 
-        await userService.checkUsername('raj', 'user-99')
-
-        const body = JSON.parse(mockFetch.mock.calls[0][1].body)
-        expect(body).toEqual({ username: 'raj', user_id: 'user-99' })
-    })
-
-    it('omits user_id when not provided', async () => {
-        mockFetch.mockResolvedValueOnce(okResponse({ available: true }))
-
-        await userService.checkUsername('raj')
+        await userService.addUserPolitician('u1', 'p1', 'MLA')
 
         const body = JSON.parse(mockFetch.mock.calls[0][1].body)
-        expect(body.username).toBe('raj')
-        expect(body.user_id).toBeUndefined()
+
+        expect(body).toEqual({
+            politician_id: 'p1',
+            role: 'MLA',
+        })
     })
 
-    it('returns availability result', async () => {
-        mockFetch.mockResolvedValueOnce(okResponse({ available: false }))
-
-        const result = await userService.checkUsername('taken')
-        expect(result).toEqual({ available: false })
-    })
-
-    it('throws when response is not ok', async () => {
-        mockFetch.mockResolvedValueOnce(errorResponse({}, 500))
-
-        await expect(userService.checkUsername('test')).rejects.toThrow(
-            'Failed to check username',
+    it('returns backend response on success', async () => {
+        mockFetch.mockResolvedValueOnce(
+            okResponse({
+                success: true,
+            }),
         )
+
+        const result = await userService.addUserPolitician(
+            'u1',
+            'p1',
+            'MP',
+        )
+
+        expect(result).toEqual({ success: true })
+    })
+
+    it('returns success fallback when json parsing fails', async () => {
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            status: 200,
+            json: () => Promise.reject(new Error('invalid json')),
+        })
+
+        const result = await userService.addUserPolitician(
+            'u1',
+            'p1',
+            'MP',
+        )
+
+        expect(result).toEqual({})
+    })
+
+    it('returns failure on backend error', async () => {
+        mockFetch.mockResolvedValueOnce(
+            errorResponse({ error: 'failed' }, 500),
+        )
+
+        const result = await userService.addUserPolitician(
+            'u1',
+            'p1',
+            'MP',
+        )
+
+        expect(result).toEqual({ success: false })
+    })
+
+    it('returns failure on fetch exception', async () => {
+        mockFetch.mockRejectedValueOnce(new Error('network'))
+
+        const result = await userService.addUserPolitician(
+            'u1',
+            'p1',
+            'MP',
+        )
+
+        expect(result).toEqual({ success: false })
+    })
+})
+
+// ---------------------------------------------------------------------------
+// removeUserPolitician
+// ---------------------------------------------------------------------------
+describe('userService.removeUserPolitician', () => {
+    it('calls correct DELETE endpoint', async () => {
+        mockFetch.mockResolvedValueOnce(okResponse({ success: true }))
+
+        await userService.removeUserPolitician('u1', 'p1')
+
+        const [url, opts] = mockFetch.mock.calls[0]
+
+        expect(url).toBe(`${API_BASE}/users/u1/politicians/p1`)
+        expect(opts.method).toBe('DELETE')
+    })
+
+    it('returns backend response on success', async () => {
+        mockFetch.mockResolvedValueOnce(
+            okResponse({
+                success: true,
+            }),
+        )
+
+        const result = await userService.removeUserPolitician(
+            'u1',
+            'p1',
+        )
+
+        expect(result).toEqual({ success: true })
+    })
+
+    it('returns success fallback when json parsing fails', async () => {
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            status: 200,
+            json: () => Promise.reject(new Error('invalid json')),
+        })
+
+        const result = await userService.removeUserPolitician(
+            'u1',
+            'p1',
+        )
+
+        expect(result).toEqual({})
+    })
+
+    it('returns failure on backend error', async () => {
+        mockFetch.mockResolvedValueOnce(
+            errorResponse({ error: 'failed' }, 500),
+        )
+
+        const result = await userService.removeUserPolitician(
+            'u1',
+            'p1',
+        )
+
+        expect(result).toEqual({ success: false })
+    })
+
+    it('returns failure on fetch exception', async () => {
+        mockFetch.mockRejectedValueOnce(new Error('network'))
+
+        const result = await userService.removeUserPolitician(
+            'u1',
+            'p1',
+        )
+
+        expect(result).toEqual({ success: false })
     })
 })

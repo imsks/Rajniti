@@ -77,7 +77,7 @@ def resolve_ipv4(host: str, port: int) -> str:
             type=socket.SOCK_STREAM,
         )
         if infos:
-            return infos[0][4][0]
+            return str(infos[0][4][0])
     except socket.gaierror:
         pass
 

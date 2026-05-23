@@ -1,14 +1,15 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { BarChart2, CalendarCheck, HelpCircle, MessageSquare, Trophy } from "lucide-react"
+import { AlertTriangle, BarChart2, CalendarCheck, HelpCircle, MessageSquare, Trophy, UserPlus } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { CitationLink } from "@/components/CitationLink"
 import { Footer, Navbar } from "@/components/layout"
 import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import Image from "@/components/ui/Image"
 import { useAnalytics } from "@/hooks/useAnalytics"
-import type { Politician, ElectionRecord, CrimeRecord, FamilyMember } from "@/types/politician"
+import type { Politician, ElectionRecord, CrimeRecord, FamilyMember, Citation } from "@/types/politician"
 
 // ── Animation Hooks ────────────────────────────────────────────────────────
 
@@ -128,16 +129,21 @@ function Badge({
 function PoliticalHistorySection({
     elections,
     summary,
+    summaryCitation,
 }: {
     elections: ElectionRecord[]
     summary?: string | null
+    summaryCitation?: Citation | null
 }) {
     return (
         <Section title="Political History" icon="/logo/Parliament.png">
             {summary && (
-                <Text variant="body" className="text-gray-600 dark:text-gray-400 mb-4 italic">
-                    {summary}
-                </Text>
+                <div className="flex items-start gap-1 mb-4">
+                    <Text variant="body" className="text-gray-600 dark:text-gray-400 italic flex-1">
+                        {summary}
+                    </Text>
+                    <CitationLink citation={summaryCitation ?? null} label="Political summary" />
+                </div>
             )}
             <div className="space-y-3">
                 {elections.map((e, i) => (
@@ -146,13 +152,20 @@ function PoliticalHistorySection({
                         className="election-card flex items-center justify-between bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-lg p-4 border border-gray-200 dark:border-gray-700"
                         style={{ animationDelay: `${i * 80}ms` }}
                     >
-                        <div>
-                            <Text variant="body" weight="semibold" className="text-gray-900 dark:text-white">
-                                {e.constituency}, {e.state}
-                            </Text>
-                            <Text variant="small" className="text-gray-500 dark:text-gray-400">
-                                {e.party} • {e.year} • {e.type}
-                            </Text>
+                        <div className="flex items-start gap-2 min-w-0">
+                            <div className="min-w-0">
+                                <Text variant="body" weight="semibold" className="text-gray-900 dark:text-white">
+                                    {e.constituency}, {e.state}
+                                </Text>
+                                <Text variant="small" className="text-gray-500 dark:text-gray-400">
+                                    {e.party} • {e.year} • {e.type}
+                                </Text>
+                            </div>
+                            <CitationLink
+                                citation={e.citation}
+                                label={`Election ${e.year} ${e.constituency}`}
+                                className="flex-shrink-0 mt-0.5"
+                            />
                         </div>
                         <Badge color={e.status === "WON" ? "green" : "red"}>{e.status}</Badge>
                     </div>
@@ -164,12 +177,13 @@ function PoliticalHistorySection({
 
 function EducationSection({ education }: { education: Politician["education"] }) {
     const list = education ?? []
-    if (list.length === 0)
+    if (list.length === 0) {
         return (
             <Section title="Education" icon="/logo/Profile.png">
                 <EmptyHint message="Education details not yet available." />
             </Section>
         )
+    }
     return (
         <Section title="Education" icon="/logo/graduation.png">
             <div className="grid gap-3">
@@ -178,9 +192,12 @@ function EducationSection({ education }: { education: Politician["education"] })
                         key={i}
                         className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-4 border border-orange-200 dark:border-orange-800 hover:shadow-sm transition-shadow duration-200"
                     >
-                        <Text variant="body" weight="semibold" className="text-gray-900 dark:text-white">
-                            {e.qualification}
-                        </Text>
+                        <div className="flex items-center gap-1">
+                            <Text variant="body" weight="semibold" className="text-gray-900 dark:text-white">
+                                {e.qualification}
+                            </Text>
+                            <CitationLink citation={e.citation} label={`Education: ${e.qualification}`} />
+                        </div>
                         {(e.institution || e.year_completed) && (
                             <Text variant="small" className="text-gray-600 dark:text-gray-400">
                                 {e.institution ?? "—"}
@@ -195,12 +212,13 @@ function EducationSection({ education }: { education: Politician["education"] })
 }
 
 function FamilySection({ members }: { members?: FamilyMember[] | null }) {
-    if (!members || members.length === 0)
+    if (!members || members.length === 0) {
         return (
             <Section title="Family Background" icon="/logo/familyRecord.png">
                 <EmptyHint message="Family details not yet available." />
             </Section>
         )
+    }
     return (
         <Section title="Family Background" icon="/logo/familyRecord.png">
             <div className="grid gap-3">
@@ -209,9 +227,12 @@ function FamilySection({ members }: { members?: FamilyMember[] | null }) {
                         key={i}
                         className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-4 border border-orange-200 dark:border-orange-800 hover:shadow-sm transition-shadow duration-200"
                     >
-                        <Text variant="body" weight="semibold" className="text-gray-900 dark:text-white">
-                            {m.name}
-                        </Text>
+                        <div className="flex items-center gap-1">
+                            <Text variant="body" weight="semibold" className="text-gray-900 dark:text-white">
+                                {m.name}
+                            </Text>
+                            <CitationLink citation={m.citation} label={`Family: ${m.name}`} />
+                        </div>
                         <Text variant="small" className="text-gray-600 dark:text-gray-400">
                             {m.relation}
                         </Text>
@@ -223,12 +244,13 @@ function FamilySection({ members }: { members?: FamilyMember[] | null }) {
 }
 
 function CriminalRecordsSection({ records }: { records?: CrimeRecord[] | null }) {
-    if (!records || records.length === 0)
+    if (!records || records.length === 0) {
         return (
             <Section title="Criminal Records" icon="/logo/criminal-record.png">
                 <EmptyHint message="No criminal records data available." />
             </Section>
         )
+    }
     return (
         <Section title="Criminal Records" icon="/logo/criminal-record.png">
             <div className="space-y-3">
@@ -237,11 +259,14 @@ function CriminalRecordsSection({ records }: { records?: CrimeRecord[] | null })
                         key={i}
                         className="bg-red-50 dark:bg-red-900/20 rounded-lg p-4 border border-red-200 dark:border-red-800 hover:shadow-sm transition-shadow duration-200"
                     >
-                        <div className="flex items-start justify-between">
+                        <div className="flex items-start gap-1 justify-between flex-1">
                             <div>
-                                <Text variant="body" weight="semibold" className="text-gray-900 dark:text-white">
-                                    {c.name}
-                                </Text>
+                                <div className="flex items-center gap-1">
+                                    <Text variant="body" weight="semibold" className="text-gray-900 dark:text-white">
+                                        {c.name}
+                                    </Text>
+                                    <CitationLink citation={c.citation} label={`Case: ${c.name}`} />
+                                </div>
                                 {c.year && (
                                     <Text variant="small" className="text-gray-500 dark:text-gray-400">
                                         Year: {c.year}
@@ -258,21 +283,25 @@ function CriminalRecordsSection({ records }: { records?: CrimeRecord[] | null })
 }
 
 function ContactSection({ politician }: { politician: Politician }) {
-    const { contact, social_media } = politician
+    const { contact, social_media, contact_citations, social_media_citations } = politician
     const hasAny =
         contact?.email ||
         contact?.phone ||
         contact?.address ||
         social_media?.twitter ||
         social_media?.facebook ||
+        social_media?.instagram ||
+        social_media?.linkedin ||
+        social_media?.youtube ||
         social_media?.website
 
-    if (!hasAny)
+    if (!hasAny) {
         return (
             <Section title="Contact & Social Media" icon="/logo/contact.png">
                 <EmptyHint message="Contact info not yet available." />
             </Section>
         )
+    }
 
     return (
         <Section title="Contact & Social Media" icon="/logo/contact.png">
@@ -281,40 +310,79 @@ function ContactSection({ politician }: { politician: Politician }) {
                     <div className="flex items-center gap-2">
                         <img src="/logo/location.png" alt="Email" className="w-4 h-4" />
                         <Text variant="body" className="text-gray-700 dark:text-gray-300">{contact.email}</Text>
+                        <CitationLink citation={contact_citations?.email} label="Email" />
                     </div>
                 )}
                 {contact?.phone && (
                     <div className="flex items-center gap-2">
                         <img src="/logo/location.png" alt="Phone" className="w-4 h-4" />
                         <Text variant="body" className="text-gray-700 dark:text-gray-300">{contact.phone}</Text>
+                        <CitationLink citation={contact_citations?.phone} label="Phone" />
                     </div>
                 )}
                 {contact?.address && (
                     <div className="flex items-center gap-2">
                         <img src="/logo/location.png" alt="Address" className="w-4 h-4" />
                         <Text variant="body" className="text-gray-700 dark:text-gray-300">{contact.address}</Text>
+                        <CitationLink citation={contact_citations?.address} label="Address" />
                     </div>
                 )}
                 {social_media && (
                     <div className="flex flex-wrap gap-3 mt-2">
                         {social_media.twitter && (
-                            <a href={social_media.twitter} target="_blank" rel="noopener noreferrer"
-                                className="text-blue-500 hover:underline text-sm">
-                                𝕏 Twitter
-                            </a>
+                            <span className="inline-flex items-center gap-1">
+                                <a href={social_media.twitter} target="_blank" rel="noopener noreferrer"
+                                    className="text-blue-500 hover:underline text-sm">
+                                    𝕏 Twitter
+                                </a>
+                                <CitationLink citation={social_media_citations?.twitter} label="Twitter" />
+                            </span>
                         )}
                         {social_media.facebook && (
-                            <a href={social_media.facebook} target="_blank" rel="noopener noreferrer"
-                                className="text-blue-700 dark:text-blue-400 hover:underline text-sm">
-                                Facebook
-                            </a>
+                            <span className="inline-flex items-center gap-1">
+                                <a href={social_media.facebook} target="_blank" rel="noopener noreferrer"
+                                    className="text-blue-700 dark:text-blue-400 hover:underline text-sm">
+                                    Facebook
+                                </a>
+                                <CitationLink citation={social_media_citations?.facebook} label="Facebook" />
+                            </span>
+                        )}
+                        {social_media.instagram && (
+                            <span className="inline-flex items-center gap-1">
+                                <a href={social_media.instagram} target="_blank" rel="noopener noreferrer"
+                                    className="text-pink-600 hover:underline text-sm">
+                                    Instagram
+                                </a>
+                                <CitationLink citation={social_media_citations?.instagram} label="Instagram" />
+                            </span>
+                        )}
+                        {social_media.linkedin && (
+                            <span className="inline-flex items-center gap-1">
+                                <a href={social_media.linkedin} target="_blank" rel="noopener noreferrer"
+                                    className="text-blue-600 hover:underline text-sm">
+                                    LinkedIn
+                                </a>
+                                <CitationLink citation={social_media_citations?.linkedin} label="LinkedIn" />
+                            </span>
+                        )}
+                        {social_media.youtube && (
+                            <span className="inline-flex items-center gap-1">
+                                <a href={social_media.youtube} target="_blank" rel="noopener noreferrer"
+                                    className="text-red-600 hover:underline text-sm">
+                                    YouTube
+                                </a>
+                                <CitationLink citation={social_media_citations?.youtube} label="YouTube" />
+                            </span>
                         )}
                         {social_media.website && (
-                            <a href={social_media.website} target="_blank" rel="noopener noreferrer"
-                                className="text-green-600 dark:text-green-400 hover:underline text-sm flex items-center gap-1">
-                                <img src="/logo/location.png" alt="Website" className="w-3 h-3" />
-                                Website
-                            </a>
+                            <span className="inline-flex items-center gap-1">
+                                <a href={social_media.website} target="_blank" rel="noopener noreferrer"
+                                    className="text-green-600 dark:text-green-400 hover:underline text-sm flex items-center gap-1">
+                                    <img src="/logo/location.png" alt="Website" className="w-3 h-3" />
+                                    Website
+                                </a>
+                                <CitationLink citation={social_media_citations?.website} label="Website" />
+                            </span>
                         )}
                     </div>
                 )}
@@ -335,6 +403,7 @@ function ScoreRow({
     iconColor,
     inView,
     delay,
+    citation,
 }: {
     label: string
     description: string
@@ -345,6 +414,7 @@ function ScoreRow({
     iconColor: string
     inView: boolean
     delay: number
+    citation?: Citation | null
 }) {
     const counted = useCountUp(value, 1400, inView)
 
@@ -366,8 +436,9 @@ function ScoreRow({
                     <p className="text-sm font-semibold text-gray-800 dark:text-gray-100 leading-tight">
                         {label}
                     </p>
-                    <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5 leading-tight">
+                    <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5 leading-tight flex items-center gap-1">
                         {description}
+                        <CitationLink citation={citation} label={label} className="inline" />
                     </p>
                 </div>
             </div>
@@ -383,9 +454,11 @@ function ScoreRow({
 function PerformanceSection({
     performance,
     rank,
+    performanceCitations,
 }: {
     performance: { attendance: number; questions: number; debates: number }
     rank: number
+    performanceCitations?: Politician["performance_citations"]
 }) {
     const { ref, inView } = useInView(0.15)
 
@@ -398,6 +471,7 @@ function PerformanceSection({
             icon: CalendarCheck,
             iconBg: "bg-emerald-100 dark:bg-emerald-900/40",
             iconColor: "text-emerald-600 dark:text-emerald-400",
+            citation: performanceCitations?.attendance,
         },
         {
             label: "Questions Asked",
@@ -407,6 +481,7 @@ function PerformanceSection({
             icon: HelpCircle,
             iconBg: "bg-blue-100 dark:bg-blue-900/40",
             iconColor: "text-blue-600 dark:text-blue-400",
+            citation: performanceCitations?.questions,
         },
         {
             label: "Debates Participated",
@@ -416,6 +491,7 @@ function PerformanceSection({
             icon: MessageSquare,
             iconBg: "bg-violet-100 dark:bg-violet-900/40",
             iconColor: "text-violet-600 dark:text-violet-400",
+            citation: performanceCitations?.debates,
         },
         {
             label: "National Rank",
@@ -427,6 +503,12 @@ function PerformanceSection({
             iconColor: "text-orange-600 dark:text-orange-400",
         },
     ]
+
+    const hasMetricCitations = Boolean(
+        performanceCitations?.attendance ||
+            performanceCitations?.questions ||
+            performanceCitations?.debates
+    )
 
     return (
         <div className="lg:col-span-2" ref={ref}>
@@ -472,7 +554,9 @@ function PerformanceSection({
                     }}
                 >
                     <p className="text-xs text-gray-400 dark:text-gray-600 text-center">
-                        Data sourced from Lok Sabha records · Current session
+                        {hasMetricCitations
+                            ? "Per-metric source links appear next to descriptions where available."
+                            : "Data sourced from Lok Sabha records · Current session"}
                     </p>
                 </div>
             </div>
@@ -544,8 +628,20 @@ export default function PoliticianPageClient({
     const party = latestElection?.party ?? "—"
     const isMp = p.type === "MP"
 
+    const buildReportIssueUrl = () => {
+        const pageUrl = typeof window !== "undefined" ? window.location.href : ""
+        const title = `Report Inaccuracy: ${p.name}`
+        const body = `## Politician Information\n\nName: ${p.name}\nPolitician ID: ${p.id}\nProfile URL: ${pageUrl}\n\n## What is incorrect?\n\nDescribe the incorrect or missing information here.\n\n## Suggested correction\n\nAdd the correct information here.\n\n## Additional Notes\n\nOptional notes/screenshots.`
+        const params = new URLSearchParams({ title, body })
+        return `https://github.com/imsks/rajniti/issues/new?${params.toString()}`
+    }
+
+    const handleReportClick = () => {
+        window.open(buildReportIssueUrl(), "_blank", "noopener,noreferrer")
+    }
+
     return (
-        <div className="min-h-screen bg-gradient-to-b from-orange-50 via-white to-green-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+        <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
             <style>{`
                 @keyframes fadeSlideUp {
                     0%  { opacity: 0; transform: translateY(24px); }
@@ -608,7 +704,7 @@ export default function PoliticianPageClient({
                                     className="w-32 h-32 rounded-2xl object-cover border-4 border-orange-200 dark:border-orange-800"
                                 />
                             ) : (
-                                <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/40 dark:to-orange-800/40 flex items-center justify-center flex-shrink-0 border-4 border-orange-200 dark:border-orange-800">
+                                <div className="w-32 h-32 rounded-2xl bg-linear-to-br from-orange-100 to-orange-200 dark:from-orange-900/40 dark:to-orange-800/40 flex items-center justify-center flex-shrink-0 border-4 border-orange-200 dark:border-orange-800">
                                     <img src="/logo/Parliament.png" alt="Politician" className="w-16 h-16 object-contain" />
                                 </div>
                             )}
@@ -644,14 +740,6 @@ export default function PoliticianPageClient({
                             </div>
                         </div>
                     </div>
-
-                    {p.notes && (
-                        <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
-                            <Text variant="small" className="text-gray-500 dark:text-gray-400 italic">
-                                📝 {p.notes}
-                            </Text>
-                        </div>
-                    )}
                 </div>
 
                 {/* Sections Grid */}
@@ -660,41 +748,88 @@ export default function PoliticianPageClient({
                         <PoliticalHistorySection
                             elections={p.political_background.elections}
                             summary={p.political_background.summary}
+                            summaryCitation={p.political_background.summary_citation}
                         />
                     </div>
 
                     {/* ── Performance Scorecard ── */}
-                    <PerformanceSection performance={performance} rank={rank} />
+                    <PerformanceSection
+                        performance={performance}
+                        rank={rank}
+                        performanceCitations={p.performance_citations}
+                    />
 
                     <EducationSection education={p.education} />
                     <FamilySection members={p.family_background} />
                     <CriminalRecordsSection records={p.criminal_records} />
                     <ContactSection politician={p} />
 
-                    {/* Contribute CTA */}
-                    <div className="contribute-cta lg:col-span-2 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-6 text-center text-white mb-8">
-                        <Text variant="h4" weight="bold" className="text-white mb-2">
-                            Know more about {p.name}?
-                        </Text>
-                        <Text variant="body" className="text-orange-100 mb-4">
-                            Help us enrich this profile with accurate education, family,
-                            criminal records, and contact information.
-                        </Text>
-                        <Button
-                            href={`https://github.com/imsks/rajniti/issues/new?title=Enrich+${encodeURIComponent(p.name)}&body=Politician+ID:+${encodeURIComponent(p.id)}%0A%0APlease+add+details+below:`}
-                            external
-                            onClick={() =>
-                                trackEvent("contribute_click", {
-                                    contribute_type: "info",
-                                    politician_id: p.id,
-                                    page_location: "politician_detail",
-                                })
-                            }
-                            className="bg-white text-orange-600 py-2 px-4 rounded-lg hover:bg-gray-50 border-none shadow-lg"
-                            size="md"
-                        >
-                            Contribute Info →
-                        </Button>
+                    {/* Know More About Cards */}
+                    <div className="lg:col-span-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 mb-4 shadow-sm transition hover:shadow-md">
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                            <div>
+                                <Text variant="h4" weight="bold" className="text-gray-900 dark:text-white">
+                                    Know more about {p.name}?
+                                </Text>
+                                <Text variant="body" className="text-gray-600 dark:text-gray-400">
+                                    Help us enrich this profile with accurate education, family, criminal records, and contact information.
+                                </Text>
+                            </div>
+                        </div>
+
+                        <div className=" grid gap-4 sm:grid-cols-2">
+                            <div className="group flex flex-col rounded-2xl border mt-6 border-orange-200 bg-orange-50/80 p-3 shadow-sm transition duration-300 hover:border-orange-300 hover:bg-orange-50 dark:border-orange-700 dark:bg-orange-950/20 dark:hover:bg-orange-900/20">
+                                <div className="flex items-center gap-2">
+                                    <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300">
+                                        <AlertTriangle size={16} />
+                                    </div>
+                                    <Button
+                                        type="button"
+                                        onClick={handleReportClick}
+                                        size="sm"
+                                        variant="ghost"
+                                        className="rounded-xl border border-orange-200 bg-white px-4 py-1.5 text-orange-700 shadow-sm transition hover:bg-orange-50 dark:border-orange-700 dark:bg-gray-900/90 dark:text-orange-300 dark:hover:bg-orange-950/20"
+                                    >
+                                        Report Inaccuracy
+                                    </Button>
+                                </div>
+                                <div className="mt-2">
+                                   
+                                    <Text variant="body" className="text-gray-600 dark:text-gray-400 mt-2 leading-6">
+                                        Flag incorrect or missing profile details and help us keep this page accurate.
+                                    </Text>
+                                </div>
+                            </div>
+
+                            <div className="group flex flex-col rounded-2xl mt-6 bg-gradient-to-r from-orange-500 to-orange-600 p-3 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(249,115,22,0.28)]">
+                                <div className="flex items-center gap-2">
+                                    <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-white/20 text-white">
+                                        <UserPlus size={16} />
+                                    </div>
+                                    <Button
+                                        href={`https://github.com/imsks/rajniti/issues/new?title=Enrich+${encodeURIComponent(p.name)}&body=Politician+ID:+${encodeURIComponent(p.id)}%0A%0APlease+add+details+below:`}
+                                        external
+                                        onClick={() =>
+                                            trackEvent("contribute_click", {
+                                                contribute_type: "info",
+                                                politician_id: p.id,
+                                                page_location: "politician_detail",
+                                            })
+                                        }
+                                        size="sm"
+                                        className="rounded-xl bg-white px-4 py-1.5 text-orange-600 shadow transition hover:bg-orange-50 sm:w-auto w-full"
+                                    >
+                                        Contribute Info →
+                                    </Button>
+                                </div>
+                                <div className="mt-2">
+
+                                    <Text variant="body" className="text-orange-100 mt-2 leading-6">
+                                        Add verified education, family, criminal, or contact details for this politician.
+                                    </Text>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

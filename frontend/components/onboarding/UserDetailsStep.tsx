@@ -58,6 +58,8 @@ const AGE_GROUPS = [
 ]
 
 export default function UserDetailsStep({ formData, onChange }: UserDetailsStepProps) {
+  const baseFieldClasses = 'w-full px-4 py-3 border border-gray-300 rounded-lg bg-white placeholder:text-gray-500 focus:ring-2 focus:ring-orange-500 focus:border-transparent'
+
   return (
     <div className="space-y-6">
       <div className="text-center mb-6">
@@ -79,7 +81,7 @@ export default function UserDetailsStep({ formData, onChange }: UserDetailsStepP
           value={formData.phone}
           onChange={(e) => onChange('phone', e.target.value)}
           placeholder="+91-9876543210"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+          className={`${baseFieldClasses} text-gray-900`}
         />
       </div>
 
@@ -91,12 +93,14 @@ export default function UserDetailsStep({ formData, onChange }: UserDetailsStepP
         <select
           value={formData.state}
           onChange={(e) => onChange('state', e.target.value)}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+          className={`w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-orange-500 focus:border-transparent ${
+            formData.state ? 'text-gray-900' : 'text-gray-400'
+          }`}
           required
         >
-          <option value="">Select your state</option>
+          <option value="" className="text-gray-400 bg-white">Select your state</option>
           {INDIAN_STATES.map((state) => (
-            <option key={state} value={state}>
+            <option key={state} value={state} className="text-gray-900 bg-white">
               {state}
             </option>
           ))}
@@ -113,7 +117,7 @@ export default function UserDetailsStep({ formData, onChange }: UserDetailsStepP
           value={formData.city}
           onChange={(e) => onChange('city', e.target.value)}
           placeholder="Enter your city"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+          className={`${baseFieldClasses} text-gray-900`}
         />
       </div>
 

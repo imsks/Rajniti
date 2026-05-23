@@ -26,16 +26,14 @@ class CacheManager:
     @log(logger, "CacheManager._init_table")
     def _init_table(self) -> None:
         with self._connect() as conn:
-            conn.execute(
-                """
+            conn.execute("""
                 CREATE TABLE IF NOT EXISTS cache (
                     key TEXT PRIMARY KEY,
                     value TEXT NOT NULL,
                     created_at INTEGER NOT NULL,
                     expires_at INTEGER
                 )
-                """
-            )
+                """)
 
     @log(logger, "CacheManager.set")
     def set(self, key: str, value: Any, ttl_seconds: Optional[int] = None) -> None:
