@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { getParty } from "@/lib/politicianUtils"
 import { buildDefaultOg, buildDefaultTwitter, getSiteUrl, SITE_NAME } from "@/lib/seo/site"
-import { buildOgImages, buildTwitterImages } from "@/lib/seo/images"
+import { buildOgImages, buildPoliticianOgImages, buildPoliticianTwitterImages, buildTwitterImages } from "@/lib/seo/images"
 import { getPreferredPoliticianPath } from "@/lib/seo/politician-canonical"
 import type { Politician } from "@/types/politician"
 
@@ -27,13 +27,13 @@ export function buildPoliticianMetadata(politician: Politician): Metadata {
             type: "profile",
             siteName: SITE_NAME,
             locale: "en_IN",
-            images: buildOgImages(politician.photo, politician.name),
+            images: buildPoliticianOgImages(politician),
         },
         twitter: {
             card: "summary_large_image",
             title,
             description,
-            images: buildTwitterImages(politician.photo),
+            images: buildPoliticianTwitterImages(politician),
         },
         robots: { index: true, follow: true },
     }

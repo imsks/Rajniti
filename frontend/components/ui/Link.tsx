@@ -1,7 +1,9 @@
 import Link, { LinkProps } from "next/link"
 import React from "react"
 
-interface CustomLinkProps extends LinkProps {
+interface CustomLinkProps
+    extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href">,
+        LinkProps {
     children: React.ReactNode
     className?: string
     external?: boolean
@@ -12,9 +14,6 @@ interface CustomLinkProps extends LinkProps {
         | "underline"
         | "primary"
         | "secondary"
-    target?: string
-    rel?: string
-    onClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 
 export default function CustomLink({
@@ -39,13 +38,15 @@ export default function CustomLink({
     }
 
     if (external) {
+        const { href, onClick, ...rest } = props
         return (
             <a
-                href={props.href.toString()}
+                href={href.toString()}
                 className={`${variants[variant]} ${className}`}
-                target='_blank'
-                rel='noopener noreferrer'
-                onClick={props.onClick}>
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onClick}
+                {...rest}>
                 {children}
             </a>
         )

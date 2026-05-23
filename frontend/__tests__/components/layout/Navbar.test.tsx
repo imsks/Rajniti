@@ -33,17 +33,15 @@ describe('Navbar', () => {
     expect(screen.getByTestId('hero')).toBeInTheDocument()
   })
 
-  it('renders primary nav links on every page', () => {
+  it('renders public nav links on every page', () => {
     render(<Navbar />)
 
-    expect(screen.getByRole('link', { name: 'Politicians' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('href', '/#about')
+    expect(screen.getByRole('link', { name: 'Contribute' })).toHaveAttribute(
       'href',
-      '/politicians',
+      '/#contribute',
     )
-    expect(screen.getByRole('link', { name: 'Dashboard' })).toHaveAttribute(
-      'href',
-      '/dashboard',
-    )
+    expect(screen.queryByRole('link', { name: 'Politicians' })).not.toBeInTheDocument()
   })
 
   it('applies sticky positioning when sticky prop is true', () => {

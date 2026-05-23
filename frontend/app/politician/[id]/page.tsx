@@ -13,9 +13,8 @@ import {
 } from "@/lib/seo/json-ld";
 import { buildPoliticianMetadata } from "@/lib/seo/metadata";
 import { getPreferredPoliticianPath } from "@/lib/seo/politician-canonical";
-
-/** Server-render each profile on request (no build-time static generation of all profiles). */
-export const dynamic = "force-dynamic";
+/** ISR — revalidate politician profiles periodically; on-demand via /api/revalidate/politician. */
+export const revalidate = 3600;
 
 export async function generateMetadata({
   params,

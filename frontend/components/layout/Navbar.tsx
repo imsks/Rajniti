@@ -12,22 +12,20 @@ interface NavbarProps {
     sticky?: boolean
 }
 
-const NAV_LINKS = [
-    { label: "Politicians", href: "/politicians" },
-    { label: "Dashboard", href: "/dashboard" },
+/** Public links always visible in the navbar. App links live in the profile menu. */
+const NAV_LINKS: ReadonlyArray<{
+    label: string
+    href: string
+    external?: boolean
+}> = [
     { label: "About", href: "/#about" },
     { label: "Contribute", href: "/#contribute" },
-    {
-        label: "Join Community",
-        href: "https://chat.whatsapp.com/IceA98FSHHuDmXOwv8WH7v",
-        external: true,
-    },
     {
         label: "Found a Bug?",
         href: "https://github.com/imsks/rajniti/issues/new",
         external: true,
     },
-] as const
+]
 
 export default function Navbar({ sticky = false }: NavbarProps) {
     const stickyClasses = sticky ? "sticky top-0" : ""
@@ -58,7 +56,7 @@ export default function Navbar({ sticky = false }: NavbarProps) {
                     </Link>
 
                     <div className="flex items-center gap-4">
-                        <nav className="hidden lg:flex gap-5 items-center">
+                        <nav className="hidden md:flex gap-6 items-center">
                             {NAV_LINKS.map(({ label, href, external }) => (
                                 <Link
                                     key={label}
@@ -70,13 +68,6 @@ export default function Navbar({ sticky = false }: NavbarProps) {
                                         if (label === "Found a Bug?") {
                                             trackEvent("contribute_click", {
                                                 contribute_type: "bug",
-                                                page_location: "navbar",
-                                            })
-                                        }
-                                        if (label === "Join Community") {
-                                            trackEvent("external_link_click", {
-                                                link_text: label,
-                                                link_url: href,
                                                 page_location: "navbar",
                                             })
                                         }

@@ -9,9 +9,8 @@ import Button from "@/components/ui/Button"
 import Text from "@/components/ui/Text"
 import Image from "@/components/ui/Image"
 import { useAnalytics } from "@/hooks/useAnalytics"
-import { useScrollDepth } from "@/hooks/useScrollDepth"
-import { useSectionTracking } from "@/hooks/useSectionTracking"
-import { useTimeOnPage } from "@/hooks/useTimeOnPage"
+import { useDeferredMount } from "@/hooks/useDeferredMount"
+import PoliticianPageAnalytics from "./PoliticianPageAnalytics"
 import type { Politician, ElectionRecord, CrimeRecord, FamilyMember, Citation } from "@/types/politician"
 
 // ── Animation Hooks ────────────────────────────────────────────────────────
@@ -608,28 +607,11 @@ export default function PoliticianPageClient({
 }: PoliticianPageClientProps) {
     const router = useRouter()
     const { trackEvent } = useAnalytics()
+    const analyticsReady = useDeferredMount()
     const { slug: routeSlug, uuidShort: routeUuidShort } =
         extractSlugAndOptionalUuid(routeSegment)
 
-    // ── Analytics ──────────────────────────────────────────────────────────
     const sectionsContainerRef = useRef<HTMLDivElement>(null)
-    useScrollDepth("politician_profile", { politician_id: p.id })
-    useSectionTracking(sectionsContainerRef, { id: p.id, name: p.name })
-    useTimeOnPage("politician_profile", { politician_id: p.id })
-
-    useEffect(() => {
-        const latestElection = p.political_background?.elections?.[0]
-        trackEvent("politician_profile_view", {
-            politician_id: p.id,
-            politician_name: p.name,
-            politician_type: p.type as "MP" | "MLA",
-            party: latestElection?.party ?? "—",
-            state: p.state,
-            constituency: p.constituency,
-            route_slug: routeSlug,
-            route_uuid_short: routeUuidShort,
-        })
-    }, [p, trackEvent, routeSlug, routeUuidShort])
     const performance = p.performance || { attendance: 0, questions: 0, debates: 0 }
     const score = performance.attendance + performance.questions + performance.debates
     const rank = Math.floor(543 - score / 10)
@@ -656,6 +638,14 @@ export default function PoliticianPageClient({
 
     return (
         <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+            {analyticsReady && (
+                <PoliticianPageAnalytics
+                    politician={p}
+                    sectionsContainerRef={sectionsContainerRef}
+                    routeSlug={routeSlug}
+                    routeUuidShort={routeUuidShort}
+                />
+            )}
             <style>{`
                 @keyframes fadeSlideUp {
                     0%  { opacity: 0; transform: translateY(24px); }
@@ -715,6 +705,8 @@ export default function PoliticianPageClient({
                                     alt={p.name}
                                     width={128}
                                     height={128}
+                                    priority
+                                    sizes="128px"
                                     className="w-32 h-32 rounded-2xl object-cover border-4 border-orange-200 dark:border-orange-800"
                                 />
                             ) : (

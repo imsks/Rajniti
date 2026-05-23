@@ -42,6 +42,12 @@ describe('fetchPoliticianBySegment', () => {
         expect(String((global.fetch as jest.Mock).mock.calls[0][0])).toContain(
             '/politicians/slug/narendra-modi'
         )
+        expect((global.fetch as jest.Mock).mock.calls[0][1]).toEqual({
+            next: {
+                revalidate: 3600,
+                tags: ['politician-narendra-modi'],
+            },
+        })
     })
 
     it('falls back to UUID lookup when slug misses', async () => {

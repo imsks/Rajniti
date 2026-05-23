@@ -81,6 +81,7 @@ export default function MyPoliticianCard({
             alt={politician.name}
             width={56}
             height={56}
+            sizes="56px"
             rounded="full"
             className="w-14 h-14 object-cover border-2 border-orange-200 flex-shrink-0"
           />
