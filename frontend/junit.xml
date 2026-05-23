@@ -1,129 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="180" failures="0" errors="0" time="2.138">
-  <testsuite name="AnalyticsPageViewTracker" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:09" time="0.622" tests="2">
-    <testcase classname="AnalyticsPageViewTracker fires pageview with pathname and query string when GA is enabled" name="AnalyticsPageViewTracker fires pageview with pathname and query string when GA is enabled" time="0.013">
-    </testcase>
-    <testcase classname="AnalyticsPageViewTracker fires pageview with pathname only when search params are empty" name="AnalyticsPageViewTracker fires pageview with pathname only when search params are empty" time="0.001">
+<testsuites name="jest tests" tests="180" failures="0" errors="0" time="1.423">
+  <testsuite name="useDeferredMount" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.459" tests="1">
+    <testcase classname="useDeferredMount starts false then becomes true after idle timeout fallback" name="useDeferredMount starts false then becomes true after idle timeout fallback" time="0.009">
     </testcase>
   </testsuite>
-  <testsuite name="politicianRevalidationTag" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:09" time="0.043" tests="4">
-    <testcase classname="politicianRevalidationTag normalizes segment to lowercase tag" name="politicianRevalidationTag normalizes segment to lowercase tag" time="0">
+  <testsuite name="UserDetailsStep" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.556" tests="3">
+    <testcase classname="UserDetailsStep shows placeholder style when no state is selected" name="UserDetailsStep shows placeholder style when no state is selected" time="0.053">
     </testcase>
-    <testcase classname="politicianRevalidationTag trims whitespace" name="politicianRevalidationTag trims whitespace" time="0">
+    <testcase classname="UserDetailsStep shows readable selected text and option styles" name="UserDetailsStep shows readable selected text and option styles" time="0.035">
     </testcase>
-    <testcase classname="politicianProfilePath builds encoded profile path" name="politicianProfilePath builds encoded profile path" time="0">
-    </testcase>
-    <testcase classname="POLITICIAN_REVALIDATE_SECONDS defaults to 3600" name="POLITICIAN_REVALIDATE_SECONDS defaults to 3600" time="0">
+    <testcase classname="UserDetailsStep calls onChange with selected state" name="UserDetailsStep calls onChange with selected state" time="0.017">
     </testcase>
   </testsuite>
-  <testsuite name="parseRevalidatePoliticianSegment" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:09" time="0.706" tests="4">
-    <testcase classname="parseRevalidatePoliticianSegment accepts segment, slug, or id" name="parseRevalidatePoliticianSegment accepts segment, slug, or id" time="0.004">
+  <testsuite name="UserButton" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.557" tests="4">
+    <testcase classname="UserButton shows Sign In when unauthenticated" name="UserButton shows Sign In when unauthenticated" time="0.03">
     </testcase>
-    <testcase classname="parseRevalidatePoliticianSegment returns null when missing" name="parseRevalidatePoliticianSegment returns null when missing" time="0">
+    <testcase classname="UserButton calls signIn when Sign In is clicked" name="UserButton calls signIn when Sign In is clicked" time="0.007">
     </testcase>
-    <testcase classname="isAuthorizedRevalidationRequest requires matching secret" name="isAuthorizedRevalidationRequest requires matching secret" time="0.001">
+    <testcase classname="UserButton opens menu with profile links and navigates to dashboard" name="UserButton opens menu with profile links and navigates to dashboard" time="0.029">
     </testcase>
-    <testcase classname="revalidatePoliticianProfile revalidates tag and path" name="revalidatePoliticianProfile revalidates tag and path" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="useDeferredMount" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:09" time="0.757" tests="1">
-    <testcase classname="useDeferredMount starts false then becomes true after idle timeout fallback" name="useDeferredMount starts false then becomes true after idle timeout fallback" time="0.022">
+    <testcase classname="UserButton calls signOut when Sign Out is clicked" name="UserButton calls signOut when Sign Out is clicked" time="0.007">
     </testcase>
   </testsuite>
-  <testsuite name="UserDetailsStep" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:09" time="0.775" tests="3">
-    <testcase classname="UserDetailsStep shows placeholder style when no state is selected" name="UserDetailsStep shows placeholder style when no state is selected" time="0.059">
-    </testcase>
-    <testcase classname="UserDetailsStep shows readable selected text and option styles" name="UserDetailsStep shows readable selected text and option styles" time="0.086">
-    </testcase>
-    <testcase classname="UserDetailsStep calls onChange with selected state" name="UserDetailsStep calls onChange with selected state" time="0.018">
+  <testsuite name="OnboardingPage" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.573" tests="1">
+    <testcase classname="OnboardingPage submits onboarding with onboarding_completed true and updates session" name="OnboardingPage submits onboarding with onboarding_completed true and updates session" time="0.133">
     </testcase>
   </testsuite>
-  <testsuite name="useMyPoliticians" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:09" time="0.798" tests="7">
-    <testcase classname="useMyPoliticians hydrates MP/MLA from backend user data" name="useMyPoliticians hydrates MP/MLA from backend user data" time="0.069">
+  <testsuite name="MyPoliticianCard" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.128" tests="3">
+    <testcase classname="MyPoliticianCard shows placeholder with label and Add button" name="MyPoliticianCard shows placeholder with label and Add button" time="0.05">
+    </testcase>
+    <testcase classname="MyPoliticianCard shows politician details when filled" name="MyPoliticianCard shows politician details when filled" time="0.013">
+    </testcase>
+    <testcase classname="MyPoliticianCard calls onRemove when remove button is clicked" name="MyPoliticianCard calls onRemove when remove button is clicked" time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="onboarding field contrast styles" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.067" tests="2">
+    <testcase classname="onboarding field contrast styles applies high-contrast classes to basic detail inputs and state select" name="onboarding field contrast styles applies high-contrast classes to basic detail inputs and state select" time="0.009">
+    </testcase>
+    <testcase classname="onboarding field contrast styles applies high-contrast classes to username input" name="onboarding field contrast styles applies high-contrast classes to username input" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="useMyPoliticians" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.632" tests="7">
+    <testcase classname="useMyPoliticians hydrates MP/MLA from backend user data" name="useMyPoliticians hydrates MP/MLA from backend user data" time="0.061">
     </testcase>
     <testcase classname="useMyPoliticians does not call backend when user is unavailable" name="useMyPoliticians does not call backend when user is unavailable" time="0.001">
     </testcase>
-    <testcase classname="useMyPoliticians keeps local state when getUserPoliticians returns null" name="useMyPoliticians keeps local state when getUserPoliticians returns null" time="0.003">
+    <testcase classname="useMyPoliticians keeps local state when getUserPoliticians returns null" name="useMyPoliticians keeps local state when getUserPoliticians returns null" time="0.002">
     </testcase>
-    <testcase classname="useMyPoliticians persists setMyMP to localStorage" name="useMyPoliticians persists setMyMP to localStorage" time="0.005">
+    <testcase classname="useMyPoliticians persists setMyMP to localStorage" name="useMyPoliticians persists setMyMP to localStorage" time="0.004">
     </testcase>
     <testcase classname="useMyPoliticians persists setMyMLA to localStorage" name="useMyPoliticians persists setMyMLA to localStorage" time="0.003">
     </testcase>
-    <testcase classname="useMyPoliticians clearSlot removes the correct politician slot" name="useMyPoliticians clearSlot removes the correct politician slot" time="0.059">
+    <testcase classname="useMyPoliticians clearSlot removes the correct politician slot" name="useMyPoliticians clearSlot removes the correct politician slot" time="0.058">
     </testcase>
-    <testcase classname="useMyPoliticians fetches politician by id when not in allPoliticians list" name="useMyPoliticians fetches politician by id when not in allPoliticians list" time="0.06">
-    </testcase>
-  </testsuite>
-  <testsuite name="usePolitician" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:09" time="0.847" tests="5">
-    <testcase classname="usePolitician loads politician by slug" name="usePolitician loads politician by slug" time="0.071">
-    </testcase>
-    <testcase classname="usePolitician falls back to UUID when slug misses" name="usePolitician falls back to UUID when slug misses" time="0.066">
-    </testcase>
-    <testcase classname="usePolitician sets error when slug misses and segment is not a UUID" name="usePolitician sets error when slug misses and segment is not a UUID" time="0.061">
-    </testcase>
-    <testcase classname="usePolitician sets not found when slug fetch fails (network errors are swallowed on slug path)" name="usePolitician sets not found when slug fetch fails (network errors are swallowed on slug path)" time="0.056">
-    </testcase>
-    <testcase classname="usePolitician does not fetch when id is null" name="usePolitician does not fetch when id is null" time="0.003">
+    <testcase classname="useMyPoliticians fetches politician by id when not in allPoliticians list" name="useMyPoliticians fetches politician by id when not in allPoliticians list" time="0.053">
     </testcase>
   </testsuite>
-  <testsuite name="Navbar" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:09" time="0.194" tests="3">
-    <testcase classname="Navbar renders header above page content with z-50 stacking" name="Navbar renders header above page content with z-50 stacking" time="0.051">
+  <testsuite name="usePolitician" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.668" tests="5">
+    <testcase classname="usePolitician loads politician by slug" name="usePolitician loads politician by slug" time="0.065">
     </testcase>
-    <testcase classname="Navbar renders public nav links on every page" name="Navbar renders public nav links on every page" time="0.049">
+    <testcase classname="usePolitician falls back to UUID when slug misses" name="usePolitician falls back to UUID when slug misses" time="0.056">
     </testcase>
-    <testcase classname="Navbar applies sticky positioning when sticky prop is true" name="Navbar applies sticky positioning when sticky prop is true" time="0.01">
+    <testcase classname="usePolitician sets error when slug misses and segment is not a UUID" name="usePolitician sets error when slug misses and segment is not a UUID" time="0.06">
     </testcase>
-  </testsuite>
-  <testsuite name="MyPoliticiansSection" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:09" time="0.915" tests="10">
-    <testcase classname="MyPoliticiansSection shows empty state with Add Your Local Politicians heading" name="MyPoliticiansSection shows empty state with Add Your Local Politicians heading" time="0.037">
+    <testcase classname="usePolitician sets not found when slug fetch fails (network errors are swallowed on slug path)" name="usePolitician sets not found when slug fetch fails (network errors are swallowed on slug path)" time="0.054">
     </testcase>
-    <testcase classname="MyPoliticiansSection shows populated state with Your Politicians heading" name="MyPoliticiansSection shows populated state with Your Politicians heading" time="0.023">
-    </testcase>
-    <testcase classname="MyPoliticiansSection shows search dropdown with results when query is long enough" name="MyPoliticiansSection shows search dropdown with results when query is long enough" time="0.014">
-    </testcase>
-    <testcase classname="MyPoliticiansSection selects a search result and calls addUserPolitician" name="MyPoliticiansSection selects a search result and calls addUserPolitician" time="0.044">
-    </testcase>
-    <testcase classname="MyPoliticiansSection shows not found message when search returns no results" name="MyPoliticiansSection shows not found message when search returns no results" time="0.026">
-    </testcase>
-    <testcase classname="MyPoliticiansSection shows search error in dropdown" name="MyPoliticiansSection shows search error in dropdown" time="0.007">
-    </testcase>
-    <testcase classname="MyPoliticiansSection removes MP when remove button is clicked" name="MyPoliticiansSection removes MP when remove button is clicked" time="0.022">
-    </testcase>
-    <testcase classname="MyPoliticiansSection focuses search when placeholder Add button is clicked" name="MyPoliticiansSection focuses search when placeholder Add button is clicked" time="0.019">
-    </testcase>
-    <testcase classname="MyPoliticiansSection shows pincode fallback when location lookup fails" name="MyPoliticiansSection shows pincode fallback when location lookup fails" time="0.039">
-    </testcase>
-    <testcase classname="MyPoliticiansSection shows pincode fallback when geolocation succeeds but reverse geocode fails" name="MyPoliticiansSection shows pincode fallback when geolocation succeeds but reverse geocode fails" time="0.018">
+    <testcase classname="usePolitician does not fetch when id is null" name="usePolitician does not fetch when id is null" time="0.004">
     </testcase>
   </testsuite>
-  <testsuite name="Image" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:09" time="0.165" tests="4">
-    <testcase classname="Image optimizes allowlisted ECI external URLs" name="Image optimizes allowlisted ECI external URLs" time="0.014">
+  <testsuite name="OnboardingGate" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.041" tests="5">
+    <testcase classname="OnboardingGate shows fallback while session is loading" name="OnboardingGate shows fallback while session is loading" time="0.002">
     </testcase>
-    <testcase classname="Image leaves unknown external URLs unoptimized" name="Image leaves unknown external URLs unoptimized" time="0.005">
+    <testcase classname="OnboardingGate blocks children when user needs onboarding" name="OnboardingGate blocks children when user needs onboarding" time="0.004">
     </testcase>
-    <testcase classname="Image uses priority without lazy loading for LCP images" name="Image uses priority without lazy loading for LCP images" time="0.002">
+    <testcase classname="OnboardingGate renders children when onboarded" name="OnboardingGate renders children when onboarded" time="0">
     </testcase>
-    <testcase classname="Image defaults to lazy loading when priority is not set" name="Image defaults to lazy loading when priority is not set" time="0.049">
+    <testcase classname="OnboardingGate allows incomplete users through when blockUntilReady is false" name="OnboardingGate allows incomplete users through when blockUntilReady is false" time="0.001">
+    </testcase>
+    <testcase classname="OnboardingGate passes redirect options to useOnboardingCheck" name="OnboardingGate passes redirect options to useOnboardingCheck" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="userService.syncUser" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:09" time="0.203" tests="36">
+  <testsuite name="useAnalytics" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.036" tests="3">
+    <testcase classname="useAnalytics trackEvent forwards typed events to analytics" name="useAnalytics trackEvent forwards typed events to analytics" time="0.002">
+    </testcase>
+    <testcase classname="useAnalytics trackSearch debounces search events" name="useAnalytics trackSearch debounces search events" time="0.001">
+    </testcase>
+    <testcase classname="useAnalytics trackSearch ignores blank terms" name="useAnalytics trackSearch ignores blank terms" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="Image" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.076" tests="4">
+    <testcase classname="Image optimizes allowlisted ECI external URLs" name="Image optimizes allowlisted ECI external URLs" time="0.011">
+    </testcase>
+    <testcase classname="Image leaves unknown external URLs unoptimized" name="Image leaves unknown external URLs unoptimized" time="0.002">
+    </testcase>
+    <testcase classname="Image uses priority without lazy loading for LCP images" name="Image uses priority without lazy loading for LCP images" time="0.001">
+    </testcase>
+    <testcase classname="Image defaults to lazy loading when priority is not set" name="Image defaults to lazy loading when priority is not set" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="userService.syncUser" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.081" tests="36">
     <testcase classname="userService.syncUser calls the /api/v1/users/sync endpoint" name="userService.syncUser calls the /api/v1/users/sync endpoint" time="0">
     </testcase>
     <testcase classname="userService.syncUser sends POST with JSON content-type and serialized body" name="userService.syncUser sends POST with JSON content-type and serialized body" time="0.001">
     </testcase>
     <testcase classname="userService.syncUser returns parsed JSON on success" name="userService.syncUser returns parsed JSON on success" time="0">
     </testcase>
-    <testcase classname="userService.syncUser throws when response is not ok" name="userService.syncUser throws when response is not ok" time="0.007">
+    <testcase classname="userService.syncUser throws when response is not ok" name="userService.syncUser throws when response is not ok" time="0.006">
     </testcase>
-    <testcase classname="userService.updateUser calls /users/{userId} with PATCH" name="userService.updateUser calls /users/{userId} with PATCH" time="0">
+    <testcase classname="userService.updateUser calls /users/{userId} with PATCH" name="userService.updateUser calls /users/{userId} with PATCH" time="0.001">
     </testcase>
-    <testcase classname="userService.updateUser sends political_ideology (not political_interest)" name="userService.updateUser sends political_ideology (not political_interest)" time="0.001">
+    <testcase classname="userService.updateUser sends political_ideology (not political_interest)" name="userService.updateUser sends political_ideology (not political_interest)" time="0">
     </testcase>
     <testcase classname="userService.updateUser returns parsed JSON on success" name="userService.updateUser returns parsed JSON on success" time="0">
     </testcase>
     <testcase classname="userService.updateUser throws with backend error message on failure" name="userService.updateUser throws with backend error message on failure" time="0">
     </testcase>
-    <testcase classname="userService.updateUser throws generic error when backend omits message" name="userService.updateUser throws generic error when backend omits message" time="0">
+    <testcase classname="userService.updateUser throws generic error when backend omits message" name="userService.updateUser throws generic error when backend omits message" time="0.001">
     </testcase>
     <testcase classname="userService.getUser calls /users/{userId} with GET" name="userService.getUser calls /users/{userId} with GET" time="0">
     </testcase>
@@ -133,19 +125,19 @@
     </testcase>
     <testcase classname="userService.checkUsername calls /users/check-username with POST" name="userService.checkUsername calls /users/check-username with POST" time="0">
     </testcase>
-    <testcase classname="userService.checkUsername sends username and optional user_id in body" name="userService.checkUsername sends username and optional user_id in body" time="0.001">
+    <testcase classname="userService.checkUsername sends username and optional user_id in body" name="userService.checkUsername sends username and optional user_id in body" time="0">
     </testcase>
     <testcase classname="userService.checkUsername omits user_id when not provided" name="userService.checkUsername omits user_id when not provided" time="0">
     </testcase>
     <testcase classname="userService.checkUsername returns availability result" name="userService.checkUsername returns availability result" time="0">
     </testcase>
-    <testcase classname="userService.checkUsername throws when response is not ok" name="userService.checkUsername throws when response is not ok" time="0">
+    <testcase classname="userService.checkUsername throws when response is not ok" name="userService.checkUsername throws when response is not ok" time="0.001">
     </testcase>
     <testcase classname="userService.getUserPoliticians calls /users/{userId}/politicians with GET" name="userService.getUserPoliticians calls /users/{userId}/politicians with GET" time="0">
     </testcase>
     <testcase classname="userService.getUserPoliticians returns user politicians on success" name="userService.getUserPoliticians returns user politicians on success" time="0">
     </testcase>
-    <testcase classname="userService.getUserPoliticians returns null when backend reports fetch failure (500)" name="userService.getUserPoliticians returns null when backend reports fetch failure (500)" time="0.001">
+    <testcase classname="userService.getUserPoliticians returns null when backend reports fetch failure (500)" name="userService.getUserPoliticians returns null when backend reports fetch failure (500)" time="0">
     </testcase>
     <testcase classname="userService.getUserPoliticians returns null when response is not ok" name="userService.getUserPoliticians returns null when response is not ok" time="0">
     </testcase>
@@ -153,129 +145,163 @@
     </testcase>
     <testcase classname=" returns null on fetch exception" name=" returns null on fetch exception" time="0">
     </testcase>
-    <testcase classname="userService.addUserPolitician calls correct endpoint with POST" name="userService.addUserPolitician calls correct endpoint with POST" time="0.024">
+    <testcase classname="userService.addUserPolitician calls correct endpoint with POST" name="userService.addUserPolitician calls correct endpoint with POST" time="0.03">
     </testcase>
-    <testcase classname="userService.addUserPolitician sends politician payload" name="userService.addUserPolitician sends politician payload" time="0.011">
+    <testcase classname="userService.addUserPolitician sends politician payload" name="userService.addUserPolitician sends politician payload" time="0.001">
     </testcase>
-    <testcase classname="userService.addUserPolitician returns backend response on success" name="userService.addUserPolitician returns backend response on success" time="0.007">
+    <testcase classname="userService.addUserPolitician returns backend response on success" name="userService.addUserPolitician returns backend response on success" time="0.001">
     </testcase>
-    <testcase classname="userService.addUserPolitician returns empty object when json parsing fails" name="userService.addUserPolitician returns empty object when json parsing fails" time="0.01">
+    <testcase classname="userService.addUserPolitician returns empty object when json parsing fails" name="userService.addUserPolitician returns empty object when json parsing fails" time="0.001">
     </testcase>
-    <testcase classname="userService.addUserPolitician returns success fallback when backend returns empty body" name="userService.addUserPolitician returns success fallback when backend returns empty body" time="0.007">
+    <testcase classname="userService.addUserPolitician returns success fallback when backend returns empty body" name="userService.addUserPolitician returns success fallback when backend returns empty body" time="0">
     </testcase>
-    <testcase classname="userService.addUserPolitician returns failure on backend error" name="userService.addUserPolitician returns failure on backend error" time="0.011">
+    <testcase classname="userService.addUserPolitician returns failure on backend error" name="userService.addUserPolitician returns failure on backend error" time="0.002">
     </testcase>
-    <testcase classname="userService.addUserPolitician returns failure on fetch exception" name="userService.addUserPolitician returns failure on fetch exception" time="0.01">
+    <testcase classname="userService.addUserPolitician returns failure on fetch exception" name="userService.addUserPolitician returns failure on fetch exception" time="0.001">
     </testcase>
-    <testcase classname="userService.removeUserPolitician calls correct DELETE endpoint" name="userService.removeUserPolitician calls correct DELETE endpoint" time="0.012">
+    <testcase classname="userService.removeUserPolitician calls correct DELETE endpoint" name="userService.removeUserPolitician calls correct DELETE endpoint" time="0.001">
     </testcase>
-    <testcase classname="userService.removeUserPolitician returns backend response on success" name="userService.removeUserPolitician returns backend response on success" time="0.002">
+    <testcase classname="userService.removeUserPolitician returns backend response on success" name="userService.removeUserPolitician returns backend response on success" time="0">
     </testcase>
-    <testcase classname="userService.removeUserPolitician returns empty object when json parsing fails" name="userService.removeUserPolitician returns empty object when json parsing fails" time="0.002">
+    <testcase classname="userService.removeUserPolitician returns empty object when json parsing fails" name="userService.removeUserPolitician returns empty object when json parsing fails" time="0">
     </testcase>
-    <testcase classname="userService.removeUserPolitician returns success fallback when backend returns empty body" name="userService.removeUserPolitician returns success fallback when backend returns empty body" time="0.004">
+    <testcase classname="userService.removeUserPolitician returns success fallback when backend returns empty body" name="userService.removeUserPolitician returns success fallback when backend returns empty body" time="0.001">
     </testcase>
-    <testcase classname="userService.removeUserPolitician returns failure on backend error" name="userService.removeUserPolitician returns failure on backend error" time="0.014">
+    <testcase classname="userService.removeUserPolitician returns failure on backend error" name="userService.removeUserPolitician returns failure on backend error" time="0">
     </testcase>
-    <testcase classname="userService.removeUserPolitician returns failure on fetch exception" name="userService.removeUserPolitician returns failure on fetch exception" time="0.006">
-    </testcase>
-  </testsuite>
-  <testsuite name="usePoliticians" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:09" time="1.121" tests="8">
-    <testcase classname="usePoliticians loads politicians and clears loading state" name="usePoliticians loads politicians and clears loading state" time="0.089">
-    </testcase>
-    <testcase classname="usePoliticians sets error when API returns success: false" name="usePoliticians sets error when API returns success: false" time="0.053">
-    </testcase>
-    <testcase classname="usePoliticians sets error on network failure" name="usePoliticians sets error on network failure" time="0.056">
-    </testcase>
-    <testcase classname="usePoliticians filter() narrows by search query (name)" name="usePoliticians filter() narrows by search query (name)" time="0.054">
-    </testcase>
-    <testcase classname="usePoliticians filter() narrows by state" name="usePoliticians filter() narrows by state" time="0.065">
-    </testcase>
-    <testcase classname="usePoliticians filter() narrows by party" name="usePoliticians filter() narrows by party" time="0.065">
-    </testcase>
-    <testcase classname="usePoliticians stats reflect list totals and top party" name="usePoliticians stats reflect list totals and top party" time="0.078">
-    </testcase>
-    <testcase classname="usePoliticians refetch() triggers another fetch" name="usePoliticians refetch() triggers another fetch" time="0.056">
+    <testcase classname="userService.removeUserPolitician returns failure on fetch exception" name="userService.removeUserPolitician returns failure on fetch exception" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="useOnboardingCheck" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:09" time="1.117" tests="8">
-    <testcase classname="useOnboardingCheck does not fetch or redirect when unauthenticated" name="useOnboardingCheck does not fetch or redirect when unauthenticated" time="0.022">
-    </testcase>
-    <testcase classname="useOnboardingCheck shows loading while backend check is in progress" name="useOnboardingCheck shows loading while backend check is in progress" time="0.002">
-    </testcase>
-    <testcase classname="useOnboardingCheck redirects to onboarding when backend reports incomplete profile" name="useOnboardingCheck redirects to onboarding when backend reports incomplete profile" time="0.056">
-    </testcase>
-    <testcase classname="useOnboardingCheck does not redirect when backend reports onboarding complete" name="useOnboardingCheck does not redirect when backend reports onboarding complete" time="0.054">
-    </testcase>
-    <testcase classname="useOnboardingCheck syncs session when backend is ahead of JWT" name="useOnboardingCheck syncs session when backend is ahead of JWT" time="0.056">
-    </testcase>
-    <testcase classname="useOnboardingCheck redirects completed users away from onboarding" name="useOnboardingCheck redirects completed users away from onboarding" time="0.054">
-    </testcase>
-    <testcase classname="useOnboardingCheck does not redirect incomplete users already on onboarding" name="useOnboardingCheck does not redirect incomplete users already on onboarding" time="0.067">
-    </testcase>
-    <testcase classname="useOnboardingCheck falls back to JWT when backend fetch fails" name="useOnboardingCheck falls back to JWT when backend fetch fails" time="0.201">
-    </testcase>
-  </testsuite>
-  <testsuite name="OnboardingGate" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.216" tests="5">
-    <testcase classname="OnboardingGate shows fallback while session is loading" name="OnboardingGate shows fallback while session is loading" time="0.002">
-    </testcase>
-    <testcase classname="OnboardingGate blocks children when user needs onboarding" name="OnboardingGate blocks children when user needs onboarding" time="0.001">
-    </testcase>
-    <testcase classname="OnboardingGate renders children when onboarded" name="OnboardingGate renders children when onboarded" time="0.006">
-    </testcase>
-    <testcase classname="OnboardingGate allows incomplete users through when blockUntilReady is false" name="OnboardingGate allows incomplete users through when blockUntilReady is false" time="0.001">
-    </testcase>
-    <testcase classname="OnboardingGate passes redirect options to useOnboardingCheck" name="OnboardingGate passes redirect options to useOnboardingCheck" time="0.003">
-    </testcase>
-  </testsuite>
-  <testsuite name="useAnalytics" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.096" tests="3">
-    <testcase classname="useAnalytics trackEvent forwards typed events to analytics" name="useAnalytics trackEvent forwards typed events to analytics" time="0.004">
-    </testcase>
-    <testcase classname="useAnalytics trackSearch debounces search events" name="useAnalytics trackSearch debounces search events" time="0.009">
-    </testcase>
-    <testcase classname="useAnalytics trackSearch ignores blank terms" name="useAnalytics trackSearch ignores blank terms" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="buildPoliticianMetadata" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.084" tests="3">
-    <testcase classname="buildPoliticianMetadata uses preferred slug in canonical URL" name="buildPoliticianMetadata uses preferred slug in canonical URL" time="0.008">
+  <testsuite name="buildPoliticianMetadata" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.041" tests="3">
+    <testcase classname="buildPoliticianMetadata uses preferred slug in canonical URL" name="buildPoliticianMetadata uses preferred slug in canonical URL" time="0.005">
     </testcase>
     <testcase classname="buildPoliticianMetadata includes title with name and constituency" name="buildPoliticianMetadata includes title with name and constituency" time="0.001">
     </testcase>
     <testcase classname="buildPageMetadata builds canonical for directory pages" name="buildPageMetadata builds canonical for directory pages" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="onboarding field contrast styles" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.148" tests="2">
-    <testcase classname="onboarding field contrast styles applies high-contrast classes to basic detail inputs and state select" name="onboarding field contrast styles applies high-contrast classes to basic detail inputs and state select" time="0.03">
+  <testsuite name="fetchPoliticianCatalog" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.052" tests="4">
+    <testcase classname="fetchPoliticianCatalog returns catalog data on success" name="fetchPoliticianCatalog returns catalog data on success" time="0.003">
     </testcase>
-    <testcase classname="onboarding field contrast styles applies high-contrast classes to username input" name="onboarding field contrast styles applies high-contrast classes to username input" time="0.004">
+    <testcase classname="fetchPoliticianCatalog returns empty catalog on API failure" name="fetchPoliticianCatalog returns empty catalog on API failure" time="0.001">
     </testcase>
-  </testsuite>
-  <testsuite name="UserButton" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:09" time="0.43" tests="4">
-    <testcase classname="UserButton shows Sign In when unauthenticated" name="UserButton shows Sign In when unauthenticated" time="0.088">
+    <testcase classname="fetchPoliticianCatalog returns empty catalog on network error" name="fetchPoliticianCatalog returns empty catalog on network error" time="0">
     </testcase>
-    <testcase classname="UserButton calls signIn when Sign In is clicked" name="UserButton calls signIn when Sign In is clicked" time="0.109">
-    </testcase>
-    <testcase classname="UserButton opens menu with profile links and navigates to dashboard" name="UserButton opens menu with profile links and navigates to dashboard" time="0.085">
-    </testcase>
-    <testcase classname="UserButton calls signOut when Sign Out is clicked" name="UserButton calls signOut when Sign Out is clicked" time="0.037">
+    <testcase classname="fetchSitemapEntries returns sitemap entries on success" name="fetchSitemapEntries returns sitemap entries on success" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="onboardingCompletedFromApi" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.056" tests="12">
-    <testcase classname="onboardingCompletedFromApi returns true when onboarding_completed is true" name="onboardingCompletedFromApi returns true when onboarding_completed is true" time="0">
+  <testsuite name="AnalyticsPageViewTracker" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:56:00" time="0.048" tests="2">
+    <testcase classname="AnalyticsPageViewTracker fires pageview with pathname and query string when GA is enabled" name="AnalyticsPageViewTracker fires pageview with pathname and query string when GA is enabled" time="0.006">
+    </testcase>
+    <testcase classname="AnalyticsPageViewTracker fires pageview with pathname only when search params are empty" name="AnalyticsPageViewTracker fires pageview with pathname only when search params are empty" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="getApiBaseUrl" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:56:00" time="0.048" tests="7">
+    <testcase classname="getApiBaseUrl uses Next proxy on server when NEXT_PUBLIC is localhost (Docker)" name="getApiBaseUrl uses Next proxy on server when NEXT_PUBLIC is localhost (Docker)" time="0.003">
+    </testcase>
+    <testcase classname="getApiBaseUrl prefers API_URL on server when NEXT_PUBLIC is a production host" name="getApiBaseUrl prefers API_URL on server when NEXT_PUBLIC is a production host" time="0.001">
+    </testcase>
+    <testcase classname="getApiBaseUrl strips trailing slash from server URL" name="getApiBaseUrl strips trailing slash from server URL" time="0.003">
+    </testcase>
+    <testcase classname="getApiBaseUrl uses Next proxy when only localhost NEXT_PUBLIC is set on server" name="getApiBaseUrl uses Next proxy when only localhost NEXT_PUBLIC is set on server" time="0.002">
+    </testcase>
+    <testcase classname="getApiBaseUrl uses non-localhost NEXT_PUBLIC on server (e.g. production API)" name="getApiBaseUrl uses non-localhost NEXT_PUBLIC on server (e.g. production API)" time="0.002">
+    </testcase>
+    <testcase classname="getApiBaseUrl uses NEXT_PUBLIC_API_URL in the browser" name="getApiBaseUrl uses NEXT_PUBLIC_API_URL in the browser" time="0.001">
+    </testcase>
+    <testcase classname="getApiBaseUrl falls back to localhost for browser when env vars are unset" name="getApiBaseUrl falls back to localhost for browser when env vars are unset" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="fetchPoliticianBySegment" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:56:00" time="0.042" tests="5">
+    <testcase classname="fetchPoliticianBySegment returns politician when slug endpoint succeeds" name="fetchPoliticianBySegment returns politician when slug endpoint succeeds" time="0.004">
+    </testcase>
+    <testcase classname="fetchPoliticianBySegment falls back to UUID lookup when slug misses" name="fetchPoliticianBySegment falls back to UUID lookup when slug misses" time="0.001">
+    </testcase>
+    <testcase classname="fetchPoliticianBySegment returns null when slug and id lookups fail without network error" name="fetchPoliticianBySegment returns null when slug and id lookups fail without network error" time="0.001">
+    </testcase>
+    <testcase classname="fetchPoliticianBySegment throws PoliticianApiUnreachableError on network failure" name="fetchPoliticianBySegment throws PoliticianApiUnreachableError on network failure" time="0">
+    </testcase>
+    <testcase classname="fetchPoliticianBySegment handles non-JSON slug response without throwing" name="fetchPoliticianBySegment handles non-JSON slug response without throwing" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="sitemap-builders" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:56:00" time="0.037" tests="3">
+    <testcase classname="sitemap-builders computePoliticianSitemapChunkCount rounds up" name="sitemap-builders computePoliticianSitemapChunkCount rounds up" time="0.002">
+    </testcase>
+    <testcase classname="sitemap-builders buildStaticSitemapEntries excludes dashboard" name="sitemap-builders buildStaticSitemapEntries excludes dashboard" time="0.001">
+    </testcase>
+    <testcase classname="sitemap-builders buildPoliticianSitemapChunk uses slug URLs" name="sitemap-builders buildPoliticianSitemapChunk uses slug URLs" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="useOnboardingCheck" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.778" tests="8">
+    <testcase classname="useOnboardingCheck does not fetch or redirect when unauthenticated" name="useOnboardingCheck does not fetch or redirect when unauthenticated" time="0.01">
+    </testcase>
+    <testcase classname="useOnboardingCheck shows loading while backend check is in progress" name="useOnboardingCheck shows loading while backend check is in progress" time="0.003">
+    </testcase>
+    <testcase classname="useOnboardingCheck redirects to onboarding when backend reports incomplete profile" name="useOnboardingCheck redirects to onboarding when backend reports incomplete profile" time="0.055">
+    </testcase>
+    <testcase classname="useOnboardingCheck does not redirect when backend reports onboarding complete" name="useOnboardingCheck does not redirect when backend reports onboarding complete" time="0.053">
+    </testcase>
+    <testcase classname="useOnboardingCheck syncs session when backend is ahead of JWT" name="useOnboardingCheck syncs session when backend is ahead of JWT" time="0.06">
+    </testcase>
+    <testcase classname="useOnboardingCheck redirects completed users away from onboarding" name="useOnboardingCheck redirects completed users away from onboarding" time="0.053">
+    </testcase>
+    <testcase classname="useOnboardingCheck does not redirect incomplete users already on onboarding" name="useOnboardingCheck does not redirect incomplete users already on onboarding" time="0.055">
+    </testcase>
+    <testcase classname="useOnboardingCheck falls back to JWT when backend fetch fails" name="useOnboardingCheck falls back to JWT when backend fetch fails" time="0.055">
+    </testcase>
+  </testsuite>
+  <testsuite name="getSiteUrl" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:56:00" time="0.04" tests="4">
+    <testcase classname="getSiteUrl uses NEXT_PUBLIC_SITE_URL when set" name="getSiteUrl uses NEXT_PUBLIC_SITE_URL when set" time="0.003">
+    </testcase>
+    <testcase classname="getSiteUrl falls back to NEXTAUTH_URL" name="getSiteUrl falls back to NEXTAUTH_URL" time="0.001">
+    </testcase>
+    <testcase classname="getSiteUrl strips trailing slash" name="getSiteUrl strips trailing slash" time="0">
+    </testcase>
+    <testcase classname="buildDefaultOg includes default OG image" name="buildDefaultOg includes default OG image" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="json-ld builders" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:56:00" time="0.051" tests="4">
+    <testcase classname="json-ld builders buildWebSiteJsonLd includes SearchAction" name="json-ld builders buildWebSiteJsonLd includes SearchAction" time="0.004">
+    </testcase>
+    <testcase classname="json-ld builders buildPersonJsonLd uses canonical path" name="json-ld builders buildPersonJsonLd uses canonical path" time="0">
+    </testcase>
+    <testcase classname="json-ld builders buildItemListJsonLd lists items with positions" name="json-ld builders buildItemListJsonLd lists items with positions" time="0.001">
+    </testcase>
+    <testcase classname="json-ld builders buildBreadcrumbJsonLd builds ordered breadcrumbs" name="json-ld builders buildBreadcrumbJsonLd builds ordered breadcrumbs" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="onboardingCompletedFromUserResponse" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:56:00" time="0.043" tests="3">
+    <testcase classname="onboardingCompletedFromUserResponse reads onboarding_completed from API payload" name="onboardingCompletedFromUserResponse reads onboarding_completed from API payload" time="0.001">
+    </testcase>
+    <testcase classname="onboardingCompletedFromUserResponse returns false when onboarding_completed is missing or false" name="onboardingCompletedFromUserResponse returns false when onboarding_completed is missing or false" time="0">
+    </testcase>
+    <testcase classname="applyOnboardingCompleted updates onboardingCompleted on the token" name="applyOnboardingCompleted updates onboardingCompleted on the token" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="Navbar" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.217" tests="3">
+    <testcase classname="Navbar renders header above page content with z-50 stacking" name="Navbar renders header above page content with z-50 stacking" time="0.009">
+    </testcase>
+    <testcase classname="Navbar renders public nav links on every page" name="Navbar renders public nav links on every page" time="0.039">
+    </testcase>
+    <testcase classname="Navbar applies sticky positioning when sticky prop is true" name="Navbar applies sticky positioning when sticky prop is true" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="onboardingCompletedFromApi" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:56:00" time="0.032" tests="12">
+    <testcase classname="onboardingCompletedFromApi returns true when onboarding_completed is true" name="onboardingCompletedFromApi returns true when onboarding_completed is true" time="0.001">
     </testcase>
     <testcase classname="onboardingCompletedFromApi returns false when missing or false" name="onboardingCompletedFromApi returns false when missing or false" time="0">
     </testcase>
-    <testcase classname="resolveOnboardingStatus prefers API value when defined" name="resolveOnboardingStatus prefers API value when defined" time="0.001">
+    <testcase classname="resolveOnboardingStatus prefers API value when defined" name="resolveOnboardingStatus prefers API value when defined" time="0">
     </testcase>
     <testcase classname="resolveOnboardingStatus falls back to JWT when API is undefined" name="resolveOnboardingStatus falls back to JWT when API is undefined" time="0">
     </testcase>
-    <testcase classname="isOnboardingPath matches onboarding routes" name="isOnboardingPath matches onboarding routes" time="0.001">
+    <testcase classname="isOnboardingPath matches onboarding routes" name="isOnboardingPath matches onboarding routes" time="0">
     </testcase>
     <testcase classname="shouldRedirectToOnboarding redirects incomplete users off protected routes" name="shouldRedirectToOnboarding redirects incomplete users off protected routes" time="0">
     </testcase>
     <testcase classname="shouldRedirectToOnboarding does not redirect when already on onboarding" name="shouldRedirectToOnboarding does not redirect when already on onboarding" time="0">
     </testcase>
-    <testcase classname="shouldRedirectToOnboarding does not redirect when complete or flag disabled" name="shouldRedirectToOnboarding does not redirect when complete or flag disabled" time="0">
+    <testcase classname="shouldRedirectToOnboarding does not redirect when complete or flag disabled" name="shouldRedirectToOnboarding does not redirect when complete or flag disabled" time="0.001">
     </testcase>
     <testcase classname="shouldRedirectToDashboard redirects complete users away from onboarding" name="shouldRedirectToDashboard redirects complete users away from onboarding" time="0">
     </testcase>
@@ -286,142 +312,116 @@
     <testcase classname="shouldSyncJwtOnboardingCompleted does not sync when JWT already matches or backend incomplete" name="shouldSyncJwtOnboardingCompleted does not sync when JWT already matches or backend incomplete" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="OnboardingPage" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:09" time="0.47" tests="1">
-    <testcase classname="OnboardingPage submits onboarding with onboarding_completed true and updates session" name="OnboardingPage submits onboarding with onboarding_completed true and updates session" time="0.335">
+  <testsuite name="buildOgImages" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:56:00" time="0.027" tests="3">
+    <testcase classname="buildOgImages returns photo when provided" name="buildOgImages returns photo when provided" time="0.001">
+    </testcase>
+    <testcase classname="buildOgImages falls back to default OG image" name="buildOgImages falls back to default OG image" time="0.001">
+    </testcase>
+    <testcase classname="buildPoliticianOgImages uses generated opengraph-image route instead of raw photo URL" name="buildPoliticianOgImages uses generated opengraph-image route instead of raw photo URL" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="politician-canonical" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.063" tests="4">
-    <testcase classname="politician-canonical isFullUuid detects UUID segments" name="politician-canonical isFullUuid detects UUID segments" time="0.004">
+  <testsuite name="politician-canonical" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:56:00" time="0.049" tests="4">
+    <testcase classname="politician-canonical isFullUuid detects UUID segments" name="politician-canonical isFullUuid detects UUID segments" time="0.002">
     </testcase>
     <testcase classname="politician-canonical getPreferredPoliticianPath prefers slug" name="politician-canonical getPreferredPoliticianPath prefers slug" time="0">
     </testcase>
-    <testcase classname="politician-canonical shouldRedirectToCanonical for UUID segment" name="politician-canonical shouldRedirectToCanonical for UUID segment" time="0.001">
+    <testcase classname="politician-canonical shouldRedirectToCanonical for UUID segment" name="politician-canonical shouldRedirectToCanonical for UUID segment" time="0">
     </testcase>
-    <testcase classname="slugify slugifySegment normalizes state names" name="slugify slugifySegment normalizes state names" time="0.002">
-    </testcase>
-  </testsuite>
-  <testsuite name="getApiBaseUrl" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.051" tests="7">
-    <testcase classname="getApiBaseUrl uses Next proxy on server when NEXT_PUBLIC is localhost (Docker)" name="getApiBaseUrl uses Next proxy on server when NEXT_PUBLIC is localhost (Docker)" time="0.004">
-    </testcase>
-    <testcase classname="getApiBaseUrl prefers API_URL on server when NEXT_PUBLIC is a production host" name="getApiBaseUrl prefers API_URL on server when NEXT_PUBLIC is a production host" time="0.001">
-    </testcase>
-    <testcase classname="getApiBaseUrl strips trailing slash from server URL" name="getApiBaseUrl strips trailing slash from server URL" time="0.001">
-    </testcase>
-    <testcase classname="getApiBaseUrl uses Next proxy when only localhost NEXT_PUBLIC is set on server" name="getApiBaseUrl uses Next proxy when only localhost NEXT_PUBLIC is set on server" time="0.001">
-    </testcase>
-    <testcase classname="getApiBaseUrl uses non-localhost NEXT_PUBLIC on server (e.g. production API)" name="getApiBaseUrl uses non-localhost NEXT_PUBLIC on server (e.g. production API)" time="0.001">
-    </testcase>
-    <testcase classname="getApiBaseUrl uses NEXT_PUBLIC_API_URL in the browser" name="getApiBaseUrl uses NEXT_PUBLIC_API_URL in the browser" time="0.001">
-    </testcase>
-    <testcase classname="getApiBaseUrl falls back to localhost for browser when env vars are unset" name="getApiBaseUrl falls back to localhost for browser when env vars are unset" time="0">
+    <testcase classname="slugify slugifySegment normalizes state names" name="slugify slugifySegment normalizes state names" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="fetchPoliticianCatalog" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.085" tests="4">
-    <testcase classname="fetchPoliticianCatalog returns catalog data on success" name="fetchPoliticianCatalog returns catalog data on success" time="0.004">
-    </testcase>
-    <testcase classname="fetchPoliticianCatalog returns empty catalog on API failure" name="fetchPoliticianCatalog returns empty catalog on API failure" time="0.001">
-    </testcase>
-    <testcase classname="fetchPoliticianCatalog returns empty catalog on network error" name="fetchPoliticianCatalog returns empty catalog on network error" time="0.003">
-    </testcase>
-    <testcase classname="fetchSitemapEntries returns sitemap entries on success" name="fetchSitemapEntries returns sitemap entries on success" time="0.01">
-    </testcase>
-  </testsuite>
-  <testsuite name="getSiteUrl" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.056" tests="4">
-    <testcase classname="getSiteUrl uses NEXT_PUBLIC_SITE_URL when set" name="getSiteUrl uses NEXT_PUBLIC_SITE_URL when set" time="0.004">
-    </testcase>
-    <testcase classname="getSiteUrl falls back to NEXTAUTH_URL" name="getSiteUrl falls back to NEXTAUTH_URL" time="0">
-    </testcase>
-    <testcase classname="getSiteUrl strips trailing slash" name="getSiteUrl strips trailing slash" time="0.001">
-    </testcase>
-    <testcase classname="buildDefaultOg includes default OG image" name="buildDefaultOg includes default OG image" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="sitemap-builders" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.056" tests="3">
-    <testcase classname="sitemap-builders computePoliticianSitemapChunkCount rounds up" name="sitemap-builders computePoliticianSitemapChunkCount rounds up" time="0.007">
-    </testcase>
-    <testcase classname="sitemap-builders buildStaticSitemapEntries excludes dashboard" name="sitemap-builders buildStaticSitemapEntries excludes dashboard" time="0.001">
-    </testcase>
-    <testcase classname="sitemap-builders buildPoliticianSitemapChunk uses slug URLs" name="sitemap-builders buildPoliticianSitemapChunk uses slug URLs" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="isExternalImageUrl" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.058" tests="10">
-    <testcase classname="isExternalImageUrl returns true for http and https URLs" name="isExternalImageUrl returns true for http and https URLs" time="0.001">
-    </testcase>
-    <testcase classname="isExternalImageUrl returns false for relative paths" name="isExternalImageUrl returns false for relative paths" time="0">
-    </testcase>
-    <testcase classname="isOptimizableExternalUrl allows ECI politician photo hosts" name="isOptimizableExternalUrl allows ECI politician photo hosts" time="0">
-    </testcase>
-    <testcase classname="isOptimizableExternalUrl rejects unknown external hosts" name="isOptimizableExternalUrl rejects unknown external hosts" time="0">
-    </testcase>
-    <testcase classname="isOptimizableExternalUrl rejects invalid URLs" name="isOptimizableExternalUrl rejects invalid URLs" time="0.001">
-    </testcase>
-    <testcase classname="isOptimizableExternalUrl rejects relative paths" name="isOptimizableExternalUrl rejects relative paths" time="0">
-    </testcase>
-    <testcase classname="shouldUseUnoptimizedImage optimizes allowlisted ECI URLs" name="shouldUseUnoptimizedImage optimizes allowlisted ECI URLs" time="0">
-    </testcase>
-    <testcase classname="shouldUseUnoptimizedImage skips optimization for unknown external URLs" name="shouldUseUnoptimizedImage skips optimization for unknown external URLs" time="0">
-    </testcase>
-    <testcase classname="shouldUseUnoptimizedImage optimizes local paths" name="shouldUseUnoptimizedImage optimizes local paths" time="0.001">
-    </testcase>
-    <testcase classname="shouldUseUnoptimizedImage respects explicit unoptimized override" name="shouldUseUnoptimizedImage respects explicit unoptimized override" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="MyPoliticianCard" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.364" tests="3">
-    <testcase classname="MyPoliticianCard shows placeholder with label and Add button" name="MyPoliticianCard shows placeholder with label and Add button" time="0.079">
-    </testcase>
-    <testcase classname="MyPoliticianCard shows politician details when filled" name="MyPoliticianCard shows politician details when filled" time="0.008">
-    </testcase>
-    <testcase classname="MyPoliticianCard calls onRemove when remove button is clicked" name="MyPoliticianCard calls onRemove when remove button is clicked" time="0.007">
-    </testcase>
-  </testsuite>
-  <testsuite name="politicianUtils" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.057" tests="5">
+  <testsuite name="politicianUtils" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:56:00" time="0.029" tests="5">
     <testcase classname="politicianUtils getPoliticianProfileSegment prefers slug" name="politicianUtils getPoliticianProfileSegment prefers slug" time="0">
     </testcase>
     <testcase classname="politicianUtils getPoliticianProfileSegment falls back to id" name="politicianUtils getPoliticianProfileSegment falls back to id" time="0">
     </testcase>
     <testcase classname="politicianUtils getPoliticianProfileHref encodes segment" name="politicianUtils getPoliticianProfileHref encodes segment" time="0">
     </testcase>
-    <testcase classname="politicianUtils getParty returns latest election party" name="politicianUtils getParty returns latest election party" time="0.001">
+    <testcase classname="politicianUtils getParty returns latest election party" name="politicianUtils getParty returns latest election party" time="0">
     </testcase>
-    <testcase classname="politicianUtils getParty returns em dash when no elections" name="politicianUtils getParty returns em dash when no elections" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="onboardingCompletedFromUserResponse" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.049" tests="3">
-    <testcase classname="onboardingCompletedFromUserResponse reads onboarding_completed from API payload" name="onboardingCompletedFromUserResponse reads onboarding_completed from API payload" time="0">
-    </testcase>
-    <testcase classname="onboardingCompletedFromUserResponse returns false when onboarding_completed is missing or false" name="onboardingCompletedFromUserResponse returns false when onboarding_completed is missing or false" time="0.001">
-    </testcase>
-    <testcase classname="applyOnboardingCompleted updates onboardingCompleted on the token" name="applyOnboardingCompleted updates onboardingCompleted on the token" time="0">
+    <testcase classname="politicianUtils getParty returns em dash when no elections" name="politicianUtils getParty returns em dash when no elections" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="json-ld builders" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.065" tests="4">
-    <testcase classname="json-ld builders buildWebSiteJsonLd includes SearchAction" name="json-ld builders buildWebSiteJsonLd includes SearchAction" time="0.006">
+  <testsuite name="isExternalImageUrl" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:56:00" time="0.035" tests="10">
+    <testcase classname="isExternalImageUrl returns true for http and https URLs" name="isExternalImageUrl returns true for http and https URLs" time="0">
     </testcase>
-    <testcase classname="json-ld builders buildPersonJsonLd uses canonical path" name="json-ld builders buildPersonJsonLd uses canonical path" time="0.001">
+    <testcase classname="isExternalImageUrl returns false for relative paths" name="isExternalImageUrl returns false for relative paths" time="0">
     </testcase>
-    <testcase classname="json-ld builders buildItemListJsonLd lists items with positions" name="json-ld builders buildItemListJsonLd lists items with positions" time="0">
+    <testcase classname="isOptimizableExternalUrl allows ECI politician photo hosts" name="isOptimizableExternalUrl allows ECI politician photo hosts" time="0.001">
     </testcase>
-    <testcase classname="json-ld builders buildBreadcrumbJsonLd builds ordered breadcrumbs" name="json-ld builders buildBreadcrumbJsonLd builds ordered breadcrumbs" time="0">
+    <testcase classname="isOptimizableExternalUrl rejects unknown external hosts" name="isOptimizableExternalUrl rejects unknown external hosts" time="0.001">
+    </testcase>
+    <testcase classname="isOptimizableExternalUrl rejects invalid URLs" name="isOptimizableExternalUrl rejects invalid URLs" time="0">
+    </testcase>
+    <testcase classname="isOptimizableExternalUrl rejects relative paths" name="isOptimizableExternalUrl rejects relative paths" time="0">
+    </testcase>
+    <testcase classname="shouldUseUnoptimizedImage optimizes allowlisted ECI URLs" name="shouldUseUnoptimizedImage optimizes allowlisted ECI URLs" time="0.001">
+    </testcase>
+    <testcase classname="shouldUseUnoptimizedImage skips optimization for unknown external URLs" name="shouldUseUnoptimizedImage skips optimization for unknown external URLs" time="0">
+    </testcase>
+    <testcase classname="shouldUseUnoptimizedImage optimizes local paths" name="shouldUseUnoptimizedImage optimizes local paths" time="0">
+    </testcase>
+    <testcase classname="shouldUseUnoptimizedImage respects explicit unoptimized override" name="shouldUseUnoptimizedImage respects explicit unoptimized override" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="buildOgImages" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.034" tests="3">
-    <testcase classname="buildOgImages returns photo when provided" name="buildOgImages returns photo when provided" time="0.002">
+  <testsuite name="politicianRevalidationTag" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:56:00" time="0.035" tests="4">
+    <testcase classname="politicianRevalidationTag normalizes segment to lowercase tag" name="politicianRevalidationTag normalizes segment to lowercase tag" time="0">
     </testcase>
-    <testcase classname="buildOgImages falls back to default OG image" name="buildOgImages falls back to default OG image" time="0.001">
+    <testcase classname="politicianRevalidationTag trims whitespace" name="politicianRevalidationTag trims whitespace" time="0">
     </testcase>
-    <testcase classname="buildPoliticianOgImages uses generated opengraph-image route instead of raw photo URL" name="buildPoliticianOgImages uses generated opengraph-image route instead of raw photo URL" time="0">
+    <testcase classname="politicianProfilePath builds encoded profile path" name="politicianProfilePath builds encoded profile path" time="0">
+    </testcase>
+    <testcase classname="POLITICIAN_REVALIDATE_SECONDS defaults to 3600" name="POLITICIAN_REVALIDATE_SECONDS defaults to 3600" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="fetchPoliticianBySegment" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:24:10" time="0.121" tests="5">
-    <testcase classname="fetchPoliticianBySegment returns politician when slug endpoint succeeds" name="fetchPoliticianBySegment returns politician when slug endpoint succeeds" time="0.071">
+  <testsuite name="parseRevalidatePoliticianSegment" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:56:00" time="0.045" tests="4">
+    <testcase classname="parseRevalidatePoliticianSegment accepts segment, slug, or id" name="parseRevalidatePoliticianSegment accepts segment, slug, or id" time="0.001">
     </testcase>
-    <testcase classname="fetchPoliticianBySegment falls back to UUID lookup when slug misses" name="fetchPoliticianBySegment falls back to UUID lookup when slug misses" time="0.001">
+    <testcase classname="parseRevalidatePoliticianSegment returns null when missing" name="parseRevalidatePoliticianSegment returns null when missing" time="0">
     </testcase>
-    <testcase classname="fetchPoliticianBySegment returns null when slug and id lookups fail without network error" name="fetchPoliticianBySegment returns null when slug and id lookups fail without network error" time="0.004">
+    <testcase classname="isAuthorizedRevalidationRequest requires matching secret" name="isAuthorizedRevalidationRequest requires matching secret" time="0">
     </testcase>
-    <testcase classname="fetchPoliticianBySegment throws PoliticianApiUnreachableError on network failure" name="fetchPoliticianBySegment throws PoliticianApiUnreachableError on network failure" time="0.001">
+    <testcase classname="revalidatePoliticianProfile revalidates tag and path" name="revalidatePoliticianProfile revalidates tag and path" time="0.006">
     </testcase>
-    <testcase classname="fetchPoliticianBySegment handles non-JSON slug response without throwing" name="fetchPoliticianBySegment handles non-JSON slug response without throwing" time="0.001">
+  </testsuite>
+  <testsuite name="MyPoliticiansSection" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.842" tests="10">
+    <testcase classname="MyPoliticiansSection shows empty state with Add Your Local Politicians heading" name="MyPoliticiansSection shows empty state with Add Your Local Politicians heading" time="0.048">
+    </testcase>
+    <testcase classname="MyPoliticiansSection shows populated state with Your Politicians heading" name="MyPoliticiansSection shows populated state with Your Politicians heading" time="0.017">
+    </testcase>
+    <testcase classname="MyPoliticiansSection shows search dropdown with results when query is long enough" name="MyPoliticiansSection shows search dropdown with results when query is long enough" time="0.009">
+    </testcase>
+    <testcase classname="MyPoliticiansSection selects a search result and calls addUserPolitician" name="MyPoliticiansSection selects a search result and calls addUserPolitician" time="0.048">
+    </testcase>
+    <testcase classname="MyPoliticiansSection shows not found message when search returns no results" name="MyPoliticiansSection shows not found message when search returns no results" time="0.018">
+    </testcase>
+    <testcase classname="MyPoliticiansSection shows search error in dropdown" name="MyPoliticiansSection shows search error in dropdown" time="0.005">
+    </testcase>
+    <testcase classname="MyPoliticiansSection removes MP when remove button is clicked" name="MyPoliticiansSection removes MP when remove button is clicked" time="0.021">
+    </testcase>
+    <testcase classname="MyPoliticiansSection focuses search when placeholder Add button is clicked" name="MyPoliticiansSection focuses search when placeholder Add button is clicked" time="0.02">
+    </testcase>
+    <testcase classname="MyPoliticiansSection shows pincode fallback when location lookup fails" name="MyPoliticiansSection shows pincode fallback when location lookup fails" time="0.027">
+    </testcase>
+    <testcase classname="MyPoliticiansSection shows pincode fallback when geolocation succeeds but reverse geocode fails" name="MyPoliticiansSection shows pincode fallback when geolocation succeeds but reverse geocode fails" time="0.012">
+    </testcase>
+  </testsuite>
+  <testsuite name="usePoliticians" errors="0" failures="0" skipped="0" timestamp="2026-05-23T17:55:59" time="0.888" tests="8">
+    <testcase classname="usePoliticians loads politicians and clears loading state" name="usePoliticians loads politicians and clears loading state" time="0.064">
+    </testcase>
+    <testcase classname="usePoliticians sets error when API returns success: false" name="usePoliticians sets error when API returns success: false" time="0.054">
+    </testcase>
+    <testcase classname="usePoliticians sets error on network failure" name="usePoliticians sets error on network failure" time="0.06">
+    </testcase>
+    <testcase classname="usePoliticians filter() narrows by search query (name)" name="usePoliticians filter() narrows by search query (name)" time="0.054">
+    </testcase>
+    <testcase classname="usePoliticians filter() narrows by state" name="usePoliticians filter() narrows by state" time="0.055">
+    </testcase>
+    <testcase classname="usePoliticians filter() narrows by party" name="usePoliticians filter() narrows by party" time="0.059">
+    </testcase>
+    <testcase classname="usePoliticians stats reflect list totals and top party" name="usePoliticians stats reflect list totals and top party" time="0.054">
+    </testcase>
+    <testcase classname="usePoliticians refetch() triggers another fetch" name="usePoliticians refetch() triggers another fetch" time="0.055">
     </testcase>
   </testsuite>
 </testsuites>

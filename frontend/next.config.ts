@@ -53,13 +53,28 @@ const nextConfig: NextConfig = {
                 pathname: "/**",
             },
         ],
+        // Limit generated srcset sizes to reduce unused variants
+        deviceSizes: [640, 750, 828, 1080, 1200],
+        imageSizes: [16, 32, 48, 64, 96, 128, 256],
+        formats: ["image/avif", "image/webp"],
     },
 
     // Disable scroll restoration
     experimental: {
         scrollRestoration: false,
-        optimizePackageImports: ["lucide-react"],
+        optimizePackageImports: ["lucide-react", "framer-motion"],
     },
 }
 
-export default nextConfig
+// Wrap with bundle analyzer when ANALYZE=true (npm run analyze)
+let config: NextConfig = nextConfig
+try {
+    if (process.env.ANALYZE === "true") {
+        const withBundleAnalyzer = require("@next/bundle-analyzer")({ enabled: true })
+        config = withBundleAnalyzer(config)
+    }
+} catch {
+    // @next/bundle-analyzer not installed — skip
+}
+
+export default config

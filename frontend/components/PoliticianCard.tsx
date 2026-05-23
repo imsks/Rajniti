@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Text from "@/components/ui/Text";
 import Image from "@/components/ui/Image";
+import NextImage from "next/image";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import { getPoliticianProfileHref } from "@/lib/politicianUtils";
 import type { Politician } from "@/types/politician";
@@ -107,15 +108,17 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
         {/* Info pills */}
         <div className="flex flex-wrap gap-2 mb-3">
           <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 dark:bg-gray-700 rounded-lg text-xs text-gray-600 dark:text-gray-300">
-            <img
+            <NextImage
               src="/logo/location.png"
               alt="Constituency"
+              width={16}
+              height={16}
               className="w-4 h-4"
             />{" "}
             {politician.constituency}
           </span>
           <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 dark:bg-gray-700 rounded-lg text-xs text-gray-600 dark:text-gray-300">
-            <img src="/logo/skyline.png" alt="State" className="w-4 h-4" />{" "}
+            <NextImage src="/logo/skyline.png" alt="State" width={16} height={16} className="w-4 h-4" />{" "}
             {politician.state}
           </span>
         </div>

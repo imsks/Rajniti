@@ -1,5 +1,6 @@
 "use client"
 
+import NextImage from "next/image"
 import UserButton from "@/components/auth/UserButton"
 import Text from "@/components/ui/Text"
 import Link from "@/components/ui/Link"
@@ -45,7 +46,7 @@ export default function Navbar({ sticky = false }: NavbarProps) {
                         className="flex items-center gap-2 no-underline"
                     >
                         <div className="w-7 h-7">
-                            <img src="/logo/voting-box.png" alt="Rajniti Logo" />
+                            <NextImage src="/logo/voting-box.png" alt="Rajniti Logo" width={28} height={28} />
                         </div>
                         <Text
                             variant="h3"

@@ -1,18 +1,24 @@
 "use client";
 
 import { Suspense, useState, useMemo, useEffect } from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Footer, Navbar } from "@/components/layout";
 import Button from "@/components/ui/Button";
 import Text from "@/components/ui/Text";
 import PoliticianCard from "@/components/PoliticianCard";
 import PoliticianCardWrapper from "@/components/PoliticianCardWrapper";
-import MyPoliticiansSection from "@/components/MyPoliticiansSection";
 import { usePoliticians } from "@/hooks/usePoliticians";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import { useScrollDepth } from "@/hooks/useScrollDepth";
 import OnboardingGate from "@/components/auth/OnboardingGate";
 import Image from "next/image";
+
+// Lazy-load heavy sub-component (has its own framer-motion + search logic)
+const MyPoliticiansSection = dynamic(
+  () => import("@/components/MyPoliticiansSection"),
+  { ssr: false }
+);
 
 type Tab = "ALL" | "MP" | "MLA";
 
