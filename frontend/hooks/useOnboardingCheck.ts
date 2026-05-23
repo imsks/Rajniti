@@ -1,75 +1,140 @@
 'use client'
 
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
+import { userService } from '@/lib/api/user'
+import {
+  onboardingCompletedFromApi,
+  shouldRedirectToDashboard,
+  shouldRedirectToOnboarding,
+  shouldSyncJwtOnboardingCompleted,
+} from '@/lib/auth/onboarding-status'
 import { ROUTES } from '@/lib/routes'
 
 export type UseOnboardingCheckOptions = {
   /**
    * When true (default), sends incomplete users to onboarding unless they are
-   * already on an onboarding URL. Middleware already enforces this for most
-   * navigations; this covers stale client session after tab restore, etc.
+   * already on an onboarding URL.
    */
   redirectIfIncomplete?: boolean
+  /** When true, sends already-onboarded users away from onboarding to dashboard. */
+  redirectIfComplete?: boolean
 }
 
 export type UseOnboardingCheckResult = {
-  /** NextAuth has not finished resolving the session */
+  /** Session or backend onboarding check still in progress */
   sessionLoading: boolean
-  /** Signed in and `onboardingCompleted` is false */
+  /** Signed in and backend reports onboarding incomplete */
   needsOnboarding: boolean
-  /** Signed in and onboarding is done (false if not signed in) */
+  /** Signed in and backend reports onboarding complete */
   isOnboarded: boolean
 }
 
-function isOnboardingPath(pathname: string): boolean {
-  return (
-    pathname === ROUTES.onboarding ||
-    pathname.startsWith(`${ROUTES.onboarding}/`)
-  )
-}
-
 /**
- * Derives onboarding status from the session and optionally redirects incomplete
- * users to `/onboarding` when they hit protected UI (e.g. dashboard).
+ * Resolves onboarding status from the backend user record (source of truth),
+ * then optionally redirects. JWT/session is synced after fetch but not used
+ * to decide access.
  */
 export function useOnboardingCheck(
   options: UseOnboardingCheckOptions = {}
 ): UseOnboardingCheckResult {
-  const { redirectIfIncomplete = true } = options
+  const { redirectIfIncomplete = true, redirectIfComplete = false } = options
   const pathname = usePathname()
   const router = useRouter()
-  const { data: session, status } = useSession()
+  const { data: session, status, update } = useSession()
+
+  const [onboardingStatus, setOnboardingStatus] = useState<boolean | null>(null)
+  const [statusLoading, setStatusLoading] = useState(false)
 
   const sessionLoading = status === 'loading'
   const isAuthenticated = status === 'authenticated'
-  const onboardingCompleted = Boolean(session?.user?.onboardingCompleted)
-
-  const needsOnboarding = isAuthenticated && !onboardingCompleted
-  const onOnboardingRoute = isOnboardingPath(pathname)
+  const userId = session?.user?.id
 
   useEffect(() => {
-    if (sessionLoading) return
-    if (!needsOnboarding) return
-    if (onOnboardingRoute) return
-    if (!redirectIfIncomplete) return
+    if (sessionLoading || !isAuthenticated || !userId) {
+      setOnboardingStatus(null)
+      setStatusLoading(false)
+      return
+    }
 
-    router.replace(ROUTES.onboarding)
+    let cancelled = false
+    setStatusLoading(true)
+    const jwtFallback = Boolean(session?.user?.onboardingCompleted)
+
+    void userService
+      .getUser(userId)
+      .then((response) => {
+        if (cancelled) return
+        const completed = onboardingCompletedFromApi(response?.data)
+        setOnboardingStatus(completed)
+
+        if (shouldSyncJwtOnboardingCompleted(completed, jwtFallback)) {
+          void update({ onboardingCompleted: true })
+        }
+      })
+      .catch((error) => {
+        if (cancelled) return
+        console.error('Failed to fetch onboarding status:', error)
+        setOnboardingStatus(jwtFallback)
+      })
+      .finally(() => {
+        if (!cancelled) setStatusLoading(false)
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [sessionLoading, isAuthenticated, userId, update, session?.user?.onboardingCompleted])
+
+  const checkingOnboarding =
+    isAuthenticated && (statusLoading || onboardingStatus === null)
+  const sessionLoadingCombined = sessionLoading || checkingOnboarding
+
+  const needsOnboarding = isAuthenticated && onboardingStatus === false
+  const isOnboarded = isAuthenticated && onboardingStatus === true
+
+  useEffect(() => {
+    if (sessionLoadingCombined || !isAuthenticated) return
+
+    const completed = onboardingStatus === true
+
+    if (
+      shouldRedirectToOnboarding({
+        completed,
+        pathname,
+        redirectIfIncomplete,
+      })
+    ) {
+      router.replace(ROUTES.onboarding)
+      return
+    }
+
+    if (
+      shouldRedirectToDashboard({
+        completed,
+        pathname,
+        redirectIfComplete,
+      })
+    ) {
+      router.replace(ROUTES.dashboard)
+    }
   }, [
-    sessionLoading,
-    needsOnboarding,
-    onOnboardingRoute,
+    sessionLoadingCombined,
+    isAuthenticated,
+    onboardingStatus,
+    pathname,
     redirectIfIncomplete,
+    redirectIfComplete,
     router,
   ])
 
   return useMemo(
     (): UseOnboardingCheckResult => ({
-      sessionLoading,
+      sessionLoading: sessionLoadingCombined,
       needsOnboarding,
-      isOnboarded: isAuthenticated && onboardingCompleted,
+      isOnboarded,
     }),
-    [sessionLoading, needsOnboarding, isAuthenticated, onboardingCompleted]
+    [sessionLoadingCombined, needsOnboarding, isOnboarded]
   )
 }

@@ -1,143 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="62" failures="0" errors="0" time="1.071">
-  <testsuite name="userService.syncUser" errors="0" failures="0" skipped="0" timestamp="2026-05-23T07:35:34" time="0.108" tests="29">
-    <testcase classname="userService.syncUser calls the /api/v1/users/sync endpoint" name="userService.syncUser calls the /api/v1/users/sync endpoint" time="0.001">
-    </testcase>
-    <testcase classname="userService.syncUser sends POST with JSON content-type and serialized body" name="userService.syncUser sends POST with JSON content-type and serialized body" time="0">
-    </testcase>
-    <testcase classname="userService.syncUser returns parsed JSON on success" name="userService.syncUser returns parsed JSON on success" time="0.001">
-    </testcase>
-    <testcase classname="userService.syncUser throws when response is not ok" name="userService.syncUser throws when response is not ok" time="0.003">
-    </testcase>
-    <testcase classname="userService.updateUser calls /users/{userId} with PATCH" name="userService.updateUser calls /users/{userId} with PATCH" time="0">
-    </testcase>
-    <testcase classname="userService.updateUser sends political_ideology (not political_interest)" name="userService.updateUser sends political_ideology (not political_interest)" time="0">
-    </testcase>
-    <testcase classname="userService.updateUser returns parsed JSON on success" name="userService.updateUser returns parsed JSON on success" time="0">
-    </testcase>
-    <testcase classname="userService.updateUser throws with backend error message on failure" name="userService.updateUser throws with backend error message on failure" time="0.001">
-    </testcase>
-    <testcase classname="userService.checkUsername calls /users/check-username with POST" name="userService.checkUsername calls /users/check-username with POST" time="0">
-    </testcase>
-    <testcase classname="userService.checkUsername sends username and optional user_id in body" name="userService.checkUsername sends username and optional user_id in body" time="0">
-    </testcase>
-    <testcase classname="userService.checkUsername omits user_id when not provided" name="userService.checkUsername omits user_id when not provided" time="0">
-    </testcase>
-    <testcase classname="userService.checkUsername returns availability result" name="userService.checkUsername returns availability result" time="0">
-    </testcase>
-    <testcase classname="userService.checkUsername throws when response is not ok" name="userService.checkUsername throws when response is not ok" time="0">
-    </testcase>
-    <testcase classname="userService.getUserPoliticians calls /users/{userId}/politicians with GET" name="userService.getUserPoliticians calls /users/{userId}/politicians with GET" time="0">
-    </testcase>
-    <testcase classname="userService.getUserPoliticians returns user politicians on success" name="userService.getUserPoliticians returns user politicians on success" time="0.001">
-    </testcase>
-    <testcase classname="userService.getUserPoliticians returns null when response is not ok" name="userService.getUserPoliticians returns null when response is not ok" time="0">
-    </testcase>
-    <testcase classname=" returns null when payload shape is invalid" name=" returns null when payload shape is invalid" time="0">
-    </testcase>
-    <testcase classname=" returns null on fetch exception" name=" returns null on fetch exception" time="0">
-    </testcase>
-    <testcase classname="userService.addUserPolitician calls correct endpoint with POST" name="userService.addUserPolitician calls correct endpoint with POST" time="0.01">
-    </testcase>
-    <testcase classname="userService.addUserPolitician sends politician payload" name="userService.addUserPolitician sends politician payload" time="0">
-    </testcase>
-    <testcase classname="userService.addUserPolitician returns backend response on success" name="userService.addUserPolitician returns backend response on success" time="0.001">
-    </testcase>
-    <testcase classname="userService.addUserPolitician returns success fallback when json parsing fails" name="userService.addUserPolitician returns success fallback when json parsing fails" time="0">
-    </testcase>
-    <testcase classname="userService.addUserPolitician returns failure on backend error" name="userService.addUserPolitician returns failure on backend error" time="0.001">
-    </testcase>
-    <testcase classname="userService.addUserPolitician returns failure on fetch exception" name="userService.addUserPolitician returns failure on fetch exception" time="0.001">
-    </testcase>
-    <testcase classname="userService.removeUserPolitician calls correct DELETE endpoint" name="userService.removeUserPolitician calls correct DELETE endpoint" time="0.001">
-    </testcase>
-    <testcase classname="userService.removeUserPolitician returns backend response on success" name="userService.removeUserPolitician returns backend response on success" time="0">
-    </testcase>
-    <testcase classname="userService.removeUserPolitician returns success fallback when json parsing fails" name="userService.removeUserPolitician returns success fallback when json parsing fails" time="0.001">
-    </testcase>
-    <testcase classname="userService.removeUserPolitician returns failure on backend error" name="userService.removeUserPolitician returns failure on backend error" time="0.001">
-    </testcase>
-    <testcase classname="userService.removeUserPolitician returns failure on fetch exception" name="userService.removeUserPolitician returns failure on fetch exception" time="0">
+<testsuites name="jest tests" tests="11" failures="0" errors="0" time="0.732">
+  <testsuite name="integration smoke" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:43:19" time="0.185" tests="1">
+    <testcase classname="integration smoke runs in jsdom" name="integration smoke runs in jsdom" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="userService" errors="0" failures="0" skipped="0" timestamp="2026-05-23T07:35:34" time="0.025" tests="12">
-    <testcase classname="userService syncUser should sync user successfully" name="userService syncUser should sync user successfully" time="0.001">
+  <testsuite name="dashboard data + search integration" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:43:19" time="0.247" tests="6">
+    <testcase classname="dashboard data + search integration usePoliticians + usePoliticianSearch can run in parallel hooks with separate fetch URLs" name="dashboard data + search integration usePoliticians + usePoliticianSearch can run in parallel hooks with separate fetch URLs" time="0.013">
     </testcase>
-    <testcase classname="userService syncUser should throw error on sync failure" name="userService syncUser should throw error on sync failure" time="0.002">
+    <testcase classname="dashboard data + search integration usePoliticianSearch does not fetch when query is too short" name="dashboard data + search integration usePoliticianSearch does not fetch when query is too short" time="0.002">
     </testcase>
-    <testcase classname="userService syncUser should handle network error" name="userService syncUser should handle network error" time="0">
+    <testcase classname="dashboard data + search integration usePoliticianSearch clears results when query drops below minimum length" name="dashboard data + search integration usePoliticianSearch clears results when query drops below minimum length" time="0.002">
     </testcase>
-    <testcase classname="userService updateUser should update user successfully" name="userService updateUser should update user successfully" time="0">
+    <testcase classname="dashboard data + search integration usePoliticianSearch surfaces error when search fetch throws" name="dashboard data + search integration usePoliticianSearch surfaces error when search fetch throws" time="0.001">
     </testcase>
-    <testcase classname="userService updateUser should complete onboarding" name="userService updateUser should complete onboarding" time="0">
+    <testcase classname="dashboard data + search integration usePoliticians states and parties lists are sorted" name="dashboard data + search integration usePoliticians states and parties lists are sorted" time="0.002">
     </testcase>
-    <testcase classname="userService updateUser should throw error with API error message" name="userService updateUser should throw error with API error message" time="0.001">
-    </testcase>
-    <testcase classname="userService updateUser should throw generic error when no message" name="userService updateUser should throw generic error when no message" time="0">
-    </testcase>
-    <testcase classname="userService checkUsername should return available true for free username" name="userService checkUsername should return available true for free username" time="0">
-    </testcase>
-    <testcase classname="userService checkUsername should return available false for taken username" name="userService checkUsername should return available false for taken username" time="0">
-    </testcase>
-    <testcase classname="userService checkUsername should check username excluding current user" name="userService checkUsername should check username excluding current user" time="0">
-    </testcase>
-    <testcase classname="userService checkUsername should throw error on check failure" name="userService checkUsername should throw error on check failure" time="0">
-    </testcase>
-    <testcase classname="userService API URL should use correct API base URL with /api/v1 prefix" name="userService API URL should use correct API base URL with /api/v1 prefix" time="0.001">
+    <testcase classname="dashboard data + search integration usePoliticians filter combines query + state" name="dashboard data + search integration usePoliticians filter combines query + state" time="0.002">
     </testcase>
   </testsuite>
-  <testsuite name="usePoliticians" errors="0" failures="0" skipped="0" timestamp="2026-05-23T07:35:34" time="0.492" tests="8">
-    <testcase classname="usePoliticians loads politicians and clears loading state" name="usePoliticians loads politicians and clears loading state" time="0.059">
+  <testsuite name="onboarding gating integration" errors="0" failures="0" skipped="0" timestamp="2026-05-23T08:43:19" time="0.356" tests="4">
+    <testcase classname="onboarding gating integration incomplete user on dashboard redirects to onboarding" name="onboarding gating integration incomplete user on dashboard redirects to onboarding" time="0.066">
     </testcase>
-    <testcase classname="usePoliticians sets error when API returns success: false" name="usePoliticians sets error when API returns success: false" time="0.053">
+    <testcase classname="onboarding gating integration complete user on dashboard stays on dashboard" name="onboarding gating integration complete user on dashboard stays on dashboard" time="0.006">
     </testcase>
-    <testcase classname="usePoliticians sets error on network failure" name="usePoliticians sets error on network failure" time="0.055">
+    <testcase classname="onboarding gating integration incomplete user on onboarding stays on onboarding" name="onboarding gating integration incomplete user on onboarding stays on onboarding" time="0.005">
     </testcase>
-    <testcase classname="usePoliticians filter() narrows by search query (name)" name="usePoliticians filter() narrows by search query (name)" time="0.054">
-    </testcase>
-    <testcase classname="usePoliticians filter() narrows by state" name="usePoliticians filter() narrows by state" time="0.055">
-    </testcase>
-    <testcase classname="usePoliticians filter() narrows by party" name="usePoliticians filter() narrows by party" time="0.056">
-    </testcase>
-    <testcase classname="usePoliticians stats reflect list totals and top party" name="usePoliticians stats reflect list totals and top party" time="0.056">
-    </testcase>
-    <testcase classname="usePoliticians refetch() triggers another fetch" name="usePoliticians refetch() triggers another fetch" time="0.06">
-    </testcase>
-  </testsuite>
-  <testsuite name="useMyPoliticians" errors="0" failures="0" skipped="0" timestamp="2026-05-23T07:35:35" time="0.101" tests="2">
-    <testcase classname="useMyPoliticians hydrates MP/MLA from backend user data" name="useMyPoliticians hydrates MP/MLA from backend user data" time="0.053">
-    </testcase>
-    <testcase classname="useMyPoliticians does not call backend when user is unavailable" name="useMyPoliticians does not call backend when user is unavailable" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="onboarding field contrast styles" errors="0" failures="0" skipped="0" timestamp="2026-05-23T07:35:35" time="0.054" tests="2">
-    <testcase classname="onboarding field contrast styles applies high-contrast classes to basic detail inputs and state select" name="onboarding field contrast styles applies high-contrast classes to basic detail inputs and state select" time="0.023">
-    </testcase>
-    <testcase classname="onboarding field contrast styles applies high-contrast classes to username input" name="onboarding field contrast styles applies high-contrast classes to username input" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="UserDetailsStep" errors="0" failures="0" skipped="0" timestamp="2026-05-23T07:35:35" time="0.058" tests="3">
-    <testcase classname="UserDetailsStep shows placeholder style when no state is selected" name="UserDetailsStep shows placeholder style when no state is selected" time="0.007">
-    </testcase>
-    <testcase classname="UserDetailsStep shows readable selected text and option styles" name="UserDetailsStep shows readable selected text and option styles" time="0.024">
-    </testcase>
-    <testcase classname="UserDetailsStep calls onChange with selected state" name="UserDetailsStep calls onChange with selected state" time="0.004">
-    </testcase>
-  </testsuite>
-  <testsuite name="Navbar" errors="0" failures="0" skipped="0" timestamp="2026-05-23T07:35:35" time="0.039" tests="2">
-    <testcase classname="Navbar renders header above page content with z-50 stacking" name="Navbar renders header above page content with z-50 stacking" time="0.006">
-    </testcase>
-    <testcase classname="Navbar applies sticky positioning when sticky prop is true" name="Navbar applies sticky positioning when sticky prop is true" time="0.002">
-    </testcase>
-  </testsuite>
-  <testsuite name="UserButton" errors="0" failures="0" skipped="0" timestamp="2026-05-23T07:35:35" time="0.047" tests="4">
-    <testcase classname="UserButton shows Sign In when unauthenticated" name="UserButton shows Sign In when unauthenticated" time="0.004">
-    </testcase>
-    <testcase classname="UserButton calls signIn when Sign In is clicked" name="UserButton calls signIn when Sign In is clicked" time="0.002">
-    </testcase>
-    <testcase classname="UserButton opens menu and navigates to dashboard from Dashboard link" name="UserButton opens menu and navigates to dashboard from Dashboard link" time="0.007">
-    </testcase>
-    <testcase classname="UserButton calls signOut when Sign Out is clicked" name="UserButton calls signOut when Sign Out is clicked" time="0.005">
+    <testcase classname="onboarding gating integration complete user on onboarding redirects to dashboard" name="onboarding gating integration complete user on onboarding redirects to dashboard" time="0.052">
     </testcase>
   </testsuite>
 </testsuites>

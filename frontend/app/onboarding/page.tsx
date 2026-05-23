@@ -1,8 +1,8 @@
 "use client";
 
 import { Suspense, useCallback, useMemo, useState } from "react";
-import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import OnboardingGate from "@/components/auth/OnboardingGate";
 import { motion, AnimatePresence } from "framer-motion";
 import PoliticalInclinationStep from "@/components/onboarding/PoliticalInclinationStep";
 import UsernameStep from "@/components/onboarding/UsernameStep";
@@ -76,13 +76,19 @@ function LoadingFallback() {
 export default function OnboardingPage() {
   return (
     <Suspense fallback={<LoadingFallback />}>
-      <OnboardingContent />
+      <OnboardingGate
+        redirectIfIncomplete={false}
+        redirectIfComplete
+        blockUntilReady={false}
+        fallback={<LoadingFallback />}
+      >
+        <OnboardingContent />
+      </OnboardingGate>
     </Suspense>
   );
 }
 
 function OnboardingContent() {
-  const router = useRouter();
   const { data: session, status, update } = useSession();
   const { trackEvent } = useAnalytics();
 
@@ -118,8 +124,8 @@ function OnboardingContent() {
 
   const completeSessionAndRedirect = useCallback(async () => {
     await update({ onboardingCompleted: true });
-    router.push(ROUTES.dashboard);
-  }, [router, update]);
+    window.location.href = ROUTES.dashboard;
+  }, [update]);
 
   const handleSubmit = useCallback(async () => {
     if (!userId) {

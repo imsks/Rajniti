@@ -99,6 +99,7 @@ class TestGetUser:
                 assert response.status_code == 200
                 data = response.get_json()
                 assert data["success"] is True
+                assert data["data"]["onboarding_completed"] is False
 
     def test_get_user_not_found(self, client):
         """Test getting non-existent user."""

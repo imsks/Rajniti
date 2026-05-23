@@ -63,19 +63,65 @@ def mock_data_service():
 class TestUserOnboardingFlow:
     """Tests for user onboarding flow."""
 
-    def test_complete_onboarding_flow(self, client, mock_data_service):
-        """Test complete user onboarding flow."""
-        # Step 1: User visits API root
-        response = client.get("/api/v1/")
-        assert response.status_code == 200
-        data = response.get_json()
-        assert "endpoints" in data
+    def test_complete_onboarding_flow(self, client, sample_user_data):
+        """Sync user, verify incomplete, complete onboarding, verify complete."""
+        user_id = sample_user_data["id"]
 
-        # Step 2: User browses available elections
-        response = client.get("/api/v1/elections")
-        assert response.status_code == 200
-        elections_data = response.get_json()
-        assert elections_data["success"] is True
+        with patch("app.services.user_service.get_db_session") as mock_ctx:
+            mock_session = Mock()
+            mock_ctx.return_value.__enter__ = Mock(return_value=mock_session)
+            mock_ctx.return_value.__exit__ = Mock(return_value=False)
+
+            mock_user = Mock()
+            mock_user.to_dict.return_value = sample_user_data.copy()
+            mock_user.update = Mock()
+
+            with patch("app.database.models.User.get_by_id", return_value=None):
+                with patch(
+                    "app.database.models.User.create", return_value=mock_user
+                ):
+                    sync_response = client.post(
+                        "/api/v1/users/sync",
+                        json={
+                            "id": user_id,
+                            "email": sample_user_data["email"],
+                            "name": sample_user_data["name"],
+                        },
+                    )
+                    assert sync_response.status_code == 200
+
+            with patch("app.database.models.User.get_by_id", return_value=mock_user):
+                get_before = client.get(f"/api/v1/users/{user_id}")
+                assert get_before.status_code == 200
+                before_data = get_before.get_json()
+                assert before_data["success"] is True
+                assert before_data["data"]["onboarding_completed"] is False
+
+            completed_data = sample_user_data.copy()
+            completed_data["onboarding_completed"] = True
+            mock_user.to_dict.return_value = completed_data
+
+            with patch("app.database.models.User.get_by_id", return_value=mock_user):
+                with patch(
+                    "app.database.models.User.get_by_username", return_value=None
+                ):
+                    patch_response = client.patch(
+                        f"/api/v1/users/{user_id}",
+                        json={
+                            "username": "newuser",
+                            "state": "DL",
+                            "onboarding_completed": True,
+                        },
+                    )
+                    assert patch_response.status_code == 200
+                    patch_data = patch_response.get_json()
+                    assert patch_data["data"]["onboarding_completed"] is True
+
+            with patch("app.database.models.User.get_by_id", return_value=mock_user):
+                get_after = client.get(f"/api/v1/users/{user_id}")
+                assert get_after.status_code == 200
+                after_data = get_after.get_json()
+                assert after_data["data"]["onboarding_completed"] is True
 
 
 @pytest.mark.e2e

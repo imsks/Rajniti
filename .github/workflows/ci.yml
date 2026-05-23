@@ -227,6 +227,9 @@ jobs:
           CI: true
           # NextAuth requires a secret when the app loads; CI-only placeholder.
           NEXTAUTH_SECRET: ci-playwright-e2e-secret-min-32-chars-long
+          NEXTAUTH_URL: http://127.0.0.1:3000
+          ENABLE_TEST_AUTH: 'true'
+          NEXT_PUBLIC_ENABLE_TEST_AUTH: 'true'
           NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1' }}
 
       - name: Upload Playwright report

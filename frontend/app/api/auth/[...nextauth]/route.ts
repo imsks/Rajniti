@@ -1,17 +1,58 @@
 import NextAuth, { NextAuthOptions } from "next-auth"
+import type { Provider } from "next-auth/providers"
 import GoogleProvider from "next-auth/providers/google"
+import CredentialsProvider from "next-auth/providers/credentials"
 import { userService } from "@/lib/api/user"
+import {
+  applyOnboardingCompleted,
+  onboardingCompletedFromUserResponse,
+} from "@/lib/auth/onboarding-token"
 
-const authOptions: NextAuthOptions = {
-  providers: [
+function buildProviders(): Provider[] {
+  const providers: Provider[] = [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID || "",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || ""
-    })
-  ],
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+    }),
+  ]
+
+  if (process.env.ENABLE_TEST_AUTH === "true") {
+    providers.push(
+      CredentialsProvider({
+        id: "test-credentials",
+        name: "Test",
+        credentials: {
+          userId: { label: "User ID", type: "text" },
+          onboardingCompleted: { label: "Onboarding Completed", type: "text" },
+        },
+        async authorize(credentials) {
+          const userId = credentials?.userId
+          if (!userId) return null
+
+          return {
+            id: userId,
+            email: `${userId}@test.local`,
+            name: "Test User",
+            onboardingCompleted: credentials?.onboardingCompleted === "true",
+          }
+        },
+      })
+    )
+  }
+
+  return providers
+}
+
+const authOptions: NextAuthOptions = {
+  providers: buildProviders(),
 
   callbacks: {
-    async jwt({ token, account, profile, trigger, session }) {
+    async jwt({ token, account, profile, user, trigger, session }) {
+      if (account?.provider === "test-credentials" && user) {
+        token.userId = user.id
+        token.onboardingCompleted = Boolean(user.onboardingCompleted)
+        return token
+      }
 
       if (account && profile) {
         token.accessToken = account.access_token
@@ -28,23 +69,24 @@ const authOptions: NextAuthOptions = {
             email: profile.email,
             name: profile.name,
             profile_picture:
-              profileData.picture || profileData.image
+              profileData.picture || profileData.image,
           })
 
           token.onboardingCompleted =
-            data?.data?.onboarding_completed || false
-
+            onboardingCompletedFromUserResponse(data)
         } catch (error) {
           console.error("❌ Sync error:", error)
           token.onboardingCompleted = false
         }
+
+        return token
       }
 
       if (
         trigger === "update" &&
         session?.onboardingCompleted !== undefined
       ) {
-        token.onboardingCompleted = session.onboardingCompleted
+        return applyOnboardingCompleted(token, session.onboardingCompleted)
       }
 
       return token
@@ -58,15 +100,15 @@ const authOptions: NextAuthOptions = {
         session.accessToken = token.accessToken as string
       }
       return session
-    }
+    },
   },
 
   pages: {
     signIn: "/auth/signin",
-    newUser: "/onboarding"
+    newUser: "/onboarding",
   },
 
-  secret: process.env.NEXTAUTH_SECRET
+  secret: process.env.NEXTAUTH_SECRET,
 }
 
 const handler = NextAuth(authOptions)

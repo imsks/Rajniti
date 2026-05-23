@@ -10,7 +10,7 @@ import Image from "next/image";
 
 function SignInContent() {
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
+  const callbackUrl = searchParams.get("callbackUrl") || "/onboarding";
   const { trackEvent } = useAnalytics();
 
   return (

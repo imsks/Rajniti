@@ -127,6 +127,48 @@ describe("userService.updateUser", () => {
       userService.updateUser("u1", { username: "taken" }),
     ).rejects.toThrow("Username is already taken");
   });
+
+  it("throws generic error when backend omits message", async () => {
+    mockFetch.mockResolvedValueOnce(errorResponse({}, 500));
+
+    await expect(userService.updateUser("u1", { name: "Test" })).rejects.toThrow(
+      "Failed to update user",
+    );
+  });
+});
+
+// ---------------------------------------------------------------------------
+// getUser
+// ---------------------------------------------------------------------------
+describe("userService.getUser", () => {
+  it("calls /users/{userId} with GET", async () => {
+    mockFetch.mockResolvedValueOnce(
+      okResponse({ success: true, data: { id: "u1" } }),
+    );
+
+    await userService.getUser("u1");
+
+    expect(mockFetch).toHaveBeenCalledWith(`${API_BASE}/users/u1`);
+  });
+
+  it("returns parsed JSON on success", async () => {
+    const payload = {
+      success: true,
+      data: { id: "u1", onboarding_completed: true },
+    };
+    mockFetch.mockResolvedValueOnce(okResponse(payload));
+
+    const result = await userService.getUser("u1");
+    expect(result).toEqual(payload);
+  });
+
+  it("throws when response is not ok", async () => {
+    mockFetch.mockResolvedValueOnce(errorResponse({}, 404));
+
+    await expect(userService.getUser("missing")).rejects.toThrow(
+      /Failed to fetch user/,
+    );
+  });
 });
 
 // ---------------------------------------------------------------------------
@@ -277,7 +319,7 @@ describe('userService.addUserPolitician', () => {
         expect(result).toEqual({ success: true })
     })
 
-    it('returns success fallback when json parsing fails', async () => {
+    it('returns empty object when json parsing fails', async () => {
         mockFetch.mockResolvedValueOnce({
             ok: true,
             status: 200,
@@ -291,6 +333,18 @@ describe('userService.addUserPolitician', () => {
         )
 
         expect(result).toEqual({})
+    })
+
+    it('returns success fallback when backend returns empty body', async () => {
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            status: 200,
+            json: () => Promise.resolve(null),
+        })
+
+        const result = await userService.addUserPolitician('u1', 'p1', 'MP')
+
+        expect(result).toEqual({ success: true })
     })
 
     it('returns failure on backend error', async () => {
@@ -350,7 +404,7 @@ describe('userService.removeUserPolitician', () => {
         expect(result).toEqual({ success: true })
     })
 
-    it('returns success fallback when json parsing fails', async () => {
+    it('returns empty object when json parsing fails', async () => {
         mockFetch.mockResolvedValueOnce({
             ok: true,
             status: 200,
@@ -363,6 +417,18 @@ describe('userService.removeUserPolitician', () => {
         )
 
         expect(result).toEqual({})
+    })
+
+    it('returns success fallback when backend returns empty body', async () => {
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            status: 200,
+            json: () => Promise.resolve(null),
+        })
+
+        const result = await userService.removeUserPolitician('u1', 'p1')
+
+        expect(result).toEqual({ success: true })
     })
 
     it('returns failure on backend error', async () => {

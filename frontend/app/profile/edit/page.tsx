@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { motion } from "framer-motion";
 import UserDetailsStep from "@/components/onboarding/UserDetailsStep";
 import PreferencesStep from "@/components/onboarding/PreferencesStep";
+import OnboardingGate from "@/components/auth/OnboardingGate";
 import { useAnalytics } from "@/hooks/useAnalytics";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -19,7 +20,9 @@ export default function EditProfile() {
         </div>
       }
     >
-      <EditProfileContent />
+      <OnboardingGate redirectIfIncomplete>
+        <EditProfileContent />
+      </OnboardingGate>
     </Suspense>
   );
 }

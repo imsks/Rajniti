@@ -10,7 +10,7 @@ import PoliticianCardWrapper from "@/components/PoliticianCardWrapper";
 import MyPoliticiansSection from "@/components/MyPoliticiansSection";
 import { usePoliticians } from "@/hooks/usePoliticians";
 import { useAnalytics } from "@/hooks/useAnalytics";
-import { useOnboardingCheck } from "@/hooks/useOnboardingCheck";
+import OnboardingGate from "@/components/auth/OnboardingGate";
 import Image from "next/image";
 
 type Tab = "ALL" | "MP" | "MLA";
@@ -24,13 +24,14 @@ export default function Dashboard() {
         </div>
       }
     >
-      <DashboardContent />
+      <OnboardingGate redirectIfIncomplete>
+        <DashboardContent />
+      </OnboardingGate>
     </Suspense>
   );
 }
 
 function DashboardContent() {
-  const { sessionLoading, needsOnboarding } = useOnboardingCheck();
   const [activeTab, setActiveTab] = useState<Tab>("ALL");
   const [searchQuery, setSearchQuery] = useState("");
   const [stateFilter, setStateFilter] = useState("");
@@ -130,14 +131,6 @@ function DashboardContent() {
       });
     }
   }, [error, trackEvent]);
-
-  if (sessionLoading || needsOnboarding) {
-    return (
-      <div className="min-h-screen bg-linear-to-b  from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 flex items-center justify-center">
-        <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent"></div>
-      </div>
-    );
-  }
 
   if (error) {
     return (

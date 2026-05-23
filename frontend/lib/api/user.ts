@@ -39,6 +39,20 @@ export const userService = {
     },
 
     /**
+     * Fetch user profile from backend.
+     * Used to refresh onboarding status when the JWT is stale.
+     */
+    async getUser(userId: string) {
+        const response = await fetch(`${API_BASE_URL}/users/${userId}`)
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch user: ${response.statusText}`)
+        }
+
+        return response.json()
+    },
+
+    /**
      * Update user profile (PATCH)
      * Used for onboarding and profile updates
      */
