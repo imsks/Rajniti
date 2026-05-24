@@ -28,9 +28,8 @@ export default function ContributeSection() {
             <span className="text-orange-400 italic">Profiles</span>
           </Text>
           <Text variant="body" className="text-orange-100 max-w-3xl mx-auto">
-            Many politician profiles are missing education, family, and
-            criminal record details. Your contributions make democracy more
-            transparent!
+            Many politician profiles are missing education, family, and criminal
+            record details. Your contributions make democracy more transparent!
           </Text>
         </motion.div>
 
@@ -45,7 +44,7 @@ export default function ContributeSection() {
           >
             <div className="text-3xl mb-3">
               <Image
-                src="/logo/ContributeData.png"
+                src="/logo/ContributeData.svg"
                 alt="Contribute Logo"
                 width={40}
                 height={40}
@@ -98,7 +97,7 @@ export default function ContributeSection() {
           >
             <div className="text-3xl mb-3">
               <Image
-                src="/logo/Contribute.png"
+                src="/logo/Contribute.svg"
                 alt="Contribute Logo"
                 width={40}
                 height={40}

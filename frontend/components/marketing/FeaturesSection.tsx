@@ -27,8 +27,8 @@ export default function FeaturesSection() {
             variant="body"
             className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
           >
-            We&apos;re building the most transparent and comprehensive
-            database of Indian elected representatives.
+            We&apos;re building the most transparent and comprehensive database
+            of Indian elected representatives.
           </Text>
         </motion.div>
 
@@ -43,11 +43,11 @@ export default function FeaturesSection() {
           >
             <div className="text-4xl mb-4">
               <Image
-                src="/logo/parliament.png"
+                src="/logo/parliament.svg"
                 alt="Parliament Logo"
                 width={40}
                 height={40}
-                className="h-10 w-10"
+                className="h-10 w-10 dark:filter-[invert(0.70)_brightness(1.2)]"
               />
             </div>
             <Text
@@ -73,11 +73,11 @@ export default function FeaturesSection() {
           >
             <div className="text-4xl mb-4">
               <Image
-                src="/logo/Assembly.png"
+                src="/logo/Assembly.svg"
                 alt="State Assembly Logo"
                 width={40}
                 height={40}
-                className="h-10 w-10"
+                className="h-10 w-10 dark:filter-[invert(0.70)_brightness(1.2)]"
               />
             </div>
             <Text
@@ -103,11 +103,11 @@ export default function FeaturesSection() {
           >
             <div className="text-4xl mb-4">
               <Image
-                src="/logo/Profile.png"
+                src="/logo/Profile.svg"
                 alt="Rich Profile Logo"
                 width={36}
                 height={36}
-                className="h-9 w-9"
+                className="h-9 w-9 dark:filter-[invert(0.70)_brightness(1.2)]"
               />
             </div>
             <Text
