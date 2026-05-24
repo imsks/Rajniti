@@ -19,7 +19,7 @@ function SignInContent() {
     trackEvent("signin_page_view", {
       referrer: document.referrer || "direct",
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -50,9 +50,9 @@ function SignInContent() {
             >
               <div className="text-5xl">
                 <Image
-                  src="/logo/voting-box.png"
+                  src="/logo/voting-box.svg"
                   alt="Rajniti Logo"
-                  className="w-9 h-9"
+                  className="w-9 h-9 dark:filter-[invert(1)_brightness(2)]"
                   width={36}
                   height={36}
                 />

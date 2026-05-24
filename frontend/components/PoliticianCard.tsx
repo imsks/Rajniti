@@ -109,16 +109,22 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
         <div className="flex flex-wrap gap-2 mb-3">
           <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 dark:bg-gray-700 rounded-lg text-xs text-gray-600 dark:text-gray-300">
             <NextImage
-              src="/logo/location.png"
+              src="/logo/location.svg"
               alt="Constituency"
               width={16}
               height={16}
-              className="w-4 h-4"
+              className="w-4 h-4 dark:filter-[invert(0.70)_brightness(1.2)]"
             />{" "}
             {politician.constituency}
           </span>
           <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-gray-50 dark:bg-gray-700 rounded-lg text-xs text-gray-600 dark:text-gray-300">
-            <NextImage src="/logo/skyline.png" alt="State" width={16} height={16} className="w-4 h-4" />{" "}
+            <NextImage
+              src="/logo/skyline.svg"
+              alt="State"
+              width={16}
+              height={16}
+              className="w-4 h-4 dark:filter-[invert(0.70)_brightness(1.2)]"
+            />{" "}
             {politician.state}
           </span>
         </div>

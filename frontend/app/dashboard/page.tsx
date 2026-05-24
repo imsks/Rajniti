@@ -17,7 +17,7 @@ import Image from "next/image";
 // Lazy-load heavy sub-component (has its own framer-motion + search logic)
 const MyPoliticiansSection = dynamic(
   () => import("@/components/MyPoliticiansSection"),
-  { ssr: false }
+  { ssr: false },
 );
 
 type Tab = "ALL" | "MP" | "MLA";
@@ -170,7 +170,7 @@ function DashboardContent() {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900">
-            <Navbar sticky />
+      <Navbar sticky />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
         {/* Your Politicians (MP + MLA slots) */}
@@ -276,11 +276,11 @@ function DashboardContent() {
             <div className="flex-1 relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
                 <Image
-                  src="/logo/search.png"
+                  src="/logo/search.svg"
                   alt="Search"
                   width={20}
                   height={20}
-                  className="w-5 h-5"
+                  className="w-5 h-5 dark:filter-[invert(0.70)_brightness(1.2)]"
                 />
               </span>
               <input
