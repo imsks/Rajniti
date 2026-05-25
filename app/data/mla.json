@@ -89786,5 +89786,617 @@
       "summary": null
     },
     "notes": null
+  },
+  {
+    "id": "061f91b5-55ac-5ab7-a139-02b22722fc5c",
+    "name": "Krishna Salkar",
+    "photo": null,
+    "state": "Goa",
+    "constituency": "Vasco-Da-Gama",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "d7938ca5-56c9-52e3-bc5f-33bf0c82c69e",
+    "name": "Ganesh Gaonkar",
+    "photo": null,
+    "state": "Goa",
+    "constituency": "Rivona",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "6d2d5dbd-60c0-5a12-a984-dd9a98f185bb",
+    "name": "Ramesh Tawadkar",
+    "photo": null,
+    "state": "Goa",
+    "constituency": "Poinguinim",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "71ddd3aa-667d-56da-9a96-0cd487babfd6",
+    "name": "Dr. Chandrakant Kavlekar",
+    "photo": null,
+    "state": "Goa",
+    "constituency": "Pale",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "71734a40-0987-589b-88c6-0686e6539073",
+    "name": "Sher Bahadur Subedi",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Yoksam-Tashiding",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "2537493b-240f-5f57-803b-6c213673453c",
+    "name": "Bhim Hang Limboo",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Yangthang",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "7493c46e-558c-5377-94a0-60d90b1730e4",
+    "name": "Nar Bahadur Pradhan",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Maneybong-Dentam",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "e032d88c-948f-5d97-93a1-93a15bcd8f1e",
+    "name": "Lok Nath Sharma",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Gyalshing-Barnyak",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "3a1c3c2d-9327-5843-af3e-5d7ba8f4bd48",
+    "name": "Er. Karma Sonam Lepcha",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Rinchenpong",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "e90b6e87-625e-5df2-9b2e-6195dc0c4c92",
+    "name": "Prem Singh Tamang (Golay)",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Darap-Namthang",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "914154d1-6880-5cc4-bd52-164b3cebb2d3",
+    "name": "Prem Singh Tamang (Golay)",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Soreng-Chakung",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "ecaf8a50-964b-5592-9ce6-784130813b71",
+    "name": "Madan Cintury",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Salghari-Zoom (SC)",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "940d48d0-9691-5bb8-96c1-13c021c1ecfd",
+    "name": "Rikshal Dorjee Bhutia",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Barfung (BL)",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "b8654f51-038b-539c-a317-0c40ed5ef2ac",
+    "name": "Bhoj Raj Rai",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Poklok-Kamrang",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "7c79349d-cc4a-5016-a6cd-47fe00d63ea3",
+    "name": "Krishna Kumari Rai",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Namchi-Singhithang",
+    "party": "SKM",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "aa7d3b96-71b4-535d-8644-61543751ea3d",
+    "name": "Bhoj Raj Rai",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Rateypani-West Pendam",
+    "party": "SKM",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "8b085ea6-efd4-53f9-bc7c-4f45fdaf49c5",
+    "name": "Bimal Rai",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Rangang-Yangang",
+    "party": "SKM",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "f57a128d-de99-512e-b1af-beca3c43cea6",
+    "name": "Samdup Lepcha",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Tumin-Lingee (BL)",
+    "party": "SKM",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "9265e3d9-b997-57dc-8d58-a443b3eb85d3",
+    "name": "L.B. Das",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Khamdong-Singtam",
+    "party": "SKM",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "49e0b8a7-cdc4-574a-8e17-1f4887b27ac6",
+    "name": "Sonam Tshering Venchungpa",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Martam-Rumtek (BL)",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "7a7fc392-d9d8-52f3-a2ee-7eeacce9442a",
+    "name": "G.T. Dhungel",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Upper Tadong",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "2c4bd5c8-5eab-5848-999e-c43deb2001fd",
+    "name": "Dil Bahadur Thapa",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Arithang",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "ad07067a-afb5-5fdc-a509-958adcaedf52",
+    "name": "Delay Namgyal Barfungpa",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Gangtok (BL)",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "560e27b8-829e-52c1-85e9-723eb25f1292",
+    "name": "Puran Kumar Gurung",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Lower Burtuk",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "76fe1eeb-5d64-5c77-82c7-bd2a531e77a5",
+    "name": "D. R. Thapa",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Upper Burtuk",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "32e6efa6-90ea-55c9-9460-2aa599137691",
+    "name": "Karma Loday Bhutia",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Kabi-Lungchok (BL)",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "40aff9c8-36d5-5976-94dd-71023dc5a993",
+    "name": "Pintso Namgyal Lepcha",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Djongu (BL)",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "8e6f54cc-094c-59b2-86ab-365c59d55553",
+    "name": "Samdup Lepcha",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Lachen-Mangan (BL)",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "785ba19e-d0c1-5899-bfd4-d5021ed22e1c",
+    "name": "Sonam Lama",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Sangha",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "d1dd1f93-af25-5e8d-b64d-0e9fbe6660bd",
+    "name": "Tenzing Norbu Lamtha",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Shyari",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "00ed54df-e040-50f2-89af-52811917b5c6",
+    "name": "Pintso Namgyal Lepcha",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Gnathang-Machong",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "eb106a0c-104c-5d3a-8c56-66e27b505cd4",
+    "name": "Pujan Rai",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Namcheybung",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "fe13a2b7-a809-5601-a906-75a49bcafa42",
+    "name": "Dil Bahadur Limboo",
+    "photo": null,
+    "state": "Sikkim",
+    "constituency": "Assam-Lingzey (BL)",
+    "party": "Sikkim Krantikari Morcha",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "7b25fc03-1e7f-5d7e-8d0d-2a74d9b47116",
+    "name": "Nilkanth Ramnath Halarnkar",
+    "photo": null,
+    "state": "Goa",
+    "constituency": "Thivim",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
   }
 ]

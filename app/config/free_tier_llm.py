@@ -489,6 +489,13 @@ class FreeTierLLM:
         self._session_exhausted.clear()
         self._active_index = 0
 
+    def clear_cooldowns(self) -> None:
+        """Clear transient cooldowns (not session-exhaustion).
+
+        Use before a retry attempt so the model is re-eligible.
+        """
+        self._cooldowns.clear()
+
     # -- core invocation ----------------------------------------------------
 
     def invoke(self, *args: Any, **kwargs: Any) -> Any:
