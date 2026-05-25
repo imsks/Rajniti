@@ -1,13 +1,16 @@
+from __future__ import annotations
+
 import argparse
 import logging
 import os
 import sys
 from pathlib import Path
-from app.agents.state_mla_fetcher import StateMLAFetcher
-from app.core import setup_logging
 
 _ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(_ROOT))
+
+from app.agents.state_mla_fetcher import StateMLAFetcher
+from app.core import setup_logging
 
 # Many LLM calls for large states; default 15s per request is too low (504 / truncation).
 os.environ.setdefault("FREE_TIER_LLM_TIMEOUT_SECS", "120")

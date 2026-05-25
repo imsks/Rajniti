@@ -91,19 +91,19 @@ class ProviderConfig:
 # ---------------------------------------------------------------------------
 
 DEFAULT_PROVIDERS: list[dict[str, Any]] = [
-    {
-        "provider": "perplexity",
-        "model": "sonar",
-        "api_key_env": "PERPLEXITY_API_KEY",
-        "base_url": "https://api.perplexity.ai",
-        "tier": "paid",
-    },
-    # --- Gemini (generous free tier) ---
     # {
-    #     "provider": "gemini",
-    #     "model": "gemini-2.5-flash",
-    #     "api_key_env": "GEMINI_API_KEY",
+    #     "provider": "perplexity",
+    #     "model": "sonar",
+    #     "api_key_env": "PERPLEXITY_API_KEY",
+    #     "base_url": "https://api.perplexity.ai",
+    #     "tier": "paid",
     # },
+    # --- Gemini (generous free tier) ---
+    {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash",
+        "api_key_env": "GEMINI_API_KEY",
+    },
     # {"provider": "gemini", "model": "gemini-2.5-pro", "api_key_env": "GEMINI_API_KEY"},
     # {
     #     "provider": "gemini",

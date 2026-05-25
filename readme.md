@@ -40,6 +40,108 @@ make run                      # starts Flask on :8000
 
 ---
 
+## Manual Setup (venv + run)
+
+If `make install` doesn't work or you prefer manual setup:
+
+```bash
+# 1. Create and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate        # macOS/Linux
+# venv\Scripts\activate         # Windows
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Configure environment
+cp .env.example .env
+# Edit .env — set DATABASE_URL, add at least one LLM key (GEMINI_API_KEY recommended)
+
+# 4. Run database migrations
+source venv/bin/activate && alembic upgrade head
+
+# 5. Start the server
+python run.py
+```
+
+The server starts at `http://localhost:8000`. Verify with:
+
+```bash
+curl http://localhost:8000/api/v1/health
+```
+
+---
+
+## Running Agents
+
+Agents use LLMs to enrich politician data (education, career, citations). You need at least one LLM API key in `.env` (Gemini free tier works).
+
+### Politician Enrichment Agent
+
+Enriches MP/MLA records with structured biographical data:
+
+```bash
+source venv/bin/activate
+
+# Enrich a single politician by ID
+python scripts/run_politician_agent.py --id "e345d97b-f7c3-4974-b190-1662fcfb4a7a"
+
+# Enrich all MPs (test with a small batch first)
+python scripts/run_politician_agent.py --type MP --limit 3
+
+# Full run for all MPs
+python scripts/run_politician_agent.py --type MP
+
+# Full run for all MLAs
+python scripts/run_politician_agent.py --type MLA
+
+# Force re-enrich (overwrite existing data)
+python scripts/run_politician_agent.py --type MP --force
+
+# Verbose logging
+python scripts/run_politician_agent.py --type MP --log-level DEBUG
+```
+
+### Citation Agent
+
+Adds source URLs to politician records for data verification:
+
+```bash
+source venv/bin/activate
+
+# Add citations to MPs (small batch)
+python scripts/run_citation_agent.py --type MP --limit 10
+
+# Full citation run
+python scripts/run_citation_agent.py --type MP
+```
+
+### MLA Fetcher Agent
+
+Fetches MLA data for a specific state or all states:
+
+```bash
+source venv/bin/activate
+
+# Fetch MLAs for a specific state
+python scripts/fetch_mlas.py --state "Andhra Pradesh"
+
+# Fetch MLAs for all states
+python scripts/fetch_mlas.py
+
+# Force overwrite existing data
+python scripts/fetch_mlas.py --state "Karnataka" --force
+```
+
+### Agent Tips
+
+- **Free tier limits:** Gemini has rate limits. Use `--limit` to batch work and avoid quota errors.
+- **Checkpoints:** The citation agent saves progress, so you can resume after interruptions.
+- **Force flag:** Use `--force` to re-enrich records that already have data.
+- **Logs:** Set `--log-level DEBUG` to see detailed LLM interactions.
+
+---
+
 ## Environment Variables
 
 See [`.env.example`](.env.example) for the full list. Key variables:
