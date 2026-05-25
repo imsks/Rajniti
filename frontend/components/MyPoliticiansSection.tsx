@@ -159,7 +159,13 @@ export default function MyPoliticiansSection({
         <div ref={searchContainerRef} className="relative mb-6">
           <div className="relative">
             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-              <NextImage src="/logo/search.png" alt="Search" width={20} height={20} className="w-5 h-5" />
+              <NextImage
+                src="/logo/search.svg"
+                alt="Search"
+                width={20}
+                height={20}
+                className="w-5 h-5 dark:filter-[invert(0.70)_brightness(1.2)]"
+              />
             </span>
             <input
               id="my-politicians-search"
