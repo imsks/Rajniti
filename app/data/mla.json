@@ -90398,5 +90398,1913 @@
       "elections": [],
       "summary": null
     }
+  },
+  {
+    "id": "09d02ca3-418d-5b8a-90ae-03ae2d0c70c9",
+    "name": "H. Salam",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Ambalappuzha",
+    "party": "CPI(M)",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "f8f32d9c-e29e-5d7f-a4b6-479744aeebe4",
+    "name": "K.M. Sachin Dev",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Balussery",
+    "party": "CPI(M)",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "22ef413c-09cd-5754-8f7e-786585c49cd6",
+    "name": "Saneesh Kumar Joseph",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Chalakudy",
+    "party": "INC",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "7a3a9959-b828-51b8-b666-8b3bdf115e04",
+    "name": "G. S. Jayalal",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Chathannoor",
+    "party": "Communist Party of India (CPI)",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "dc8443ef-3e84-5ff9-8305-0b8eb622ec80",
+    "name": "T. J. Vinod",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Ernakulam",
+    "party": "Indian National Congress (INC)",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "06fde0a5-0e1b-5f6a-8129-e31d37aa2450",
+    "name": "R. Bindu",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Irinjalakuda",
+    "party": "Communist Party of India (Marxist)",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "a374e48a-50d4-589b-aca0-266fe3673662",
+    "name": "Kanathil Jameela",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Koyilandy",
+    "party": "Communist Party of India (Marxist)",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "7cf5b3ae-3cb1-5358-95f1-2dbfe47bff38",
+    "name": "M. S. Arun Kumar",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Mavelikkara",
+    "party": "Communist Party of India (Marxist)",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "34e2ac16-3ad4-50da-8379-26e829cb41d1",
+    "name": "Constituency dissolved in 2008 delimitation",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Palluruthy",
+    "party": null,
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "f1f91673-addd-5c92-89bd-3bc14a984bd1",
+    "name": "V. D. Satheesan",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Paravoor",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "301e4be7-8f32-55fb-8baa-558e6a1d0b37",
+    "name": "T. I. Madhusoodanan",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Payyanur",
+    "party": "Communist Party of India (Marxist)",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "ff56e817-3891-5b29-962a-37311914c1d1",
+    "name": "Constituency dissolved in 2008 delimitation",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Peringalam",
+    "party": null,
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "9cf0f214-e700-572c-89f9-f3c1fa51f547",
+    "name": "I. C. Balakrishnan",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Sulthan Bathery",
+    "party": "Indian National Congress",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "c93fc9fe-af28-5109-a0bb-fb23a973488f",
+    "name": "P. T. A. Rahim",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Thamarassery",
+    "party": "LDF (Independent)",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "9dc59f0b-8c95-5620-bea4-dc54adaf9864",
+    "name": "K. P. A. Majeed",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Thirurangadi",
+    "party": "Indian Union Muslim League (IUML)",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "c6bbc647-a420-5020-8238-30703fa989ff",
+    "name": "C. H. Kunhambu",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Uduma",
+    "party": "Communist Party of India (Marxist) (CPI(M))",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "f03b7cc4-e144-5792-b046-935549a86a73",
+    "name": "K. N. Unnikrishnan",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Vypin",
+    "party": "Communist Party of India (Marxist) (CPI(M))",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "f91502b8-7ed1-5a0f-827a-a446b1022568",
+    "name": "K. U. Jenish Kumar",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Pathanamthitta",
+    "party": "CPI(M)",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "fd5061a5-3a92-5834-93f9-27d48edff70a",
+    "name": "P. Mammikutty",
+    "photo": null,
+    "state": "Kerala",
+    "constituency": "Shoranur",
+    "party": "CPI(M)",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "61c724b7-a8bf-5494-909b-fdb9a3251386",
+    "name": "Tadak Dulom",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Rumgong",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "6ff05c6b-c24b-52b2-88c8-78aaafd2548c",
+    "name": "Gokar Basar",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Mechuka",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "5c56c64f-ea7b-51af-abd1-3274355071aa",
+    "name": "Taniya Soki",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Tato",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "f293bf64-de20-59ec-9e01-71abc09a45e0",
+    "name": "Laisam Simai",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Pangsau Pass",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "04e1ef4a-f788-56d6-897a-60191ae4c0f0",
+    "name": "Wangki Lowang",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Namsang",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "b40be7ab-aec1-5584-8f7a-7b9134c7424c",
+    "name": "Wanglam Sawin",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Khonsa East",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "f2d1bf6f-d6d7-581c-9e8c-b382cd633d95",
+    "name": "Chakat Aboh",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Khonsa West",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "15143669-92be-575a-8ea8-ee085852d8a5",
+    "name": "Wanglin Lowangdong",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Borduria-Bogapani",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "1c9a3808-9eea-5ade-845a-bc33f2901e0f",
+    "name": "Gabriel D. Wangsu",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Kanubari",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "09bccb62-e79e-57d8-b249-cb4a9c2915a4",
+    "name": "Honchun Ngandam",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Pongchou-Wakka",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "7e643b9b-c89c-5c41-b972-ecfc34bf10de",
+    "name": "Phosum Khimhun",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Changlang North",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "6163a245-c62b-5f68-8b58-30285980e72f",
+    "name": "Gabriel D. Wangsu",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Changlang South",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "3fb99e39-895a-5024-bd28-2b6bcbb1bdb1",
+    "name": "Biyuram Wahge",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Lekang",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "f522a0e2-2d61-5eea-87e0-438fb7cda336",
+    "name": "Samlung Mossang",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Bordumsa-Diyun",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "fe59a841-8947-5dc5-bad8-e68906a8c312",
+    "name": "Laisam Simai",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Jairampur",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "7efd5540-705c-5984-9bd0-2ad48b12c0c6",
+    "name": "Dasanglu Pul",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Hayuliang",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "6609d3d8-1c9c-5105-b0be-596e7823f16b",
+    "name": "Chowna Mein",
+    "photo": null,
+    "state": "Arunachal Pradesh",
+    "constituency": "Chowkham",
+    "party": "BJP",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "d6d7a1dd-8104-5e03-982c-237f1ea0906f",
+    "name": "Gangula Brijendra Reddy",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Allagadda",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "5a3fbc60-891a-5850-8d92-fd9d6865f9bc",
+    "name": "Not an Assembly Constituency",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Alluri Sitarama Raju",
+    "party": "N/A",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "8c41de29-e00a-50ed-b1ef-b4c1d00e1969",
+    "name": "Tammineni Seetharam",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Amudalavalasa",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "52231faa-e446-55e5-a03c-9c5b28c7a268",
+    "name": "Saptagiri Koteswara Rao Sateesh Kumar",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Anaparthy",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "e4edb91a-e325-57e3-b276-71b705bb66d0",
+    "name": "Dasari Sudha",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Badvel",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "9538c36a-01f4-5707-aefb-39e849512cd3",
+    "name": "Katasani Rami Reddy",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Banganapalle",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "8b439c3e-c1f9-53c4-b119-df8be75cc2aa",
+    "name": "Ganta Srinivasa Rao",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Bheemunipatnam",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "7eddedde-b5f2-5259-9d51-ced008a86412",
+    "name": "Pulaparthi Ramanjaneyulu (Anji Babu)",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Bhimavaram",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "bfcb3a7d-0861-5f25-85bc-348f6fe5c09a",
+    "name": "Suneel Kumar Karumuri",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Chintalapudi",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "431b5183-f2ae-5c4e-b0a8-9239518791be",
+    "name": "K. S. N. Raju",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Chintapalle",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "cb290f6d-976a-564d-bf13-58740a90b7a1",
+    "name": "Karanam Dharmasri",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Chodavaram",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "5e3ce2db-fda0-54bd-a4e7-4de1468f71a8",
+    "name": "Kottu Satyanarayana",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Denduluru",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "32c3467b-c43a-5d6f-a00e-fa2c8549ecbe",
+    "name": "Ketireddy Venkatarami Reddy",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Dharmavaram",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "9e2eb212-d850-575f-b5e5-d4753dfc7701",
+    "name": "Buggana Rajendranath Reddy",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Dhone",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "263b7e37-7f93-5892-a940-286c73e5cbe8",
+    "name": "Gorle Kirankumar",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Etcherla",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "ea5f56d0-c4ae-5f24-a9c4-0143a735303e",
+    "name": "Palla Srinivasa Rao",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Gajuwaka",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "f6081beb-a453-5140-bdfe-b78d3c12f32c",
+    "name": "Maddipati Venkata Raju",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Gopalapuram (SC)",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "bb9c1008-e969-52d4-a255-c43e05df286a",
+    "name": "Venigandla Ramu",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Gudivada",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "d6cfa72a-e50d-5946-94e9-e0a3d651e478",
+    "name": "Pasam Sunil Kumar",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Gudur (SC)",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "c0ac2c4d-d4a2-53c6-af8c-7a011d24186d",
+    "name": "Gummanur Jayaram",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Guntakal",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "86323f2c-7981-5cf1-a44a-f206b6cdb904",
+    "name": "Jyothula Chantibabu",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Jaggampeta",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "7935a4ad-4f80-50b1-8af6-41887fa55292",
+    "name": "Samineni Udayabhanu",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Jaggayyapeta",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "a9afc02d-7f13-5070-b77d-d98e32d5d43f",
+    "name": "P. Kottu Satyanarayana",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Jangareddygudem",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "0c4365df-cf40-560f-b757-045540ade524",
+    "name": "Jakkampudi Raja",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Kadiam",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "027953fb-1ce5-5577-b16a-b373662f19e6",
+    "name": "Dulam Nageswara Rao (DR. D.N.R)",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Kaikalur",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "05fdad25-9b23-5227-b5f9-6ba4c1481687",
+    "name": "Vanamadi Venkateswara Rao (Kondababu)",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Kakinada City",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "84ae55fa-90fc-5aec-b29c-fcf1a76af9c1",
+    "name": "Pilli Anantha Lakshmi",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Kakinada Rural",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "dc68e4a9-9c61-50b1-aa61-e983f44c7805",
+    "name": "Inturi Nageswara Rao",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Kandukur",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "13fa1317-c7aa-5b9d-b28e-81d4b8b6a6bd",
+    "name": "Dola Bala Veeranjaneya Swamy",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Kondapi",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "dfa0fc6f-171a-539c-a959-07ced6a59912",
+    "name": "Bandaru Satyananda Rao",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Kothapeta",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "9231b138-bc7e-559d-9f51-2903de721ee0",
+    "name": "Nara Chandrababu Naidu",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Kuppam",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "529685e3-3ee7-5c9e-b659-6e10731a05c7",
+    "name": "Perni Venkataramaiah (Nani)",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Machilipatnam",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "971aa1e5-3dac-5f8a-a3de-8da305a4b9e8",
+    "name": "Anna Rambabu",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Markapur",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "cc323780-386c-5a70-b6da-06ff8f7f2acf",
+    "name": "Mondithoka Arun Kumar",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Nandigama",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "770f87a8-345a-5abb-9662-440ed5217c2c",
+    "name": "Silpa Ravichandra Kishore Reddy",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Nandyal",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "8dd953a9-bf9f-5f28-bb4a-155536117fc4",
+    "name": "Dharmana Krishna Das",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Narasannapeta",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "5ffdfa1f-6b06-59fa-9771-da67709c9e26",
+    "name": "Chintakayala Ayyanna Patrudu",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Narsipatnam",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "3819615d-cfa5-5423-a465-5b5dd2792ef4",
+    "name": "Kandula Durgesh",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Nidadavole",
+    "party": "Jana Sena Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "1e1216ba-0f5a-5c8d-a162-304546771763",
+    "name": "Kolusu Parthasarathy",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Nuzvid",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "d808375c-80d4-5638-947f-0e72d8428fdf",
+    "name": "Nimmala Rama Naidu",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Palakollu",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "c42d2bfb-b4c4-5ae9-a4ea-216b6338ec4b",
+    "name": "Vijayakumar Gummadi",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Parvathipuram",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "76ff3fcc-dac0-5119-95cb-348cefa2ce6b",
+    "name": "Vanga Geetha Viswanath",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Payakaraopeta",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "7e59f4cd-ba3e-5c46-aee3-62f1bbee6a2a",
+    "name": "Giddi Satyanarayana",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "P. Gannavaram",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "38da8c8a-1dc7-5dd2-9389-2cf83c55a3b4",
+    "name": "Bode Prasad",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Penamaluru",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "01d0678b-f869-5e67-a1c5-e7daa755578a",
+    "name": "Chintalapudi Venkataramaiah",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Polavaram",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "c5eb8375-0072-52c6-959b-d081a0c95c8f",
+    "name": "Y. S. Jagan Mohan Reddy",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Pulivendula",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "17b7a9cb-c323-522c-bc06-25c6909a0122",
+    "name": "Peddireddy Ramachandra Reddy",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Punganur",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "ca0f6d2b-8cc2-5129-a2cd-a6e8d6b481f2",
+    "name": "Palle Raghunatha Reddy",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Puttaparthi",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "ef570817-d437-54a4-95d6-e56deafaf6ab",
+    "name": "Gorantla Butchaiah Chowdary",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Rajahmundry Rural",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "81691d1e-da5f-580f-a660-a084482106f0",
+    "name": "Chikkala Ramachandra Rao",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Ramachandrapuram",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "ed791862-39b6-5f7d-9e48-c5fc80d49bf8",
+    "name": "Dhanalakshmi Seethamsetty",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Rampachodavaram (ST)",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "0ffa2cf4-c747-5d82-a773-d9522d5dfd9f",
+    "name": "Anagani Satya Prasad",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Repalle",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "bf888596-a537-51e9-ba29-f77f7e4e8a0c",
+    "name": "Gummidi Sandhya Rani",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Salur (ST)",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "83ac07ec-7857-582e-9d39-a339c826d75c",
+    "name": "Kandula Durgesh",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Samalkot",
+    "party": "Jana Sena Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "68f09f98-3b00-5dc2-8476-94762f61cb4d",
+    "name": "Bandaru Sravani Sree",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Singanamala (SC)",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "b1ba2e87-a6a7-50f1-99d7-7912cab29ec2",
+    "name": "Biyyapu Madhusudhan Reddy",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Srikalahasti",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "995da8ea-bb30-5960-b341-1ff0d6135a83",
+    "name": "Silpa Chakrapani Reddy",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Srisailam",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "a1d158bd-7916-52f2-b78f-357d78adde33",
+    "name": "Kadubandi Srinivasa Rao",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Srungavarapukota",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "2b402378-cd75-5092-b06c-5a6e7c543d4e",
+    "name": "Kilari Venkata Rosaiah",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Sullurpeta (SC)",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "2e49b105-fec4-5bf5-ad80-19ef1b395ece",
+    "name": "Kottu Satyanarayana",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Tadepalligudem",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "f93b3451-4363-5233-bb3a-b970b6b8606d",
+    "name": "Kethireddy Pedda Reddy",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Tadpatri",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "db521b78-5d1d-5b18-8741-bac288d98fc0",
+    "name": "Karumuri Venkata Nageswara Rao",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Tanuku",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "221bb5e0-1626-5e1a-9dd3-8f9057b0779f",
+    "name": "Kinjarapu Atchannaidu",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Tekkali",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "f20f208d-81ab-5ac3-b47a-63a3f952a2db",
+    "name": "Annabathuni Siva Kumar",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Tenali",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "7ad52a9c-f1b7-5100-b4d8-a95712e5d703",
+    "name": "Dadisetti Raja",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Tuni",
+    "party": "YSR Congress Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "b5d4d003-3bbb-5ca7-b232-522d202ed326",
+    "name": "Koteswara Rao Mantena",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Undi",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "554edebb-4974-5a20-bae0-81a460df5a08",
+    "name": "Ramu Routhu",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Unguturu",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "65d96b89-b3eb-5bee-9819-2edead91b17b",
+    "name": "Nakarikanti Venkata Sridhar",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Vemuru",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "9e0011fe-ab1a-57bd-a99d-fa04937b8167",
+    "name": "Aditi Vijayalakshmi Gajapathi Raju",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Vizianagaram",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
+  },
+  {
+    "id": "14e8cdc2-e96c-528d-bd38-c203391e732e",
+    "name": "Kolusu Parthasarathy",
+    "photo": null,
+    "state": "Andhra Pradesh",
+    "constituency": "Vuyyuru",
+    "party": "Telugu Desam Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": null
+    }
   }
 ]
