@@ -168,7 +168,7 @@ function PoliticalHistorySection({
   summaryCitation?: Citation | null;
 }) {
   return (
-    <Section title="Political History" icon="/logo/Parliament.svg">
+    <Section title="Political History" icon="/logo/parliament_new.svg">
       {summary && (
         <div className="flex items-start gap-1 mb-4">
           <Text
@@ -894,7 +894,7 @@ export default function PoliticianPageClient({
               ) : (
                 <div className="w-32 h-32 rounded-2xl bg-linear-to-br from-orange-100 to-orange-200 dark:from-orange-900/40 dark:to-orange-800/40 flex items-center justify-center flex-shrink-0 border-4 border-orange-200 dark:border-orange-800">
                   <NextImage
-                    src="/logo/Parliament.svg"
+                    src="/logo/parliament_new.svg"
                     alt="Politician"
                     width={64}
                     height={64}
@@ -919,7 +919,7 @@ export default function PoliticianPageClient({
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 hero-info-1">
                   <NextImage
-                    src="/logo/Parliament.svg"
+                    src="/logo/parliament_new.svg"
                     alt="Party"
                     width={16}
                     height={16}

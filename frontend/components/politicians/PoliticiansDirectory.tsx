@@ -109,7 +109,7 @@ interface PoliticiansFiltersBarProps {
     states: string[]
 }
 
-export function PoliticiansFiltersBar({ filters, states }: PoliticiansFiltersBarProps) {
+export function PoliticiansFiltersBar({ filters }: PoliticiansFiltersBarProps) {
     const q = filters.q ?? ""
 
     return (
@@ -133,7 +133,7 @@ export function PoliticiansFiltersBar({ filters, states }: PoliticiansFiltersBar
             <div className="flex flex-wrap gap-2">
                 <Link
                     href="/politicians"
-                    className={`px-3 py-1.5 rounded-full text-sm ${
+                    className={`px-4 py-3 rounded-full text-sm ${
                         !filters.type && !filters.stateSlug
                             ? "bg-orange-600 text-white"
                             : "bg-orange-100 text-orange-800 dark:bg-gray-800 dark:text-orange-300"
@@ -143,7 +143,7 @@ export function PoliticiansFiltersBar({ filters, states }: PoliticiansFiltersBar
                 </Link>
                 <Link
                     href="/politicians/mp"
-                    className={`px-3 py-1.5 rounded-full text-sm ${
+                    className={`px-4 py-3 rounded-full text-sm ${
                         filters.type === "MP"
                             ? "bg-orange-600 text-white"
                             : "bg-orange-100 text-orange-800 dark:bg-gray-800 dark:text-orange-300"
@@ -153,7 +153,7 @@ export function PoliticiansFiltersBar({ filters, states }: PoliticiansFiltersBar
                 </Link>
                 <Link
                     href="/politicians/mla"
-                    className={`px-3 py-1.5 rounded-full text-sm ${
+                    className={`px-4 py-3 rounded-full text-sm${
                         filters.type === "MLA"
                             ? "bg-green-600 text-white"
                             : "bg-green-100 text-green-800 dark:bg-gray-800 dark:text-green-300"
