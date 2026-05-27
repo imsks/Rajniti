@@ -83,10 +83,10 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
               height={56}
               sizes="56px"
               rounded="full"
-              className="w-14 h-14 object-cover border-2 border-orange-200 flex-shrink-0"
+              className="w-14 h-14 object-cover border-2 border-orange-200 shrink-0"
             />
           ) : (
-            <div className="w-14 h-14 rounded-full bg-linear-to-br from-orange-100 to-orange-200 dark:from-orange-900/40 dark:to-orange-800/40 flex items-center justify-center flex-shrink-0 border-2 border-orange-200 dark:border-orange-700">
+            <div className="w-14 h-14 rounded-full bg-linear-to-br from-orange-100 to-orange-200 dark:from-orange-900/40 dark:to-orange-800/40 flex items-center justify-center shrink-0 border-2 border-orange-200 dark:border-orange-700">
               <span className="text-orange-700 font-bold text-xs">
                 {initial}
               </span>
@@ -110,6 +110,16 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
           </div>
 
           
+          {/* Type badge */}
+          <span
+            className={`px-2.5 py-1 rounded-full text-xs font-bold shrink-0 ${
+              isMp
+                ? "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
+                : "bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300"
+            }`}
+          >
+            {politician.type}
+          </span>
         </div>
 
         {/* Info pills */}

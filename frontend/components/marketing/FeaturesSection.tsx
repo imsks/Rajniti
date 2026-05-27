@@ -43,7 +43,7 @@ export default function FeaturesSection() {
           >
             <div className="text-4xl mb-4">
               <Image
-                src="/logo/parliament.svg"
+                src="/logo/parliament_new.svg"
                 alt="Parliament Logo"
                 width={40}
                 height={40}

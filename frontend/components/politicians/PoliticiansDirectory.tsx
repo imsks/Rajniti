@@ -109,7 +109,7 @@ interface PoliticiansFiltersBarProps {
     states: string[]
 }
 
-export function PoliticiansFiltersBar({ filters, states }: PoliticiansFiltersBarProps) {
+export function PoliticiansFiltersBar({ filters }: PoliticiansFiltersBarProps) {
     const q = filters.q ?? ""
 
     return (
@@ -125,7 +125,7 @@ export function PoliticiansFiltersBar({ filters, states }: PoliticiansFiltersBar
                 />
                 <button
                     type="submit"
-                    className="px-4 py-2 rounded-lg bg-orange-600 text-white hover:bg-orange-700 transition"
+                    className="px-6 py-2 rounded-lg font-medium cursor-pointer bg-orange-600 text-white hover:bg-orange-700 transition"
                 >
                     Search
                 </button>
@@ -133,19 +133,19 @@ export function PoliticiansFiltersBar({ filters, states }: PoliticiansFiltersBar
             <div className="flex flex-wrap gap-2">
                 <Link
                     href="/politicians"
-                    className={`px-3 py-1.5 rounded-full text-sm ${
+                    className={`px-5 py-4 rounded-full ${
                         !filters.type && !filters.stateSlug
-                            ? "bg-orange-600 text-white"
-                            : "bg-orange-100 text-orange-800 dark:bg-gray-800 dark:text-orange-300"
+                            ? "border dark:border-orange-600 font-bold text-orange-600"
+                            : "text-orange-600 border border-orange-600 dark:bg-gray-800 dark:text-orange-600"
                     }`}
                 >
                     All
                 </Link>
                 <Link
                     href="/politicians/mp"
-                    className={`px-3 py-1.5 rounded-full text-sm ${
+                    className={`p-4 rounded-full ${
                         filters.type === "MP"
-                            ? "bg-orange-600 text-white"
+                            ? "bg-orange-500 font-bold text-white"
                             : "bg-orange-100 text-orange-800 dark:bg-gray-800 dark:text-orange-300"
                     }`}
                 >
@@ -153,9 +153,9 @@ export function PoliticiansFiltersBar({ filters, states }: PoliticiansFiltersBar
                 </Link>
                 <Link
                     href="/politicians/mla"
-                    className={`px-3 py-1.5 rounded-full text-sm ${
+                    className={`px-3 py-4 rounded-full ${
                         filters.type === "MLA"
-                            ? "bg-green-600 text-white"
+                            ? "bg-green-600 font-bold text-white"
                             : "bg-green-100 text-green-800 dark:bg-gray-800 dark:text-green-300"
                     }`}
                 >
