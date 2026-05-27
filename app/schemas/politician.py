@@ -120,6 +120,8 @@ class Politician(BaseModel):
     # SEO-friendly politician slug derived from name (+ optional short id suffix).
     # This is generated in the service layer when loading/fetching data.
     slug: Optional[str] = None
+    # ISO format timestamp when politician data was last updated
+    updated_at: Optional[str] = None
     photo: Optional[HttpUrl] = None
     state: State
     constituency: str

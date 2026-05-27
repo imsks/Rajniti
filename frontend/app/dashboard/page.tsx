@@ -101,9 +101,9 @@ function DashboardContent() {
 
   // Pagination calculations
   const totalPages = Math.max(
-    1,
-    Math.ceil(rankedPoliticians.length / itemsPerPage),
-  );
+  1,
+  Math.ceil(rankedPoliticians.length / itemsPerPage),
+);
 
   // Reset invalid page automatically without effects
   const effectivePage = currentPage > totalPages ? 1 : currentPage;
@@ -111,7 +111,10 @@ function DashboardContent() {
   const startIndex = (effectivePage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  const paginatedPoliticians = rankedPoliticians.slice(startIndex, endIndex);
+  const paginatedPoliticians = rankedPoliticians.slice(
+  startIndex,
+  endIndex
+  );
 
   // Scroll to top when page changes
   useEffect(() => {
@@ -197,35 +200,7 @@ function DashboardContent() {
             Browse elected MPs and MLAs. Help us enrich their profiles!
           </Text>
 
-          {!loading && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6"
-            >
-              <StatCard
-                value={stats.total.toLocaleString()}
-                label="Total Politicians"
-                color="text-orange-600"
-              />
-              <StatCard
-                value={stats.totalStates.toString()}
-                label="States / UTs"
-                color="text-[#1E40AF]"
-              />
-              <StatCard
-                value={stats.totalParties.toString()}
-                label="Parties"
-                color="text-green-800"
-              />
-              <StatCard
-                value={stats.topParty}
-                label="Top Party"
-                color="text-[#1E40AF] "
-              />
-            </motion.div>
-          )}
+         
         </motion.div>
 
         {/* Tabs */}

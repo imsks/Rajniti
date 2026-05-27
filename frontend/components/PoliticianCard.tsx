@@ -32,11 +32,27 @@ function getPartyInitial(p: Politician): string {
     .toUpperCase();
 }
 
+/** Check if politician was updated in the last 7 days */
+function isRecentlyUpdated(isoString: string | null | undefined): boolean {
+  if (!isoString) return false;
+
+  try {
+    const date = new Date(isoString);
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    return diffDays <= 7 && diffDays >= 0;
+  } catch {
+    return false;
+  }
+}
+
 export default function PoliticianCard({ politician }: PoliticianCardProps) {
   const party = getParty(politician);
   const initial = getPartyInitial(politician);
   const isMp = politician.type === "MP";
   const hasPhoto = !!politician.photo;
+  const recentlyUpdated = isRecentlyUpdated(politician.updated_at);
   const { trackEvent } = useAnalytics();
   return (
     <Link
@@ -57,7 +73,7 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
         transition={{ duration: 0.2 }}
         className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 hover:border-orange-400 dark:hover:border-orange-500 hover:shadow-lg transition-all h-full flex flex-col"
       >
-        {/* Top: Photo / Avatar + Name */}
+        {/* Top: Photo / Avatar + Name + Badges */}
         <div className="flex items-start gap-4 mb-3">
           {hasPhoto ? (
             <Image
@@ -93,16 +109,7 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
             </Text>
           </div>
 
-          {/* Type badge */}
-          <span
-            className={`px-2.5 py-1 rounded-full text-xs font-bold flex-shrink-0 ${
-              isMp
-                ? "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
-                : "bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300"
-            }`}
-          >
-            {politician.type}
-          </span>
+          
         </div>
 
         {/* Info pills */}
