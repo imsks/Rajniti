@@ -83,7 +83,7 @@ function Section({
   return (
     <div
       ref={ref}
-      className="bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-shadow duration-300 hover:shadow-md dark:dark:filter-[invert(0.70)_brightness(1.2)]"
+      className="bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-shadow duration-300 hover:shadow-md dark:filter-[invert(0.70)_brightness(1.2)]"
       style={{
         opacity: inView ? 1 : 0,
         transform: inView ? "translateY(0)" : "translateY(32px)",
@@ -892,7 +892,7 @@ export default function PoliticianPageClient({
                   className="w-32 h-32 rounded-2xl object-cover border-4 border-orange-200 dark:border-orange-800"
                 />
               ) : (
-                <div className="w-32 h-32 rounded-2xl bg-linear-to-br from-orange-100 to-orange-200 dark:from-orange-900/40 dark:to-orange-800/40 flex items-center justify-center flex-shrink-0 border-4 border-orange-200 dark:border-orange-800">
+                <div className="w-32 h-32 rounded-2xl bg-linear-to-br from-orange-100 to-orange-200 dark:from-orange-900/40 dark:to-orange-800/40 flex items-center justify-center shrink-0 border-4 border-orange-200 dark:border-orange-800">
                   <NextImage
                     src="/logo/parliament_new.svg"
                     alt="Politician"
@@ -1057,9 +1057,9 @@ export default function PoliticianPageClient({
                 </div>
               </div>
 
-              <div className="group flex flex-col rounded-2xl mt-6 bg-linear-to-r from-orange-500 to-orange-600 p-3 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(249,115,22,0.28)]">
+              <div className="group flex flex-col rounded-2xl mt-6 bg-linear-to-r from-orange-500 to-orange-600 dark:from-orange-600 dark:to-orange-700 p-3 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(249,115,22,0.28)]">
                 <div className="flex items-center gap-2">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-white/20 text-white">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-white/20 text-white dark:bg-white/10">
                     <UserPlus size={16} />
                   </div>
                   <Button
@@ -1073,7 +1073,7 @@ export default function PoliticianPageClient({
                       })
                     }
                     size="sm"
-                    className="rounded-xl bg-white px-4 py-1.5 text-orange-600 shadow transition hover:bg-orange-50 sm:w-auto w-full"
+                    className="rounded-xl bg-white px-4 py-1.5 text-orange-600 shadow transition hover:bg-orange-50 dark:bg-gray-900/90 dark:text-orange-300 dark:hover:bg-orange-950/20 sm:w-auto w-full"
                   >
                     Contribute Info →
                   </Button>
@@ -1081,7 +1081,7 @@ export default function PoliticianPageClient({
                 <div className="mt-2">
                   <Text
                     variant="body"
-                    className="text-orange-100 mt-2 leading-6"
+                    className="text-orange-100 dark:text-orange-200 mt-2 leading-6"
                   >
                     Add verified education, family, criminal, or contact details
                     for this politician.
