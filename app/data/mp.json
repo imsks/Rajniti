@@ -10977,7 +10977,53 @@
       }
     ],
     "family_background": [],
-    "criminal_records": [],
+
+    "criminal_records": [ {
+    "name": "Multiple criminal cases declared in 2024 Lok Sabha affidavit",
+    "type": "AFFIDAVIT_CASE",
+    "year": 2024,
+    "citation": {
+      "link": "https://www.myneta.info/LokSabha2024/candidate.php?candidate_id=329",
+      "source": "ADR_MYNETA"
+    }
+  },
+  {
+    "name": "Cases related to alleged violation of Model Code of Conduct during election campaigning",
+    "type": "ELECTION_RELATED",
+    "year": 2019,
+    "citation": {
+      "link": "https://timesofindia.indiatimes.com/elections/lok-sabha-elections/maharashtra/nagpur/candidateshow/nitin-jairam-gadkari-5913",
+      "source": "NEWS"
+    }
+  },
+  {
+    "name": "Defamation-related legal disputes connected with political allegations",
+    "type": "DEFAMATION",
+    "year": 2014,
+    "citation": {
+      "link": "https://en.wikipedia.org/wiki/Arvind_Kejriwal",
+      "source": "NEWS"
+    }
+  },
+  {
+    "name": "Legal controversy linked to Purti Group investment allegations",
+    "type": "CORRUPTION_ALLEGATION",
+    "year": 2012,
+    "citation": {
+      "link": "https://en.wikipedia.org/wiki/Nitin_Gadkari",
+      "source": "NEWS"
+    }
+  },
+  {
+    "name": "Affidavit disclosed criminal cases in Nagpur Lok Sabha constituency election",
+    "type": "AFFIDAVIT_CASE",
+    "year": 2024,
+    "citation": {
+      "link": "https://www.myneta.info/LokSabha2024/index.php?action=show_candidates&constituency_id=260",
+      "source": "ADR_MYNETA"
+    }
+  }],
+  
     "contact": {
       "email": null,
       "phone": null,
