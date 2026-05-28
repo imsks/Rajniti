@@ -1,6 +1,8 @@
 import json
 import logging
 import re
+import hashlib
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Literal, Optional
 
@@ -20,6 +22,15 @@ def normalize(name: str) -> str:
     return name.strip()
 
 
+# ---------- HASH UTILITY ----------
+def _get_politician_hash(politician: Dict[str, Any]) -> str:
+    """Generate a hash of politician data (excluding id and updated_at)."""
+    # Create a hashable copy without id/updated_at
+    data_to_hash = {k: v for k, v in politician.items() if k not in ["id", "updated_at", "slug", "performance"]}
+    json_str = json.dumps(data_to_hash, sort_keys=True, ensure_ascii=False)
+    return hashlib.md5(json_str.encode()).hexdigest()
+
+
 class PoliticianService:
 
     def __init__(self, data_dir: Optional[Path] = None) -> None:
@@ -32,6 +43,10 @@ class PoliticianService:
 
         # 🔥 LOAD PERFORMANCE HERE (SAFE)
         self._perf_map = self._load_performance()
+
+        # 🔥 SYNC TIMESTAMPS ON STARTUP (SAFE)
+        self._sync_metadata_timestamps()
+        self._metadata_map = self._load_metadata()
 
     # ---------- LOAD PERFORMANCE ----------
     def _load_performance(self) -> Dict[str, Dict]:
@@ -59,6 +74,138 @@ class PoliticianService:
         )
 
         return p
+
+    # ---------- LOAD METADATA ----------
+    def _load_metadata(self) -> Dict[str, Optional[str]]:
+        path = self._data_dir / "politician_metadata.json"
+
+        if not path.exists():
+            return {}
+
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+
+            return data.get("updated_at_map", {})
+
+        except Exception as e:
+            logger.error("Metadata load error: %s", e)
+            return {}
+
+    # ---------- ADD METADATA ----------
+    def _attach_metadata(self, p: Dict[str, Any]) -> Dict[str, Any]:
+        pid = str(p.get("id", ""))
+        p["updated_at"] = self._metadata_map.get(pid)
+        return p
+
+    # ---------- COMPUTE HASH ----------
+    def _compute_politician_hash(self, politician: Dict[str, Any]) -> str:
+        """Compute SHA256 hash of politician data (excluding id and updated_at)."""
+        # Copy without id/updated_at to get clean hash
+        data_for_hash = {k: v for k, v in politician.items() if k not in ["id", "updated_at"]}
+        json_str = json.dumps(data_for_hash, sort_keys=True, separators=(',', ':'), ensure_ascii=False)
+        return hashlib.sha256(json_str.encode('utf-8')).hexdigest()
+
+    # ---------- LOAD HASHES ----------
+    def _load_politician_hashes(self) -> Dict[str, str]:
+        """Load previously computed politician hashes."""
+        hash_file = self._data_dir / ".politician_hashes.json"
+        if not hash_file.exists():
+            return {}
+        try:
+            with open(hash_file, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            logger.error("Failed to load politician hashes: %s", e)
+            return {}
+
+    # ---------- SAVE HASHES ----------
+    def _save_politician_hashes(self, hashes: Dict[str, str]) -> None:
+        """Save politician hashes for next startup comparison."""
+        hash_file = self._data_dir / ".politician_hashes.json"
+        try:
+            with open(hash_file, "w", encoding="utf-8") as f:
+                json.dump(hashes, f, indent=2, ensure_ascii=False)
+                f.write("\n")
+        except Exception as e:
+            logger.error("Failed to save politician hashes: %s", e)
+
+    # ---------- SYNC METADATA TIMESTAMPS ----------
+    def _sync_metadata_timestamps(self) -> None:
+        """
+        On startup, detect which politicians have changed by comparing data hashes.
+        Update timestamps ONLY for politicians whose data actually changed.
+        """
+        metadata_path = self._data_dir / "politician_metadata.json"
+
+        # Load current metadata
+        metadata = {}
+        if metadata_path.exists():
+            try:
+                with open(metadata_path, "r", encoding="utf-8") as f:
+                    metadata = json.load(f)
+            except Exception as e:
+                logger.error("Failed to load metadata: %s", e)
+                metadata = {"updated_at_map": {}, "last_batch_update": None}
+
+        if "updated_at_map" not in metadata:
+            metadata["updated_at_map"] = {}
+
+        # Load old hashes and new hashes
+        old_hashes = self._load_politician_hashes()
+        new_hashes = {}
+        now = datetime.utcnow().isoformat() + "Z"
+        should_update = False
+
+        for file_type in ["MP", "MLA"]:
+            json_path = self._path(file_type)
+            if not json_path.exists():
+                continue
+
+            data = self._load(file_type)
+            for p in data:
+                pid = str(p.get("id", ""))
+                if not pid:
+                    continue
+
+                # Compute hash of current politician data
+                current_hash = self._compute_politician_hash(p)
+                new_hashes[pid] = current_hash
+
+                # Compare with old hash
+                old_hash = old_hashes.get(pid)
+
+                if old_hash is None:
+    # NEW politician - add with current timestamp
+                 metadata["updated_at_map"][pid] = now
+                 logger.info(
+                   "📍 NEW politician: %s (%s)",
+                    p.get("name", "?"),
+                  pid[:8]
+                  )
+                 should_update = True
+                elif old_hash != current_hash:
+                    # CHANGED politician - update timestamp
+                    metadata["updated_at_map"][pid] = now
+                    logger.info("📝 UPDATED politician: %s (%s)", p.get("name", "?"), pid[:8])
+                    should_update = True
+                else:
+                    # Unchanged politician - keep old timestamp
+                    pass
+
+        # Write metadata if anything changed
+        if should_update:
+            metadata["last_batch_update"] = now
+            try:
+                with open(metadata_path, "w", encoding="utf-8") as f:
+                    json.dump(metadata, f, indent=2, ensure_ascii=False)
+                    f.write("\n")
+                logger.info("✅ Metadata updated successfully")
+            except Exception as e:
+                logger.error("Failed to write metadata: %s", e)
+
+        # Always save hashes for next comparison
+        self._save_politician_hashes(new_hashes)
 
     # ---------- SLUG ----------
     def _ensure_slugs(self) -> None:
@@ -120,21 +267,21 @@ class PoliticianService:
         data = self._load(election_type)
         self._attach_slugs_to_records(data)
 
-        return [self._attach_performance(p) for p in data]
+        return [self._attach_metadata(self._attach_performance(p)) for p in data]
 
     def get_all_politicians(self) -> List[Dict[str, Any]]:
         self._ensure_slugs()
         data = self._load("MP") + self._load("MLA")
         self._attach_slugs_to_records(data)
 
-        return [self._attach_performance(p) for p in data]
+        return [self._attach_metadata(self._attach_performance(p)) for p in data]
 
     def get_by_id(self, politician_id: str) -> Optional[Dict[str, Any]]:
         self._ensure_slugs()
         pid = str(politician_id).strip()
         p = self._by_id.get(pid) or self._by_id.get(pid.lower())
 
-        return self._attach_performance(p) if p else None
+        return self._attach_metadata(self._attach_performance(p)) if p else None
 
     def get_by_slug(self, politician_slug: str) -> Optional[Dict[str, Any]]:
         self._ensure_slugs()
@@ -146,7 +293,7 @@ class PoliticianService:
             if short_match:
                 p = self._by_short_id.get(short_match.group(1).lower())
 
-        return self._attach_performance(p) if p else None
+        return self._attach_metadata(self._attach_performance(p)) if p else None
 
     def search(
         self,
@@ -188,7 +335,7 @@ class PoliticianService:
                 ):
                     continue
 
-            results.append(self._attach_performance(p))
+            results.append(self._attach_metadata(self._attach_performance(p)))
 
             if len(results) >= limit:
                 break
@@ -257,7 +404,7 @@ class PoliticianService:
         state_l = state.strip().lower()
 
         return [
-            self._attach_performance(p)
+            self._attach_metadata(self._attach_performance(p))
             for p in data
             if (p.get("state") or "").lower() == state_l
         ]
@@ -286,7 +433,7 @@ class PoliticianService:
             elections = (p.get("political_background") or {}).get("elections") or []
 
             if any((e.get("party") or "").lower() == party_l for e in elections):
-                results.append(self._attach_performance(p))
+                results.append(self._attach_metadata(self._attach_performance(p)))
 
         return results
 

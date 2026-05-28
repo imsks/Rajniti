@@ -86,6 +86,10 @@ export interface Politician {
      * When missing (older data), UI will fall back to UUID URLs.
      */
     slug?: string | null
+    /**
+     * ISO format timestamp when politician data was last updated.
+     */
+    updated_at?: string | null
     photo?: string | null
     state: string
     constituency: string

@@ -39492,62 +39492,7 @@
       }
     }
   },
-  {
-    "id": "6cd018ad-5c05-43f2-ade8-3caa894f89fe",
-    "name": "RAJESH RANJAN ALIAS PAPPU YADAV",
-    "photo": "https://results.eci.gov.in/uploads4/candprofile/2024/PC/E24/S04/RAJES-2024-20240405033312.jpg",
-    "state": "Bihar",
-    "constituency": "Purnia",
-    "type": "MP",
-    "political_background": {
-      "elections": [
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Bihar",
-          "constituency": "Purnia",
-          "party": "Independent",
-          "status": "WON"
-        }
-      ],
-      "summary": "Rajesh Ranjan, popularly known as Pappu Yadav, is a prominent politician from Bihar. He has been elected multiple times as a Member of Parliament from constituencies including Purnia, Madhepura, and Saharsa, representing different parties over his political career. Known for his strong regional influence, he contested and won the 2024 Lok Sabha election from Purnia as an independent candidate."
-    },
-    "education": [
-      {
-        "qualification": "BACHELOR",
-        "institution": null,
-        "year_completed": null
-      }
-    ],
-    "social_media": {
-      "twitter": "https://twitter.com/pappuyadavjapl",
-      "facebook": "https://www.facebook.com/PappuYadavJAPL",
-      "instagram": "https://www.instagram.com/pappuyadavjapl",
-      "linkedin": null,
-      "youtube": null,
-      "website": null
-    },
-    "family_background": [
-      {
-        "name": "Ranjeet Ranjan",
-        "relation": "WIFE",
-        "photo": null,
-        "social_media": null
-      }
-    ],
-    "criminal_records": [
-      {
-        "name": "Convicted of murder in the Ajit Sarkar case and sentenced to life imprisonment (later acquitted by the Patna High Court)",
-        "type": "MURDER",
-        "year": 2008
-      }
-    ],
-    "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
-    }
-  },
+
   {
     "id": "c0609827-27bc-42c7-a3d3-3a0ca41c03a7",
     "name": "VISHAL (DADA) PRAKASHBAPU PATIL",

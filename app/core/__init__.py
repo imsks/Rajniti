@@ -4,6 +4,7 @@ Core utilities for Rajniti API
 Simple, focused utilities without unnecessary complexity.
 """
 
+from .agent_logger import AgentLogger
 from .cache import CacheManager
 from .exceptions import (
     AgentError,
@@ -28,6 +29,7 @@ __all__ = [
     "ToolError",
     "NetworkError",
     "CacheManager",
+    "AgentLogger",
     "log",
     "setup_logging",
 ]

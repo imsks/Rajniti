@@ -311,7 +311,7 @@ function FamilySection({ members }: { members?: FamilyMember[] | null }) {
 function CriminalRecordsSection({
   records,
 }: {
-  records?: CrimeRecord[] | null;
+  records?: CrimeRecord[] | null
 }) {
   if (!records || records.length === 0) {
     return (
@@ -807,7 +807,7 @@ export default function PoliticianPageClient({
   const buildReportIssueUrl = () => {
     const pageUrl = typeof window !== "undefined" ? window.location.href : "";
     const title = `Report Inaccuracy: ${p.name}`;
-    const body = `## Politician Information\n\nName: ${p.name}\nPolitician ID: ${p.id}\nProfile URL: ${pageUrl}\n\n## What is incorrect?\n\nDescribe the incorrect or missing information here.\n\n## Suggested correction\n\nAdd the correct information here.\n\n## Additional Notes\n\nOptional notes/screenshots.`;
+    const body = `## Politician Information\n\nName: ${p.name}\nPolitician ID: ${p.id}\n\n## What is incorrect?\n\nDescribe the incorrect or missing information here.\n\n## Suggested correction\n\nAdd the correct information here.\n\n## Additional Notes\n\nOptional notes/screenshots.`;
     const params = new URLSearchParams({ title, body });
     return `https://github.com/imsks/rajniti/issues/new?${params.toString()}`;
   };
@@ -850,6 +850,7 @@ export default function PoliticianPageClient({
                 .hero-info-1 { animation: fadeSlideUp 0.45s ease 0.35s both; }
                 .hero-info-2 { animation: fadeSlideUp 0.45s ease 0.43s both; }
                 .hero-info-3 { animation: fadeSlideUp 0.45s ease 0.51s both; }
+                .hero-info-4 { animation: fadeSlideUp 0.45s ease 0.59s both; }
                 .election-card {
                     animation: slideInLeft 0.45s cubic-bezier(0.22,1,0.36,1) both;
                     transition: box-shadow 0.25s ease, transform 0.25s ease;
@@ -1060,9 +1061,24 @@ export default function PoliticianPageClient({
                   <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300">
                     <AlertTriangle size={16} />
                   </div>
-                  <span className="font-medium dark:text-gray-400">
-                    Found some issue in the profile?
-                  </span>
+                 <div className="cursor-pointer transition-transform duration-150 active:scale-95">
+                   <Button
+                     type="button"
+                     onClick={() => {
+                     trackEvent("report_inaccuracy_click", {
+                     politician_id: p.id,
+                     politician_name: p.name,
+                     });
+
+                   handleReportClick();
+                    }}
+                  size="sm"
+                  variant="ghost"
+                  className="cursor-pointer rounded-xl border border-orange-200 bg-white px-4 py-1.5 text-orange-700 shadow-sm transition dark:border-orange-700 dark:bg-gray-900/90 dark:text-orange-300"
+                  >
+                  Report Inaccuracy
+                </Button>
+               </div>
                 </div>
                 <div className="mt-2">
                   <Text

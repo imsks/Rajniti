@@ -91,19 +91,19 @@ class ProviderConfig:
 # ---------------------------------------------------------------------------
 
 DEFAULT_PROVIDERS: list[dict[str, Any]] = [
-    {
-        "provider": "perplexity",
-        "model": "sonar",
-        "api_key_env": "PERPLEXITY_API_KEY",
-        "base_url": "https://api.perplexity.ai",
-        "tier": "paid",
-    },
-    # --- Gemini (generous free tier) ---
     # {
-    #     "provider": "gemini",
-    #     "model": "gemini-2.5-flash",
-    #     "api_key_env": "GEMINI_API_KEY",
+    #     "provider": "perplexity",
+    #     "model": "sonar",
+    #     "api_key_env": "PERPLEXITY_API_KEY",
+    #     "base_url": "https://api.perplexity.ai",
+    #     "tier": "paid",
     # },
+    # --- Gemini (generous free tier) ---
+    {
+        "provider": "gemini",
+        "model": "gemini-2.5-flash",
+        "api_key_env": "GEMINI_API_KEY",
+    },
     # {"provider": "gemini", "model": "gemini-2.5-pro", "api_key_env": "GEMINI_API_KEY"},
     # {
     #     "provider": "gemini",
@@ -488,6 +488,13 @@ class FreeTierLLM:
         self._cooldowns.clear()
         self._session_exhausted.clear()
         self._active_index = 0
+
+    def clear_cooldowns(self) -> None:
+        """Clear transient cooldowns (not session-exhaustion).
+
+        Use before a retry attempt so the model is re-eligible.
+        """
+        self._cooldowns.clear()
 
     # -- core invocation ----------------------------------------------------
 
