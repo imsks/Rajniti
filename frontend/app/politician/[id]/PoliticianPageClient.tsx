@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import NextImage from "next/image";
 import {
   AlertTriangle,
@@ -35,14 +35,16 @@ function useCountUp(target: number, duration = 1600, start = false) {
   useEffect(() => {
     if (!start || target === 0) return;
     let startTime: number | null = null;
+    let raf = 0;
     const step = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setValue(Math.floor(eased * target));
-      if (progress < 1) requestAnimationFrame(step);
+      if (progress < 1) raf = requestAnimationFrame(step);
     };
-    requestAnimationFrame(step);
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
   }, [target, duration, start]);
   return value;
 }
@@ -51,6 +53,8 @@ function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -60,11 +64,26 @@ function useInView(threshold = 0.15) {
       },
       { threshold },
     );
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(node);
     return () => observer.disconnect();
   }, [threshold]);
   return { ref, inView };
 }
+
+// ── Shared style maps (module scope — created once, not per render) ──────────
+
+const BADGE_STYLES = {
+  blue: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
+  purple:
+    "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300",
+  green: "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300",
+  red: "bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300",
+  orange:
+    "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300",
+  gray: "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400",
+} as const;
+
+type BadgeColor = keyof typeof BADGE_STYLES;
 
 // ── Helper Components ──────────────────────────────────────────────────────
 
@@ -83,7 +102,7 @@ function Section({
   return (
     <div
       ref={ref}
-      className="bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-shadow duration-300 hover:shadow-md dark:filter-[invert(0.70)_brightness(1.2)]"
+      className="bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6 transition-shadow duration-300 hover:shadow-md"
       style={{
         opacity: inView ? 1 : 0,
         transform: inView ? "translateY(0)" : "translateY(32px)",
@@ -96,7 +115,7 @@ function Section({
           alt={title}
           width={24}
           height={24}
-          className="w-6 h-6 object-contain"
+          className="w-6 h-6 object-contain dark:brightness-0 dark:invert"
         />
         <Text
           variant="h4"
@@ -134,22 +153,11 @@ function Badge({
   color,
 }: {
   children: React.ReactNode;
-  color: "blue" | "purple" | "green" | "red" | "orange" | "gray";
+  color: BadgeColor;
 }) {
-  const styles: Record<string, string> = {
-    blue: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
-    purple:
-      "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300",
-    green:
-      "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300",
-    red: "bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300",
-    orange:
-      "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300",
-    gray: "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400",
-  };
   return (
     <span
-      className={`px-3 py-1 rounded-full text-xs font-bold ${styles[color]}`}
+      className={`px-3 py-1 rounded-full text-xs font-bold ${BADGE_STYLES[color]}`}
     >
       {children}
     </span>
@@ -311,7 +319,7 @@ function FamilySection({ members }: { members?: FamilyMember[] | null }) {
 function CriminalRecordsSection({
   records,
 }: {
-  records?: CrimeRecord[] | null
+  records?: CrimeRecord[] | null;
 }) {
   if (!records || records.length === 0) {
     return (
@@ -393,7 +401,7 @@ function ContactSection({ politician }: { politician: Politician }) {
               alt="Email"
               width={16}
               height={16}
-              className="w-4 h-4 dark:filter-[invert(0.70)_brightness(1.2)]"
+              className="w-4 h-4 dark:brightness-0 dark:invert"
             />
             <Text variant="body" className="text-gray-700 dark:text-gray-300">
               {contact.email}
@@ -408,7 +416,7 @@ function ContactSection({ politician }: { politician: Politician }) {
               alt="Phone"
               width={16}
               height={16}
-              className="w-4 h-4 dark:filter-[invert(0.70)_brightness(1.2)]"
+              className="w-4 h-4 dark:brightness-0 dark:invert"
             />
             <Text variant="body" className="text-gray-700 dark:text-gray-300">
               {contact.phone}
@@ -423,7 +431,7 @@ function ContactSection({ politician }: { politician: Politician }) {
               alt="Address"
               width={16}
               height={16}
-              className="w-4 h-4 dark:filter-[invert(0.70)_brightness(1.2)]"
+              className="w-4 h-4 dark:brightness-0 dark:invert"
             />
             <Text
               variant="body"
@@ -477,7 +485,7 @@ function ContactSection({ politician }: { politician: Politician }) {
                   href={social_media.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-pink-600 hover:underline text-sm font-medium"
+                  className="text-pink-600 dark:text-pink-400 hover:underline text-sm font-medium"
                 >
                   Instagram
                 </a>
@@ -493,7 +501,7 @@ function ContactSection({ politician }: { politician: Politician }) {
                   href={social_media.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline text-sm font-medium"
+                  className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium"
                 >
                   LinkedIn
                 </a>
@@ -509,7 +517,7 @@ function ContactSection({ politician }: { politician: Politician }) {
                   href={social_media.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-red-600 hover:underline text-sm font-medium"
+                  className="text-red-600 dark:text-red-400 hover:underline text-sm font-medium"
                 >
                   YouTube
                 </a>
@@ -532,7 +540,7 @@ function ContactSection({ politician }: { politician: Politician }) {
                     alt="Website"
                     width={12}
                     height={12}
-                    className="w-3 h-3 dark:filter-[invert(0.70)_brightness(1.2)]"
+                    className="w-3 h-3 dark:brightness-0 dark:invert"
                   />
                   Website
                 </a>
@@ -607,7 +615,7 @@ function ScoreRow({
         </div>
       </div>
 
-      {/* Right: animated flip number */}
+      {/* Right: animated count number */}
       <span className="ml-6 shrink-0 tabular-nums font-black text-2xl text-gray-900 dark:text-white tracking-tight">
         {counted}
         {suffix}
@@ -627,52 +635,57 @@ function PerformanceSection({
 }) {
   const { ref, inView } = useInView(0.15);
 
-  const rows = [
-    {
-      label: "Attendance",
-      description: "Sessions attended in Parliament",
-      value: performance.attendance,
-      suffix: "%",
-      icon: CalendarCheck,
-      iconBg: "bg-emerald-100 dark:bg-emerald-900/40",
-      iconColor: "text-emerald-600 dark:text-emerald-400",
-      citation: performanceCitations?.attendance,
-    },
-    {
-      label: "Questions Asked",
-      description: "Questions raised on the floor",
-      value: performance.questions,
-      suffix: "",
-      icon: HelpCircle,
-      iconBg: "bg-blue-100 dark:bg-blue-900/40",
-      iconColor: "text-blue-600 dark:text-blue-400",
-      citation: performanceCitations?.questions,
-    },
-    {
-      label: "Debates Participated",
-      description: "Debates the MP took part in",
-      value: performance.debates,
-      suffix: "",
-      icon: MessageSquare,
-      iconBg: "bg-violet-100 dark:bg-violet-900/40",
-      iconColor: "text-violet-600 dark:text-violet-400",
-      citation: performanceCitations?.debates,
-    },
-    {
-      label: "National Rank",
-      description: "Among all Politicians",
-      value: rank,
-      suffix: "",
-      icon: Trophy,
-      iconBg: "bg-orange-100 dark:bg-orange-900/40",
-      iconColor: "text-orange-600 dark:text-orange-400",
-    },
-  ];
+  // Rebuilt only when inputs change, not on every render.
+  const rows = useMemo(
+    () => [
+      {
+        label: "Attendance",
+        description: "Sessions attended in Parliament",
+        value: performance.attendance,
+        suffix: "%",
+        icon: CalendarCheck,
+        iconBg: "bg-emerald-100 dark:bg-emerald-900/40",
+        iconColor: "text-emerald-600 dark:text-emerald-400",
+        citation: performanceCitations?.attendance,
+      },
+      {
+        label: "Questions Asked",
+        description: "Questions raised on the floor",
+        value: performance.questions,
+        suffix: "",
+        icon: HelpCircle,
+        iconBg: "bg-blue-100 dark:bg-blue-900/40",
+        iconColor: "text-blue-600 dark:text-blue-400",
+        citation: performanceCitations?.questions,
+      },
+      {
+        label: "Debates Participated",
+        description: "Debates the MP took part in",
+        value: performance.debates,
+        suffix: "",
+        icon: MessageSquare,
+        iconBg: "bg-violet-100 dark:bg-violet-900/40",
+        iconColor: "text-violet-600 dark:text-violet-400",
+        citation: performanceCitations?.debates,
+      },
+      {
+        label: "National Rank",
+        description: "Among all Politicians",
+        value: rank,
+        suffix: "",
+        icon: Trophy,
+        iconBg: "bg-orange-100 dark:bg-orange-900/40",
+        iconColor: "text-orange-600 dark:text-orange-400",
+        citation: null,
+      },
+    ],
+    [performance, rank, performanceCitations],
+  );
 
   const hasMetricCitations = Boolean(
     performanceCitations?.attendance ||
-    performanceCitations?.questions ||
-    performanceCitations?.debates,
+      performanceCitations?.questions ||
+      performanceCitations?.debates,
   );
 
   return (
@@ -737,13 +750,7 @@ function PerformanceSection({
   );
 }
 
-// ── Main Page ──────────────────────────────────────────────────────────────
-
-export type PoliticianPageClientProps = {
-  politician: Politician;
-  /** Raw `[id]` route segment (slug, UUID, or slug-short). */
-  routeSegment: string;
-};
+// ── Route-segment parsing ──────────────────────────────────────────────────
 
 function isFullUuid(value: string) {
   return /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(
@@ -780,6 +787,14 @@ function extractSlugAndOptionalUuid(input: string) {
   };
 }
 
+// ── Main Page ──────────────────────────────────────────────────────────────
+
+export type PoliticianPageClientProps = {
+  politician: Politician;
+  /** Raw `[id]` route segment (slug, UUID, or slug-short). */
+  routeSegment: string;
+};
+
 export default function PoliticianPageClient({
   politician: p,
   routeSegment,
@@ -804,20 +819,20 @@ export default function PoliticianPageClient({
   const party = latestElection?.party ?? "—";
   const isMp = p.type === "MP";
 
-  const buildReportIssueUrl = () => {
-    const pageUrl = typeof window !== "undefined" ? window.location.href : "";
-    const title = `Report Inaccuracy: ${p.name}`;
-    const body = `## Politician Information\n\nName: ${p.name}\nPolitician ID: ${p.id}\n\n## What is incorrect?\n\nDescribe the incorrect or missing information here.\n\n## Suggested correction\n\nAdd the correct information here.\n\n## Additional Notes\n\nOptional notes/screenshots.`;
-    const params = new URLSearchParams({ title, body });
-    return `https://github.com/imsks/rajniti/issues/new?${params.toString()}`;
-  };
-
   const handleReportClick = () => {
     trackEvent("report_inaccuracy_click", {
       politician_id: p.id,
       politician_name: p.name,
     });
-    window.open(buildReportIssueUrl(), "_blank", "noopener,noreferrer");
+    const pageUrl = typeof window !== "undefined" ? window.location.href : "";
+    const title = `Report Inaccuracy: ${p.name}`;
+    const body = `## Politician Information\n\nName: ${p.name}\nPolitician ID: ${p.id}\nPage: ${pageUrl}\n\n## What is incorrect?\n\nDescribe the incorrect or missing information here.\n\n## Suggested correction\n\nAdd the correct information here.\n\n## Additional Notes\n\nOptional notes/screenshots.`;
+    const params = new URLSearchParams({ title, body });
+    window.open(
+      `https://github.com/imsks/rajniti/issues/new?${params.toString()}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
   };
 
   return (
@@ -850,7 +865,6 @@ export default function PoliticianPageClient({
                 .hero-info-1 { animation: fadeSlideUp 0.45s ease 0.35s both; }
                 .hero-info-2 { animation: fadeSlideUp 0.45s ease 0.43s both; }
                 .hero-info-3 { animation: fadeSlideUp 0.45s ease 0.51s both; }
-                .hero-info-4 { animation: fadeSlideUp 0.45s ease 0.59s both; }
                 .election-card {
                     animation: slideInLeft 0.45s cubic-bezier(0.22,1,0.36,1) both;
                     transition: box-shadow 0.25s ease, transform 0.25s ease;
@@ -879,12 +893,16 @@ export default function PoliticianPageClient({
             variant="secondary"
             size="sm"
             leftIcon={
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  fillRule="evenodd"
-                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                  clipRule="evenodd"
-                />
+              <svg
+                className="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M19 12H5M12 19l-7-7 7-7" />
               </svg>
             }
           >
@@ -923,7 +941,7 @@ export default function PoliticianPageClient({
                     alt="Politician"
                     width={64}
                     height={64}
-                    className="w-16 h-16 object-contain dark:filter-[invert(0.70)_brightness(1.2)]"
+                    className="w-16 h-16 object-contain dark:brightness-0 dark:invert"
                   />
                 </div>
               )}
@@ -948,7 +966,7 @@ export default function PoliticianPageClient({
                     alt="Party"
                     width={16}
                     height={16}
-                    className="w-4 h-4 object-contain opacity-60 dark:filter-[invert(0.70)_brightness(1.2)]"
+                    className="w-4 h-4 object-contain opacity-60 dark:brightness-0 dark:invert"
                   />
                   <Text
                     variant="body"
@@ -963,7 +981,7 @@ export default function PoliticianPageClient({
                     alt="Constituency"
                     width={16}
                     height={16}
-                    className="w-4 h-4 object-contain opacity-60 dark:filter-[invert(0.70)_brightness(1.2)]"
+                    className="w-4 h-4 object-contain opacity-60 dark:brightness-0 dark:invert"
                   />
                   <Text
                     variant="body"
@@ -979,7 +997,7 @@ export default function PoliticianPageClient({
                     alt="State"
                     width={16}
                     height={16}
-                    className="w-4 h-4 object-contain opacity-60 dark:filter-[invert(0.70)_brightness(1.2)]"
+                    className="w-4 h-4 object-contain opacity-60 dark:brightness-0 dark:invert"
                   />
                   <Text
                     variant="body"
@@ -993,13 +1011,15 @@ export default function PoliticianPageClient({
           </div>
         </div>
 
-        {/* Sections Grid — ref used for IntersectionObserver section tracking */}
+        {/* Sections Grid — ref used for IntersectionObserver section tracking.
+            Wrapper divs are layout/analytics only; all theming lives on the
+            Section component itself so dark mode stays consistent. */}
         <div
           ref={sectionsContainerRef}
           className="grid grid-cols-1 lg:grid-cols-2 gap-6"
         >
           <div
-            className="lg:col-span-2 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-500"
+            className="lg:col-span-2"
             data-analytics-section="political_history"
           >
             <PoliticalHistorySection
@@ -1010,7 +1030,7 @@ export default function PoliticianPageClient({
           </div>
 
           {/* ── Performance Scorecard ── */}
-          <div data-analytics-section="performance" className="dark:border-gray-700 dark:bg-gray-900 dark:text-gray-500">
+          <div data-analytics-section="performance">
             <PerformanceSection
               performance={performance}
               rank={rank}
@@ -1018,16 +1038,16 @@ export default function PoliticianPageClient({
             />
           </div>
 
-          <div data-analytics-section="education" className="dark:border-gray-700 dark:bg-gray-900 dark:text-gray-500">
+          <div data-analytics-section="education">
             <EducationSection education={p.education} />
           </div>
-          <div data-analytics-section="family" className="dark:border-gray-700 dark:bg-gray-900 dark:text-gray-500">
+          <div data-analytics-section="family">
             <FamilySection members={p.family_background} />
           </div>
-          <div data-analytics-section="criminal_records" className="dark:border-gray-700 dark:bg-gray-900 dark:text-gray-500">
+          <div data-analytics-section="criminal_records">
             <CriminalRecordsSection records={p.criminal_records} />
           </div>
-          <div data-analytics-section="contact" className="dark:border-gray-700 dark:bg-gray-900 dark:text-gray-500">
+          <div data-analytics-section="contact">
             <ContactSection politician={p} />
           </div>
 
@@ -1055,30 +1075,15 @@ export default function PoliticianPageClient({
               </div>
             </div>
 
-            <div className=" grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2">
               <div className="group flex flex-col rounded-2xl border mt-6 border-orange-200 bg-orange-50/80 p-3 shadow-sm transition duration-300 hover:border-orange-300 hover:bg-orange-50 dark:border-orange-700 dark:bg-orange-950/20 dark:hover:bg-orange-900/20">
                 <div className="flex items-center gap-2">
                   <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300">
                     <AlertTriangle size={16} />
                   </div>
-                 <div className="cursor-pointer transition-transform duration-150 active:scale-95">
-                   <Button
-                     type="button"
-                     onClick={() => {
-                     trackEvent("report_inaccuracy_click", {
-                     politician_id: p.id,
-                     politician_name: p.name,
-                     });
-
-                   handleReportClick();
-                    }}
-                  size="sm"
-                  variant="ghost"
-                  className="cursor-pointer rounded-xl border border-orange-200 bg-white px-4 py-1.5 text-orange-700 shadow-sm transition dark:border-orange-700 dark:bg-gray-900/90 dark:text-orange-300"
-                  >
-                  Report Inaccuracy
-                </Button>
-               </div>
+                  <span className="font-medium text-gray-900 dark:text-white text-lg">
+                    Found an issue?
+                  </span>
                 </div>
                 <div className="mt-2">
                   <Text
@@ -1088,18 +1093,11 @@ export default function PoliticianPageClient({
                     Flag incorrect or missing profile details and help us keep
                     this page accurate.
                   </Text>
-                  <div className="cursor-pointer transition-transform duration-150 active:scale-95 mt-2">
+                  <div className="cursor-pointer transition-transform duration-150 active:scale-95 mt-3">
                     <Button
                       type="button"
-                      onClick={() => {
-                        trackEvent("report_inaccuracy_click", {
-                          politician_id: p.id,
-                          politician_name: p.name,
-                        });
-
-                        handleReportClick();
-                      }}
-                      size="sm"
+                      onClick={handleReportClick}
+                      size="md"
                       variant="ghost"
                       className="cursor-pointer rounded-xl border border-orange-200 bg-white px-4 py-1.5 text-orange-700 shadow-sm transition dark:border-orange-700 dark:bg-gray-900/90 dark:text-orange-300"
                     >
@@ -1109,19 +1107,19 @@ export default function PoliticianPageClient({
                 </div>
               </div>
 
-              <div className="group flex flex-col rounded-2xl mt-6 bg-linear-to-r from-orange-300 to-orange-400 dark:from-orange-600 dark:to-orange-700 p-3 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(249,115,22,0.28)]">
+              <div className="group flex flex-col rounded-2xl mt-6 bg-linear-to-r from-orange-500 to-orange-600 dark:from-orange-600 dark:to-orange-700 p-3 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(249,115,22,0.28)]">
                 <div className="flex items-center gap-2">
                   <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-white/20 text-white dark:bg-white/10">
                     <UserPlus size={16} />
                   </div>
-                  <span className="font-medium text-white">
+                  <span className="font-medium text-white text-lg">
                     Contribute Info
                   </span>
                 </div>
                 <div className="mt-2">
                   <Text
                     variant="body"
-                    className="text-orange-100 mt-2 leading-6 text-sm"
+                    className="text-white mt-2 leading-6 text-sm"
                   >
                     Add verified education, family, criminal, or contact details
                     for this politician.
@@ -1152,7 +1150,7 @@ export default function PoliticianPageClient({
                         />
                       </svg>
                     }
-                    className="rounded-xl mt-2 bg-white px-4 py-1.5 text-orange-600 shadow transition hover:bg-orange-50 dark:bg-gray-900/90 dark:text-orange-300 dark:hover:bg-orange-950/20 sm:w-auto w-full"
+                    className="rounded-xl mt-3 bg-white px-4 py-1.5 text-orange-600 shadow transition hover:bg-orange-50 dark:bg-gray-900/90 dark:text-orange-300 dark:hover:bg-orange-950/20 sm:w-auto w-full"
                   >
                     Contribute Info
                   </Button>
