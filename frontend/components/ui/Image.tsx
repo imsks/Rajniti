@@ -37,15 +37,17 @@ export default function Image({
             : (unoptimized ?? false)
 
     return (
-        <NextImage
-            src={resolvedSrc}
-            alt={alt}
-            priority={priority}
-            loading={priority ? undefined : (loading ?? "lazy")}
-            unoptimized={resolvedUnoptimized}
-            className={`${roundedStyles[rounded]} ${className}`}
-            onError={() => setError(true)}
-            {...props}
-        />
+    <NextImage
+        src={resolvedSrc}
+        alt={alt}
+        priority={priority}
+        loading={priority ? undefined : (loading ?? "lazy")}
+        unoptimized={resolvedUnoptimized}
+        className={`${roundedStyles[rounded]} ${className}`}
+        onError={() => setError(true)}
+        width={props.fill ? undefined : (props.width ?? 200)}
+        height={props.fill ? undefined : (props.height ?? 200)}
+        {...props}
+    />
     )
 }
