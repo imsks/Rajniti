@@ -440,8 +440,7 @@ function CriminalRecordsSection({
 }
 
 function ContactSection({ politician }: { politician: Politician }) {
-  const { contact, social_media, contact_citations, social_media_citations } =
-    politician;
+  const { contact, social_media, contact_citations } = politician;
   const hasAny =
     contact?.email ||
     contact?.phone ||
@@ -517,7 +516,6 @@ function ContactSection({ politician }: { politician: Politician }) {
                   Icon: XIcon,
                   hover:
                     "hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black",
-                  citation: social_media_citations?.twitter,
                 },
                 {
                   key: "facebook",
@@ -525,7 +523,6 @@ function ContactSection({ politician }: { politician: Politician }) {
                   label: "Facebook",
                   Icon: FacebookIcon,
                   hover: "hover:bg-blue-600 hover:text-white",
-                  citation: social_media_citations?.facebook,
                 },
                 {
                   key: "instagram",
@@ -533,7 +530,6 @@ function ContactSection({ politician }: { politician: Politician }) {
                   label: "Instagram",
                   Icon: InstagramIcon,
                   hover: "hover:bg-pink-600 hover:text-white",
-                  citation: social_media_citations?.instagram,
                 },
                 {
                   key: "linkedin",
@@ -541,7 +537,6 @@ function ContactSection({ politician }: { politician: Politician }) {
                   label: "LinkedIn",
                   Icon: LinkedInIcon,
                   hover: "hover:bg-blue-700 hover:text-white",
-                  citation: social_media_citations?.linkedin,
                 },
                 {
                   key: "youtube",
@@ -549,7 +544,6 @@ function ContactSection({ politician }: { politician: Politician }) {
                   label: "YouTube",
                   Icon: YouTubeIcon,
                   hover: "hover:bg-red-600 hover:text-white",
-                  citation: social_media_citations?.youtube,
                 },
                 {
                   key: "website",
@@ -557,25 +551,22 @@ function ContactSection({ politician }: { politician: Politician }) {
                   label: "Website",
                   Icon: GlobeIcon,
                   hover: "hover:bg-green-600 hover:text-white",
-                  citation: social_media_citations?.website,
                 },
               ] as const
             )
               .filter((s) => Boolean(s.href))
-              .map(({ key, href, label, Icon, hover, citation }) => (
-                <span key={key} className="inline-flex items-center gap-0.5">
-                  <a
-                    href={href as string}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    title={label}
-                    className={`flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors dark:bg-gray-800 dark:text-gray-300 ${hover}`}
-                  >
-                    <Icon />
-                  </a>
-                  <CitationLink citation={citation} label={label} />
-                </span>
+              .map(({ key, href, label, Icon, hover }) => (
+                <a
+                  key={key}
+                  href={href as string}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  title={label}
+                  className={`flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors dark:bg-gray-800 dark:text-gray-300 ${hover}`}
+                >
+                  <Icon />
+                </a>
               ))}
           </div>
         )}
@@ -1126,7 +1117,7 @@ export default function PoliticianPageClient({
                       onClick={handleReportClick}
                       size="md"
                       variant="ghost"
-                      className="cursor-pointer rounded-xl bg-white px-4 py-1.5 font-semibold text-orange-600 shadow-sm transition hover:bg-orange-50 dark:bg-gray-900 dark:text-orange-300 dark:hover:bg-gray-800"
+                      className="cursor-pointer rounded-xl border-0 bg-orange-600 px-4 py-1.5 font-semibold text-white shadow-md transition hover:bg-orange-700 hover:text-white dark:bg-orange-600 dark:text-white dark:hover:bg-orange-500"
                     >
                       Report Inaccuracy
                     </Button>
@@ -1162,7 +1153,7 @@ export default function PoliticianPageClient({
                       })
                     }
                     size="md"
-                    variant="secondary"
+                    variant="ghost"
                     rightIcon={
                       <svg
                         className="w-5 h-5"
@@ -1178,7 +1169,7 @@ export default function PoliticianPageClient({
                         />
                       </svg>
                     }
-                    className="rounded-xl mt-3 border-0 bg-white px-4 py-1.5 font-bold text-orange-600 shadow-md transition hover:bg-orange-50 hover:text-orange-700 dark:bg-white dark:text-orange-600 dark:hover:bg-orange-50 sm:w-auto w-full"
+                    className="rounded-xl mt-3 border-0 bg-white px-4 py-1.5 font-semibold text-orange-600 shadow-md transition hover:bg-orange-50 hover:text-orange-700 dark:bg-white dark:text-orange-600 dark:hover:bg-orange-50 sm:w-auto w-full"
                   >
                     Contribute Info
                   </Button>
