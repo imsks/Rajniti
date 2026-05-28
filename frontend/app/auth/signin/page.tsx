@@ -135,7 +135,8 @@ function SignInContent() {
             href="/"
             className="text-orange-600 hover:text-orange-700 font-medium"
           >
-            ← Back to home
+            <img src="/logo/leftArrow.svg" alt="Back" className="w-4 h-4" />{" "}
+            Back to home
           </Link>
         </motion.div>
       </motion.div>
