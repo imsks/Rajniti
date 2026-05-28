@@ -1117,7 +1117,7 @@ export default function PoliticianPageClient({
                       onClick={handleReportClick}
                       size="md"
                       variant="ghost"
-                      className="cursor-pointer rounded-xl border-0 bg-orange-600 px-4 py-1.5 font-semibold text-white shadow-md transition hover:bg-orange-700 hover:text-white dark:bg-orange-600 dark:text-white dark:hover:bg-orange-500"
+                      className="cursor-pointer rounded-xl border-0 bg-orange-600 px-4 py-1.5 font-semibold text-white shadow-md transition hover:bg-orange-700 hover:text-orange dark:bg-orange-600 dark:text-white dark:hover:bg-orange-500"
                     >
                       Report Inaccuracy
                     </Button>
