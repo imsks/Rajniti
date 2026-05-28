@@ -425,7 +425,10 @@ function ContactSection({ politician }: { politician: Politician }) {
               height={16}
               className="w-4 h-4 dark:filter-[invert(0.70)_brightness(1.2)]"
             />
-            <Text variant="body" className="text-gray-700 dark:text-gray-300">
+            <Text
+              variant="body"
+              className="text-gray-700 dark:text-gray-300 text-sm"
+            >
               {contact.address}
             </Text>
             <CitationLink
@@ -442,9 +445,9 @@ function ContactSection({ politician }: { politician: Politician }) {
                   href={social_media.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline text-sm"
+                  className="text-blue-500 hover:underline text-sm font-medium"
                 >
-                  𝕏 Twitter
+                  Twitter
                 </a>
                 <CitationLink
                   citation={social_media_citations?.twitter}
@@ -458,7 +461,7 @@ function ContactSection({ politician }: { politician: Politician }) {
                   href={social_media.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-700 dark:text-blue-400 hover:underline text-sm"
+                  className="text-blue-700 dark:text-blue-400 hover:underline text-sm font-medium"
                 >
                   Facebook
                 </a>
@@ -474,7 +477,7 @@ function ContactSection({ politician }: { politician: Politician }) {
                   href={social_media.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-pink-600 hover:underline text-sm"
+                  className="text-pink-600 hover:underline text-sm font-medium"
                 >
                   Instagram
                 </a>
@@ -490,7 +493,7 @@ function ContactSection({ politician }: { politician: Politician }) {
                   href={social_media.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline text-sm"
+                  className="text-blue-600 hover:underline text-sm font-medium"
                 >
                   LinkedIn
                 </a>
@@ -506,7 +509,7 @@ function ContactSection({ politician }: { politician: Politician }) {
                   href={social_media.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-red-600 hover:underline text-sm"
+                  className="text-red-600 hover:underline text-sm font-medium"
                 >
                   YouTube
                 </a>
@@ -522,7 +525,7 @@ function ContactSection({ politician }: { politician: Politician }) {
                   href={social_media.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-green-600 dark:text-green-400 hover:underline text-sm flex items-center gap-1"
+                  className="text-green-600 dark:text-green-400 hover:underline text-sm font-medium flex items-center gap-1"
                 >
                   <NextImage
                     src="/logo/location.svg"
@@ -870,13 +873,34 @@ export default function PoliticianPageClient({
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
         {/* Back */}
         <div className="mb-6 back-btn">
-          <Button onClick={() => router.back()} variant="secondary" size="sm">
-            ← Back
+          <Button
+            onClick={() => router.back()}
+            variant="secondary"
+            size="sm"
+            leftIcon={
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  fillRule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            }
+          >
+            Back
           </Button>
         </div>
 
         {/* Hero Card */}
-        <div className="hero-card bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700 mb-6">
+        <div className="hero-card relative bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700 mb-6">
+          {p.updated_at && (
+            <div className="absolute bottom-5 right-5">
+              <span className="text-xs text-gray-400 dark:text-gray-500">
+                Last updated:{" "}
+                {new Date(p.updated_at).toLocaleDateString("en-GB")}
+              </span>
+            </div>
+          )}
           <div className="flex flex-col md:flex-row gap-6 items-start">
             {/* Photo */}
             <div className="hero-photo shrink-0">
@@ -974,7 +998,7 @@ export default function PoliticianPageClient({
           className="grid grid-cols-1 lg:grid-cols-2 gap-6"
         >
           <div
-            className="lg:col-span-2"
+            className="lg:col-span-2 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-500"
             data-analytics-section="political_history"
           >
             <PoliticalHistorySection
@@ -985,7 +1009,7 @@ export default function PoliticianPageClient({
           </div>
 
           {/* ── Performance Scorecard ── */}
-          <div data-analytics-section="performance">
+          <div data-analytics-section="performance" className="dark:border-gray-700 dark:bg-gray-900 dark:text-gray-500">
             <PerformanceSection
               performance={performance}
               rank={rank}
@@ -993,16 +1017,16 @@ export default function PoliticianPageClient({
             />
           </div>
 
-          <div data-analytics-section="education">
+          <div data-analytics-section="education" className="dark:border-gray-700 dark:bg-gray-900 dark:text-gray-500">
             <EducationSection education={p.education} />
           </div>
-          <div data-analytics-section="family">
+          <div data-analytics-section="family" className="dark:border-gray-700 dark:bg-gray-900 dark:text-gray-500">
             <FamilySection members={p.family_background} />
           </div>
-          <div data-analytics-section="criminal_records">
+          <div data-analytics-section="criminal_records" className="dark:border-gray-700 dark:bg-gray-900 dark:text-gray-500">
             <CriminalRecordsSection records={p.criminal_records} />
           </div>
-          <div data-analytics-section="contact">
+          <div data-analytics-section="contact" className="dark:border-gray-700 dark:bg-gray-900 dark:text-gray-500">
             <ContactSection politician={p} />
           </div>
 
@@ -1022,7 +1046,7 @@ export default function PoliticianPageClient({
                 </Text>
                 <Text
                   variant="body"
-                  className="text-gray-600 dark:text-gray-400"
+                  className="text-gray-600 dark:text-gray-400 text-sm"
                 >
                   Help us enrich this profile with accurate education, family,
                   criminal records, and contact information.
@@ -1036,32 +1060,56 @@ export default function PoliticianPageClient({
                   <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300">
                     <AlertTriangle size={16} />
                   </div>
-                  <Button
-                    type="button"
-                    onClick={handleReportClick}
-                    size="sm"
-                    variant="ghost"
-                    className="rounded-xl border border-orange-200 bg-white px-4 py-1.5 text-orange-700 shadow-sm transition hover:bg-orange-50 dark:border-orange-700 dark:bg-gray-900/90 dark:text-orange-300 dark:hover:bg-orange-950/20"
-                  >
-                    Report Inaccuracy
-                  </Button>
+                  <span className="font-medium dark:text-gray-400">
+                    Found some issue in the profile?
+                  </span>
                 </div>
                 <div className="mt-2">
                   <Text
                     variant="body"
-                    className="text-gray-600 dark:text-gray-400 mt-2 leading-6"
+                    className="text-gray-600 dark:text-gray-400 text-sm mt-2 leading-6"
                   >
                     Flag incorrect or missing profile details and help us keep
                     this page accurate.
                   </Text>
+                  <div className="cursor-pointer transition-transform duration-150 active:scale-95 mt-2">
+                    <Button
+                      type="button"
+                      onClick={() => {
+                        trackEvent("report_inaccuracy_click", {
+                          politician_id: p.id,
+                          politician_name: p.name,
+                        });
+
+                        handleReportClick();
+                      }}
+                      size="sm"
+                      variant="ghost"
+                      className="cursor-pointer rounded-xl border border-orange-200 bg-white px-4 py-1.5 text-orange-700 shadow-sm transition dark:border-orange-700 dark:bg-gray-900/90 dark:text-orange-300"
+                    >
+                      Report Inaccuracy
+                    </Button>
+                  </div>
                 </div>
               </div>
 
-              <div className="group flex flex-col rounded-2xl mt-6 bg-linear-to-r from-orange-500 to-orange-600 dark:from-orange-600 dark:to-orange-700 p-3 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(249,115,22,0.28)]">
+              <div className="group flex flex-col rounded-2xl mt-6 bg-linear-to-r from-orange-300 to-orange-400 dark:from-orange-600 dark:to-orange-700 p-3 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(249,115,22,0.28)]">
                 <div className="flex items-center gap-2">
                   <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-white/20 text-white dark:bg-white/10">
                     <UserPlus size={16} />
                   </div>
+                  <span className="font-medium text-white">
+                    Contribute Info
+                  </span>
+                </div>
+                <div className="mt-2">
+                  <Text
+                    variant="body"
+                    className="text-orange-100 mt-2 leading-6 text-sm"
+                  >
+                    Add verified education, family, criminal, or contact details
+                    for this politician.
+                  </Text>
                   <Button
                     href={`https://github.com/imsks/rajniti/issues/new?title=Enrich+${encodeURIComponent(p.name)}&body=Politician+ID:+${encodeURIComponent(p.id)}%0A%0APlease+add+details+below:`}
                     external
@@ -1072,20 +1120,26 @@ export default function PoliticianPageClient({
                         page_location: "politician_detail",
                       })
                     }
-                    size="sm"
-                    className="rounded-xl bg-white px-4 py-1.5 text-orange-600 shadow transition hover:bg-orange-50 dark:bg-gray-900/90 dark:text-orange-300 dark:hover:bg-orange-950/20 sm:w-auto w-full"
+                    size="md"
+                    rightIcon={
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    }
+                    className="rounded-xl mt-2 bg-white px-4 py-1.5 text-orange-600 shadow transition hover:bg-orange-50 dark:bg-gray-900/90 dark:text-orange-300 dark:hover:bg-orange-950/20 sm:w-auto w-full"
                   >
-                    Contribute Info →
+                    Contribute Info
                   </Button>
-                </div>
-                <div className="mt-2">
-                  <Text
-                    variant="body"
-                    className="text-orange-100 dark:text-orange-200 mt-2 leading-6"
-                  >
-                    Add verified education, family, criminal, or contact details
-                    for this politician.
-                  </Text>
                 </div>
               </div>
             </div>

@@ -104,6 +104,9 @@ function DashboardContent() {
     1,
     Math.ceil(rankedPoliticians.length / itemsPerPage),
   );
+    1,
+    Math.ceil(rankedPoliticians.length / itemsPerPage),
+  );
 
   // Reset invalid page automatically without effects
   const effectivePage = currentPage > totalPages ? 1 : currentPage;
@@ -556,8 +559,23 @@ function DashboardContent() {
               }
               className="bg-white text-orange-600 py-2 px-4 rounded-lg font-semibold border-none shadow-lg"
               size="lg"
+              rightIcon={
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              }
             >
-              Contribute on GitHub →
+              Contribute on GitHub
             </Button>
           </motion.div>
         </motion.div>
