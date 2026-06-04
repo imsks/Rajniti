@@ -19,6 +19,7 @@
 ```bash
 git clone https://github.com/imsks/Rajniti.git && cd Rajniti
 cp .env.example .env          # add at least one LLM API key
+make install-hooks            # one-time: auto-stamps lastUpdated when you edit politician data
 make dev                      # starts API + Postgres on :8000
 ```
 
@@ -32,6 +33,7 @@ Verify: `curl http://localhost:8000/api/v1/health`
 git clone https://github.com/imsks/Rajniti.git && cd Rajniti
 make install                  # creates venv/ and installs deps
 cp .env.example .env          # edit DATABASE_URL to point at your local Postgres
+make install-hooks            # one-time: auto-stamps lastUpdated when you edit politician data
 make db-migrate               # apply migrations
 make run                      # starts Flask on :8000
 ```
@@ -245,6 +247,18 @@ make db-migrate
 ```
 
 **Supabase note:** Use the session-mode pooler URL (port 5432), not the direct host (IPv6-only, fails in Docker).
+
+---
+
+## Politician Data & `lastUpdated`
+
+Each record in `mp.json` and `mla.json` has a `lastUpdated` field. It is stamped **automatically** on every `git commit` — you never need to set it manually.
+
+The git pre-commit hook (`scripts/pre_commit_hook.py`) detects which politician records changed, updates their `lastUpdated` to the commit time, and re-stages the files. Install it once per clone:
+
+```bash
+make install-hooks
+```
 
 ---
 
