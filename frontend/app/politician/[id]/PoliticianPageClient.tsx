@@ -837,22 +837,6 @@ export default function PoliticianPageClient({
   const party = latestElection?.party ?? "—";
   const isMp = p.type === "MP";
 
-  function isRecentlyUpdated(isoString: string | null | undefined): boolean {
-  if (!isoString) return false;
-
-  try {
-    const date = new Date(isoString);
-    const now = new Date();
-    const diffMs = now.getTime() - date.getTime();
-    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-    return diffDays <= 7 && diffDays >= 0;
-  } catch {
-    return false;
-  }
-}
-
-const recentlyUpdated = isRecentlyUpdated(p.updated_at);
-
   const handleReportClick = () => {
     trackEvent("report_inaccuracy_click", {
       politician_id: p.id,
@@ -946,10 +930,10 @@ const recentlyUpdated = isRecentlyUpdated(p.updated_at);
 
         {/* Hero Card */}
         <div className="hero-card relative bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700 mb-6">
-          {recentlyUpdated && p.updated_at && (
+          {p.updated_at && (
             <div className="absolute bottom-5 right-5">
               <span className="text-xs text-gray-400 dark:text-gray-500">
-                Last Updated At: {new Date(p.updated_at).toLocaleDateString("en-GB")}
+                Last Updated: {new Date(p.updated_at).toLocaleDateString("en-GB")}
               </span>
             </div>
           )}
