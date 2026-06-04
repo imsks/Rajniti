@@ -33,26 +33,26 @@ function getPartyInitial(p: Politician): string {
 }
 
 /** Check if politician was updated in the last 7 days */
-function isRecentlyUpdated(isoString: string | null | undefined): boolean {
-  if (!isoString) return false;
+// function isRecentlyUpdated(isoString: string | null | undefined): boolean {
+//   if (!isoString) return false;
 
-  try {
-    const date = new Date(isoString);
-    const now = new Date();
-    const diffMs = now.getTime() - date.getTime();
-    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-    return diffDays <= 7 && diffDays >= 0;
-  } catch {
-    return false;
-  }
-}
+//   try {
+//     const date = new Date(isoString);
+//     const now = new Date();
+//     const diffMs = now.getTime() - date.getTime();
+//     const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+//     return diffDays <= 7 && diffDays >= 0;
+//   } catch {
+//     return false;
+//   }
+// }
 
 export default function PoliticianCard({ politician }: PoliticianCardProps) {
   const party = getParty(politician);
   const initial = getPartyInitial(politician);
   const isMp = politician.type === "MP";
   const hasPhoto = !!politician.photo;
-  const recentlyUpdated = isRecentlyUpdated(politician.updated_at);
+  // const recentlyUpdated = isRecentlyUpdated(politician.updated_at);
   const { trackEvent } = useAnalytics();
   return (
     <Link
