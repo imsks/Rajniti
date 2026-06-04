@@ -933,8 +933,7 @@ export default function PoliticianPageClient({
           {p.updated_at && (
             <div className="absolute bottom-5 right-5">
               <span className="text-xs text-gray-400 dark:text-gray-500">
-                Last updated:{" "}
-                {new Date(p.updated_at).toLocaleDateString("en-GB")}
+                Last Updated: {new Date(p.updated_at).toLocaleDateString("en-GB")}
               </span>
             </div>
           )}
