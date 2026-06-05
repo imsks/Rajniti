@@ -16,6 +16,11 @@ stop: ## Stop all Docker containers
 
 # ── Test ──────────────────────────────────────────────────────────────────────
 
+install-hooks: ## Install git pre-commit hook (auto-stamps lastUpdated on politician data changes)
+	@printf '#!/bin/sh\npython3 "%s/scripts/pre_commit_hook.py"\n' "$$(git rev-parse --show-toplevel)" > .git/hooks/pre-commit
+	@chmod +x .git/hooks/pre-commit
+	@echo "Pre-commit hook installed."
+
 test: ## Run backend + frontend unit tests
 	$(VENV) pytest tests/unit -v
 	cd frontend && npm test -- --passWithNoTests

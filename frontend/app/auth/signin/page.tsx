@@ -23,7 +23,7 @@ function SignInContent() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 flex items-center justify-center p-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ function SignInContent() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-white rounded-2xl shadow-xl p-8 border border-orange-100"
+          className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 border border-orange-100 dark:border-gray-700"
         >
           <div className="text-center mb-8">
             <motion.div
@@ -48,21 +48,19 @@ function SignInContent() {
               }}
               className="flex justify-center mb-4"
             >
-              <div className="text-5xl">
-                <Image
-                  src="/logo/voting-box.svg"
-                  alt="Rajniti Logo"
-                  className="w-9 h-9 dark:filter-[invert(1)_brightness(2)]"
-                  width={36}
-                  height={36}
-                />
-              </div>
+              <Image
+                src="/logo/voting-box.svg"
+                alt="Rajniti Logo"
+                className="w-9 h-9 dark:brightness-0 dark:invert"
+                width={36}
+                height={36}
+              />
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-3xl font-bold text-gray-900 mb-2"
+              className="text-3xl font-bold text-gray-900 dark:text-white mb-2"
             >
               Welcome to Rajniti
             </motion.h1>
@@ -70,7 +68,7 @@ function SignInContent() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-gray-600"
+              className="text-gray-600 dark:text-gray-400"
             >
               Sign in to access your personalized election insights
             </motion.p>
@@ -92,7 +90,7 @@ function SignInContent() {
               sessionStorage.setItem(LOGIN_INTENT_KEY, "signin_page");
               signIn("google", { callbackUrl });
             }}
-            className="w-full flex items-center justify-center gap-3 bg-white border-2 border-gray-200 rounded-lg px-6 py-4 text-gray-700 font-semibold hover:bg-gray-50 hover:border-orange-300 transition-all shadow-sm hover:shadow-md"
+            className="w-full flex items-center justify-center gap-3 bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-600 rounded-lg px-6 py-4 text-gray-700 dark:text-gray-200 font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-orange-300 dark:hover:border-orange-500 transition-all shadow-sm hover:shadow-md"
           >
             <svg className="w-6 h-6" viewBox="0 0 24 24" aria-hidden>
               <path
@@ -119,7 +117,7 @@ function SignInContent() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.7 }}
-            className="text-center text-sm text-gray-500 mt-6"
+            className="text-center text-sm text-gray-500 dark:text-gray-400 mt-6"
           >
             By signing in, you agree to our Terms of Service and Privacy Policy
           </motion.p>
@@ -133,9 +131,20 @@ function SignInContent() {
         >
           <Link
             href="/"
-            className="text-orange-600 hover:text-orange-700 font-medium"
+            className="text-orange-600 hover:text-orange-700 dark:text-orange-400 dark:hover:text-orange-300 font-medium items-center justify-center gap-1 inline-flex transition"
           >
-            ← Back to home
+            <svg
+              className="w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Back to home
           </Link>
         </motion.div>
       </motion.div>
@@ -147,7 +156,7 @@ export default function SignIn() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300">
           Loading...
         </div>
       }

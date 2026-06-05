@@ -14,7 +14,7 @@ import {
   getPincodeFromCoords,
   buildGoogleSearchUrlForMlaMp,
 } from "@/lib/locationPincode";
-import { getPartyInitial } from "@/lib/politicianUtils";
+import { getPartyInitial, toTitleCase } from "@/lib/politicianUtils";
 import type { Politician } from "@/types/politician";
 import { userService } from "@/lib/api/user";
 import { useSession } from "next-auth/react";
@@ -79,7 +79,7 @@ export default function MyPoliticiansSection({
 
       trackEvent("my_politician_set", {
         politician_id: p.id,
-        politician_name: p.name,
+        politician_name: toTitleCase(p.name),
         slot_type: p.type as "MP" | "MLA",
       });
 
@@ -245,7 +245,7 @@ export default function MyPoliticiansSection({
                         )}
                         <div className="flex-1 min-w-0">
                           <p className="font-medium text-gray-900 dark:text-gray-100 truncate">
-                            {p.name}
+                            {toTitleCase(p.name)}
                           </p>
                           <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
                             {p.type} · {p.constituency}

@@ -6,7 +6,7 @@ import Text from "@/components/ui/Text";
 import Image from "@/components/ui/Image";
 import NextImage from "next/image";
 import { useAnalytics } from "@/hooks/useAnalytics";
-import { getPoliticianProfileHref } from "@/lib/politicianUtils";
+import { getPoliticianProfileHref, toTitleCase } from "@/lib/politicianUtils";
 import type { Politician } from "@/types/politician";
 
 interface PoliticianCardProps {
@@ -32,11 +32,27 @@ function getPartyInitial(p: Politician): string {
     .toUpperCase();
 }
 
+/** Check if politician was updated in the last 7 days */
+// function isRecentlyUpdated(isoString: string | null | undefined): boolean {
+//   if (!isoString) return false;
+
+//   try {
+//     const date = new Date(isoString);
+//     const now = new Date();
+//     const diffMs = now.getTime() - date.getTime();
+//     const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+//     return diffDays <= 7 && diffDays >= 0;
+//   } catch {
+//     return false;
+//   }
+// }
+
 export default function PoliticianCard({ politician }: PoliticianCardProps) {
   const party = getParty(politician);
   const initial = getPartyInitial(politician);
   const isMp = politician.type === "MP";
   const hasPhoto = !!politician.photo;
+  // const recentlyUpdated = isRecentlyUpdated(politician.updated_at);
   const { trackEvent } = useAnalytics();
   return (
     <Link
@@ -57,7 +73,7 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
         transition={{ duration: 0.2 }}
         className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-5 hover:border-orange-400 dark:hover:border-orange-500 hover:shadow-lg transition-all h-full flex flex-col"
       >
-        {/* Top: Photo / Avatar + Name */}
+        {/* Top: Photo / Avatar + Name + Badges */}
         <div className="flex items-start gap-4 mb-3">
           {hasPhoto ? (
             <Image
@@ -67,10 +83,10 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
               height={56}
               sizes="56px"
               rounded="full"
-              className="w-14 h-14 object-cover border-2 border-orange-200 flex-shrink-0"
+              className="w-14 h-14 object-cover border-2 border-orange-200 shrink-0"
             />
           ) : (
-            <div className="w-14 h-14 rounded-full bg-linear-to-br from-orange-100 to-orange-200 dark:from-orange-900/40 dark:to-orange-800/40 flex items-center justify-center flex-shrink-0 border-2 border-orange-200 dark:border-orange-700">
+            <div className="w-14 h-14 rounded-full bg-linear-to-br from-orange-100 to-orange-200 dark:from-orange-900/40 dark:to-orange-800/40 flex items-center justify-center shrink-0 border-2 border-orange-200 dark:border-orange-700">
               <span className="text-orange-700 font-bold text-xs">
                 {initial}
               </span>
@@ -83,7 +99,7 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
               weight="bold"
               className="text-gray-900 dark:text-gray-100 truncate"
             >
-              {politician.name}
+              {toTitleCase(politician.name)}
             </Text>
             <Text
               variant="small"
@@ -93,9 +109,10 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
             </Text>
           </div>
 
+          
           {/* Type badge */}
           <span
-            className={`px-2.5 py-1 rounded-full text-xs font-bold flex-shrink-0 ${
+            className={`px-2.5 py-1 rounded-full text-xs font-bold shrink-0 ${
               isMp
                 ? "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
                 : "bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300"

@@ -1,7 +1,7 @@
 import Link from "next/link"
-import { getPoliticianProfileHref } from "@/lib/politicianUtils"
-import { getParty } from "@/lib/politicianUtils"
+import { getPoliticianProfileHref, getParty, toTitleCase } from "@/lib/politicianUtils"
 import type { Politician } from "@/types/politician"
+import Image from "@/components/ui/Image"
 
 interface PublicPoliticianCardProps {
     politician: Politician
@@ -21,14 +21,22 @@ export default function PublicPoliticianCard({ politician }: PublicPoliticianCar
                             isMp ? "bg-orange-600" : "bg-green-600"
                         }`}
                     >
-                        {politician.name.charAt(0)}
+                        {politician.photo ? (
+                            <Image
+                                src={politician.photo}
+                                alt={politician.name}
+                                className="w-full h-full object-cover rounded-full"
+                            />
+                        ) : (
+                            politician.name.charAt(0)
+                        )}
                     </div>
                     <div className="min-w-0 flex-1">
                         <h2 className="text-base font-semibold text-gray-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 truncate">
-                            {politician.name}
+                            {toTitleCase(politician.name)}
                         </h2>
                         <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
-                            {politician.constituency}, {politician.state}
+                            {toTitleCase(politician.constituency)}, {politician.state}
                         </p>
                         <div className="flex flex-wrap gap-2 mt-2">
                             <span

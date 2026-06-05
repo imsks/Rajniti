@@ -1,6 +1,7 @@
 import json
 import logging
 import re
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Literal, Optional
 
@@ -30,7 +31,6 @@ class PoliticianService:
         self._by_slug: Dict[str, Dict[str, Any]] = {}
         self._by_short_id: Dict[str, Dict[str, Any]] = {}
 
-        # 🔥 LOAD PERFORMANCE HERE (SAFE)
         self._perf_map = self._load_performance()
 
     # ---------- LOAD PERFORMANCE ----------
@@ -58,6 +58,11 @@ class PoliticianService:
             name, {"attendance": 0, "questions": 0, "debates": 0}
         )
 
+        return p
+
+    # ---------- ADD METADATA ----------
+    def _attach_metadata(self, p: Dict[str, Any]) -> Dict[str, Any]:
+        p["updated_at"] = p.get("lastUpdated")
         return p
 
     # ---------- SLUG ----------
@@ -120,21 +125,21 @@ class PoliticianService:
         data = self._load(election_type)
         self._attach_slugs_to_records(data)
 
-        return [self._attach_performance(p) for p in data]
+        return [self._attach_metadata(self._attach_performance(p)) for p in data]
 
     def get_all_politicians(self) -> List[Dict[str, Any]]:
         self._ensure_slugs()
         data = self._load("MP") + self._load("MLA")
         self._attach_slugs_to_records(data)
 
-        return [self._attach_performance(p) for p in data]
+        return [self._attach_metadata(self._attach_performance(p)) for p in data]
 
     def get_by_id(self, politician_id: str) -> Optional[Dict[str, Any]]:
         self._ensure_slugs()
         pid = str(politician_id).strip()
         p = self._by_id.get(pid) or self._by_id.get(pid.lower())
 
-        return self._attach_performance(p) if p else None
+        return self._attach_metadata(self._attach_performance(p)) if p else None
 
     def get_by_slug(self, politician_slug: str) -> Optional[Dict[str, Any]]:
         self._ensure_slugs()
@@ -146,7 +151,7 @@ class PoliticianService:
             if short_match:
                 p = self._by_short_id.get(short_match.group(1).lower())
 
-        return self._attach_performance(p) if p else None
+        return self._attach_metadata(self._attach_performance(p)) if p else None
 
     def search(
         self,
@@ -188,7 +193,7 @@ class PoliticianService:
                 ):
                     continue
 
-            results.append(self._attach_performance(p))
+            results.append(self._attach_metadata(self._attach_performance(p)))
 
             if len(results) >= limit:
                 break
@@ -219,6 +224,10 @@ class PoliticianService:
                 for key, value in updates.items():
                     rec[key] = value
 
+                now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.") + \
+                      f"{datetime.now(timezone.utc).microsecond // 1000:03d}Z"
+                rec["lastUpdated"] = now
+
                 try:
                     with open(path, "w", encoding="utf-8") as f:
                         json.dump(records, f, indent=2, ensure_ascii=False)
@@ -230,6 +239,7 @@ class PoliticianService:
                 if self._slugs_ensured and pid in self._by_id:
                     for key, value in updates.items():
                         self._by_id[pid][key] = value
+                    self._by_id[pid]["lastUpdated"] = now
 
                 return True
 
@@ -257,7 +267,7 @@ class PoliticianService:
         state_l = state.strip().lower()
 
         return [
-            self._attach_performance(p)
+            self._attach_metadata(self._attach_performance(p))
             for p in data
             if (p.get("state") or "").lower() == state_l
         ]
@@ -286,7 +296,7 @@ class PoliticianService:
             elections = (p.get("political_background") or {}).get("elections") or []
 
             if any((e.get("party") or "").lower() == party_l for e in elections):
-                results.append(self._attach_performance(p))
+                results.append(self._attach_metadata(self._attach_performance(p)))
 
         return results
 

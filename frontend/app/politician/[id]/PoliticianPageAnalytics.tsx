@@ -6,6 +6,7 @@ import { useScrollDepth } from "@/hooks/useScrollDepth"
 import { useSectionTracking } from "@/hooks/useSectionTracking"
 import { useTimeOnPage } from "@/hooks/useTimeOnPage"
 import type { Politician } from "@/types/politician"
+import { toTitleCase } from "@/lib/politicianUtils"
 
 interface PoliticianPageAnalyticsProps {
     politician: Politician
@@ -31,7 +32,7 @@ export default function PoliticianPageAnalytics({
         const latestElection = p.political_background?.elections?.[0]
         trackEvent("politician_profile_view", {
             politician_id: p.id,
-            politician_name: p.name,
+            politician_name: toTitleCase(p.name),
             politician_type: p.type as "MP" | "MLA",
             party: latestElection?.party ?? "—",
             state: p.state,
