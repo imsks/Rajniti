@@ -6,7 +6,7 @@ import Text from "@/components/ui/Text";
 import Image from "@/components/ui/Image";
 import NextImage from "next/image";
 import { useAnalytics } from "@/hooks/useAnalytics";
-import { getPoliticianProfileHref } from "@/lib/politicianUtils";
+import { getPoliticianProfileHref, toTitleCase } from "@/lib/politicianUtils";
 import type { Politician } from "@/types/politician";
 
 interface PoliticianCardProps {
@@ -99,7 +99,7 @@ export default function PoliticianCard({ politician }: PoliticianCardProps) {
               weight="bold"
               className="text-gray-900 dark:text-gray-100 truncate"
             >
-              {politician.name}
+              {toTitleCase(politician.name)}
             </Text>
             <Text
               variant="small"

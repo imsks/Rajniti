@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og"
 import { fetchPoliticianBySegment } from "@/lib/api/politicians-server"
 import { buildPoliticianDescription } from "@/lib/seo/metadata"
+import { toTitleCase } from "@/lib/politicianUtils"
 
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
@@ -58,7 +59,7 @@ export default async function Image({
                     {politician.type} · {politician.constituency}
                 </div>
                 <div style={{ display: "flex", fontSize: 56, fontWeight: 700, marginBottom: 24, lineHeight: 1.2 }}>
-                    {politician.name}
+                    {toTitleCase(politician.name)}
                 </div>
                 <div style={{ display: "flex", fontSize: 28, color: "#64748b", lineHeight: 1.4 }}>{description}</div>
             </div>

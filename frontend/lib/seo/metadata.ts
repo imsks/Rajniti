@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { getParty } from "@/lib/politicianUtils"
+import { getParty, toTitleCase } from "@/lib/politicianUtils"
 import { buildDefaultOg, buildDefaultTwitter, getSiteUrl, SITE_NAME } from "@/lib/seo/site"
 import { buildOgImages, buildPoliticianOgImages, buildPoliticianTwitterImages, buildTwitterImages } from "@/lib/seo/images"
 import { getPreferredPoliticianPath } from "@/lib/seo/politician-canonical"
@@ -7,11 +7,11 @@ import type { Politician } from "@/types/politician"
 
 export function buildPoliticianDescription(p: Politician): string {
     const party = getParty(p)
-    return `${p.name} (${p.type}) — ${p.constituency}, ${p.state}. Party: ${party}. Profile on ${SITE_NAME}: political history, education, performance, and more.`
+    return `${toTitleCase(p.name)} (${p.type}) — ${p.constituency}, ${p.state}. Party: ${party}. Profile on ${SITE_NAME}: political history, education, performance, and more.`
 }
 
 export function buildPoliticianMetadata(politician: Politician): Metadata {
-    const title = `${politician.name} — ${politician.type} · ${politician.constituency}`
+    const title = `${toTitleCase(politician.name)} — ${politician.type} · ${politician.constituency}`
     const description = buildPoliticianDescription(politician)
     const path = getPreferredPoliticianPath(politician)
     const canonical = `${getSiteUrl()}${path}`
