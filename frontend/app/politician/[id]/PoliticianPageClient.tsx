@@ -474,7 +474,8 @@ function PerformanceBar({
         >
           {/* National Tooltip Container */}
           <div className="absolute bottom-full left-1/2 z-30 mb-2 -translate-x-1/2 whitespace-nowrap rounded bg-orange-50 px-2 py-1 text-xs font-semibold text-orange-600 opacity-0 transition-opacity duration-200 pointer-events-none group-hover:opacity-100 shadow-md">
-            National Avg: {natAvg} {unit}{/* Tooltip Arrow */}
+            National Avg: {natAvg} {unit}
+            {/* Tooltip Arrow */}
             <div className="absolute top-full left-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-0.5 bg-orange-50 rotate-45"></div>
           </div>
         </div>
@@ -637,14 +638,38 @@ function PerformanceSection({
           </div>
 
           {/* Footer note */}
-          {(performanceCitations?.attendance ||
-            performanceCitations?.questions ||
-            performanceCitations?.debates) && (
-            <p className="text-xs text-gray-400 dark:text-gray-600 text-center pb-2 border-t border-gray-100 dark:border-gray-800 pt-3">
-              Per-metric source links appear next to descriptions where
-              available.
-            </p>
-          )}
+
+          <div className="border-t border-gray-100 dark:border-gray-800 pt-3 pb-2 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+            {/* Left Spacer to keep text perfectly centered on desktop */}
+            <div className="hidden md:block w-36" />
+
+            {/* Source Text Notice */}
+            <div>
+              {(performanceCitations?.attendance ||
+                performanceCitations?.questions ||
+                performanceCitations?.debates) && (
+                <p className="text-xs text-gray-400 dark:text-gray-600 text-center pb-2 pt-2">
+                  Per-metric source links appear next to descriptions where
+                  available.
+                </p>
+              )}
+            </div>
+
+            {/* Color-Coded Markers Legend */}
+            <div className="flex items-center justify-center md:justify-end gap-3 text-xs font-medium text-gray-500 dark:text-gray-400 min-w-36">
+              {/* State Marker */}
+              <div className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-green-600 dark:bg-green-500 shrink-0" />
+                <span className="text-gray-500 dark:text-gray-400 text-[10px]">State Avg</span>
+              </div>
+
+              {/* National Marker */}
+              <div className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-orange-400 dark:bg-orange-500 shrink-0" />
+                <span className="text-gray-500 dark:text-gray-400 text-[10px]">National Avg</span>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </SectionCard>
