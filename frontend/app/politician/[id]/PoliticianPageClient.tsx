@@ -114,9 +114,10 @@ function IconGlobe() {
   );
 }
 
-// ── National average constants ──────────────────────────────────────────────
+// ── National and State average constants ──────────────────────────────────────────────
 // Approximate 17th Lok Sabha session averages — used for performance bar context.
 const NATIONAL_AVG = { attendance: 85, questions: 103, debates: 20 } as const;
+const STATE_AVG = { attendance: 84, questions: 79, debates: 14 } as const;
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -388,7 +389,8 @@ function PerformanceBar({
   label,
   description,
   value,
-  avg,
+  natAvg,
+  stateAvg,
   maxValue,
   unit,
   icon: Icon,
@@ -399,7 +401,8 @@ function PerformanceBar({
   label: string;
   description: string;
   value: number;
-  avg: number;
+  natAvg: number;
+  stateAvg: number;
   maxValue: number;
   unit: string;
   icon?: React.ComponentType<{ size?: number; className?: string }>;
@@ -409,7 +412,9 @@ function PerformanceBar({
 }) {
   const { ref, inView } = useInView(0.05);
   const pct = maxValue > 0 ? Math.min((value / maxValue) * 100, 100) : 0;
-  const avgPct = maxValue > 0 ? Math.min((avg / maxValue) * 100, 100) : 0;
+  const natAvgPct = maxValue > 0 ? Math.min((natAvg / maxValue) * 100, 100) : 0;
+  const stateAvgPct =
+    maxValue > 0 ? Math.min((stateAvg / maxValue) * 100, 100) : 0;
   return (
     <div
       ref={ref}
@@ -444,12 +449,12 @@ function PerformanceBar({
           </div>
         </div>
         {/* Value + avg */}
-        <span className="shrink-0 text-lg font-bold text-gray-900 dark:text-white tabular-nums">
+        <span className="shrink-0 text-xl font-bold text-gray-900 dark:text-white tabular-nums">
           {value}
           {unit}
           <span className="text-gray-400 dark:text-gray-500 font-normal text-xs">
             {" "}
-            · avg {avg}
+            · nat {natAvg} {unit} · state {stateAvg}
             {unit}
           </span>
         </span>
@@ -458,14 +463,33 @@ function PerformanceBar({
       <div className="relative w-full bg-gray-100 dark:bg-gray-800 rounded-full h-1.5">
         {/* Fill */}
         <div
-          className="absolute left-0 top-0 h-full bg-blue-500 dark:bg-blue-400 rounded-full transition-[width] duration-700 ease-out"
+          className="absolute left-0 top-0 h-full bg-blue-400 dark:bg-blue-500 rounded-full transition-[width] duration-700 ease-out"
           style={{ width: inView ? `${pct}%` : "0%" }}
         />
-        {/* Avg marker — extends 4px above and below the track so it's visibly taller */}
+
+        {/* National Avg marker */}
         <div
-          className="absolute -top-1.25 -bottom-1.25 w-1 rounded-full bg-orange-400 dark:bg-orange-500 transition-[left] duration-700 ease-out"
-          style={{ left: inView ? `${avgPct}%` : "0%" }}
-        />
+          className="group absolute -top-1.5 -bottom-1.5 w-1.25 rounded-full bg-orange-400 dark:bg-orange-500 transition-[left] duration-700 ease-out cursor-pointer"
+          style={{ left: inView ? `${natAvgPct}%` : "0%" }}
+        >
+          {/* National Tooltip Container */}
+          <div className="absolute bottom-full left-1/2 z-30 mb-2 -translate-x-1/2 whitespace-nowrap rounded bg-orange-50 px-2 py-1 text-xs font-semibold text-orange-600 opacity-0 transition-opacity duration-200 pointer-events-none group-hover:opacity-100 shadow-md">
+            National Avg: {natAvg} {unit}{/* Tooltip Arrow */}
+            <div className="absolute top-full left-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-0.5 bg-orange-50 rotate-45"></div>
+          </div>
+        </div>
+
+        {/* State avg marker */}
+        <div
+          className="group absolute -top-1.5 -bottom-1.5 w-1.25 rounded-full bg-green-600 dark:bg-green-500 transition-[left] duration-700 ease-out cursor-pointer"
+          style={{ left: inView ? `${stateAvgPct}%` : "0%" }}
+        >
+          {/* State Tooltip Container */}
+          <div className="absolute bottom-full left-1/2 z-30 mb-2 -translate-x-1/2 whitespace-nowrap rounded bg-green-100 px-2 py-1 text-xs font-semibold text-green-700 opacity-0 transition-opacity duration-200 pointer-events-none group-hover:opacity-100 shadow-md">
+            State Avg: {stateAvg} {unit} {/* Tooltip Arrow */}
+            <div className="absolute top-full left-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-0.5 bg-green-100 rotate-45"></div>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -509,7 +533,7 @@ function PerformanceSection({
         </Text>
         {hasData && (
           <span className="text-xs text-gray-500 dark:text-gray-500 font-normal">
-            vs national avg
+            vs national & state avg
           </span>
         )}
       </div>
@@ -550,7 +574,8 @@ function PerformanceSection({
             label="Attendance"
             description="Sessions attended in Parliament"
             value={performance.attendance}
-            avg={NATIONAL_AVG.attendance}
+            natAvg={NATIONAL_AVG.attendance}
+            stateAvg={STATE_AVG.attendance}
             maxValue={100}
             unit="%"
             icon={CalendarCheck}
@@ -562,7 +587,8 @@ function PerformanceSection({
             label="Questions Asked"
             description="Questions raised on the floor"
             value={performance.questions}
-            avg={NATIONAL_AVG.questions}
+            natAvg={NATIONAL_AVG.questions}
+            stateAvg={STATE_AVG.questions}
             maxValue={maxQ}
             unit=""
             icon={HelpCircle}
@@ -574,7 +600,8 @@ function PerformanceSection({
             label="Debates Participated"
             description="Debates the candidate took part in"
             value={performance.debates}
-            avg={NATIONAL_AVG.debates}
+            natAvg={NATIONAL_AVG.debates}
+            stateAvg={STATE_AVG.debates}
             maxValue={maxD}
             icon={MessageSquare}
             iconBgClass="bg-purple-100 dark:bg-purple-900/30"
@@ -604,7 +631,7 @@ function PerformanceSection({
                 </Text>
               </div>
             </div>
-            <span className="text-xl font-bold shrink-0 text-gray-900 dark:text-white tabular-nums">
+            <span className="text-2xl font-bold shrink-0 text-gray-900 dark:text-white tabular-nums">
               {rank}
             </span>
           </div>
@@ -704,8 +731,6 @@ function CriminalRecordsSection({
 
 function PoliticalHistorySection({
   elections,
-  summary,
-  summaryCitation,
 }: {
   elections: Politician["political_background"]["elections"];
   summary?: string | null;
