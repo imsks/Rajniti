@@ -1,0 +1,8 @@
+node_modules
+.next
+.git
+*.log
+coverage
+junit.xml
+__tests__/e2e/test-results
+playwright-report
