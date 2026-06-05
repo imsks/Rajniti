@@ -1232,20 +1232,20 @@ export default function PoliticianPageClient({
 
   const buildReportIssueUrl = () => {
     const pageUrl = typeof window !== "undefined" ? window.location.href : "";
-    const title = `Report Inaccuracy: ${p.name}`;
-    const body = `## Politician Information\n\nName: ${p.name}\nPolitician ID: ${p.id}\nProfile URL: ${pageUrl}\n\n## What is incorrect?\n\nDescribe the incorrect or missing information here.\n\n## Suggested correction\n\nAdd the correct information here.\n\n## Additional Notes\n\nOptional notes/screenshots.`;
+    const title = `Report Inaccuracy: ${toTitleCase(p.name)}`;
+    const body = `## Politician Information\n\nName: ${toTitleCase(p.name)}\nPolitician ID: ${p.id}\nProfile URL: ${pageUrl}\n\n## What is incorrect?\n\nDescribe the incorrect or missing information here.\n\n## Suggested correction\n\nAdd the correct information here.\n\n## Additional Notes\n\nOptional notes/screenshots.`;
     return `https://github.com/imsks/rajniti/issues/new?${new URLSearchParams({ title, body })}`;
   };
 
   const handleReportClick = () => {
     trackEvent("report_inaccuracy_click", {
       politician_id: p.id,
-      politician_name: p.name,
+      politician_name: toTitleCase(p.name),
     });
     window.open(buildReportIssueUrl(), "_blank", "noopener,noreferrer");
   };
 
-  const contributeHref = `https://github.com/imsks/rajniti/issues/new?title=${encodeURIComponent(`Enrich ${p.name}`)}&body=${encodeURIComponent(`Politician ID: ${p.id}\n\nPlease add details below:`)}`;
+  const contributeHref = `https://github.com/imsks/rajniti/issues/new?title=${encodeURIComponent(`Enrich ${toTitleCase(p.name)}`)}&body=${encodeURIComponent(`Politician ID: ${p.id}\n\nPlease add details below:`)}`;
 
   const handleContributeClick = () => {
     trackEvent("contribute_click", {
@@ -1346,7 +1346,7 @@ export default function PoliticianPageClient({
 
               {/* Compact single-line: Constituency · State · Party */}
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                {p.constituency} · {p.state} · {party}
+                {toTitleCase(p.constituency)} · {p.state} · {party}
               </p>
 
               {/* Updated chip */}

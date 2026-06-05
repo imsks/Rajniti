@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { getPoliticianProfileHref, getParty } from "@/lib/politicianUtils"
+import { getPoliticianProfileHref, getParty, toTitleCase } from "@/lib/politicianUtils"
 import type { Politician } from "@/types/politician"
 import Image from "@/components/ui/Image"
 
@@ -33,10 +33,10 @@ export default function PublicPoliticianCard({ politician }: PublicPoliticianCar
                     </div>
                     <div className="min-w-0 flex-1">
                         <h2 className="text-base font-semibold text-gray-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 truncate">
-                            {politician.name}
+                            {toTitleCase(politician.name)}
                         </h2>
                         <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
-                            {politician.constituency}, {politician.state}
+                            {toTitleCase(politician.constituency)}, {politician.state}
                         </p>
                         <div className="flex flex-wrap gap-2 mt-2">
                             <span
