@@ -25,7 +25,7 @@
           "type": "MP",
           "state": "Andhra Pradesh",
           "constituency": "",
-          "party": "TDP",
+          "party": "Telugu Desam Party",
           "status": "WON",
           "citation": {
             "link": "http://myneta.info/rajsab09aff/candidate.php?candidate_id=370",
@@ -37,7 +37,7 @@
           "type": "MP",
           "state": "Andhra Pradesh",
           "constituency": "",
-          "party": "TDP",
+          "party": "Telugu Desam Party",
           "status": "WON",
           "citation": {
             "link": "http://myneta.info/rajsab09aff/candidate.php?candidate_id=370",
@@ -49,24 +49,17 @@
           "type": "MP",
           "state": "Andhra Pradesh",
           "constituency": "Anakapalle",
-          "party": "Bahujan Samaj Party",
-          "status": "WON"
+          "party": "Bharatiya Janata Party",
+          "status": "LOST",
+          "citation": {
+            "link": "http://myneta.info/rajsab09aff/candidate.php?candidate_id=370",
+            "source": "MYNETA"
+          }
         }
       ],
-      "summary": "C.M.RAMESH is a Andhra Pradesh leader and Member of Parliament from Anakapalle. The latest available result shows C.M.RAMESH winning the 2024 election from Anakapalle as a Bharatiya Janata Party candidate (WON). Earlier, C.M.RAMESH was associated with Bahujan Samaj Party in 2024, and the record shows a move toward the Bharatiya Janata Party banner for Anakapalle. Bachelor from Andhra University, Visakhapatnam.",
-      "summary_citation": null
+      "summary": "C. M. Ramesh is an Indian politician and businessman. He served two terms as a Member of Parliament in the Rajya Sabha from Andhra Pradesh, winning in 2012 and 2018 as a candidate of the Telugu Desam Party (TDP). He later joined the Bharatiya Janata Party (BJP) and contested the 2024 Lok Sabha election from the Anakapalle constituency, but was unsuccessful."
     },
-    "education": [
-      {
-        "qualification": "BACHELOR",
-        "institution": "Andhra University, Visakhapatnam",
-        "year_completed": 1983,
-        "citation": {
-          "link": "http://myneta.info/rajsab09aff/candidate.php?candidate_id=370",
-          "source": "MYNETA"
-        }
-      }
-    ],
+    "education": [],
     "social_media": {
       "twitter": "https://twitter.com/cm_ramesh",
       "facebook": "https://www.facebook.com/CMRameshMP",
@@ -82,7 +75,7 @@
     },
     "family_background": [
       {
-        "name": "C. Munuswamy",
+        "name": "Ch. Munuswamy",
         "relation": "FATHER",
         "photo": null,
         "social_media": null,
@@ -92,7 +85,7 @@
         }
       },
       {
-        "name": "C. Rathnamma",
+        "name": "Ch. Lakshmi Devi",
         "relation": "MOTHER",
         "photo": null,
         "social_media": null,
@@ -102,7 +95,7 @@
         }
       },
       {
-        "name": "C. Sridevi",
+        "name": "Ch. Sridevi",
         "relation": "WIFE",
         "photo": null,
         "social_media": null,
@@ -130,17 +123,8 @@
         "type": "ECONOMIC",
         "year": 2023,
         "citation": {
-          "link": "http://myneta.info/rajsab09aff/candidate.php?candidate_id=370",
-          "source": "MYNETA"
-        }
-      },
-      {
-        "name": "Case registered by ACB Telangana under the Prevention of Corruption Act (FIR 24/2019)",
-        "type": "CORRUPTION",
-        "year": 2019,
-        "citation": {
-          "link": "http://myneta.info/rajsab09aff/candidate.php?candidate_id=370",
-          "source": "MYNETA"
+          "link": "https://timesofindia.indiatimes.com/city/hyderabad/hyderabad-i-t-conducts-searches-on-ap-cm-naidus-close-confidant-cm-ramesh/articleshow/66174170.cms",
+          "source": "NEWS"
         }
       }
     ],
@@ -187,7 +171,7 @@
         "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "11b8288b-ea24-45f7-af67-c8cc7990cff3",
@@ -209,14 +193,6 @@
             "link": "https://www.indiatoday.in/elections/lok-sabha/story/rajahmundry-andhra-pradesh-lok-sabha-election-results-2024-live-updates-clse-2547594-2024-06-04",
             "source": "NEWS"
           }
-        },
-        {
-          "year": 2024,
-          "type": "MP",
-          "state": "Andhra Pradesh",
-          "constituency": "Rajahmundry",
-          "party": "Bahujan Samaj Party",
-          "status": "WON"
         },
         {
           "year": 2019,
@@ -263,8 +239,7 @@
           }
         }
       ],
-      "summary": "DAGGUBATI PURANDHESHWARI is a Andhra Pradesh leader and Member of Parliament from Rajahmundry. The latest available result shows DAGGUBATI PURANDHESHWARI winning the 2024 election from Rajahmundry as a Bharatiya Janata Party candidate (WON). Earlier, DAGGUBATI PURANDHESHWARI was associated with Bahujan Samaj Party in 2024, and the record shows a move toward the Bharatiya Janata Party banner for Rajahmundry. Bachelor from SIET Women's College, Chennai.",
-      "summary_citation": null
+      "summary": "Daggubati Purandeswari is an Indian politician from Andhra Pradesh. She joined the Bharatiya Janata Party (BJP) in 2014 and subsequently served as the president of its Andhra Pradesh unit. She successfully contested the Lok Sabha election from the Rajahmundry constituency in 2024 and is currently serving as its Member of Parliament."
     },
     "education": [
       {
@@ -287,9 +262,9 @@
       }
     ],
     "social_media": {
-      "twitter": "https://twitter.com/purandeswariBJP",
+      "twitter": "https://twitter.com/PurandeswariBJP",
       "facebook": "https://www.facebook.com/DaggubatiPurandeswariOfficial/",
-      "instagram": "https://www.instagram.com/purandeswaribjp/",
+      "instagram": "https://www.instagram.com/daggubatipurandeswari/",
       "linkedin": null,
       "youtube": "https://www.youtube.com/@DaggubatiPurandeswariOfficial",
       "website": null
@@ -313,7 +288,7 @@
         "photo": null,
         "social_media": null,
         "citation": {
-          "link": "http://www.ndtv.com/elections/article/election-2014/ntr-s-daughter-d-purandeswari-joins-bjp-492958",
+          "link": "https://www.ndtv.com/elections/article/election-2014/ntr-s-daughter-d-purandeswari-joins-bjp-492958",
           "source": "NEWS"
         }
       },
@@ -327,7 +302,11 @@
         "name": "Daggubati Venkateswara Rao",
         "relation": "HUSBAND",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://sansad.in/ls/members/biographyM/4022?from=members",
+          "source": "GOV_WEBSITE"
+        }
       },
       {
         "name": "Hitesh Chenchuram",
@@ -400,7 +379,29 @@
         "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z",
+    "social_media_citations": {
+      "twitter": {
+        "link": "https://twitter.com/PurandeswariBJP",
+        "source": "OTHERS"
+      },
+      "facebook": {
+        "link": "https://www.facebook.com/DaggubatiPurandeswariOfficial/",
+        "source": "OTHERS"
+      },
+      "instagram": {
+        "link": "https://www.instagram.com/daggubatipurandeswari/",
+        "source": "OTHERS"
+      },
+      "youtube": {
+        "link": "https://www.youtube.com/@DaggubatiPurandeswari",
+        "source": "OTHERS"
+      },
+      "website": {
+        "link": "https://www.daggubati.in/",
+        "source": "OTHERS"
+      }
+    }
   },
   {
     "id": "63876a12-ed18-40e3-a92e-4e5307555029",
@@ -415,35 +416,18 @@
           "year": 2024,
           "type": "MP",
           "state": "Andhra Pradesh",
-          "constituency": "Narsapuram",
+          "constituency": "Narasapuram",
           "party": "Bharatiya Janata Party",
           "status": "WON",
           "citation": {
-            "link": "https://elections-v4.news18.com/elections/lok-sabha/andhra-pradesh/bhupathi-raju-srinivasa-varma-candidate-s01led2008p009e2024c002/",
+            "link": "https://www.indiatoday.in/elections/lok-sabha/story/narsapuram-andhra-pradesh-lok-sabha-election-results-2024-live-updates-clse-2547595-2024-06-04",
             "source": "NEWS"
           }
         }
       ],
-      "summary": "BHUPATHI RAJU SRINIVASA VARMA (B.J.P.VARMA) is a Andhra Pradesh leader and Member of Parliament from Narsapuram. The latest available result shows BHUPATHI RAJU SRINIVASA VARMA (B.J.P.VARMA) winning the 2024 election from Narsapuram as a Bharatiya Janata Party candidate (WON). The latest record places BHUPATHI RAJU SRINIVASA VARMA (B.J.P.VARMA) in Andhra Pradesh with the Bharatiya Janata Party ticket for Narsapuram. Master from null.",
-      "summary_citation": null
+      "summary": "Bhupathi Raju Srinivasa Varma is an Indian politician affiliated with the Bharatiya Janata Party. He was elected as a Member of Parliament from the Narasapuram Lok Sabha constituency in Andhra Pradesh in 2024. He currently serves as an MP, representing Narasapuram."
     },
-    "education": [
-      {
-        "qualification": "MASTER",
-        "institution": "null",
-        "year_completed": null
-      },
-      {
-        "qualification": "PROFESSIONAL",
-        "institution": "null",
-        "year_completed": null
-      },
-      {
-        "qualification": "MASTER",
-        "institution": "null",
-        "year_completed": null
-      }
-    ],
+    "education": [],
     "social_media": {
       "twitter": "https://twitter.com/bjpvarma_mp",
       "facebook": "https://www.facebook.com/bjpvarma.mp/",
@@ -512,7 +496,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "0e0ce8b4-10dc-4d04-8c93-d321914a5e01",
@@ -602,7 +586,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:04:46.133147+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8c8b42a8-4cc8-4ade-b669-2af36e8ef27b",
@@ -696,7 +680,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:05:01.705670+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "882359dd-660f-4e77-af16-741306863ad0",
@@ -807,7 +791,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f79fe244-f19a-4dfe-830d-de227b7c9e25",
@@ -920,7 +904,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:06:03.054293+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "82789c94-c8f8-4451-b36d-03c1f3c19084",
@@ -1006,7 +990,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:14:15.517434+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c66e8a78-dbcc-4ce8-8c33-fd7f943d9f76",
@@ -1124,7 +1108,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:14:45.223695+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "83c47999-efee-443c-891a-5be34fca83dc",
@@ -1233,7 +1217,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:15:04.801789+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "4ce76917-1421-4390-add4-5dc1c93540cb",
@@ -1341,7 +1325,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:15:39.589333+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "58944d18-1c1e-460b-bf4c-a8f3a3578787",
@@ -1437,7 +1421,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:15:53.401571+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e03f1ec9-698c-4dca-b0fc-c2c31034fbf5",
@@ -1579,7 +1563,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:16:15.879987+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e7a343bc-bd83-4dae-a575-6ac459f35681",
@@ -1708,7 +1692,7 @@
         "The provided context, specifically the Wikipedia extract, states Sarbananda Sonowal has been a Member of the Rajya Sabha representing Assam since 2021. This conflicts with the input data indicating a Lok Sabha win from Dibrugarh in 2024. No source in the provided context confirms the 2024 Lok Sabha election win."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "a38bd518-f555-4359-86f7-c89fe5460c80",
@@ -1853,7 +1837,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:17:11.759373+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f2f41468-b487-410a-887c-d8ffbef7af07",
@@ -1969,7 +1953,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:17:27.563040+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "078a054c-7b6e-4036-94b4-ddffdebcb611",
@@ -2082,7 +2066,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:17:53.761777+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "4f3253b1-4ccc-431f-a5ae-ffa13f63b072",
@@ -2224,7 +2208,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:18:14.626697+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8f91acae-e10f-438f-aa1a-ff9adec45f72",
@@ -2387,7 +2371,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:18:35.142079+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f5fd285a-0813-4607-b605-371bcf5d554b",
@@ -2503,7 +2487,7 @@
         "No sources found for parliamentary performance data (attendance, questions, debates)."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ffca5a49-9833-401f-9f3d-f7f546b31710",
@@ -2606,7 +2590,7 @@
       "phone": "+91-11-23015334",
       "address": "4, North Avenue, New Delhi - 110001"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b564b723-a414-45c7-99dd-4e7f7b5e1dcd",
@@ -2741,7 +2725,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:42:53.495571+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "84ccc7fe-36e8-4c80-a172-d368efca3f4f",
@@ -2826,7 +2810,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:43:10.486410+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "dae03dda-756e-4a96-9ede-1cb0126a82ba",
@@ -2956,7 +2940,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:43:28.835329+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e2c5d398-57f6-4707-a06c-f5c7eb44685b",
@@ -3134,7 +3118,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:43:56.770427+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "df35a125-5cb7-4283-8e48-107e0b8640cf",
@@ -3232,7 +3216,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:44:24.600622+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "968ad79e-eafb-4350-aad9-916dc23d28ef",
@@ -3428,7 +3412,7 @@
         "The criminal records data provided in the input contains serious allegations (murder, corruption, economic offenses) that could not be verified or sourced from the provided real-world context (Wikipedia, web search results, or their outbound links). Therefore, no citations could be provided for these entries."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "90318b6d-d475-4da3-9823-52aec72e14f1",
@@ -3549,7 +3533,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:45:32.644849+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "1bf0e37c-438f-4275-a25f-63865761a5f7",
@@ -3671,7 +3655,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:46:04.166025+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "365bab96-db40-4075-89ba-d425087d3e59",
@@ -3764,7 +3748,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:46:33.393574+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "cbd157e9-100a-4896-bbf4-9e5269aad983",
@@ -3849,7 +3833,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:47:01.528294+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c0a8332b-1873-4fc9-abed-0be719097b4c",
@@ -3981,7 +3965,7 @@
         "Performance metrics (attendance, questions, debates) are all zero; PRS/Lok Sabha data not available in search results."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "495da199-a6f3-4b95-9194-1dfd2ae5db3b",
@@ -4072,7 +4056,7 @@
         "social_media": null
       }
     ],
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "960e5c9b-43cf-46e1-8adc-87a2a6710e0d",
@@ -4177,7 +4161,7 @@
         "source": "NEWS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "17808d96-560a-459c-86f0-2b59ec448912",
@@ -4275,7 +4259,7 @@
         "No source found for performance metrics (attendance, questions, debates)."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "0dea91fa-a984-4a70-9196-75cbe1b2efb2",
@@ -4427,7 +4411,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:31:18.480173+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "1a042eda-07e5-4fb7-9733-5a15b7381fc3",
@@ -4585,7 +4569,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:31:29.945796+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "365c19a1-eaad-4b73-a6f8-5cf24dea08c9",
@@ -4703,7 +4687,7 @@
         "Name discrepancy in INPUT (Hemalbhai Madam vs. Hematbhai Maadam in sources) not altered."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e78c1283-ba0d-42e3-b9c9-3b81dc7aee10",
@@ -4822,7 +4806,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "bb80eed1-ea67-4260-a645-a0e4f1d2bba2",
@@ -4945,7 +4929,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "97a0bedb-ed21-412f-9ade-24a0c2a0757c",
@@ -5062,7 +5046,7 @@
         "Election 2024 confirmed via official ECI result page for Bhavnagar (constituency 15)."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d2022db0-5dc8-49d8-9bcb-938346e6341e",
@@ -5158,7 +5142,7 @@
         "No reliable sources found for 2024 election win (conflicts with PRS term end 06/2024), family details, or criminal case; education from MyNeta (diploma, not high school); contact partial match."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "bd27696a-8424-42fc-b0bd-7f202770fcea",
@@ -5288,7 +5272,7 @@
         "Performance metrics (attendance 98%, questions 53, debates 1) lack direct source links; PRS India typically maintains such data but specific URL requires verification."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "3755cf1f-2004-45f0-ae30-825a0aac92a8",
@@ -5398,7 +5382,7 @@
         "Web search results contain only generic quote websites unrelated to this politician; no additional citations possible from search results."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "bc8b4d9f-8da9-45b1-87be-c5676ba71a39",
@@ -5530,7 +5514,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c97e0184-ca9f-43d6-b5cd-e45ead4c215d",
@@ -5647,7 +5631,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:50:38.004529+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "a859ad47-c3f0-4e77-8f13-b82251ebb78e",
@@ -5767,7 +5751,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "106083fb-baf1-469f-ac6c-67f1c4e1fd8b",
@@ -5883,7 +5867,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "08837180-9435-4328-a989-bb53fbc78570",
@@ -5995,7 +5979,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "3d4db341-fd7d-4d6c-8f13-de3cb8fb090d",
@@ -6113,7 +6097,7 @@
         "The provided context does not contain information regarding Mukesh Dalal's family background, criminal records, or parliamentary performance metrics (attendance, questions, debates)."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "71707a5d-de56-41f3-bc52-6b5f7668ff93",
@@ -6262,7 +6246,7 @@
         "Performance metrics (attendance: 0, debates: 0) require verification from PRS India or Lok Sabha official records for current 18th Lok Sabha term (2024–present)."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "5ea02a74-35b1-4ce3-9737-13b336b8b86c",
@@ -6389,7 +6373,7 @@
         "source": "MYNETA"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8cabad25-1ba6-47d9-bda8-ace19e79ef87",
@@ -6514,7 +6498,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:35:35.343710+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "36be6097-e76d-4341-afc4-b202ce94757d",
@@ -6630,7 +6614,7 @@
         "Education qualification year not available in sources; Delhi University affiliation noted but completion year requires primary source verification."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6a4f74a8-1921-485b-8e2c-f0559794a3bc",
@@ -6700,7 +6684,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:52:41.453916+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "1d08fe3f-237f-4d81-9256-70de9ee67c94",
@@ -6809,7 +6793,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:52:56.659809+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "333722d9-26d6-4a02-8672-4b6a01c3352b",
@@ -6919,7 +6903,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:36:07.283345+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e71103f4-3781-4345-a9be-517b2a1f593b",
@@ -7023,7 +7007,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:36:14.469535+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "30d14e2f-5caa-4a0e-b5cb-f66fb9085fb7",
@@ -7160,7 +7144,7 @@
         "Education institutions lack verification sources; recommend ECI or official biography sources."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d6b15a57-d11f-4b53-b0dd-ace08de7e52f",
@@ -7233,7 +7217,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:36:32.451066+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c5f7d156-67f4-495d-9d6c-da37495bd3aa",
@@ -7309,7 +7293,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:36:41.454668+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "5778d09e-036b-4377-b4f2-3c83c7056a36",
@@ -7436,7 +7420,7 @@
         "Contact details (email, phone, address) not available in provided sources."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d019d04d-f888-4295-b590-5459ffa1f39d",
@@ -7518,7 +7502,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:53:11.604434+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "633dec7c-30de-4c06-8648-6ce829e0e470",
@@ -7575,7 +7559,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:53:33.722991+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "82090f04-f02e-42e4-914f-b1aa30e090be",
@@ -7668,7 +7652,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:37:14.921746+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "28fb3112-d4a5-4afc-8f6a-ef59f51edce5",
@@ -7739,7 +7723,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:53:43.864705+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "fd54480b-3eb8-4b0f-ad6f-e876ac42f591",
@@ -7795,7 +7779,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:54:02.194130+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "1fa1c04d-711e-4c59-973c-a5a4f5a3aefa",
@@ -7874,7 +7858,7 @@
         "No reliable sources found in provided context for education, elections, or family details. Wikipedia extract confirms political summary and provides archived news links, but none address backlog slots directly."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7930f1ea-436f-441f-9c34-111e4a2fa9f5",
@@ -7975,7 +7959,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:37:40.612613+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b7023664-f8bc-4a27-9b0c-ca45b567f094",
@@ -8060,7 +8044,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:37:48.113945+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9ee6e8bd-c4f1-4566-aab6-3849a8f12047",
@@ -8141,7 +8125,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "fa00086a-7b6c-4cce-8105-935ce9e7e420",
@@ -8217,7 +8201,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:38:02.264810+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "45a69d36-6f7a-465b-bc66-28fc22ff8ff7",
@@ -8320,7 +8304,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:38:09.641713+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ac37c396-5261-446d-b078-7ba6f899d7c7",
@@ -8410,7 +8394,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:54:53.650467+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9e9ac184-6b57-4d95-8f6d-7ca47e506f55",
@@ -8539,7 +8523,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:55:12.555683+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "a64447eb-6820-45b1-bd29-8bade6c65850",
@@ -8609,7 +8593,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f79c43ae-079a-4ccd-8fef-6529416d5c1e",
@@ -8706,7 +8690,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:55:58.703274+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "a0787481-cd69-4999-9836-097545ffc986",
@@ -8762,7 +8746,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:38:43.004340+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6fb60064-d103-4d33-bb57-52a998698e38",
@@ -8829,7 +8813,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "83273391-0e75-4ce3-b3b0-24a4da4fa019",
@@ -8885,7 +8869,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:38:55.580009+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d88b2784-ce15-4b30-8ab2-cf472924dde7",
@@ -8941,7 +8925,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:39:02.922082+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "57b492ba-814f-46f8-87b1-e27edbf2494f",
@@ -9020,7 +9004,7 @@
         "Education qualification and institution year (1990) could not be independently verified from provided sources; PRS India profile recommended for MP performance metrics verification."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d500b88c-b941-470e-9422-5e111523ff5d",
@@ -9112,7 +9096,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:39:21.478933+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "66b53628-f912-4f58-a06f-b8bd6acb3a93",
@@ -9164,7 +9148,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:56:32.208961+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e3173dec-507b-46df-8b5b-f46f4c44daae",
@@ -9229,7 +9213,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:56:42.245333+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "977caaa2-9932-4caa-9fdc-0919c2b9b4e1",
@@ -9323,7 +9307,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:57:01.751439+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7bc3c236-6649-4a6a-a16b-d0dbbeba213c",
@@ -9381,7 +9365,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:39:47.064225+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9c2b77c8-3e60-4780-aa41-fa29114feedb",
@@ -9441,7 +9425,7 @@
         "No matching sources found for Rakesh Singh (Satna MP 2024, BJP) education (Awadesh Pratap Singh University/Law College Satna) or performance metrics; search results reference different Rakesh Singh (Jabalpur). Possible data mismatch."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "3bc52410-d779-4e02-9c2d-ca7750ca4ed6",
@@ -9507,7 +9491,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:40:03.903004+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "16ce35fa-d96a-4658-8cde-2a6edc6f57da",
@@ -9565,7 +9549,7 @@
         "2024 MP election result for SIDHI constituency (BJP, WON status) — ECI statistical report referenced but specific constituency-level result confirmation would require direct ECI AC-wise data access."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "cd5e03fb-eb9a-4ebf-8835-848717ffbbcf",
@@ -9639,7 +9623,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:40:19.611349+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b8779686-3691-4a37-ace1-4684f05144e4",
@@ -9701,7 +9685,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:40:26.123131+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c361ee72-c86a-44d6-acb9-7340c93e6d88",
@@ -9795,7 +9779,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7fbb2aa9-4f28-46aa-8e5f-4615bd2ed5e3",
@@ -9870,7 +9854,7 @@
         "Contact information and social media profiles not available in search results."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "bc4b5189-998b-4faf-9c9c-dd67a55d3061",
@@ -9925,7 +9909,7 @@
         "No citations found in the provided context for education, social media (Facebook), or performance metrics (attendance, questions, debates)."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ae562470-aa23-4d53-9494-9501c21d5b10",
@@ -10016,7 +10000,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:58:27.240181+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "cdf67519-d31f-4592-bc90-40d6f85c6de3",
@@ -10100,7 +10084,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:58:43.231383+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c3cbc264-3328-45dd-aeb5-f8a07d6b1e3a",
@@ -10166,7 +10150,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:41:14.150334+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "29f46d32-c2db-4e0c-a809-d0f6c9052bcf",
@@ -10254,7 +10238,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "fee7add4-4b02-444b-99da-6e24dff51828",
@@ -10398,7 +10382,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "54e64ed0-ab4b-4504-b789-058d9351c693",
@@ -10483,7 +10467,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:41:41.197916+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "09ac14b7-ac38-4549-ac60-1e58622bf03c",
@@ -10566,7 +10550,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T16:59:23.176189+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "bab70728-2636-49ce-93a6-be57d974cced",
@@ -10637,7 +10621,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:41:52.800643+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b4ef2ded-ac12-4a27-8d9e-61c88887abff",
@@ -10725,7 +10709,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ce035850-fbba-4ddd-b70a-6529cd94940d",
@@ -10804,7 +10788,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:42:06.768795+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "2a688e21-640e-4853-9c63-941c086991f7",
@@ -10860,7 +10844,7 @@
         "No reliable sources found in provided context for education details (Devi Ahilya Vishwavidyalaya) or 2024 Khargone election win for Gajendra Singh Patel. Wikipedia extract and links refer to different MP Prahlad Singh Patel from Damoh. Web results confirm Gajendra Singh Patel as MP from Khargone-Barwani but lack specific education or ECI-level election verification."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d0aa280a-9a16-499e-ad61-7f188eb4f16a",
@@ -10930,7 +10914,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:42:21.130631+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8c7a2cd3-9394-43ba-b77b-3060c9463d73",
@@ -11018,7 +11002,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6dfa55b8-f0e9-440a-a8f2-579e02498ef4",
@@ -11088,7 +11072,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:42:39.243257+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9b9434f0-632e-4154-bb2c-4c49b14e9ddd",
@@ -11171,7 +11155,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:42:48.154644+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "62704a7d-bc14-4972-955b-802d9d9f1e1d",
@@ -11248,7 +11232,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:42:55.966928+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f7b4440c-1304-4a4a-9915-e4a2a84b6e32",
@@ -11400,7 +11384,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "5371b900-3e6d-4800-91ee-be0fc1ac79da",
@@ -11485,7 +11469,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:43:13.552048+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "5d180411-9442-4f3c-9408-3a2ce1313221",
@@ -11620,7 +11604,7 @@
         "Performance metrics (attendance: 0, questions: 24, debates: 0) sourced from PRS India; note that ministers do not sign attendance registers or introduce private member bills per PRS documentation."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "80b257fe-7f6f-419d-a16c-6f99cbca045b",
@@ -11687,7 +11671,7 @@
         "Social media handles and contact details not available in provided sources; Twitter handle @mohol_murlidhar appears in Wikipedia outbound links but requires independent verification."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "0be123c5-3325-494f-b617-b02733b5291c",
@@ -11755,7 +11739,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:43:37.921225+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c41231ea-b703-4dec-aa4e-8bb4492897af",
@@ -11836,7 +11820,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d01abf46-4306-4183-9958-60ca740ffcac",
@@ -11892,7 +11876,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:43:49.902660+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "07fa6400-b91b-4236-89a4-efdc7e5c96aa",
@@ -11948,7 +11932,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:43:57.068846+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ef5b2920-f28e-4bf1-ab1d-a93932c4cc72",
@@ -12008,7 +11992,7 @@
         "source": "MYNETA"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "2acaab30-7c2e-4df8-bf64-e2077bc00cda",
@@ -12064,7 +12048,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:44:09.665856+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "cc72c902-5b74-481f-b931-282574fc4722",
@@ -12145,7 +12129,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:44:15.534162+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "47e3e7eb-ff79-447c-83ad-d442b3b51880",
@@ -12239,7 +12223,7 @@
         "Performance metrics (attendance: 79, questions: 136, debates: 8) sourced from PRS India but specific data period confirmation needed"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "065a1884-bd5b-4773-8f16-efcc706578e0",
@@ -12305,7 +12289,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:44:31.373322+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8d51b811-6536-46ff-a9c2-2f3da5c4a876",
@@ -12375,7 +12359,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "71638bed-73f6-4e09-a6f9-7cee5c3feb14",
@@ -12448,7 +12432,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c7418d73-39a9-4aca-81ba-c23d2b26e7e5",
@@ -12533,7 +12517,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b0c1d844-59e9-43ef-8342-aaddc0ea0ee3",
@@ -12623,7 +12607,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "a5f1c4c0-a88c-439d-87c7-f97c26168873",
@@ -12679,7 +12663,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:02:01.153981+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d18e2e94-ef73-497a-ab85-8fe45705f22a",
@@ -12741,7 +12725,7 @@
         "Social media handles not available in search results"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "121059fa-786d-4360-94bd-68ca9e47e18e",
@@ -12816,7 +12800,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:45:15.400680+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "44f10278-5ae0-464b-a287-78af960c6c12",
@@ -12886,7 +12870,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:45:24.406942+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e3700433-923c-4014-b1d3-243bef25e0bf",
@@ -12957,7 +12941,7 @@
         "Performance metrics sourced from 15th Lok Sabha (2019–2024); verify if applicable to 2024 election cycle"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c7c64c03-1e6f-4e59-8c50-03f835aab0a7",
@@ -13069,7 +13053,7 @@
         "Performance metrics (attendance, questions, debates) sourced to PRS India as standard reference for MP parliamentary activity; specific 2024–2026 session data should be verified directly on PRS portal."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "697de99e-cda7-44b1-813d-4228200a7f24",
@@ -13149,7 +13133,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:45:47.937733+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "a87aa16e-c471-4fba-854f-d2124728b066",
@@ -13231,7 +13215,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:45:54.319491+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7fcabc74-176c-4fb6-9fee-f963f1aa7f28",
@@ -13302,7 +13286,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:46:01.485751+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "4b58aa2f-dede-4dc1-ac85-4481e93e48b2",
@@ -13387,7 +13371,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:46:09.679630+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6b98a479-7fbf-450b-b76e-291781a04ea9",
@@ -13467,7 +13451,7 @@
         "Performance metrics (attendance: 98, questions: 83, debates: 18) differ slightly from PRS India data (99% attendance, 96 questions, 21 debates); recommend verification against official Lok Sabha records"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "08b8cf2f-7a1b-4392-9cc1-0595078f4dfa",
@@ -13519,7 +13503,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:02:14.122894+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "96b360be-568a-4d5d-97fb-a0d39a72a3f7",
@@ -13590,7 +13574,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:46:34.641496+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b0ce0ae1-3075-4324-94f0-1d4ba4389e56",
@@ -13671,7 +13655,7 @@
         "Election 2024 win inferred from context (India Today link on results) but prefers Wikipedia per citation rule for summary/election."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f6ce2924-5078-48c4-8bbb-c2b6d523d50a",
@@ -13743,7 +13727,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:46:48.961584+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9898f264-4255-46e1-8ae1-d3630818d2d4",
@@ -13837,7 +13821,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:46:56.169161+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "5543d022-92c3-4fa3-b33a-598776987c29",
@@ -13908,7 +13892,7 @@
         "No education, family background, or criminal records data provided in INPUT; cannot generate citations for these categories."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b12b84cd-e42a-4e92-805b-1ff5ba718c3f",
@@ -13981,7 +13965,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:47:11.426492+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "3232c46e-e066-4908-9a06-78115853a064",
@@ -14032,7 +14016,7 @@
         "No source found in the provided context for the 2024 election win for Chandra Prakash Joshi, his education details, or his performance metrics (attendance, questions, debates)."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "28b9e28c-efee-440e-a2e7-a64b7a0aef30",
@@ -14084,7 +14068,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:47:24.427484+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c1b8296b-ac1f-47a1-ac08-d2d9f1a727e8",
@@ -14144,7 +14128,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:47:30.779067+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "44eb97b8-233c-4211-89ae-cf71911341da",
@@ -14214,7 +14198,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:03:11.153782+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "eb63c2e2-c47b-4b8f-a59e-02a264505056",
@@ -14305,7 +14289,7 @@
         "Performance metrics (attendance: 95%, questions: 142, debates: 20) should be verified against latest PRS India data as of May 2026, as search results show data through August 2025."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "927ff5fb-7a0e-4024-832c-dc18572942f8",
@@ -14375,7 +14359,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:47:49.929488+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "a76065f3-5dea-44ef-a65f-db5bcb7f28c6",
@@ -14441,7 +14425,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7c790d44-df20-4a50-ba58-14d1c5b33a92",
@@ -14501,7 +14485,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:48:00.335169+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8c2547b7-db0f-4055-b8b8-6015769f3db2",
@@ -14558,7 +14542,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:03:31.897409+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9fb44e14-fc8f-4acd-9bd7-606ee5a0930c",
@@ -14618,7 +14602,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:48:11.841611+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c9d0f243-ee0a-4669-9f0d-da798d93de61",
@@ -14689,7 +14673,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:48:18.806730+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "1d2cfbf6-b172-463e-b8fc-af4c8f72642a",
@@ -14755,7 +14739,7 @@
         "Year of education completion not available in sources; CCS University Meerut confirmation recommended."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f43dfb23-054f-496b-bac6-ca214792ad6f",
@@ -14817,7 +14801,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:48:35.741523+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "bcab19cc-5f99-4cf7-a4a6-5ba22b579b93",
@@ -14882,7 +14866,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:03:48.033664+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d97390b1-1681-4043-8655-69e969b41aa1",
@@ -14941,7 +14925,7 @@
         "Elections: 2024 MP win for Mathura inferred from context/career but no specific ECI link; state listed as Uttar Pradesh (correct), Wikipedia confirms ongoing MP from Mathura since 2014."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f1fcf8d9-6004-4851-9cad-9113ad7f2161",
@@ -15029,7 +15013,7 @@
         "Contact and social media information not found in provided sources"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9a7a93a7-306e-417e-8ad3-d9794abd91c4",
@@ -15104,7 +15088,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:04:25.604709+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "fc46c315-85ed-483e-9a55-b4cb024ac7c2",
@@ -15178,7 +15162,7 @@
         "Performance metrics (attendance: 98, questions: 67, debates: 4) sourced from PRS India; recommend verification against official Lok Sabha records for 18th session"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "940a6264-c0de-49a8-8e9a-a714d608bcdb",
@@ -15257,7 +15241,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:49:19.427809+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "68918c34-d0cf-4166-abe9-2858d0d41d0d",
@@ -15327,7 +15311,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "70255b89-fd2f-40d6-a63c-7e541125a765",
@@ -15392,7 +15376,7 @@
         "No matching sources found for politician with education from C.S.J.M. University, Kanpur or 2024 Hardoi MP election win; provided search results pertain to Jai Ram Thakur (Himachal Pradesh MLA/former CM)"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b4a4bcdb-2995-462a-9a4a-2a5c2621b941",
@@ -15462,7 +15446,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ce25158d-fe6a-4e68-bc05-9b0370194261",
@@ -15527,7 +15511,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "17323af6-ff3b-470c-a311-da4eba517dca",
@@ -15588,7 +15572,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:05:29.611632+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "192c4001-fc66-4bcc-b6cc-82bb2a7778c9",
@@ -15709,7 +15693,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:49:54.887212+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6f3e8c00-1d06-4d1f-bd88-8f3b27226654",
@@ -15764,7 +15748,7 @@
         "No sources found for education details or performance metrics (attendance, questions, debates) in the provided context."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "4a0afb7f-037d-40c6-9c3f-fbc907c9e0cf",
@@ -15820,7 +15804,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:50:07.760583+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b2079d7f-0de8-44f5-8bf6-c149e33fbdf3",
@@ -15891,7 +15875,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:50:13.332062+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "29eaf6cb-e258-4cac-a336-c5483908656e",
@@ -15972,7 +15956,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:05:52.443178+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c025a99f-98c6-4b9a-8384-68e2703c7a69",
@@ -16028,7 +16012,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:06:03.501315+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "1f2d2d6b-3261-449d-8aa0-457cb8ddd400",
@@ -16121,7 +16105,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:50:30.999872+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "59ee518c-a68d-41ea-9b7f-ce57d3e644a0",
@@ -16216,7 +16200,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "416084b7-ed04-4683-98b0-c9267e3d11ef",
@@ -16289,7 +16273,7 @@
         "Performance metrics (attendance, questions, debates) sourced from PRS India 18th Lok Sabha data; exact values for current term should be verified against live PRS portal"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "05ab6e34-246e-4233-b4ec-73323d088058",
@@ -16363,7 +16347,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "76ec3e72-a828-43f5-bf88-e5a5e1d42149",
@@ -16437,7 +16421,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:50:59.676413+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "120e6371-daf6-4f33-9e0f-62a303143532",
@@ -16506,7 +16490,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:51:05.783851+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e1bde2a7-b3f6-4167-b97f-16879dff8a6a",
@@ -16575,7 +16559,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:51:14.008132+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7eabd4d3-a67a-41be-9f7e-64aaeae91262",
@@ -16645,7 +16629,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ef8a4654-1d09-4a06-bae7-14377bc08387",
@@ -16736,7 +16720,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "735510ad-dc74-4551-b0a8-540ff0381da5",
@@ -16792,7 +16776,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:51:33.639141+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "066fa092-3ec4-4d33-b7ee-491b2187c0fc",
@@ -16848,7 +16832,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:51:38.611532+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "213d8115-8e26-44c6-826c-946b3457ae3f",
@@ -16904,7 +16888,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:51:44.056910+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6ade6a6f-a9b5-440d-9def-c98ec3880c21",
@@ -16978,7 +16962,7 @@
         "Performance metrics (attendance, questions, debates) sourced from Lok Sabha official portal; recommend cross-verification with PRS India for detailed legislative records."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d6661b53-793c-460b-9984-4e2634c56b3f",
@@ -17075,7 +17059,7 @@
         "Performance metrics (attendance: 98, questions: 12, debates: 4) sourced from PRS India; recommend verification against official Lok Sabha records for current accuracy as of May 2026"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e0b34baf-662b-4f41-b96c-aaf3552848c3",
@@ -17156,7 +17140,7 @@
         "Year completed for all education qualifications not available in search results"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "bf15a531-3926-473a-8b17-ec98e4e98c38",
@@ -17212,7 +17196,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:52:15.623345+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "16a47f4e-bdec-45ef-b2d0-84c957d7fcda",
@@ -17291,7 +17275,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:52:23.168159+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "bbeb2e3b-690a-447a-bc72-d67162d98ad8",
@@ -17375,7 +17359,7 @@
         "Contact information (email, phone, address) not available in provided sources"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "a54f5c6d-254d-4bf8-ade4-bbfb1b658734",
@@ -17448,7 +17432,7 @@
         "Performance metrics (attendance: 94, questions: 0, debates: 6) require Lok Sabha official records or PRS India data for verification; no such sources provided in backlog."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "56f3b518-a9ae-421e-a119-c2c824c0f6d3",
@@ -17513,7 +17497,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:52:46.687804+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b658b00e-7607-4617-83f5-69377732bf5b",
@@ -17583,7 +17567,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:52:52.479227+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b7f443d5-c863-47f1-a620-a01cb5401ba6",
@@ -17639,7 +17623,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:52:58.564965+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "de1bb818-81a1-4fed-87c2-2a30cd5fd6ca",
@@ -17714,7 +17698,7 @@
         "No email, phone, or official address found in available sources."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "601c5f37-ec3d-47ce-95d6-f9a736772a2c",
@@ -17776,7 +17760,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:53:14.297840+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ae52dde4-7d28-44f2-9785-64b4ec7b8cbc",
@@ -17848,7 +17832,7 @@
         "No ECI primary sources found for education or elections; used reliable secondary sources."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6ad94636-34a1-4201-a1f1-f01eafb6d115",
@@ -17904,7 +17888,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:53:26.211893+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "35616f8d-3711-4eb1-b2cd-1be643d23cbf",
@@ -17975,7 +17959,7 @@
         "Performance metrics (attendance, questions, debates) sourced to Lok Sabha official profile; recommend verification against PRS India or official Lok Sabha records for independent confirmation."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "3dd4e0e6-eef8-44d5-9f07-14c9efb242f8",
@@ -18027,7 +18011,7 @@
         "social_media": null
       }
     ],
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "28776851-c4bb-4665-8247-6307b726fbf9",
@@ -18101,7 +18085,7 @@
         "Contact details (email, phone, address) not available in search results; official Lok Sabha biography may contain this information"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "5d4de0c9-4d36-4c41-9691-8511e39c30a1",
@@ -18157,7 +18141,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:07:44.478217+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "50423b66-fb0f-49e7-9ca0-01435ef266a8",
@@ -18229,7 +18213,7 @@
         "Performance metrics (attendance, questions, debates) sourced to PRS India; direct verification recommended."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "64946630-0412-4a32-895b-4d215c6ba0fd",
@@ -18300,7 +18284,7 @@
         "No family, criminal, or contact information available in provided sources"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9618e773-c8d9-4cbe-b0f5-d16b8b1559eb",
@@ -18362,7 +18346,7 @@
         "Social media handles not provided in search results."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "253a6917-7ba8-4c8d-8fed-7f3165eae457",
@@ -18432,7 +18416,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:54:27.279201+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "2132d5d4-3811-4b50-b8e7-d495ede2fc28",
@@ -18503,7 +18487,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:08:04.495209+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6ef55c71-bc31-44e7-bcda-5a20503b8c97",
@@ -18582,7 +18566,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "5530dd71-a4b3-4287-ab2f-3c91381e1ecc",
@@ -18670,7 +18654,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "2ab5cac1-9eff-4f3c-b662-f645dd7ebad6",
@@ -18740,7 +18724,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:54:53.628469+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9898eac9-80c7-422f-8485-7d8ed62c327b",
@@ -18797,7 +18781,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:08:43.560167+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "0e3bd0c5-d4d7-4336-96d9-245f8a5cc0d7",
@@ -18867,7 +18851,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:55:06.185658+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "97ef04bd-0e28-4c84-a097-46df1305eed9",
@@ -18923,7 +18907,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:55:11.967741+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ee622ca1-e444-4fae-bc95-d3c469466a50",
@@ -18994,7 +18978,7 @@
         "source": "MYNETA"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "56480edb-4410-488e-9e18-4d05b119e856",
@@ -19050,7 +19034,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:55:24.087509+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "eece2ed4-9f8d-4f98-b490-589ae8e544f5",
@@ -19100,7 +19084,7 @@
       "phone": null,
       "address": null
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "95ef769b-41c5-4a83-95ba-ca74bdf6601d",
@@ -19156,7 +19140,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:55:35.544102+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "693984f2-62b6-44e9-b6c8-d0e7d1dd1f2d",
@@ -19215,7 +19199,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:09:19.004436+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "668ae256-3f64-4a1e-adec-56fb16a01666",
@@ -19292,7 +19276,7 @@
         "No verifiable sources found in provided search results for education details (Sri Saraswathi Shishumandir, Govt. Junior College, Madurai Kamaraj University) or 2024 election win; official Sansad.in biography (link 4) and personal site (web:2) recommended for cross-verification but absent from extracts."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "68f61499-eac5-4fdd-bbbc-58050071852a",
@@ -19385,7 +19369,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:55:57.764467+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b0a8dafd-4b5d-4fdd-a12f-8c8dd58b4edd",
@@ -19471,7 +19455,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:56:05.343695+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "91de1147-4d6e-4bc7-aa95-ceefa679b9e5",
@@ -19540,7 +19524,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:56:12.407818+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b31cfb6e-cd58-4e21-a0da-6255e526c531",
@@ -19602,7 +19586,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:09:52.970554+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "1039bee5-0cbd-4615-bc12-5857aa3447e9",
@@ -19690,7 +19674,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:56:25.823958+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "2048a908-0792-4a71-8498-50686205239f",
@@ -19742,7 +19726,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:10:08.160848+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ef30f093-46f1-47a4-85ec-1e2f2205faa8",
@@ -19798,7 +19782,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:56:38.315254+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "3ceae201-291e-4235-9830-a7ee11e2fdb8",
@@ -19861,7 +19845,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:56:44.432449+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "71942be6-c8da-4cf9-83ca-ff8ca26ac725",
@@ -19931,7 +19915,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:56:51.015403+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "11849ca4-1866-4c8d-a3d0-69a86ed67276",
@@ -20002,7 +19986,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:56:56.440195+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f70d45dd-0594-44a8-8fe4-6d0a1cf42505",
@@ -20067,7 +20051,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:57:03.825439+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "4eabb3d5-4019-487e-9776-d080c916b83c",
@@ -20167,7 +20151,7 @@
         "Education institution details lack direct corroboration in available sources; biographical interviews may contain this information but are not explicitly cited in search results."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ca5da5b4-5570-4ba1-a221-44db4ca0273f",
@@ -20229,7 +20213,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:57:20.915345+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f8537863-9873-44ad-bc09-80bb14cd0738",
@@ -20299,7 +20283,7 @@
         "Education and performance details could not be sourced from the provided context."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "58acf771-b6b9-4da5-9215-59e42af1eab4",
@@ -20355,7 +20339,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:57:34.291816+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "28fa2d2a-fa69-4385-b537-614fbdcb7036",
@@ -20449,7 +20433,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:57:40.678263+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9204741b-e3d5-4393-a218-e98dd75db6cc",
@@ -20501,7 +20485,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:57:46.428705+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d0b7e153-5585-46c1-9745-5b8d5e3d422d",
@@ -20567,7 +20551,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "808f1657-482d-42b5-b565-da74164bdf5f",
@@ -20673,7 +20657,7 @@
         "No family background, criminal records, or contact details provided in INPUT; omitted from output."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6820bc46-a931-4247-bc00-03576d405adf",
@@ -20743,7 +20727,7 @@
         "Performance metrics (attendance, questions, debates) could not be sourced from the provided context."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "37bdbb7a-f61b-45b9-a46c-f6c1118f63c1",
@@ -20799,7 +20783,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:58:14.264411+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "85330279-700b-4af5-bf18-97017661c8ee",
@@ -20869,7 +20853,7 @@
         "source": "MYNETA"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f860d9f0-62ac-4a72-a133-4073b3128d15",
@@ -20928,7 +20912,7 @@
         "No reliable sources found in provided context for education, elections (2024 MP Sasaram INC), or performance metrics; context sources refer to different Manoj Kumar (Bihar MLA Arwal BJP) with outdated 2020 data."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7708a6cd-3ae1-4160-86a1-1a047731282c",
@@ -21012,7 +20996,7 @@
         "Performance metrics (attendance, questions, debates) currently show zero values; PRS India link provided for verification when actual data becomes available."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f684343f-82e8-46f8-9ac9-8ac7464a7309",
@@ -21095,7 +21079,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:58:57.481849+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6321f751-1df1-4642-9c36-61c77ad28dbc",
@@ -21151,7 +21135,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:12:03.319223+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e5b25f1c-c5d9-40ed-aed4-ee826bc04945",
@@ -21230,7 +21214,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:59:10.690358+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6f517814-c906-4659-871b-5798cfd4c78d",
@@ -21297,7 +21281,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:59:17.344375+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "11ada01b-f8aa-4ec5-94d5-20a60df803b1",
@@ -21363,7 +21347,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:59:26.767815+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9f1d0467-1678-434d-a89b-5d6d90759b64",
@@ -21487,7 +21471,7 @@
         "Social media and contact details remain unfilled; no reliable sources provided in backlog."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8d09e303-946f-4c9b-aede-a4e7637472ec",
@@ -21566,7 +21550,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:59:43.502001+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f8039d17-edd2-4157-987d-5ce225a8ce19",
@@ -21628,7 +21612,7 @@
         "The input data states Mallikarjun Kharge's relation as 'HUSBAND', but the provided Wikipedia context states Radhakrishna is the 'son-in-law' of Mallikarjun Kharge. No source in the context supports the 'HUSBAND' relation."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "93f00bd7-08cf-4cac-84df-be48a9746bd0",
@@ -21698,7 +21682,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T18:59:55.747282+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "86535f5f-8538-405b-966a-74fa60203a83",
@@ -21769,7 +21753,7 @@
         "Family background and criminal records are empty in input; no citations proposed."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "10276113-ab32-4e14-b103-3e632191c67b",
@@ -21839,7 +21823,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:00:13.259288+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9835b0f5-a0ad-4aca-a6ec-68e6c3a0fe28",
@@ -21918,7 +21902,7 @@
         "source": "NEWS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6e47ee74-98b4-4c6e-b56e-c3064a7a3d3a",
@@ -21981,7 +21965,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:12:50.168362+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "fd51decf-fa50-46ee-8046-9fcb404e5f7b",
@@ -22041,7 +22025,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:00:32.098046+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "4f5582f3-bbd6-4e22-942a-2f8cd5e07409",
@@ -22111,7 +22095,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:00:38.549874+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "4de47f11-01e6-45da-b61b-f2205dc9964e",
@@ -22181,7 +22165,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:00:45.800942+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e294bb2c-4930-476f-9b18-9ca6ddd60b61",
@@ -22241,7 +22225,7 @@
         "Performance metrics (attendance, questions, debates) are zero; PRS Legislative or Lok Sabha official records should be consulted for accurate MP performance data."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "82a93029-f5da-49d6-afa4-df1527387423",
@@ -22297,7 +22281,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:01:01.281983+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b69eb903-a582-445a-8847-0db533a77e47",
@@ -22399,7 +22383,7 @@
         "Criminal records array is empty in INPUT; no citations required."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "80efe371-5c66-4cf4-bbda-379ee3c958fa",
@@ -22480,7 +22464,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:01:18.997665+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7889a310-d766-44a5-a5b2-b9430b567793",
@@ -22546,7 +22530,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:01:27.087087+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "34fba11e-a7db-4731-b9b7-66447a2de345",
@@ -22639,7 +22623,7 @@
         "Performance metrics (attendance: 86, questions: 144, debates: 27) should be verified against current Lok Sabha records as of May 2026."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "28c94191-77e8-4c9a-951c-70f4bdc21299",
@@ -22739,7 +22723,7 @@
         "Performance metrics (attendance 86%, questions 108, debates 44) sourced to PRS India standard; exact current figures should be verified against live PRS database"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7cd209ef-051f-4113-8a53-1d7678e04135",
@@ -22801,7 +22785,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:13:00.047168+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d96eac11-1b36-4e82-960c-3d3976ca1e9f",
@@ -22878,7 +22862,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:01:57.909918+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "2557179e-7a60-4a55-8546-316d240511bf",
@@ -22944,7 +22928,7 @@
         "Using official parliament website for 2024 election win as primary source"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7055d9c2-70f7-487e-a062-5fea7d4a0456",
@@ -23029,7 +23013,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:02:13.987962+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "0a27b786-d54d-4968-a6e1-1aebccca5572",
@@ -23097,7 +23081,7 @@
         "No reliable sources found in provided context for education details (indices 0,1) or 2024 Attingal MP election win for INC candidate; context references BJP politician Sobha Surendran instead"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "5713255e-a00d-4df6-b1f3-9e9138334d82",
@@ -23207,7 +23191,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:02:34.468383+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9d4dbe53-f66a-4c22-bc90-01c41100dfbb",
@@ -23269,7 +23253,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:02:41.432672+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "0305a6b4-c598-4a4d-87f0-e22bec47ec86",
@@ -23348,7 +23332,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:02:50.837104+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "bc6b799e-7394-45da-92b0-4f8079e2acc8",
@@ -23414,7 +23398,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:13:28.004459+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "3f911318-f978-439f-8716-d8d73fd7a91f",
@@ -23487,7 +23471,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:03:02.559665+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6fdf97a2-3cee-4ee6-b896-440d952153ac",
@@ -23563,7 +23547,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c316c994-5da0-4898-8aee-5fba86382855",
@@ -23636,7 +23620,7 @@
         "Family background and criminal records are empty in input; no citations needed."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d6b3fa3e-0b62-4cb1-8bb0-faa0c2388ba1",
@@ -23703,7 +23687,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:03:26.998039+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d92a6ae6-8b01-4f59-83e9-9e6850aa7c1b",
@@ -23784,7 +23768,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "24a2a095-1dd7-4d03-9f7a-c4a0056248cc",
@@ -23842,7 +23826,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "0f716e24-20f5-4f66-be2b-62e22e54e0d9",
@@ -23918,7 +23902,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:14:36.116403+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d9c424a7-0515-47a1-a03d-b55507f34d82",
@@ -23980,7 +23964,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:14:49.001975+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c8fa2379-7dfb-4462-a6d0-a4334ddd14db",
@@ -24060,7 +24044,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b2300484-fc82-458e-8a2c-4518e1726b2b",
@@ -24140,7 +24124,7 @@
         "Performance metrics (attendance: 54%, questions: 10, debates: 3) could not be directly verified from search results for Chhatrapati Shahu Shahaji's 2024 term. PRS India data available is for other MPs or earlier terms. Recommend verification against official PRS India profile once updated."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "5f4ef0f0-d61d-488d-9550-1d46e48df05b",
@@ -24210,7 +24194,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:04:20.044907+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9ef6df58-cac3-47ae-9622-3c5cefc9ae17",
@@ -24278,7 +24262,7 @@
         "Social media handles not available in provided sources"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c6fbd3d6-8df5-4a4f-81cf-ae6ea84deb17",
@@ -24330,7 +24314,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:15:16.989301+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8a3faa84-1e28-4cac-b6a1-e473304e141d",
@@ -24400,7 +24384,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ffc31acd-0105-4293-97a6-295b57404246",
@@ -24466,7 +24450,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:04:49.432286+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d2f4697c-bafb-4be1-836f-1174ddf223e2",
@@ -24537,7 +24521,7 @@
         "Contact and social media information not available in provided sources"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "692b3ddc-1b20-4d2b-91fa-6253bf8a257b",
@@ -24598,7 +24582,7 @@
         "Contact details (email, phone, address) available in search results but not included in INPUT; if needed, GOV_WEBSITE provides official parliamentary contact information."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "233bd631-faa3-4ea8-a387-6648e5bf53cb",
@@ -24672,7 +24656,7 @@
         "No sources found in the provided context for the requested education details (Master's and Professional degrees) or for the MP performance statistics (attendance, questions, debates)."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b77d0c52-2160-41e9-871a-58c92f059ffb",
@@ -24728,7 +24712,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:05:25.565357+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ffe421f5-2a62-4810-9267-5680439836af",
@@ -24830,7 +24814,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:05:37.560567+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "38bfe63c-462c-44fb-8aa2-c2027cdb3034",
@@ -24900,7 +24884,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:05:44.935639+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "787ff5c5-b388-4786-b3bb-9602fea68d3b",
@@ -24981,7 +24965,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:05:50.598451+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "42dc9e5f-166c-4f75-8a8c-b9c24701e14e",
@@ -25051,7 +25035,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:05:57.161241+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "545f2c8b-1e11-4d77-97f0-afae4159961e",
@@ -25122,7 +25106,7 @@
         "Social media handles not verified in provided sources"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "fc207f2a-91f9-4696-9455-7ab2a717e24f",
@@ -25197,7 +25181,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:06:13.709621+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "995b77a4-c25e-48ba-939b-fd831ca59128",
@@ -25252,7 +25236,7 @@
         "No reliable sources found in provided context for education, elections (2024 MP win in Bharatpur for INC mismatches provided Hanuman Beniwal Wikipedia extract), or performance metrics; Bharatpur 2024 result requires ECI/MYNETA verification."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "a111cae4-4c82-4050-b38b-c53c384069f6",
@@ -25313,7 +25297,7 @@
         "Contact information (email, phone, address) and social media handles not available in provided sources."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "2107fc1f-f730-40dc-b2fd-9ddd3fe30b14",
@@ -25379,7 +25363,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8ebe95a8-2964-402f-8b02-3faefccabb71",
@@ -25445,7 +25429,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:06:39.718107+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "5bcd5d2d-a07f-4076-8b4f-93482383cdd7",
@@ -25515,7 +25499,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:06:46.476252+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b1eed177-b465-4a57-9c42-e4068d0dc0b0",
@@ -25574,7 +25558,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:16:56.115462+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "1a4f333d-57ef-41e7-8ae0-8351a7b74112",
@@ -25640,7 +25624,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:07:00.426671+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c2114578-b382-4f5e-8c29-fff8af948a8b",
@@ -25720,7 +25704,7 @@
         "Family and criminal records are empty in input; no citations needed."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "218bc75b-81ee-4b2e-8090-44333a35060f",
@@ -25776,7 +25760,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:07:16.377321+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "cb3ac374-c753-4d73-b1d4-0e2b4cfb31ca",
@@ -25821,7 +25805,7 @@
       "website": null
     },
     "criminal_records": [],
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "07681ded-0c98-4bea-9fa2-b8feed485998",
@@ -25906,7 +25890,7 @@
         "Performance metrics require PRS/Lok Sabha sources (none in context)."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e0194ae6-929b-4c45-9b16-17e7b2130edb",
@@ -25978,7 +25962,7 @@
         "Family background and criminal records are empty in input; no citations needed."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f7b7b0c9-d651-41a5-93fb-0dc7d80dce28",
@@ -26044,7 +26028,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "87663126-86a2-4cd8-90d8-78df2c7a29d1",
@@ -26104,7 +26088,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:17:46.778580+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d712e9d2-ff20-41af-bf3d-d3e10796f573",
@@ -26150,7 +26134,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:07:57.605808+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "90176d1e-e2aa-458c-b7b6-689d2c2b7bc3",
@@ -26219,7 +26203,7 @@
         "Social media handles present on Facebook but URLs not formally cited in reliable sources provided"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "fdce0527-e0e2-47d4-9277-3d7c4e72494b",
@@ -26297,7 +26281,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b9d28dee-0492-4bba-bcea-d842dd3cf563",
@@ -26346,7 +26330,7 @@
         "No sources found in the provided context for performance metrics (attendance, questions, debates)."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c203c876-7bfd-4056-afbd-5cb23fee4e6c",
@@ -26422,7 +26406,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "49fe330a-0cb5-4f83-9686-26d9239e1f9c",
@@ -26478,7 +26462,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:08:40.882437+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8b607968-9db0-4257-8eae-ad149513a362",
@@ -26556,7 +26540,7 @@
         "Father and Uncle remain unnamed in available sources; family relation details sourced from Wikipedia cross-references only"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e2840b0a-127b-428d-89cf-94526f4f5291",
@@ -26627,7 +26611,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:09:07.174745+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c2b1b06b-aefa-4fba-b6c6-79d59501bc2c",
@@ -26693,7 +26677,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:09:16.232581+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "72b0dedd-7275-4ffc-b912-185873f903ec",
@@ -26749,7 +26733,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:09:23.968604+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8d9171b7-a2e9-45cf-999a-d2cc64145805",
@@ -26826,7 +26810,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:09:41.205063+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c26de973-8c83-47e7-80d1-4cb6abd2dc35",
@@ -26892,7 +26876,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:09:59.399069+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "48b1cfa1-d528-4c94-8d8c-a45f4f5d00f7",
@@ -26959,7 +26943,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:10:15.578340+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "076d7a44-61b1-4438-a789-002b03e4c4c7",
@@ -27029,7 +27013,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9fbd6f87-5cd5-4d7b-92a3-459885bb8af5",
@@ -27095,7 +27079,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:19:03.528907+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "a096ffca-6b00-4892-b7b4-c4eb7c8f2de9",
@@ -27185,7 +27169,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:10:48.705987+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "63e22fc2-260e-4505-867a-29dfa298bdb4",
@@ -27245,7 +27229,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "35b9886e-8c0d-4f29-8cf4-481651ba2669",
@@ -27316,7 +27300,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:11:11.447520+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "844fc4d7-47ab-4837-940b-a18bc894b562",
@@ -27386,7 +27370,7 @@
         "Contact information (email, phone, address) not included as per data protection considerations; email manishtewari01@gmail.com appears in CV but not verified as current."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e4c501be-d92b-4b64-a689-92f46cb55620",
@@ -27438,7 +27422,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:19:38.501826+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9c617096-3b73-4127-b6eb-495fd4f90db6",
@@ -27553,7 +27537,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:11:44.858683+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "418b010e-7ee2-4b28-bbdf-50abd55536cd",
@@ -27623,7 +27607,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:12:01.152193+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "cd4a3cff-e171-4c70-a214-e4ef7d92b058",
@@ -27694,7 +27678,7 @@
         "No family or criminal records provided in input"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "54a29113-067a-4a17-9e85-e40611bdefd2",
@@ -27759,7 +27743,7 @@
         "Education and family background arrays are empty; no citations needed."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "1e8166f4-3675-4636-ba6f-7228d19aad7b",
@@ -27826,7 +27810,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:12:26.167200+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "cdd1e4e6-50b7-40ce-ac9f-bf9637a1d869",
@@ -27887,7 +27871,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:12:32.281438+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "06aee50e-9a56-459e-be6d-cf7f97a2b381",
@@ -27944,7 +27928,7 @@
         "No contact information, social media, or family background data available in search results."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "1bbfa554-e66e-4871-82b2-69e4f352e0bc",
@@ -28018,7 +28002,7 @@
         "Contact information and social media handles not found in provided sources."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "09f094bc-591e-43b7-adfa-cc3762c94c97",
@@ -28096,7 +28080,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:13:18.568744+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e3776a3b-b4b5-4858-846b-01e0c8bd3e5d",
@@ -28196,7 +28180,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "fd6b60b7-53ae-490b-bbde-bbf090647eac",
@@ -28268,7 +28252,7 @@
         "Contact information (email, phone, address) and social media profiles are all null; no sources available in provided context."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d7ca56b8-cc15-4ad1-ab6c-406cda745a43",
@@ -28328,7 +28312,7 @@
         "Performance metrics (attendance, questions, debates) not found in search results; recommend querying PRS India or Lok Sabha official records for current 28th LS session data"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "70381ee9-3b2e-4f3c-9603-23a9cbd50abe",
@@ -28404,7 +28388,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:14:17.741107+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "791776d7-33e9-47fc-a590-6f94333778e9",
@@ -28469,7 +28453,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:20:43.195561+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "00d059df-ce13-4573-ac0c-f5a7de7c8ed9",
@@ -28525,7 +28509,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:14:39.976146+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "78e9c488-9b89-450a-b85c-9ebe24eae463",
@@ -28574,7 +28558,7 @@
         "No reliable sources found in provided context for 2024 Pratapgarh MP election win by Samajwadi Party or performance metrics; Wikipedia extract refers to different politician (Satya Pal Singh, Baghpat BJP MP). Web search results unrelated (Shiva deity). Per Wikipedia:Reliable sources [1], cannot cite without reliable, independent published sources."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "27454255-9536-43bc-8495-e399a86bbd43",
@@ -28640,7 +28624,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:15:04.245763+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "84c141e4-9d8f-4093-b166-e31bece37d89",
@@ -28719,7 +28703,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "273dbbd7-bec4-47f5-b822-5c2189a386ea",
@@ -28785,7 +28769,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:15:40.494562+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b4d9f328-047d-4357-bbad-724799806c02",
@@ -28861,7 +28845,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:15:49.139605+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "90b583af-4f25-45ab-8c94-94e9012b87be",
@@ -28916,7 +28900,7 @@
         "No sources found in the provided context for education or performance metrics."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "461c6855-3309-4ace-9808-06c94576de98",
@@ -28977,7 +28961,7 @@
         "Contact and social media information not available in provided sources."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "685da89d-29ab-449d-91a9-95a42143dc53",
@@ -29042,7 +29026,7 @@
         "Performance metrics (attendance: 95, questions: 103, debates: 23) sourced from PRSIndia; exact data period should be verified against current parliamentary records."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d0fe71b7-2ef6-45bc-97e9-8260b87c3fc3",
@@ -29099,7 +29083,7 @@
         "Social media handles not identified in available sources."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "de3b3b76-a0c8-4063-b502-c3b2bfd5e897",
@@ -29169,7 +29153,7 @@
         "source": "NEWS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9f62cd23-9e6a-4f06-8c10-eb320641edce",
@@ -29235,7 +29219,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:16:36.200888+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6b841acc-1ce3-4997-9395-5c3406ff974e",
@@ -29301,7 +29285,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:21:35.346504+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6edd0204-ae10-4cd3-8774-54a5ceced8c9",
@@ -29371,7 +29355,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:21:50.083828+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "687bea00-f870-4d16-ba48-d015db9fb781",
@@ -29431,7 +29415,7 @@
         "source": "MYNETA"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "054f52fe-d56d-4ead-b17a-a1de9b2cb948",
@@ -29528,7 +29512,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "66188d0c-e6bd-423c-942d-ee0d4d5cd65e",
@@ -29574,7 +29558,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:17:32.009813+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b4ee3a17-b7c6-4fee-b3df-01ff28cefaa3",
@@ -29649,7 +29633,7 @@
         "Contact information (email, phone, address) not available in provided sources; recommend checking official Sansad.in profile or constituency office records."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f0e2e1c0-04ba-4978-8f62-1561ba64fcf7",
@@ -29721,7 +29705,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:17:59.453643+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d98be1ae-d9a4-41c1-ad80-48620b8d121f",
@@ -29787,7 +29771,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "3e88bd4e-c59a-485e-8936-88a2c5dd70a7",
@@ -29847,7 +29831,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "54e87adb-fc01-483a-8c35-e1f875bcd6a7",
@@ -29907,7 +29891,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:18:22.084629+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "028da76b-70aa-4140-b21d-ed453af39a05",
@@ -29959,7 +29943,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:23:11.292603+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "72206a8d-ffcc-44e7-95f1-e9369afa5b08",
@@ -30004,7 +29988,7 @@
       "youtube": null,
       "website": null
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "40e8c9a1-648b-4523-818c-07296b6a7723",
@@ -30074,7 +30058,7 @@
         "Performance metrics (attendance: 52%, questions: 26, debates: 6) derived from PRS India tracking data for 18th Lok Sabha; exact calculation period should be verified against official PRS records"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e8716966-e90e-4c53-8491-4cf7aeb7d341",
@@ -30144,7 +30128,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:18:50.716457+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "bb14bdfb-906f-4123-9547-3d9a1d2baf64",
@@ -30212,7 +30196,7 @@
         "Contact information (email, phone, address) not found in search results"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "62660d52-9527-40d5-b578-13ad3dc08aab",
@@ -30278,7 +30262,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:19:07.345864+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c8757260-119c-45f0-9e7f-59ddd3961604",
@@ -30392,7 +30376,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7d0775bc-b88c-4f3c-abbf-997bc3a0e19a",
@@ -30460,7 +30444,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "07eb1659-c282-4f8f-b6b2-238218aa6170",
@@ -30522,7 +30506,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:24:06.873800+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c304d3c9-bc9d-493d-a11d-5af7fb29deb6",
@@ -30579,7 +30563,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:19:33.459437+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "684048b0-779f-4b61-a264-ba3f399e2b85",
@@ -30634,7 +30618,7 @@
         "No specific source found for high school education or parliamentary performance (attendance, questions, debates) in the provided context."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c628c16b-e11a-409a-8197-6cb5204c08d5",
@@ -30715,7 +30699,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:19:58.752773+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6f6a72c2-2008-4684-a207-5373430b5332",
@@ -30781,7 +30765,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e0c0af33-572c-4b95-97bf-3d95621989d1",
@@ -30861,7 +30845,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:20:23.327501+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "4c13c358-4ec7-4e27-83c5-d9b480bef7be",
@@ -30946,7 +30930,7 @@
         "Social media handles not confirmed in provided sources."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "300ebbcf-9dfc-4b4a-966d-1b13e998e7d7",
@@ -31016,7 +31000,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:20:51.290958+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6aff2170-bd57-46c8-84c0-a59106c1fc33",
@@ -31093,7 +31077,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:21:08.485984+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c53bbd20-697f-4cbd-921b-2c3f66ee3cc2",
@@ -31146,7 +31130,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:24:45.192029+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e986d28e-1bf8-4039-b9b9-7d6b29f605d9",
@@ -31223,7 +31207,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:21:23.156437+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "77627274-2f24-49d3-97dc-1199e39dfa03",
@@ -31273,7 +31257,7 @@
       "youtube": null,
       "website": null
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c85acfde-0246-4ed9-970b-de10eedb7bdd",
@@ -31333,7 +31317,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:21:58.916757+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ec710808-ab67-4343-b6e8-464d8524e667",
@@ -31389,7 +31373,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:25:08.890763+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "2fca21ff-1a74-422d-ab8b-dd5185cd9700",
@@ -31435,7 +31419,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:25:22.635453+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "63266909-28a2-4b9b-96b6-6dd83fa2d8b0",
@@ -31505,7 +31489,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:22:19.550593+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "5601d9a4-0c50-48e7-90b3-830cdcd560ac",
@@ -31571,7 +31555,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:22:27.644104+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b3ef04e0-14e6-42b2-8b2b-f10083209955",
@@ -31662,7 +31646,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:25:41.308833+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7c479ad3-072c-456c-80b5-7ac1d147772e",
@@ -31708,7 +31692,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:22:51.712964+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d913729b-7547-47ae-b9c4-c605d67a1417",
@@ -31769,7 +31753,7 @@
         "Contact information (email, phone, address) not available in provided sources"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "404aa3f2-72b1-4944-a1c9-cc883c930057",
@@ -31852,7 +31836,7 @@
         "Contact details (email, phone, address) not available in public sources provided."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "85e9fc98-9572-4fde-b591-fd3d4c964693",
@@ -31922,7 +31906,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:23:14.129727+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8c9942dd-91c1-474f-899b-bd8d2de6339c",
@@ -31998,7 +31982,7 @@
         "Family background and criminal records are empty in input; no citations proposed."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6c1ed6f4-c5be-4397-8d31-067c01a91459",
@@ -32077,7 +32061,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:23:40.038912+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ad544d6b-9120-41dd-9a0d-37f5150d3b43",
@@ -32160,7 +32144,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:23:46.031090+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "2e83fdbf-fdf3-49f3-b011-9c5280b4c454",
@@ -32250,7 +32234,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:24:03.284131+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e06b262a-7f0b-481a-9935-287d154915d1",
@@ -32315,7 +32299,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:25:57.498071+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d4d2eca2-a5a6-4691-aace-ea6af91c0831",
@@ -32380,7 +32364,7 @@
         "No direct ECI results link for 2024 Kancheepuram MP election found in provided context; used 2021 TN assembly ECI link as proxy for Tamil Nadu elections. Education details require primary sources like affidavits (e.g., MYNETA) not available here."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "dda93d36-3c95-4220-a65e-5bcb3f94cd7e",
@@ -32436,7 +32420,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:26:13.931754+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c938f357-96e7-4e26-9316-08aea21a9f3e",
@@ -32512,7 +32496,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:26:24.828785+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "4cba6195-a6bd-464b-860f-d1cab5a09c6c",
@@ -32588,7 +32572,7 @@
         "No family, criminal, contact, or social media data provided in input; no citations proposed for these sections."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b73a766b-b7a8-4ce1-95a1-abd83df01fc2",
@@ -32634,7 +32618,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:25:13.120957+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "387e0927-1895-487d-a584-4895d19914cf",
@@ -32700,7 +32684,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:25:32.679767+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8bfa68f7-83b9-49c0-93c1-458a52090061",
@@ -32776,7 +32760,7 @@
         "Family background and criminal records are empty in input; no citations needed"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "dc2e0564-6fff-47cf-9de0-1a66160a3979",
@@ -32839,7 +32823,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:26:37.104097+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ec9ba8b7-7b35-4d78-b274-b52e0a6ec281",
@@ -32912,7 +32896,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "64051d72-e1dd-4e26-b19c-ef5f29d4bde0",
@@ -32972,7 +32956,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:26:11.487635+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7fd8856c-c4ac-4fda-b430-92ab4e1b7f3f",
@@ -33018,7 +33002,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:27:12.164863+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e5c52dc0-b9ed-46c6-9ee2-bd286f9e23d2",
@@ -33068,7 +33052,7 @@
       "phone": null,
       "address": null
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "a8626455-a7ff-43e4-bf62-b93ef35b63f8",
@@ -33134,7 +33118,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:26:29.637285+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b3d34e7d-b68e-40b9-9c97-a09b07023842",
@@ -33216,7 +33200,7 @@
         "Performance metrics (attendance, questions, debates) sourced from Lok Sabha official member biography page."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b677eba9-c271-454f-98ba-330b98fe9bc1",
@@ -33286,7 +33270,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:26:55.311713+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "62f74755-6893-4e49-8300-bbde35ac4128",
@@ -33353,7 +33337,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:27:42.351621+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "3e236ca9-c545-48c4-8574-9fca6e6c883c",
@@ -33445,7 +33429,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:27:09.241801+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "260986c0-6749-4c3c-89ae-bf6613c60fb8",
@@ -33515,7 +33499,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:27:16.513503+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6fcf9498-7687-4450-9b50-5069831191f1",
@@ -33602,7 +33586,7 @@
         "Education details do not match provided search results (B.Sc., B.L. from Andhra University per [3]); no sources found for Purdue/Long Island. Election 2024 win unverified in results (father won pre-2012)."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "1d366758-5c40-446f-8e45-9c9ee5c77383",
@@ -33668,7 +33652,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:27:39.145343+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "a74d0f3f-eebb-4a06-bc1e-ec1f5a00e5d8",
@@ -33734,7 +33718,7 @@
         "Education details (Purdue, Stanford) and performance metrics (attendance, questions, debates) for Mathukumilli Sribharat are not available in the provided context."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "489ca34f-34b9-4599-9773-7af5c4d5de49",
@@ -33780,7 +33764,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:27:55.732052+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9cef977b-867c-4897-aa7a-39d03a2e1d28",
@@ -33850,7 +33834,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:28:02.334958+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "5e3d4255-3438-413a-a5c4-53ffaaa0c302",
@@ -33923,7 +33907,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:28:11.607077+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9c4ac2a8-cba7-40ba-ae37-f0bd715c8445",
@@ -33975,7 +33959,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:28:17.338052+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "83f781b2-2644-4716-b307-3a5d742ebbf8",
@@ -34050,7 +34034,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "9d3bf0cf-6f41-483d-bd68-c7b5a56fefce",
@@ -34116,7 +34100,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:28:28.706515+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "74c8354a-9e66-4efa-b535-42a16c0d74a1",
@@ -34162,7 +34146,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:28:35.114763+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "13ddd7c0-614e-4268-bd23-c2804906a63e",
@@ -34225,7 +34209,7 @@
         "Social media handles (Twitter, Facebook, Instagram, YouTube) found in search results but not included in input social_media object; website URL provided in input appears valid but unverified."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "a66f2aec-4e6d-4edf-8eea-909decdb32d2",
@@ -34288,7 +34272,7 @@
         "Family background and criminal records are empty; no sources needed."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "91e53db4-0cbe-4326-b511-2bc3e6c130ee",
@@ -34349,7 +34333,7 @@
         "Contact and social media information not found in reliable sources provided."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "10421deb-282b-4a89-b832-89d14b591a53",
@@ -34415,7 +34399,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:29:13.555834+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "4469cad0-85bc-42ea-9ecc-2477adc77920",
@@ -34475,7 +34459,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:29:19.332823+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e8249871-9be7-48fc-b388-1f0ef191871e",
@@ -34545,7 +34529,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:29:26.563292+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "90b61a5a-9cba-4b08-8623-828c21df2497",
@@ -34604,7 +34588,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "2d841098-3f69-47ab-94f3-1cc52867f39f",
@@ -34661,7 +34645,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:29:07.513609+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d8eb8fa5-6bbb-49bf-b3b3-be177ad38df4",
@@ -34737,7 +34721,7 @@
         "Contact email and phone not found in search results; phone number 9431020000 appears in one source but cannot be independently confirmed as current/official."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d05dc5f6-e41a-4ee9-81b7-5d022a81dfd4",
@@ -34797,7 +34781,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:30:05.727788+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "34d60740-5c14-476f-b224-07c761608b26",
@@ -34867,7 +34851,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:30:11.955662+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "dfe6bfdd-e0ac-430a-9cc0-a441f873a301",
@@ -34946,7 +34930,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6fe6b17d-0a3c-4e3b-90a1-9f9972356875",
@@ -35017,7 +35001,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:29:34.695645+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "16a45e94-7cc7-49f8-a1f4-7d138337e5c3",
@@ -35088,7 +35072,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:30:42.338682+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "cbce2ae4-8e22-4c7f-8936-6faa76b09b18",
@@ -35140,7 +35124,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:29:48.902102+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "035ddbfb-3bd6-41ef-bfc6-fa60fef9604f",
@@ -35206,7 +35190,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:30:54.114454+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "94bad038-cd40-4639-8181-dc9d795ee862",
@@ -35252,7 +35236,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:31:01.897063+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6902cef3-056b-4957-83d6-b98712232dc9",
@@ -35338,7 +35322,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:31:19.102316+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "95be1a9f-8971-4fc6-8d15-63b039a46fc6",
@@ -35437,7 +35421,7 @@
         "Performance metrics (attendance 86%, questions 138, debates 21) attributed to PRS India based on search result reference; direct PRS link not provided in backlog"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "002ec4b9-46da-487b-a57f-53a5c18bf568",
@@ -35503,7 +35487,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "bebd2bbb-b406-46f9-a56f-82a40fb13891",
@@ -35555,7 +35539,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:31:50.302535+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "b7e94ca8-9273-4227-ae47-df534d0057f7",
@@ -35611,7 +35595,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:32:05.796948+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "769f6f95-8d51-4ced-8c52-635809cfdfef",
@@ -35676,7 +35660,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:32:12.965010+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "af409c77-9269-42af-9948-21e6333c6abd",
@@ -35741,7 +35725,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:32:20.273709+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "5a6315e9-57df-4d01-89cd-9b903c85e706",
@@ -35808,7 +35792,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:30:39.614811+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "cb723a4c-693f-447c-82c9-a8a55d234900",
@@ -35878,7 +35862,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:32:32.425097+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e6eb46c1-be84-4ab2-a153-7df5f732f23e",
@@ -35951,7 +35935,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:30:53.419976+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c22bbca4-019e-4fcb-9ef4-414e935bc767",
@@ -36011,7 +35995,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:32:44.193897+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "268ebfc1-89f0-4930-8fc0-7cf1d95330b2",
@@ -36071,7 +36055,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:33:04.266210+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d491b263-7612-4ab6-a952-bc1457c8bc88",
@@ -36136,7 +36120,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:31:03.378922+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "17fb79f2-fe1a-4c98-b82c-f6cca5ec2ca4",
@@ -36230,7 +36214,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:33:25.872565+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "81248818-9adf-4d0e-bdd9-3ee424c3d321",
@@ -36299,7 +36283,7 @@
         "No ECI or official election source for 2024 Shirur win; Wikipedia extract confirms current MP status but lacks specifics."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8e4c9fdb-578d-4a56-bb95-96b8335bf062",
@@ -36375,7 +36359,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:31:26.391980+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "cf87da41-6ab0-473a-a9cd-93bf3f837538",
@@ -36427,7 +36411,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:31:40.221371+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "53e63b11-c172-4124-adef-83bec7521110",
@@ -36484,7 +36468,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:33:52.815867+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ab0a5c41-6f61-4b62-9cde-9b56cd2e2816",
@@ -36554,7 +36538,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:33:58.886366+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8b9fef56-c1d3-42a6-bce1-4a87ba75ba36",
@@ -36620,7 +36604,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:32:00.501523+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "d77cb65c-c8dc-4b2d-b459-bcfa43c7cfd5",
@@ -36676,7 +36660,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:34:10.958152+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "3233a747-aa26-4681-ac3d-2cd1c299ac0c",
@@ -36746,7 +36730,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:32:12.190691+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e78d8931-f861-4fa5-b638-cffaba1954ac",
@@ -36801,7 +36785,7 @@
         "No specific sources found in the provided context for education details or MP performance metrics (attendance, questions, debates) for Ravindra Waikar."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f67cda04-becf-4816-afd1-bbda391f375e",
@@ -36857,7 +36841,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:34:37.860420+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8ec33d99-0f1f-4116-a2fc-0b7245396ee9",
@@ -36927,7 +36911,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "3d2d191d-a0cd-4861-aefe-1eb5b6b4b398",
@@ -37001,7 +36985,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "56f2c6b2-f2a3-4ab1-b359-a4bb3e0b4f29",
@@ -37082,7 +37066,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:35:06.469466+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "27110978-2ed9-484b-8b84-3d50db1699e6",
@@ -37145,7 +37129,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:35:15.158758+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "73cbf5c0-cf08-41cc-97c4-fbdcbed555d9",
@@ -37224,7 +37208,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:35:21.484871+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "2de80345-68da-4249-8778-88d79a0525b6",
@@ -37286,7 +37270,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:35:26.426566+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "248dce01-ccb6-46cf-8533-c765ede03953",
@@ -37356,7 +37340,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:35:33.876029+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c1cdc775-083d-40e9-973e-8b34f0dc6546",
@@ -37438,7 +37422,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "3582dfab-e5b4-4b6c-81bf-21d7eb9b56a5",
@@ -37490,7 +37474,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:33:10.513087+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "77049bed-aeb1-43f1-9081-3b1853f85ad4",
@@ -37566,7 +37550,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:36:02.854660+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7284fe52-1ad0-42c6-9eb1-7646bb81bc7f",
@@ -37651,7 +37635,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:36:20.281683+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "2e6204b7-f922-4800-b19f-e0dd108f647f",
@@ -37726,7 +37710,7 @@
         "Contact and social media information not found in provided sources; recommend direct outreach to Lok Sabha or RJD party office."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "2d2ae559-b625-466c-a959-d3fd6d8eb03e",
@@ -37797,7 +37781,7 @@
         "Performance metrics (attendance, questions, debates) sourced from StockLens aggregator; primary Sansad.in links preferred but not directly accessible in provided context"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "4f04f83e-826b-41f8-939e-b8e96123f3a9",
@@ -37863,7 +37847,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c4265d55-17a0-464b-aa3c-f2a2a630657b",
@@ -37909,7 +37893,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:36:57.639006+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "ea316a21-6bb6-4644-82ff-679b402c8c83",
@@ -37961,7 +37945,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:37:04.192787+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "74da586b-8bc0-4d05-92ed-80dabec226b0",
@@ -38027,7 +38011,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:37:11.372603+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e0cb6e6e-c7cd-4197-8a66-594c0ce272cb",
@@ -38073,7 +38057,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:37:16.377779+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6f1e2616-ea87-401a-942d-e8692ad241e6",
@@ -38148,7 +38132,7 @@
         "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "3ee33186-4855-430e-b21b-dc445a1398af",
@@ -38227,7 +38211,7 @@
         "Contact and social media information not found in provided sources."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "35cf2662-f4cb-4590-bd4d-d90187c2dc8e",
@@ -38337,7 +38321,7 @@
         "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "5538dd52-344c-4e71-a994-00c35e97698e",
@@ -38411,7 +38395,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:38:10.855579+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "1d1fbc96-3903-42d1-97c4-68367048752f",
@@ -38494,7 +38478,7 @@
         "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "3b71714e-1b23-4874-bead-7e57d0751503",
@@ -38568,7 +38552,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:34:08.474866+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6f543775-e1ae-4cde-9717-f62fcf4a280c",
@@ -38635,7 +38619,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:34:28.253529+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "97992a68-6d24-4f14-97fd-6ceeb8667bf8",
@@ -38701,7 +38685,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:39:24.069987+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8c29c92c-6b28-4a52-8ded-711ee29698ac",
@@ -38785,7 +38769,7 @@
         "Website citation provided from available sources; no verified email, phone, or social media accounts found in search results."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "21b85902-cf91-4f29-8391-87e4648ef819",
@@ -38843,7 +38827,7 @@
         "Social media handles not verified in provided sources"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "af44d0d3-1183-40f6-9ca2-b9b761b7819d",
@@ -38916,7 +38900,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8ca0cb7b-e361-499a-9286-c42aafa0837f",
@@ -38995,7 +38979,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "661db878-6b61-4c56-8e43-a812bb8f08e5",
@@ -39050,7 +39034,7 @@
         "No reliable sources found in provided context for education (Bihar College of Engineering/NIT Patna) or 2024 election victory details (prefer ECI/MYNETA). Performance metrics require PRS/Lok Sabha sources."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "747a6dad-fbdf-4a0b-8386-afc5dc45ec06",
@@ -39146,7 +39130,7 @@
     "citation_audit": {
       "last_run": "2026-05-18T17:35:24.526707+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "42819619-b599-4abc-bc1e-4c47f3eea718",
@@ -39215,7 +39199,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:40:32.678844+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6c1142a9-febf-4998-b68a-b2b0b52b9472",
@@ -39308,7 +39292,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8414bf5d-be5c-411d-8351-456119ef22d1",
@@ -39360,7 +39344,7 @@
         "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7b222ff2-8728-47c0-a7ee-0864e6275f70",
@@ -39425,7 +39409,7 @@
         "No education, family, criminal, contact, or social media information provided in input; no citations proposed for these sections."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c04e86f8-0fb0-47f6-9cec-2683fa619c81",
@@ -39511,7 +39495,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:41:04.423106+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "bd7c8b58-1c79-4b16-9f51-37382e052914",
@@ -39594,7 +39578,7 @@
         "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "bf5c9242-ce40-4ab7-bca0-50abb2d2022a",
@@ -39646,7 +39630,7 @@
         "Education and family background arrays are empty in input; no citations needed."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "458872a6-a97c-41c1-828b-de2ae6d8ec14",
@@ -39697,7 +39681,7 @@
         "The provided context about 'Muslim Gurjars' and the 'Mian' title does not contain specific information regarding the education, election results, or parliamentary performance of an individual Indian politician. Therefore, no citations could be generated for the requested slots."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "42897ce6-eb13-4515-97f2-92ae4ecf697b",
@@ -39756,7 +39740,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:41:38.420085+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "30b01fd7-542e-4590-99bc-b4bc943e6889",
@@ -39815,7 +39799,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:41:56.853911+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "036ccc44-8cde-4a24-ba0b-5cb70cda4d27",
@@ -39908,7 +39892,7 @@
         "Performance metrics (attendance, questions, debates) require Lok Sabha/PRS official records; not available in provided sources."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e6699564-0852-4070-ae9c-4a0d01e4aa2a",
@@ -39982,7 +39966,7 @@
         "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "37e61de6-09e3-44b8-9f1e-9a1e1a044353",
@@ -40090,7 +40074,7 @@
         "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "34d3b50c-937b-46c1-a5d8-02a03a3b8a9b",
@@ -40170,7 +40154,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:42:38.838123+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "f13ead8e-bbf0-4523-96ad-c1d7297e1b5a",
@@ -40238,7 +40222,7 @@
         "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "a97bf87b-705f-4298-a4fe-6f8b76aa13da",
@@ -40311,7 +40295,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:43:09.661209+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "896a4e45-4ca9-4c88-ba2d-f65c5fba5266",
@@ -40374,7 +40358,7 @@
       "phone": "011-23014011",
       "address": "6, Safdarjung Lane, New Delhi - 110003"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "1c810df2-20c8-48b9-a234-aff7c3768af3",
@@ -40477,7 +40461,7 @@
         "Performance metrics (attendance, questions, debates) sourced to official Lok Sabha member biography page."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "721eb83e-d66e-4ddb-9d70-62b4fc7975b3",
@@ -40556,7 +40540,7 @@
         "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "8875a8ac-1a8f-4efa-ba2c-d0b9a0524f8b",
@@ -40635,7 +40619,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:43:50.556324+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "4a4535a6-cfd4-4758-abe1-cbd6df84775c",
@@ -40732,7 +40716,7 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "98501706-88dd-4366-bb29-655686e2c98f",
@@ -40803,7 +40787,7 @@
         "Contact information (email, phone, address): Not available in provided sources."
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c8302772-03a3-4950-8b43-4f35a6a623d3",
@@ -40939,7 +40923,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:44:39.671839+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "248a8fb5-0ee2-40c7-b730-401c30cf4296",
@@ -40994,7 +40978,7 @@
         "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6cd018ad-5c05-43f2-ade8-3caa894f89fe",
@@ -41098,7 +41082,7 @@
         "source": "NEWS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "c0609827-27bc-42c7-a3d3-3a0ca41c03a7",
@@ -41184,7 +41168,7 @@
         "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "96fa1bc9-96f0-4249-b7f7-8c7cc72ebc58",
@@ -41266,7 +41250,7 @@
         "Social media handles not confirmed in provided sources"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "824a82b3-ec67-4c72-a972-8551cf2d2dfb",
@@ -41318,7 +41302,7 @@
       "address": null
     },
     "criminal_records": [],
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "a4f0587a-0b9e-4ac5-9864-9e43ea5b3b5d",
@@ -41367,7 +41351,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:45:59.274200+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "75ba1bb1-089f-410b-896b-6039992a5204",
@@ -41429,7 +41413,7 @@
         "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "7b7d0437-884f-45fd-bff6-b2b0ff603caa",
@@ -41474,7 +41458,7 @@
     },
     "family_background": [],
     "criminal_records": [],
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "0693fe93-197b-5f02-a242-0aaf7eb359bd",
@@ -41571,7 +41555,7 @@
         "Performance metrics (attendance, questions, debates) require verification from Lok Sabha e-Parliament portal"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "6c564319-bd44-5de3-b383-bb4cf47a3163",
@@ -41653,7 +41637,7 @@
     "citation_audit": {
       "last_run": "2026-05-13T19:46:57.726244+00:00"
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "483e397c-ec8c-56de-b6ae-78d627680122",
@@ -41734,7 +41718,7 @@
         "summary_citation removed: Wikipedia bio does not align with stored summary or Wikipedia bundle unavailable"
       ]
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e541bf90-0d7f-5c14-a316-e173630c41f0",
@@ -41853,7 +41837,7 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
     "id": "e194eec4-569d-537d-862c-fe0a718ed467",
@@ -42001,6 +41985,6 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-05-27T18:14:41.708559Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z"
   }
 ]
