@@ -152,6 +152,11 @@ class Politician(BaseModel):
         None,
         description="Optional audit metadata: issues, mismatches, last_run",
     )
+    citation_score: Optional[float] = Field(
+        None,
+        description="Fraction of non-null facts that carry a citation, in [0, 1]. "
+        "Computed server-side; 0.0 means fully unverified.",
+    )
 
     class Config:
         json_schema_extra = {

@@ -115,6 +115,11 @@ export interface Politician {
         Record<"attendance" | "questions" | "debates", Citation>
     > | null
     citation_audit?: Record<string, unknown> | null
+    /**
+     * Fraction of non-null facts that carry a citation, in [0, 1].
+     * Computed server-side; 0.0 (or null/undefined) means fully unverified.
+     */
+    citation_score?: number | null
 }
 
 /** Client-side computed stats */

@@ -29,6 +29,7 @@ import { useAnalytics } from "@/hooks/useAnalytics";
 import { useDeferredMount } from "@/hooks/useDeferredMount";
 import PoliticianPageAnalytics from "./PoliticianPageAnalytics";
 import { toTitleCase } from "@/lib/politicianUtils";
+import VerifiedBadge from "@/components/VerifiedBadge";
 import type { Politician, Citation, CitationSource } from "@/types/politician";
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -1349,13 +1350,16 @@ export default function PoliticianPageClient({
                 {toTitleCase(p.constituency)} · {p.state} · {party}
               </p>
 
-              {/* Updated chip */}
-              {p.updated_at && formatUpdatedAt(p.updated_at) && (
-                <span className="mt-3 inline-flex items-center gap-1 text-xs text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 rounded-full px-2.5 py-1">
-                  <Clock size={11} />
-                  {formatUpdatedAt(p.updated_at)}
-                </span>
-              )}
+              {/* Updated chip + Verified badge */}
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                {p.updated_at && formatUpdatedAt(p.updated_at) && (
+                  <span className="inline-flex items-center gap-1 text-xs text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 rounded-full px-2.5 py-1">
+                    <Clock size={11} />
+                    {formatUpdatedAt(p.updated_at)}
+                  </span>
+                )}
+                <VerifiedBadge score={p.citation_score} />
+              </div>
             </div>
           </div>
 

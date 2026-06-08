@@ -60,9 +60,94 @@ class PoliticianService:
 
         return p
 
+    # ---------- CITATION SCORE ----------
+    @staticmethod
+    def compute_citation_score(p: Dict[str, Any]) -> float:
+        """Compute the fraction of non-null facts that carry a citation.
+
+        Returns a float in [0.0, 1.0].  Returns 0.0 when there are no
+        countable items (so callers can treat it as fully unverified).
+
+        Counted items:
+        - Each election record in political_background.elections
+        - political_background.summary (if non-empty)
+        - Each education entry
+        - Each family_background entry
+        - Each criminal_records entry
+        - Each non-null contact field (email, phone, address)
+        - Each non-null social_media field
+        - Each non-zero performance metric (attendance, questions, debates)
+        """
+        total = 0
+        cited = 0
+
+        pb = p.get("political_background") or {}
+
+        # Elections
+        for election in pb.get("elections") or []:
+            total += 1
+            if election.get("citation"):
+                cited += 1
+
+        # Summary
+        if pb.get("summary"):
+            total += 1
+            if pb.get("summary_citation"):
+                cited += 1
+
+        # Education
+        for edu in p.get("education") or []:
+            total += 1
+            if edu.get("citation"):
+                cited += 1
+
+        # Family background
+        for member in p.get("family_background") or []:
+            total += 1
+            if member.get("citation"):
+                cited += 1
+
+        # Criminal records
+        for record in p.get("criminal_records") or []:
+            total += 1
+            if record.get("citation"):
+                cited += 1
+
+        # Contact fields
+        contact = p.get("contact") or {}
+        contact_cit = p.get("contact_citations") or {}
+        for key in ("email", "phone", "address"):
+            if contact.get(key):
+                total += 1
+                if contact_cit.get(key):
+                    cited += 1
+
+        # Social media
+        social = p.get("social_media") or {}
+        social_cit = p.get("social_media_citations") or {}
+        for key in ("twitter", "facebook", "instagram", "linkedin", "youtube", "website"):
+            if social.get(key):
+                total += 1
+                if social_cit.get(key):
+                    cited += 1
+
+        # Performance (MP-only, ignore zero placeholders)
+        performance = p.get("performance") or {}
+        perf_cit = p.get("performance_citations") or {}
+        for key in ("attendance", "questions", "debates"):
+            if performance.get(key):
+                total += 1
+                if perf_cit.get(key):
+                    cited += 1
+
+        if total == 0:
+            return 0.0
+        return cited / total
+
     # ---------- ADD METADATA ----------
     def _attach_metadata(self, p: Dict[str, Any]) -> Dict[str, Any]:
         p["updated_at"] = p.get("lastUpdated")
+        p["citation_score"] = self.compute_citation_score(p)
         return p
 
     # ---------- SLUG ----------
