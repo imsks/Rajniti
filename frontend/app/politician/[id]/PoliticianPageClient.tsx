@@ -18,6 +18,7 @@ import {
   Phone,
   MapPin,
   Clock,
+  ShieldCheck,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { CitationLink } from "@/components/CitationLink";
@@ -1349,13 +1350,33 @@ export default function PoliticianPageClient({
                 {toTitleCase(p.constituency)} · {p.state} · {party}
               </p>
 
-              {/* Updated chip */}
-              {p.updated_at && formatUpdatedAt(p.updated_at) && (
-                <span className="mt-3 inline-flex items-center gap-1 text-xs text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 rounded-full px-2.5 py-1">
-                  <Clock size={11} />
-                  {formatUpdatedAt(p.updated_at)}
-                </span>
-              )}
+              {/* Chips row: Updated + Verified */}
+              <div className="mt-3 flex flex-wrap gap-2">
+                {p.updated_at && formatUpdatedAt(p.updated_at) && (
+                  <span className="inline-flex items-center gap-1 text-xs text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 rounded-full px-2.5 py-1">
+                    <Clock size={11} />
+                    {formatUpdatedAt(p.updated_at)}
+                  </span>
+                )}
+                {p.facts_verified_pct != null && (
+                  <span
+                    className={`inline-flex items-center gap-1 text-xs font-semibold rounded-full px-2.5 py-1 ${
+                      p.facts_verified_pct === 0
+                        ? "bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400"
+                        : p.facts_verified_pct >= 75
+                        ? "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300"
+                        : p.facts_verified_pct >= 60
+                        ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300"
+                        : "bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-300"
+                    }`}
+                  >
+                    <ShieldCheck size={11} />
+                    {p.facts_verified_pct === 0
+                      ? "Unverified — help us source this"
+                      : `${p.facts_verified_pct}% verified`}
+                  </span>
+                )}
+              </div>
             </div>
           </div>
 

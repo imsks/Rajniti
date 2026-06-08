@@ -152,6 +152,10 @@ class Politician(BaseModel):
         None,
         description="Optional audit metadata: issues, mismatches, last_run",
     )
+    facts_verified_pct: Optional[int] = Field(
+        None,
+        description="0-100 integer: percentage of non-null fields backed by a citation. Computed server-side.",
+    )
 
     class Config:
         json_schema_extra = {

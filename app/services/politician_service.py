@@ -65,6 +65,69 @@ class PoliticianService:
         p["updated_at"] = p.get("lastUpdated")
         return p
 
+    # ---------- FACTS VERIFIED ----------
+    def _compute_facts_verified_pct(self, p: Dict[str, Any]) -> int:
+        """Return 0-100 integer: (cited fields) / (total non-null checkable fields)."""
+        total = 0
+        cited = 0
+
+        pb = p.get("political_background") or {}
+
+        for election in pb.get("elections") or []:
+            total += 1
+            if election.get("citation"):
+                cited += 1
+
+        if pb.get("summary"):
+            total += 1
+            if pb.get("summary_citation"):
+                cited += 1
+
+        for edu in p.get("education") or []:
+            total += 1
+            if edu.get("citation"):
+                cited += 1
+
+        for member in p.get("family_background") or []:
+            total += 1
+            if member.get("citation"):
+                cited += 1
+
+        for crime in p.get("criminal_records") or []:
+            total += 1
+            if crime.get("citation"):
+                cited += 1
+
+        contact = p.get("contact") or {}
+        contact_citations = p.get("contact_citations") or {}
+        for field in ("email", "phone", "address"):
+            if contact.get(field):
+                total += 1
+                if contact_citations.get(field):
+                    cited += 1
+
+        social = p.get("social_media") or {}
+        social_citations = p.get("social_media_citations") or {}
+        for field in ("twitter", "facebook", "instagram", "linkedin", "youtube", "website"):
+            if social.get(field):
+                total += 1
+                if social_citations.get(field):
+                    cited += 1
+
+        perf_citations = p.get("performance_citations") or {}
+        for field in ("attendance", "questions", "debates"):
+            if perf_citations.get(field):
+                total += 1
+                cited += 1
+
+        if total == 0:
+            return 0
+        return round((cited / total) * 100)
+
+    def _attach_verification(self, p: Dict[str, Any]) -> Dict[str, Any]:
+        p["facts_verified_pct"] = self._compute_facts_verified_pct(p)
+        return p
+
     # ---------- SLUG ----------
     def _ensure_slugs(self) -> None:
         if self._slugs_ensured:
@@ -125,21 +188,21 @@ class PoliticianService:
         data = self._load(election_type)
         self._attach_slugs_to_records(data)
 
-        return [self._attach_metadata(self._attach_performance(p)) for p in data]
+        return [self._attach_metadata(self._attach_verification(self._attach_performance(p))) for p in data]
 
     def get_all_politicians(self) -> List[Dict[str, Any]]:
         self._ensure_slugs()
         data = self._load("MP") + self._load("MLA")
         self._attach_slugs_to_records(data)
 
-        return [self._attach_metadata(self._attach_performance(p)) for p in data]
+        return [self._attach_metadata(self._attach_verification(self._attach_performance(p))) for p in data]
 
     def get_by_id(self, politician_id: str) -> Optional[Dict[str, Any]]:
         self._ensure_slugs()
         pid = str(politician_id).strip()
         p = self._by_id.get(pid) or self._by_id.get(pid.lower())
 
-        return self._attach_metadata(self._attach_performance(p)) if p else None
+        return self._attach_metadata(self._attach_verification(self._attach_performance(p))) if p else None
 
     def get_by_slug(self, politician_slug: str) -> Optional[Dict[str, Any]]:
         self._ensure_slugs()
@@ -151,7 +214,7 @@ class PoliticianService:
             if short_match:
                 p = self._by_short_id.get(short_match.group(1).lower())
 
-        return self._attach_metadata(self._attach_performance(p)) if p else None
+        return self._attach_metadata(self._attach_verification(self._attach_performance(p))) if p else None
 
     def search(
         self,
@@ -193,7 +256,7 @@ class PoliticianService:
                 ):
                     continue
 
-            results.append(self._attach_metadata(self._attach_performance(p)))
+            results.append(self._attach_metadata(self._attach_verification(self._attach_performance(p))))
 
             if len(results) >= limit:
                 break
@@ -267,7 +330,7 @@ class PoliticianService:
         state_l = state.strip().lower()
 
         return [
-            self._attach_metadata(self._attach_performance(p))
+            self._attach_metadata(self._attach_verification(self._attach_performance(p)))
             for p in data
             if (p.get("state") or "").lower() == state_l
         ]
@@ -296,7 +359,7 @@ class PoliticianService:
             elections = (p.get("political_background") or {}).get("elections") or []
 
             if any((e.get("party") or "").lower() == party_l for e in elections):
-                results.append(self._attach_metadata(self._attach_performance(p)))
+                results.append(self._attach_metadata(self._attach_verification(self._attach_performance(p))))
 
         return results
 

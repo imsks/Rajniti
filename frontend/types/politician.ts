@@ -115,6 +115,8 @@ export interface Politician {
         Record<"attendance" | "questions" | "debates", Citation>
     > | null
     citation_audit?: Record<string, unknown> | null
+    /** 0-100: percentage of non-null fields backed by a citation. Computed server-side. */
+    facts_verified_pct?: number | null
 }
 
 /** Client-side computed stats */
