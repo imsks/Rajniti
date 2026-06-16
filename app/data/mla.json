@@ -20466,19 +20466,29 @@
   },
   {
     "id": "a1d469b5-cfb7-5fa8-a7c9-faa968e44c20",
-    "name": "Sandeep Sahu",
-    "photo": null,
+    "name": "Raghavendra Kumar Singh",
+    "photo": "https://myneta.info/images_candidate/Chhattisgarh2023/4845ce5716d3facef08c1fe7f0b318a3df08b8b4.jpg",
     "state": "Chhattisgarh",
     "constituency": "Akaltara",
     "party": "Indian National Congress",
     "type": "MLA",
-    "education": [],
+    "education": [
+      {
+        "qualification": "Graduate B.S.L.L.B",
+        "institution": "I.L.S.Law College Pune, Pune University",
+        "year_completed": 2010,
+        "citation": {
+          "link": "https://www.myneta.info/Chhattisgarh2023/candidate.php?candidate_id=970",
+          "source": "MYNETA"
+        }
+      } 
+    ],
     "family_background": [],
-    "criminal_records": [],
+    "criminal_records": "Zero",
     "social_media": {
       "twitter": null,
-      "facebook": null,
-      "instagram": null,
+      "facebook": "@rksakaltara",
+      "instagram": "@rksakaltara",
       "linkedin": null,
       "youtube": null,
       "website": null
@@ -20494,18 +20504,18 @@
           "year": 2023,
           "type": "MLA",
           "state": "Chhattisgarh",
-          "constituency": "Kasdol",
+          "constituency": "Akaltara",
           "party": "Indian National Congress",
           "status": "WON",
           "citation": {
-            "link": "https://www.indiatoday.in/elections/chhattisgarh/kasdol-assembly-result-26044",
+            "link": "https://timesofindia.indiatimes.com/elections/assembly-elections/chhattisgarh/constituency-show/akaltara",
             "source": "NEWS"
           }
         }
       ],
-      "summary": "Sandeep Sahu is a Chhattisgarh leader and Member of the Legislative Assembly from Akaltara. The latest available result shows Sandeep Sahu winning the 2023 election from Akaltara as a Indian National Congress candidate (WON). The latest record places Sandeep Sahu in Chhattisgarh with the Indian National Congress ticket for Akaltara.",
+      "summary": "Raghavendra Kumar Singh is a Chhattisgarh leader and Member of the Legislative Assembly from Akaltara. The latest available result shows Raghavendra Kumar Singh winning the 2023 election from Akaltara as a Indian National Congress candidate (WON). The latest record places Raghavendra Kumar Singh in Chhattisgarh with the Indian National Congress ticket for Akaltara.",
       "summary_citation": {
-        "link": "https://en.wikipedia.org/wiki/Sandeep_Sahu",
+        "link": "https://en.wikipedia.org/wiki/Raghavendra_Kumar_Singh",
         "source": "OTHERS"
       }
     },
