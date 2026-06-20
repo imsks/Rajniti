@@ -78,6 +78,23 @@ export interface CrimeRecord {
     citation?: Citation | null
 }
 
+export interface AffidavitAsset {
+    description: string
+    value_inr?: number | null
+    citation?: Citation | null
+}
+
+export interface FinancialDisclosure {
+    total_assets_inr?: number | null
+    total_liabilities_inr?: number | null
+    net_worth_inr?: number | null
+    movable_assets?: AffidavitAsset[] | null
+    immovable_assets?: AffidavitAsset[] | null
+    liabilities?: AffidavitAsset[] | null
+    citation?: Citation | null
+    as_of_election?: string | null
+}
+
 export interface Politician {
     id: string
     name: string
@@ -115,6 +132,8 @@ export interface Politician {
         Record<"attendance" | "questions" | "debates", Citation>
     > | null
     citation_audit?: Record<string, unknown> | null
+    financial_disclosure?: FinancialDisclosure | null
+    source_sync?: Record<string, string> | null
 }
 
 /** Client-side computed stats */

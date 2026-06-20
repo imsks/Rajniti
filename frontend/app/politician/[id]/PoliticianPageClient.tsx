@@ -18,6 +18,7 @@ import {
   Phone,
   MapPin,
   Clock,
+  Wallet,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { CitationLink } from "@/components/CitationLink";
@@ -29,7 +30,13 @@ import { useAnalytics } from "@/hooks/useAnalytics";
 import { useDeferredMount } from "@/hooks/useDeferredMount";
 import PoliticianPageAnalytics from "./PoliticianPageAnalytics";
 import { toTitleCase } from "@/lib/politicianUtils";
-import type { Politician, Citation, CitationSource } from "@/types/politician";
+import type {
+  Politician,
+  Citation,
+  CitationSource,
+  FinancialDisclosure,
+  AffidavitAsset,
+} from "@/types/politician";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -40,6 +47,7 @@ export type PoliticianPageClientProps = {
 
 const SECTION_IDS = [
   "performance",
+  "affidavit",
   "criminal",
   "history",
   "education",
@@ -170,6 +178,25 @@ function formatSource(source?: CitationSource | null): string {
     OTHERS: "Source",
   };
   return source ? (map[source] ?? source) : "Source";
+}
+
+function formatInr(value?: number | null): string {
+  if (value == null) return "—";
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 0,
+  }).format(value);
+}
+
+function hasFinancialDisclosure(fd?: FinancialDisclosure | null): boolean {
+  if (!fd) return false;
+  return (
+    (fd.total_assets_inr != null && fd.total_assets_inr > 0) ||
+    (fd.net_worth_inr != null && fd.net_worth_inr > 0) ||
+    (fd.movable_assets?.length ?? 0) > 0 ||
+    (fd.immovable_assets?.length ?? 0) > 0
+  );
 }
 
 // ── Scroll spy ─────────────────────────────────────────────────────────────
@@ -320,6 +347,7 @@ function EmptyState({ message }: { message: string }) {
 
 const TAB_META: Record<SectionId, { label: string; icon: React.ReactNode }> = {
   performance: { label: "Performance", icon: <BarChart2 size={15} /> },
+  affidavit: { label: "Affidavit", icon: <Wallet size={15} /> },
   criminal: { label: "Criminal", icon: <Scale size={15} /> },
   history: { label: "History", icon: <Landmark size={15} /> },
   education: { label: "Education", icon: <GraduationCap size={15} /> },
@@ -330,15 +358,17 @@ const TAB_META: Record<SectionId, { label: string; icon: React.ReactNode }> = {
 function SectionTabNav({
   active,
   counts,
+  visibleIds,
 }: {
   active: SectionId;
   counts: Partial<Record<SectionId, number>>;
+  visibleIds: readonly SectionId[];
 }) {
   return (
     // sticky below the navbar; NO negative margin — stays within the container width
     <div className="sticky top-16 z-20 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 mb-0">
       <div className="flex overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-        {SECTION_IDS.map((id) => {
+        {visibleIds.map((id) => {
           const { label, icon } = TAB_META[id];
           const count = counts[id];
           const isActive = id === active;
@@ -672,6 +702,101 @@ function PerformanceSection({
           </div>
         </div>
       )}
+    </SectionCard>
+  );
+}
+
+// ── Financial disclosure (MyNeta affidavit) ─────────────────────────────────
+
+function AssetTable({
+  title,
+  rows,
+}: {
+  title: string;
+  rows: AffidavitAsset[];
+}) {
+  if (!rows.length) return null;
+  return (
+    <div className="px-5 pb-4">
+      <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">
+        {title}
+      </h4>
+      <div className="overflow-x-auto rounded-lg border border-gray-100 dark:border-gray-800">
+        <table className="min-w-full text-sm">
+          <thead className="bg-gray-50 dark:bg-gray-800/60 text-left text-xs uppercase text-gray-500">
+            <tr>
+              <th className="px-3 py-2">Description</th>
+              <th className="px-3 py-2 text-right">Value (INR)</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+            {rows.slice(0, 12).map((row, i) => (
+              <tr key={i}>
+                <td className="px-3 py-2 text-gray-700 dark:text-gray-300">
+                  {row.description}
+                </td>
+                <td className="px-3 py-2 text-right font-medium tabular-nums">
+                  {formatInr(row.value_inr)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function FinancialDisclosureSection({
+  disclosure,
+}: {
+  disclosure?: FinancialDisclosure | null;
+}) {
+  if (!hasFinancialDisclosure(disclosure)) return null;
+
+  const fd = disclosure!;
+
+  return (
+    <SectionCard id="affidavit" analyticsSection="financial_disclosure">
+      <SectionHeader
+        logoSrc="/logo/performance.svg"
+        title="Financial disclosure"
+        countLabel={fd.as_of_election ?? undefined}
+      />
+      <div className="px-5 pt-4 pb-2 grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="rounded-xl bg-emerald-50 dark:bg-emerald-900/20 p-4 border border-emerald-100 dark:border-emerald-800/40">
+          <p className="text-xs text-emerald-700 dark:text-emerald-300 font-medium">
+            Total assets
+          </p>
+          <p className="text-lg font-bold text-emerald-900 dark:text-emerald-100 mt-1">
+            {formatInr(fd.total_assets_inr)}
+          </p>
+        </div>
+        <div className="rounded-xl bg-amber-50 dark:bg-amber-900/20 p-4 border border-amber-100 dark:border-amber-800/40">
+          <p className="text-xs text-amber-700 dark:text-amber-300 font-medium">
+            Liabilities
+          </p>
+          <p className="text-lg font-bold text-amber-900 dark:text-amber-100 mt-1">
+            {formatInr(fd.total_liabilities_inr ?? 0)}
+          </p>
+        </div>
+        <div className="rounded-xl bg-blue-50 dark:bg-blue-900/20 p-4 border border-blue-100 dark:border-blue-800/40">
+          <p className="text-xs text-blue-700 dark:text-blue-300 font-medium">
+            Net worth
+          </p>
+          <p className="text-lg font-bold text-blue-900 dark:text-blue-100 mt-1">
+            {formatInr(fd.net_worth_inr)}
+          </p>
+        </div>
+      </div>
+      {fd.citation && (
+        <div className="px-5 pb-3 flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+          <span>Source:</span>
+          <CitationLink citation={fd.citation} label="MyNeta affidavit" />
+        </div>
+      )}
+      <AssetTable title="Movable assets" rows={fd.movable_assets ?? []} />
+      <AssetTable title="Immovable assets" rows={fd.immovable_assets ?? []} />
     </SectionCard>
   );
 }
@@ -1224,11 +1349,16 @@ export default function PoliticianPageClient({
   const summary = p.political_background?.summary;
 
   const tabCounts: Partial<Record<SectionId, number>> = {
+    affidavit: hasFinancialDisclosure(p.financial_disclosure) ? 1 : 0,
     criminal: p.criminal_records?.length ?? 0,
     history: elections.length,
     education: p.education?.length ?? 0,
     family: p.family_background?.length ?? 0,
   };
+
+  const visibleSectionIds = SECTION_IDS.filter(
+    (id) => id !== "affidavit" || hasFinancialDisclosure(p.financial_disclosure),
+  );
 
   const buildReportIssueUrl = () => {
     const pageUrl = typeof window !== "undefined" ? window.location.href : "";
@@ -1368,7 +1498,11 @@ export default function PoliticianPageClient({
         </div>
 
         {/* Sticky section tab nav — no gap between it and sections */}
-        <SectionTabNav active={activeSection} counts={tabCounts} />
+        <SectionTabNav
+          active={activeSection}
+          counts={tabCounts}
+          visibleIds={visibleSectionIds}
+        />
 
         {/* All sections — ref for analytics IntersectionObserver */}
         <div ref={sectionsContainerRef} className="pt-4">
@@ -1377,6 +1511,7 @@ export default function PoliticianPageClient({
             hasData={hasPerformanceData}
             performanceCitations={p.performance_citations}
           />
+          <FinancialDisclosureSection disclosure={p.financial_disclosure} />
           <CriminalRecordsSection records={p.criminal_records} />
           <PoliticalHistorySection
             elections={elections}

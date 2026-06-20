@@ -45,8 +45,14 @@ def _state_name(state_id: str) -> str:
     return STATE_NAMES.get(state_id, "Unknown State")
 
 
-def _make_politician_id() -> str:
-    return str(uuid.uuid5())
+def _make_politician_id(
+    election_type: ElectionType,
+    year: int,
+    state_id: str,
+    constituency_id: str,
+) -> str:
+    payload = f"{election_type}:{year}:{state_id}:{constituency_id}"
+    return str(uuid.uuid5(uuid.NAMESPACE_URL, payload))
 
 
 def _build_politician(

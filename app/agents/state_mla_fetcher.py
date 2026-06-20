@@ -77,6 +77,10 @@ class StateMLAFetcher(BaseAgent):
 
     def run(self, state: str, force: bool = False, dry_run: bool = False) -> Dict[str, Any]:
         """Run the MLA fetcher for a single state using the simple queue approach."""
+        logger.warning(
+            "StateMLAFetcher uses LLM-generated constituency lists (deprecated). "
+            "Prefer: scripts/scrape_election.py (ECI) then scripts/scrape_politician_sources.py"
+        )
         from app.agents.mla_fetcher import run_fetcher
 
         try:

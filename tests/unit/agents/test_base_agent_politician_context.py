@@ -1,4 +1,4 @@
-"""BaseAgent politician context aggregation."""
+"""BaseAgent politician context — primary sources only."""
 
 from unittest.mock import MagicMock, patch
 
@@ -6,56 +6,50 @@ from app.agents.base_agent import BaseAgent
 
 
 @patch("app.agents.base_agent.get_agent_llm")
-def test_gather_politician_context_has_structured_wikipedia(mock_llm_factory) -> None:
+def test_gather_politician_context_uses_field_citations(mock_llm_factory) -> None:
     mock_llm_factory.return_value = MagicMock()
     agent = BaseAgent()
-    wm = MagicMock()
-    wm.politician_wikipedia_bundle.return_value = {
-        "title": "Example MLA",
-        "article_url": "https://en.wikipedia.org/wiki/Example_MLA",
-        "extract": "Example MLA served in Vidhan Sabha.",
-        "external_links": ["https://eci.gov.in/result/sample"],
-    }
-    ws = MagicMock()
-    ws.search_text.return_value = "snippet line"
-    agent._tools = {
-        "wikipedia": wm,
-        "web_search": ws,
-        "web_scraper": MagicMock(),
-    }
 
     ctx = agent._gather_politician_context(
-        {"name": "Example MLA", "state": "Kerala", "type": "MLA"}
+        {
+            "name": "Example MLA",
+            "state": "Kerala",
+            "type": "MLA",
+            "financial_disclosure": {
+                "as_of_election": "Kerala 2021",
+                "citation": {
+                    "link": "https://myneta.info/Kerala2021/candidate.php?candidate_id=1",
+                    "source": "MYNETA",
+                },
+            },
+            "political_background": {
+                "elections": [
+                    {
+                        "year": 2021,
+                        "type": "MLA",
+                        "state": "Kerala",
+                        "constituency": "X",
+                        "party": "Y",
+                        "status": "WON",
+                        "citation": {
+                            "link": "https://results.eci.gov.in/example",
+                            "source": "ECI",
+                        },
+                    }
+                ]
+            },
+        }
     )
 
-    assert "Article URL: https://en.wikipedia.org/wiki/Example_MLA" in ctx
-    assert "Outbound links" in ctx
-    assert "https://eci.gov.in/result/sample" in ctx
-    assert "Web Search Results" in ctx
-    wm.politician_wikipedia_bundle.assert_called_once_with("Example MLA", "Kerala")
+    assert "affidavit:" in ctx
+    assert "election:" in ctx
+    assert "Kerala 2021" in ctx
+    assert "Wikipedia" not in ctx
+    assert "Web Search" not in ctx
 
 
 @patch("app.agents.base_agent.get_agent_llm")
-def test_gather_fallback_plain_wikipedia_when_no_extract(mock_llm_factory) -> None:
+def test_gather_politician_context_empty_without_citations(mock_llm_factory) -> None:
     mock_llm_factory.return_value = MagicMock()
     agent = BaseAgent()
-    wm = MagicMock()
-    wm.politician_wikipedia_bundle.return_value = {}
-
-    ws = MagicMock()
-    ws.search_text.return_value = ""
-    agent._tools = {
-        "wikipedia": wm,
-        "web_search": ws,
-        "web_scraper": MagicMock(),
-    }
-
-    agent._search_wikipedia = MagicMock(return_value="plain wiki body")
-
-    ctx = agent._gather_politician_context(
-        {"name": "X", "state": "Delhi", "type": "MP"}
-    )
-
-    assert "=== Wikipedia ===" in ctx
-    assert "plain wiki body" in ctx
-    agent._search_wikipedia.assert_called_once()
+    assert agent._gather_politician_context({"name": "X", "state": "Delhi", "type": "MP"}) == ""

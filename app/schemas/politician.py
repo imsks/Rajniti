@@ -114,6 +114,23 @@ class CrimeRecord(BaseModel):
     citation: Optional[Citation] = None
 
 
+class AffidavitAsset(BaseModel):
+    description: str
+    value_inr: Optional[int] = None
+    citation: Optional[Citation] = None
+
+
+class FinancialDisclosure(BaseModel):
+    total_assets_inr: Optional[int] = None
+    total_liabilities_inr: Optional[int] = None
+    net_worth_inr: Optional[int] = None
+    movable_assets: Optional[List[AffidavitAsset]] = None
+    immovable_assets: Optional[List[AffidavitAsset]] = None
+    liabilities: Optional[List[AffidavitAsset]] = None
+    citation: Optional[Citation] = None
+    as_of_election: Optional[str] = None
+
+
 class Politician(BaseModel):
     id: str = Field(..., description="Unique ID")
     name: str
@@ -151,6 +168,14 @@ class Politician(BaseModel):
     citation_audit: Optional[Dict[str, Any]] = Field(
         None,
         description="Optional audit metadata: issues, mismatches, last_run",
+    )
+    financial_disclosure: Optional[FinancialDisclosure] = Field(
+        None,
+        description="Affidavit assets and liabilities from primary sources",
+    )
+    source_sync: Optional[Dict[str, str]] = Field(
+        None,
+        description="Per-source last sync timestamps (ISO8601), e.g. myneta, eci",
     )
 
     class Config:

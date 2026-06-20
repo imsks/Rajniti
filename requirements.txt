@@ -20,6 +20,7 @@ pyjwt>=2.10.1
 langchain-google-genai>=2.0.0    # Gemini (primary)
 langchain-openai>=0.3.0          # OpenAI / Perplexity fallback
 langchain-community>=0.3.0
+browser-use[core]>=0.13.0        # Browser automation for source ingestion (Python 3.11+)
 
 # --- Data / Validation ---
 pydantic>=2.10.0
@@ -31,7 +32,7 @@ requests>=2.32.5
 beautifulsoup4>=4.12.2
 
 # --- Agent Tools ---
-ddgs>=7.0.0                      # Free web search (no API key)
+# ddgs removed from agent hot path — sources use browser-use instead
 
 # --- Utilities ---
 python-dotenv>=1.0.0

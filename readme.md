@@ -129,7 +129,8 @@ See [`.env.example`](.env.example) and [`frontend/.env.example`](frontend/.env.e
 | `GEMINI_API_KEY` | Yes* | Google Gemini (free tier works) |
 | `PERPLEXITY_API_KEY` | No | Perplexity fallback |
 | `OPENAI_API_KEY` | No | OpenAI fallback |
-| `AGENT_LLM_PROVIDERS` | No | Failover order (default: `gemini,perplexity,openai`) |
+| `USE_LOCAL_LLM` | No | `true` = LM Studio; `false` = cloud keys in `free_tier_llm.DEFAULT_PROVIDERS` |
+| `LMSTUDIO_BASE_URL` | When local | Default `http://localhost:1234/v1` |
 
 \* At least one LLM key is needed for enrichment agents. The API itself runs without one.
 
@@ -151,22 +152,89 @@ Homebrew Postgres may be bound to `localhost:5432` instead of Docker. Stop it: `
 
 Agents enrich politician data (education, career, citations). Add at least one LLM key to `.env` (Gemini free tier works).
 
+**Recommended data pipeline:**
+
+1. **ECI seed** — `python scripts/scrape_election.py` (defaults to Bihar MLA 2025) or `--type MP` / `--url …`
+2. **Source scraper** — browser-use (`USE_LOCAL_LLM=true` + LM Studio, or cloud API key):
+   ```bash
+   # Local: start LM Studio, then set USE_LOCAL_LLM=true in .env
+   python scripts/scrape_politician_sources.py --type MLA --limit 5 --source myneta
+   ```
+3. **LLM enrichment** — gaps only: `python scripts/run_politician_agent.py --type MLA --limit 10`
+4. **Citations** — `python scripts/run_citation_agent.py --type MLA --limit 10`
+
 ```bash
 source venv/bin/activate
 
-# Politician enrichment
+# Politician enrichment (cloud LLM — after source scraper)
 python scripts/run_politician_agent.py --type MP --limit 3   # small batch first
 python scripts/run_politician_agent.py --type MP             # all MPs
 python scripts/run_politician_agent.py --type MLA --force    # re-enrich
 
+# External sources (browser-use; pass --source explicitly)
+python scripts/scrape_politician_sources.py --id POLITICIAN_UUID --source myneta
+python scripts/run_source_scraper_scheduled.py --type MLA --limit 3 --source myneta
+
 # Citations
 python scripts/run_citation_agent.py --type MP --limit 10
 
-# MLA fetcher
+# MLA fetcher (deprecated — prefer ECI + source scraper)
 python scripts/fetch_mlas.py --state "Karnataka"
 ```
 
-**Tips:** Use `--limit` to avoid Gemini rate limits. Citation agent checkpoints progress. `--log-level DEBUG` for verbose LLM logs.
+**Tips:** Use `--limit` on source scraper (browser-use is slow). Set `USE_LOCAL_LLM=true` for LM Studio; `AGENT_FLASH_MODE=false` so the browser actually navigates; `false` + `GEMINI_API_KEY` for cloud.
+
+---
+
+## Scrape API (browser-use)
+
+The API can run browser-use agents over HTTP (same pattern as a dedicated scrape sidecar). Start the server first (`make run` or `make dev-api`), then call endpoints on `:8000`.
+
+**Prerequisites:** LM Studio running with a loaded model (`USE_LOCAL_LLM=true`) or a cloud API key in `.env`. Generic scrape routes may take several minutes per request — use a long client timeout.
+
+### Generic scrape
+
+```bash
+curl -X POST http://localhost:8000/api/v1/scrape \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://example.com",
+    "instructions": "Return the page title and first paragraph"
+  }'
+```
+
+Response:
+
+```json
+{
+  "success": true,
+  "url": "https://example.com",
+  "task": "Go to https://example.com. Extract...",
+  "result": "... extracted content ...",
+  "steps_taken": 3
+}
+```
+
+### MyNeta URL resolve
+
+```bash
+curl -X POST http://localhost:8000/api/v1/scrape/myneta/resolve \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Candidate Name",
+    "state": "Bihar",
+    "constituency": "Constituency Name",
+    "election_slug": "Bihar2025"
+  }'
+```
+
+### Sync sources for one politician
+
+```bash
+curl -X POST http://localhost:8000/api/v1/politicians/<POLITICIAN_UUID>/sync-sources \
+  -H "Content-Type: application/json" \
+  -d '{"sources": ["myneta"], "force": true}'
+```
 
 ---
 
@@ -190,7 +258,9 @@ curl http://localhost:8000/api/v1/health
 ```
 app/
 ├── agents/         # LLM enrichment (politician, citation, MLA fetcher)
-├── config/         # LLM failover (FreeTierLLM)
+├── browser/        # browser-use wrapper (source ingestion)
+├── sources/        # one file per external source (loaded via --source)
+├── config/         # LLM — USE_LOCAL_LLM switches local vs cloud
 ├── controllers/    # Request handlers
 ├── core/           # Cache, logging, exceptions
 ├── data/           # mp.json, mla.json — source of truth

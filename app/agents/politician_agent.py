@@ -19,6 +19,7 @@ from app.schemas.politician import (
     SocialMedia,
 )
 from app.services import PoliticianService
+from app.sources.provenance import elections_have_eci_citations, has_primary_citations
 
 logger = logging.getLogger(__name__)
 
@@ -54,6 +55,8 @@ class PoliticianEducation:
     def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
         if force:
             return True
+        if has_primary_citations(politician.get("education")):
+            return False
         edu = politician.get("education")
         if edu is None:
             return True
@@ -138,6 +141,12 @@ class PoliticianPoliticalBackground:
         elections = pb.get("elections") or []
         if not elections:
             return True
+        if elections_have_eci_citations(politician):
+            if (pb.get("summary") or "").strip() and not pb.get("summary_citation"):
+                return True
+            if not (pb.get("summary") or "").strip():
+                return True
+            return False
         if any(not (isinstance(e, dict) and e.get("citation")) for e in elections):
             return True
         if (pb.get("summary") or "").strip() and not pb.get("summary_citation"):
@@ -524,6 +533,8 @@ class PoliticianCriminalRecords:
     def should_run(self, politician: Dict[str, Any], force: bool = False) -> bool:
         if force:
             return True
+        if has_primary_citations(politician.get("criminal_records")):
+            return False
         cr = politician.get("criminal_records")
         if cr is None:
             return True

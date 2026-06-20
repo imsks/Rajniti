@@ -45,7 +45,11 @@ def main(
 
 
 if __name__ == "__main__":
-    p = argparse.ArgumentParser(description="Fetch MLAs and append to mla.json")
+    p = argparse.ArgumentParser(
+        description=(
+            "Fetch MLAs via LLM (deprecated — prefer scrape_election.py + scrape_politician_sources.py)"
+        )
+    )
     p.add_argument("--state", default=None, help="State name (omit to run all states)")
     p.add_argument(
         "--force", action="store_true", help="Ignore cache/duplicates and overwrite"

@@ -238,30 +238,6 @@ class CitationAgent(BaseAgent):
 
         updates, issues = merge_citation_audit_updates(politician, validated)
 
-        wiki_tool = self._tools.get("wikipedia")
-        if wiki_tool is not None and hasattr(
-            wiki_tool, "prune_misaligned_wikipedia_summary_citation"
-        ):
-            try:
-                updates, wiki_issues = (
-                    wiki_tool.prune_misaligned_wikipedia_summary_citation(
-                        politician, updates
-                    )
-                )
-            except Exception as exc:
-                logger.warning(
-                    "CitationAgent: Wikipedia summary guard failed id=%s err=%s",
-                    pid,
-                    exc,
-                )
-                wiki_issues = []
-            if wiki_issues:
-                issues.extend(wiki_issues)
-                cam = dict(updates.get("citation_audit") or {})
-                prior = list(cam.get("issues") or [])
-                cam["issues"] = prior + list(wiki_issues)
-                updates["citation_audit"] = cam
-
         if not updates:
             mb = politician_citation_gaps(politician)
             logger.info(

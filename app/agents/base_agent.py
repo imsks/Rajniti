@@ -1,11 +1,8 @@
 """
 BaseAgent — shared foundation for every Rajniti agent.
 
-Provides:
-  * LLM invocation (with FreeTierLLM fallback chain)
-  * JSON parsing / Pydantic validation helpers
-  * **Tool belt** — web search, scraping, Wikipedia (graceful fallback)
-  * **Error collector** — structured, per-run error log for summary reporting
+Provides LLM invocation, JSON parsing, and validation helpers.
+Source ingestion uses browser-use directly (see app/sources/, app/browser/).
 """
 
 from __future__ import annotations
@@ -48,48 +45,8 @@ class BaseAgent:
 
     def __init__(self) -> None:
         self.llm = get_agent_llm()
-        self._tools = self._init_tools()
         self._errors: list[dict[str, Any]] = []
         self._llm_call_count = 0
-
-    # ── Tool initialisation (never raises) ──────────────────────────────────
-
-    def _init_tools(self) -> dict[str, Any]:
-        """Import and instantiate every available tool.
-
-        Missing packages are silently skipped so the agent still works in
-        LLM-only mode.
-        """
-        tools: dict[str, Any] = {}
-
-        for label, factory in (
-            (
-                "web_search",
-                lambda: __import__(
-                    "app.tools.web_search", fromlist=["WebSearchTool"]
-                ).WebSearchTool(),
-            ),
-            (
-                "web_scraper",
-                lambda: __import__(
-                    "app.tools.web_scraper", fromlist=["WebScraperTool"]
-                ).WebScraperTool(),
-            ),
-            (
-                "wikipedia",
-                lambda: __import__(
-                    "app.tools.wikipedia_tool", fromlist=["WikipediaTool"]
-                ).WikipediaTool(),
-            ),
-        ):
-            try:
-                tools[label] = factory()
-            except Exception as exc:
-                logger.debug("Tool %r unavailable: %s", label, exc)
-
-        if tools:
-            logger.info("BaseAgent: tools ready → %s", sorted(tools))
-        return tools
 
     # ── Error collector ──────────────────────────────────────────────────────
 
@@ -140,111 +97,41 @@ class BaseAgent:
                 f" | ctx={e['context'][:80]}" if e.get("context") else "",
             )
 
-    # ── Tool helpers ─────────────────────────────────────────────────────────
-
-    def search_web(self, query: str, max_results: int = 5) -> str:
-        """Public alias for DuckDuckGo search (tools facade)."""
-        return self._search_web(query, max_results=max_results)
-
-    def _search_web(self, query: str, max_results: int = 5) -> str:
-        """Run a DuckDuckGo search; returns formatted text or ``""``."""
-        tool = self._tools.get("web_search")
-        if not tool:
-            return ""
-        try:
-            return tool.search_text(query, max_results=max_results)
-        except Exception as exc:
-            self._record_error(
-                "tool", f"Web search failed: {exc}", context=query, exc=exc
-            )
-            return ""
-
-    def _fetch_url(self, url: str) -> Optional[str]:
-        """Scrape readable text from *url*; returns ``None`` on failure."""
-        tool = self._tools.get("web_scraper")
-        if not tool:
-            return None
-        try:
-            return tool.fetch_text(url)
-        except Exception as exc:
-            self._record_error("tool", f"URL fetch failed: {exc}", context=url, exc=exc)
-            return None
-
-    def _search_wikipedia(self, query: str) -> str:
-        """Return a Wikipedia summary paragraph or ``""``."""
-        tool = self._tools.get("wikipedia")
-        if not tool:
-            return ""
-        try:
-            return tool.search_and_summarize(query) or ""
-        except Exception as exc:
-            self._record_error(
-                "tool", f"Wikipedia failed: {exc}", context=query, exc=exc
-            )
-            return ""
-
-    def _format_wikipedia_bundle_context(self, bundle: Dict[str, Any]) -> str:
-        lines = ["=== Wikipedia (structured) ==="]
-        if bundle.get("article_url"):
-            lines.append(f"Article URL: {bundle['article_url']}")
-        if bundle.get("title"):
-            lines.append(f"Page title: {bundle['title']}")
-        if bundle.get("extract"):
-            lines.append("Extract:")
-            lines.append(str(bundle["extract"]))
-        ext = bundle.get("external_links") or []
-        if ext:
-            lines.append(
-                "Outbound links (use for primary-source citations where possible "
-                "instead of citing Wikipedia alone):"
-            )
-            for i, url in enumerate(ext, start=1):
-                lines.append(f"  {i}. {url}")
-        lines.append(
-            "Citation rule: use Article URL only for summary citations when Extract "
-            "clearly refers to this politician."
-        )
-        return "\n".join(lines)
+    # ── Politician context (primary sources only — no web tools) ─────────────
 
     def _gather_politician_context(self, politician: Dict[str, Any]) -> str:
-        """Collect web + Wikipedia context for a politician (best-effort).
-
-        Runs **once per politician** so sub-processes can share the result.
-        """
-        name = politician.get("name", "")
-        if not name:
-            return ""
-
-        state = politician.get("state", "")
-        ptype = politician.get("type", "")
-        query = f"{name} {ptype} {state} Indian politician".strip()
+        """Known primary source URLs from field-level citations."""
+        from app.sources.provenance import PRIMARY_SOURCES, citation_source
 
         parts: list[str] = []
+        ref_lines: list[str] = []
 
-        wiki_tool = self._tools.get("wikipedia")
-        bundle: Optional[Dict[str, Any]] = None
-        if wiki_tool is not None:
-            try:
-                bundle = wiki_tool.politician_wikipedia_bundle(str(name), str(state))
-            except Exception as exc:
-                self._record_error(
-                    "tool",
-                    f"Wikipedia bundle failed: {exc}",
-                    context=str(name),
-                    exc=exc,
-                )
-                bundle = None
+        fd = politician.get("financial_disclosure") or {}
+        fd_cite = fd.get("citation") or {}
+        if fd_cite.get("link"):
+            ref_lines.append(f"affidavit: {fd_cite['link']}")
 
-        if bundle and bundle.get("extract"):
-            parts.append(self._format_wikipedia_bundle_context(bundle))
-        elif wiki_tool is not None:
-            wiki = self._search_wikipedia(f"{name} Indian politician {state}")
-            if wiki:
-                parts.append(f"=== Wikipedia ===\n{wiki}")
+        for section in ("education", "criminal_records"):
+            for item in politician.get(section) or []:
+                if not isinstance(item, dict):
+                    continue
+                cite = item.get("citation") or {}
+                if cite.get("link") and citation_source(cite) in PRIMARY_SOURCES:
+                    ref_lines.append(f"{section}: {cite['link']}")
 
-        web = self._search_web(query, max_results=3)
-        if web:
-            parts.append(f"=== Web Search Results ===\n{web}")
+        elections = (politician.get("political_background") or {}).get("elections") or []
+        for election in elections:
+            if not isinstance(election, dict):
+                continue
+            cite = election.get("citation") or {}
+            if cite.get("link") and citation_source(cite) in PRIMARY_SOURCES:
+                ref_lines.append(f"election: {cite['link']}")
+
+        if ref_lines:
+            parts.append("=== Known primary sources ===\n" + "\n".join(ref_lines))
+
+        if fd.get("as_of_election"):
+            parts.append(f"Affidavit as of election: {fd['as_of_election']}")
 
         return "\n\n".join(parts)
 

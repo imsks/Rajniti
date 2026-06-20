@@ -3,7 +3,17 @@
 	test lint format db-migrate db-reset frontend-install frontend-dev logs
 
 VENV := . venv/bin/activate &&
-PYTHON ?= python3
+# browser-use requires Python 3.11+ (see requirements.txt, Dockerfile)
+PYTHON := $(shell \
+	for p in python3.13 python3.12 python3.11 python3; do \
+		if command -v $$p >/dev/null 2>&1 \
+			&& $$p -c 'import sys; raise SystemExit(0 if sys.version_info >= (3, 11) else 1)' 2>/dev/null; then \
+			echo $$p; \
+			exit 0; \
+		fi; \
+	done; \
+	echo "" \
+)
 SUITE ?= all
 COV ?=
 BUILD ?= 1
@@ -19,7 +29,8 @@ setup: ## Copy .env templates (safe to re-run)
 	@test -f frontend/.env || cp frontend/.env.example frontend/.env
 	@echo "Env files ready. Edit .env (DATABASE_URL, optional LLM keys) and frontend/.env (NEXTAUTH_*)."
 
-install: ## Create venv and install Python deps
+install: ## Create venv and install Python deps (requires Python 3.11+)
+	@test -n "$(PYTHON)" || (echo "Python 3.11+ required (browser-use). Install via: brew install python@3.13" && exit 1)
 	$(PYTHON) -m venv venv
 	$(VENV) pip install -U pip && pip install -r requirements.txt
 

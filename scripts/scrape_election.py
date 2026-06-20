@@ -3,52 +3,51 @@
 Scrape winning MPs / MLAs from ECI election results.
 
 Usage:
-    # Auto-detect election type from URL
+    # Defaults — Bihar Vidhan Sabha 2025 (no args needed)
+    python scripts/scrape_election.py
+
+    # By election type (uses built-in default URL for MP / MLA)
+    python scripts/scrape_election.py --type MLA
+    python scripts/scrape_election.py --type MP
+
+    # Custom ECI results page
     python scripts/scrape_election.py --url https://results.eci.gov.in/ResultAcGenNov2025
-
-    # Explicitly specify election type
     python scripts/scrape_election.py --url https://results.eci.gov.in/PcResultGenJune2024 --type MP
-
-    # Vidhan Sabha
-    python scripts/scrape_election.py --url https://results.eci.gov.in/ResultAcGenNov2025 --type MLA
 """
+
+from __future__ import annotations
 
 import argparse
 import logging
-import re
 import sys
 from pathlib import Path
-from typing import Optional
 
-# Ensure project root is importable
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from app.scrapers.defaults import (
+    DEFAULT_ELECTION_TYPE,
+    DEFAULT_ELECTION_URLS,
+    resolve_scrape_target,
+)
 from app.scrapers.scraper import scrape_election
-
-# ── URL-based auto-detection ─────────────────────────────────────────────────
-
-_URL_PATTERNS: dict[str, str] = {
-    r"PcResultGen|lok.?sabha|parliament": "MP",
-    r"ResultAcGen|vidhan.?sabha|assembly": "MLA",
-}
-
-
-def _detect_type(url: str) -> Optional[str]:
-    for pattern, etype in _URL_PATTERNS.items():
-        if re.search(pattern, url, re.IGNORECASE):
-            return etype
-    return None
-
-
-# ── Entrypoint ───────────────────────────────────────────────────────────────
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Scrape winning MPs / MLAs from ECI and save to mp.json / mla.json",
         formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=(
+            "Defaults:\n"
+            f"  no args     → {DEFAULT_ELECTION_TYPE} @ {DEFAULT_ELECTION_URLS[DEFAULT_ELECTION_TYPE]}\n"
+            f"  --type MLA  → {DEFAULT_ELECTION_URLS['MLA']}\n"
+            f"  --type MP   → {DEFAULT_ELECTION_URLS['MP']}\n"
+        ),
     )
-    parser.add_argument("--url", required=True, help="ECI election results page URL")
+    parser.add_argument(
+        "--url",
+        default=None,
+        help="ECI election results index URL (optional if --type is set)",
+    )
     parser.add_argument(
         "--type",
         choices=["MP", "MLA"],
@@ -63,20 +62,22 @@ def main() -> None:
     )
     logger = logging.getLogger("scrape_election")
 
-    # Resolve election type
-    election_type: Optional[str] = args.type or _detect_type(args.url)
-    if not election_type:
-        logger.error(
-            "Could not auto-detect election type from URL. "
-            "Please pass --type MP or --type MLA."
-        )
+    try:
+        url, election_type = resolve_scrape_target(args.url, args.type)
+    except ValueError as exc:
+        logger.error("%s", exc)
         sys.exit(1)
 
-    logger.info("URL: %s", args.url)
+    if not args.url and not args.type:
+        logger.info("Using default: %s @ %s", election_type, url)
+    elif not args.url:
+        logger.info("Using default URL for %s: %s", election_type, url)
+
+    logger.info("URL: %s", url)
     logger.info("Election type: %s", election_type)
 
     try:
-        added = scrape_election(args.url, election_type)  # type: ignore[arg-type]
+        added = scrape_election(url, election_type)  # type: ignore[arg-type]
         logger.info(
             "✅ %d new %ss saved to app/data/%s.json",
             added,

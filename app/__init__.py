@@ -108,9 +108,11 @@ def create_app() -> Flask:
 
 def _register_blueprints(app: Flask) -> None:
     from app.routes.api_routes import api_bp
+    from app.routes.scrape_routes import scrape_bp
     from app.routes.user_routes import user_bp
 
     app.register_blueprint(api_bp)
+    app.register_blueprint(scrape_bp)
     app.register_blueprint(user_bp)
 
 

@@ -288,6 +288,9 @@ def api_root():
                 "parties": "/api/v1/parties",
                 "questions": "/api/v1/questions",
                 "ask": "/api/v1/questions/ask (POST, 501 until vector store is wired)",
+                "scrape": "/api/v1/scrape (POST)",
+                "myneta_resolve": "/api/v1/scrape/myneta/resolve (POST)",
+                "sync_sources": "/api/v1/politicians/<id>/sync-sources (POST)",
                 "health": "/api/v1/health",
             },
         }
