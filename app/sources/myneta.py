@@ -143,6 +143,7 @@ def validate_agent_result(raw: str) -> MyNetaAgentResult:
 
 def fetch(politician: Dict[str, Any], *, force: bool = False) -> SourceResult:
     from app.browser import run_browser_extract
+    from app.browser.myneta_extract import MyNetaBrowserExtract, to_agent_result
     from app.browser.scraper import run_scrape_agent
     from app.sources.myneta_resolve import (
         build_resolve_instructions,
@@ -180,10 +181,11 @@ def fetch(politician: Dict[str, Any], *, force: bool = False) -> SourceResult:
     extracted = run_browser_extract(
         start_url,
         instructions,
-        output_model=MyNetaAgentResult,
+        output_model=MyNetaBrowserExtract,
     )
+    validated = to_agent_result(extracted.data)
 
-    data = extracted.data.model_dump(mode="json", exclude_none=True)
+    data = validated.model_dump(mode="json", exclude_none=True)
     data["source_sync"] = {NAME: datetime.now(timezone.utc).isoformat()}
 
     issues: list[str] = []

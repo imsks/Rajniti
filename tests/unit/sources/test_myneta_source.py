@@ -101,6 +101,6 @@ def test_fetch_uses_browser_extract(monkeypatch) -> None:
     result = myneta_source.fetch(politician, force=True)
     mock_scrape.assert_called_once()
     mock_extract.assert_called_once()
-    assert mock_extract.call_args.kwargs["output_model"] is myneta_source.MyNetaAgentResult
+    assert mock_extract.call_args.kwargs["output_model"].__name__ == "MyNetaBrowserExtract"
     assert result.data["financial_disclosure"]["total_assets_inr"] == 23630189
     assert result.data["source_sync"]["myneta"]

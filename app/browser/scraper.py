@@ -65,7 +65,8 @@ def build_extract_task(url: str, instructions: str) -> str:
     return (
         f"Start at {url}. {instructions.strip()} "
         "Use browser actions (navigate, click, scroll) to reach the candidate profile. "
-        "Read affidavit fields from the page, then submit structured output."
+        "Read affidavit fields from the page, then call done with structured output. "
+        "Prefer the done action over the extract tool."
     )
 
 

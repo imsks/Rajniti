@@ -425,7 +425,11 @@
           }
         }
       ],
-      "summary": "Bhupathi Raju Srinivasa Varma is an Indian politician affiliated with the Bharatiya Janata Party. He was elected as a Member of Parliament from the Narasapuram Lok Sabha constituency in Andhra Pradesh in 2024. He currently serves as an MP, representing Narasapuram."
+      "summary": "Bhupathi Raju Srinivasa Varma is an Indian politician affiliated with the Bharatiya Janata Party. He was elected as a Member of Parliament from the Narasapuram Lok Sabha constituency in Andhra Pradesh in 2024. He currently serves as an MP, representing Narasapuram.",
+      "summary_citation": {
+        "link": "https://myneta.info/andhrapradesh2024/candidate.php?candidate_id=1000",
+        "source": "MYNETA"
+      }
     },
     "education": [],
     "social_media": {
@@ -440,12 +444,20 @@
       {
         "name": "Land acquisition and corruption allegations in government projects",
         "type": "CORRUPTION",
-        "year": 2021
+        "year": 2021,
+        "citation": {
+          "link": "https://myneta.info/andhrapradesh2024/candidate.php?candidate_id=1000",
+          "source": "MYNETA"
+        }
       },
       {
         "name": "Misuse of official position for financial gain",
         "type": "ECONOMIC",
-        "year": 2023
+        "year": 2023,
+        "citation": {
+          "link": "https://myneta.info/andhrapradesh2024/candidate.php?candidate_id=1000",
+          "source": "MYNETA"
+        }
       }
     ],
     "family_background": [
@@ -453,25 +465,41 @@
         "name": "Bhupathiraju Ramaraju",
         "relation": "FATHER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://myneta.info/andhrapradesh2024/candidate.php?candidate_id=1000",
+          "source": "MYNETA"
+        }
       },
       {
         "name": "Bhupathiraju Sridevi Varma",
         "relation": "WIFE",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://myneta.info/andhrapradesh2024/candidate.php?candidate_id=1000",
+          "source": "MYNETA"
+        }
       },
       {
         "name": "Bhupathiraju Sai Varma",
         "relation": "SON",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://myneta.info/andhrapradesh2024/candidate.php?candidate_id=1000",
+          "source": "MYNETA"
+        }
       },
       {
         "name": "Bhupathiraju Sravani Varma",
         "relation": "DAUGHTER",
         "photo": null,
-        "social_media": null
+        "social_media": null,
+        "citation": {
+          "link": "https://myneta.info/andhrapradesh2024/candidate.php?candidate_id=1000",
+          "source": "MYNETA"
+        }
       }
     ],
     "contact": {
@@ -480,7 +508,7 @@
       "address": "H.No. 1-10-10, Near Sivalayam, Palakol, West Godavari District, Andhra Pradesh"
     },
     "citation_audit": {
-      "last_run": "2026-05-13T18:04:12.058953+00:00"
+      "last_run": "2026-06-20T18:38:31.450455+00:00"
     },
     "social_media_citations": {
       "facebook": {
@@ -496,7 +524,13 @@
         "source": "OTHERS"
       }
     },
-    "lastUpdated": "2026-06-06T06:46:27.594Z"
+    "lastUpdated": "2026-06-20T18:38:31.466Z",
+    "contact_citations": {
+      "address": {
+        "link": "https://myneta.info/andhrapradesh2024/candidate.php?candidate_id=1000",
+        "source": "MYNETA"
+      }
+    }
   },
   {
     "id": "0e0ce8b4-10dc-4d04-8c93-d321914a5e01",
