@@ -53,6 +53,12 @@ def _build_agent_for_test() -> tuple[PoliticianAgent, _DummyProcess, _DummyServi
     service = _DummyService()
     agent.processes = [process]
     agent.politician_service = service
+    agent.source_orchestrator = type("O", (), {"sync_politician": lambda *a, **k: {"ok": True, "sources_run": []}})()
+    agent.citation_agent = type(
+        "C",
+        (),
+        {"_run_for_politician": lambda *a, **k: {"ok": True, "skipped": True}},
+    )()
     agent.cache = _DummyCache()
     agent._errors = []
     agent._gather_politician_context = lambda politician: ""
@@ -63,8 +69,12 @@ def test_process_cached_after_empty_update() -> None:
     agent, process, service = _build_agent_for_test()
     politician = {"id": "p1", "name": "Test", "criminal_records": []}
 
-    first = agent._run_for_politician(politician, force=False)
-    second = agent._run_for_politician(politician, force=False)
+    first = agent._run_for_politician(
+        politician, force=False, skip_sources=True, skip_citations=True
+    )
+    second = agent._run_for_politician(
+        politician, force=False, skip_sources=True, skip_citations=True
+    )
 
     assert first["ok"] is True
     assert second["ok"] is True

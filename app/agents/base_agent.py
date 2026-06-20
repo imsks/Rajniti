@@ -99,12 +99,58 @@ class BaseAgent:
 
     # ── Politician context (primary sources only — no web tools) ─────────────
 
+    def _format_affidavit_context(self, politician: Dict[str, Any]) -> str:
+        """Summarize MyNeta / affidavit fields already on the politician record."""
+        lines: list[str] = []
+
+        fd = politician.get("financial_disclosure") or {}
+        fd_parts: list[str] = []
+        if fd.get("total_assets_inr") is not None:
+            fd_parts.append(f"total_assets_inr={fd['total_assets_inr']}")
+        if fd.get("total_liabilities_inr") is not None:
+            fd_parts.append(f"total_liabilities_inr={fd['total_liabilities_inr']}")
+        if fd.get("net_worth_inr") is not None:
+            fd_parts.append(f"net_worth_inr={fd['net_worth_inr']}")
+        if fd.get("as_of_election"):
+            fd_parts.append(f"as_of_election={fd['as_of_election']}")
+        if fd_parts:
+            lines.append("Financial disclosure: " + ", ".join(fd_parts))
+
+        for item in politician.get("education") or []:
+            if not isinstance(item, dict):
+                continue
+            qual = item.get("qualification")
+            inst = item.get("institution")
+            if qual or inst:
+                lines.append(
+                    f"Education: qualification={qual or 'unknown'}, "
+                    f"institution={inst or 'unknown'}"
+                )
+
+        for item in politician.get("criminal_records") or []:
+            if not isinstance(item, dict):
+                continue
+            name = item.get("name")
+            ctype = item.get("type")
+            if name or ctype:
+                lines.append(
+                    f"Criminal record: name={name or 'unknown'}, type={ctype or 'unknown'}"
+                )
+
+        if not lines:
+            return ""
+        return "=== Affidavit facts (from synced sources) ===\n" + "\n".join(lines)
+
     def _gather_politician_context(self, politician: Dict[str, Any]) -> str:
-        """Known primary source URLs from field-level citations."""
+        """Known primary source URLs and affidavit facts from synced sources."""
         from app.sources.provenance import PRIMARY_SOURCES, citation_source
 
         parts: list[str] = []
         ref_lines: list[str] = []
+
+        affidavit = self._format_affidavit_context(politician)
+        if affidavit:
+            parts.append(affidavit)
 
         fd = politician.get("financial_disclosure") or {}
         fd_cite = fd.get("citation") or {}

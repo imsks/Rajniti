@@ -169,3 +169,53 @@ def sync_politician_sources(politician_id: str):
 
     updated = _politician_service.get_by_id(politician_id)
     return jsonify({"success": True, "data": {"sync": result, "politician": updated}})
+
+
+@scrape_bp.route("/politicians/<politician_id>/enrich", methods=["POST"])
+def enrich_politician(politician_id: str):
+    """Run full agentic pipeline: source sync, LLM enrichment, citation backfill."""
+    politician = _politician_service.get_by_id(politician_id)
+    if not politician:
+        return (
+            jsonify({"success": False, "error": f"Politician not found: {politician_id}"}),
+            404,
+        )
+
+    body = _json_body()
+    source_names = body.get("sources")
+    force = bool(body.get("force", False))
+    skip_sources = bool(body.get("skip_sources", False))
+    skip_citations = bool(body.get("skip_citations", False))
+
+    if source_names is not None and not isinstance(source_names, list):
+        return (
+            jsonify({"success": False, "error": "Field 'sources' must be a list of source names"}),
+            400,
+        )
+
+    from app.agents.politician_agent import PoliticianAgent
+
+    agent = PoliticianAgent()
+    agent.politician_service = _politician_service
+    agent.source_orchestrator.politician_service = _politician_service
+    agent.citation_agent.politician_service = _politician_service
+
+    try:
+        result = agent.run(
+            politician_id=politician_id,
+            force=force,
+            source_names=source_names,
+            skip_sources=skip_sources,
+            skip_citations=skip_citations,
+        )
+    except Exception as exc:
+        logger.warning("Enrichment failed for %s: %s", politician_id, exc)
+        return jsonify({"success": False, "error": str(exc)}), 502
+
+    updated = _politician_service.get_by_id(politician_id)
+    return jsonify(
+        {
+            "success": bool(result.get("ok")),
+            "data": {"enrichment": result, "politician": updated},
+        }
+    )

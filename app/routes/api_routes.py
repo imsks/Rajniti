@@ -291,6 +291,7 @@ def api_root():
                 "scrape": "/api/v1/scrape (POST)",
                 "myneta_resolve": "/api/v1/scrape/myneta/resolve (POST)",
                 "sync_sources": "/api/v1/politicians/<id>/sync-sources (POST)",
+                "enrich": "/api/v1/politicians/<id>/enrich (POST)",
                 "health": "/api/v1/health",
             },
         }

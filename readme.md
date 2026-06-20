@@ -150,39 +150,52 @@ Homebrew Postgres may be bound to `localhost:5432` instead of Docker. Stop it: `
 
 ## Running agents
 
-Agents enrich politician data (education, career, citations). Add at least one LLM key to `.env` (Gemini free tier works).
+Agents enrich politician data (education, career, citations). Add at least one LLM key to `.env` (Gemini free tier works), or set `USE_LOCAL_LLM=true` with LM Studio for browser source sync.
 
-**Recommended data pipeline:**
+**Recommended unified pipeline** (one command per politician or batch):
+
+```bash
+# MyNeta browser sync → LLM gap-fill → citation backfill (all default on)
+python scripts/run_politician_agent.py --id POLITICIAN_UUID --source myneta
+
+python scripts/run_politician_agent.py --type MLA --limit 5 --source myneta
+python scripts/run_politician_agent.py --type MLA --force --skip-sources   # LLM + citations only
+python scripts/run_politician_agent.py --type MLA --skip-citations         # sources + LLM only
+```
+
+**Step-by-step pipeline** (same stages, separate CLIs for debugging):
 
 1. **ECI seed** — `python scripts/scrape_election.py` (defaults to Bihar MLA 2025) or `--type MP` / `--url …`
-2. **Source scraper** — browser-use (`USE_LOCAL_LLM=true` + LM Studio, or cloud API key):
+2. **Source scraper only** — browser-use (`USE_LOCAL_LLM=true` + LM Studio, or cloud API key):
    ```bash
-   # Local: start LM Studio, then set USE_LOCAL_LLM=true in .env
    python scripts/scrape_politician_sources.py --type MLA --limit 5 --source myneta
    ```
-3. **LLM enrichment** — gaps only: `python scripts/run_politician_agent.py --type MLA --limit 10`
-4. **Citations** — `python scripts/run_citation_agent.py --type MLA --limit 10`
+3. **LLM + citations only** — `python scripts/run_politician_agent.py --type MLA --limit 10 --skip-sources`
+4. **Citation-only backfill** — `python scripts/run_citation_agent.py --type MLA --limit 10`
 
 ```bash
 source venv/bin/activate
 
-# Politician enrichment (cloud LLM — after source scraper)
-python scripts/run_politician_agent.py --type MP --limit 3   # small batch first
-python scripts/run_politician_agent.py --type MP             # all MPs
-python scripts/run_politician_agent.py --type MLA --force    # re-enrich
+# Unified agentic run (preferred)
+python scripts/run_politician_agent.py --id POLITICIAN_UUID --source myneta --force
 
-# External sources (browser-use; pass --source explicitly)
+# Politician enrichment only (no browser sources)
+python scripts/run_politician_agent.py --type MP --limit 3 --skip-sources
+python scripts/run_politician_agent.py --type MP --skip-sources
+python scripts/run_politician_agent.py --type MLA --force --skip-sources
+
+# External sources only (browser-use)
 python scripts/scrape_politician_sources.py --id POLITICIAN_UUID --source myneta
 python scripts/run_source_scraper_scheduled.py --type MLA --limit 3 --source myneta
 
-# Citations
+# Citations only
 python scripts/run_citation_agent.py --type MP --limit 10
 
 # MLA fetcher (deprecated — prefer ECI + source scraper)
 python scripts/fetch_mlas.py --state "Karnataka"
 ```
 
-**Tips:** Use `--limit` on source scraper (browser-use is slow). Set `USE_LOCAL_LLM=true` for LM Studio; `AGENT_FLASH_MODE=false` so the browser actually navigates; `false` + `GEMINI_API_KEY` for cloud.
+**Tips:** Browser source sync is slow — use `--limit`. Set `USE_LOCAL_LLM=true` for LM Studio; structured MyNeta extract always navigates (`flash_mode=false` in code). Generic `/api/v1/scrape` defaults `AGENT_FLASH_MODE=true`.
 
 ---
 
@@ -232,6 +245,14 @@ curl -X POST http://localhost:8000/api/v1/scrape/myneta/resolve \
 
 ```bash
 curl -X POST http://localhost:8000/api/v1/politicians/<POLITICIAN_UUID>/sync-sources \
+  -H "Content-Type: application/json" \
+  -d '{"sources": ["myneta"], "force": true}'
+```
+
+### Full agentic enrich (sources + LLM + citations)
+
+```bash
+curl -X POST http://localhost:8000/api/v1/politicians/<POLITICIAN_UUID>/enrich \
   -H "Content-Type: application/json" \
   -d '{"sources": ["myneta"], "force": true}'
 ```

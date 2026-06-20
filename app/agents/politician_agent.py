@@ -19,9 +19,12 @@ from app.schemas.politician import (
     SocialMedia,
 )
 from app.services import PoliticianService
+from app.sources.orchestrator import SourceOrchestrator
 from app.sources.provenance import elections_have_eci_citations, has_primary_citations
 
 logger = logging.getLogger(__name__)
+
+DEFAULT_PIPELINE_SOURCES = ["myneta"]
 
 
 def _is_llm_quota_exc(exc: BaseException) -> bool:
@@ -717,6 +720,13 @@ class PoliticianAgent(BaseAgent):
     def __init__(self) -> None:
         super().__init__()
         self.politician_service = PoliticianService()
+        self.source_orchestrator = SourceOrchestrator(
+            politician_service=self.politician_service
+        )
+        from app.agents.citation_agent import CitationAgent
+
+        self.citation_agent = CitationAgent()
+        self.citation_agent.politician_service = self.politician_service
         self.cache = CacheManager()
         self.processes = [
             PoliticianEducation(self),
@@ -734,13 +744,27 @@ class PoliticianAgent(BaseAgent):
         election_type: Optional[Literal["MP", "MLA"]] = None,
         force: bool = False,
         limit: int = 0,
+        *,
+        source_names: Optional[list[str]] = None,
+        skip_sources: bool = False,
+        skip_citations: bool = False,
     ) -> Dict[str, Any]:
-        """Run enrichment for one politician or all politicians by type."""
+        """Run source sync, LLM enrichment, and citation backfill for politician(s)."""
+        if source_names is None:
+            source_names = list(DEFAULT_PIPELINE_SOURCES)
+
         self.clear_errors()
+        pipeline = {
+            "source_names": source_names,
+            "skip_sources": skip_sources,
+            "skip_citations": skip_citations,
+        }
         try:
             if politician_id:
-                return self._run_one_by_id(politician_id, force=force)
-            return self._run_all(election_type=election_type, force=force, limit=limit)
+                return self._run_one_by_id(politician_id, force=force, **pipeline)
+            return self._run_all(
+                election_type=election_type, force=force, limit=limit, **pipeline
+            )
         finally:
             self.print_error_summary()
 
@@ -764,12 +788,26 @@ class PoliticianAgent(BaseAgent):
         )
 
     @log(logger, "PoliticianAgent._run_one_by_id")
-    def _run_one_by_id(self, politician_id: str, force: bool = False) -> Dict[str, Any]:
+    def _run_one_by_id(
+        self,
+        politician_id: str,
+        force: bool = False,
+        *,
+        source_names: Optional[list[str]] = None,
+        skip_sources: bool = False,
+        skip_citations: bool = False,
+    ) -> Dict[str, Any]:
         politician = self.politician_service.get_by_id(politician_id)
         if not politician:
             return {"ok": False, "id": politician_id, "error": "politician_not_found"}
 
-        return self._run_for_politician(politician, force=force)
+        return self._run_for_politician(
+            politician,
+            force=force,
+            source_names=source_names,
+            skip_sources=skip_sources,
+            skip_citations=skip_citations,
+        )
 
     @log(logger, "PoliticianAgent._run_all")
     def _run_all(
@@ -777,6 +815,10 @@ class PoliticianAgent(BaseAgent):
         election_type: Optional[Literal["MP", "MLA"]] = None,
         force: bool = False,
         limit: int = 0,
+        *,
+        source_names: Optional[list[str]] = None,
+        skip_sources: bool = False,
+        skip_citations: bool = False,
     ) -> Dict[str, Any]:
         if election_type in ("MP", "MLA"):
             politicians = self.politician_service.get_all(election_type)
@@ -823,7 +865,13 @@ class PoliticianAgent(BaseAgent):
                 politician.get("name"),
             )
 
-            result = self._run_for_politician(politician, force=force)
+            result = self._run_for_politician(
+                politician,
+                force=force,
+                source_names=source_names,
+                skip_sources=skip_sources,
+                skip_citations=skip_citations,
+            )
             if result.get("ok"):
                 summary["processed"] += 1
             else:
@@ -840,16 +888,21 @@ class PoliticianAgent(BaseAgent):
 
     @log(logger, "PoliticianAgent._run_for_politician")
     def _run_for_politician(
-        self, politician: Dict[str, Any], force: bool = False
+        self,
+        politician: Dict[str, Any],
+        force: bool = False,
+        *,
+        source_names: Optional[list[str]] = None,
+        skip_sources: bool = False,
+        skip_citations: bool = False,
     ) -> Dict[str, Any]:
-        """Run enrichment subprocesses in order (one LLM at a time).
-
-        Citation backfill is handled by ``CitationAgent`` / ``run_citation_agent.py``,
-        not here.
-        """
+        """Run source sync, LLM enrichment, and citation backfill for one politician."""
         politician_id = politician.get("id")
         if not politician_id:
             return {"ok": False, "error": "missing_politician_id"}
+
+        if source_names is None:
+            source_names = list(DEFAULT_PIPELINE_SOURCES)
 
         process_results: list[Dict[str, Any]] = []
         updated_fields: set[str] = set()
@@ -864,16 +917,157 @@ class PoliticianAgent(BaseAgent):
                 }
             )
 
+        if not skip_sources and source_names:
+            logger.info(
+                "Source sync for %s (%s): sources=%s",
+                politician.get("name"),
+                politician_id,
+                source_names,
+            )
+            try:
+                sync_result = self.source_orchestrator.sync_politician(
+                    politician,
+                    source_names=source_names,
+                    force=force,
+                )
+                process_results.append(
+                    {
+                        "process": "source_sync",
+                        "ok": bool(sync_result.get("ok")),
+                        "skipped": not sync_result.get("sources_run"),
+                        "sources_run": sync_result.get("sources_run", []),
+                        "errors": sync_result.get("errors", []),
+                        "issues": sync_result.get("issues", []),
+                    }
+                )
+            except Exception as exc:
+                logger.warning(
+                    "Source sync failed for %s: %s",
+                    politician_id,
+                    exc,
+                )
+                self._record_error(
+                    "source_sync",
+                    str(exc),
+                    context=str(politician_id),
+                    exc=exc,
+                )
+                process_results.append(
+                    {
+                        "process": "source_sync",
+                        "ok": False,
+                        "error": str(exc),
+                    }
+                )
+
+            fresh = self.politician_service.get_by_id(str(politician_id))
+            if fresh:
+                politician = fresh
+
         needing: list[str] = []
         for process in self.processes:
-            if not force and self._is_process_cached(politician_id, process.name):
+            if not force and self._is_process_cached(str(politician_id), process.name):
                 continue
             if process.should_run(politician, force):
                 needing.append(process.name)
 
-        if not needing:
+        if needing:
+            logger.info(
+                "Sequential enrichment for %s (%s); processes: %s",
+                politician.get("name"),
+                politician_id,
+                needing,
+            )
+
+            context = self._gather_politician_context(politician)
+            if context:
+                logger.info(
+                    "Context gathered (%d chars) for %s",
+                    len(context),
+                    politician.get("name"),
+                )
+            else:
+                logger.info(
+                    "No external context for %s — LLM knowledge only",
+                    politician.get("name"),
+                )
+
             for process in self.processes:
-                if not force and self._is_process_cached(politician_id, process.name):
+                pname = process.name
+
+                if not force and self._is_process_cached(str(politician_id), pname):
+                    _append_skipped(pname, "cached_processed")
+                    continue
+                if not process.should_run(politician, force):
+                    _append_skipped(pname, "already_present")
+                    continue
+
+                logger.info(
+                    "PoliticianAgent START process=%s id=%s name=%s",
+                    pname,
+                    politician_id,
+                    politician.get("name"),
+                )
+                try:
+                    result = process.run(politician, force, context)
+                except Exception as exc:
+                    if _is_llm_quota_exc(exc):
+                        logger.error(
+                            "Process %s hit LLM quota for %s: %s",
+                            pname,
+                            politician_id,
+                            exc,
+                        )
+                        raise
+                    logger.error(
+                        "Process %s crashed for %s: %s",
+                        pname,
+                        politician_id,
+                        exc,
+                    )
+                    self._record_error(
+                        "agent",
+                        f"Process {pname} crashed: {exc}",
+                        context=str(politician_id),
+                        exc=exc,
+                    )
+                    process_results.append(
+                        {"process": pname, "ok": False, "error": str(exc)}
+                    )
+                    continue
+
+                process_results.append(result)
+
+                if result.get("ok") and not result.get("skipped"):
+                    self._mark_process_cached(str(politician_id), pname)
+
+                update_keys = (
+                    list(result["updates"].keys())
+                    if result.get("ok")
+                    and not result.get("skipped")
+                    and result.get("updates")
+                    else []
+                )
+
+                if update_keys:
+                    updated = self.politician_service.update_politician(
+                        str(politician_id), result["updates"]
+                    )
+                    if not updated:
+                        process_results.append(
+                            {"process": pname, "ok": False, "error": "update_failed"}
+                        )
+                    else:
+                        for k in result["updates"]:
+                            updated_fields.add(k)
+                        fresh = self.politician_service.get_by_id(str(politician_id))
+                        if fresh:
+                            politician = fresh
+        else:
+            for process in self.processes:
+                if not force and self._is_process_cached(
+                    str(politician_id), process.name
+                ):
                     _append_skipped(process.name, "cached_processed")
                 elif not process.should_run(politician, force):
                     _append_skipped(process.name, "already_present")
@@ -881,148 +1075,54 @@ class PoliticianAgent(BaseAgent):
                     _append_skipped(process.name, "cached_processed")
 
             logger.info(
-                "All data present for %s (%s) — nothing to enrich",
+                "All LLM fields present for %s (%s) — skipping enrichment processes",
                 politician.get("name"),
                 politician_id,
             )
-            self._mark_cached(politician_id)
-            return {
-                "ok": True,
-                "id": politician_id,
-                "updated_fields": [],
-                "process_results": process_results,
-            }
+            self._mark_cached(str(politician_id))
 
-        logger.info(
-            "Sequential enrichment for %s (%s); processes: %s",
-            politician.get("name"),
-            politician_id,
-            needing,
-        )
-
-        context = self._gather_politician_context(politician)
-        if context:
+        if not skip_citations:
             logger.info(
-                "Context gathered (%d chars) for %s",
-                len(context),
+                "Citation backfill for %s (%s)",
                 politician.get("name"),
-            )
-        else:
-            logger.info(
-                "No external context for %s — LLM knowledge only",
-                politician.get("name"),
-            )
-
-        for process in self.processes:
-            pname = process.name
-
-            if not force and self._is_process_cached(politician_id, pname):
-                _append_skipped(pname, "cached_processed")
-                continue
-            if not process.should_run(politician, force):
-                _append_skipped(pname, "already_present")
-                continue
-
-            logger.info(
-                "PoliticianAgent START process=%s id=%s name=%s",
-                pname,
                 politician_id,
-                politician.get("name"),
             )
             try:
-                result = process.run(politician, force, context)
+                cite_result = self.citation_agent._run_for_politician(
+                    politician, force=force
+                )
+                process_results.append(
+                    {"process": "citation_backfill", **cite_result}
+                )
+                if cite_result.get("updated_fields"):
+                    updated_fields.update(cite_result["updated_fields"])
+                fresh = self.politician_service.get_by_id(str(politician_id))
+                if fresh:
+                    politician = fresh
             except Exception as exc:
                 if _is_llm_quota_exc(exc):
-                    logger.error(
-                        "Process %s hit LLM quota for %s: %s",
-                        pname,
-                        politician_id,
-                        exc,
-                    )
                     raise
-                logger.error(
-                    "Process %s crashed for %s: %s",
-                    pname,
+                logger.warning(
+                    "Citation backfill failed for %s: %s",
                     politician_id,
                     exc,
                 )
                 self._record_error(
-                    "agent",
-                    f"Process {pname} crashed: {exc}",
-                    context=politician_id,
+                    "citation",
+                    str(exc),
+                    context=str(politician_id),
                     exc=exc,
                 )
                 process_results.append(
-                    {"process": pname, "ok": False, "error": str(exc)}
-                )
-                logger.info(
-                    "PoliticianAgent DONE process=%s id=%s ok=False error=%s",
-                    pname,
-                    politician_id,
-                    exc,
-                )
-                continue
-
-            process_results.append(result)
-
-            if result.get("ok") and not result.get("skipped"):
-                self._mark_process_cached(politician_id, pname)
-
-            update_keys = (
-                list(result["updates"].keys())
-                if result.get("ok")
-                and not result.get("skipped")
-                and result.get("updates")
-                else []
-            )
-
-            if update_keys:
-                updated = self.politician_service.update_politician(
-                    politician_id, result["updates"]
-                )
-                if not updated:
-                    logger.error(
-                        "Failed to persist updates for %s from process %s",
-                        politician_id,
-                        pname,
-                    )
-                    process_results.append(
-                        {"process": pname, "ok": False, "error": "update_failed"}
-                    )
-                    logger.info(
-                        "PoliticianAgent DONE process=%s id=%s ok=False error=update_failed",
-                        pname,
-                        politician_id,
-                    )
-                else:
-                    for k in result["updates"]:
-                        updated_fields.add(k)
-                    logger.info(
-                        "Persisted %s for %s from %s",
-                        update_keys,
-                        politician_id,
-                        pname,
-                    )
-                    fresh = self.politician_service.get_by_id(politician_id)
-                    if fresh:
-                        politician = fresh
-                    logger.info(
-                        "PoliticianAgent DONE process=%s id=%s ok=True skipped=%s updates=%s",
-                        pname,
-                        politician_id,
-                        bool(result.get("skipped")),
-                        update_keys,
-                    )
-            else:
-                logger.info(
-                    "PoliticianAgent DONE process=%s id=%s ok=%s skipped=%s updates=[]",
-                    pname,
-                    politician_id,
-                    bool(result.get("ok")),
-                    bool(result.get("skipped")),
+                    {
+                        "process": "citation_backfill",
+                        "ok": False,
+                        "error": str(exc),
+                    }
                 )
 
-        self._mark_cached(politician_id)
+        if needing:
+            self._mark_cached(str(politician_id))
 
         has_error = any(not r.get("ok") for r in process_results)
         return {
