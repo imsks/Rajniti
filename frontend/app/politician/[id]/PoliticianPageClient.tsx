@@ -18,6 +18,8 @@ import {
   Phone,
   MapPin,
   Clock,
+  Share2,
+  Check,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { CitationLink } from "@/components/CitationLink";
@@ -330,9 +332,11 @@ const TAB_META: Record<SectionId, { label: string; icon: React.ReactNode }> = {
 function SectionTabNav({
   active,
   counts,
+  onTabClick,
 }: {
   active: SectionId;
   counts: Partial<Record<SectionId, number>>;
+  onTabClick?: (id: SectionId) => void;
 }) {
   return (
     // sticky below the navbar; NO negative margin — stays within the container width
@@ -346,7 +350,7 @@ function SectionTabNav({
           return (
             <button
               key={id}
-              onClick={() => scrollToSection(id)}
+              onClick={() => { scrollToSection(id); onTabClick?.(id); }}
               className={`relative cursor-pointer flex items-center gap-1.5 px-3.5 py-3 text-sm whitespace-nowrap shrink-0 transition-colors ${
                 isActive
                   ? "text-gray-900 dark:text-white font-medium"
@@ -505,6 +509,7 @@ function PerformanceSection({
   hasData: boolean;
   performanceCitations?: Politician["performance_citations"];
 }) {
+  const { trackEvent } = useAnalytics();
   // maxValue: larger of actual value or 1.4× national avg so both value and marker fit
   const maxQ = Math.max(performance.questions, NATIONAL_AVG.questions) * 1.4;
   const maxD = Math.max(performance.debates, NATIONAL_AVG.debates) * 1.4;
@@ -551,6 +556,13 @@ function PerformanceSection({
             href="https://eci.gov.in"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              trackEvent("external_link_click", {
+                link_text: "Check ECI website for official records",
+                link_url: "https://eci.gov.in",
+                page_location: "politician_profile_performance",
+              })
+            }
             className="group inline-flex items-center gap-1 text-xs font-semibold text-orange-600 transition-colors hover:text-orange-700 hover:underline dark:text-orange-400 dark:hover:text-orange-300"
           >
             Check ECI website for official records
@@ -682,9 +694,12 @@ const CRIME_PREVIEW = 3;
 
 function CriminalRecordsSection({
   records,
+  politicianId,
 }: {
   records: Politician["criminal_records"];
+  politicianId: string;
 }) {
+  const { trackEvent } = useAnalytics();
   const [expanded, setExpanded] = useState(false);
   const list = records ?? [];
   const visible = expanded ? list : list.slice(0, CRIME_PREVIEW);
@@ -739,7 +754,15 @@ function CriminalRecordsSection({
           {hiddenCount > 0 && (
             <div className="border-t border-dashed border-gray-200 dark:border-gray-700 px-5 py-3">
               <button
-                onClick={() => setExpanded((v) => !v)}
+                onClick={() => {
+                  const next = !expanded;
+                  setExpanded(next);
+                  trackEvent("section_expand", {
+                    section: "criminal_records",
+                    action: next ? "expand" : "collapse",
+                    politician_id: politicianId,
+                  });
+                }}
                 className="w-full text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 py-1.5 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
               >
                 {expanded ? "Show less ↑" : `Show ${hiddenCount} more ↓`}
@@ -825,9 +848,12 @@ const EDUCATION_PREVIEW = 3;
 
 function EducationSection({
   education,
+  politicianId,
 }: {
   education: Politician["education"];
+  politicianId: string;
 }) {
+  const { trackEvent } = useAnalytics();
   const [expanded, setExpanded] = useState(false);
   const list = education ?? [];
   const visible = expanded ? list : list.slice(0, EDUCATION_PREVIEW);
@@ -884,7 +910,15 @@ function EducationSection({
           {hiddenCount > 0 && (
             <div className="border-t border-dashed border-gray-200 dark:border-gray-700 px-5 py-3">
               <button
-                onClick={() => setExpanded((v) => !v)}
+                onClick={() => {
+                  const next = !expanded;
+                  setExpanded(next);
+                  trackEvent("section_expand", {
+                    section: "education",
+                    action: next ? "expand" : "collapse",
+                    politician_id: politicianId,
+                  });
+                }}
                 className="w-full text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 py-1.5 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
               >
                 {expanded ? "Show less ↑" : `Show ${hiddenCount} more ↓`}
@@ -955,6 +989,7 @@ function FamilySection({
 // ── Contact — icons + circular social buttons ──────────────────────────────
 
 function ContactSection({ politician }: { politician: Politician }) {
+  const { trackEvent } = useAnalytics();
   const { contact, social_media, contact_citations } = politician;
 
   const contactRows = [
@@ -1080,6 +1115,13 @@ function ContactSection({ politician }: { politician: Politician }) {
                     rel="noopener noreferrer"
                     aria-label={label}
                     title={label}
+                    onClick={() =>
+                      trackEvent("external_link_click", {
+                        link_text: label,
+                        link_url: href!,
+                        page_location: "politician_profile_contact",
+                      })
+                    }
                     className={`w-9 h-9 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 transition-colors ${hover}`}
                   >
                     <Icon />
@@ -1204,6 +1246,15 @@ export default function PoliticianPageClient({
   const analyticsReady = useDeferredMount();
   const sectionsContainerRef = useRef<HTMLDivElement>(null);
   const activeSection = useScrollSpy();
+  const [shareState, setShareState] = useState<"idle" | "copied" | "error">("idle");
+  const shareTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Clean up the revert timer on unmount so we never set state on an unmounted component.
+  useEffect(() => {
+    return () => {
+      if (shareTimerRef.current) clearTimeout(shareTimerRef.current);
+    };
+  }, []);
 
   const { slug: routeSlug, uuidShort: routeUuidShort } =
     extractSlugAndOptionalUuid(routeSegment);
@@ -1228,6 +1279,42 @@ export default function PoliticianPageClient({
     history: elections.length,
     education: p.education?.length ?? 0,
     family: p.family_background?.length ?? 0,
+  };
+
+  const handleShare = async () => {
+    if (shareTimerRef.current) clearTimeout(shareTimerRef.current);
+
+    const name = toTitleCase(p.name);
+    const url = typeof window !== "undefined" ? window.location.href : "";
+    const shareText = `Check out ${name}'s record on Rajniti: ${url}`;
+
+    try {
+      if (typeof navigator !== "undefined" && navigator.share) {
+        // Native share sheet (mobile browsers)
+        await navigator.share({ title: `${name} on Rajniti`, text: shareText, url });
+        trackEvent("profile_share", {
+          method: "native_share",
+          politician_id: p.id,
+          politician_name: name,
+        });
+      } else {
+        // Clipboard fallback (desktop)
+        await navigator.clipboard.writeText(shareText);
+        setShareState("copied");
+        trackEvent("profile_share", {
+          method: "clipboard",
+          politician_id: p.id,
+          politician_name: name,
+        });
+        shareTimerRef.current = setTimeout(() => setShareState("idle"), 2000);
+      }
+    } catch (err) {
+      // Silently ignore user dismissing the native share tray
+      if (err instanceof Error && err.name === "AbortError") return;
+      // Clipboard write failed — show brief error state
+      setShareState("error");
+      shareTimerRef.current = setTimeout(() => setShareState("idle"), 2000);
+    }
   };
 
   const buildReportIssueUrl = () => {
@@ -1324,24 +1411,57 @@ export default function PoliticianPageClient({
             </div>
 
             <div className="flex-1 min-w-0">
-              {/* Name + type badge — vertically centred */}
-              <div className="flex items-center gap-2.5 mb-1.5 flex-wrap">
-                <Text
-                  variant="h2"
-                  weight="bold"
-                  className="text-gray-900 dark:text-white leading-tight"
+              {/* Top row: name + badge on the left, share button pinned to the right */}
+              <div className="flex items-start justify-between gap-3">
+                {/* Name + badge — wraps naturally on long names, never pushes the button down */}
+                <div className="flex items-center gap-2.5 mb-1.5 flex-wrap min-w-0">
+                  <Text
+                    variant="h2"
+                    weight="bold"
+                    className="text-gray-900 dark:text-white leading-tight"
+                  >
+                    {toTitleCase(p.name)}
+                  </Text>
+                  <span
+                    className={`shrink-0 px-2.5 py-0.5 rounded-full text-xs font-bold ${
+                      isMp
+                        ? "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300"
+                        : "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300"
+                    }`}
+                  >
+                    {p.type}
+                  </span>
+                </div>
+
+                {/* Share — circular icon button, always top-right, never wraps */}
+                <button
+                  onClick={handleShare}
+                  aria-label={
+                    shareState === "copied"
+                      ? "Link copied to clipboard"
+                      : shareState === "error"
+                      ? "Failed to copy — try again"
+                      : "Share this politician profile"
+                  }
+                  className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center
+                    transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1
+                    focus:ring-orange-300 dark:focus:ring-orange-600 cursor-pointer
+                    ${
+                      shareState === "copied"
+                        ? "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300"
+                        : shareState === "error"
+                        ? "bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-300"
+                        : " bg-orange-500/20 hover:bg-orange-600/80 text-orange-500 dark:hover:bg-orange-600 dark:hover:text-text-white hover:text-orange-50 transition-colors"
+                    }`}
                 >
-                  {toTitleCase(p.name)}
-                </Text>
-                <span
-                  className={`shrink-0 px-2.5 py-0.5 rounded-full text-xs font-bold ${
-                    isMp
-                      ? "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300"
-                      : "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300"
-                  }`}
-                >
-                  {p.type}
-                </span>
+                  {shareState === "copied" ? (
+                    <Check size={16} className="stroke-2"/>
+                  ) : shareState === "error" ? (
+                    <AlertTriangle size={16} className="stroke-2" />
+                  ) : (
+                    <Share2 size={16} className="stroke-2" />
+                  )}
+                </button>
               </div>
 
               {/* Compact single-line: Constituency · State · Party */}
@@ -1351,10 +1471,12 @@ export default function PoliticianPageClient({
 
               {/* Updated chip */}
               {p.updated_at && formatUpdatedAt(p.updated_at) && (
-                <span className="mt-3 inline-flex items-center gap-1 text-xs text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 rounded-full px-2.5 py-1">
-                  <Clock size={11} />
-                  {formatUpdatedAt(p.updated_at)}
-                </span>
+                <div className="mt-3">
+                  <span className="inline-flex items-center gap-1 text-xs text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 rounded-full px-2.5 py-1">
+                    <Clock size={11} />
+                    {formatUpdatedAt(p.updated_at)}
+                  </span>
+                </div>
               )}
             </div>
           </div>
@@ -1368,7 +1490,17 @@ export default function PoliticianPageClient({
         </div>
 
         {/* Sticky section tab nav — no gap between it and sections */}
-        <SectionTabNav active={activeSection} counts={tabCounts} />
+        <SectionTabNav
+          active={activeSection}
+          counts={tabCounts}
+          onTabClick={(id) =>
+            trackEvent("profile_tab_click", {
+              tab_name: id,
+              politician_id: p.id,
+              politician_name: toTitleCase(p.name),
+            })
+          }
+        />
 
         {/* All sections — ref for analytics IntersectionObserver */}
         <div ref={sectionsContainerRef} className="pt-4">
@@ -1377,13 +1509,13 @@ export default function PoliticianPageClient({
             hasData={hasPerformanceData}
             performanceCitations={p.performance_citations}
           />
-          <CriminalRecordsSection records={p.criminal_records} />
+          <CriminalRecordsSection records={p.criminal_records} politicianId={p.id} />
           <PoliticalHistorySection
             elections={elections}
             summary={p.political_background?.summary}
             summaryCitation={p.political_background?.summary_citation}
           />
-          <EducationSection education={p.education} />
+          <EducationSection education={p.education} politicianId={p.id} />
           <FamilySection members={p.family_background} />
           <ContactSection politician={p} />
           <KnowMoreSection

@@ -220,6 +220,37 @@ export type AnalyticsEventMap = {
     new_theme: "light" | "dark"
   }
 
+  // ── Politician Profile Actions ─────────────────────────────────────────
+  /**
+   * Fired when a user shares a politician profile.
+   * method: "native_share" = OS share sheet (mobile), "clipboard" = copied link (desktop).
+   */
+  profile_share: {
+    method: "native_share" | "clipboard"
+    politician_id: string
+    politician_name: string
+  }
+
+  /**
+   * Fired when a user clicks a section tab on a politician profile.
+   * Tells us which sections users actively navigate to.
+   */
+  profile_tab_click: {
+    tab_name: "performance" | "criminal" | "history" | "education" | "family" | "contact"
+    politician_id: string
+    politician_name: string
+  }
+
+  /**
+   * Fired when a user expands or collapses a "Show X more" section.
+   * Tells us whether users want to see more data in a given section.
+   */
+  section_expand: {
+    section: "criminal_records" | "education"
+    action: "expand" | "collapse"
+    politician_id: string
+  }
+
   // ── Citation & Data Quality ────────────────────────────────────────────
   /**
    * Fired when a user clicks a citation source link on a politician profile.
