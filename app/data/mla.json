@@ -100764,5 +100764,26 @@
       "summary_citation": null
     },
     "lastUpdated": "2026-06-06T06:46:27.594Z"
+  },
+  {
+    "id": "071c8bf7-167b-5720-89a4-065f74932a1f",
+    "name": "Jayanarayan Mishra",
+    "photo": null,
+    "state": "Odisha",
+    "constituency": "Sambalpur",
+    "party": "Bharatiya Janata Party",
+    "type": "MLA",
+    "education": null,
+    "family_background": null,
+    "criminal_records": null,
+    "social_media": null,
+    "contact": null,
+    "political_background": {
+      "elections": [],
+      "summary": "Jayanarayan Mishra is an Odisha leader and Member of the Legislative Assembly from Sambalpur. He is a senior Bharatiya Janata Party leader who has served multiple terms representing the Sambalpur constituency in the Odisha Legislative Assembly.",
+      "summary_citation": null
+    },
+    "notes": "Added via community request (GitHub issue #227). Constituency maps to pincode 768016 area (Bargarh/Sambalpur region, Odisha).",
+    "lastUpdated": "2026-06-25T10:30:00.000Z"
   }
 ]
