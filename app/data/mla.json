@@ -100666,6 +100666,80 @@
     "lastUpdated": "2026-06-06T06:46:27.594Z"
   },
   {
+    "id": "8e1ccfad-3255-4557-b4c4-80972d5e03d3",
+    "name": "AAHIR DEEPAK CHAUDHARYY",
+    "photo": "https://myneta.info/images_candidate/Delhi2025/6112b6ee8444b452a8c15605bf9707b74b0bad3d.jpg",
+    "state": "NCT of Delhi",
+    "constituency": "BADLI",
+    "type": "MLA",
+    "political_background": {
+      "elections": [
+        {
+          "year": 2025,
+          "type": "MLA",
+          "state": "NCT of Delhi",
+          "constituency": "BADLI",
+          "party": "Bharatiya Janata Party",
+          "status": "WON",
+          "citation": {
+            "link": "https://www.myneta.info/Delhi2025/candidate.php?candidate_id=233",
+            "source": "MYNETA"
+          }
+        }
+      ],
+      "summary": "AAHIR DEEPAK CHAUDHARYY is a Delhi leader and Member of the Legislative Assembly from BADLI. He won the 2025 Delhi Legislative Assembly election from BADLI as a Bharatiya Janata Party candidate. The latest available result shows AAHIR DEEPAK CHAUDHARYY defeating AAP candidate Ajesh Yadav by a margin of 15,163 votes. He is listed as 40 years old, son of Shri Narayan Singh, with self profession as Social Worker & Self Employed.",
+      "summary_citation": "https://en.wikipedia.org/wiki/Aahir_Deepak_Chaudharyy"
+    },
+    "social_media": {
+      "twitter": "https://x.com/deepak4bjpbadli",
+      "facebook": null,
+      "instagram": "https://www.instagram.com/deepakchaudharyforbjp/",
+      "linkedin": null,
+      "youtube": null,
+      "website": null
+    },
+    "contact": {
+      "email": null,
+      "phone": null,
+      "address": null
+    },
+    "education": [
+      {
+        "qualification": "Bachelor of Laws",
+        "institution": "Sobhit University",
+        "year": "2014-2017",
+        "category": "Graduate Professional",
+        "citation": {
+          "link": "https://www.myneta.info/Delhi2025/candidate.php?candidate_id=233",
+          "source": "MYNETA"
+        }
+      }
+    ],
+    "family_background": [
+      {
+        "relation": "Father",
+        "name": "Shri Narayan Singh",
+        "citation": {
+          "link": "https://www.myneta.info/Delhi2025/candidate.php?candidate_id=233",
+          "source": "MYNETA"
+        }
+      },
+      {
+        "relation": "Spouse Profession",
+        "name": "Business & Self Employed",
+        "citation": {
+          "link": "https://www.myneta.info/Delhi2025/candidate.php?candidate_id=233",
+          "source": "MYNETA"
+        }
+      }
+    ],
+    "criminal_records": [],
+    "citation_audit": {
+      "last_run": "2026-06-25T00:00:00.000000+00:00"
+    },
+    "lastUpdated": "2026-06-25T00:00:00.000Z"
+  },
+  {
     "id": "b5d4d003-3bbb-5ca7-b232-522d202ed326",
     "name": "Koteswara Rao Mantena",
     "photo": null,
