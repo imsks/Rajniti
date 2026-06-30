@@ -24,6 +24,7 @@ import {
 import { useRouter } from "next/navigation";
 import { CitationLink } from "@/components/CitationLink";
 import { Footer, Navbar } from "@/components/layout";
+import SourcedBadge from "@/components/politicians/SourcedBadge";
 import Button from "@/components/ui/Button";
 import Text from "@/components/ui/Text";
 import Image from "@/components/ui/Image";
@@ -1465,6 +1466,10 @@ export default function PoliticianPageClient({
               </div>
 
               {/* Compact single-line: Constituency · State · Party */}
+              <div className="mb-2">
+                <SourcedBadge politician={p} />
+              </div>
+
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                 {toTitleCase(p.constituency)} · {p.state} · {party}
               </p>

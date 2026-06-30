@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Literal, Optional
 
+from app.agents.citation_audit_merge import politician_citation_coverage_summary
 from app.core.slugify import short_id_from_uuid, slugify
 
 logger = logging.getLogger(__name__)
@@ -63,6 +64,7 @@ class PoliticianService:
     # ---------- ADD METADATA ----------
     def _attach_metadata(self, p: Dict[str, Any]) -> Dict[str, Any]:
         p["updated_at"] = p.get("lastUpdated")
+        p.update(politician_citation_coverage_summary(p))
         return p
 
     # ---------- SLUG ----------
@@ -224,8 +226,10 @@ class PoliticianService:
                 for key, value in updates.items():
                     rec[key] = value
 
-                now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.") + \
-                      f"{datetime.now(timezone.utc).microsecond // 1000:03d}Z"
+                now = (
+                    datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.")
+                    + f"{datetime.now(timezone.utc).microsecond // 1000:03d}Z"
+                )
                 rec["lastUpdated"] = now
 
                 try:

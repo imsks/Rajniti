@@ -6,6 +6,7 @@ from app.agents.citation_audit_merge import (
     CITATION_COVERAGE_SKIP_THRESHOLD_PCT,
     merge_citation_audit_updates,
     politician_citation_coverage_pct,
+    politician_citation_coverage_summary,
     politician_citation_gaps,
     politician_needs_citation_audit,
 )
@@ -146,6 +147,11 @@ def test_citation_audit_prompt_includes_targeted_backlog_when_provided() -> None
 
 def test_politician_citation_coverage_pct_no_slots_returns_none() -> None:
     assert politician_citation_coverage_pct({}) is None
+    assert politician_citation_coverage_summary({}) == {
+        "cited_fields_count": 0,
+        "checkable_fields_count": 0,
+        "sourced_pct": None,
+    }
     assert (
         politician_citation_coverage_pct(
             {
@@ -202,6 +208,51 @@ def test_politician_citation_coverage_pct_performance_mp_slots() -> None:
         }
     )
     assert pct == pytest.approx(0.0)
+
+
+def test_politician_citation_coverage_summary_returns_fraction_and_counts() -> None:
+    summary = politician_citation_coverage_summary(
+        {
+            "type": "MP",
+            "education": [
+                {
+                    "qualification": "BACHELOR",
+                    "citation": {"link": "https://x.y", "source": "NEWS"},
+                },
+                {"qualification": "MASTER"},
+            ],
+            "political_background": {
+                "elections": [
+                    {
+                        "year": 2024,
+                        "type": "MP",
+                        "state": "Bihar",
+                        "constituency": "Patna",
+                        "party": "X",
+                        "status": "WON",
+                    }
+                ],
+                "summary": "Summary",
+                "summary_citation": {"link": "https://x.z", "source": "NEWS"},
+            },
+            "contact": {"email": "a@b.c"},
+            "contact_citations": {
+                "email": {
+                    "link": "https://contact.example",
+                    "source": "GOV_WEBSITE",
+                }
+            },
+            "performance": {"attendance": 80, "questions": None, "debates": 0},
+            "performance_citations": {
+                "attendance": {"link": "https://perf.example", "source": "ECI"}
+            },
+        }
+    )
+    assert summary == {
+        "cited_fields_count": 4,
+        "checkable_fields_count": 7,
+        "sourced_pct": pytest.approx(4 / 7, abs=1e-6),
+    }
 
 
 def test_merge_citation_audit_fills_education() -> None:

@@ -51,6 +51,9 @@ class TestPoliticianRoutes:
         data = response.get_json()
         assert data["success"] is True
         assert data["data"]["name"] == "NARENDRA MODI"
+        assert data["data"]["sourced_pct"] is None
+        assert data["data"]["cited_fields_count"] == 0
+        assert data["data"]["checkable_fields_count"] == 0
 
     def test_get_politician_by_slug_404(self, client) -> None:
         response = client.get("/api/v1/politicians/slug/does-not-exist")

@@ -122,6 +122,18 @@ class Politician(BaseModel):
     slug: Optional[str] = None
     # ISO format timestamp when politician data was last updated
     updated_at: Optional[str] = None
+    sourced_pct: Optional[float] = Field(
+        None,
+        description="Fraction of present checkable fields that carry citations (0-1).",
+    )
+    cited_fields_count: Optional[int] = Field(
+        None,
+        description="Number of present checkable fields with citations.",
+    )
+    checkable_fields_count: Optional[int] = Field(
+        None,
+        description="Number of present non-null fields eligible for citation coverage.",
+    )
     photo: Optional[HttpUrl] = None
     state: State
     constituency: str

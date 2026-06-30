@@ -17,12 +17,8 @@ _PERF_KEYS = frozenset({"attendance", "questions", "debates"})
 CITATION_COVERAGE_SKIP_THRESHOLD_PCT = 40
 
 
-def politician_citation_coverage_pct(politician: Dict[str, Any]) -> Optional[float]:
-    """Percentage of citation slots that already have a citation (0–100).
-
-    Mirrors the inventory used by ``politician_needs_citation_audit``. Returns
-    ``None`` when there are no slots (nothing to cite).
-    """
+def politician_citation_coverage_summary(politician: Dict[str, Any]) -> Dict[str, Any]:
+    """Fractional citation coverage plus raw counts for present checkable fields."""
     total = 0
     filled = 0
 
@@ -75,15 +71,31 @@ def politician_citation_coverage_pct(politician: Dict[str, Any]) -> Optional[flo
     if politician.get("type") == "MP":
         perf = politician.get("performance") or {}
         pc = politician.get("performance_citations") or {}
-        for k in _PERF_KEYS:
-            if perf.get(k) is not None:
-                total += 1
-                if k in pc:
-                    filled += 1
+        if any(perf.get(k) not in (None, 0, "") for k in _PERF_KEYS):
+            for k in _PERF_KEYS:
+                if perf.get(k) is not None:
+                    total += 1
+                    if k in pc:
+                        filled += 1
 
-    if total == 0:
+    return {
+        "cited_fields_count": filled,
+        "checkable_fields_count": total,
+        "sourced_pct": None if total == 0 else round(filled / total, 6),
+    }
+
+
+def politician_citation_coverage_pct(politician: Dict[str, Any]) -> Optional[float]:
+    """Percentage of citation slots that already have a citation (0–100).
+
+    Mirrors the inventory used by ``politician_needs_citation_audit``. Returns
+    ``None`` when there are no slots (nothing to cite).
+    """
+    summary = politician_citation_coverage_summary(politician)
+    sourced_pct = summary["sourced_pct"]
+    if sourced_pct is None:
         return None
-    return round(100.0 * filled / total, 6)
+    return round(100.0 * sourced_pct, 6)
 
 
 def _collect_politician_citation_gaps(politician: Dict[str, Any]) -> Dict[str, Any]:

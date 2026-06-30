@@ -90,6 +90,9 @@ export interface Politician {
      * ISO format timestamp when politician data was last updated.
      */
     updated_at?: string | null
+    sourced_pct?: number | null
+    cited_fields_count?: number | null
+    checkable_fields_count?: number | null
     photo?: string | null
     state: string
     constituency: string
