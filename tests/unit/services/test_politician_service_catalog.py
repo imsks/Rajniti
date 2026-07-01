@@ -14,6 +14,7 @@ def catalog_service(tmp_path: Path) -> PoliticianService:
     data_dir.mkdir()
     mp_records = []
     for i in range(5):
+        party = "Bharatiya Janata Party" if i < 2 else "Indian National Congress"
         mp_records.append(
             {
                 "id": f"00000000-0000-0000-0000-00000000000{i}",
@@ -21,7 +22,7 @@ def catalog_service(tmp_path: Path) -> PoliticianService:
                 "state": "Gujarat" if i < 3 else "Maharashtra",
                 "constituency": f"Constituency {i}",
                 "type": "MP",
-                "political_background": {"elections": []},
+                "political_background": {"elections": [{"party": party}]},
             }
         )
     (data_dir / "mp.json").write_text(json.dumps(mp_records), encoding="utf-8")
@@ -54,6 +55,16 @@ class TestPoliticianServiceCatalog:
         assert result["total"] == 1
         assert result["politicians"][0]["name"] == "MP 1"
 
+    def test_list_catalog_party_filter(self, catalog_service: PoliticianService) -> None:
+        result = catalog_service.list_catalog(parties=["Bharatiya Janata Party"])
+        assert result["total"] == 2
+        assert all(p["party"] == "Bharatiya Janata Party" for p in result["politicians"])
+
+        multi = catalog_service.list_catalog(
+            parties=["Bharatiya Janata Party", "Indian National Congress"]
+        )
+        assert multi["total"] == 5
+
     def test_list_catalog_returns_lightweight_fields(
         self, catalog_service: PoliticianService
     ) -> None:
@@ -67,6 +78,7 @@ class TestPoliticianServiceCatalog:
             "state",
             "constituency",
             "photo",
+            "party",
         }
 
     def test_sitemap_entries_includes_slugs(

@@ -82,6 +82,7 @@ def politician_catalog():
         type: MP | MLA (optional)
         state: state name filter (optional)
         q: name search (optional)
+        party: comma-separated party names filter (optional)
     """
     try:
         election_type = request.args.get("type")
@@ -89,12 +90,19 @@ def politician_catalog():
         per_page = min(request.args.get("per_page", default=48, type=int), 100)
         state = request.args.get("state")
         q = request.args.get("q")
+        party_param = request.args.get("party")
+        parties = (
+            [x for x in (s.strip() for s in party_param.split(",")) if x]
+            if party_param
+            else None
+        )
         result = politician_ctrl.list_catalog(
             page=page,
             per_page=per_page,
             election_type=election_type,
             state=state,
             q=q,
+            parties=parties,
         )
         return jsonify({"success": True, "data": result})
     except Exception as e:
