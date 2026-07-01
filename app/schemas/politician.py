@@ -134,6 +134,14 @@ class Politician(BaseModel):
         None,
         description="Number of present non-null fields eligible for citation coverage.",
     )
+    categories_mostly_present: Optional[bool] = Field(
+        None,
+        description=(
+            "True once all but at most one profile category (education, "
+            "history, family, criminal, contact, and performance when "
+            "applicable) has at least one checkable field."
+        ),
+    )
     photo: Optional[HttpUrl] = None
     state: State
     constituency: str

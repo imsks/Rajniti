@@ -1466,23 +1466,21 @@ export default function PoliticianPageClient({
               </div>
 
               {/* Compact single-line: Constituency · State · Party */}
-              <div className="mb-2">
-                <SourcedBadge politician={p} />
-              </div>
-
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                 {toTitleCase(p.constituency)} · {p.state} · {party}
               </p>
 
-              {/* Updated chip */}
-              {p.updated_at && formatUpdatedAt(p.updated_at) && (
-                <div className="mt-3">
+              {/* Facts-verified badge beside the "Updated" chip */}
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                
+                {p.updated_at && formatUpdatedAt(p.updated_at) && (
                   <span className="inline-flex items-center gap-1 text-xs text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 rounded-full px-2.5 py-1">
                     <Clock size={11} />
                     {formatUpdatedAt(p.updated_at)}
                   </span>
-                </div>
-              )}
+                )}
+                <SourcedBadge politician={p} />
+              </div>
             </div>
           </div>
 

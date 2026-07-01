@@ -93,6 +93,7 @@ export interface Politician {
     sourced_pct?: number | null
     cited_fields_count?: number | null
     checkable_fields_count?: number | null
+    categories_mostly_present?: boolean | null
     photo?: string | null
     state: string
     constituency: string

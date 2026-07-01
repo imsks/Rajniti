@@ -1,24 +1,26 @@
 "use client";
 
-import { AlertTriangle, CheckCircle2, Info } from "lucide-react";
+import { AlertCircle, AlertTriangle, CheckCircle2, Info, ShieldAlert } from "lucide-react";
 
 import type { Politician } from "@/types/politician";
 
 type SourcedBadgeData = Pick<
   Politician,
-  "sourced_pct" | "cited_fields_count" | "checkable_fields_count"
+  | "sourced_pct"
+  | "cited_fields_count"
+  | "checkable_fields_count"
+  | "categories_mostly_present"
 >;
 
-type SourcedBand = "green" | "yellow" | "red" | "neutral";
+type SourcedBand = "green" | "yellow" | "red" | "blue";
 
 type SourcedBadgeState =
-  | { kind: "hidden" }
-  | { kind: "limited"; band: "neutral"; label: string }
+  | { kind: "limited"; band: "blue"; label: string }
   | { kind: "unverified"; band: "red"; label: string }
   | {
       kind: "scored";
       band: "green" | "yellow" | "red";
-      coverageLabel: "High coverage" | "Medium coverage" | "Low coverage";
+      coverageWord: "High" | "Medium" | "Low";
       percentLabel: string;
     };
 
@@ -29,33 +31,33 @@ const BAND_STYLES: Record<SourcedBand, string> = {
     "border-amber-300 bg-amber-50 text-amber-900 dark:border-amber-500/40 dark:bg-amber-500/12 dark:text-amber-100",
   red:
     "border-rose-300 bg-rose-50 text-rose-900 dark:border-rose-500/40 dark:bg-rose-500/12 dark:text-rose-100",
-  neutral:
-    "border-slate-300 bg-slate-100 text-slate-900 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100",
+  blue:
+    "border-blue-300 bg-blue-50 text-blue-900 dark:border-blue-500/40 dark:bg-blue-500/12 dark:text-blue-100",
 };
 
+/**
+ * Every politician profile always shows a badge — there is no hidden state.
+ *
+ * A percentage only appears once the profile is broadly filled in (all but
+ * at most one of education, history, family, criminal, contact, and
+ * performance-when-applicable has data) AND there are 5+ checkable fields
+ * overall. Genuine zero coverage (data exists, none of it cited) always
+ * renders as "Unverified", regardless of how many categories are filled in —
+ * a single uncited fact, or every category with exactly one uncited fact,
+ * are both "Unverified". Anything else that's incomplete (too many missing
+ * categories, or cited but too thin) falls back to "Limited data".
+ */
 export function getSourcedBadgeState(
   data: SourcedBadgeData,
 ): SourcedBadgeState {
   const total = data.checkable_fields_count;
+  const cited = data.cited_fields_count;
 
-  if (
-    (total === null || total === undefined) &&
-    (data.cited_fields_count === null ||
-      data.cited_fields_count === undefined) &&
-    (data.sourced_pct === null || data.sourced_pct === undefined)
-  ) {
-    return { kind: "hidden" };
+  if (typeof total !== "number" || total === 0) {
+    return { kind: "limited", band: "blue", label: "Limited data" };
   }
 
-  if (typeof total === "number" && total < 3) {
-    return { kind: "limited", band: "neutral", label: "Limited data" };
-  }
-
-  if (typeof data.sourced_pct !== "number") {
-    return { kind: "hidden" };
-  }
-
-  if (data.sourced_pct <= 0) {
+  if (typeof cited !== "number" || cited === 0) {
     return {
       kind: "unverified",
       band: "red",
@@ -63,51 +65,41 @@ export function getSourcedBadgeState(
     };
   }
 
-  if (data.sourced_pct >= 0.75) {
-    return {
-      kind: "scored",
-      band: "green",
-      coverageLabel: "High coverage",
-      percentLabel: `${Math.round(data.sourced_pct * 100)}% sourced`,
-    };
+  if (!data.categories_mostly_present || total < 5 || typeof data.sourced_pct !== "number") {
+    return { kind: "limited", band: "blue", label: "Limited data" };
   }
 
-  if (data.sourced_pct >= 0.6) {
-    return {
-      kind: "scored",
-      band: "yellow",
-      coverageLabel: "Medium coverage",
-      percentLabel: `${Math.round(data.sourced_pct * 100)}% sourced`,
-    };
+  const pct = data.sourced_pct;
+  const percentLabel = `${Math.round(pct * 100)}% verified`;
+
+  if (pct >= 0.75) {
+    return { kind: "scored", band: "green", coverageWord: "High", percentLabel };
   }
 
-  return {
-    kind: "scored",
-    band: "red",
-    coverageLabel: "Low coverage",
-    percentLabel: `${Math.round(data.sourced_pct * 100)}% sourced`,
-  };
+  if (pct >= 0.6) {
+    return { kind: "scored", band: "yellow", coverageWord: "Medium", percentLabel };
+  }
+
+  return { kind: "scored", band: "red", coverageWord: "Low", percentLabel };
 }
 
 export default function SourcedBadge({ politician }: { politician: SourcedBadgeData }) {
   const state = getSourcedBadgeState(politician);
 
-  if (state.kind === "hidden") {
-    return null;
-  }
-
-  const icon =
-    state.kind === "scored" && state.band === "green" ? (
-      <CheckCircle2 className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-    ) : state.kind === "limited" ? (
-      <Info className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-    ) : (
-      <AlertTriangle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-    );
+  const Icon =
+    state.kind === "limited"
+      ? Info
+      : state.kind === "unverified"
+        ? ShieldAlert
+        : state.band === "green"
+          ? CheckCircle2
+          : state.band === "yellow"
+            ? AlertCircle
+            : AlertTriangle;
 
   const label =
     state.kind === "scored"
-      ? `${state.coverageLabel} · ${state.percentLabel}`
+      ? `${state.percentLabel} · ${state.coverageWord}`
       : state.label;
 
   const title =
@@ -123,7 +115,7 @@ export default function SourcedBadge({ politician }: { politician: SourcedBadgeD
       data-sourced-state={state.kind}
       title={title}
     >
-      {icon}
+      <Icon className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
       <span>{label}</span>
     </span>
   );

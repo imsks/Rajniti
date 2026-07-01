@@ -1,5 +1,7 @@
 """Politician schema and citation merge helpers."""
 
+from typing import Any, Dict
+
 import pytest
 
 from app.agents.citation_audit_merge import (
@@ -151,6 +153,7 @@ def test_politician_citation_coverage_pct_no_slots_returns_none() -> None:
         "cited_fields_count": 0,
         "checkable_fields_count": 0,
         "sourced_pct": None,
+        "categories_mostly_present": False,
     }
     assert (
         politician_citation_coverage_pct(
@@ -249,10 +252,85 @@ def test_politician_citation_coverage_summary_returns_fraction_and_counts() -> N
         }
     )
     assert summary == {
-        "cited_fields_count": 4,
-        "checkable_fields_count": 7,
-        "sourced_pct": pytest.approx(4 / 7, abs=1e-6),
+        "cited_fields_count": 3,
+        "checkable_fields_count": 6,
+        "sourced_pct": pytest.approx(3 / 6, abs=1e-6),
+        "categories_mostly_present": False,  # no family_background / criminal_records
     }
+
+
+def _full_category_fixture(politician_type: str, with_performance: bool) -> dict:
+    cite = {"link": "https://example.com/x", "source": "NEWS"}
+    fixture: Dict[str, Any] = {
+        "type": politician_type,
+        "education": [{"qualification": "BACHELOR", "citation": cite}],
+        "political_background": {
+            "elections": [
+                {
+                    "year": 2024,
+                    "type": politician_type,
+                    "state": "Bihar",
+                    "constituency": "Patna",
+                    "party": "X",
+                    "status": "WON",
+                    "citation": cite,
+                }
+            ],
+        },
+        "family_background": [{"name": "A", "relation": "FATHER", "citation": cite}],
+        "criminal_records": [{"name": "Case", "citation": cite}],
+        "contact": {"email": "a@b.c"},
+        "contact_citations": {"email": cite},
+    }
+    if with_performance:
+        fixture["performance"] = {"attendance": 80, "questions": 90, "debates": 5}
+        fixture["performance_citations"] = {"attendance": cite, "questions": cite, "debates": cite}
+    return fixture
+
+
+def test_categories_mostly_present_true_when_every_required_category_has_data() -> None:
+    summary = politician_citation_coverage_summary(
+        _full_category_fixture("MLA", with_performance=False)
+    )
+    assert summary["categories_mostly_present"] is True
+    assert summary["sourced_pct"] == pytest.approx(1.0)
+
+
+def test_categories_mostly_present_true_with_exactly_one_category_missing() -> None:
+    # "Mostly" allows exactly one gap out of the 5 always-required categories.
+    fixture = _full_category_fixture("MLA", with_performance=False)
+    fixture["criminal_records"] = []
+    summary = politician_citation_coverage_summary(fixture)
+    assert summary["categories_mostly_present"] is True
+
+
+def test_categories_mostly_present_false_with_two_categories_missing() -> None:
+    fixture = _full_category_fixture("MLA", with_performance=False)
+    fixture["criminal_records"] = []
+    fixture["family_background"] = []
+    summary = politician_citation_coverage_summary(fixture)
+    assert summary["categories_mostly_present"] is False
+
+
+def test_categories_mostly_present_ignores_performance_for_mla() -> None:
+    # MLAs never have performance data — it must not block a full score.
+    fixture = _full_category_fixture("MLA", with_performance=False)
+    summary = politician_citation_coverage_summary(fixture)
+    assert summary["categories_mostly_present"] is True
+
+
+def test_performance_only_joins_the_required_set_for_mp_with_recorded_stats() -> None:
+    without_perf = politician_citation_coverage_summary(
+        _full_category_fixture("MP", with_performance=False)
+    )
+    with_perf = politician_citation_coverage_summary(
+        _full_category_fixture("MP", with_performance=True)
+    )
+    # An MP with no recorded stats is scored on the same 5 categories as an
+    # MLA; one with recorded stats gets those extra fields folded in too.
+    assert without_perf["categories_mostly_present"] is True
+    assert with_perf["categories_mostly_present"] is True
+    assert with_perf["checkable_fields_count"] > without_perf["checkable_fields_count"]
 
 
 def test_merge_citation_audit_fills_education() -> None:

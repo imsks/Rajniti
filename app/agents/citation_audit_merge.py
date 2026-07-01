@@ -17,71 +17,99 @@ _PERF_KEYS = frozenset({"attendance", "questions", "debates"})
 CITATION_COVERAGE_SKIP_THRESHOLD_PCT = 40
 
 
+# The profile hero's badge groups checkable fields into these tabs/categories.
+# "performance" is added on top of this list only when it applies (MP with a
+# recorded stat) — MLAs, and MPs without performance data, never have it.
+_REQUIRED_CATEGORIES = ("education", "history", "family", "criminal", "contact")
+
+
 def politician_citation_coverage_summary(politician: Dict[str, Any]) -> Dict[str, Any]:
-    """Fractional citation coverage plus raw counts for present checkable fields."""
+    """Fractional citation coverage, raw counts, and category completeness.
+
+    The auto-generated ``political_background.summary`` is excluded — it is
+    synthesized from the election records already counted below, not an
+    independent fact, so counting it would inflate coverage for thin profiles.
+
+    ``categories_mostly_present`` is True once all but at most one of the
+    profile's hero-tab categories (Education, History, Family, Criminal,
+    Contact, and Performance when applicable) has at least one checkable
+    item — the badge only shows a percentage once the profile is broadly
+    filled in, not just well-cited on a couple of thin categories.
+    """
     total = 0
     filled = 0
+    category_present: Dict[str, bool] = {}
 
-    for row in politician.get("education") or []:
-        if isinstance(row, dict):
-            total += 1
-            if row.get("citation"):
-                filled += 1
+    edu_total = sum(1 for row in politician.get("education") or [] if isinstance(row, dict))
+    edu_filled = sum(
+        1 for row in politician.get("education") or [] if isinstance(row, dict) and row.get("citation")
+    )
+    total += edu_total
+    filled += edu_filled
+    category_present["education"] = edu_total > 0
 
     pb = politician.get("political_background") or {}
-    if (pb.get("summary") or "").strip():
-        total += 1
-        if pb.get("summary_citation"):
-            filled += 1
+    elections = [ev for ev in pb.get("elections") or [] if isinstance(ev, dict)]
+    hist_total = len(elections)
+    hist_filled = sum(1 for ev in elections if ev.get("citation"))
+    total += hist_total
+    filled += hist_filled
+    category_present["history"] = hist_total > 0
 
-    for ev in pb.get("elections") or []:
-        if isinstance(ev, dict):
-            total += 1
-            if ev.get("citation"):
-                filled += 1
+    family = [row for row in politician.get("family_background") or [] if isinstance(row, dict)]
+    fam_total = len(family)
+    fam_filled = sum(1 for row in family if row.get("citation"))
+    total += fam_total
+    filled += fam_filled
+    category_present["family"] = fam_total > 0
 
-    for row in politician.get("family_background") or []:
-        if isinstance(row, dict):
-            total += 1
-            if row.get("citation"):
-                filled += 1
-
-    for row in politician.get("criminal_records") or []:
-        if isinstance(row, dict):
-            total += 1
-            if row.get("citation"):
-                filled += 1
+    criminal = [row for row in politician.get("criminal_records") or [] if isinstance(row, dict)]
+    cr_total = len(criminal)
+    cr_filled = sum(1 for row in criminal if row.get("citation"))
+    total += cr_total
+    filled += cr_filled
+    category_present["criminal"] = cr_total > 0
 
     contact = politician.get("contact") or {}
     cc = politician.get("contact_citations") or {}
-    for k in _CONTACT_KEYS:
-        if contact.get(k):
-            total += 1
-            if k in cc:
-                filled += 1
-
     sm = politician.get("social_media") or {}
     smc = politician.get("social_media_citations") or {}
+    contact_total = 0
+    contact_filled = 0
+    for k in _CONTACT_KEYS:
+        if contact.get(k):
+            contact_total += 1
+            if k in cc:
+                contact_filled += 1
     for k in _SOCIAL_KEYS:
         if sm.get(k):
-            total += 1
+            contact_total += 1
             if k in smc:
-                filled += 1
+                contact_filled += 1
+    total += contact_total
+    filled += contact_filled
+    category_present["contact"] = contact_total > 0
 
+    required = list(_REQUIRED_CATEGORIES)
     if politician.get("type") == "MP":
         perf = politician.get("performance") or {}
         pc = politician.get("performance_citations") or {}
         if any(perf.get(k) not in (None, 0, "") for k in _PERF_KEYS):
-            for k in _PERF_KEYS:
-                if perf.get(k) is not None:
-                    total += 1
-                    if k in pc:
-                        filled += 1
+            perf_total = sum(1 for k in _PERF_KEYS if perf.get(k) is not None)
+            perf_filled = sum(1 for k in _PERF_KEYS if perf.get(k) is not None and k in pc)
+            total += perf_total
+            filled += perf_filled
+            category_present["performance"] = perf_total > 0
+            required.append("performance")
+
+    present_count = sum(1 for c in required if category_present.get(c))
+    categories_mostly_present = present_count >= len(required) - 1
 
     return {
         "cited_fields_count": filled,
         "checkable_fields_count": total,
         "sourced_pct": None if total == 0 else round(filled / total, 6),
+        "categories_mostly_present": categories_mostly_present,
     }
 
 
