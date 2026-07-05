@@ -5,6 +5,7 @@ import AuthProvider from "@/components/auth/AuthProvider";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import AnalyticsPageViewTracker from "@/components/analytics/AnalyticsPageViewTracker";
 import ThemeProvider from "@/components/providers/ThemeProvider";
+import MotionProvider from "@/components/providers/MotionProvider";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildWebSiteJsonLd } from "@/lib/seo/json-ld";
 import {
@@ -91,7 +92,9 @@ export default function RootLayout({
         <AnalyticsPageViewTracker />
         <AuthProvider>
           <ThemeProvider>
-            {children}
+            <MotionProvider>
+              {children}
+            </MotionProvider>
           </ThemeProvider>
         </AuthProvider>
       </body>

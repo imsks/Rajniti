@@ -164,3 +164,4 @@ out/
 next-env.d.ts
 
 .env.production
+.claude/

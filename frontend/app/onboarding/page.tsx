@@ -3,7 +3,7 @@
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 import OnboardingGate from "@/components/auth/OnboardingGate";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import PoliticalInclinationStep from "@/components/onboarding/PoliticalInclinationStep";
 import UsernameStep from "@/components/onboarding/UsernameStep";
 import UserDetailsStep from "@/components/onboarding/UserDetailsStep";
@@ -140,7 +140,7 @@ function OnboardingContent() {
       }
     };
     // trackEvent is stable; intentionally omitted from deps.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps, react-doctor/exhaustive-deps
   }, []);
 
   const sessionReady = status !== "loading";
@@ -224,13 +224,13 @@ function OnboardingContent() {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 py-12 px-4">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="max-w-2xl mx-auto"
       >
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -257,9 +257,9 @@ function OnboardingContent() {
               />
             ))}
           </div>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -267,16 +267,16 @@ function OnboardingContent() {
         >
           <AnimatePresence mode="wait">
             {step === 1 && (
-              <motion.div key="step1" {...stepMotionProps}>
+              <m.div key="step1" {...stepMotionProps}>
                 <PoliticalInclinationStep
                   value={formData.political_ideology}
                   onChange={(val) => updateField("political_ideology", val)}
                 />
-              </motion.div>
+              </m.div>
             )}
 
             {step === 2 && (
-              <motion.div key="step2" {...stepMotionProps}>
+              <m.div key="step2" {...stepMotionProps}>
                 <UserDetailsStep
                   formData={{
                     phone: formData.phone,
@@ -288,11 +288,11 @@ function OnboardingContent() {
                     updateField(field as keyof OnboardingData, value)
                   }
                 />
-              </motion.div>
+              </m.div>
             )}
 
             {step === 3 && (
-              <motion.div key="step3" {...stepMotionProps}>
+              <m.div key="step3" {...stepMotionProps}>
                 <PreferencesStep
                   formData={{
                     preferred_parties: formData.preferred_parties,
@@ -302,23 +302,23 @@ function OnboardingContent() {
                     updateField(field as keyof OnboardingData, values)
                   }
                 />
-              </motion.div>
+              </m.div>
             )}
 
             {step === 4 && (
-              <motion.div key="step4" {...stepMotionProps}>
+              <m.div key="step4" {...stepMotionProps}>
                 <UsernameStep
                   value={formData.username}
                   onChange={(val) => updateField("username", val)}
                   onValidation={setUsernameValid}
                 />
-              </motion.div>
+              </m.div>
             )}
           </AnimatePresence>
 
           <div className="flex gap-4 mt-8">
             {step > 1 && (
-              <motion.button
+              <m.button
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 whileHover={{ scale: 1.02 }}
@@ -334,11 +334,11 @@ function OnboardingContent() {
                 className="flex-1 px-6 py-3 border-2 border-gray-300 rounded-lg text-gray-700 font-semibold hover:bg-gray-50 transition-all disabled:opacity-50"
               >
                 {COPY.back}
-              </motion.button>
+              </m.button>
             )}
 
             {step < STEP_COUNT ? (
-              <motion.button
+              <m.button
                 whileHover={{ scale: canProceed ? 1.02 : 1 }}
                 whileTap={{ scale: canProceed ? 0.98 : 1 }}
                 onClick={handleNext}
@@ -346,9 +346,9 @@ function OnboardingContent() {
                 className="flex-1 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg text-white font-semibold hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {COPY.continue}
-              </motion.button>
+              </m.button>
             ) : (
-              <motion.button
+              <m.button
                 whileHover={{ scale: !submitting ? 1.02 : 1 }}
                 whileTap={{ scale: !submitting ? 0.98 : 1 }}
                 onClick={handleSubmit}
@@ -356,11 +356,11 @@ function OnboardingContent() {
                 className="flex-1 px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 rounded-lg text-white font-semibold hover:from-green-600 hover:to-green-700 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {submitting ? COPY.saving : COPY.completeCta}
-              </motion.button>
+              </m.button>
             )}
           </div>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </div>
   );
 }

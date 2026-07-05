@@ -1,10 +1,10 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 
 export default function Shimmer() {
     return (
-        <motion.div
+        <m.div
             className="absolute inset-0 -translate-x-full"
             animate={{ translateX: "100%" }}
             transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}

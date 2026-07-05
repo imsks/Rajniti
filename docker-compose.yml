@@ -27,6 +27,8 @@ services:
     container_name: rajniti-api
     env_file:
       - .env
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql://rajniti:rajniti@postgres:5432/rajniti}
     ports:
       - "${FLASK_PORT:-8000}:8000"
     volumes:
@@ -39,6 +41,7 @@ services:
       postgres:
         condition: service_healthy
         required: false
+    restart: unless-stopped
 
   rajniti-web:
     build:
@@ -46,7 +49,8 @@ services:
       dockerfile: Dockerfile.dev
     container_name: rajniti-web
     depends_on:
-      - rajniti-api
+      rajniti-api:
+        condition: service_started
     ports:
       - "${FRONTEND_PORT:-3000}:3000"
     volumes:
@@ -61,7 +65,9 @@ services:
       NEXT_PUBLIC_SITE_URL: http://localhost:3000
       WATCHPACK_POLLING: "true"
     env_file:
-      - frontend/.env
+      - path: frontend/.env
+        required: false
+    restart: unless-stopped
 
 volumes:
   postgres_data:

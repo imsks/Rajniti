@@ -33,7 +33,7 @@ describe("buildPoliticianMetadata", () => {
     it("includes title with name and constituency", async () => {
         const { buildPoliticianMetadata } = await import("@/lib/seo/metadata")
         const meta = buildPoliticianMetadata(politician)
-        expect(meta.title).toContain("NARENDRA MODI")
+        expect(meta.title).toContain("Narendra Modi")
         expect(meta.title).toContain("Varanasi")
     })
 })

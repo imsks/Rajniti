@@ -2,17 +2,6 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import MyPoliticianCard from '@/components/MyPoliticianCard'
 import { mockMp } from '@/__tests__/helpers/politicianFixtures'
 
-jest.mock('framer-motion', () => ({
-  motion: {
-    div: ({
-      children,
-      ...props
-    }: React.PropsWithChildren<Record<string, unknown>>) => (
-      <div {...props}>{children}</div>
-    ),
-  },
-}))
-
 describe('MyPoliticianCard', () => {
   it('shows placeholder with label and Add button', () => {
     const onAddClick = jest.fn()

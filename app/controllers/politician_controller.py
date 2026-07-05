@@ -108,6 +108,7 @@ class PoliticianController:
         election_type: Optional[ElectionType] = None,
         state: Optional[str] = None,
         q: Optional[str] = None,
+        parties: Optional[List[str]] = None,
     ) -> Dict[str, Any]:
         return self.service.list_catalog(
             page=page,
@@ -115,6 +116,7 @@ class PoliticianController:
             election_type=election_type,
             state=state,
             q=q,
+            parties=parties,
         )
 
     def sitemap_entries(self) -> Dict[str, Any]:

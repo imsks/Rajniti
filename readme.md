@@ -14,139 +14,114 @@
 
 ---
 
-## Quick Start (Docker — recommended)
+## Pick a setup path
+
+| Goal | Command | What you get |
+|------|---------|--------------|
+| **Fastest — API only (Docker)** | `make dev-api` | Flask API `:8000` + Postgres |
+| **Full stack (Docker)** | `make dev` | API `:8000` + Next.js `:3000` + Postgres |
+| **API only (local venv)** | `make install && make db-migrate && make run` | Flask on `:8000` (bring your own Postgres) |
+| **Full stack (local)** | above + `make frontend-dev` | API + frontend, no Docker |
+
+> **Port note:** API defaults to `:8000`. macOS reserves `:5000` for AirPlay.
+
+---
+
+## Quick Start — Docker (recommended)
+
+**Prerequisites:** Docker Desktop (or Docker Engine + Compose v2).
 
 ```bash
 git clone https://github.com/imsks/Rajniti.git && cd Rajniti
-cp .env.example .env          # add at least one LLM API key
-make install-hooks            # one-time: auto-stamps lastUpdated when you edit politician data
-make dev                      # starts API + Postgres on :8000
+make setup              # copies .env.example → .env, frontend/.env.example → frontend/.env
+make install-hooks      # one-time: auto-stamps lastUpdated on politician data commits
+make dev-api            # fastest: API + Postgres (skip frontend image build)
+# — or —
+make dev                # full stack: API + Next.js + Postgres
 ```
 
-Verify: `curl http://localhost:8000/api/v1/health`
+**Verify**
 
-## Quick Start (Local — no Docker)
+```bash
+curl http://localhost:8000/api/v1/health          # API
+open http://localhost:3000                         # frontend (make dev only)
+```
 
-**Prerequisites:** Python 3.11+, a running PostgreSQL instance.
+**First `make dev` note:** The frontend image builds in seconds; `npm ci` runs **once at container start** (not during `docker build`), so you may see “installing dependencies…” for a few minutes the first time. Later starts reuse the `node_modules` volume and are much faster.
+
+**Subsequent runs** (skip rebuild):
+
+```bash
+make dev BUILD=0
+# or
+make dev-api BUILD=0
+```
+
+---
+
+## Quick Start — Local (no Docker)
+
+**Prerequisites:** Python 3.11+, Node 20+, a running PostgreSQL instance.
 
 ```bash
 git clone https://github.com/imsks/Rajniti.git && cd Rajniti
-make install                  # creates venv/ and installs deps
-cp .env.example .env          # edit DATABASE_URL to point at your local Postgres
-make install-hooks            # one-time: auto-stamps lastUpdated when you edit politician data
-make db-migrate               # apply migrations
-make run                      # starts Flask on :8000
+make setup
+make install            # venv + pip deps
+make install-hooks
+# Edit .env — set DATABASE_URL to your local Postgres, e.g.:
+#   DATABASE_URL=postgresql://user:pass@localhost:5432/rajniti
+make db-migrate
+make run                # API on :8000
 ```
 
-> **Port note:** The API defaults to port 8000. macOS reserves port 5000 for AirPlay.
+**Frontend (separate terminal):**
+
+```bash
+make frontend-install   # first time only
+make frontend-dev       # http://localhost:3000
+```
+
+Copy `frontend/.env.example` → `frontend/.env` (via `make setup`) and set `NEXTAUTH_*` / Google OAuth for sign-in.
 
 ---
 
-## Manual Setup (venv + run)
+## Makefile reference
 
-If `make install` doesn't work or you prefer manual setup:
+Run `make help` anytime. All targets:
 
-```bash
-# 1. Create and activate virtual environment
-python3 -m venv venv
-source venv/bin/activate        # macOS/Linux
-# venv\Scripts\activate         # Windows
+| Command | Description |
+|---------|-------------|
+| `make help` | List all commands |
+| `make setup` | Copy `.env` templates (safe to re-run) |
+| `make install` | Create `venv/` + install Python deps |
+| `make install-dev` | `install` + test/lint deps (`requirements-test.txt`) |
+| `make install-hooks` | Git pre-commit hook for `lastUpdated` on data files |
+| `make run` | Local Flask API (`:8000`, uses venv) |
+| `make frontend-install` | `npm ci` in `frontend/` |
+| `make frontend-dev` | Local Next.js dev server (`:3000`) |
+| `make dev` | Docker: API + frontend + Postgres |
+| `make dev-api` | Docker: API + Postgres only (**fastest Docker path**) |
+| `make dev-build` | Rebuild Docker images without starting |
+| `make stop` | Stop Docker containers |
+| `make logs` | Tail logs (`SERVICE=rajniti-api` optional) |
+| `make prod` | Production API image (Supabase `DATABASE_URL`) |
+| `make db-migrate` | Alembic upgrade head (local venv) |
+| `make db-reset` | Stop Docker + **delete** local Postgres volume |
+| `make test` | Backend + frontend tests |
+| `make test SUITE=unit` | Unit tests only |
+| `make test SUITE=integration` | Integration tests only |
+| `make test SUITE=e2e` | E2E tests only |
+| `make test COV=1` | Backend tests with coverage |
+| `make lint` | Python + frontend linters |
+| `make format` | Auto-format Python (black + isort) |
 
-# 2. Install dependencies
-pip install -r requirements.txt
-
-# 3. Configure environment
-cp .env.example .env
-# Edit .env — set DATABASE_URL, add at least one LLM key (GEMINI_API_KEY recommended)
-
-# 4. Run database migrations
-source venv/bin/activate && alembic upgrade head
-
-# 5. Start the server
-python run.py
-```
-
-The server starts at `http://localhost:8000`. Verify with:
-
-```bash
-curl http://localhost:8000/api/v1/health
-```
-
----
-
-## Running Agents
-
-Agents use LLMs to enrich politician data (education, career, citations). You need at least one LLM API key in `.env` (Gemini free tier works).
-
-### Politician Enrichment Agent
-
-Enriches MP/MLA records with structured biographical data:
-
-```bash
-source venv/bin/activate
-
-# Enrich a single politician by ID
-python scripts/run_politician_agent.py --id "e345d97b-f7c3-4974-b190-1662fcfb4a7a"
-
-# Enrich all MPs (test with a small batch first)
-python scripts/run_politician_agent.py --type MP --limit 3
-
-# Full run for all MPs
-python scripts/run_politician_agent.py --type MP
-
-# Full run for all MLAs
-python scripts/run_politician_agent.py --type MLA
-
-# Force re-enrich (overwrite existing data)
-python scripts/run_politician_agent.py --type MP --force
-
-# Verbose logging
-python scripts/run_politician_agent.py --type MP --log-level DEBUG
-```
-
-### Citation Agent
-
-Adds source URLs to politician records for data verification:
-
-```bash
-source venv/bin/activate
-
-# Add citations to MPs (small batch)
-python scripts/run_citation_agent.py --type MP --limit 10
-
-# Full citation run
-python scripts/run_citation_agent.py --type MP
-```
-
-### MLA Fetcher Agent
-
-Fetches MLA data for a specific state or all states:
-
-```bash
-source venv/bin/activate
-
-# Fetch MLAs for a specific state
-python scripts/fetch_mlas.py --state "Andhra Pradesh"
-
-# Fetch MLAs for all states
-python scripts/fetch_mlas.py
-
-# Force overwrite existing data
-python scripts/fetch_mlas.py --state "Karnataka" --force
-```
-
-### Agent Tips
-
-- **Free tier limits:** Gemini has rate limits. Use `--limit` to batch work and avoid quota errors.
-- **Checkpoints:** The citation agent saves progress, so you can resume after interruptions.
-- **Force flag:** Use `--force` to re-enrich records that already have data.
-- **Logs:** Set `--log-level DEBUG` to see detailed LLM interactions.
+**Useful variables:** `BUILD=0` (skip image rebuild), `SUITE=unit|integration|e2e`, `COV=1`, `SERVICE=rajniti-web`.
 
 ---
 
-## Environment Variables
+## Environment variables
 
-See [`.env.example`](.env.example) for the full list. Key variables:
+See [`.env.example`](.env.example) and [`frontend/.env.example`](frontend/.env.example).
 
 | Variable | Required | Description |
 |----------|----------|-------------|
@@ -154,80 +129,93 @@ See [`.env.example`](.env.example) for the full list. Key variables:
 | `GEMINI_API_KEY` | Yes* | Google Gemini (free tier works) |
 | `PERPLEXITY_API_KEY` | No | Perplexity fallback |
 | `OPENAI_API_KEY` | No | OpenAI fallback |
-| `AGENT_LLM_PROVIDERS` | No | Comma-separated failover order (default: `gemini,perplexity,openai`) |
+| `AGENT_LLM_PROVIDERS` | No | Failover order (default: `gemini,perplexity,openai`) |
 
-\* At least one LLM key is needed to run enrichment agents. The API itself works without one.
+\* At least one LLM key is needed for enrichment agents. The API itself runs without one.
 
-**Docker vs Local DATABASE_URL:**
-- Docker (`make dev`): use `postgresql://postgres:postgres@postgres:5432/rajniti` (container hostname)
-- Beekeeper / host tools: `localhost:5432`, user `postgres`, database `rajniti`
+**`DATABASE_URL` by environment**
 
-**Beekeeper fails with `role "postgres" does not exist`?**  
-Two Postgres instances are fighting for port 5432. Homebrew Postgres (`postgresql@17`) binds `localhost:5432` and wins over Docker when you connect to `localhost`. Stop it:
+| Setup | Value |
+|-------|-------|
+| Docker (`make dev` / `make dev-api`) | `postgresql://rajniti:rajniti@postgres:5432/rajniti` |
+| Local venv → Docker Postgres | `postgresql://rajniti:rajniti@localhost:5432/rajniti` |
+| Beekeeper / host tools | host `localhost`, port `5432`, user `rajniti`, db `rajniti` |
+| Supabase (`make prod`) | Session-mode pooler URL (port `5432`) |
 
-```bash
-brew services stop postgresql@17
-```
-
-Then reconnect in Beekeeper. Only one Postgres can own `localhost:5432`.
-
----
-
-## Available Commands
-
-```bash
-make help          # Show all commands
-```
-
-| Command | Description |
-|---------|-------------|
-| `make install` | Create venv + install deps |
-| `make install-dev` | + test/lint deps |
-| `make dev` | Docker: API + local Postgres |
-| `make prod` | Docker: API with Supabase |
-| `make run` | Local Flask server (venv) |
-| `make stop` | Stop all Docker containers |
-| `make test` | Run all tests (`SUITE=unit` or `SUITE=e2e` for subset, `COV=1` for coverage) |
-| `make lint` | black + isort + flake8 + mypy |
-| `make format` | Auto-format code |
-| `make db-migrate` | Run Alembic migrations |
-| `make db-reset` | Reset database (deletes data) |
-
-PR CI is defined in [`.github/workflows/ci.yml`](.github/workflows/ci.yml): tests first (unit → integration → e2e), then lint and frontend build. If branch protection lists required checks, use these job names: `Backend — tests`, `Frontend — tests`, `Backend — lint`, `Frontend — lint & typecheck`, `Frontend — production build` (remove legacy names like `Lint Passed` or `CI success`).
+**Beekeeper: `role "postgres" does not exist`?**  
+Homebrew Postgres may be bound to `localhost:5432` instead of Docker. Stop it: `brew services stop postgresql@17`, then reconnect. Only one Postgres can own that port.
 
 ---
 
-## Project Structure
+## Running agents
+
+Agents enrich politician data (education, career, citations). Add at least one LLM key to `.env` (Gemini free tier works).
+
+```bash
+source venv/bin/activate
+
+# Politician enrichment
+python scripts/run_politician_agent.py --type MP --limit 3   # small batch first
+python scripts/run_politician_agent.py --type MP             # all MPs
+python scripts/run_politician_agent.py --type MLA --force    # re-enrich
+
+# Citations
+python scripts/run_citation_agent.py --type MP --limit 10
+
+# MLA fetcher
+python scripts/fetch_mlas.py --state "Karnataka"
+```
+
+**Tips:** Use `--limit` to avoid Gemini rate limits. Citation agent checkpoints progress. `--log-level DEBUG` for verbose LLM logs.
+
+---
+
+## Manual setup (venv)
+
+If you prefer not to use `make install`:
+
+```bash
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env          # set DATABASE_URL + optional LLM keys
+source venv/bin/activate && alembic upgrade head
+python run.py                   # http://localhost:8000
+curl http://localhost:8000/api/v1/health
+```
+
+---
+
+## Project structure
 
 ```
 app/
-├── agents/         # LLM-based enrichment agents (politician, citation, MLA fetcher)
-├── config/         # LLM failover wrapper (FreeTierLLM)
+├── agents/         # LLM enrichment (politician, citation, MLA fetcher)
+├── config/         # LLM failover (FreeTierLLM)
 ├── controllers/    # Request handlers
-├── core/           # Utilities: cache, logging, exceptions, response helpers
+├── core/           # Cache, logging, exceptions
 ├── data/           # mp.json, mla.json — source of truth
-├── database/       # SQLAlchemy models, session, migration helpers
+├── database/       # SQLAlchemy models, session
 ├── prompts/        # LLM prompt templates
-├── routes/         # Flask route definitions
+├── routes/         # Flask routes
 ├── schemas/        # Pydantic validation
-├── scrapers/       # ECI election result scraper
+├── scrapers/       # ECI election scraper
 ├── services/       # Business logic
-└── tools/          # Web search, Wikipedia, generic scraper (used by agents)
+└── tools/          # Web search, Wikipedia (used by agents)
 
-scripts/            # CLI utilities: agent runner, DB management, MLA fetcher
+scripts/            # CLI: agents, DB, MLA fetcher
 tests/              # Unit, integration, E2E (pytest)
-frontend/           # Next.js app (separate dev setup — see frontend/README.md)
+frontend/           # Next.js — see frontend/README.md
 ```
 
 ---
 
-## API Endpoints
+## API endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `GET` | `/api/v1/politicians` | List politicians (filter by `?type=MP\|MLA`) |
+| `GET` | `/api/v1/politicians` | List (`?type=MP\|MLA`) |
 | `GET` | `/api/v1/politicians/search?q=` | Search by name/state/party |
-| `GET` | `/api/v1/politicians/<id>` | Single politician by ID |
+| `GET` | `/api/v1/politicians/<id>` | Single politician |
 | `GET` | `/api/v1/politicians/state/<state>` | Filter by state |
 | `GET` | `/api/v1/politicians/party/<party>` | Filter by party |
 | `GET` | `/api/v1/stats` | Summary statistics |
@@ -235,26 +223,25 @@ frontend/           # Next.js app (separate dev setup — see frontend/README.md
 
 ---
 
-## Database & Migrations
+## Database & migrations
 
-PostgreSQL via SQLAlchemy + Alembic. Migrations run automatically on server startup.
+PostgreSQL via SQLAlchemy + Alembic. Migrations run automatically on API startup in Docker.
 
 ```bash
-# After changing a model (e.g., adding a column):
-python scripts/db.py autogenerate -m "add column_name to users"
-# Review the generated file in alembic/versions/
+make db-migrate
+# After model changes:
+python scripts/db.py autogenerate -m "add column_name"
+# Review alembic/versions/, then:
 make db-migrate
 ```
 
-**Supabase note:** Use the session-mode pooler URL (port 5432), not the direct host (IPv6-only, fails in Docker).
+**Supabase:** Use the session-mode pooler URL (port `5432`), not the direct IPv6-only host.
 
 ---
 
-## Politician Data & `lastUpdated`
+## Politician data & `lastUpdated`
 
-Each record in `mp.json` and `mla.json` has a `lastUpdated` field. It is stamped **automatically** on every `git commit` — you never need to set it manually.
-
-The git pre-commit hook (`scripts/pre_commit_hook.py`) detects which politician records changed, updates their `lastUpdated` to the commit time, and re-stages the files. Install it once per clone:
+Records in `mp.json` / `mla.json` get `lastUpdated` stamped automatically on commit via the pre-commit hook:
 
 ```bash
 make install-hooks
@@ -262,44 +249,36 @@ make install-hooks
 
 ---
 
-## Contributing with AI Agents
-
-The easiest way to contribute — run LLM agents locally and PR enriched data.
+## Contributing with AI agents
 
 ```bash
 git checkout -b enrich/<scope>
-cp .env.example .env                        # add your Gemini key (free)
+make setup                    # add Gemini key to .env
 
-# Enrich politicians
-python scripts/run_politician_agent.py --type MP --limit 3    # test small batch
-python scripts/run_politician_agent.py --type MP              # full run
-
-# Add citation URLs
+python scripts/run_politician_agent.py --type MP --limit 3
 python scripts/run_citation_agent.py --type MP --limit 10
 
-# Add MLAs for a new state
-python scripts/fetch_mlas.py --state "Andhra Pradesh"
-
-# Commit and PR
 git add app/data/mp.json app/data/mla.json
 git commit -m "Enrich MP education data"
 git push -u origin enrich/<scope>
 ```
 
-**Rules:** No secrets in commits. Only JSON data changes in data PRs. Run `make test` before pushing.
+**Rules:** No secrets in commits. Data PRs should only change JSON. Run `make test` before pushing.
 
 ---
 
-## Testing
+## Testing & CI
 
 ```bash
-make test                # all tests
-make test SUITE=unit     # unit tests only
-make test SUITE=e2e      # end-to-end only
-make test COV=1          # with coverage report
-make lint                # linters
-make format              # auto-format
+make install-dev              # first time
+make test                     # all suites + frontend unit tests
+make test SUITE=unit
+make test COV=1
+make lint
+make format
 ```
+
+PR CI: [`.github/workflows/ci.yml`](.github/workflows/ci.yml) — tests first, then lint and frontend build. Required check names: `Backend — tests`, `Frontend — tests`, `Backend — lint`, `Frontend — lint & typecheck`, `Frontend — production build`.
 
 ---
 

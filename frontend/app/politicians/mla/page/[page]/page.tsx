@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import renderPoliticiansDirectory, {
     generateDirectoryMetadata,
 } from "@/lib/politicians/directory-page"
+import { parsePartyParam } from "@/components/politicians/PoliticiansDirectory"
 
 export const dynamic = "force-dynamic"
 
@@ -10,12 +11,16 @@ export async function generateMetadata({
     searchParams,
 }: {
     params: Promise<{ page: string }>
-    searchParams: Promise<{ q?: string }>
+    searchParams: Promise<{ q?: string; party?: string }>
 }): Promise<Metadata> {
     const { page: pageStr } = await params
-    const { q } = await searchParams
+    const { q, party } = await searchParams
     const page = Math.max(1, parseInt(pageStr, 10) || 1)
-    return generateDirectoryMetadata(page, { type: "MLA", q })
+    return generateDirectoryMetadata(page, {
+        type: "MLA",
+        q,
+        parties: parsePartyParam(party),
+    })
 }
 
 export default async function PoliticiansMlaPaginatedPage({
@@ -23,10 +28,13 @@ export default async function PoliticiansMlaPaginatedPage({
     searchParams,
 }: {
     params: Promise<{ page: string }>
-    searchParams: Promise<{ q?: string }>
+    searchParams: Promise<{ q?: string; party?: string }>
 }) {
     const { page: pageStr } = await params
-    const { q } = await searchParams
+    const { q, party } = await searchParams
     const page = Math.max(1, parseInt(pageStr, 10) || 1)
-    return renderPoliticiansDirectory({ page, filters: { type: "MLA", q } })
+    return renderPoliticiansDirectory({
+        page,
+        filters: { type: "MLA", q, parties: parsePartyParam(party) },
+    })
 }

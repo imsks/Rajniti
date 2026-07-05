@@ -2,7 +2,7 @@
 
 import { Suspense, useState, useMemo, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Footer, Navbar } from "@/components/layout";
 import Button from "@/components/ui/Button";
 import Text from "@/components/ui/Text";
@@ -180,7 +180,7 @@ function DashboardContent() {
         <MyPoliticiansSection allPoliticians={all} />
 
         {/* Header + Stats */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -201,17 +201,17 @@ function DashboardContent() {
           </Text>
 
          
-        </motion.div>
+        </m.div>
 
         {/* Tabs */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex gap-2 mb-6"
         >
           {(["ALL", "MP", "MLA"] as Tab[]).map((tab, i) => (
-            <motion.button
+            <m.button
               key={tab}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -235,12 +235,12 @@ function DashboardContent() {
               }`}
             >
               {tab === "ALL" ? "All" : tab === "MP" ? "MPs" : "MLAs"}
-            </motion.button>
+            </m.button>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Search + Filters */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
@@ -335,7 +335,7 @@ function DashboardContent() {
               </button>
             </div>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Loading state */}
         {loading && (
@@ -408,7 +408,7 @@ function DashboardContent() {
               </div>
             </div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -418,7 +418,7 @@ function DashboardContent() {
                 const percentile = p.rank / rankedPoliticians.length;
 
                 return (
-                  <motion.div
+                  <m.div
                     key={p.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -457,10 +457,10 @@ function DashboardContent() {
 
                       <PoliticianCard politician={p} />
                     </>
-                  </motion.div>
+                  </m.div>
                 );
               })}
-            </motion.div>
+            </m.div>
             {/* Pagination controls */}
             {totalPages > 1 && (
               <div className="flex justify-center items-center gap-2 mt-8">
@@ -501,7 +501,7 @@ function DashboardContent() {
         )}
 
         {/* Contribute CTA */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -519,7 +519,7 @@ function DashboardContent() {
             details. You can contribute by enriching profiles or reporting
             inaccuracies.
           </Text>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <m.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
               href="https://github.com/imsks/rajniti/issues/new"
               external
@@ -549,8 +549,8 @@ function DashboardContent() {
             >
               Contribute on GitHub
             </Button>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
 
       <Footer />
@@ -570,7 +570,7 @@ function StatCard({
   color: string;
 }) {
   return (
-    <motion.div
+    <m.div
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
       className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm"
     >
@@ -580,6 +580,6 @@ function StatCard({
       <Text variant="small" className="text-gray-500 dark:text-gray-400">
         {label}
       </Text>
-    </motion.div>
+    </m.div>
   );
 }

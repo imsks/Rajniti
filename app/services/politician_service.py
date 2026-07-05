@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Literal, Optional
 
+from app.agents.citation_audit_merge import politician_citation_coverage_summary
 from app.core.slugify import short_id_from_uuid, slugify
 
 logger = logging.getLogger(__name__)
@@ -63,6 +64,7 @@ class PoliticianService:
     # ---------- ADD METADATA ----------
     def _attach_metadata(self, p: Dict[str, Any]) -> Dict[str, Any]:
         p["updated_at"] = p.get("lastUpdated")
+        p.update(politician_citation_coverage_summary(p))
         return p
 
     # ---------- SLUG ----------
@@ -224,8 +226,10 @@ class PoliticianService:
                 for key, value in updates.items():
                     rec[key] = value
 
-                now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.") + \
-                      f"{datetime.now(timezone.utc).microsecond // 1000:03d}Z"
+                now = (
+                    datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.")
+                    + f"{datetime.now(timezone.utc).microsecond // 1000:03d}Z"
+                )
                 rec["lastUpdated"] = now
 
                 try:
@@ -362,8 +366,20 @@ class PoliticianService:
 
     _CATALOG_FIELDS = ("id", "slug", "name", "type", "state", "constituency", "photo")
 
+    @staticmethod
+    def _latest_party(p: Dict[str, Any]) -> Optional[str]:
+        """Latest (first listed) party name from a politician's election history."""
+        elections = (p.get("political_background") or {}).get("elections") or []
+        for e in elections:
+            party = (e.get("party") or "").strip()
+            if party:
+                return party
+        return None
+
     def _to_catalog_record(self, p: Dict[str, Any]) -> Dict[str, Any]:
-        return {k: p.get(k) for k in self._CATALOG_FIELDS}
+        record = {k: p.get(k) for k in self._CATALOG_FIELDS}
+        record["party"] = self._latest_party(p)
+        return record
 
     def list_catalog(
         self,
@@ -373,6 +389,7 @@ class PoliticianService:
         election_type: Optional[ElectionType] = None,
         state: Optional[str] = None,
         q: Optional[str] = None,
+        parties: Optional[List[str]] = None,
     ) -> Dict[str, Any]:
         """Paginated lightweight politician list for public SEO directory."""
         self._ensure_slugs()
@@ -386,6 +403,9 @@ class PoliticianService:
 
         state_l = state.strip().lower() if state and state.strip() else None
         q_l = q.strip().lower() if q and q.strip() else None
+        party_set = (
+            {x.strip().lower() for x in parties if x and x.strip()} if parties else None
+        )
 
         filtered: List[Dict[str, Any]] = []
         for p in data:
@@ -393,6 +413,10 @@ class PoliticianService:
                 continue
             if q_l is not None and q_l not in (p.get("name") or "").lower():
                 continue
+            if party_set is not None:
+                rec_party = (self._latest_party(p) or "").lower()
+                if rec_party not in party_set:
+                    continue
             filtered.append(p)
 
         total = len(filtered)

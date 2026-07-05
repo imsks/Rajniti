@@ -23,6 +23,7 @@ jest.mock("@/lib/api/politicians-catalog-server", () => ({
         ],
     }),
     fetchStates: jest.fn().mockResolvedValue(["Uttar Pradesh", "Gujarat"]),
+    fetchParties: jest.fn().mockResolvedValue(["BJP", "INC", "AAP"]),
     catalogToPolitician: jest.requireActual("@/lib/api/politicians-catalog-server")
         .catalogToPolitician,
 }))

@@ -3,7 +3,7 @@
 import Text from "@/components/ui/Text";
 import Button from "@/components/ui/Button";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import contributors from "@/data/contributors.json";
 
@@ -13,7 +13,7 @@ export default function ContributorsSection() {
   return (
     <section id="contributors" className="py-20 bg-white dark:bg-gray-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -35,11 +35,11 @@ export default function ContributorsSection() {
             Rajniti is open source and community-driven. Meet the people
             making Indian democracy more transparent.
           </Text>
-        </motion.div>
+        </m.div>
 
         <div className="flex flex-wrap justify-center gap-6">
           {contributors.slice(0, 6).map((c, i) => (
-            <motion.a
+            <m.a
               key={c.login}
               href={c.html_url}
               target="_blank"
@@ -68,11 +68,11 @@ export default function ContributorsSection() {
               <Text variant="caption" color="muted">
                 {c.contributions} commit{c.contributions !== 1 ? "s" : ""}
               </Text>
-            </motion.a>
+            </m.a>
           ))}
         </div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -108,7 +108,7 @@ export default function ContributorsSection() {
           >
             View All Contributors
           </Button>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

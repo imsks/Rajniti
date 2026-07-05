@@ -38,6 +38,6 @@ export function useTimeOnPage(
       })
     }
     // trackEvent is stable (useCallback with empty deps), safe to omit from deps
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps, react-doctor/exhaustive-deps
   }, [pageLocation, options?.politician_id])
 }

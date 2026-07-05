@@ -3,23 +3,6 @@ import { useSession } from 'next-auth/react'
 import MyPoliticiansSection from '@/components/MyPoliticiansSection'
 import { mockMp, mockPoliticianList } from '@/__tests__/helpers/politicianFixtures'
 
-jest.mock('framer-motion', () => ({
-  motion: {
-    section: ({
-      children,
-      ...props
-    }: React.PropsWithChildren<Record<string, unknown>>) => (
-      <section {...props}>{children}</section>
-    ),
-    div: ({
-      children,
-      ...props
-    }: React.PropsWithChildren<Record<string, unknown>>) => (
-      <div {...props}>{children}</div>
-    ),
-  },
-}))
-
 jest.mock('@/hooks/useAnalytics', () => ({
   useAnalytics: () => ({
     trackEvent: jest.fn(),

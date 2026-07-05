@@ -2,11 +2,10 @@ import type { Metadata } from "next"
 import Navbar from "@/components/layout/Navbar"
 import JsonLd from "@/components/seo/JsonLd"
 import PublicPoliticianCard from "@/components/politicians/PublicPoliticianCard"
+import PoliticiansFilters from "@/components/politicians/PoliticiansFilters"
 import {
     PER_PAGE,
-    PoliticiansFiltersBar,
     PoliticiansPagination,
-    PoliticiansStateLinks,
     buildPoliticiansDescription,
     buildPoliticiansPath,
     buildPoliticiansTitle,
@@ -16,13 +15,30 @@ import {
 import {
     catalogToPolitician,
     fetchPoliticianCatalog,
+    fetchParties,
     fetchStates,
 } from "@/lib/api/politicians-catalog-server"
 import { buildItemListJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
 import { buildPageMetadata } from "@/lib/seo/metadata"
 import { getPoliticianProfileHref } from "@/lib/politicianUtils"
+import { resolveStateFromSlug, slugifySegment } from "@/lib/seo/slugify"
 
 export const dynamic = "force-dynamic"
+
+/**
+ * Resolve a `state` slug (from a path segment or the `?state=` query param) to
+ * its canonical { state, stateSlug }. Returns null for missing/unknown slugs so
+ * a bad value simply drops the state filter instead of erroring.
+ */
+export async function resolveStateBySlug(
+    stateSlug?: string,
+): Promise<{ state: string; stateSlug: string } | null> {
+    if (!stateSlug) return null
+    const states = await fetchStates()
+    const state = resolveStateFromSlug(stateSlug, states)
+    if (!state) return null
+    return { state, stateSlug: slugifySegment(state) }
+}
 
 interface PageProps {
     page?: number
@@ -36,14 +52,13 @@ async function renderPoliticiansDirectory({ page = 1, filters = {} }: PageProps)
         type: filters.type,
         state: filters.state,
         q: filters.q,
+        parties: filters.parties,
     })
 
     const totalPages = Math.max(1, Math.ceil(catalog.total / PER_PAGE))
-    const states = filters.stateSlug ? [] : await fetchStates()
+    const [states, parties] = await Promise.all([fetchStates(), fetchParties()])
 
     const title = buildPoliticiansTitle(filters, page)
-    const path = buildPoliticiansPath(page, filters)
-    const { prev, next } = getPaginationAlternates(page, totalPages, filters)
 
     const politicians = catalog.politicians.map(catalogToPolitician)
     const itemList = politicians.map((p) => ({
@@ -87,10 +102,11 @@ async function renderPoliticiansDirectory({ page = 1, filters = {} }: PageProps)
                         </p>
                     </header>
 
-                    <PoliticiansFiltersBar filters={filters} states={states} />
-                    {!filters.stateSlug && !filters.type && states.length > 0 && (
-                        <PoliticiansStateLinks states={states} />
-                    )}
+                    <PoliticiansFilters
+                        filters={filters}
+                        states={states}
+                        parties={parties}
+                    />
 
                     {politicians.length === 0 ? (
                         <p className="text-gray-600 dark:text-gray-400">No politicians found.</p>
@@ -119,7 +135,6 @@ export function buildDirectoryMetadata(
 ): Metadata {
     const title = buildPoliticiansTitle(filters, page)
     const path = buildPoliticiansPath(page, filters)
-    const totalPages = 1 // placeholder; prev/next set at render time via generateMetadata fetch
     return buildPageMetadata({
         title,
         description: buildPoliticiansDescription(filters),
@@ -137,6 +152,7 @@ export async function generateDirectoryMetadata(
         type: filters.type,
         state: filters.state,
         q: filters.q,
+        parties: filters.parties,
     })
     const totalPages = Math.max(1, Math.ceil(catalog.total / PER_PAGE))
     const title = buildPoliticiansTitle(filters, page)
