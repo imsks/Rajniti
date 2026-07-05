@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { CitationLink } from "@/components/CitationLink";
+import RoleBadge from "@/components/politicians/RoleBadge";
 import { Footer, Navbar } from "@/components/layout";
 import SourcedBadge from "@/components/politicians/SourcedBadge";
 import Button from "@/components/ui/Button";
@@ -33,6 +34,7 @@ import { useDeferredMount } from "@/hooks/useDeferredMount";
 import PoliticianPageAnalytics from "./PoliticianPageAnalytics";
 import { toTitleCase } from "@/lib/politicianUtils";
 import type { Politician, Citation, CitationSource } from "@/types/politician";
+import { getPartyLogo } from "@/lib/constants/partyColors";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -351,7 +353,10 @@ function SectionTabNav({
           return (
             <button
               key={id}
-              onClick={() => { scrollToSection(id); onTabClick?.(id); }}
+              onClick={() => {
+                scrollToSection(id);
+                onTabClick?.(id);
+              }}
               className={`relative cursor-pointer flex items-center gap-1.5 px-3.5 py-3 text-sm whitespace-nowrap shrink-0 transition-colors ${
                 isActive
                   ? "text-gray-900 dark:text-white font-medium"
@@ -673,13 +678,17 @@ function PerformanceSection({
               {/* State Marker */}
               <div className="flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full bg-green-600 dark:bg-green-500 shrink-0" />
-                <span className="text-gray-500 dark:text-gray-400 text-[10px]">State Avg</span>
+                <span className="text-gray-500 dark:text-gray-400 text-[10px]">
+                  State Avg
+                </span>
               </div>
 
               {/* National Marker */}
               <div className="flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full bg-orange-400 dark:bg-orange-500 shrink-0" />
-                <span className="text-gray-500 dark:text-gray-400 text-[10px]">National Avg</span>
+                <span className="text-gray-500 dark:text-gray-400 text-[10px]">
+                  National Avg
+                </span>
               </div>
             </div>
           </div>
@@ -1247,7 +1256,10 @@ export default function PoliticianPageClient({
   const analyticsReady = useDeferredMount();
   const sectionsContainerRef = useRef<HTMLDivElement>(null);
   const activeSection = useScrollSpy();
-  const [shareState, setShareState] = useState<"idle" | "copied" | "error">("idle");
+  const [shareState, setShareState] = useState<"idle" | "copied" | "error">(
+    "idle",
+  );
+  const [partyLogoError, setPartyLogoError] = useState(false);
   const shareTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Clean up the revert timer on unmount so we never set state on an unmounted component.
@@ -1263,7 +1275,6 @@ export default function PoliticianPageClient({
   const elections = p.political_background?.elections ?? [];
   const latestElection = elections[0];
   const party = latestElection?.party ?? "—";
-  const isMp = p.type === "MP";
   const performance = p.performance ?? {
     attendance: 0,
     questions: 0,
@@ -1274,6 +1285,7 @@ export default function PoliticianPageClient({
     performance.questions > 0 ||
     performance.debates > 0;
   const summary = p.political_background?.summary;
+  const partyLogo = party !== "—" ? getPartyLogo(party) : null;
 
   const tabCounts: Partial<Record<SectionId, number>> = {
     criminal: p.criminal_records?.length ?? 0,
@@ -1292,7 +1304,11 @@ export default function PoliticianPageClient({
     try {
       if (typeof navigator !== "undefined" && navigator.share) {
         // Native share sheet (mobile browsers)
-        await navigator.share({ title: `${name} on Rajniti`, text: shareText, url });
+        await navigator.share({
+          title: `${name} on Rajniti`,
+          text: shareText,
+          url,
+        });
         trackEvent("profile_share", {
           method: "native_share",
           politician_id: p.id,
@@ -1423,52 +1439,67 @@ export default function PoliticianPageClient({
                   >
                     {toTitleCase(p.name)}
                   </Text>
-                  <span
-                    className={`shrink-0 px-2.5 py-0.5 rounded-full text-xs font-bold ${
-                      isMp
-                        ? "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300"
-                        : "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300"
-                    }`}
-                  >
-                    {p.type}
-                  </span>
+                  <RoleBadge type={p.type} />
                 </div>
 
-                {/* Share — circular icon button, always top-right, never wraps */}
-                <button
-                  onClick={handleShare}
-                  aria-label={
-                    shareState === "copied"
-                      ? "Link copied to clipboard"
-                      : shareState === "error"
-                      ? "Failed to copy — try again"
-                      : "Share this politician profile"
-                  }
-                  className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center
-                    transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1
-                    focus:ring-orange-300 dark:focus:ring-orange-600 cursor-pointer
-                    ${
+                {/* Actions row — only Share for now; star/save & compare can be added
+                    here later without restructuring. shrink-0 so it never wraps. */}
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <button
+                    onClick={handleShare}
+                    aria-label={
                       shareState === "copied"
-                        ? "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300"
+                        ? "Link copied to clipboard"
                         : shareState === "error"
-                        ? "bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-300"
-                        : " bg-orange-500/20 hover:bg-orange-600/80 text-orange-500 dark:hover:bg-orange-600 dark:hover:text-text-white hover:text-orange-50 transition-colors"
-                    }`}
-                >
-                  {shareState === "copied" ? (
-                    <Check size={16} className="stroke-2"/>
-                  ) : shareState === "error" ? (
-                    <AlertTriangle size={16} className="stroke-2" />
-                  ) : (
-                    <Share2 size={16} className="stroke-2" />
-                  )}
-                </button>
+                          ? "Failed to copy — try again"
+                          : "Share this politician profile"
+                    }
+                    className={`w-9 h-9 rounded-full flex items-center justify-center
+                      transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1
+                      focus:ring-orange-300 dark:focus:ring-orange-600 cursor-pointer
+                      ${
+                        shareState === "copied"
+                          ? "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300"
+                          : shareState === "error"
+                            ? "bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-300"
+                            : " bg-orange-100 dark:bg-orange-600/30 hover:bg-orange-600/80 text-orange-500 dark:hover:bg-orange-600 hover:text-white transition-colors"
+                      }`}
+                  >
+                    {shareState === "copied" ? (
+                      <Check size={16} className="stroke-2" />
+                    ) : shareState === "error" ? (
+                      <AlertTriangle size={16} className="stroke-2" />
+                    ) : (
+                      <Share2 size={16} className="stroke-2" />
+                    )}
+                  </button>
+                </div>
               </div>
 
-              {/* Compact single-line: Constituency · State · Party */}
+              {/* Compact single-line: Constituency · State · Party (with logo tile) */}
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                {toTitleCase(p.constituency)} · {p.state} · {party}
+                {toTitleCase(p.constituency)} · {p.state}
               </p>
+              <span className="inline-flex items-center gap-1.5 align-middle">
+                {partyLogo && !partyLogoError && (
+                  <span
+                    className="inline-flex shrink-0 w-5.5 h-5.5 rounded-[6px] bg-white items-center justify-center p-[2px]"
+                    // style={{ borderColor: partyColor.text }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={partyLogo}
+                      alt={party}
+                      className="w-full h-full object-contain"
+                      loading="lazy"
+                      onError={() => setPartyLogoError(true)}
+                    />
+                  </span>
+                )}
+                <span className="text-sm text-gray-600 dark:text-gray-400">
+                  {party}
+                </span>
+              </span>
 
               {/* Facts-verified badge beside the "Updated" chip */}
               <div className="mt-3 flex flex-wrap items-center gap-2">
@@ -1512,7 +1543,10 @@ export default function PoliticianPageClient({
             hasData={hasPerformanceData}
             performanceCitations={p.performance_citations}
           />
-          <CriminalRecordsSection records={p.criminal_records} politicianId={p.id} />
+          <CriminalRecordsSection
+            records={p.criminal_records}
+            politicianId={p.id}
+          />
           <PoliticalHistorySection
             elections={elections}
             summary={p.political_background?.summary}
