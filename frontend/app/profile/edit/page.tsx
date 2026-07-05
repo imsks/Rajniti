@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState, useEffect, Suspense } from "react";
 import { useSession } from "next-auth/react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import UserDetailsStep from "@/components/onboarding/UserDetailsStep";
 import PreferencesStep from "@/components/onboarding/PreferencesStep";
 import OnboardingGate from "@/components/auth/OnboardingGate";
@@ -142,13 +142,13 @@ function EditProfileContent() {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 py-12 px-4">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="max-w-2xl mx-auto"
       >
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -160,16 +160,16 @@ function EditProfileContent() {
           <p className="text-gray-600">
             Update your personal information and preferences
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="bg-white rounded-2xl shadow-xl p-8 border border-orange-100 space-y-8"
         >
           {/* Basic Details Section */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -186,13 +186,13 @@ function EditProfileContent() {
               }}
               onChange={updateField}
             />
-          </motion.div>
+          </m.div>
 
           {/* Divider */}
           <div className="border-t border-gray-200"></div>
 
           {/* Preferences Section */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
@@ -207,25 +207,25 @@ function EditProfileContent() {
               }}
               onChange={(field, values) => updateField(field, values)}
             />
-          </motion.div>
+          </m.div>
 
           {/* Action buttons */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex gap-4 pt-4"
           >
-            <motion.button
+            <m.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => router.push("/dashboard")}
               className="flex-1 px-6 py-3 border-2 border-gray-300 rounded-lg text-gray-700 font-semibold hover:bg-gray-50 transition-all"
             >
               Cancel
-            </motion.button>
+            </m.button>
 
-            <motion.button
+            <m.button
               whileHover={{ scale: !loading ? 1.02 : 1 }}
               whileTap={{ scale: !loading ? 0.98 : 1 }}
               onClick={handleSubmit}
@@ -233,10 +233,10 @@ function EditProfileContent() {
               className="flex-1 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg text-white font-semibold hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? "Saving..." : "Save Changes"}
-            </motion.button>
-          </motion.div>
-        </motion.div>
-      </motion.div>
+            </m.button>
+          </m.div>
+        </m.div>
+      </m.div>
     </div>
   );
 }

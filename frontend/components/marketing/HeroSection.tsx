@@ -2,7 +2,7 @@
 
 import Text from "@/components/ui/Text";
 import Button from "@/components/ui/Button";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useAnalytics } from "@/hooks/useAnalytics";
 
 const round = (n: number) => Math.round(n * 10000) / 10000;
@@ -27,7 +27,7 @@ export default function HeroSection() {
       </div>
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:grid lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-8 lg:px-8 xl:gap-12">
         <div className="text-center">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -46,9 +46,9 @@ export default function HeroSection() {
                 </span>
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -61,9 +61,9 @@ export default function HeroSection() {
               <br />
               Representatives
             </h1>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -76,9 +76,9 @@ export default function HeroSection() {
               MLAs — their political history, education, family background,
               criminal records, and more. All free and community-driven.
             </Text>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -145,11 +145,11 @@ export default function HeroSection() {
             >
               View on GitHub
             </Button>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Ashoka Chakra */}
-        <motion.svg
+        <m.svg
           className="pointer-events-none mx-auto mt-12 h-75 w-75 origin-center text-blue-800 sm:h-100 sm:w-100 lg:mt-0 lg:h-104 lg:w-104 xl:h-120 xl:w-120 dark:text-blue-400 dark:drop-shadow-[0_0_24px_rgba(96,165,250,0.32)]"
           viewBox="0 0 24 24"
           aria-hidden="true"
@@ -178,7 +178,7 @@ export default function HeroSection() {
             stroke="currentColor"
             strokeWidth="1"
           />
-        </motion.svg>
+        </m.svg>
       </div>
     </section>
   );

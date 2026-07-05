@@ -9,6 +9,7 @@ export interface CatalogPolitician {
     state: string
     constituency: string
     photo?: string | null
+    party?: string | null
 }
 
 export interface CatalogResponse {
@@ -29,6 +30,7 @@ export interface CatalogParams {
     type?: ElectionType
     state?: string
     q?: string
+    parties?: string[]
 }
 
 async function safeJson<T>(res: Response): Promise<T | null> {
@@ -58,6 +60,9 @@ export async function fetchPoliticianCatalog(
     if (params.type) search.set("type", params.type)
     if (params.state) search.set("state", params.state)
     if (params.q) search.set("q", params.q)
+    if (params.parties && params.parties.length > 0) {
+        search.set("party", params.parties.join(","))
+    }
 
     const qs = search.toString()
     const url = `${getApiBaseUrl({ forServer: true })}/politicians/catalog${qs ? `?${qs}` : ""}`
@@ -93,8 +98,32 @@ export async function fetchStates(): Promise<string[]> {
     return json.data.states
 }
 
+export async function fetchParties(): Promise<string[]> {
+    const url = `${getApiBaseUrl({ forServer: true })}/parties`
+    const res = await safeFetch(url)
+    if (!res?.ok) return []
+
+    const json = await safeJson<{ success?: boolean; data?: { parties?: string[] } }>(res)
+    if (!json?.success || !json.data?.parties) return []
+    return json.data.parties
+}
+
 /** Map catalog record to Politician shape for shared card/link helpers. */
 export function catalogToPolitician(entry: CatalogPolitician): Politician {
+    // Carry party via a minimal synthetic election so getParty()/getPartyInitial()
+    // keep working off the standard Politician shape.
+    const elections = entry.party
+        ? [
+              {
+                  year: 0,
+                  type: entry.type,
+                  state: entry.state,
+                  constituency: entry.constituency,
+                  party: entry.party,
+                  status: "",
+              },
+          ]
+        : []
     return {
         id: entry.id,
         slug: entry.slug,
@@ -103,6 +132,6 @@ export function catalogToPolitician(entry: CatalogPolitician): Politician {
         state: entry.state,
         constituency: entry.constituency,
         photo: entry.photo,
-        political_background: { elections: [] },
+        political_background: { elections },
     }
 }

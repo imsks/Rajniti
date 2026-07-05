@@ -4,7 +4,7 @@ import Text from "@/components/ui/Text";
 import Link from "@/components/ui/Link";
 import Button from "@/components/ui/Button";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useAnalytics } from "@/hooks/useAnalytics";
 
 export default function ContributeSection() {
@@ -16,7 +16,7 @@ export default function ContributeSection() {
       className="py-20 bg-[#162844] dark:bg-gray-950 text-white"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -31,10 +31,10 @@ export default function ContributeSection() {
             Many politician profiles are missing education, family, and criminal
             record details. Your contributions make democracy more transparent!
           </Text>
-        </motion.div>
+        </m.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -85,9 +85,9 @@ export default function ContributeSection() {
                 />
               </svg>
             </Link>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -138,10 +138,10 @@ export default function ContributeSection() {
                 />
               </svg>
             </Link>
-          </motion.div>
+          </m.div>
         </div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -177,7 +177,7 @@ export default function ContributeSection() {
           >
             Explore Politicians
           </Button>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

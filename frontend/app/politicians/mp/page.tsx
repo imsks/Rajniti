@@ -1,7 +1,9 @@
 import type { Metadata } from "next"
 import renderPoliticiansDirectory, {
     generateDirectoryMetadata,
+    resolveStateBySlug,
 } from "@/lib/politicians/directory-page"
+import { parsePartyParam } from "@/components/politicians/PoliticiansDirectory"
 
 export const dynamic = "force-dynamic"
 
@@ -10,12 +12,18 @@ export async function generateMetadata({
     searchParams,
 }: {
     params: Promise<{ page?: string }>
-    searchParams: Promise<{ q?: string }>
+    searchParams: Promise<{ q?: string; party?: string; state?: string }>
 }): Promise<Metadata> {
     const { page: pageStr } = await params
-    const { q } = await searchParams
+    const { q, party, state } = await searchParams
     const page = pageStr ? Math.max(1, parseInt(pageStr, 10) || 1) : 1
-    return generateDirectoryMetadata(page, { type: "MP", q })
+    const resolvedState = await resolveStateBySlug(state)
+    return generateDirectoryMetadata(page, {
+        type: "MP",
+        q,
+        parties: parsePartyParam(party),
+        ...(resolvedState ?? {}),
+    })
 }
 
 export default async function PoliticiansMpPage({
@@ -23,10 +31,19 @@ export default async function PoliticiansMpPage({
     searchParams,
 }: {
     params: Promise<{ page?: string }>
-    searchParams: Promise<{ q?: string }>
+    searchParams: Promise<{ q?: string; party?: string; state?: string }>
 }) {
     const { page: pageStr } = await params
-    const { q } = await searchParams
+    const { q, party, state } = await searchParams
     const page = pageStr ? Math.max(1, parseInt(pageStr, 10) || 1) : 1
-    return renderPoliticiansDirectory({ page, filters: { type: "MP", q } })
+    const resolvedState = await resolveStateBySlug(state)
+    return renderPoliticiansDirectory({
+        page,
+        filters: {
+            type: "MP",
+            q,
+            parties: parsePartyParam(party),
+            ...(resolvedState ?? {}),
+        },
+    })
 }

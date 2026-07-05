@@ -49,7 +49,11 @@ class PoliticianPrompts:
             '"constituency": "string", "party": "string", "status": "WON|LOST|CONTESTED", '
             + _CITATION_SHAPE
             + " } ], "
-            '"summary": "short textual summary or null", '
+            '"summary": "2-4 sentence narrative biography. Cover: party affiliations over their career, '
+              'every constituency contested (with year, result), and current role. '
+              'Write in flowing prose — no bullet points. Use title-case name once at the start, '
+              'then pronouns. Do NOT pad with generic filler like \'latest available result shows\'. '
+              'If genuinely unknown, null.", '
             '"summary_citation": '
             "{ " + _CITATION_SHAPE + " } | null "
             "}\n"

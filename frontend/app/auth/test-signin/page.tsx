@@ -4,6 +4,11 @@ import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 
+/** Accepts only same-origin relative paths to prevent open redirects. */
+function safeRedirect(raw: string | null, fallback: string): string {
+  return raw && raw.startsWith("/") && !raw.startsWith("//") ? raw : fallback;
+}
+
 function TestSignInContent() {
   const searchParams = useSearchParams();
   const [error, setError] = useState<string | null>(null);
@@ -17,7 +22,7 @@ function TestSignInContent() {
     const userId = searchParams.get("userId");
     const onboardingCompleted =
       searchParams.get("onboardingCompleted") ?? "false";
-    const callbackUrl = searchParams.get("callbackUrl") ?? "/dashboard";
+    const callbackUrl = safeRedirect(searchParams.get("callbackUrl"), "/dashboard");
 
     if (!userId) {
       setError("Missing userId");

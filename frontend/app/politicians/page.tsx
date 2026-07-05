@@ -2,23 +2,27 @@ import type { Metadata } from "next"
 import renderPoliticiansDirectory, {
     generateDirectoryMetadata,
 } from "@/lib/politicians/directory-page"
+import { parsePartyParam } from "@/components/politicians/PoliticiansDirectory"
 
 export const dynamic = "force-dynamic"
 
 export async function generateMetadata({
     searchParams,
 }: {
-    searchParams: Promise<{ q?: string }>
+    searchParams: Promise<{ q?: string; party?: string }>
 }): Promise<Metadata> {
-    const { q } = await searchParams
-    return generateDirectoryMetadata(1, { q })
+    const { q, party } = await searchParams
+    return generateDirectoryMetadata(1, { q, parties: parsePartyParam(party) })
 }
 
 export default async function PoliticiansPage({
     searchParams,
 }: {
-    searchParams: Promise<{ q?: string }>
+    searchParams: Promise<{ q?: string; party?: string }>
 }) {
-    const { q } = await searchParams
-    return renderPoliticiansDirectory({ page: 1, filters: { q } })
+    const { q, party } = await searchParams
+    return renderPoliticiansDirectory({
+        page: 1,
+        filters: { q, parties: parsePartyParam(party) },
+    })
 }

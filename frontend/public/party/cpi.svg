@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="8.5in"
+   height="7.5in"
+   viewBox="0 0 215.9 190.50001"
+   version="1.1"
+   id="svg916"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="cpm election symbol.svg">
+  <defs
+     id="defs910" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.50161266"
+     inkscape:cx="605.72634"
+     inkscape:cy="460.66279"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1853"
+     inkscape:window-height="1025"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     units="in" />
+  <metadata
+     id="metadata913">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-106.49998)">
+    <path
+       style="fill:#ff0000;stroke:#ff0000;stroke-width:0.40338027px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 154.69321,112.85116 c 14.87613,38.43254 29.34263,81.28275 3.97151,115.81897 -30.90176,-33.01268 -43.46974,-46.64505 -43.46974,-46.64505 l -3.21742,2.73086 c 11.48982,-11.59462 23.01254,-22.87728 26.62378,-26.40255 0.71558,-0.89893 0.0557,-1.18734 -0.64206,-1.24826 l -29.24126,-1.97238 c -2.26843,-0.44164 -2.95028,-0.054 -4.1352,1.17093 -4.36915,4.51686 -18.758236,19.43392 -30.343407,31.92054 -0.891397,0.96075 -0.629913,2.99782 0.335323,3.88694 6.318489,5.82034 9.868299,8.68989 14.988148,13.156 0.748576,0.65299 2.308404,0.3655 2.979834,-0.36403 4.276996,-4.64728 9.864822,-10.42222 15.659602,-16.31255 0.5635,0.66934 13.65751,16.20616 41.95519,49.22358 -34.78319,30.27124 -73.978814,15.3127 -104.002409,-16.30788 0,0 -1.39019,0.11306 -1.998469,0.41322 -0.8679,0.42836 -1.725468,1.0537 -2.184406,1.89506 -0.305938,0.56096 -0.264619,1.8919 -0.264619,1.8919 0.327064,0.46493 0.658836,0.92146 0.988516,1.38184 -0.385652,0.0915 -3.605781,0.87155 -5.025973,1.83801 -0.719975,0.48998 -1.718763,1.95285 -1.718763,1.95285 0,0 -19.794154,22.29228 -30.2703167,34.39831 -0.7828515,0.90468 -1.5915816,2.35964 -1.0362011,3.41438 3.1050963,5.89696 6.5757458,9.03276 11.3893328,9.56976 1.05736,0.1179 2.550683,0.65844 3.186423,-0.18045 16.276837,-21.47864 17.516765,-23.18871 29.594873,-39.81319 0.36291,-0.49949 0.684285,-1.44762 0.865349,-2.03875 18.413496,22.48345 45.008113,36.97475 72.484553,39.11483 16.60589,1.29342 35.23291,-5.76707 47.04777,-16.56323 8.24475,9.59484 13.1167,16.48235 23.31912,28.31001 2.12979,2.63868 5.68145,3.67447 8.68679,3.04101 2.49459,-0.52581 4.6459,-2.85368 5.52342,-5.20867 0.66415,-1.7824 0.89381,-4.06651 -0.60075,-5.66326 -12.09045,-12.85424 -18.35602,-20.36546 -27.76423,-30.39722 10.00711,-13.02067 14.5964,-32.49853 13.38716,-49.54471 -2.21344,-31.20179 -14.94546,-62.7552 -37.07147,-86.46682 z m -10.34119,6.15462 -7.37092,5.19614 -6.88697,-4.79542 2.64211,7.56613 -7.71576,4.8251 9.00464,-0.51946 2.11766,7.77703 2.92262,-7.88795 9.02532,-0.018 -7.19848,-4.35485 z"
+       id="path929"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccccccccccccccccccccccaccssccacccccccccccc" />
+  </g>
+</svg>

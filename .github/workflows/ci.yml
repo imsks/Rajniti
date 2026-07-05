@@ -99,11 +99,11 @@ jobs:
           NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1' }}
 
   # ---------------------------------------------------------------------------
-  # Stage 2 — Build
+  # Stage 2 — Build (after frontend tests pass)
   # ---------------------------------------------------------------------------
   frontend-build:
     name: Frontend — production build
-    needs: [frontend-tests, frontend-lint]
+    needs: frontend-tests
     runs-on: ubuntu-latest
     defaults:
       run:
