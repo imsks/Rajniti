@@ -19,30 +19,6 @@ jest.mock("@/hooks/useAnalytics", () => ({
   useAnalytics: () => ({ trackEvent: jest.fn() }),
 }));
 
-jest.mock("framer-motion", () => ({
-  motion: {
-    div: ({
-      children,
-      ...props
-    }: React.PropsWithChildren<Record<string, unknown>>) => (
-      <div {...props}>{children}</div>
-    ),
-    button: ({
-      children,
-      onClick,
-      disabled,
-      ...props
-    }: React.PropsWithChildren<
-      Record<string, unknown> & { onClick?: () => void; disabled?: boolean }
-    >) => (
-      <button type="button" onClick={onClick} disabled={disabled} {...props}>
-        {children}
-      </button>
-    ),
-  },
-  AnimatePresence: ({ children }: React.PropsWithChildren) => <>{children}</>,
-}));
-
 jest.mock("@/components/onboarding/PoliticalInclinationStep", () => ({
   __esModule: true,
   default: ({ onChange }: { onChange: (value: string) => void }) => (

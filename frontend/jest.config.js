@@ -24,6 +24,7 @@ const customJestConfig = {
 
   // Module path aliases (matching tsconfig.json paths)
   moduleNameMapper: {
+    "^framer-motion$": "<rootDir>/__mocks__/framer-motion.tsx",
     "^@/(.*)$": "<rootDir>/$1",
     "^@/components/(.*)$": "<rootDir>/components/$1",
     "^@/hooks/(.*)$": "<rootDir>/hooks/$1",
