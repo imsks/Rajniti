@@ -2,7 +2,7 @@
 
 import { Suspense } from "react"
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import { Navbar, Footer } from "@/components/layout"
 import Text from "@/components/ui/Text"
 import Button from "@/components/ui/Button"
@@ -23,7 +23,7 @@ function ContributorsContent() {
 
             <section className="py-20 sm:py-28">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
@@ -40,11 +40,11 @@ function ContributorsContent() {
                             Rajniti is built by a passionate community. Every contribution
                             — code, data, or ideas — makes Indian democracy more transparent.
                         </Text>
-                    </motion.div>
+                    </m.div>
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 ">
                         {contributors.map((c, i) => (
-                            <motion.a
+                            <m.a
                                 key={c.login}
                                 href={c.html_url}
                                 target="_blank"
@@ -70,11 +70,11 @@ function ContributorsContent() {
                                         {c.contributions} contribution{c.contributions !== 1 ? "s" : ""}
                                     </Text>
                                 </div>
-                            </motion.a>
+                            </m.a>
                         ))}
                     </div>
 
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.4 }}
@@ -110,7 +110,7 @@ function ContributorsContent() {
                                 View on GitHub
                             </Button>
                         </div>
-                    </motion.div>
+                    </m.div>
                 </div>
             </section>
 

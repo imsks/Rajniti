@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Text from "@/components/ui/Text";
 import Image from "@/components/ui/Image";
 import Button from "@/components/ui/Button";
@@ -32,7 +32,7 @@ export default function MyPoliticianCard({
 
   if (isPlaceholder) {
     return (
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         className="bg-white/70 dark:bg-gray-800/70 rounded-2xl shadow-sm border-2 border-dashed border-amber-300/60 dark:border-gray-600 p-6 flex flex-col items-center justify-center min-h-[200px]"
@@ -56,7 +56,7 @@ export default function MyPoliticianCard({
             Add
           </Button>
         )}
-      </motion.div>
+      </m.div>
     );
   }
 
@@ -69,7 +69,7 @@ export default function MyPoliticianCard({
       : `MLA of ${politician.constituency}`;
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       className="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-amber-200/70 dark:border-gray-700 p-5 hover:border-amber-400/80 dark:hover:border-orange-500 hover:shadow-lg transition-all h-full flex flex-col"
@@ -161,6 +161,6 @@ export default function MyPoliticianCard({
           </Button>
         )}
       </div>
-    </motion.div>
+    </m.div>
   );
 }

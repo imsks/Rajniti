@@ -3,15 +3,20 @@
 import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Link from "next/link";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import { LOGIN_INTENT_KEY } from "@/components/auth/AuthProvider";
 import Image from "next/image";
 
+/** Accepts only same-origin relative paths to prevent open redirects. */
+function safeRedirect(raw: string | null, fallback: string): string {
+  return raw && raw.startsWith("/") && !raw.startsWith("//") ? raw : fallback;
+}
+
 function SignInContent() {
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") || "/onboarding";
+  const callbackUrl = safeRedirect(searchParams.get("callbackUrl"), "/onboarding");
   const { trackEvent } = useAnalytics();
 
   // Track every time a user lands on this page (may not click anything)
@@ -19,25 +24,25 @@ function SignInContent() {
     trackEvent("signin_page_view", {
       referrer: document.referrer || "direct",
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps, react-doctor/exhaustive-deps
   }, []);
 
   return (
     <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 flex items-center justify-center p-4">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="max-w-md w-full"
       >
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 border border-orange-100 dark:border-gray-700"
         >
           <div className="text-center mb-8">
-            <motion.div
+            <m.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{
@@ -55,26 +60,26 @@ function SignInContent() {
                 width={36}
                 height={36}
               />
-            </motion.div>
-            <motion.h1
+            </m.div>
+            <m.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-3xl font-bold text-gray-900 dark:text-white mb-2"
             >
               Welcome to Rajniti
-            </motion.h1>
-            <motion.p
+            </m.h1>
+            <m.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               className="text-gray-600 dark:text-gray-400"
             >
               Sign in to access your personalized election insights
-            </motion.p>
+            </m.p>
           </div>
 
-          <motion.button
+          <m.button
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
@@ -111,19 +116,19 @@ function SignInContent() {
               />
             </svg>
             Continue with Google
-          </motion.button>
+          </m.button>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.7 }}
             className="text-center text-sm text-gray-500 dark:text-gray-400 mt-6"
           >
             By signing in, you agree to our Terms of Service and Privacy Policy
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
@@ -146,8 +151,8 @@ function SignInContent() {
             </svg>
             Back to home
           </Link>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </div>
   );
 }

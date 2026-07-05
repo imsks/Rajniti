@@ -2,13 +2,13 @@
 
 import Text from "@/components/ui/Text";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 export default function FeaturesSection() {
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -30,10 +30,10 @@ export default function FeaturesSection() {
             We&apos;re building the most transparent and comprehensive database
             of Indian elected representatives.
           </Text>
-        </motion.div>
+        </m.div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -61,9 +61,9 @@ export default function FeaturesSection() {
               Browse all winning Lok Sabha MPs — their party, constituency,
               state, and election history.
             </Text>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -91,9 +91,9 @@ export default function FeaturesSection() {
               Explore elected MLAs from state assemblies across India with
               detailed political backgrounds.
             </Text>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -121,7 +121,7 @@ export default function FeaturesSection() {
               Education, family, criminal records, social media, and more —
               enriched with community contributions.
             </Text>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

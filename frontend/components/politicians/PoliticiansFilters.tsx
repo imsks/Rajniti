@@ -96,7 +96,7 @@ export default function PoliticiansFilters({
         }
         el.addEventListener("search", onNativeSearch)
         return () => el.removeEventListener("search", onNativeSearch)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps, react-doctor/exhaustive-deps
     }, [filters])
 
     function submitSearch(e: React.FormEvent) {

@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import NextImage from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Text from "@/components/ui/Text";
 import Button from "@/components/ui/Button";
 import MyPoliticianCard from "@/components/MyPoliticianCard";
@@ -131,7 +131,7 @@ export default function MyPoliticiansSection({
   };
 
   return (
-    <motion.section
+    <m.section
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -355,6 +355,6 @@ export default function MyPoliticiansSection({
           </p>
         </div>
       </div>
-    </motion.section>
+    </m.section>
   );
 }
