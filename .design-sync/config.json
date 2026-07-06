@@ -1,0 +1,16 @@
+{
+  "projectId": "7c30d4ae-a109-4e63-8ccc-d4ba5d486399",
+  "shape": "package",
+  "pkg": "rajniti-frontend",
+  "srcDir": "frontend",
+  "componentSrcMap": {
+    "Button": "components/ds/Button.tsx",
+    "Image": "components/ds/Image.tsx",
+    "Link": "components/ds/Link.tsx",
+    "Text": "components/ds/Text.tsx",
+    "ThemeToggle": "components/ds/ThemeToggle.tsx",
+    "Shimmer": "components/ds/Shimmer.tsx"
+  },
+  "tokensGlob": "lib/tokens/**/*.{ts,tsx}",
+  "readmeHeader": ".design-sync/conventions.md"
+}

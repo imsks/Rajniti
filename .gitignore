@@ -165,3 +165,9 @@ next-env.d.ts
 
 .env.production
 .claude/
+# Design system build artifacts
+.ds-sync/
+ds-bundle/
+.design-sync/.cache/
+.design-sync/learnings/
+.design-sync/node_modules
