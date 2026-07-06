@@ -1,0 +1,22 @@
+"use client";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useEffect, useState } from "react";
+import { useTheme } from "@/components/providers/ThemeProvider";
+import { useAnalytics } from "@/hooks/useAnalytics";
+export default function ThemeToggle() {
+    const { theme, toggleTheme } = useTheme();
+    const { trackEvent } = useAnalytics();
+    const [mounted, setMounted] = useState(false);
+    // Only render theme-aware UI after hydration is complete
+    useEffect(() => {
+        Promise.resolve().then(() => setMounted(true));
+    }, []);
+    const isDark = mounted && theme === "dark";
+    const handleToggle = () => {
+        // The theme hasn't flipped yet when the click fires, so new_theme is the opposite
+        trackEvent("theme_toggle", { new_theme: isDark ? "light" : "dark" });
+        toggleTheme();
+    };
+    return (_jsxs("button", { onClick: handleToggle, className: "relative p-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer", "aria-label": isDark ? "Switch to light mode" : "Switch to dark mode", title: isDark ? "Switch to light mode" : "Switch to dark mode", suppressHydrationWarning: true, children: [_jsx("svg", { className: `w-5 h-5 text-amber-500 transition-all ${isDark ? "scale-0 opacity-0 absolute" : "scale-100 opacity-100"}`, fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", suppressHydrationWarning: true, children: _jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" }) }), _jsx("svg", { className: `w-5 h-5 text-blue-400 transition-all ${isDark ? "scale-100 opacity-100" : "scale-0 opacity-0 absolute"}`, fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", suppressHydrationWarning: true, children: _jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" }) })] }));
+}
+//# sourceMappingURL=ThemeToggle.js.map

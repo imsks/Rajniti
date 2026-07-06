@@ -1,0 +1,13 @@
+[
+  {
+    "sheet": 1,
+    "components": [
+      "Button",
+      "Image",
+      "Link",
+      "Shimmer",
+      "Text",
+      "ThemeToggle"
+    ]
+  }
+]
