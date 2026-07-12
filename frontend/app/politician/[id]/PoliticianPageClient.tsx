@@ -1483,15 +1483,15 @@ export default function PoliticianPageClient({
               <span className="inline-flex items-center gap-1.5 align-middle">
                 {partyLogo && !partyLogoError && (
                   <span
-                    className="inline-flex shrink-0 w-5.5 h-5.5 rounded-[6px] bg-white items-center justify-center p-[2px]"
+                    className="relative inline-flex shrink-0 w-5.5 h-5.5 rounded-[6px] bg-white items-center justify-center p-[2px]"
                     // style={{ borderColor: partyColor.text }}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <NextImage
                       src={partyLogo}
                       alt={party}
-                      className="w-full h-full object-contain"
-                      loading="lazy"
+                      fill
+                      className="object-contain"
+                      sizes="22px"
                       onError={() => setPartyLogoError(true)}
                     />
                   </span>
