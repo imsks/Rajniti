@@ -16682,6 +16682,30 @@
     "political_background": {
       "elections": [
         {
+          "year": 2014,
+          "type": "MP",
+          "state": "Uttar Pradesh",
+          "constituency": "Varanasi",
+          "party": "Bharatiya Janata Party",
+          "status": "WON",
+          "citation": {
+            "link": "https://www.oneindia.com/varanasi-lok-sabha-election-result-493/",
+            "source": "NEWS"
+          }
+        },
+        {
+          "year": 2019,
+          "type": "MP",
+          "state": "Uttar Pradesh",
+          "constituency": "Varanasi",
+          "party": "Bharatiya Janata Party",
+          "status": "WON",
+          "citation": {
+            "link": "https://www.oneindia.com/varanasi-lok-sabha-election-result-493/",
+            "source": "NEWS"
+          }
+        },
+        {
           "year": 2024,
           "type": "MP",
           "state": "Uttar Pradesh",
@@ -16689,13 +16713,16 @@
           "party": "Bharatiya Janata Party",
           "status": "WON",
           "citation": {
-            "link": "https://www.elections.in/uttar-pradesh/assembly-constituencies/varanasi.html",
+            "link": "https://results.eci.gov.in/PcResultGenJune2024/index.htm",
             "source": "ECI"
           }
         }
       ],
-      "summary": "NARENDRA MODI is a Uttar Pradesh leader and Member of Parliament from Varanasi. The latest available result shows NARENDRA MODI winning the 2024 election from Varanasi as a Bharatiya Janata Party candidate (WON). The latest record places NARENDRA MODI in Uttar Pradesh with the Bharatiya Janata Party ticket for Varanasi. Bachelor from University of Delhi.",
-      "summary_citation": null
+      "summary": "Narendra Modi is a senior leader of the Bharatiya Janata Party (BJP) and has served as the Prime Minister of India since 2014. He was the Chief Minister of Gujarat from 2001 to 2014. He won the Varanasi Lok Sabha constituency in 2014, 2019, and 2024, securing hat-trick victories from this seat.",
+      "summary_citation": {
+        "link": "https://www.pmindia.gov.in/en/",
+        "source": "GOV_WEBSITE"
+      }
     },
     "education": [
       {
@@ -16703,22 +16730,57 @@
         "institution": "University of Delhi",
         "year_completed": 1978,
         "citation": {
-          "link": "https://www.elections.in/uttar-pradesh/assembly-constituencies/sahibabad.html",
-          "source": "OTHERS"
+          "link": "https://myneta.info/LokSabha2024/candidate.php?candidate_id=8974",
+          "source": "MYNETA"
         }
       },
       {
         "qualification": "MASTER",
         "institution": "Gujarat University",
-        "year_completed": 1983
+        "year_completed": 1983,
+        "citation": {
+          "link": "https://myneta.info/LokSabha2024/candidate.php?candidate_id=8974",
+          "source": "MYNETA"
+        }
       }
     ],
-    "family_background": [],
+    "family_background": [
+      {
+        "name": "Damodardas Mulchand Modi",
+        "relation": "FATHER",
+        "photo": null,
+        "social_media": null,
+        "citation": {
+          "link": "https://www.narendramodi.in/shri-narendra-modis-biography",
+          "source": "GOV_WEBSITE"
+        }
+      },
+      {
+        "name": "Heeraben Modi",
+        "relation": "MOTHER",
+        "photo": null,
+        "social_media": null,
+        "citation": {
+          "link": "https://www.narendramodi.in/shri-narendra-modis-biography",
+          "source": "GOV_WEBSITE"
+        }
+      },
+      {
+        "name": "Jashodaben Narendrabhai Modi",
+        "relation": "WIFE",
+        "photo": null,
+        "social_media": null,
+        "citation": {
+          "link": "https://myneta.info/LokSabha2024/candidate.php?candidate_id=8974",
+          "source": "MYNETA"
+        }
+      }
+    ],
     "criminal_records": [],
     "contact": {
-      "email": null,
-      "phone": null,
-      "address": null
+      "email": "narendramodi.varanasi@gmail.com",
+      "phone": "011-23012312",
+      "address": "Prime Minister's Office, South Block, Raisina Hill, New Delhi - 110011"
     },
     "social_media": {
       "twitter": "https://twitter.com/narendramodi",
@@ -16729,11 +16791,8 @@
       "website": "https://www.narendramodi.in/"
     },
     "citation_audit": {
-      "last_run": "2026-05-18T17:06:45.074772+00:00",
-      "issues": [
-        "No specific citation for Narendra Modi's Master's degree found in the provided context.",
-        "No specific citation for MP performance data (attendance, questions, debates) found in the provided context."
-      ]
+      "last_run": "2026-07-12T05:53:00.000000+00:00",
+      "issues": []
     },
     "social_media_citations": {
       "facebook": {
@@ -16761,7 +16820,21 @@
         "source": "GOV_WEBSITE"
       }
     },
-    "lastUpdated": "2026-06-06T06:46:27.594Z"
+    "lastUpdated": "2026-06-06T06:46:27.594Z",
+    "contact_citations": {
+      "email": {
+        "link": "https://www.pmindia.gov.in/en/interact-with-honble-pm/",
+        "source": "GOV_WEBSITE"
+      },
+      "phone": {
+        "link": "https://www.pmindia.gov.in/en/interact-with-honble-pm/",
+        "source": "GOV_WEBSITE"
+      },
+      "address": {
+        "link": "https://www.pmindia.gov.in/en/interact-with-honble-pm/",
+        "source": "GOV_WEBSITE"
+      }
+    }
   },
   {
     "id": "735510ad-dc74-4551-b0a8-540ff0381da5",
