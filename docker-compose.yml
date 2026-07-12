@@ -1,6 +1,28 @@
-# Local Postgres: use profile `local-db`. Supabase-only: omit the profile (API only).
+# Local dev backing infra only. The web + api processes run natively via
+# `turbo run dev` (see root `pnpm dev`). This file provides stateful services.
+#
+#   pnpm dev                      -> starts chroma, then turbo run dev
+#   docker compose up -d chroma   -> just the vector DB
+#   docker compose --profile local-db up -d   -> also a local Postgres
 
 services:
+  chroma:
+    image: chromadb/chroma:0.5.23
+    container_name: rajniti-chroma
+    ports:
+      - "${CHROMA_PORT:-8001}:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      IS_PERSISTENT: "TRUE"
+      ANONYMIZED_TELEMETRY: "FALSE"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/heartbeat"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
   postgres:
     image: postgres:16-alpine
     container_name: rajniti-postgres
@@ -20,55 +42,6 @@ services:
     profiles:
       - local-db
 
-  rajniti-api:
-    build:
-      context: .
-      target: development
-    container_name: rajniti-api
-    env_file:
-      - .env
-    environment:
-      DATABASE_URL: ${DATABASE_URL:-postgresql://rajniti:rajniti@postgres:5432/rajniti}
-    ports:
-      - "${FLASK_PORT:-8000}:8000"
-    volumes:
-      - ./app:/app/app
-      - ./run.py:/app/run.py
-      - ./alembic.ini:/app/alembic.ini
-      - ./alembic:/app/alembic
-      - ./scripts:/app/scripts
-    depends_on:
-      postgres:
-        condition: service_healthy
-        required: false
-    restart: unless-stopped
-
-  rajniti-web:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile.dev
-    container_name: rajniti-web
-    depends_on:
-      rajniti-api:
-        condition: service_started
-    ports:
-      - "${FRONTEND_PORT:-3000}:3000"
-    volumes:
-      - ./frontend:/app
-      - frontend_node_modules:/app/node_modules
-    environment:
-      NEXTAUTH_URL: http://localhost:3000
-      # Browser on host reaches API via published port
-      NEXT_PUBLIC_API_URL: http://localhost:8000/api/v1
-      # SSR uses Next /api/v1 rewrite → API_REWRITE_TARGET (not direct rajniti-api DNS)
-      API_REWRITE_TARGET: http://rajniti-api:8000
-      NEXT_PUBLIC_SITE_URL: http://localhost:3000
-      WATCHPACK_POLLING: "true"
-    env_file:
-      - path: frontend/.env
-        required: false
-    restart: unless-stopped
-
 volumes:
+  chroma_data:
   postgres_data:
-  frontend_node_modules:

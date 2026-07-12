@@ -1,0 +1,51 @@
+name: CI · api
+
+on:
+  pull_request:
+    paths:
+      - "apps/api/**"
+      - ".github/workflows/ci-api.yml"
+
+concurrency:
+  group: ci-api-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: apps/api
+
+jobs:
+  api:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Sync deps
+        run: uv sync --all-groups --frozen
+
+      - name: Lint (ruff)
+        run: uv run ruff check .
+
+      - name: Format check (ruff)
+        run: uv run ruff format --check .
+
+      - name: Module boundaries (import-linter)
+        run: uv run lint-imports
+
+      - name: Typecheck (pyright)
+        run: uv run pyright
+
+      - name: Test (pytest)
+        run: uv run pytest
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Docker build smoke test
+        run: docker build -t rajniti-api:ci .

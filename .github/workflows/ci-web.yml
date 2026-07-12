@@ -1,0 +1,43 @@
+name: CI · web
+
+on:
+  pull_request:
+    paths:
+      - "apps/web/**"
+      - "packages/**"
+      - "pnpm-workspace.yaml"
+      - "turbo.json"
+      - "package.json"
+      - ".github/workflows/ci-web.yml"
+
+concurrency:
+  group: ci-web-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm turbo run lint --filter=@rajniti/web
+
+      - name: Typecheck
+        run: pnpm turbo run typecheck --filter=@rajniti/web
+
+      - name: Test
+        run: pnpm turbo run test --filter=@rajniti/web
+
+      - name: Build
+        run: pnpm turbo run build --filter=@rajniti/web

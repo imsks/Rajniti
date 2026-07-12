@@ -1,0 +1,68 @@
+name: Deploy · api (Cloud Run)
+
+# Deploys the Flask backend to GCP Cloud Run on merge to main.
+# Auth uses Workload Identity Federation (no long-lived JSON keys).
+#
+# Required repo variables (Settings > Secrets and variables > Actions > Variables):
+#   GCP_PROJECT_ID          e.g. rajniti-prod
+#   GCP_REGION              e.g. asia-south1
+#   GCP_WIF_PROVIDER        projects/<n>/locations/global/workloadIdentityPools/<pool>/providers/<provider>
+#   GCP_DEPLOY_SA           github-deployer@<project>.iam.gserviceaccount.com
+#   GCP_AR_REPO             e.g. rajniti           (Artifact Registry repo)
+#   CLOUD_RUN_SERVICE       e.g. rajniti-api
+# Secrets referenced by the running service live in GCP Secret Manager and are
+# bound via --set-secrets below (never baked into the image).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/api/**"
+      - ".github/workflows/deploy-api.yml"
+
+concurrency:
+  group: deploy-api
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # required for Workload Identity Federation
+    env:
+      IMAGE: ${{ vars.GCP_REGION }}-docker.pkg.dev/${{ vars.GCP_PROJECT_ID }}/${{ vars.GCP_AR_REPO }}/${{ vars.CLOUD_RUN_SERVICE }}:${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud (WIF)
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_DEPLOY_SA }}
+
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker ${{ vars.GCP_REGION }}-docker.pkg.dev --quiet
+
+      - name: Build image
+        run: docker build -t "$IMAGE" apps/api
+
+      - name: Push image
+        run: docker push "$IMAGE"
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy "${{ vars.CLOUD_RUN_SERVICE }}" \
+            --image "$IMAGE" \
+            --project "${{ vars.GCP_PROJECT_ID }}" \
+            --region "${{ vars.GCP_REGION }}" \
+            --platform managed \
+            --allow-unauthenticated \
+            --port 8080 \
+            --cpu 1 --memory 512Mi \
+            --min-instances 0 --max-instances 5 \
+            --set-env-vars FLASK_ENV=production \
+            --set-secrets "SECRET_KEY=rajniti-secret-key:latest,DATABASE_URL=rajniti-database-url:latest,SUPABASE_SERVICE_ROLE_KEY=rajniti-supabase-service-role:latest,GEMINI_API_KEY=rajniti-gemini-key:latest"

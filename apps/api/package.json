@@ -1,0 +1,15 @@
+{
+  "name": "@rajniti/api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Rajniti Flask modular monolith. Deps managed by uv; this file is a Turborepo task shim.",
+  "scripts": {
+    "dev": "uv run flask --app app:create_app --debug run --host 0.0.0.0 --port 8000",
+    "lint": "uv run ruff check . && uv run lint-imports",
+    "lint:fix": "uv run ruff check --fix . && uv run ruff format .",
+    "typecheck": "uv run pyright",
+    "test": "uv run pytest",
+    "build": "docker build -t rajniti-api:local .",
+    "setup": "uv sync --all-groups"
+  }
+}

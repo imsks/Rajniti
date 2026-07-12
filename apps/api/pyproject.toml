@@ -1,0 +1,78 @@
+[project]
+name = "rajniti-api"
+version = "0.1.0"
+description = "Rajniti backend — Flask modular monolith (promises, reps, rag, agents)."
+requires-python = ">=3.11"
+dependencies = [
+    "flask>=3.0",
+    "pydantic>=2.7",
+    "gunicorn>=22.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.8",
+    "pyright>=1.1.390",
+    "import-linter>=2.1",
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+]
+
+# uv: treat this as a non-packaged (virtual) app project — no build backend needed.
+[tool.uv]
+package = false
+
+# ─── Lint ─────────────────────────────────────────────────────────────────────
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+src = ["app", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+
+# ─── Types ────────────────────────────────────────────────────────────────────
+[tool.pyright]
+include = ["app", "tests"]
+pythonVersion = "3.11"
+typeCheckingMode = "standard"
+reportMissingImports = true
+
+# ─── Tests ────────────────────────────────────────────────────────────────────
+[tool.pytest.ini_options]
+addopts = "-v --tb=short --strict-markers"
+# Colocated unit tests live in app/<module>/tests; integration/e2e in tests/.
+testpaths = ["app", "tests"]
+python_files = ["test_*.py", "*_test.py"]
+markers = [
+    "unit: Fast, isolated unit tests",
+    "integration: Cross-module / API-level integration tests",
+    "e2e: End-to-end tests",
+]
+
+[tool.coverage.run]
+source = ["app"]
+branch = true
+omit = ["*/tests/*"]
+
+# ─── Module boundaries (enforced in CI via `lint-imports`) ─────────────────────
+# Modular monolith: promises/reps sit above rag, which sits above agents.
+# Higher layers may import lower ones; siblings on the same layer (promises,
+# reps) may NOT import each other. `core` is unrestricted shared infra.
+# Cross-module data crosses as DTOs (see each module's dto.py), never ORM/Chroma
+# handles. As modules gain private `internal/` packages during migration, add
+# `forbidden` contracts so other modules can only reach the public facade.
+[tool.importlinter]
+root_package = "app"
+
+[[tool.importlinter.contracts]]
+name = "Module layering: (promises, reps) -> rag -> agents"
+type = "layers"
+layers = [
+    "app.promises | app.reps",
+    "app.rag",
+    "app.agents",
+]

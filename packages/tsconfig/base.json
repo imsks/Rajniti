@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Rajniti Base",
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true
+  },
+  "exclude": ["node_modules", "dist", ".next"]
+}

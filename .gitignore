@@ -165,3 +165,9 @@ next-env.d.ts
 
 .env.production
 .claude/
+
+# Monorepo / tooling
+.ruff_cache/
+.import_linter_cache/
+# Keep the API's pinned interpreter tracked (overrides the global rule above)
+!apps/api/.python-version

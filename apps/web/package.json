@@ -1,0 +1,16 @@
+{
+  "name": "@rajniti/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo '[web] placeholder shell — frontend/ is migrated here during the migration step' && exit 0",
+    "build": "echo '[web] placeholder shell — nothing to build yet' && exit 0",
+    "lint": "echo '[web] placeholder shell — no lint targets yet' && exit 0",
+    "typecheck": "echo '[web] placeholder shell — no types yet' && exit 0",
+    "test": "echo '[web] placeholder shell — no tests yet' && exit 0"
+  },
+  "devDependencies": {
+    "@rajniti/eslint-config": "workspace:*",
+    "@rajniti/tsconfig": "workspace:*"
+  }
+}
