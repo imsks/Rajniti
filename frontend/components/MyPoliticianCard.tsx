@@ -1,7 +1,7 @@
 "use client";
 
 import { m } from "framer-motion";
-import { Avatar, Badge } from "@sutra/ui";
+import { Avatar, Badge } from "@sutra_ui/ui";
 import Text from "@/components/ui/Text";
 import Button from "@/components/ui/Button";
 import RoleBadge from "@/components/politicians/RoleBadge";

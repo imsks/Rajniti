@@ -1,4 +1,4 @@
-import { Badge } from "@sutra/ui"
+import { Badge } from "@sutra_ui/ui"
 import type { ElectionType } from "@/types/politician"
 
 // Domain colour mapping stays in Rajniti; the pill itself is a Sutra Badge.

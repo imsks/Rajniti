@@ -1,4 +1,4 @@
-import { Skeleton } from "@sutra/ui"
+import { Skeleton } from "@sutra_ui/ui"
 
 export default function PoliticianCardSkeleton() {
     return (

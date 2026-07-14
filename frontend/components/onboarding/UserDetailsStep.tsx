@@ -1,6 +1,6 @@
 'use client'
 
-import { Input, Select } from '@sutra/ui'
+import { Input, Select } from '@sutra_ui/ui'
 
 interface UserDetailsStepProps {
   formData: {

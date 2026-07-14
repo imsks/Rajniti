@@ -1,7 +1,7 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { Select } from "@sutra/ui"
+import { Select } from "@sutra_ui/ui"
 import { slugifySegment } from "@/lib/seo/slugify"
 import {
     buildPoliticiansPath,

@@ -3,7 +3,7 @@
 import {
   ThemeProvider as SutraThemeProvider,
   useTheme as useSutraTheme,
-} from "@sutra/ui";
+} from "@sutra_ui/ui";
 
 type Theme = "light" | "dark";
 

@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react"
 import { useRouter } from "next/navigation"
 import { Search, SlidersHorizontal, Check, ChevronDown, X, Plus } from "lucide-react"
-import { Input } from "@sutra/ui"
+import { Input } from "@sutra_ui/ui"
 import StateSelect from "@/components/politicians/StateSelect"
 import {
     buildPoliticiansPath,

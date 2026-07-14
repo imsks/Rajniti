@@ -6,7 +6,7 @@ import {
   Spinner,
   cn,
   type ButtonProps as SutraButtonProps,
-} from "@sutra/ui";
+} from "@sutra_ui/ui";
 
 type RajnitiVariant = "primary" | "secondary" | "outline" | "ghost" | "danger";
 

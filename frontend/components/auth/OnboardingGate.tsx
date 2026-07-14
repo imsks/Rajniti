@@ -1,6 +1,6 @@
 'use client'
 
-import { Spinner } from '@sutra/ui'
+import { Spinner } from '@sutra_ui/ui'
 import { useOnboardingCheck, type UseOnboardingCheckOptions } from '@/hooks/useOnboardingCheck'
 
 type OnboardingGateProps = UseOnboardingCheckOptions & {

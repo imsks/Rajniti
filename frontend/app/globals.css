@@ -1,8 +1,8 @@
 @import "tailwindcss";
-@import "@sutra/tokens/css";
+@import "@sutra_ui/tokens/css";
 
 /* Detect utility classes inside the compiled Sutra component library. */
-@source "../node_modules/@sutra/ui/dist";
+@source "../node_modules/@sutra_ui/ui/dist";
 
 @custom-variant dark (&:where(.dark, .dark *));
 

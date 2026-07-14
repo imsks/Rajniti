@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { useSession } from 'next-auth/react'
-import { Input, Spinner } from '@sutra/ui'
+import { Input, Spinner } from '@sutra_ui/ui'
 import { userService } from '@/lib/api/user'
 
 interface UsernameStepProps {

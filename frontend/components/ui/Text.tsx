@@ -1,5 +1,5 @@
 import React from "react"
-import { Text as SutraText, type TextProps as SutraTextProps } from "@sutra/ui"
+import { Text as SutraText, type TextProps as SutraTextProps } from "@sutra_ui/ui"
 
 type TextVariant = "h1" | "h2" | "h3" | "h4" | "body" | "small" | "caption"
 type TextColor = "default" | "muted" | "primary" | "white" | "danger" | "success"
