@@ -1,5 +1,6 @@
 'use client'
 
+import { Spinner } from '@sutra/ui'
 import { useOnboardingCheck, type UseOnboardingCheckOptions } from '@/hooks/useOnboardingCheck'
 
 type OnboardingGateProps = UseOnboardingCheckOptions & {
@@ -11,7 +12,9 @@ type OnboardingGateProps = UseOnboardingCheckOptions & {
 
 const defaultFallback = (
   <div className="min-h-screen bg-linear-to-b from-orange-50 via-white to-green-50 flex items-center justify-center">
-    <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent" />
+    <span className="text-accent">
+      <Spinner size="lg" label="Loading" />
+    </span>
   </div>
 )
 

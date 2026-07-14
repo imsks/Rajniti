@@ -2,9 +2,11 @@ import React from "react";
 
 type MotionProps = React.PropsWithChildren<Record<string, unknown>>;
 
-function makeMotionComponent(tag: keyof JSX.IntrinsicElements) {
-  return ({ children, ...props }: MotionProps) =>
+function makeMotionComponent(tag: keyof React.JSX.IntrinsicElements) {
+  const MotionComponent = ({ children, ...props }: MotionProps) =>
     React.createElement(tag, props, children);
+  MotionComponent.displayName = `motion.${String(tag)}`;
+  return MotionComponent;
 }
 
 const motionComponents = {

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { useSession } from 'next-auth/react'
+import { Input, Spinner } from '@sutra/ui'
 import { userService } from '@/lib/api/user'
 
 interface UsernameStepProps {
@@ -67,37 +68,40 @@ export default function UsernameStep({ value, onChange, onValidation }: Username
   return (
     <div className="space-y-4">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">
+        <h2 className="text-2xl font-bold text-content mb-2">
           Choose Your Username
         </h2>
-        <p className="text-gray-600">
+        <p className="text-content-muted">
           Pick a unique username that represents you
         </p>
       </div>
 
       <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-700">
+        <label className="block text-sm font-medium text-content">
           Username
         </label>
         <div className="relative">
-          <input
+          <Input
             type="text"
+            size="lg"
             value={value}
             onChange={(e) => onChange(e.target.value.toLowerCase())}
             placeholder="johndoe"
-            className={`w-full px-4 py-3 pr-12 border-2 rounded-lg bg-white text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 transition-all ${
-              error
-                ? 'border-red-300 focus:border-red-500 focus:ring-red-200'
-                : available === true
-                ? 'border-green-300 focus:border-green-500 focus:ring-green-200'
-                : 'border-gray-300 focus:border-orange-500 focus:ring-orange-200'
+            aria-label="Username"
+            invalid={Boolean(error)}
+            className={`pr-12 ${
+              available === true && !error
+                ? 'border-success focus-visible:ring-success'
+                : ''
             }`}
           />
 
           {/* Status icon */}
           <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
             {checking && (
-              <div className="animate-spin rounded-full h-5 w-5 border-2 border-orange-500 border-t-transparent"></div>
+              <span className="text-accent">
+                <Spinner size="md" label="Checking username" />
+              </span>
             )}
             {!checking && available === true && (
               <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
@@ -138,7 +142,7 @@ export default function UsernameStep({ value, onChange, onValidation }: Username
           </p>
         )}
 
-        <p className="text-xs text-gray-500 mt-2">
+        <p className="text-xs text-content-muted mt-2">
           Only lowercase letters, numbers, and underscores. Minimum 3 characters.
         </p>
       </div>

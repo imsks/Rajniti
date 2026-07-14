@@ -1,15 +1,88 @@
 @import "tailwindcss";
+@import "@sutra/tokens/css";
+
+/* Detect utility classes inside the compiled Sutra component library. */
+@source "../node_modules/@sutra/ui/dist";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Expose Sutra's semantic token roles as Tailwind color/font utilities
+ * (bg-accent, text-content, border-border, font-display, …). `inline` keeps the
+ * var() reference in each utility so they flip automatically under `.dark`.
+ */
+@theme inline {
+  --color-surface: var(--sutra-color-surface);
+  --color-surface-subtle: var(--sutra-color-surface-subtle);
+  --color-surface-muted: var(--sutra-color-surface-muted);
+
+  --color-content: var(--sutra-color-content);
+  --color-content-muted: var(--sutra-color-content-muted);
+  --color-content-subtle: var(--sutra-color-content-subtle);
+
+  --color-border: var(--sutra-color-border);
+  --color-border-strong: var(--sutra-color-border-strong);
+
+  --color-ring: var(--sutra-color-ring);
+
+  --color-accent: var(--sutra-color-accent);
+  --color-accent-hover: var(--sutra-color-accent-hover);
+  --color-accent-contrast: var(--sutra-color-accent-contrast);
+  --color-accent-subtle: var(--sutra-color-accent-subtle);
+  --color-accent-subtle-content: var(--sutra-color-accent-subtle-content);
+
+  --color-success: var(--sutra-color-success);
+  --color-success-contrast: var(--sutra-color-success-contrast);
+  --color-success-subtle: var(--sutra-color-success-subtle);
+  --color-success-subtle-content: var(--sutra-color-success-subtle-content);
+
+  --color-warning: var(--sutra-color-warning);
+  --color-warning-contrast: var(--sutra-color-warning-contrast);
+  --color-warning-subtle: var(--sutra-color-warning-subtle);
+  --color-warning-subtle-content: var(--sutra-color-warning-subtle-content);
+
+  --color-danger: var(--sutra-color-danger);
+  --color-danger-contrast: var(--sutra-color-danger-contrast);
+  --color-danger-subtle: var(--sutra-color-danger-subtle);
+  --color-danger-subtle-content: var(--sutra-color-danger-subtle-content);
+
+  --color-info: var(--sutra-color-info);
+  --color-info-contrast: var(--sutra-color-info-contrast);
+  --color-info-subtle: var(--sutra-color-info-subtle);
+  --color-info-subtle-content: var(--sutra-color-info-subtle-content);
+
+  --font-display: var(--sutra-font-display);
+  --font-body: var(--sutra-font-body);
+}
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Skin Sutra's themeable accent with Rajniti's orange brand (light). */
+  --sutra-color-ring: #f97316;
+  --sutra-color-accent: #ea580c;
+  --sutra-color-accent-hover: #c2410c;
+  --sutra-color-accent-contrast: #ffffff;
+  --sutra-color-accent-subtle: #fff7ed;
+  --sutra-color-accent-subtle-content: #c2410c;
+
+  /* Use Rajniti's loaded typefaces for the Sutra display/body faces. */
+  --sutra-font-display: var(--font-serif), Georgia, serif;
+  --sutra-font-body: var(--font-sans), system-ui, sans-serif;
 }
 
 .dark {
   --background: #0f172a;
   --foreground: #f1f5f9;
+
+  /* Orange brand tuned for dark surfaces. */
+  --sutra-color-ring: #fb923c;
+  --sutra-color-accent: #f97316;
+  --sutra-color-accent-hover: #fb923c;
+  --sutra-color-accent-contrast: #0f172a;
+  --sutra-color-accent-subtle: #431407;
+  --sutra-color-accent-subtle-content: #fed7aa;
 }
 
 body {

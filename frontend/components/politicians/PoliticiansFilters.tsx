@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react"
 import { useRouter } from "next/navigation"
 import { Search, SlidersHorizontal, Check, ChevronDown, X, Plus } from "lucide-react"
+import { Input } from "@sutra/ui"
 import StateSelect from "@/components/politicians/StateSelect"
 import {
     buildPoliticiansPath,
@@ -138,14 +139,14 @@ export default function PoliticiansFilters({
                             size={16}
                             className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
                         />
-                        <input
+                        <Input
                             ref={searchInputRef}
                             type="search"
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
                             placeholder="Search by Name…"
                             aria-label="Search politicians by name"
-                            className="w-full h-12 pl-9 pr-4 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 dark:focus:ring-orange-600"
+                            className="h-12 pl-9 text-sm"
                         />
                     </div>
                     <button
@@ -276,12 +277,13 @@ export default function PoliticiansFilters({
                                             className="absolute left-0 top-full mt-1.5 z-30 w-64 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-lg"
                                         >
                                             <div className="p-2 border-b border-gray-100 dark:border-gray-800">
-                                                <input
+                                                <Input
                                                     autoFocus
+                                                    size="sm"
                                                     value={partySearch}
                                                     onChange={(e) => setPartySearch(e.target.value)}
                                                     placeholder="Search parties…"
-                                                    className="w-full h-8 px-2.5 rounded-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-orange-300"
+                                                    aria-label="Search parties"
                                                 />
                                             </div>
                                             <div className="max-h-60 overflow-y-auto py-1">

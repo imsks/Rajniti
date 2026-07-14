@@ -15,14 +15,19 @@ describe('UserDetailsStep', () => {
     onChange.mockReset()
   })
 
-  it('shows placeholder style when no state is selected', () => {
+  it('shows the placeholder option when no state is selected', () => {
     render(<UserDetailsStep formData={baseFormData} onChange={onChange} />)
 
-    const select = screen.getByRole('combobox')
-    expect(select).toHaveClass('bg-white', 'text-gray-400')
+    const select = screen.getByRole('combobox') as HTMLSelectElement
+    expect(select.value).toBe('')
+    // Token-driven select adapts to dark mode; empty state is tinted subtle.
+    expect(select).toHaveClass('bg-surface', 'text-content-subtle')
+    expect(
+      screen.getByRole('option', { name: 'Select your state' }),
+    ).toBeInTheDocument()
   })
 
-  it('shows readable selected text and option styles', () => {
+  it('reflects the selected state', () => {
     render(
       <UserDetailsStep
         formData={{ ...baseFormData, state: 'Andhra Pradesh' }}
@@ -30,11 +35,12 @@ describe('UserDetailsStep', () => {
       />
     )
 
-    const select = screen.getByRole('combobox')
-    const andhraOption = screen.getByRole('option', { name: 'Andhra Pradesh' })
-
-    expect(select).toHaveClass('bg-white', 'text-gray-900')
-    expect(andhraOption).toHaveClass('bg-white', 'text-gray-900')
+    const select = screen.getByRole('combobox') as HTMLSelectElement
+    expect(select.value).toBe('Andhra Pradesh')
+    expect(select).toHaveClass('bg-surface', 'text-content')
+    expect(
+      screen.getByRole('option', { name: 'Andhra Pradesh' }),
+    ).toBeInTheDocument()
   })
 
   it('calls onChange with selected state', () => {

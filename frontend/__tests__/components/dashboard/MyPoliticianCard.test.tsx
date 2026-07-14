@@ -17,7 +17,9 @@ describe('MyPoliticianCard', () => {
     expect(screen.getByText('Your MP')).toBeInTheDocument()
     expect(screen.getByText('Search above to add')).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', { name: '+ Add' }))
+    // The leading "+" is a decorative icon (aria-hidden via Sutra Button), so
+    // the accessible name is just "Add".
+    fireEvent.click(screen.getByRole('button', { name: 'Add' }))
     expect(onAddClick).toHaveBeenCalledTimes(1)
   })
 

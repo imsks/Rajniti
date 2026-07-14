@@ -1,13 +1,11 @@
 "use client";
 
 import { m } from "framer-motion";
+import { Avatar, Badge } from "@sutra/ui";
 import Text from "@/components/ui/Text";
-import Image from "@/components/ui/Image";
 import Button from "@/components/ui/Button";
-import {
-  getPartyInitial,
-  getPoliticianProfileHref,
-} from "@/lib/politicianUtils";
+import RoleBadge from "@/components/politicians/RoleBadge";
+import { getPoliticianProfileHref } from "@/lib/politicianUtils";
 import type { Politician, ElectionType } from "@/types/politician";
 interface MyPoliticianCardProps {
   politician: Politician | null;
@@ -35,15 +33,12 @@ export default function MyPoliticianCard({
       <m.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white/70 dark:bg-gray-800/70 rounded-2xl shadow-sm border-2 border-dashed border-amber-300/60 dark:border-gray-600 p-6 flex flex-col items-center justify-center min-h-[200px]"
+        className="bg-surface/70 rounded-2xl shadow-sm border-2 border-dashed border-accent-subtle p-6 flex flex-col items-center justify-center min-h-[200px]"
       >
-        <Text variant="body" className="text-gray-500 dark:text-gray-400 mb-2">
+        <Text variant="body" color="muted" className="mb-2">
           {label}
         </Text>
-        <Text
-          variant="small"
-          className="text-gray-400 dark:text-gray-500 mb-4 text-center"
-        >
+        <Text variant="small" color="muted" className="mb-4 text-center">
           Search above to add
         </Text>
         {onAddClick && (
@@ -60,9 +55,7 @@ export default function MyPoliticianCard({
     );
   }
 
-  const initial = getPartyInitial(politician);
   const hasPhoto = !!politician.photo;
-  const isMp = politician.type === "MP";
   const designation =
     politician.type === "MP"
       ? `MP of ${politician.constituency}`
@@ -72,58 +65,33 @@ export default function MyPoliticianCard({
     <m.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-amber-200/70 dark:border-gray-700 p-5 hover:border-amber-400/80 dark:hover:border-orange-500 hover:shadow-lg transition-all h-full flex flex-col"
+      className="bg-surface rounded-xl shadow-md border border-border p-5 hover:border-accent hover:shadow-lg transition-all h-full flex flex-col"
     >
       <div className="flex items-start gap-4 mb-3">
-        {hasPhoto ? (
-          <Image
-            src={politician.photo!}
-            alt={politician.name}
-            width={56}
-            height={56}
-            sizes="56px"
-            rounded="full"
-            className="w-14 h-14 object-cover border-2 border-orange-200 flex-shrink-0"
-          />
-        ) : (
-          <div className="w-14 h-14 rounded-full bg-linear-to-br from-orange-100 to-orange-200 dark:from-orange-900/40 dark:to-orange-800/40 flex items-center justify-center flex-shrink-0 border-2 border-orange-200 dark:border-orange-700">
-            <span className="text-orange-700 font-bold text-xs">{initial}</span>
-          </div>
-        )}
+        <Avatar
+          src={hasPhoto ? politician.photo! : undefined}
+          name={politician.name}
+          className="w-14 h-14 shrink-0 border-2 border-accent-subtle"
+        />
         <div className="flex-1 min-w-0">
-          <Text
-            variant="body"
-            weight="bold"
-            className="text-gray-900 dark:text-gray-100 truncate"
-          >
+          <Text variant="body" weight="bold" className="truncate">
             {politician.name}
           </Text>
-          <Text
-            variant="small"
-            className="text-gray-500 dark:text-gray-400 truncate"
-          >
+          <Text variant="small" color="muted" className="truncate">
             {designation}
           </Text>
         </div>
-        <span
-          className={`px-2.5 py-1 rounded-full text-xs font-bold flex-shrink-0 ${
-            isMp
-              ? "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300"
-              : "bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300"
-          }`}
-        >
-          {politician.type}
-        </span>
+        <RoleBadge type={politician.type} />
       </div>
       <div className="flex flex-wrap gap-2 mb-4">
-        <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+        <Badge variant="neutral" tone="subtle" size="sm" className="rounded-lg">
           {politician.type}
-        </span>
-        <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+        </Badge>
+        <Badge variant="neutral" tone="subtle" size="sm" className="rounded-lg">
           {politician.constituency}
-        </span>
+        </Badge>
       </div>
-      <div className="mt-auto pt-3 border-t border-amber-100 dark:border-gray-700 flex flex-wrap items-center justify-between gap-2">
+      <div className="mt-auto pt-3 border-t border-border flex flex-wrap items-center justify-between gap-2">
         <Button
           href={getPoliticianProfileHref(politician)}
           variant="primary"

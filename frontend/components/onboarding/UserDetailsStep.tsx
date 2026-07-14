@@ -1,5 +1,7 @@
 'use client'
 
+import { Input, Select } from '@sutra/ui'
+
 interface UserDetailsStepProps {
   formData: {
     phone: string
@@ -58,73 +60,73 @@ const AGE_GROUPS = [
 ]
 
 export default function UserDetailsStep({ formData, onChange }: UserDetailsStepProps) {
-  const baseFieldClasses = 'w-full px-4 py-3 border border-gray-300 rounded-lg bg-white placeholder:text-gray-500 focus:ring-2 focus:ring-orange-500 focus:border-transparent'
-
   return (
     <div className="space-y-6">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">
+        <h2 className="text-2xl font-bold text-content mb-2">
           Basic Details
         </h2>
-        <p className="text-gray-600">
+        <p className="text-content-muted">
           Help us personalize your experience
         </p>
       </div>
 
       {/* Phone Number */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Phone Number <span className="text-gray-400">(Optional)</span>
+        <label className="block text-sm font-medium text-content mb-2">
+          Phone Number <span className="text-content-subtle">(Optional)</span>
         </label>
-        <input
+        <Input
           type="tel"
+          size="lg"
           value={formData.phone}
           onChange={(e) => onChange('phone', e.target.value)}
           placeholder="+91-9876543210"
-          className={`${baseFieldClasses} text-gray-900`}
+          aria-label="Phone Number"
         />
       </div>
 
       {/* State */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          State <span className="text-red-500">*</span>
+        <label className="block text-sm font-medium text-content mb-2">
+          State <span className="text-danger">*</span>
         </label>
-        <select
+        <Select
+          size="lg"
           value={formData.state}
           onChange={(e) => onChange('state', e.target.value)}
-          className={`w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-orange-500 focus:border-transparent ${
-            formData.state ? 'text-gray-900' : 'text-gray-400'
-          }`}
           required
+          aria-label="State"
+          className={formData.state ? '' : 'text-content-subtle'}
         >
-          <option value="" className="text-gray-400 bg-white">Select your state</option>
+          <option value="">Select your state</option>
           {INDIAN_STATES.map((state) => (
-            <option key={state} value={state} className="text-gray-900 bg-white">
+            <option key={state} value={state}>
               {state}
             </option>
           ))}
-        </select>
+        </Select>
       </div>
 
       {/* City */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          City <span className="text-gray-400">(Optional)</span>
+        <label className="block text-sm font-medium text-content mb-2">
+          City <span className="text-content-subtle">(Optional)</span>
         </label>
-        <input
+        <Input
           type="text"
+          size="lg"
           value={formData.city}
           onChange={(e) => onChange('city', e.target.value)}
           placeholder="Enter your city"
-          className={`${baseFieldClasses} text-gray-900`}
+          aria-label="City"
         />
       </div>
 
       {/* Age Group */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Age Group <span className="text-red-500">*</span>
+        <label className="block text-sm font-medium text-content mb-2">
+          Age Group <span className="text-danger">*</span>
         </label>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           {AGE_GROUPS.map((age) => (
@@ -134,8 +136,8 @@ export default function UserDetailsStep({ formData, onChange }: UserDetailsStepP
               onClick={() => onChange('age_group', age)}
               className={`px-4 py-3 rounded-lg border-2 text-sm font-medium transition-all ${
                 formData.age_group === age
-                  ? 'border-orange-500 bg-orange-50 text-orange-700'
-                  : 'border-gray-200 bg-white text-gray-700 hover:border-orange-300'
+                  ? 'border-accent bg-accent-subtle text-accent-subtle-content'
+                  : 'border-border bg-surface text-content hover:border-accent'
               }`}
             >
               {age}

@@ -224,7 +224,8 @@ describe('MyPoliticiansSection', () => {
     const searchInput = screen.getByPlaceholderText(
       'Find your MP or MLA, e.g. Modi',
     )
-    const addButtons = screen.getAllByRole('button', { name: '+ Add' })
+    // The leading "+" is a decorative icon (aria-hidden via Sutra Button).
+    const addButtons = screen.getAllByRole('button', { name: 'Add' })
 
     fireEvent.click(addButtons[0])
 
