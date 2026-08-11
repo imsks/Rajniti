@@ -58,9 +58,25 @@ export function buildPoliticiansTitle(
   if (filters.type === "MP") title = "Lok Sabha MPs";
   else if (filters.type === "MLA") title = "Vidhan Sabha MLAs";
   else if (filters.state) title = `${filters.state} MPs & MLAs`;
-  if (filters.q?.trim()) title = `Search: ${filters.q.trim()}`;
+  // Note: We intentionally do NOT change the visible H1 for search queries.
+  // The H1 stays canonical (e.g., "All Indian MPs & MLAs") while a separate
+  // "Showing X results for <query>" line appears below the filters.
   if (page > 1) title = `${title} — Page ${page}`;
   return title;
+}
+
+/**
+ * Build the "Showing X results for "<query>"" line when a search is active.
+ * Returns null if no search query is present.
+ */
+export function buildSearchResultsLine(
+  query: string | undefined,
+  total: number,
+): string | null {
+  const trimmed = query?.trim();
+  if (!trimmed) return null;
+  const countText = total === 1 ? "1 result" : `${total.toLocaleString()} results`;
+  return `Showing ${countText} for "${trimmed}"`;
 }
 
 export function buildPoliticiansDescription(
