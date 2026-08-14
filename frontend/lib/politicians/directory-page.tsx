@@ -9,6 +9,7 @@ import {
     buildPoliticiansDescription,
     buildPoliticiansPath,
     buildPoliticiansTitle,
+    buildSearchResultsLine,
     getPaginationAlternates,
     type PoliticiansListFilters,
 } from "@/components/politicians/PoliticiansDirectory"
@@ -59,6 +60,7 @@ async function renderPoliticiansDirectory({ page = 1, filters = {} }: PageProps)
     const [states, parties] = await Promise.all([fetchStates(), fetchParties()])
 
     const title = buildPoliticiansTitle(filters, page)
+    const searchResultsLine = buildSearchResultsLine(filters.q, catalog.total)
 
     const politicians = catalog.politicians.map(catalogToPolitician)
     const itemList = politicians.map((p) => ({
@@ -107,6 +109,12 @@ async function renderPoliticiansDirectory({ page = 1, filters = {} }: PageProps)
                         states={states}
                         parties={parties}
                     />
+
+                    {searchResultsLine && (
+                        <p className="mb-6 text-sm text-gray-600 dark:text-gray-400">
+                            {searchResultsLine}
+                        </p>
+                    )}
 
                     {politicians.length === 0 ? (
                         <p className="text-gray-600 dark:text-gray-400">No politicians found.</p>
