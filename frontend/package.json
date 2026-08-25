@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
+  "version": "0.4.9",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.101.0",
-    "@sutra_ui/tokens": "file:vendor/sutra-tokens-0.0.1.tgz",
-    "@sutra_ui/ui": "file:vendor/sutra-ui-0.0.1.tgz",
+    "@sutra_ui/tokens": "0.0.1",
+    "@sutra_ui/ui": "0.0.1",
     "framer-motion": "^12.34.2",
     "lucide-react": "^0.575.0",
     "next": "16.2.10",

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Share2, Check, AlertTriangle } from "lucide-react";
 import {
   getPoliticianProfileHref,
@@ -102,14 +103,14 @@ export default function PublicPoliticianCard({
       {/* Top section — avatar + text. pointer-events-none so clicks fall through to the link. */}
       <div className="relative z-10 flex items-start gap-[14px] pointer-events-none">
         {/* Avatar — neutral fallback with initials */}
-        <div className="shrink-0 w-[46px] h-[46px] rounded-full overflow-hidden flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm font-semibold">
+        <div className="relative shrink-0 w-[46px] h-[46px] rounded-full overflow-hidden flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm font-semibold">
           {politician.photo && !imgError ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={politician.photo}
               alt={politician.name}
-              className="w-full h-full object-cover"
-              loading="lazy"
+              fill
+              className="object-cover"
+              sizes="46px"
               onError={() => setImgError(true)}
             />
           ) : (
@@ -137,13 +138,13 @@ export default function PublicPoliticianCard({
         {/* Left group: party logo + party name (truncates if needed) */}
         <div className="flex items-center gap-2 flex-1 min-w-0">
           {partyLogo && !logoError && (
-            <span className="inline-flex shrink-0 w-5.5 h-5.5 rounded-[6px] bg-white items-center justify-center p-[2px]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+            <span className="relative inline-flex shrink-0 w-5.5 h-5.5 rounded-[6px] bg-white items-center justify-center p-[2px]">
+              <Image
                 src={partyLogo}
                 alt=""
-                className="w-full h-full object-contain"
-                loading="lazy"
+                fill
+                className="object-contain"
+                sizes="22px"
                 onError={() => setLogoError(true)}
               />
             </span>
@@ -162,6 +163,7 @@ export default function PublicPoliticianCard({
             added here later. flex-shrink-0 so the party name never compresses it. */}
         <div className="flex items-center gap-1 shrink-0 pointer-events-auto">
           <button
+            type="button"
             onClick={handleShare}
             aria-label={
               shareState === "copied"

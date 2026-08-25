@@ -20,7 +20,19 @@ def create_app(settings: Settings | None = None) -> Flask:
             environment-derived settings.
     """
     app = Flask(__name__)
-    app.config["SETTINGS"] = settings or Settings.from_env()
+    resolved = settings or Settings.from_env()
+
+    # Flask signs session cookies with SECRET_KEY, so the configured value has
+    # to reach app.config under that exact name — stashing it only under
+    # "SETTINGS" would leave sessions signed with Flask's insecure default.
+    if resolved.is_production and resolved.secret_key == Settings.secret_key:
+        raise RuntimeError(
+            "SECRET_KEY is still the built-in placeholder while FLASK_ENV=production. "
+            "Set a real SECRET_KEY (GCP Secret Manager in prod) before serving traffic."
+        )
+
+    app.config["SECRET_KEY"] = resolved.secret_key
+    app.config["SETTINGS"] = resolved
 
     _register_health(app)
     _register_api_v1(app)

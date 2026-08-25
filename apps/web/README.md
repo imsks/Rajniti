@@ -8,9 +8,9 @@ Next.js (App Router, TypeScript) frontend for Rajniti. Deploys to **Vercel**.
 
 ## UI primitives
 
-This app consumes [`@sutra/ui`](https://www.npmjs.com/package/@sutra/ui) as a
-public npm dependency. Do **not** build or vendor UI primitives here — install
-`@sutra/ui` once it is published and compose from it.
+This app consumes [`@sutra_ui/ui`](https://www.npmjs.com/package/@sutra_ui/ui)
+and `@sutra_ui/tokens` as published npm dependencies. Do **not** build, fork, or
+vendor UI primitives here — install them from the registry and compose.
 
 ## Local development
 

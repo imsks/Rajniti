@@ -24,7 +24,10 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # Pinned to the minor our dependency graph requires (eslint 10 deps
+          # declare engines ^20.19.0 || ^22.13.0 || >=24); a bare "20" can drift
+          # onto a runner default below 20.19 and break installs.
+          node-version: "20.19"
           cache: pnpm
 
       - name: Install

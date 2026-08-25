@@ -2,9 +2,10 @@
 
 import { useEffect, useId, useRef, useState } from "react"
 import { useRouter } from "next/navigation"
-import { Search, SlidersHorizontal, Check, ChevronDown, X, Plus } from "lucide-react"
+import { SlidersHorizontal, Check, ChevronDown, X, Plus } from "lucide-react"
 import { Input } from "@sutra_ui/ui"
 import StateSelect from "@/components/politicians/StateSelect"
+import SearchTypeahead from "@/components/search/SearchTypeahead"
 import {
     buildPoliticiansPath,
     type PoliticiansListFilters,
@@ -32,11 +33,9 @@ export default function PoliticiansFilters({
 }: PoliticiansFiltersProps) {
     const router = useRouter()
     const [panelOpen, setPanelOpen] = useState(false)
-    const [query, setQuery] = useState(filters.q ?? "")
     const [partyOpen, setPartyOpen] = useState(false)
     const [partySearch, setPartySearch] = useState("")
     const popoverRef = useRef<HTMLDivElement>(null)
-    const searchInputRef = useRef<HTMLInputElement>(null)
     const listboxId = useId()
 
     // Persist the panel's open/closed state across filter navigations (each
@@ -85,24 +84,8 @@ export default function PoliticiansFilters({
         router.push(buildPoliticiansPath(1, next))
     }
 
-    // Native search "×" (clear) fires a `search` event — when it empties the field
-    // while a search is active, reset the list back to the full unsearched results.
-    useEffect(() => {
-        const el = searchInputRef.current
-        if (!el) return
-        function onNativeSearch() {
-            if (el!.value === "" && filters.q) {
-                go({ ...filters, q: undefined })
-            }
-        }
-        el.addEventListener("search", onNativeSearch)
-        return () => el.removeEventListener("search", onNativeSearch)
-        // eslint-disable-next-line react-hooks/exhaustive-deps, react-doctor/exhaustive-deps
-    }, [filters])
-
-    function submitSearch(e: React.FormEvent) {
-        e.preventDefault()
-        go({ ...filters, q: query.trim() || undefined })
+    function handleSearch(query: string) {
+        go({ ...filters, q: query || undefined })
     }
 
     function setType(type?: "MP" | "MLA") {
@@ -118,7 +101,6 @@ export default function PoliticiansFilters({
     }
 
     function clearAll() {
-        setQuery("")
         router.push("/politicians")
     }
 
@@ -133,29 +115,14 @@ export default function PoliticiansFilters({
         <div className="mb-8">
             {/* Search row */}
             <div className="flex items-center gap-3">
-                <form onSubmit={submitSearch} className="flex items-center gap-3 flex-1">
-                    <div className="relative flex-1">
-                        <Search
-                            size={16}
-                            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-                        />
-                        <Input
-                            ref={searchInputRef}
-                            type="search"
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
-                            placeholder="Search by Name…"
-                            aria-label="Search politicians by name"
-                            className="h-12 pl-9 text-sm"
-                        />
-                    </div>
-                    <button
-                        type="submit"
-                        className="shrink-0 h-12 px-6 rounded-lg bg-orange-600/90 hover:bg-orange-600 text-white text-sm font-semibold transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-300 dark:focus:ring-orange-600"
-                    >
-                        Search
-                    </button>
-                </form>
+                <SearchTypeahead
+                    className="flex-1"
+                    defaultValue={filters.q ?? ""}
+                    onSearch={handleSearch}
+                    placeholder="Search by Name…"
+                    ariaLabel="Search politicians by name"
+                    showSearchButton={true}
+                />
 
                 <button
                     type="button"

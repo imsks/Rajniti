@@ -2,10 +2,10 @@
   "name": "rajniti",
   "version": "0.1.0",
   "private": true,
-  "description": "Rajniti monorepo — civic tech for political accountability in India.",
+  "description": "Rajniti monorepo \u2014 civic tech for political accountability in India.",
   "packageManager": "pnpm@9.15.0",
   "engines": {
-    "node": ">=20"
+    "node": "^20.19.0 || ^22.13.0 || >=24"
   },
   "scripts": {
     "dev": "docker compose up -d chroma && turbo run dev",
