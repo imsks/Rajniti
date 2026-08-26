@@ -6,6 +6,7 @@ import { m } from "framer-motion";
 import { Footer, Navbar } from "@/components/layout";
 import Button from "@/components/ui/Button";
 import Text from "@/components/ui/Text";
+import Pagination from "@/components/ui/Pagination";
 import PoliticianCard from "@/components/PoliticianCard";
 import PoliticianCardWrapper from "@/components/PoliticianCardWrapper";
 import { usePoliticians } from "@/hooks/usePoliticians";
@@ -452,41 +453,18 @@ function DashboardContent() {
               })}
             </m.div>
             {/* Pagination controls */}
-            {totalPages > 1 && (
-              <div className="flex justify-center items-center gap-2 mt-8">
-                <button
-                  onClick={() => {
-                    const newPage = Math.max(1, effectivePage - 1);
-                    setCurrentPage(newPage);
-                    trackEvent("pagination", {
-                      direction: "previous",
-                      page_number: newPage,
-                      total_pages: totalPages,
-                    });
-                  }}
-                  disabled={effectivePage === 1}
-                  className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                >
-                  Previous
-                </button>
-
-                <button
-                  onClick={() => {
-                    const newPage = Math.min(totalPages, effectivePage + 1);
-                    setCurrentPage(newPage);
-                    trackEvent("pagination", {
-                      direction: "next",
-                      page_number: newPage,
-                      total_pages: totalPages,
-                    });
-                  }}
-                  disabled={effectivePage === totalPages}
-                  className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                >
-                  Next
-                </button>
-              </div>
-            )}
+            <Pagination
+              currentPage={effectivePage}
+              totalPages={totalPages}
+              onPageChange={(newPage) => {
+                setCurrentPage(newPage);
+                trackEvent("pagination", {
+                  direction: newPage > effectivePage ? "next" : "previous",
+                  page_number: newPage,
+                  total_pages: totalPages,
+                });
+              }}
+            />
           </>
         )}
 
