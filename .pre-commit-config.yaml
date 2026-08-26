@@ -1,4 +1,4 @@
-# Install hooks: `make git-hooks` (after `make install-dev`)
+# Install hooks: `pre-commit install`
 # https://pre-commit.com
 default_language_version:
   python: python3
@@ -27,8 +27,8 @@ repos:
       - id: isort
         files: ^(app|tests)/
 
-  # Flake8 + mypy run in CI (`make lint-backend`). Omit here so local commits are not
-  # blocked by legacy test imports; run `make lint-backend` before pushing.
+  # Flake8 + mypy run in CI. Omit here so local commits are not
+  # blocked by legacy test imports; run flake8/mypy before pushing.
   - repo: local
     hooks:
       - id: react-doctor

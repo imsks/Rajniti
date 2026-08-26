@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Pre-commit hook: auto-stamps lastUpdated on changed politician records in
-mp.json and mla.json. Installed via `make install-hooks`.
+mp.json and mla.json. Install as `.git/hooks/pre-commit`.
 
 Flow:
   1. Checks which politician records changed (by hash comparison).
