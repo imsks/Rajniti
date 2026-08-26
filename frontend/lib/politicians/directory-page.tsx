@@ -3,16 +3,16 @@ import Navbar from "@/components/layout/Navbar"
 import JsonLd from "@/components/seo/JsonLd"
 import PublicPoliticianCard from "@/components/politicians/PublicPoliticianCard"
 import PoliticiansFilters from "@/components/politicians/PoliticiansFilters"
+import { PoliticiansPagination } from "@/components/politicians/PoliticiansDirectory"
 import {
     PER_PAGE,
-    PoliticiansPagination,
     buildPoliticiansDescription,
     buildPoliticiansPath,
     buildPoliticiansTitle,
     buildSearchResultsLine,
     getPaginationAlternates,
     type PoliticiansListFilters,
-} from "@/components/politicians/PoliticiansDirectory"
+} from "@/lib/politicians/directory"
 import {
     catalogToPolitician,
     fetchPoliticianCatalog,

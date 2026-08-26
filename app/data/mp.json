@@ -16778,7 +16778,7 @@
     ],
     "criminal_records": [],
     "contact": {
-      "email": "narendramodi.varanasi@gmail.com",
+      "email": null,
       "phone": "011-23012312",
       "address": "Prime Minister's Office, South Block, Raisina Hill, New Delhi - 110011"
     },
@@ -16822,10 +16822,6 @@
     },
     "lastUpdated": "2026-06-06T06:46:27.594Z",
     "contact_citations": {
-      "email": {
-        "link": "https://www.pmindia.gov.in/en/interact-with-honble-pm/",
-        "source": "GOV_WEBSITE"
-      },
       "phone": {
         "link": "https://www.pmindia.gov.in/en/interact-with-honble-pm/",
         "source": "GOV_WEBSITE"

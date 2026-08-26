@@ -1,11 +1,16 @@
 /**
- * Unit tests for PoliticiansDirectory utility functions.
+ * Unit tests for politician directory utility functions.
  */
 
 import {
+    PER_PAGE,
+    buildPoliticiansDescription,
+    buildPoliticiansPath,
     buildPoliticiansTitle,
     buildSearchResultsLine,
-} from "@/components/politicians/PoliticiansDirectory"
+    getPaginationAlternates,
+    parsePartyParam,
+} from "@/lib/politicians/directory"
 
 describe("buildPoliticiansTitle", () => {
     it("returns default title for no filters", () => {
@@ -78,5 +83,77 @@ describe("buildSearchResultsLine", () => {
 
     it("handles zero results", () => {
         expect(buildSearchResultsLine("xyz", 0)).toBe('Showing 0 results for "xyz"')
+    })
+})
+
+describe("parsePartyParam", () => {
+    it("returns undefined for missing or empty values", () => {
+        expect(parsePartyParam(undefined)).toBeUndefined()
+        expect(parsePartyParam("")).toBeUndefined()
+        expect(parsePartyParam("  ,  ")).toBeUndefined()
+    })
+
+    it("splits and trims comma-separated party names", () => {
+        expect(parsePartyParam("BJP, INC")).toEqual(["BJP", "INC"])
+    })
+})
+
+describe("buildPoliticiansPath", () => {
+    it("uses type-owned paths and keeps state as a query param", () => {
+        expect(buildPoliticiansPath(1, { type: "MP", stateSlug: "gujarat" })).toBe(
+            "/politicians/mp?state=gujarat",
+        )
+        expect(buildPoliticiansPath(2, { type: "MLA" })).toBe(
+            "/politicians/mla/page/2",
+        )
+        expect(buildPoliticiansPath(1, { stateSlug: "bihar" })).toBe(
+            "/politicians/state/bihar",
+        )
+    })
+
+    it("appends search and party query params", () => {
+        expect(
+            buildPoliticiansPath(1, { q: " Shah ", parties: ["BJP", "INC"] }),
+        ).toBe("/politicians?q=Shah&party=BJP%2CINC")
+    })
+})
+
+describe("buildPoliticiansDescription", () => {
+    it("returns type, state, and default copy", () => {
+        expect(buildPoliticiansDescription({ type: "MP" })).toContain("Lok Sabha")
+        expect(buildPoliticiansDescription({ type: "MLA" })).toContain("Vidhan Sabha")
+        expect(buildPoliticiansDescription({ state: "Goa" })).toContain("Goa")
+        expect(buildPoliticiansDescription({})).toContain("search by name")
+    })
+})
+
+describe("getPaginationAlternates", () => {
+    const originalSiteUrl = process.env.NEXT_PUBLIC_SITE_URL
+
+    beforeEach(() => {
+        process.env.NEXT_PUBLIC_SITE_URL = "https://rajniti.example"
+    })
+
+    afterEach(() => {
+        process.env.NEXT_PUBLIC_SITE_URL = originalSiteUrl
+    })
+
+    it("returns prev and next absolute URLs", () => {
+        expect(getPaginationAlternates(2, 4, { type: "MP" })).toEqual({
+            prev: "https://rajniti.example/politicians/mp",
+            next: "https://rajniti.example/politicians/mp/page/3",
+        })
+    })
+
+    it("omits prev on the first page", () => {
+        expect(getPaginationAlternates(1, 2, {})).toEqual({
+            next: "https://rajniti.example/politicians/page/2",
+        })
+    })
+})
+
+describe("PER_PAGE", () => {
+    it("is 48", () => {
+        expect(PER_PAGE).toBe(48)
     })
 })

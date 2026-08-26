@@ -288,4 +288,24 @@ describe("SearchTypeahead", () => {
 
         expect(onNavigate).toHaveBeenCalledWith(mockPoliticians[0])
     })
+
+    it("does not nest a button inside each listbox option", () => {
+        mockUseTypeaheadSearch.mockReturnValue({
+            results: mockPoliticians,
+            loading: false,
+            error: null,
+            clear: jest.fn(),
+        })
+
+        render(<SearchTypeahead />)
+
+        const input = screen.getByRole("combobox")
+        fireEvent.change(input, { target: { value: "modi" } })
+
+        const options = screen.getAllByRole("option")
+        expect(options).toHaveLength(2)
+        for (const option of options) {
+            expect(option.querySelector("button")).toBeNull()
+        }
+    })
 })

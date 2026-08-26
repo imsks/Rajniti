@@ -8,7 +8,7 @@ import SearchTypeahead from "@/components/search/SearchTypeahead"
 import {
     buildPoliticiansPath,
     type PoliticiansListFilters,
-} from "@/components/politicians/PoliticiansDirectory"
+} from "@/lib/politicians/directory"
 import { getPartyColor, getPartyAcronym } from "@/lib/constants/partyColors"
 
 interface PoliticiansFiltersProps {

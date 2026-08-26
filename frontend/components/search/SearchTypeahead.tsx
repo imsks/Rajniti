@@ -12,17 +12,10 @@ import {
     type FormEvent,
 } from "react"
 import { useRouter } from "next/navigation"
-import Image from "next/image"
 import { Search, Loader2 } from "lucide-react"
 import { useTypeaheadSearch } from "@/hooks/useTypeaheadSearch"
-import PoliticianAvatar from "@/components/ui/PoliticianAvatar"
-import RoleBadge from "@/components/politicians/RoleBadge"
-import {
-    getPartyColor,
-    getPartyLogo,
-    getPartyAcronym,
-} from "@/lib/constants/partyColors"
-import { toTitleCase, getParty, getPoliticianProfileHref } from "@/lib/politicianUtils"
+import SearchTypeaheadDropdown from "@/components/search/SearchTypeaheadDropdown"
+import { getPoliticianProfileHref } from "@/lib/politicianUtils"
 import type { Politician } from "@/types/politician"
 
 interface SearchTypeaheadProps {
@@ -53,6 +46,10 @@ export interface SearchTypeaheadRef {
     getValue: () => string
     /** Clear the input and close dropdown. */
     clear: () => void
+}
+
+function resultsIdentity(results: Politician[]): string {
+    return results.map((r) => `${r.id}:${r.type}`).join("|")
 }
 
 /**
@@ -89,7 +86,15 @@ const SearchTypeahead = forwardRef<SearchTypeaheadRef, SearchTypeaheadProps>(
             { debounceMs, limit: 8 },
         )
 
-        // Expose imperative handle
+        // Reset highlight during render when the result set identity changes,
+        // so the UI never paints a stale highlighted row.
+        const identity = resultsIdentity(results)
+        const [prevIdentity, setPrevIdentity] = useState(identity)
+        if (identity !== prevIdentity) {
+            setPrevIdentity(identity)
+            setHighlightIndex(-1)
+        }
+
         useImperativeHandle(ref, () => ({
             focus: () => inputRef.current?.focus(),
             getValue: () => query,
@@ -101,12 +106,10 @@ const SearchTypeahead = forwardRef<SearchTypeaheadRef, SearchTypeaheadProps>(
             },
         }))
 
-        // Determine if dropdown should be visible
         const trimmedQuery = query.trim()
         const nonSpaceChars = trimmedQuery.replace(/\s/g, "").length
         const showDropdown = isOpen && nonSpaceChars >= 2
 
-        // Close dropdown on click outside
         useEffect(() => {
             if (!showDropdown) return
 
@@ -124,18 +127,12 @@ const SearchTypeahead = forwardRef<SearchTypeaheadRef, SearchTypeaheadProps>(
             return () => document.removeEventListener("mousedown", handleClickOutside)
         }, [showDropdown])
 
-        // Scroll highlighted item into view
         useEffect(() => {
             if (highlightIndex >= 0 && listRef.current) {
                 const item = listRef.current.children[highlightIndex] as HTMLElement
                 item?.scrollIntoView({ block: "nearest" })
             }
         }, [highlightIndex])
-
-        // Reset highlight when results change
-        useEffect(() => {
-            setHighlightIndex(-1)
-        }, [results])
 
         const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
             setQuery(e.target.value)
@@ -158,13 +155,11 @@ const SearchTypeahead = forwardRef<SearchTypeaheadRef, SearchTypeaheadProps>(
             (e?: FormEvent) => {
                 e?.preventDefault()
 
-                // If a row is highlighted, navigate to that profile
                 if (highlightIndex >= 0 && results[highlightIndex]) {
                     navigateToPolitician(results[highlightIndex])
                     return
                 }
 
-                // Otherwise, run the full search
                 setIsOpen(false)
                 setHighlightIndex(-1)
                 onSearch?.(query.trim())
@@ -175,7 +170,6 @@ const SearchTypeahead = forwardRef<SearchTypeaheadRef, SearchTypeaheadProps>(
         const handleKeyDown = useCallback(
             (e: KeyboardEvent<HTMLInputElement>) => {
                 if (!showDropdown || results.length === 0) {
-                    // Let Enter trigger form submit even without dropdown
                     if (e.key === "Enter") {
                         e.preventDefault()
                         handleSubmit()
@@ -209,13 +203,12 @@ const SearchTypeahead = forwardRef<SearchTypeaheadRef, SearchTypeaheadProps>(
         )
 
         const handleInputFocus = useCallback(() => {
-            const nonSpaceChars = query.trim().replace(/\s/g, "").length
-            if (nonSpaceChars >= 2) {
+            const chars = query.trim().replace(/\s/g, "").length
+            if (chars >= 2) {
                 setIsOpen(true)
             }
         }, [query])
 
-        // Handle native search clear (×)
         useEffect(() => {
             const el = inputRef.current
             if (!el) return
@@ -289,117 +282,19 @@ const SearchTypeahead = forwardRef<SearchTypeaheadRef, SearchTypeaheadProps>(
                     )}
                 </form>
 
-                {/* Dropdown */}
                 {showDropdown && (
-                    <div
-                        id="search-typeahead-listbox"
-                        role="listbox"
-                        className="absolute z-30 left-0 right-0 top-full mt-1.5 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 shadow-lg max-h-[400px] overflow-auto"
-                    >
-                        {loading && results.length === 0 ? (
-                            <div className="px-4 py-6 text-center text-gray-500 dark:text-gray-400 text-sm flex items-center justify-center gap-2">
-                                <Loader2
-                                    size={16}
-                                    className="animate-spin"
-                                    aria-hidden="true"
-                                />
-                                Searching…
-                            </div>
-                        ) : error ? (
-                            <div className="px-4 py-3 text-sm text-red-600 dark:text-red-400">
-                                {error}
-                            </div>
-                        ) : results.length === 0 ? (
-                            <div className="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
-                                No matches for &ldquo;{trimmedQuery}&rdquo;
-                            </div>
-                        ) : (
-                            <ul ref={listRef} className="py-1">
-                                {results.map((politician, index) => {
-                                    const party = getParty(politician)
-                                    const partyDisplay = party !== "—" ? party : null
-                                    const partyColor = getPartyColor(partyDisplay)
-                                    const partyLogo = getPartyLogo(partyDisplay)
-                                    const partyKey = partyDisplay || ""
-                                    const showLogo = partyLogo && !logoErrors.has(partyKey)
-
-                                    const isHighlighted = index === highlightIndex
-
-                                    return (
-                                        <li
-                                            key={`${politician.id}-${politician.type}`}
-                                            id={`search-typeahead-option-${index}`}
-                                            role="option"
-                                            aria-selected={isHighlighted}
-                                        >
-                                            <button
-                                                type="button"
-                                                onClick={() => navigateToPolitician(politician)}
-                                                onMouseEnter={() => setHighlightIndex(index)}
-                                                className={`w-full px-4 py-2.5 flex items-center gap-3 text-left transition-colors cursor-pointer ${
-                                                    isHighlighted
-                                                        ? "bg-orange-50 dark:bg-gray-800"
-                                                        : "hover:bg-gray-50 dark:hover:bg-gray-800"
-                                                }`}
-                                            >
-                                                {/* Left: Avatar + Name + Badge */}
-                                                <div className="flex items-center gap-3 flex-1 min-w-0">
-                                                    <PoliticianAvatar
-                                                        photo={politician.photo}
-                                                        name={politician.name}
-                                                        party={partyDisplay}
-                                                        size={36}
-                                                    />
-                                                    <div className="flex-1 min-w-0">
-                                                        <div className="flex items-center gap-2">
-                                                            <span className="font-medium text-gray-900 dark:text-white truncate">
-                                                                {toTitleCase(politician.name)}
-                                                            </span>
-                                                            <RoleBadge type={politician.type} />
-                                                        </div>
-                                                        <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
-                                                            {toTitleCase(politician.constituency)},{" "}
-                                                            {politician.state}
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                {/* Right: Party logo or colored dot */}
-                                                <div className="shrink-0 flex items-center justify-center w-6 h-6">
-                                                    {showLogo ? (
-                                                        <span className="relative w-5 h-5">
-                                                            <Image
-                                                                src={partyLogo}
-                                                                alt={getPartyAcronym(partyDisplay) || ""}
-                                                                fill
-                                                                className="object-contain"
-                                                                sizes="20px"
-                                                                onError={() =>
-                                                                    handleLogoError(partyKey)
-                                                                }
-                                                            />
-                                                        </span>
-                                                    ) : (
-                                                        <span
-                                                            className="w-3 h-3 rounded-full"
-                                                            style={{
-                                                                backgroundColor: partyColor.text,
-                                                            }}
-                                                            aria-label={
-                                                                partyDisplay
-                                                                    ? getPartyAcronym(partyDisplay)
-                                                                    : "Independent"
-                                                            }
-                                                        />
-                                                    )}
-                                                </div>
-                                            </button>
-                                        </li>
-                                    )
-                                })}
-                            </ul>
-                        )}
-                    </div>
+                    <SearchTypeaheadDropdown
+                        loading={loading}
+                        error={error}
+                        results={results}
+                        trimmedQuery={trimmedQuery}
+                        highlightIndex={highlightIndex}
+                        listRef={listRef}
+                        logoErrors={logoErrors}
+                        onSelect={navigateToPolitician}
+                        onHighlight={setHighlightIndex}
+                        onLogoError={handleLogoError}
+                    />
                 )}
             </div>
         )

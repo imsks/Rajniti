@@ -61,6 +61,7 @@ describe("useTypeaheadSearch", () => {
         ]
 
         mockFetch.mockResolvedValueOnce({
+            ok: true,
             json: () =>
                 Promise.resolve({
                     success: true,
@@ -93,6 +94,7 @@ describe("useTypeaheadSearch", () => {
         ]
 
         mockFetch.mockResolvedValueOnce({
+            ok: true,
             json: () =>
                 Promise.resolve({
                     success: true,
@@ -143,6 +145,7 @@ describe("useTypeaheadSearch", () => {
 
     it("passes limit parameter to API", async () => {
         mockFetch.mockResolvedValueOnce({
+            ok: true,
             json: () =>
                 Promise.resolve({
                     success: true,
@@ -165,6 +168,34 @@ describe("useTypeaheadSearch", () => {
             expect.stringContaining("limit=5"),
             expect.anything(),
         )
+    })
+
+    it("treats HTTP error statuses as failures without reading the body as success", async () => {
+        const json = jest.fn()
+        mockFetch.mockResolvedValueOnce({
+            ok: false,
+            status: 500,
+            json,
+        })
+
+        const { result, rerender } = renderHook(
+            ({ query }) => useTypeaheadSearch(query),
+            { initialProps: { query: "" } },
+        )
+
+        rerender({ query: "modi" })
+
+        await act(async () => {
+            jest.advanceTimersByTime(300)
+        })
+
+        await waitFor(() => {
+            expect(result.current.loading).toBe(false)
+        })
+
+        expect(json).not.toHaveBeenCalled()
+        expect(result.current.error).toBe("Search failed")
+        expect(result.current.results).toEqual([])
     })
 
     it("handles API errors gracefully", async () => {
@@ -195,6 +226,7 @@ describe("useTypeaheadSearch", () => {
         ]
 
         mockFetch.mockResolvedValueOnce({
+            ok: true,
             json: () =>
                 Promise.resolve({
                     success: true,

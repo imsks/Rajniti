@@ -6,7 +6,7 @@ import { slugifySegment } from "@/lib/seo/slugify"
 import {
     buildPoliticiansPath,
     type PoliticiansListFilters,
-} from "@/components/politicians/PoliticiansDirectory"
+} from "@/lib/politicians/directory"
 
 interface StateSelectProps {
     states: string[]

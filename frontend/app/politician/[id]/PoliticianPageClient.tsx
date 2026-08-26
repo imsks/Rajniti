@@ -1483,7 +1483,7 @@ export default function PoliticianPageClient({
               <span className="inline-flex items-center gap-1.5 align-middle">
                 {partyLogo && !partyLogoError && (
                   <span
-                    className="relative inline-flex shrink-0 w-5.5 h-5.5 rounded-[6px] bg-white items-center justify-center p-[2px]"
+                    className="relative inline-flex shrink-0 w-[22px] h-[22px] rounded-[6px] bg-white items-center justify-center p-[2px]"
                     // style={{ borderColor: partyColor.text }}
                   >
                     <NextImage

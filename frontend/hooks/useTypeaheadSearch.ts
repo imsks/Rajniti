@@ -79,6 +79,9 @@ export function useTypeaheadSearch(
                 const res = await fetch(`${API}/politicians/search?${params}`, {
                     signal: controller.signal,
                 })
+                if (!res.ok) {
+                    throw new Error(`Search failed: ${res.status}`)
+                }
                 const json = await res.json()
 
                 if (json.success && Array.isArray(json.data?.politicians)) {
