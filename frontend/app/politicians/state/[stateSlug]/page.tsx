@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import renderPoliticiansDirectory, {
     generateDirectoryMetadata,
 } from "@/lib/politicians/directory-page"
-import { parsePartyParam } from "@/components/politicians/PoliticiansDirectory"
+import { parsePartyParam } from "@/lib/politicians/directory"
 import { fetchStates } from "@/lib/api/politicians-catalog-server"
 import { resolveStateFromSlug, slugifySegment } from "@/lib/seo/slugify"
 

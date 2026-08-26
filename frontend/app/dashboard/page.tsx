@@ -12,7 +12,7 @@ import { usePoliticians } from "@/hooks/usePoliticians";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import { useScrollDepth } from "@/hooks/useScrollDepth";
 import OnboardingGate from "@/components/auth/OnboardingGate";
-import Image from "next/image";
+import SearchTypeahead from "@/components/search/SearchTypeahead";
 
 // Lazy-load heavy sub-component (has its own framer-motion + search logic)
 const MyPoliticiansSection = dynamic(
@@ -247,25 +247,15 @@ function DashboardContent() {
           className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 mb-6"
         >
           <div className="flex flex-col md:flex-row gap-3">
-            {/* Search input */}
-            <div className="flex-1 relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                <Image
-                  src="/logo/search.svg"
-                  alt="Search"
-                  width={20}
-                  height={20}
-                  className="w-5 h-5 dark:filter-[invert(0.70)_brightness(1.2)]"
-                />
-              </span>
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by name, constituency, state or party..."
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-              />
-            </div>
+            {/* Search input with typeahead */}
+            <SearchTypeahead
+              className="flex-1"
+              placeholder="Search by name..."
+              ariaLabel="Search politicians"
+              showSearchButton={false}
+              onSearch={(query) => setSearchQuery(query)}
+              inputClassName="!h-[46px] !border-gray-300 dark:!border-gray-600 !bg-white dark:!bg-gray-700 focus:!ring-orange-500"
+            />
 
             {/* State filter */}
             <select
