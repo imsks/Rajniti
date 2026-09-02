@@ -279,6 +279,13 @@ def answer_predefined_question(question_id):
 
 # ==================== CIVIC SERVICES (CITIZENS' AWARENESS) ====================
 
+_CIVIC_SERVER_ERROR = "Unable to load government services right now."
+_CIVIC_INVALID_FILTER = (
+    "Invalid filter. Use a problem from /api/v1/civic-services/problems, "
+    "a platform (web, android, ios, helpline, sms) and a jurisdiction "
+    "(central, state)."
+)
+
 
 @api_bp.route("/civic-services/problems", methods=["GET"])
 def list_civic_problems():
@@ -286,7 +293,8 @@ def list_civic_problems():
     try:
         return jsonify({"success": True, "data": civic_ctrl.get_problems()})
     except Exception as e:
-        return jsonify({"success": False, "error": str(e)}), 500
+        logger.error("list_civic_problems error: %s", e)
+        return jsonify({"success": False, "error": _CIVIC_SERVER_ERROR}), 500
 
 
 @api_bp.route("/civic-services", methods=["GET"])
@@ -311,9 +319,11 @@ def list_civic_services():
         )
         return jsonify({"success": True, "data": result})
     except ValueError as e:
-        return jsonify({"success": False, "error": str(e)}), 400
+        logger.info("list_civic_services invalid filter: %s", e)
+        return jsonify({"success": False, "error": _CIVIC_INVALID_FILTER}), 400
     except Exception as e:
-        return jsonify({"success": False, "error": str(e)}), 500
+        logger.error("list_civic_services error: %s", e)
+        return jsonify({"success": False, "error": _CIVIC_SERVER_ERROR}), 500
 
 
 @api_bp.route("/civic-services/<service_id>", methods=["GET"])
@@ -325,7 +335,8 @@ def get_civic_service(service_id):
             return jsonify({"success": False, "error": "Service not found"}), 404
         return jsonify({"success": True, "data": service})
     except Exception as e:
-        return jsonify({"success": False, "error": str(e)}), 500
+        logger.error("get_civic_service error: %s", e)
+        return jsonify({"success": False, "error": _CIVIC_SERVER_ERROR}), 500
 
 
 # ==================== ROOT & HEALTH ====================
