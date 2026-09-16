@@ -118,7 +118,7 @@ export default function Pagination({
   if (totalPages <= 1) return null;
 
   const isFirstPage = currentPage === 1;
-  const isLastPage = currentPage === totalPages;
+  const isLastPage = currentPage >= totalPages;
 
   // Use smaller sibling count on mobile via responsive classes
   const desktopPages = computePageRange(currentPage, totalPages, 2);
@@ -212,13 +212,15 @@ export default function Pagination({
 
     if (isFirstPage) {
       return (
-        <span
+        <button
+          type="button"
+          disabled
           className={`${buttonBase} ${disabledStyle}`}
           aria-disabled="true"
           aria-label="Previous page (disabled, already on first page)"
         >
           {content}
-        </span>
+        </button>
       );
     }
 
@@ -302,7 +304,7 @@ export default function Pagination({
       {renderPrevButton()}
 
       {/* Mobile pages (condensed, visible only on small screens) */}
-      <div className="flex items-center gap-1 sm:hidden">
+      <div className="flex min-w-0 flex-wrap items-center justify-center gap-1 sm:hidden">
         {mobilePages.map((page, index) => renderPageItem(page, index, true))}
       </div>
 
