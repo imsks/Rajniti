@@ -43,6 +43,7 @@ export default function PoliticiansFilters({
     useEffect(() => {
         try {
             // Read after mount (not during render) to avoid an SSR hydration mismatch.
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setPanelOpen(sessionStorage.getItem(PANEL_OPEN_KEY) === "1")
         } catch {
             /* sessionStorage unavailable — keep default closed */
@@ -116,7 +117,7 @@ export default function PoliticiansFilters({
             <div className="flex items-center gap-3">
                 <SearchTypeahead
                     className="flex-1"
-                    defaultValue={filters.q ?? ""}
+                    value={filters.q ?? ""}
                     onSearch={handleSearch}
                     placeholder="Search by Name…"
                     ariaLabel="Search politicians by name"
