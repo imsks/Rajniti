@@ -10,12 +10,32 @@ import logging
 from flask import Blueprint, jsonify, request
 
 from app.controllers.politician_controller import PoliticianController
+from app.core.service_auth import has_valid_service_token, require_service_token
 
 logger = logging.getLogger(__name__)
 
 api_bp = Blueprint("api", __name__, url_prefix="/api/v1")
 
 politician_ctrl = PoliticianController()
+
+# Fields the enrichment routine is allowed to write via /ingest. Identity
+# fields (id, slug, type, state, constituency) stay out so ingestion can never
+# repoint a record at a different politician.
+INGESTABLE_FIELDS = frozenset(
+    {
+        "photo",
+        "education",
+        "family_background",
+        "criminal_records",
+        "social_media",
+        "contact",
+        "political_background",
+        "contact_citations",
+        "social_media_citations",
+        "performance_citations",
+        "citation_audit",
+    }
+)
 
 
 # ==================== POLITICIAN ROUTES ====================
@@ -106,6 +126,81 @@ def politician_catalog():
         )
         return jsonify({"success": True, "data": result})
     except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@api_bp.route("/politicians/incomplete", methods=["GET"])
+def list_incomplete_politicians():
+    """
+    Politicians whose profiles are less than 50% sourced.
+
+    Public callers get at most 5 profiles per day (the window rotates daily).
+    Callers presenting a valid service token get full, paginated access.
+
+    Query params:
+        type: MP | MLA (optional)
+        limit: int (service-token callers only, max 200)
+        offset: int (service-token callers only)
+    """
+    try:
+        privileged = has_valid_service_token()
+        result = politician_ctrl.list_incomplete(
+            election_type=request.args.get("type"),
+            limit=request.args.get("limit", type=int),
+            offset=request.args.get("offset", default=0, type=int),
+            privileged=privileged,
+        )
+        return jsonify({"success": True, "data": result})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+@api_bp.route("/politicians/<politician_id>/ingest", methods=["POST"])
+@require_service_token
+def ingest_politician(politician_id):
+    """
+    Ingest agent-enriched data for a politician (service token required).
+
+    Body: {"updates": {<field>: <value>, ...}} with fields limited to the
+    enrichment surface produced by the politician/citation agents.
+    """
+    try:
+        payload = request.get_json(silent=True) or {}
+        updates = payload.get("updates")
+        if not isinstance(updates, dict) or not updates:
+            return (
+                jsonify({"success": False, "error": "'updates' object is required"}),
+                400,
+            )
+
+        rejected = sorted(set(updates) - INGESTABLE_FIELDS)
+        if rejected:
+            return (
+                jsonify(
+                    {
+                        "success": False,
+                        "error": f"Fields not ingestable: {', '.join(rejected)}",
+                    }
+                ),
+                400,
+            )
+
+        if not politician_ctrl.ingest(politician_id, updates):
+            return jsonify({"success": False, "error": "Politician not found"}), 404
+
+        politician = politician_ctrl.get_by_id(politician_id)
+        return jsonify(
+            {
+                "success": True,
+                "data": {
+                    "id": politician_id,
+                    "updated_fields": sorted(updates),
+                    "sourced_pct": (politician or {}).get("sourced_pct"),
+                },
+            }
+        )
+    except Exception as e:
+        logger.error("ingest_politician error: %s", e)
         return jsonify({"success": False, "error": str(e)}), 500
 
 
@@ -289,6 +384,7 @@ def api_root():
             "endpoints": {
                 "politicians": "/api/v1/politicians",
                 "search": "/api/v1/politicians/search?q=<query>",
+                "incomplete": "/api/v1/politicians/incomplete",
                 "by_state": "/api/v1/politicians/state/<state>",
                 "by_party": "/api/v1/politicians/party/<party>",
                 "stats": "/api/v1/stats",
