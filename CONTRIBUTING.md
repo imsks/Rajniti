@@ -48,10 +48,7 @@ Full instructions are in the [README](./readme.md). The short version:
 ```bash
 git clone https://github.com/imsks/Rajniti.git && cd Rajniti
 make setup            # copies .env templates
-make install-hooks    # one-time: pre-commit hooks (stamps lastUpdated on data)
-make dev              # full stack (API :8000 + Next.js :3000 + Postgres)
-# or: make dev-api    # API + Postgres only (fastest)
-# frontend-only work:  make frontend-dev
+make up               # full stack (API :8000 + Next.js :3000 + Postgres)
 ```
 
 ---
@@ -96,9 +93,9 @@ These are settled architectural decisions. Work within them — a PR that violat
 
 ## Code style & linting
 
-- **Python:** `black` + `isort` formatting, `flake8` linting. Run `make format` then `make lint`.
-- **Frontend:** ESLint + TypeScript typecheck. Run frontend lint/typecheck via `make lint`.
-- **Pre-commit hooks:** `make install-hooks` once — this also auto-stamps `lastUpdated` on data-file commits.
+- **Python:** `black` + `isort` formatting, `flake8` linting. Run `black app tests scripts && isort app tests scripts`, then `flake8` / `mypy`.
+- **Frontend:** ESLint + TypeScript typecheck (`cd frontend && npm run lint && npx tsc --noEmit`).
+- **Pre-commit hook:** copy `scripts/pre_commit_hook.py` into `.git/hooks/pre-commit` once — this auto-stamps `lastUpdated` on data-file commits.
 - Keep changes focused; don't reformat unrelated files in the same PR.
 
 ---
@@ -108,10 +105,10 @@ These are settled architectural decisions. Work within them — a PR that violat
 Your PR must keep the suite green.
 
 ```bash
-make install-dev              # first time (adds test/lint deps)
-make test                     # backend + frontend tests
-make test SUITE=unit          # unit | integration | e2e
-make test COV=1               # with coverage
+pip install -r requirements-test.txt   # first time
+pytest tests/unit tests/integration tests/e2e -v
+pytest tests/unit -v
+cd frontend && npm test
 ```
 
 - Add or update tests for new behaviour and bug fixes.
@@ -157,7 +154,7 @@ Map your work back to the issue's **acceptance criteria** — a reviewer will ch
 
 ## Data & AI-agent contributions
 
-To enrich records with the agents (needs at least one LLM key — Gemini's free tier works), see **Running agents** and **Contributing with AI agents** in the [README](./readme.md). Rules: data PRs touch JSON only, no secrets in commits, run `make test` before pushing, and every enriched field must be source-backed.
+To enrich records with the agents (needs at least one LLM key — Gemini's free tier works), see **Running agents** and **Contributing with AI agents** in the [README](./readme.md). Rules: data PRs touch JSON only, no secrets in commits, run the test suite before pushing, and every enriched field must be source-backed.
 
 ---
 

@@ -18,10 +18,9 @@
 
 | Goal | Command | What you get |
 |------|---------|--------------|
-| **Fastest — API only (Docker)** | `make dev-api` | Flask API `:8000` + Postgres |
-| **Full stack (Docker)** | `make dev` | API `:8000` + Next.js `:3000` + Postgres |
-| **API only (local venv)** | `make install && make db-migrate && make run` | Flask on `:8000` (bring your own Postgres) |
-| **Full stack (local)** | above + `make frontend-dev` | API + frontend, no Docker |
+| **First time** | `make setup` | Copies `.env` templates |
+| **Start** | `make up` | API `:8000` + Next.js `:3000` + Postgres |
+| **Stop** | `make stop` | Stops Docker containers |
 
 > **Port note:** API defaults to `:8000`. macOS reserves `:5000` for AirPlay.
 
@@ -33,28 +32,21 @@
 
 ```bash
 git clone https://github.com/imsks/Rajniti.git && cd Rajniti
-make setup              # copies .env.example → .env, frontend/.env.example → frontend/.env
-make install-hooks      # one-time: auto-stamps lastUpdated on politician data commits
-make dev-api            # fastest: API + Postgres (skip frontend image build)
-# — or —
-make dev                # full stack: API + Next.js + Postgres
+make setup   # copies .env.example → .env, frontend/.env.example → frontend/.env
+make up      # API + Next.js + Postgres
 ```
 
 **Verify**
 
 ```bash
 curl http://localhost:8000/api/v1/health          # API
-open http://localhost:3000                         # frontend (make dev only)
+open http://localhost:3000                         # frontend
 ```
 
-**First `make dev` note:** The frontend image builds in seconds; `npm ci` runs **once at container start** (not during `docker build`), so you may see “installing dependencies…” for a few minutes the first time. Later starts reuse the `node_modules` volume and are much faster.
-
-**Subsequent runs** (skip rebuild):
+**First `make up` note:** The frontend image builds in seconds; `npm ci` runs **once at container start** (not during `docker build`), so you may see “installing dependencies…” for a few minutes the first time. Later starts reuse the `node_modules` volume and are much faster.
 
 ```bash
-make dev BUILD=0
-# or
-make dev-api BUILD=0
+make stop    # when you're done
 ```
 
 ---
@@ -66,56 +58,31 @@ make dev-api BUILD=0
 ```bash
 git clone https://github.com/imsks/Rajniti.git && cd Rajniti
 make setup
-make install            # venv + pip deps
-make install-hooks
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
 # Edit .env — set DATABASE_URL to your local Postgres, e.g.:
 #   DATABASE_URL=postgresql://user:pass@localhost:5432/rajniti
-make db-migrate
-make run                # API on :8000
+source venv/bin/activate && alembic upgrade head
+python run.py                # API on :8000
 ```
 
 **Frontend (separate terminal):**
 
 ```bash
-make frontend-install   # first time only
-make frontend-dev       # http://localhost:3000
+cd frontend && npm ci && npm run dev   # http://localhost:3000
 ```
 
 Copy `frontend/.env.example` → `frontend/.env` (via `make setup`) and set `NEXTAUTH_*` / Google OAuth for sign-in.
 
 ---
 
-## Makefile reference
-
-Run `make help` anytime. All targets:
+## Makefile
 
 | Command | Description |
 |---------|-------------|
-| `make help` | List all commands |
 | `make setup` | Copy `.env` templates (safe to re-run) |
-| `make install` | Create `venv/` + install Python deps |
-| `make install-dev` | `install` + test/lint deps (`requirements-test.txt`) |
-| `make install-hooks` | Git pre-commit hook for `lastUpdated` on data files |
-| `make run` | Local Flask API (`:8000`, uses venv) |
-| `make frontend-install` | `npm ci` in `frontend/` |
-| `make frontend-dev` | Local Next.js dev server (`:3000`) |
-| `make dev` | Docker: API + frontend + Postgres |
-| `make dev-api` | Docker: API + Postgres only (**fastest Docker path**) |
-| `make dev-build` | Rebuild Docker images without starting |
+| `make up` | Start API + frontend + Postgres |
 | `make stop` | Stop Docker containers |
-| `make logs` | Tail logs (`SERVICE=rajniti-api` optional) |
-| `make prod` | Production API image (Supabase `DATABASE_URL`) |
-| `make db-migrate` | Alembic upgrade head (local venv) |
-| `make db-reset` | Stop Docker + **delete** local Postgres volume |
-| `make test` | Backend + frontend tests |
-| `make test SUITE=unit` | Unit tests only |
-| `make test SUITE=integration` | Integration tests only |
-| `make test SUITE=e2e` | E2E tests only |
-| `make test COV=1` | Backend tests with coverage |
-| `make lint` | Python + frontend linters |
-| `make format` | Auto-format Python (black + isort) |
-
-**Useful variables:** `BUILD=0` (skip image rebuild), `SUITE=unit|integration|e2e`, `COV=1`, `SERVICE=rajniti-web`.
 
 ---
 
@@ -137,10 +104,10 @@ See [`.env.example`](.env.example) and [`frontend/.env.example`](frontend/.env.e
 
 | Setup | Value |
 |-------|-------|
-| Docker (`make dev` / `make dev-api`) | `postgresql://rajniti:rajniti@postgres:5432/rajniti` |
+| Docker (`make up`) | `postgresql://rajniti:rajniti@postgres:5432/rajniti` |
 | Local venv → Docker Postgres | `postgresql://rajniti:rajniti@localhost:5432/rajniti` |
 | Beekeeper / host tools | host `localhost`, port `5432`, user `rajniti`, db `rajniti` |
-| Supabase (`make prod`) | Session-mode pooler URL (port `5432`) |
+| Supabase | Session-mode pooler URL (port `5432`) |
 
 **Beekeeper: `role "postgres" does not exist`?**  
 Homebrew Postgres may be bound to `localhost:5432` instead of Docker. Stop it: `brew services stop postgresql@17`, then reconnect. Only one Postgres can own that port.
@@ -172,7 +139,7 @@ python scripts/fetch_mlas.py --state "Karnataka"
 
 ## Manual setup (venv)
 
-If you prefer not to use `make install`:
+If you prefer a local venv instead of Docker:
 
 ```bash
 python3 -m venv venv && source venv/bin/activate
@@ -228,11 +195,11 @@ frontend/           # Next.js — see frontend/README.md
 PostgreSQL via SQLAlchemy + Alembic. Migrations run automatically on API startup in Docker.
 
 ```bash
-make db-migrate
+source venv/bin/activate && alembic upgrade head
 # After model changes:
 python scripts/db.py autogenerate -m "add column_name"
 # Review alembic/versions/, then:
-make db-migrate
+python scripts/db.py migrate
 ```
 
 **Supabase:** Use the session-mode pooler URL (port `5432`), not the direct IPv6-only host.
@@ -244,7 +211,8 @@ make db-migrate
 Records in `mp.json` / `mla.json` get `lastUpdated` stamped automatically on commit via the pre-commit hook:
 
 ```bash
-make install-hooks
+printf '#!/bin/sh\npython3 "$(git rev-parse --show-toplevel)/scripts/pre_commit_hook.py"\n' > .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
 ```
 
 ---
@@ -263,19 +231,20 @@ git commit -m "Enrich MP education data"
 git push -u origin enrich/<scope>
 ```
 
-**Rules:** No secrets in commits. Data PRs should only change JSON. Run `make test` before pushing.
+**Rules:** No secrets in commits. Data PRs should only change JSON. Run the test suite before pushing.
 
 ---
 
 ## Testing & CI
 
 ```bash
-make install-dev              # first time
-make test                     # all suites + frontend unit tests
-make test SUITE=unit
-make test COV=1
-make lint
-make format
+pip install -r requirements-test.txt   # first time
+pytest tests/unit tests/integration tests/e2e -v
+pytest tests/unit -v
+pytest tests/unit tests/integration tests/e2e -v --cov=app --cov-report=term-missing
+cd frontend && npm test
+black --check app tests scripts && isort --check-only app tests scripts && flake8 app tests scripts && mypy app
+black app tests scripts && isort app tests scripts
 ```
 
 PR CI: [`.github/workflows/ci.yml`](.github/workflows/ci.yml) — tests first, then lint and frontend build. Required check names: `Backend — tests`, `Frontend — tests`, `Backend — lint`, `Frontend — lint & typecheck`, `Frontend — production build`.

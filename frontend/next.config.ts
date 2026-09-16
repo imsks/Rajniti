@@ -1,4 +1,3 @@
-import path from "path"
 import type { NextConfig } from "next"
 
 /** Origin for /api/v1 rewrites (host only, no /api/v1 suffix). */
@@ -14,10 +13,6 @@ function resolveApiRewriteOrigin(): string {
 const apiRewriteOrigin = resolveApiRewriteOrigin()
 
 const nextConfig: NextConfig = {
-    // Pin project root for Turbopack (avoids multi-lockfile workspace confusion)
-    turbopack: {
-        root: path.join(__dirname),
-    },
     // Environment variables
     env: {
         NEXT_PUBLIC_API_URL:

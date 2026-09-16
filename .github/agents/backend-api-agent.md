@@ -399,10 +399,10 @@ python run.py
 pytest tests/ -v
 
 # Format code
-make format
+black app tests scripts && isort app tests scripts
 
 # Check linting
-make lint
+flake8 app tests scripts && mypy app
 
 # Install dependencies
 pip-sync requirements.txt

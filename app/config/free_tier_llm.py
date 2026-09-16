@@ -15,7 +15,7 @@ Usage:
 
     # Or bring your own config:
     llm = FreeTierLLM.from_env(configs=[
-        {"provider": "gemini", "model": "gemini-2.5-flash", "api_key_env": "GEMINI_API_KEY"},
+        {"provider": "gemini", "model": "gemini-3.5-flash", "api_key_env": "GEMINI_API_KEY"},
     ])
 """
 
@@ -101,7 +101,7 @@ DEFAULT_PROVIDERS: list[dict[str, Any]] = [
     # --- Gemini (generous free tier) ---
     {
         "provider": "gemini",
-        "model": "gemini-2.5-flash",
+        "model": "gemini-3.5-flash",
         "api_key_env": "GEMINI_API_KEY",
     },
     # {"provider": "gemini", "model": "gemini-2.5-pro", "api_key_env": "GEMINI_API_KEY"},

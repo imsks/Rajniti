@@ -3,7 +3,7 @@ import renderPoliticiansDirectory, {
     generateDirectoryMetadata,
     resolveStateBySlug,
 } from "@/lib/politicians/directory-page"
-import { parsePartyParam } from "@/components/politicians/PoliticiansDirectory"
+import { parsePartyParam } from "@/lib/politicians/directory"
 
 export const dynamic = "force-dynamic"
 

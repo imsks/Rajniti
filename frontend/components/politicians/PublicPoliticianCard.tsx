@@ -94,11 +94,9 @@ export default function PublicPoliticianCard({
       }}
     >
       {/* Stretched link — makes the whole card clickable without nesting a button in an anchor */}
-      <Link
-        href={href}
-        aria-label={toTitleCase(politician.name)}
-        className="absolute inset-0 z-0 rounded-xl"
-      />
+      <Link href={href} className="absolute inset-0 z-0 rounded-xl">
+        <span className="sr-only">{toTitleCase(politician.name)}</span>
+      </Link>
 
       {/* Top section — avatar + text. pointer-events-none so clicks fall through to the link. */}
       <div className="relative z-10 flex items-start gap-[14px] pointer-events-none">
@@ -138,7 +136,7 @@ export default function PublicPoliticianCard({
         {/* Left group: party logo + party name (truncates if needed) */}
         <div className="flex items-center gap-2 flex-1 min-w-0">
           {partyLogo && !logoError && (
-            <span className="relative inline-flex shrink-0 w-5.5 h-5.5 rounded-[6px] bg-white items-center justify-center p-[2px]">
+            <span className="relative inline-flex shrink-0 w-[22px] h-[22px] rounded-[6px] bg-white items-center justify-center p-[2px]">
               <Image
                 src={partyLogo}
                 alt=""

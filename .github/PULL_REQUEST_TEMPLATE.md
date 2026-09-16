@@ -25,7 +25,7 @@
 # e.g.
 # python3 scripts/run_politician_agent.py --type MP --limit 3 --log-level INFO
 # python3 scripts/fetch_mlas.py --state "Andhra Pradesh" --log-level INFO
-# make test
+# pytest tests/unit tests/integration tests/e2e -v
 ```
 
 ## Version bump
@@ -43,7 +43,7 @@
 - [ ] I have **not** committed `app/database/cache.db`
 - [ ] I have reviewed the diff and it only contains intended changes
 - [ ] Data changes are limited to `app/data/mp.json` and/or `app/data/mla.json`
-- [ ] Tests pass locally (`make test`)
+- [ ] Tests pass locally (`pytest tests/unit tests/integration tests/e2e -v`)
 
 ## Screenshots / logs (optional)
 

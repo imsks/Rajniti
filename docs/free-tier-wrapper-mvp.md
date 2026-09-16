@@ -81,7 +81,7 @@ Edit `DEFAULT_PROVIDERS` in `free_tier_llm.py` or pass a custom config:
 
 ```python
 my_configs = [
-    {"provider": "gemini", "model": "gemini-2.5-flash", "api_key_env": "GEMINI_API_KEY"},
+    {"provider": "gemini", "model": "gemini-3.5-flash", "api_key_env": "GEMINI_API_KEY"},
     {"provider": "groq", "model": "llama-3.3-70b-versatile", "api_key_env": "GROQ_API_KEY",
      "base_url": "https://api.groq.com/openai/v1"},
     {"provider": "cerebras", "model": "llama3.1-8b", "api_key_env": "CEREBRAS_API_KEY",
@@ -148,10 +148,10 @@ llm = FreeTierLLM.from_env()
 # ... after some usage ...
 print(llm.status())
 # {
-#   "active": "gemini-2.5-flash",
+#   "active": "gemini-3.5-flash",
 #   "models": [
 #     {"provider": "gemini", "model": "gemini-2.5-pro-preview-05-06", "state": "exhausted"},
-#     {"provider": "gemini", "model": "gemini-2.5-flash", "state": "available"},
+#     {"provider": "gemini", "model": "gemini-3.5-flash", "state": "available"},
 #     {"provider": "groq",  "model": "llama-3.3-70b-versatile", "state": "cooldown (42s)"},
 #     ...
 #   ]
