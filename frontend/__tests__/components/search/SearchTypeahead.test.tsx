@@ -269,6 +269,16 @@ describe("SearchTypeahead", () => {
         expect(input).toHaveValue("initial search")
     })
 
+    it("calls onQueryChange for live updates", () => {
+        const onQueryChange = jest.fn()
+        render(<SearchTypeahead onQueryChange={onQueryChange} showSearchButton={false} />)
+
+        const input = screen.getByRole("combobox")
+        fireEvent.change(input, { target: { value: "modi" } })
+
+        expect(onQueryChange).toHaveBeenCalledWith("modi")
+    })
+
     it("calls onNavigate when navigating to a politician", () => {
         const onNavigate = jest.fn()
         mockUseTypeaheadSearch.mockReturnValue({

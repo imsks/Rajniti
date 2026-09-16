@@ -88,6 +88,10 @@ describe("SearchTypeaheadDropdown", () => {
             />,
         )
 
-        expect(screen.getByRole("option", { name: /narendra modi/i })).toBeInTheDocument()
+        expect(
+            screen.getByRole("option", {
+                name: /narendra modi.*varanasi, uttar pradesh.*bjp/i,
+            }),
+        ).toBeInTheDocument()
     })
 })

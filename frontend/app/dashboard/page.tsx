@@ -251,8 +251,10 @@ function DashboardContent() {
             {/* Search input with typeahead */}
             <SearchTypeahead
               className="flex-1"
+              value={searchQuery}
               placeholder="Search by name..."
               ariaLabel="Search politicians"
+              onQueryChange={setSearchQuery}
               showSearchButton={false}
               onSearch={(query) => setSearchQuery(query)}
               inputClassName="!h-[46px] !border-gray-300 dark:!border-gray-600 !bg-white dark:!bg-gray-700 focus:!ring-orange-500"

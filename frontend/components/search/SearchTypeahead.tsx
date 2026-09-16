@@ -19,10 +19,14 @@ import { getPoliticianProfileHref } from "@/lib/politicianUtils"
 import type { Politician } from "@/types/politician"
 
 interface SearchTypeaheadProps {
+    /** Controlled search value. */
+    value?: string
     /** Placeholder text for the input. */
     placeholder?: string
     /** Initial search value. */
     defaultValue?: string
+    /** Called when the input value changes. */
+    onQueryChange?: (query: string) => void
     /** Called when user submits search (Enter with no selection or Search button). */
     onSearch?: (query: string) => void
     /** Called when user navigates to a politician profile. */
@@ -59,8 +63,10 @@ function resultsIdentity(results: Politician[]): string {
 const SearchTypeahead = forwardRef<SearchTypeaheadRef, SearchTypeaheadProps>(
     function SearchTypeahead(
         {
+            value,
             placeholder = "Search by Name…",
             defaultValue = "",
+            onQueryChange,
             onSearch,
             onNavigate,
             className = "",
@@ -72,7 +78,7 @@ const SearchTypeahead = forwardRef<SearchTypeaheadRef, SearchTypeaheadProps>(
         ref,
     ) {
         const router = useRouter()
-        const [query, setQuery] = useState(defaultValue)
+        const [query, setQuery] = useState(value ?? defaultValue)
         const [isOpen, setIsOpen] = useState(false)
         const [highlightIndex, setHighlightIndex] = useState(-1)
         const [logoErrors, setLogoErrors] = useState<Set<string>>(new Set())
@@ -86,25 +92,29 @@ const SearchTypeahead = forwardRef<SearchTypeaheadRef, SearchTypeaheadProps>(
             { debounceMs, limit: 8 },
         )
 
-        // Reset highlight during render when the result set identity changes,
-        // so the UI never paints a stale highlighted row.
         const identity = resultsIdentity(results)
-        const [prevIdentity, setPrevIdentity] = useState(identity)
-        if (identity !== prevIdentity) {
-            setPrevIdentity(identity)
+
+        useEffect(() => {
+            if (value !== undefined) {
+                setQuery(value)
+            }
+        }, [value])
+
+        useEffect(() => {
             setHighlightIndex(-1)
-        }
+        }, [identity])
 
         useImperativeHandle(ref, () => ({
             focus: () => inputRef.current?.focus(),
             getValue: () => query,
             clear: () => {
                 setQuery("")
+                onQueryChange?.("")
                 setIsOpen(false)
                 setHighlightIndex(-1)
                 clearSearch()
             },
-        }))
+        }), [clearSearch, onQueryChange, query])
 
         const trimmedQuery = query.trim()
         const nonSpaceChars = trimmedQuery.replace(/\s/g, "").length
@@ -135,10 +145,12 @@ const SearchTypeahead = forwardRef<SearchTypeaheadRef, SearchTypeaheadProps>(
         }, [highlightIndex])
 
         const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-            setQuery(e.target.value)
+            const nextQuery = e.target.value
+            setQuery(nextQuery)
+            onQueryChange?.(nextQuery)
             setIsOpen(true)
             setHighlightIndex(-1)
-        }, [])
+        }, [onQueryChange])
 
         const navigateToPolitician = useCallback(
             (politician: Politician) => {
@@ -216,6 +228,7 @@ const SearchTypeahead = forwardRef<SearchTypeaheadRef, SearchTypeaheadProps>(
             function onNativeSearch() {
                 if (el!.value === "") {
                     setQuery("")
+                    onQueryChange?.("")
                     setIsOpen(false)
                     setHighlightIndex(-1)
                     clearSearch()
@@ -224,7 +237,7 @@ const SearchTypeahead = forwardRef<SearchTypeaheadRef, SearchTypeaheadProps>(
 
             el.addEventListener("search", onNativeSearch)
             return () => el.removeEventListener("search", onNativeSearch)
-        }, [clearSearch])
+        }, [clearSearch, onQueryChange])
 
         const handleLogoError = useCallback((partyKey: string) => {
             setLogoErrors((prev) => new Set(prev).add(partyKey))

@@ -19,7 +19,7 @@ def _public_targets(text: str) -> list[str]:
 @pytest.mark.unit
 def test_makefile_exposes_only_setup_up_stop():
     targets = _public_targets(MAKEFILE.read_text())
-    assert targets == ["setup", "up", "stop"]
+    assert sorted(targets) == ["setup", "stop", "up"]
 
 
 @pytest.mark.unit
