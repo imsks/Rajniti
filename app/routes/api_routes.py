@@ -152,7 +152,8 @@ def list_incomplete_politicians():
         )
         return jsonify({"success": True, "data": result})
     except Exception as e:
-        return jsonify({"success": False, "error": str(e)}), 500
+        logger.error("list_incomplete_politicians error: %s", e)
+        return jsonify({"success": False, "error": "Internal server error"}), 500
 
 
 @api_bp.route("/politicians/<politician_id>/ingest", methods=["POST"])
@@ -201,7 +202,7 @@ def ingest_politician(politician_id):
         )
     except Exception as e:
         logger.error("ingest_politician error: %s", e)
-        return jsonify({"success": False, "error": str(e)}), 500
+        return jsonify({"success": False, "error": "Internal server error"}), 500
 
 
 @api_bp.route("/politicians/sitemap-entries", methods=["GET"])
