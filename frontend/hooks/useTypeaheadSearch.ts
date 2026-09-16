@@ -1,10 +1,8 @@
 "use client"
 
 import { useState, useEffect, useCallback, useRef } from "react"
+import { getApiBaseUrl } from "@/lib/api/api-base"
 import type { Politician } from "@/types/politician"
-
-const API =
-    process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1"
 
 /** Default debounce for typeahead (faster than full search). */
 const DEFAULT_DEBOUNCE_MS = 300
@@ -36,8 +34,12 @@ export function useTypeaheadSearch(
     query: string,
     options?: UseTypeaheadSearchOptions,
 ): UseTypeaheadSearchResult {
+    const apiBaseUrl = getApiBaseUrl({ forServer: false })
     const debounceMs = options?.debounceMs ?? DEFAULT_DEBOUNCE_MS
     const limit = options?.limit ?? DEFAULT_LIMIT
+    const trimmedQuery = query.trim()
+    const nonSpaceChars = trimmedQuery.replace(/\s/g, "").length
+    const isSearchable = nonSpaceChars >= MIN_QUERY_LENGTH
 
     const [results, setResults] = useState<Politician[]>([])
     const [loading, setLoading] = useState(false)
@@ -76,7 +78,7 @@ export function useTypeaheadSearch(
                     q,
                     limit: String(limit),
                 })
-                const res = await fetch(`${API}/politicians/search?${params}`, {
+                const res = await fetch(`${apiBaseUrl}/politicians/search?${params}`, {
                     signal: controller.signal,
                 })
                 if (!res.ok) {
@@ -103,20 +105,23 @@ export function useTypeaheadSearch(
                 }
             }
         },
-        [limit],
+        [apiBaseUrl, limit],
     )
 
     useEffect(() => {
-        // Trim and count non-space characters
-        const trimmed = query.trim()
-        const nonSpaceChars = trimmed.replace(/\s/g, "").length
-
-        if (nonSpaceChars < MIN_QUERY_LENGTH) {
-            clear()
+        if (!isSearchable) {
+            if (debounceRef.current) {
+                clearTimeout(debounceRef.current)
+                debounceRef.current = null
+            }
+            if (abortRef.current) {
+                abortRef.current.abort()
+                abortRef.current = null
+            }
             return
         }
 
-        // Set loading immediately for better UX
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setLoading(true)
 
         if (debounceRef.current) {
@@ -124,7 +129,7 @@ export function useTypeaheadSearch(
         }
 
         debounceRef.current = setTimeout(() => {
-            search(trimmed)
+            search(trimmedQuery)
             debounceRef.current = null
         }, debounceMs)
 
@@ -134,7 +139,7 @@ export function useTypeaheadSearch(
                 debounceRef.current = null
             }
         }
-    }, [query, debounceMs, search, clear])
+    }, [debounceMs, isSearchable, search, trimmedQuery])
 
     // Cleanup on unmount
     useEffect(() => {
@@ -148,5 +153,10 @@ export function useTypeaheadSearch(
         }
     }, [])
 
-    return { results, loading, error, clear }
+    return {
+        results: isSearchable ? results : [],
+        loading: isSearchable ? loading : false,
+        error: isSearchable ? error : null,
+        clear,
+    }
 }

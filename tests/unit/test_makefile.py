@@ -1,4 +1,4 @@
-"""Makefile contract: only setup, up, and stop."""
+"""Makefile contract: setup, up, dev-api, and stop."""
 
 from __future__ import annotations
 
@@ -17,13 +17,13 @@ def _public_targets(text: str) -> list[str]:
 
 
 @pytest.mark.unit
-def test_makefile_exposes_only_setup_up_stop():
+def test_makefile_exposes_expected_public_targets():
     targets = _public_targets(MAKEFILE.read_text())
-    assert sorted(targets) == ["setup", "stop", "up"]
+    assert sorted(targets) == ["dev-api", "setup", "stop", "up"]
 
 
 @pytest.mark.unit
-@pytest.mark.parametrize("target", ["setup", "up", "stop"])
+@pytest.mark.parametrize("target", ["setup", "up", "dev-api", "stop"])
 def test_makefile_target_dry_runs(target: str):
     result = subprocess.run(
         ["make", "-n", target],

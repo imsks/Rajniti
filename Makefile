@@ -1,5 +1,5 @@
-# Rajniti — setup, up, stop.
-.PHONY: setup up stop
+# Rajniti — setup, up, dev-api, stop.
+.PHONY: setup up dev-api stop
 
 COMPOSE := docker compose --profile local-db
 
@@ -11,6 +11,10 @@ setup: ## Copy .env templates (safe to re-run)
 up: setup ## Start API :8000 + frontend :3000 + Postgres
 	$(COMPOSE) up --build -d
 	@echo "Rajniti is up — API http://localhost:8000  frontend http://localhost:3000"
+
+dev-api: setup ## Start API :8000 + Postgres only
+	$(COMPOSE) up --build -d postgres rajniti-api
+	@echo "Rajniti API is up — API http://localhost:8000"
 
 stop: ## Stop containers
 	$(COMPOSE) down

@@ -50,7 +50,7 @@ function DashboardContent() {
   useScrollDepth("dashboard");
 
   // One API call for all politicians; filter client-side by tab + search/filters
-  const { all, loading, error, states, parties, stats, filter } =
+  const { all, loading, error, states, parties, filter } =
     usePoliticians();
 
   // Filtered list — pure client-side (type from tab + query, state, party)
@@ -525,31 +525,5 @@ function DashboardContent() {
 
       <Footer />
     </div>
-  );
-}
-
-// ── Tiny helper component ─────────────────────────────────────────────────
-
-function StatCard({
-  value,
-  label,
-  color,
-}: {
-  value: string;
-  label: string;
-  color: string;
-}) {
-  return (
-    <m.div
-      whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm"
-    >
-      <Text variant="h3" weight="bold" className={color}>
-        {value}
-      </Text>
-      <Text variant="small" className="text-gray-500 dark:text-gray-400">
-        {label}
-      </Text>
-    </m.div>
   );
 }
