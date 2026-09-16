@@ -2,7 +2,7 @@
 Predefined questions for the Q&A UI.
 
 When semantic search is wired (Chroma or another vector store), these map to
-natural-language queries over politician records. See docs/VECTOR_DBS.md.
+natural-language queries over politician records.
 """
 
 from typing import Any, Dict, List
