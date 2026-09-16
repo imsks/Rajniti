@@ -35,8 +35,6 @@ export default function SearchTypeaheadDropdown({
 }: SearchTypeaheadDropdownProps) {
     return (
         <div
-            id="search-typeahead-listbox"
-            role="listbox"
             className="absolute z-30 left-0 right-0 top-full mt-1.5 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 shadow-lg max-h-[400px] overflow-auto"
         >
             {loading && results.length === 0 ? (
@@ -57,7 +55,12 @@ export default function SearchTypeaheadDropdown({
                     No matches for &ldquo;{trimmedQuery}&rdquo;
                 </div>
             ) : (
-                <ul ref={listRef} className="py-1">
+                <ul
+                    id="search-typeahead-listbox"
+                    role="listbox"
+                    ref={listRef}
+                    className="py-1"
+                >
                     {results.map((politician, index) => (
                         <SearchTypeaheadOption
                             key={`${politician.id}-${politician.type}`}

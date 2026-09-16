@@ -266,6 +266,7 @@ const SearchTypeahead = forwardRef<SearchTypeaheadRef, SearchTypeaheadProps>(
                             placeholder={placeholder}
                             aria-label={ariaLabel}
                             aria-expanded={showDropdown}
+                            aria-haspopup="listbox"
                             aria-controls="search-typeahead-listbox"
                             aria-activedescendant={
                                 highlightIndex >= 0

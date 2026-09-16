@@ -118,10 +118,14 @@ export function useTypeaheadSearch(
                 abortRef.current.abort()
                 abortRef.current = null
             }
+            /* eslint-disable react-hooks/set-state-in-effect */
+            setResults([])
+            setError(null)
+            setLoading(false)
+            /* eslint-enable react-hooks/set-state-in-effect */
             return
         }
 
-        // eslint-disable-next-line react-hooks/set-state-in-effect
         setLoading(true)
 
         if (debounceRef.current) {

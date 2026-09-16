@@ -39,4 +39,4 @@ def test_makefile_target_dry_runs(target: str):
 def test_makefile_dev_api_preserves_build_zero_branch():
     text = MAKEFILE.read_text()
     assert 'if [ "$(BUILD)" = "1" ]; then \\' in text
-    assert "$(COMPOSE) up -d postgres rajniti-api; \\" in text
+    assert "$(COMPOSE) up postgres rajniti-api; \\" in text

@@ -11,17 +11,17 @@ setup: ## Copy .env templates (safe to re-run)
 
 up: setup ## Start API :8000 + frontend :3000 + Postgres
 	@if [ "$(BUILD)" = "1" ]; then \
-		$(COMPOSE) up --build -d; \
+		$(COMPOSE) up --build; \
 	else \
-		$(COMPOSE) up -d; \
+		$(COMPOSE) up; \
 	fi
 	@echo "Rajniti is up — API http://localhost:8000  frontend http://localhost:3000"
 
 dev-api: setup ## Start API :8000 + Postgres only
 	@if [ "$(BUILD)" = "1" ]; then \
-		$(COMPOSE) up --build -d postgres rajniti-api; \
+		$(COMPOSE) up --build postgres rajniti-api; \
 	else \
-		$(COMPOSE) up -d postgres rajniti-api; \
+		$(COMPOSE) up postgres rajniti-api; \
 	fi
 	@echo "Rajniti API is up — API http://localhost:8000"
 

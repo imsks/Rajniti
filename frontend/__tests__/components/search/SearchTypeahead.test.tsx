@@ -279,6 +279,27 @@ describe("SearchTypeahead", () => {
         expect(onQueryChange).toHaveBeenCalledWith("modi")
     })
 
+    it("does not duplicate updates in dashboard-style usage", () => {
+        const onQueryChange = jest.fn()
+        const onSearch = jest.fn()
+        render(
+            <SearchTypeahead
+                onQueryChange={onQueryChange}
+                onSearch={onSearch}
+                showSearchButton={false}
+            />,
+        )
+
+        const input = screen.getByRole("combobox")
+        fireEvent.change(input, { target: { value: "modi" } })
+        fireEvent.keyDown(input, { key: "Enter", code: "Enter" })
+
+        expect(onQueryChange).toHaveBeenCalledTimes(1)
+        expect(onQueryChange).toHaveBeenCalledWith("modi")
+        expect(onSearch).toHaveBeenCalledTimes(1)
+        expect(onSearch).toHaveBeenCalledWith("modi")
+    })
+
     it("calls onNavigate when navigating to a politician", () => {
         const onNavigate = jest.fn()
         mockUseTypeaheadSearch.mockReturnValue({
