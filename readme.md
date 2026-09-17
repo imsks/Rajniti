@@ -185,8 +185,21 @@ frontend/           # Next.js — see frontend/README.md
 | `GET` | `/api/v1/politicians/<id>` | Single politician |
 | `GET` | `/api/v1/politicians/state/<state>` | Filter by state |
 | `GET` | `/api/v1/politicians/party/<party>` | Filter by party |
+| `GET` | `/api/v1/politicians/incomplete` | Profiles under 50% sourced — 5 per day for public callers, unpaginated for service-token callers |
+| `POST` | `/api/v1/politicians/<id>/ingest` | Ingest agent-enriched fields (**service token required**) |
 | `GET` | `/api/v1/stats` | Summary statistics |
 | `GET` | `/api/v1/health` | Health check |
+
+### Service token
+
+Set `RAJNITI_SERVICE_TOKEN` to enable automation endpoints. Callers send it as
+`X-Service-Token: <token>` or as a bearer value in the `Authorization` header. Without the variable,
+`/ingest` responds `503`; with it, unauthenticated calls get `401`. A valid token also
+lifts the 5-profiles-per-day cap on `/politicians/incomplete`.
+
+The daily enrichment routine (`.github/workflows/enrich_politicians.yml`) runs
+`scripts/run_politician_agent_scheduled.py --only-incomplete --max-politicians 5`,
+which walks the same least-complete-first queue the endpoint serves.
 
 ---
 
