@@ -12,6 +12,10 @@ const PreambleSection = dynamic(
   () => import("@/components/PreambleSection"),
   { ssr: true }
 )
+const SaranshSection = dynamic(
+  () => import("@/components/marketing/SaranshSection"),
+  { ssr: true }
+)
 const ContributeSection = dynamic(
   () => import("@/components/marketing/ContributeSection"),
   { ssr: true }
@@ -29,6 +33,7 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <PreambleSection />
+      <SaranshSection />
       <ContributeSection />
       <ContributorsSection />
       <Footer />
