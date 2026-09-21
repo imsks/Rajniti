@@ -209,7 +209,7 @@ def get_parties():
 
 _VECTOR_QA_UNAVAILABLE = (
     "Semantic Q&A over the vector store is not implemented yet. "
-    "Follow docs/VECTOR_DBS.md to reintroduce Chroma and wire these endpoints."
+    "Chroma must be reintroduced and these endpoints wired up."
 )
 
 
