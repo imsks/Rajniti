@@ -1,5 +1,5 @@
 # Multi-stage Dockerfile for Rajniti Election Data API
-# syntax=docker/dockerfile:1
+# Keep this buildable by the legacy builder — Cloud Build's docker step has no BuildKit.
 
 FROM python:3.11-slim AS base
 
@@ -9,8 +9,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /app
 
 COPY requirements.txt .
-RUN --mount=type=cache,target=/root/.cache/pip \
-    pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # ── Development (hot reload via volume mounts) ────────────────────────────────
 FROM base AS development
