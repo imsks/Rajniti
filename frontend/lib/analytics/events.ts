@@ -154,6 +154,12 @@ export type AnalyticsEventMap = {
     page_location: string
   }
 
+  /** User clicks through to Saransh from the cross-promo section. */
+  saransh_click: {
+    link_url: string
+    page_location: string
+  }
+
   contribute_click: {
     contribute_type: "data" | "code" | "info" | "bug"
     politician_id?: string
