@@ -21,70 +21,74 @@ export default function SaranshSection() {
   return (
     <section
       id="saransh"
-      className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden"
+      className="relative overflow-hidden bg-[#0F1F3D] py-20 dark:bg-[#070b16]"
     >
-      <div className="absolute -top-24 -right-24 w-80 h-80 bg-orange-200/20 dark:bg-orange-900/10 rounded-full blur-3xl"></div>
+      {/* Tricolour glow backdrop */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(249,115,22,0.35),transparent_45%),radial-gradient(circle_at_85%_80%,rgba(22,163,74,0.35),transparent_45%)]"
+      ></div>
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-orange-500 via-white to-green-600"
+      ></div>
 
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="rounded-2xl border border-gray-100 dark:border-gray-700 bg-gray-50/70 dark:bg-gray-800 shadow-xl overflow-hidden"
+          className="text-center"
         >
-          <div className="h-1.5 bg-gradient-to-r from-orange-500 via-white to-green-600"></div>
-
-          <div className="p-8 sm:p-12 text-center">
-            <div className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-4">
-              <span className="h-px w-8 bg-orange-400"></span>
-              The other half
-              <span className="h-px w-8 bg-green-500"></span>
-            </div>
-
-            <Text
-              variant="h2"
-              weight="bold"
-              className="text-2xl sm:text-3xl text-[#0F1F3D] dark:text-white mb-4"
-            >
-              Meet <span className="text-orange-600 italic">Saransh</span>
-            </Text>
-
-            <Text
-              variant="body"
-              className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8"
-            >
-              Rajniti tracks what your representatives promised. Saransh reports
-              the news those promises turn up in — summarised from verified
-              sources, with attribution you can check. Same civic-accountability
-              project, two halves.
-            </Text>
-
-            <Button
-              href={SARANSH_URL}
-              external
-              size="lg"
-              onClick={trackClick}
-              className="inline-flex items-center gap-3"
-              rightIcon={
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              }
-            >
-              Read the news on Saransh
-            </Button>
+          <div className="mb-4 inline-flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-white/70">
+            <span className="h-px w-8 bg-orange-400"></span>
+            The other half
+            <span className="h-px w-8 bg-green-500"></span>
           </div>
+
+          <Text
+            variant="h2"
+            weight="bold"
+            className="mb-4 text-3xl text-white sm:text-4xl"
+          >
+            Meet <span className="italic text-orange-400">Saransh</span>
+          </Text>
+
+          <Text
+            variant="body"
+            className="mx-auto mb-8 max-w-2xl text-white/80"
+          >
+            Rajniti tracks what your representatives promised. Saransh reports
+            the news those promises turn up in — summarised from verified
+            sources, with attribution you can check. Same civic-accountability
+            project, two halves.
+          </Text>
+
+          <Button
+            href={SARANSH_URL}
+            external
+            size="lg"
+            onClick={trackClick}
+            className="inline-flex items-center gap-3"
+            rightIcon={
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
+              </svg>
+            }
+          >
+            Read the news on Saransh
+          </Button>
         </m.div>
       </div>
     </section>

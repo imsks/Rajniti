@@ -20,6 +20,11 @@ const MyPoliticiansSection = dynamic(
   { ssr: false },
 );
 
+const SaranshBanner = dynamic(
+  () => import("@/components/marketing/SaranshBanner"),
+  { ssr: false },
+);
+
 type Tab = "ALL" | "MP" | "MLA";
 
 export default function Dashboard() {
@@ -178,6 +183,9 @@ function DashboardContent() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
         {/* Your Politicians (MP + MLA slots) */}
         <MyPoliticiansSection allPoliticians={all} />
+
+        {/* Cross-promo: the news half of the project */}
+        <SaranshBanner className="mb-8" />
 
         {/* Header + Stats */}
         <m.div
