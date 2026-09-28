@@ -1,5 +1,6 @@
 import json
 import logging
+import math
 import re
 from datetime import datetime, timezone
 from pathlib import Path
@@ -13,6 +14,12 @@ logger = logging.getLogger(__name__)
 ElectionType = Literal["MP", "MLA"]
 
 _DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+
+# A profile is "incomplete" when under half of its checkable fields are cited.
+INCOMPLETE_SOURCED_PCT_THRESHOLD = 0.5
+
+# Public (unauthenticated) callers may see at most this many profiles per day.
+INCOMPLETE_PUBLIC_DAILY_MAX = 5
 
 
 # ---------- NORMALIZE ----------
@@ -201,6 +208,94 @@ class PoliticianService:
                 break
 
         return results
+
+    # ---------- INCOMPLETE PROFILES ----------
+
+    def list_incomplete(
+        self,
+        *,
+        election_type: Optional[ElectionType] = None,
+        limit: int = INCOMPLETE_PUBLIC_DAILY_MAX,
+        offset: int = 0,
+        daily_rotation: bool = False,
+    ) -> Dict[str, Any]:
+        """Profiles whose citation coverage is below the incomplete threshold.
+
+        A profile counts as incomplete when its ``sourced_pct`` is under
+        :data:`INCOMPLETE_SOURCED_PCT_THRESHOLD`, when it has no checkable
+        fields at all (``sourced_pct is None``), or when its hero categories
+        are not mostly present. Results are ordered least-complete first and
+        tie-broken by id so pagination is stable across calls.
+
+        With ``daily_rotation`` the offset is derived from the current UTC date
+        instead of the caller-supplied one, so unauthenticated consumers see a
+        different window of ``limit`` profiles each day.
+        """
+        self._ensure_slugs()
+
+        data = (
+            self._load(election_type)
+            if election_type
+            else self._load("MP") + self._load("MLA")
+        )
+        self._attach_slugs_to_records(data)
+
+        incomplete: List[Dict[str, Any]] = []
+        for p in data:
+            record = self._attach_metadata(self._attach_performance(p))
+            sourced_pct = record.get("sourced_pct")
+            if (
+                sourced_pct is None
+                or sourced_pct < INCOMPLETE_SOURCED_PCT_THRESHOLD
+                or not record.get("categories_mostly_present")
+            ):
+                incomplete.append(record)
+
+        incomplete.sort(
+            key=lambda r: (
+                # No checkable fields at all = emptiest profile, enrich first.
+                -1.0 if r.get("sourced_pct") is None else float(r["sourced_pct"]),
+                str(r.get("id") or ""),
+            )
+        )
+
+        total = len(incomplete)
+        offset = max(0, offset)
+        limit = max(0, limit)
+
+        if daily_rotation and total and limit:
+            windows = math.ceil(total / limit)
+            day = datetime.now(timezone.utc).date().toordinal()
+            offset = (day % windows) * limit
+
+        page_items = incomplete[offset : offset + limit]
+
+        return {
+            "total": total,
+            "limit": limit,
+            "offset": offset,
+            "threshold": INCOMPLETE_SOURCED_PCT_THRESHOLD,
+            "politicians": [self._to_incomplete_record(p) for p in page_items],
+        }
+
+    _INCOMPLETE_FIELDS = (
+        "id",
+        "slug",
+        "name",
+        "type",
+        "state",
+        "constituency",
+        "sourced_pct",
+        "cited_fields_count",
+        "checkable_fields_count",
+        "categories_mostly_present",
+        "updated_at",
+    )
+
+    def _to_incomplete_record(self, p: Dict[str, Any]) -> Dict[str, Any]:
+        record = {k: p.get(k) for k in self._INCOMPLETE_FIELDS}
+        record["party"] = self._latest_party(p)
+        return record
 
     def update_politician(self, politician_id: str, updates: Dict[str, Any]) -> bool:
         """Merge ``updates`` into the politician record and persist ``mp.json`` / ``mla.json``.

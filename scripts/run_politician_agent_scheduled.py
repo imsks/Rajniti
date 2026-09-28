@@ -82,6 +82,14 @@ def main() -> None:
         action="store_true",
         help="Start from beginning; clears checkpoint before run",
     )
+    parser.add_argument(
+        "--only-incomplete",
+        action="store_true",
+        help=(
+            "Only process profiles below the incomplete threshold "
+            "(same set served by GET /api/v1/politicians/incomplete)"
+        ),
+    )
     parser.add_argument("--force", action="store_true")
     parser.add_argument(
         "--log-level",
@@ -98,19 +106,37 @@ def main() -> None:
 
     service = PoliticianService()
     if args.type in ("MP", "MLA"):
-        politicians: List[Dict[str, Any]] = service.get_all(args.type)
+        all_politicians: List[Dict[str, Any]] = service.get_all(args.type)
     else:
-        politicians = service.get_all_politicians()
+        all_politicians = service.get_all_politicians()
 
-    cp = _load_checkpoint(args.checkpoint_file)
-    start_idx = int(cp.get("last_index", -1)) + 1
-    last_id = cp.get("last_id")
+    if args.only_incomplete:
+        # Least-complete first; the queue re-prunes itself on every run, so the
+        # positional checkpoint from full runs does not apply here.
+        listing = service.list_incomplete(
+            election_type=args.type,
+            limit=max(len(all_politicians), 1),
+        )
+        by_id = {str(p.get("id")): p for p in all_politicians}
+        politicians = [
+            by_id[str(row["id"])]
+            for row in listing["politicians"]
+            if str(row["id"]) in by_id
+        ]
+        logger.info("Incomplete profiles queued: %d", len(politicians))
+        start_idx = 0
+    else:
+        politicians = all_politicians
 
-    if last_id and start_idx > 0:
-        # Resume: find index after last_id if list shifted
-        id_list = [str(p.get("id")) for p in politicians]
-        if last_id in id_list:
-            start_idx = id_list.index(last_id) + 1
+        cp = _load_checkpoint(args.checkpoint_file)
+        start_idx = int(cp.get("last_index", -1)) + 1
+        last_id = cp.get("last_id")
+
+        if last_id and start_idx > 0:
+            # Resume: find index after last_id if list shifted
+            id_list = [str(p.get("id")) for p in politicians]
+            if last_id in id_list:
+                start_idx = id_list.index(last_id) + 1
 
     agent = PoliticianAgent()
     processed = 0
