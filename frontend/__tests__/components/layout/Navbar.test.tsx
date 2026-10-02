@@ -1,8 +1,10 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import Navbar from '@/components/layout/Navbar'
 
+const trackEvent = jest.fn()
+
 jest.mock('@/hooks/useAnalytics', () => ({
-  useAnalytics: () => ({ trackEvent: jest.fn() }),
+  useAnalytics: () => ({ trackEvent }),
 }))
 
 jest.mock('@/components/auth/UserButton', () => {
@@ -18,6 +20,10 @@ jest.mock('@/components/ui/ThemeToggle', () => {
 })
 
 describe('Navbar', () => {
+  beforeEach(() => {
+    trackEvent.mockClear()
+  })
+
   it('renders header above page content with z-50 stacking', () => {
     render(
       <>
@@ -58,5 +64,127 @@ describe('Navbar', () => {
 
     const header = screen.getByRole('banner')
     expect(header).toHaveClass('sticky', 'top-0', 'relative', 'z-50')
+  })
+})
+
+describe('Navbar mobile menu', () => {
+  const openMenu = () => {
+    fireEvent.click(screen.getByRole('button', { name: 'Open menu' }))
+    return screen.getByRole('button', { name: 'Close menu' })
+  }
+
+  beforeEach(() => {
+    trackEvent.mockClear()
+  })
+
+  it('renders a closed, labelled menu button by default', () => {
+    render(<Navbar />)
+
+    const button = screen.getByRole('button', { name: 'Open menu' })
+    expect(button).toHaveAttribute('aria-expanded', 'false')
+    expect(screen.queryByRole('navigation', { name: 'Mobile' })).not.toBeInTheDocument()
+  })
+
+  it('opens the menu with every NAV_LINKS entry and toggles aria-expanded', () => {
+    render(<Navbar />)
+    const button = openMenu()
+
+    expect(button).toHaveAttribute('aria-expanded', 'true')
+    expect(button).toHaveAttribute('aria-controls', screen.getByRole('navigation', { name: 'Mobile' }).parentElement?.id)
+
+    const menu = screen.getByRole('navigation', { name: 'Mobile' })
+    const labels = Array.from(menu.querySelectorAll('a')).map((a) => a.textContent)
+    expect(labels).toEqual(['About', 'Contribute', 'Saransh', 'Found a Bug?'])
+  })
+
+  it('fires mobile_menu_toggle once per tap of the menu button', () => {
+    render(<Navbar />)
+
+    const button = openMenu()
+    expect(trackEvent).toHaveBeenCalledWith('mobile_menu_toggle', { action: 'open' })
+    expect(trackEvent).toHaveBeenCalledTimes(1)
+
+    fireEvent.click(button)
+    expect(trackEvent).toHaveBeenCalledWith('mobile_menu_toggle', { action: 'close' })
+    expect(trackEvent).toHaveBeenCalledTimes(2)
+  })
+
+  it('closes on Escape and returns focus to the menu button', () => {
+    render(<Navbar />)
+    const button = openMenu()
+
+    fireEvent.keyDown(document, { key: 'Escape' })
+
+    expect(screen.queryByRole('navigation', { name: 'Mobile' })).not.toBeInTheDocument()
+    expect(button).toHaveFocus()
+    expect(trackEvent).toHaveBeenCalledTimes(1)
+  })
+
+  it('closes when a tap lands outside the menu', () => {
+    render(<Navbar />)
+    openMenu()
+
+    fireEvent.pointerDown(document.body)
+
+    expect(screen.queryByRole('navigation', { name: 'Mobile' })).not.toBeInTheDocument()
+  })
+
+  it('fires nav_click with navbar_mobile and closes on link click', () => {
+    render(<Navbar />)
+    openMenu()
+
+    const menu = screen.getByRole('navigation', { name: 'Mobile' })
+    fireEvent.click(within(menu).getByRole('link', { name: 'About' }))
+
+    expect(trackEvent).toHaveBeenCalledWith('nav_click', {
+      link_text: 'About',
+      link_url: '/#about',
+      nav_section: 'navbar_mobile',
+    })
+    expect(trackEvent).toHaveBeenCalledTimes(2)
+    expect(menu).not.toBeInTheDocument()
+  })
+
+  it('fires saransh_click with placement navbar_mobile and a UTM-tagged url', () => {
+    render(<Navbar />)
+    openMenu()
+
+    const menu = screen.getByRole('navigation', { name: 'Mobile' })
+    const saransh = menu.querySelector('a[href*="utm_content"]') as HTMLAnchorElement
+    const url = new URL(saransh.href)
+
+    expect(url.searchParams.get('utm_source')).toBe('rajniti')
+    expect(url.searchParams.get('utm_medium')).toBe('referral')
+    expect(url.searchParams.get('utm_campaign')).toBe('cross_promo')
+    expect(url.searchParams.get('utm_content')).toBe('navbar_mobile')
+    expect(saransh).toHaveAttribute('target', '_blank')
+
+    fireEvent.click(saransh)
+
+    expect(trackEvent).toHaveBeenCalledWith('nav_click', {
+      link_text: 'Saransh',
+      link_url: saransh.getAttribute('href'),
+      nav_section: 'navbar_mobile',
+    })
+    expect(trackEvent).toHaveBeenCalledWith('saransh_click', {
+      link_url: saransh.getAttribute('href'),
+      page_location: 'navbar_mobile',
+      placement: 'navbar_mobile',
+    })
+    expect(trackEvent).toHaveBeenCalledTimes(3)
+  })
+
+  it('keeps contribute_click for the bug link inside the mobile menu', () => {
+    render(<Navbar />)
+    openMenu()
+
+    const menu = screen.getByRole('navigation', { name: 'Mobile' })
+    fireEvent.click(within(menu).getByRole('link', { name: 'Found a Bug?' }))
+
+    expect(trackEvent).toHaveBeenCalledWith('contribute_click', {
+      contribute_type: 'bug',
+      page_location: 'navbar_mobile',
+    })
+    expect(menu).not.toBeInTheDocument()
   })
 })

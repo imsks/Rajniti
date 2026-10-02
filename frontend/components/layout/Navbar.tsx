@@ -1,12 +1,14 @@
 "use client";
 
+import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { Menu, X } from "lucide-react";
 import NextImage from "next/image";
 import UserButton from "@/components/auth/UserButton";
 import Text from "@/components/ui/Text";
 import Link from "@/components/ui/Link";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import { useAnalytics } from "@/hooks/useAnalytics";
-import { SARANSH_URL } from "@/lib/constants/saransh";
+import { buildSaranshUrl, SARANSH_URL } from "@/lib/constants/saransh";
 
 interface NavbarProps {
   /** @deprecated Use sticky only; nav links are identical on every page. */
@@ -37,12 +39,77 @@ const NAV_LINKS: ReadonlyArray<{
 export default function Navbar({ sticky = false }: NavbarProps) {
   const stickyClasses = sticky ? "sticky top-0" : "";
   const { trackEvent } = useAnalytics();
-  const trackNav = (text: string, url: string) =>
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const menuPanelRef = useRef<HTMLDivElement>(null);
+  const menuId = useId();
+
+  const trackNav = (
+    text: string,
+    url: string,
+    section: "navbar" | "navbar_mobile" = "navbar",
+  ) =>
     trackEvent("nav_click", {
       link_text: text,
       link_url: url,
-      nav_section: "navbar",
+      nav_section: section,
     });
+
+  const closeMenu = useCallback((returnFocus = false) => {
+    setIsMenuOpen(false);
+    if (returnFocus) menuButtonRef.current?.focus();
+  }, []);
+
+  const toggleMenu = () => {
+    const nextOpen = !isMenuOpen;
+    setIsMenuOpen(nextOpen);
+    trackEvent("mobile_menu_toggle", { action: nextOpen ? "open" : "close" });
+  };
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const isInsideMenu = (target: EventTarget | null) =>
+      target instanceof Node &&
+      (menuPanelRef.current?.contains(target) ||
+        menuButtonRef.current?.contains(target));
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeMenu(true);
+    };
+    const onOutside = (event: Event) => {
+      if (!isInsideMenu(event.target)) closeMenu();
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("pointerdown", onOutside);
+    document.addEventListener("focusin", onOutside);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("pointerdown", onOutside);
+      document.removeEventListener("focusin", onOutside);
+    };
+  }, [isMenuOpen, closeMenu]);
+
+  /** Fires the placement-specific events a link needs, on top of nav_click. */
+  const trackLinkExtras = (
+    label: string,
+    section: "navbar" | "navbar_mobile",
+  ) => {
+    if (label === "Found a Bug?") {
+      trackEvent("contribute_click", {
+        contribute_type: "bug",
+        page_location: section,
+      });
+    }
+    if (label === "Saransh" && section === "navbar_mobile") {
+      trackEvent("saransh_click", {
+        link_url: buildSaranshUrl("navbar_mobile"),
+        page_location: "navbar_mobile",
+        placement: "navbar_mobile",
+      });
+    }
+  };
 
   return (
     <header
@@ -85,12 +152,7 @@ export default function Navbar({ sticky = false }: NavbarProps) {
                   {...(external ? { external: true, target: "_blank" } : {})}
                   onClick={() => {
                     trackNav(label, href);
-                    if (label === "Found a Bug?") {
-                      trackEvent("contribute_click", {
-                        contribute_type: "bug",
-                        page_location: "navbar",
-                      });
-                    }
+                    trackLinkExtras(label, "navbar");
                   }}
                 >
                   {label}
@@ -100,9 +162,59 @@ export default function Navbar({ sticky = false }: NavbarProps) {
 
             <ThemeToggle />
             <UserButton />
+
+            <button
+              ref={menuButtonRef}
+              type="button"
+              onClick={toggleMenu}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls={menuId}
+              className="md:hidden flex h-11 w-11 items-center justify-center rounded-md text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
           </div>
         </div>
       </div>
+
+      {isMenuOpen && (
+        <div
+          ref={menuPanelRef}
+          id={menuId}
+          className="md:hidden border-t border-orange-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm"
+        >
+          <nav
+            aria-label="Mobile"
+            className="mx-auto flex max-w-7xl flex-col px-4 py-2 sm:px-6"
+          >
+            {NAV_LINKS.map(({ label, href, external }) => {
+              const url =
+                label === "Saransh" ? buildSaranshUrl("navbar_mobile") : href;
+              return (
+                <Link
+                  key={label}
+                  href={url}
+                  variant="nav"
+                  {...(external ? { external: true, target: "_blank" } : {})}
+                  className="flex min-h-[44px] items-center"
+                  onClick={() => {
+                    trackNav(label, url, "navbar_mobile");
+                    trackLinkExtras(label, "navbar_mobile");
+                    closeMenu();
+                  }}
+                >
+                  {label}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
