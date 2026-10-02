@@ -69,6 +69,8 @@ export default function SaranshSection() {
 
             <Link
               href={SARANSH_URL}
+              external
+              onClick={trackClick}
               variant="default"
               className="inline-flex items-center gap-2 font-medium hover:underline text-sm"
             >
