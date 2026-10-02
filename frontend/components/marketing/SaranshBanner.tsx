@@ -2,8 +2,7 @@
 
 import Text from "@/components/ui/Text";
 import { m } from "framer-motion";
-import { useAnalytics } from "@/hooks/useAnalytics";
-import { SARANSH_URL } from "@/lib/constants/saransh";
+import { useSaranshLink } from "@/hooks/useSaranshLink";
 
 interface SaranshBannerProps {
   /** Analytics label for where the banner was rendered. */
@@ -19,20 +18,14 @@ export default function SaranshBanner({
   pageLocation = "dashboard_saransh",
   className = "",
 }: SaranshBannerProps) {
-  const { trackEvent } = useAnalytics();
-
-  const trackClick = () =>
-    trackEvent("saransh_click", {
-      link_url: SARANSH_URL,
-      page_location: pageLocation,
-    });
+  const saranshLink = useSaranshLink();
+  const bannerLink = saranshLink("dashboard_banner", pageLocation);
 
   return (
     <m.a
-      href={SARANSH_URL}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={trackClick}
+      {...bannerLink}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}

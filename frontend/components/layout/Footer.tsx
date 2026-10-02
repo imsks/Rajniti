@@ -1,12 +1,17 @@
 "use client";
 
+import React from "react";
 import Text from "@/components/ui/Text";
 import Link from "@/components/ui/Link";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import { useSaranshLink } from "@/hooks/useSaranshLink";
 import { SARANSH_URL } from "@/lib/constants/saransh";
 
 export default function Footer() {
   const { trackEvent } = useAnalytics();
+  const saranshLink = useSaranshLink();
+  // Footer Saransh link fires both `nav_click` and `saransh_click` by design.
+  const saranshFooterLink = saranshLink("footer", "footer");
   return (
     <footer className="bg-[#0F1F3D] dark:bg-gray-950 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
@@ -81,15 +86,25 @@ export default function Footer() {
               About
             </Link>
             <Link
-              href={SARANSH_URL}
               external
-              onClick={() =>
+              href={saranshFooterLink.href}
+              onClick={() => {
                 trackEvent("nav_click", {
                   link_text: "Saransh",
                   link_url: SARANSH_URL,
                   nav_section: "footer",
-                })
-              }
+                });
+                saranshFooterLink.onClick();
+              }}
+              onAuxClick={(event: React.MouseEvent) => {
+                if (event.button !== 1) return;
+                trackEvent("nav_click", {
+                  link_text: "Saransh",
+                  link_url: SARANSH_URL,
+                  nav_section: "footer",
+                });
+                saranshFooterLink.onAuxClick(event);
+              }}
               className="text-gray-400 hover:text-white transition-colors text-sm"
             >
               Saransh
