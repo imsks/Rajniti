@@ -1,11 +1,13 @@
 "use client";
 
+import React from "react";
 import NextImage from "next/image";
 import UserButton from "@/components/auth/UserButton";
 import Text from "@/components/ui/Text";
 import Link from "@/components/ui/Link";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import { useSaranshLink } from "@/hooks/useSaranshLink";
 import { SARANSH_URL } from "@/lib/constants/saransh";
 
 interface NavbarProps {
@@ -37,6 +39,8 @@ const NAV_LINKS: ReadonlyArray<{
 export default function Navbar({ sticky = false }: NavbarProps) {
   const stickyClasses = sticky ? "sticky top-0" : "";
   const { trackEvent } = useAnalytics();
+  const saranshLink = useSaranshLink();
+  const saranshNavLink = saranshLink("navbar", "navbar");
   const trackNav = (text: string, url: string) =>
     trackEvent("nav_click", {
       link_text: text,
@@ -77,14 +81,31 @@ export default function Navbar({ sticky = false }: NavbarProps) {
 
           <div className="flex items-center gap-4">
             <nav className="hidden md:flex gap-6 items-center">
-              {NAV_LINKS.map(({ label, href, external }) => (
+              {NAV_LINKS.map(({ label, href, external }) => {
+                const isSaransh = href === SARANSH_URL;
+                // Saransh links carry UTM attribution and also fire
+                // `saransh_click` alongside the usual `nav_click`.
+                const linkHref = isSaransh ? saranshNavLink.href : href;
+
+                return (
                 <Link
                   key={label}
-                  href={href}
+                  href={linkHref}
                   variant="nav"
                   {...(external ? { external: true, target: "_blank" } : {})}
+                  {...(isSaransh
+                    ? {
+                        onAuxClick: (event: React.MouseEvent) => {
+                          saranshNavLink.onAuxClick(event);
+                          if (event.button === 1) trackNav(label, href);
+                        },
+                      }
+                    : {})}
                   onClick={() => {
                     trackNav(label, href);
+                    if (isSaransh) {
+                      saranshNavLink.onClick();
+                    }
                     if (label === "Found a Bug?") {
                       trackEvent("contribute_click", {
                         contribute_type: "bug",
@@ -95,7 +116,8 @@ export default function Navbar({ sticky = false }: NavbarProps) {
                 >
                   {label}
                 </Link>
-              ))}
+                );
+              })}
             </nav>
 
             <ThemeToggle />

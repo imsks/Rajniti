@@ -4,21 +4,23 @@ import Text from "@/components/ui/Text";
 // import Button from "@/components/ui/Button";
 import Link from "@/components/ui/Link";
 import { m } from "framer-motion";
-import { useAnalytics } from "@/hooks/useAnalytics";
-import { SARANSH_URL } from "@/lib/constants/saransh";
+import { useRef } from "react";
+import { useHomeSectionView } from "@/hooks/useHomeSectionView";
+import { useSaranshLink } from "@/hooks/useSaranshLink";
 export { SARANSH_URL } from "@/lib/constants/saransh";
 
 export default function SaranshSection() {
-  const { trackEvent } = useAnalytics();
+  const sectionRef = useRef<HTMLElement>(null);
+  const saranshLink = useSaranshLink();
 
-  const trackClick = () =>
-    trackEvent("saransh_click", {
-      link_url: SARANSH_URL,
-      page_location: "home_saransh",
-    });
+  useHomeSectionView(sectionRef, "saransh");
+
+  const buttonLink = saranshLink("home_section", "home_saransh");
+  const tileLink = saranshLink("home_section_tile", "home_saransh");
 
   return (
     <section
+      ref={sectionRef}
       id="saransh"
       className="relative overflow-hidden border-t border-gray-100 bg-white py-20 dark:border-gray-800 dark:bg-gray-900"
     >
@@ -68,9 +70,8 @@ export default function SaranshSection() {
             </Text>
 
             <Link
-              href={SARANSH_URL}
               external
-              onClick={trackClick}
+              {...buttonLink}
               variant="default"
               className="inline-flex items-center gap-2 font-medium hover:underline text-sm"
             >
@@ -103,10 +104,9 @@ export default function SaranshSection() {
             </span>
 
             <a
-              href={SARANSH_URL}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={trackClick}
+              {...tileLink}
               className="group flex-1 rounded-2xl border border-black/10 bg-white p-6 transition-shadow hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-800 dark:focus:ring-offset-gray-900"
             >
               <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
