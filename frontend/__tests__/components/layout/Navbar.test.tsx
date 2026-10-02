@@ -44,6 +44,15 @@ describe('Navbar', () => {
     expect(screen.queryByRole('link', { name: 'Politicians' })).not.toBeInTheDocument()
   })
 
+  it('links to Saransh in a new tab', () => {
+    render(<Navbar />)
+
+    const link = screen.getByRole('link', { name: /Saransh/i })
+    expect(link).toHaveAttribute('href', 'https://saransh-app.vercel.app')
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+  })
+
   it('applies sticky positioning when sticky prop is true', () => {
     render(<Navbar sticky />)
 

@@ -3,7 +3,7 @@
 import Text from "@/components/ui/Text";
 import { m } from "framer-motion";
 import { useAnalytics } from "@/hooks/useAnalytics";
-import { SARANSH_URL } from "@/components/marketing/SaranshSection";
+import { SARANSH_URL } from "@/lib/constants/saransh";
 
 interface SaranshBannerProps {
   /** Analytics label for where the banner was rendered. */
