@@ -1,6 +1,7 @@
 "use client";
 
 import Text from "@/components/ui/Text";
+import Link from "@/components/ui/Link";
 import Image from "next/image";
 import { m } from "framer-motion";
 
@@ -122,6 +123,17 @@ export default function FeaturesSection() {
               enriched with community contributions.
             </Text>
           </m.div>
+        </div>
+
+        <div className="mt-10 text-center">
+          <Link
+            href="/politicians"
+            variant="underline"
+            className="inline-flex items-center gap-2 font-semibold"
+          >
+            Explore Politicians
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </div>
     </section>

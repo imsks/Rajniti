@@ -31,8 +31,8 @@ export default function Home() {
       <ScrollReset />
       <Navbar />
       <HeroSection />
-      <SaranshSection />
       <FeaturesSection />
+      <SaranshSection />
       <PreambleSection />
       <ContributeSection />
       <ContributorsSection />

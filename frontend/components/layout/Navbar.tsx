@@ -6,6 +6,7 @@ import Text from "@/components/ui/Text";
 import Link from "@/components/ui/Link";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import { SARANSH_URL } from "@/lib/constants/saransh";
 
 interface NavbarProps {
   /** @deprecated Use sticky only; nav links are identical on every page. */
@@ -21,6 +22,11 @@ const NAV_LINKS: ReadonlyArray<{
 }> = [
   { label: "About", href: "/#about" },
   { label: "Contribute", href: "/#contribute" },
+  {
+    label: "Saransh ↗",
+    href: SARANSH_URL,
+    external: true,
+  },
   {
     label: "Found a Bug?",
     href: "https://github.com/imsks/rajniti/issues/new",

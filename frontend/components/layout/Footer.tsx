@@ -3,6 +3,7 @@
 import Text from "@/components/ui/Text"
 import Link from "@/components/ui/Link"
 import { useAnalytics } from "@/hooks/useAnalytics"
+import { SARANSH_URL } from "@/lib/constants/saransh"
 
 export default function Footer() {
     const { trackEvent } = useAnalytics()
@@ -56,6 +57,14 @@ export default function Footer() {
                             className='text-gray-400 hover:text-white transition-colors text-sm'
                         >
                             About
+                        </Link>
+                        <Link
+                            href={SARANSH_URL}
+                            external
+                            onClick={() => trackEvent('nav_click', { link_text: 'Saransh', link_url: SARANSH_URL, nav_section: 'footer' })}
+                            className='text-gray-400 hover:text-white transition-colors text-sm'
+                        >
+                            Saransh ↗
                         </Link>
                         <Link
                             href='/contributors'

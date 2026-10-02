@@ -53,6 +53,19 @@ describe('SaranshSection', () => {
     ).toHaveAttribute('href', 'https://saransh.example.com')
   })
 
+  it('renders the sibling lockup with a safe external Saransh tile', async () => {
+    await renderSection()
+
+    const tile = screen.getByRole('link', { name: /What the news says about them/i })
+    expect(tile).toHaveAttribute('href', DEFAULT_URL)
+    expect(tile).toHaveAttribute('target', '_blank')
+    expect(tile).toHaveAttribute('rel', 'noopener noreferrer')
+
+    expect(
+      screen.getByText('What your representatives promised')
+    ).toBeInTheDocument()
+  })
+
   it('fires the saransh_click analytics event on click', async () => {
     await renderSection('https://saransh.example.com')
 
