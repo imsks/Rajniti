@@ -11,6 +11,7 @@ interface CustomLinkProps
         | "default"
         | "nav"
         | "button"
+        // | "ghost"
         | "underline"
         | "primary"
         | "secondary"
@@ -33,6 +34,7 @@ export default function CustomLink({
             "after:origin-left after:scale-x-0 after:bg-orange-500 after:transition-transform after:duration-300 " +
             "hover:after:scale-x-100",
         button: "", // Usually used with Button component inside or styling passed via className
+        // ghost: "text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-300 transition-colors",
         underline:
             "text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline transition-all"
     }

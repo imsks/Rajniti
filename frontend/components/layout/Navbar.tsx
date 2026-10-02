@@ -23,7 +23,7 @@ const NAV_LINKS: ReadonlyArray<{
   { label: "About", href: "/#about" },
   { label: "Contribute", href: "/#contribute" },
   {
-    label: "Saransh ↗",
+    label: "Saransh",
     href: SARANSH_URL,
     external: true,
   },
