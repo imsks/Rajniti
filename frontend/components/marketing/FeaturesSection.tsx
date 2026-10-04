@@ -4,8 +4,11 @@ import Text from "@/components/ui/Text";
 import Link from "@/components/ui/Link";
 import Image from "next/image";
 import { m } from "framer-motion";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 export default function FeaturesSection() {
+  const { trackEvent } = useAnalytics();
+
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -129,6 +132,13 @@ export default function FeaturesSection() {
           <Link
             href="/politicians"
             variant="underline"
+            onClick={() =>
+              trackEvent("cta_click", {
+                cta_name: "explore_politicians",
+                cta_url: "/politicians",
+                page_location: "home_features",
+              })
+            }
             className="inline-flex items-center gap-2 font-semibold"
           >
             Explore Politicians

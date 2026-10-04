@@ -154,10 +154,21 @@ export type AnalyticsEventMap = {
     page_location: string
   }
 
-  /** User clicks through to Saransh from the cross-promo section. */
+  /** User clicks through to Saransh from any entry point. */
   saransh_click: {
     link_url: string
+    /**
+     * Free-text label kept for backwards compatibility with existing GA
+     * reports. Use `placement` for new analysis.
+     */
     page_location: string
+    /** Which entry point the click came from. */
+    placement:
+      | "home_section"
+      | "home_section_tile"
+      | "dashboard_banner"
+      | "navbar"
+      | "footer"
   }
 
   contribute_click: {
@@ -207,6 +218,15 @@ export type AnalyticsEventMap = {
       | "contribute_cta"
     politician_id: string
     politician_name: string
+  }
+
+  /**
+   * Fired (once per page load) the first time a homepage section is at least
+   * half visible. Lets us calculate a click-through rate for the section.
+   * Separate from `section_view`, which is politician-profile specific.
+   */
+  home_section_view: {
+    section_name: "saransh"
   }
 
   // ── Engagement Time ────────────────────────────────────────────────────
