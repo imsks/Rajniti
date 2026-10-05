@@ -144,12 +144,26 @@ export default function Navbar({ sticky = false }: NavbarProps) {
 
           <div className="flex items-center gap-4">
             <nav className="hidden md:flex gap-6 items-center">
-              {NAV_LINKS.map(({ label, href, external }) => (
+              {NAV_LINKS.map(({ label, href, external }) => {
+                const isSaransh = href === SARANSH_URL;
+                // Saransh links carry UTM attribution and also fire
+                // `saransh_click` alongside the usual `nav_click`.
+                const linkHref = isSaransh ? saranshNavLink.href : href;
+
+                return (
                 <Link
                   key={label}
-                  href={href}
+                  href={linkHref}
                   variant="nav"
                   {...(external ? { external: true, target: "_blank" } : {})}
+                  {...(isSaransh
+                    ? {
+                        onAuxClick: (event: React.MouseEvent) => {
+                          saranshNavLink.onAuxClick(event);
+                          if (event.button === 1) trackNav(label, href);
+                        },
+                      }
+                    : {})}
                   onClick={() => {
                     trackNav(label, href);
                     trackLinkExtras(label, "navbar");
@@ -157,7 +171,8 @@ export default function Navbar({ sticky = false }: NavbarProps) {
                 >
                   {label}
                 </Link>
-              ))}
+                );
+              })}
             </nav>
 
             <ThemeToggle />
