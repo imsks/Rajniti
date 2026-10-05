@@ -1,0 +1,56 @@
+name: Enrich Politicians
+
+on:
+  schedule:
+    - cron: "30 1 * * *" # daily at 01:30 UTC
+  workflow_dispatch:
+    inputs:
+      max_politicians:
+        description: "Profiles to enrich this run"
+        required: false
+        default: "5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: enrich-politicians
+  cancel-in-progress: false
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Enrich incomplete profiles
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          RAJNITI_LLM_MAX_CALLS: "25"
+        run: |
+          python scripts/run_politician_agent_scheduled.py \
+            --only-incomplete \
+            --max-politicians "${{ github.event.inputs.max_politicians || '5' }}" \
+            --sleep-seconds 5
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add app/data/mp.json app/data/mla.json
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "chore: enrich incomplete politician profiles"
+          git push
