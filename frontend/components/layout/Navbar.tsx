@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import React, { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import NextImage from "next/image";
 import UserButton from "@/components/auth/UserButton";
@@ -8,7 +8,8 @@ import Text from "@/components/ui/Text";
 import Link from "@/components/ui/Link";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import { useAnalytics } from "@/hooks/useAnalytics";
-import { buildSaranshUrl, SARANSH_URL } from "@/lib/constants/saransh";
+import { useSaranshLink } from "@/hooks/useSaranshLink";
+import { SARANSH_URL } from "@/lib/constants/saransh";
 
 interface NavbarProps {
   /** @deprecated Use sticky only; nav links are identical on every page. */
@@ -39,6 +40,9 @@ const NAV_LINKS: ReadonlyArray<{
 export default function Navbar({ sticky = false }: NavbarProps) {
   const stickyClasses = sticky ? "sticky top-0" : "";
   const { trackEvent } = useAnalytics();
+  const saranshLink = useSaranshLink();
+  const saranshNavLink = saranshLink("navbar", "navbar");
+  const saranshMobileLink = saranshLink("navbar_mobile", "navbar_mobile");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuPanelRef = useRef<HTMLDivElement>(null);
@@ -102,13 +106,6 @@ export default function Navbar({ sticky = false }: NavbarProps) {
         page_location: section,
       });
     }
-    if (label === "Saransh" && section === "navbar_mobile") {
-      trackEvent("saransh_click", {
-        link_url: buildSaranshUrl("navbar_mobile"),
-        page_location: "navbar_mobile",
-        placement: "navbar_mobile",
-      });
-    }
   };
 
   return (
@@ -151,26 +148,27 @@ export default function Navbar({ sticky = false }: NavbarProps) {
                 const linkHref = isSaransh ? saranshNavLink.href : href;
 
                 return (
-                <Link
-                  key={label}
-                  href={linkHref}
-                  variant="nav"
-                  {...(external ? { external: true, target: "_blank" } : {})}
-                  {...(isSaransh
-                    ? {
-                        onAuxClick: (event: React.MouseEvent) => {
-                          saranshNavLink.onAuxClick(event);
-                          if (event.button === 1) trackNav(label, href);
-                        },
-                      }
-                    : {})}
-                  onClick={() => {
-                    trackNav(label, href);
-                    trackLinkExtras(label, "navbar");
-                  }}
-                >
-                  {label}
-                </Link>
+                  <Link
+                    key={label}
+                    href={linkHref}
+                    variant="nav"
+                    {...(external ? { external: true, target: "_blank" } : {})}
+                    {...(isSaransh
+                      ? {
+                          onAuxClick: (event: React.MouseEvent) => {
+                            saranshNavLink.onAuxClick(event);
+                            if (event.button === 1) trackNav(label, href);
+                          },
+                        }
+                      : {})}
+                    onClick={() => {
+                      trackNav(label, href);
+                      if (isSaransh) saranshNavLink.onClick();
+                      trackLinkExtras(label, "navbar");
+                    }}
+                  >
+                    {label}
+                  </Link>
                 );
               })}
             </nav>
@@ -208,17 +206,29 @@ export default function Navbar({ sticky = false }: NavbarProps) {
             className="mx-auto flex max-w-7xl flex-col px-4 py-2 sm:px-6"
           >
             {NAV_LINKS.map(({ label, href, external }) => {
-              const url =
-                label === "Saransh" ? buildSaranshUrl("navbar_mobile") : href;
+              const isSaransh = href === SARANSH_URL;
+              const linkHref = isSaransh ? saranshMobileLink.href : href;
+
               return (
                 <Link
                   key={label}
-                  href={url}
+                  href={linkHref}
                   variant="nav"
                   {...(external ? { external: true, target: "_blank" } : {})}
+                  {...(isSaransh
+                    ? {
+                        onAuxClick: (event: React.MouseEvent) => {
+                          saranshMobileLink.onAuxClick(event);
+                          if (event.button === 1) {
+                            trackNav(label, href, "navbar_mobile");
+                          }
+                        },
+                      }
+                    : {})}
                   className="flex min-h-[44px] items-center"
                   onClick={() => {
-                    trackNav(label, url, "navbar_mobile");
+                    trackNav(label, href, "navbar_mobile");
+                    if (isSaransh) saranshMobileLink.onClick();
                     trackLinkExtras(label, "navbar_mobile");
                     closeMenu();
                   }}

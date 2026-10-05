@@ -9,6 +9,7 @@ jest.mock('@/hooks/useAnalytics', () => ({
 
 const SARANSH_URL = 'https://saransh-app.vercel.app'
 const SARANSH_NAV_URL = `${SARANSH_URL}?utm_source=rajniti&utm_medium=referral&utm_campaign=saransh_cross_promo&utm_content=navbar`
+const SARANSH_MOBILE_URL = `${SARANSH_URL}?utm_source=rajniti&utm_medium=referral&utm_campaign=saransh_cross_promo&utm_content=navbar_mobile`
 
 jest.mock('@/components/auth/UserButton', () => {
   return function MockUserButton() {
@@ -203,24 +204,21 @@ describe('Navbar mobile menu', () => {
     openMenu()
 
     const menu = screen.getByRole('navigation', { name: 'Mobile' })
-    const saransh = menu.querySelector('a[href*="utm_content"]') as HTMLAnchorElement
-    const url = new URL(saransh.href)
+    const saransh = within(menu).getByRole('link', { name: /Saransh/i })
 
-    expect(url.searchParams.get('utm_source')).toBe('rajniti')
-    expect(url.searchParams.get('utm_medium')).toBe('referral')
-    expect(url.searchParams.get('utm_campaign')).toBe('cross_promo')
-    expect(url.searchParams.get('utm_content')).toBe('navbar_mobile')
+    expect(saransh).toHaveAttribute('href', SARANSH_MOBILE_URL)
     expect(saransh).toHaveAttribute('target', '_blank')
+    expect(saransh).toHaveAttribute('rel', 'noopener noreferrer')
 
     fireEvent.click(saransh)
 
     expect(trackEvent).toHaveBeenCalledWith('nav_click', {
       link_text: 'Saransh',
-      link_url: saransh.getAttribute('href'),
+      link_url: SARANSH_URL,
       nav_section: 'navbar_mobile',
     })
     expect(trackEvent).toHaveBeenCalledWith('saransh_click', {
-      link_url: saransh.getAttribute('href'),
+      link_url: SARANSH_MOBILE_URL,
       page_location: 'navbar_mobile',
       placement: 'navbar_mobile',
     })

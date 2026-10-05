@@ -4,15 +4,22 @@ import type { AnalyticsEventMap } from "@/lib/analytics";
 export const SARANSH_URL =
   process.env.NEXT_PUBLIC_SARANSH_URL || "https://saransh-app.vercel.app";
 
+/** Where on Rajniti a Saransh link was clicked. */
+export type SaranshPlacement = AnalyticsEventMap["saransh_click"]["placement"];
+
 /**
- * Build the Saransh URL with campaign parameters so GA4 can attribute traffic
- * to the exact placement the user clicked (`utm_content`).
+ * Builds the outbound Saransh URL with campaign attribution so Saransh can tell
+ * the visit came from Rajniti, and from which placement.
+ * No personal or user-identifying data is added.
  */
-export function buildSaranshUrl(placement: string): string {
-  const url = new URL(SARANSH_URL);
-  url.searchParams.set("utm_source", "rajniti");
-  url.searchParams.set("utm_medium", "referral");
-  url.searchParams.set("utm_campaign", "cross_promo");
-  url.searchParams.set("utm_content", placement);
-  return url.toString();
+export function buildSaranshUrl(placement: SaranshPlacement): string {
+  const params = new URLSearchParams({
+    utm_source: "rajniti",
+    utm_medium: "referral",
+    utm_campaign: "saransh_cross_promo",
+    utm_content: placement,
+  });
+
+  const separator = SARANSH_URL.includes("?") ? "&" : "?";
+  return `${SARANSH_URL}${separator}${params.toString()}`;
 }

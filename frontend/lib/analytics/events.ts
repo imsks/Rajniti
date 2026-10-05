@@ -170,8 +170,14 @@ export type AnalyticsEventMap = {
      * reports. Use `placement` for new analysis.
      */
     page_location: string
-    /** Where the link lives, e.g. "navbar_mobile". Splits Saransh clicks by surface. */
-    placement?: string
+    /** Which entry point the click came from. */
+    placement:
+      | "home_section"
+      | "home_section_tile"
+      | "dashboard_banner"
+      | "navbar"
+      | "navbar_mobile"
+      | "footer"
   }
 
   contribute_click: {
