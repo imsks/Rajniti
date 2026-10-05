@@ -11,7 +11,15 @@ export type AnalyticsEventMap = {
   nav_click: {
     link_text: string
     link_url: string
-    nav_section: "navbar" | "footer" | "user_menu"
+    nav_section: "navbar" | "navbar_mobile" | "footer" | "user_menu"
+  }
+
+  /**
+   * User taps the header menu button on mobile. Fires once per tap — closing
+   * the menu via a link click or Escape is covered by `nav_click` instead.
+   */
+  mobile_menu_toggle: {
+    action: "open" | "close"
   }
 
   // ── Authentication ─────────────────────────────────────────────────────
@@ -168,6 +176,7 @@ export type AnalyticsEventMap = {
       | "home_section_tile"
       | "dashboard_banner"
       | "navbar"
+      | "navbar_mobile"
       | "footer"
   }
 
