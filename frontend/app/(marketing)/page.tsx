@@ -32,8 +32,8 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <FeaturesSection />
-      <PreambleSection />
       <SaranshSection />
+      <PreambleSection />
       <ContributeSection />
       <ContributorsSection />
       <Footer />

@@ -68,3 +68,5 @@ Backend follows the same pattern: pytest unit → integration → e2e, then Blac
 ## Environment
 
 Copy env from the root docs; for the app you typically need `frontend/.env` with `NEXTAUTH_*`, `NEXT_PUBLIC_API_URL`, and Google OAuth credentials for sign-in.
+
+Local values live in `frontend/.env.example` (copied to `frontend/.env` by `make setup`). On Vercel, do **not** set the localhost `NEXTAUTH_URL` / `NEXT_PUBLIC_SITE_URL` — `getSiteUrl()` falls back to `VERCEL_URL`. Vercel should carry only production values: `NEXTAUTH_SECRET`, `GOOGLE_CLIENT_ID`/`GOOGLE_CLIENT_SECRET`, the public `NEXT_PUBLIC_API_URL`, and (if used) `NEXT_PUBLIC_GA_MEASUREMENT_ID`.

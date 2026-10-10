@@ -11,7 +11,15 @@ export type AnalyticsEventMap = {
   nav_click: {
     link_text: string
     link_url: string
-    nav_section: "navbar" | "footer" | "user_menu"
+    nav_section: "navbar" | "navbar_mobile" | "footer" | "user_menu"
+  }
+
+  /**
+   * User taps the header menu button on mobile. Fires once per tap — closing
+   * the menu via a link click or Escape is covered by `nav_click` instead.
+   */
+  mobile_menu_toggle: {
+    action: "open" | "close"
   }
 
   // ── Authentication ─────────────────────────────────────────────────────
@@ -154,10 +162,22 @@ export type AnalyticsEventMap = {
     page_location: string
   }
 
-  /** User clicks through to Saransh from the cross-promo section. */
+  /** User clicks through to Saransh from any entry point. */
   saransh_click: {
     link_url: string
+    /**
+     * Free-text label kept for backwards compatibility with existing GA
+     * reports. Use `placement` for new analysis.
+     */
     page_location: string
+    /** Which entry point the click came from. */
+    placement:
+      | "home_section"
+      | "home_section_tile"
+      | "dashboard_banner"
+      | "navbar"
+      | "navbar_mobile"
+      | "footer"
   }
 
   contribute_click: {
@@ -207,6 +227,15 @@ export type AnalyticsEventMap = {
       | "contribute_cta"
     politician_id: string
     politician_name: string
+  }
+
+  /**
+   * Fired (once per page load) the first time a homepage section is at least
+   * half visible. Lets us calculate a click-through rate for the section.
+   * Separate from `section_view`, which is politician-profile specific.
+   */
+  home_section_view: {
+    section_name: "saransh"
   }
 
   // ── Engagement Time ────────────────────────────────────────────────────

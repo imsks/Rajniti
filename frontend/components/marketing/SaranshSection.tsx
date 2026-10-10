@@ -1,42 +1,48 @@
 "use client";
 
 import Text from "@/components/ui/Text";
-import Button from "@/components/ui/Button";
+// import Button from "@/components/ui/Button";
+import Link from "@/components/ui/Link";
 import { m } from "framer-motion";
-import { useAnalytics } from "@/hooks/useAnalytics";
-
-/** Saransh frontend URL — env-driven so the destination can change without a redeploy. */
-export const SARANSH_URL =
-  process.env.NEXT_PUBLIC_SARANSH_URL || "https://saransh-app.vercel.app";
+import { useRef } from "react";
+import { useHomeSectionView } from "@/hooks/useHomeSectionView";
+import { useSaranshLink } from "@/hooks/useSaranshLink";
+export { SARANSH_URL } from "@/lib/constants/saransh";
 
 export default function SaranshSection() {
-  const { trackEvent } = useAnalytics();
+  const sectionRef = useRef<HTMLElement>(null);
+  const saranshLink = useSaranshLink();
 
-  const trackClick = () =>
-    trackEvent("saransh_click", {
-      link_url: SARANSH_URL,
-      page_location: "home_saransh",
-    });
+  useHomeSectionView(sectionRef, "saransh");
+
+  const buttonLink = saranshLink("home_section", "home_saransh");
+  const tileLink = saranshLink("home_section_tile", "home_saransh");
 
   return (
     <section
+      ref={sectionRef}
       id="saransh"
-      className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden"
+      className="relative overflow-hidden border-t border-gray-100 bg-white py-20 dark:border-gray-800 dark:bg-gray-900"
     >
-      <div className="absolute -top-24 -right-24 w-80 h-80 bg-orange-200/20 dark:bg-orange-900/10 rounded-full blur-3xl"></div>
+      {/* Soft tricolour blobs, same pattern as the hero */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
+        <div className="absolute right-100 top-5 h-80 w-80 rounded-full bg-orange-300/20 blur-3xl dark:bg-orange-500/20"></div>
+        <div className="absolute -right-1 bottom-0 h-80 w-80 rounded-full bg-green-300/20 blur-3xl dark:bg-blue-500/20"></div>
+      </div>
 
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="rounded-2xl border border-gray-100 dark:border-gray-700 bg-gray-50/70 dark:bg-gray-800 shadow-xl overflow-hidden"
+          className="grid items-center gap-12 lg:grid-cols-2"
         >
-          <div className="h-1.5 bg-gradient-to-r from-orange-500 via-white to-green-600"></div>
-
-          <div className="p-8 sm:p-12 text-center">
-            <div className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-4">
+          <div>
+            <div className="mb-4 inline-flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
               <span className="h-px w-8 bg-orange-400"></span>
               The other half
               <span className="h-px w-8 bg-green-500"></span>
@@ -45,14 +51,17 @@ export default function SaranshSection() {
             <Text
               variant="h2"
               weight="bold"
-              className="text-2xl sm:text-3xl text-[#0F1F3D] dark:text-white mb-4"
+              className="mb-4 text-3xl text-[#0F1F3D] sm:text-4xl dark:text-white"
             >
-              Meet <span className="text-orange-600 italic">Saransh</span>
+              Meet{" "}
+              <span className="italic text-orange-600 dark:text-orange-400">
+                Saransh
+              </span>
             </Text>
 
             <Text
               variant="body"
-              className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8"
+              className="mb-8 max-w-xl text-gray-600 dark:text-gray-300"
             >
               Rajniti tracks what your representatives promised. Saransh reports
               the news those promises turn up in — summarised from verified
@@ -60,30 +69,59 @@ export default function SaranshSection() {
               project, two halves.
             </Text>
 
-            <Button
-              href={SARANSH_URL}
+            <Link
               external
-              size="lg"
-              onClick={trackClick}
-              className="inline-flex items-center gap-3"
-              rightIcon={
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              }
+              {...buttonLink}
+              variant="default"
+              className="inline-flex items-center gap-2 font-medium hover:underline text-sm"
             >
               Read the news on Saransh
-            </Button>
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+
+          <div className="flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:justify-center lg:justify-end">
+            <div className="flex-1 rounded-2xl border border-black/10 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+              <div className="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+                Promises
+              </div>
+              <div className="mt-2 font-serif text-2xl font-bold text-[#0F1F3D] dark:text-white">
+                Raj<span className="text-orange-600">niti</span>
+              </div>
+              <Text
+                variant="small"
+                className="mt-2 text-gray-500 dark:text-gray-400"
+              >
+                What your representatives promised
+              </Text>
+            </div>
+
+            <span
+              aria-hidden="true"
+              className="mx-auto flex h-9 w-9 shrink-0 items-center justify-center text-gray-500 dark:text-gray-400"
+            >
+              +
+            </span>
+
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              {...tileLink}
+              className="group flex-1 rounded-2xl border border-black/10 bg-white p-6 transition-shadow hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-800 dark:focus:ring-offset-gray-900"
+            >
+              <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+                News
+              </div>
+              <div className="mt-2 font-serif text-2xl font-bold text-[#0F1F3D] dark:text-white">
+                Saransh
+              </div>
+              <Text
+                variant="small"
+                className="mt-2 text-gray-500 dark:text-gray-400"
+              >
+                What the news says about them
+              </Text>
+            </a>
           </div>
         </m.div>
       </div>
