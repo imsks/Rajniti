@@ -41,8 +41,18 @@ class User(Base):
     preferred_parties = Column(JSON, nullable=True)  # ← NEW (stores string[])
     topics_of_interest = Column(JSON, nullable=True)  # ← NEW (stores string[])
 
-    # Onboarding status
+    # Onboarding status (Rajniti's own flag)
     onboarding_completed = Column(Boolean, default=False, nullable=False)
+
+    # Shared with Saransh: which product created the account. Set once, on insert.
+    onboarded_from = Column(
+        String, nullable=False, default="rajniti", server_default="rajniti"
+    )
+
+    # Saransh's answers. Its taxonomy differs from `topics_of_interest`.
+    saransh_topics = Column(JSON, nullable=True)
+    saransh_interests = Column(JSON, nullable=True)
+    saransh_onboarded_at = Column(DateTime, nullable=True)
 
     # Timestamps
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
@@ -70,6 +80,7 @@ class User(Base):
             name=name,
             profile_picture=profile_picture,
             onboarding_completed=False,
+            onboarded_from="rajniti",
         )
         session.add(user)
         session.flush()
@@ -148,6 +159,7 @@ class User(Base):
             "preferred_parties": self.preferred_parties or [],
             "topics_of_interest": self.topics_of_interest or [],
             "onboarding_completed": self.onboarding_completed,
+            "onboarded_from": self.onboarded_from,
             "created_at": self.created_at.isoformat() if self.created_at else None,
             "updated_at": self.updated_at.isoformat() if self.updated_at else None,
         }

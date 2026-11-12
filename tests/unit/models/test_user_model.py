@@ -88,6 +88,21 @@ class TestUserCreate:
             assert user.email == sample_user_data["email"]
             assert user.name == sample_user_data["name"]
 
+    def test_create_records_rajniti_as_the_acquisition_source(self):
+        session = Mock()
+
+        user = User.create(session=session, id="new-user", email="new@example.com")
+
+        assert user.onboarded_from == "rajniti"
+        assert user.to_dict()["onboarded_from"] == "rajniti"
+        session.add.assert_called_once_with(user)
+
+    def test_onboarded_from_defaults_to_rajniti_in_the_database(self):
+        # Inserts from code that never sets the column must still be attributed.
+        column = User.__table__.c.onboarded_from
+        assert column.nullable is False
+        assert column.server_default.arg == "rajniti"
+
 
 @pytest.mark.unit
 class TestUserRead:
