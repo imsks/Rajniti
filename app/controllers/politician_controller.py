@@ -8,6 +8,7 @@ All data flows through PoliticianService (reads mp.json / mla.json).
 from typing import Any, Dict, List, Optional
 
 from app.services.politician_service import (
+    INCOMPLETE_PUBLIC_DAILY_MAX,
     ElectionType,
     PoliticianService,
 )
@@ -122,3 +123,39 @@ class PoliticianController:
     def sitemap_entries(self) -> Dict[str, Any]:
         entries = self.service.sitemap_entries()
         return {"entries": entries, "total": len(entries)}
+
+    # ── Incomplete profiles ───────────────────────────────────────────────
+
+    def list_incomplete(
+        self,
+        *,
+        election_type: Optional[ElectionType] = None,
+        limit: Optional[int] = None,
+        offset: int = 0,
+        privileged: bool = False,
+    ) -> Dict[str, Any]:
+        """Incomplete profiles; public callers are capped at 5 rotating per day."""
+        if privileged:
+            effective_limit = min(
+                limit if limit and limit > 0 else INCOMPLETE_PUBLIC_DAILY_MAX,
+                200,
+            )
+            effective_offset = offset
+            rotate = False
+        else:
+            effective_limit = INCOMPLETE_PUBLIC_DAILY_MAX
+            effective_offset = 0
+            rotate = True
+
+        result = self.service.list_incomplete(
+            election_type=election_type,
+            limit=effective_limit,
+            offset=effective_offset,
+            daily_rotation=rotate,
+        )
+        result["daily_max"] = None if privileged else INCOMPLETE_PUBLIC_DAILY_MAX
+        return result
+
+    def ingest(self, politician_id: str, updates: Dict[str, Any]) -> bool:
+        """Merge agent-enriched fields into a politician record."""
+        return self.service.update_politician(politician_id, updates)
